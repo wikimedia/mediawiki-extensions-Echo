@@ -2,15 +2,15 @@
 
 namespace MediaWiki\Extension\Notifications\Mapper;
 
-use EchoTargetPage;
+use MediaWiki\Extension\Notifications\Model\TargetPage;
 
 /**
- * Database mapper for EchoTargetPage model
+ * Database mapper for TargetPage model
  */
 class TargetPageMapper extends AbstractMapper {
 
 	/**
-	 * List of db fields used to construct an EchoTargetPage model
+	 * List of db fields used to construct an TargetPage model
 	 * @var string[]
 	 */
 	protected static $fields = [
@@ -19,12 +19,12 @@ class TargetPageMapper extends AbstractMapper {
 	];
 
 	/**
-	 * Insert an EchoTargetPage instance into the database
+	 * Insert an TargetPage instance into the database
 	 *
-	 * @param EchoTargetPage $targetPage
+	 * @param TargetPage $targetPage
 	 * @return bool
 	 */
-	public function insert( EchoTargetPage $targetPage ) {
+	public function insert( TargetPage $targetPage ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 
 		$row = $targetPage->toDbArray();

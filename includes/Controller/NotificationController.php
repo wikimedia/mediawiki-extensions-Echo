@@ -7,7 +7,6 @@ use EchoAttributeManager;
 use EchoCachedList;
 use EchoContainmentList;
 use EchoContainmentSet;
-use EchoEvent;
 use EchoOnWikiList;
 use EchoServices;
 use Hooks;
@@ -17,6 +16,7 @@ use MediaWiki\Extension\Notifications\Exception\CatchableFatalErrorException;
 use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
 use MediaWiki\Extension\Notifications\Jobs\NotificationDeleteJob;
 use MediaWiki\Extension\Notifications\Jobs\NotificationJob;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
@@ -101,9 +101,9 @@ class NotificationController {
 	}
 
 	/**
-	 * Processes notifications for a newly-created EchoEvent
+	 * Processes notifications for a newly-created Event
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param bool $defer Defer to job queue or not
 	 */
 	public static function notify( $event, $defer = true ) {
@@ -176,10 +176,10 @@ class NotificationController {
 	/**
 	 * Check if an event is associated with a minor revision.
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @return bool
 	 */
-	private static function hasMinorRevision( EchoEvent $event ) {
+	private static function hasMinorRevision( Event $event ) {
 		$revId = $event->getExtraParam( 'revid' );
 		if ( !$revId ) {
 			return false;
@@ -206,9 +206,9 @@ class NotificationController {
 	 * Schedule a job to check and delete older notifications
 	 *
 	 * @param int[] $userIds
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 */
-	public static function enqueueDeleteJob( array $userIds, EchoEvent $event ) {
+	public static function enqueueDeleteJob( array $userIds, Event $event ) {
 		// Do nothing if there is no user
 		if ( !$userIds ) {
 			return;
@@ -242,10 +242,10 @@ class NotificationController {
 
 	/**
 	 * Helper function to extract event task params
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @return array Event params
 	 */
-	public static function getEventParams( EchoEvent $event ) {
+	public static function getEventParams( Event $event ) {
 		$delay = $event->getExtraParam( 'delay' );
 		$rootJobSignature = $event->getExtraParam( 'rootJobSignature' );
 		$rootJobTimestamp = $event->getExtraParam( 'rootJobTimestamp' );
@@ -259,9 +259,9 @@ class NotificationController {
 	/**
 	 * Push $event onto the mediawiki job queue
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 */
-	public static function enqueueEvent( EchoEvent $event ) {
+	public static function enqueueEvent( Event $event ) {
 		$queue = MediaWikiServices::getInstance()->getJobQueueGroup();
 		$params = self::getEventParams( $event );
 
@@ -288,11 +288,11 @@ class NotificationController {
 	 * Implements blacklist per active wiki expected to be initialized
 	 * from InitializeSettings.php
 	 *
-	 * @param EchoEvent $event The event to test for exclusion
+	 * @param Event $event The event to test for exclusion
 	 * @param User $user recipient of the notification for per-user blacklists
 	 * @return bool True when the event agent is blacklisted
 	 */
-	public static function isBlacklistedByUser( EchoEvent $event, User $user ) {
+	public static function isBlacklistedByUser( Event $event, User $user ) {
 		global $wgEchoAgentBlacklist, $wgEchoPerUserBlacklist;
 
 		if ( !$event->getAgent() ) {
@@ -380,11 +380,11 @@ class NotificationController {
 	/**
 	 * Implements per-user whitelist sourced from a user wiki page
 	 *
-	 * @param EchoEvent $event The event to test for inclusion in whitelist
+	 * @param Event $event The event to test for inclusion in whitelist
 	 * @param User $user The user that owns the whitelist
 	 * @return bool True when the event agent is in the user whitelist
 	 */
-	public static function isWhitelistedByUser( EchoEvent $event, User $user ) {
+	public static function isWhitelistedByUser( Event $event, User $user ) {
 		$clusterCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		global $wgEchoPerUserWhitelistFormat;
 
@@ -420,9 +420,9 @@ class NotificationController {
 	}
 
 	/**
-	 * Processes a single notification for an EchoEvent
+	 * Processes a single notification for an Event
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param User $user The user to be notified.
 	 * @param string $type The type of notification delivery to process, e.g. 'email'.
 	 * @throws MWException
@@ -446,11 +446,11 @@ class NotificationController {
 	 * Returns an array each element of which is the result of a
 	 * user-locator|user-filters attached to the event type.
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param string $locator Either EchoAttributeManager::ATTR_LOCATORS or EchoAttributeManager::ATTR_FILTERS
 	 * @return array
 	 */
-	public static function evaluateUserCallable( EchoEvent $event, $locator = EchoAttributeManager::ATTR_LOCATORS ) {
+	public static function evaluateUserCallable( Event $event, $locator = EchoAttributeManager::ATTR_LOCATORS ) {
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$type = $event->getType();
 		$result = [];
@@ -475,12 +475,12 @@ class NotificationController {
 	}
 
 	/**
-	 * Retrieves an array of User objects to be notified for an EchoEvent.
+	 * Retrieves an array of User objects to be notified for an Event.
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @return Iterator values are User objects
 	 */
-	public static function getUsersToNotifyForEvent( EchoEvent $event ) {
+	public static function getUsersToNotifyForEvent( Event $event ) {
 		$notify = new FilteredSequentialIterator;
 		foreach ( self::evaluateUserCallable( $event, EchoAttributeManager::ATTR_LOCATORS ) as $users ) {
 			$notify->add( $users );

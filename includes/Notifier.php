@@ -2,16 +2,18 @@
 
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextEmailFormatter;
+use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
 
 // @todo Fill in
 class EchoNotifier {
 	/**
-	 * Record an EchoNotification for an EchoEvent
+	 * Record a Notification for an Event
 	 * Currently used for web-based notifications.
 	 *
 	 * @param User $user User to notify.
-	 * @param EchoEvent $event EchoEvent to notify about.
+	 * @param Event $event Event to notify about.
 	 */
 	public static function notifyWithNotification( $user, $event ) {
 		// Only create the notification if the user wants to receive that type
@@ -22,14 +24,14 @@ class EchoNotifier {
 			return;
 		}
 
-		EchoNotification::create( [ 'user' => $user, 'event' => $event ] );
+		Notification::create( [ 'user' => $user, 'event' => $event ] );
 	}
 
 	/**
 	 * Send a Notification to a user by email
 	 *
 	 * @param User $user User to notify.
-	 * @param EchoEvent $event EchoEvent to notify about.
+	 * @param Event $event Event to notify about.
 	 * @return bool
 	 */
 	public static function notifyWithEmail( $user, $event ) {
@@ -115,11 +117,11 @@ class EchoNotifier {
 	}
 
 	/**
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param User $user
 	 * @return array|false An array of 'subject' and 'body', or false if things went wrong
 	 */
-	private static function generateEmail( EchoEvent $event, User $user ) {
+	private static function generateEmail( Event $event, User $user ) {
 		$emailFormat = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		$lang = Language::factory( $userOptionsLookup->getOption( $user, 'language' ) );

@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
-use EchoEvent;
 use Language;
+use MediaWiki\Extension\Notifications\Model\Event;
 use User;
 
 /**
@@ -23,7 +23,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 	/**
 	 * @inheritDoc
 	 */
-	protected function __construct( EchoEvent $event, Language $language, User $user, $distributionType ) {
+	protected function __construct( Event $event, Language $language, User $user, $distributionType ) {
 		parent::__construct( $event, $language, $user, $distributionType );
 		$this->section = new EchoPresentationModelSection( $event, $user, $language );
 	}
@@ -121,7 +121,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		return [ $talkPageLink ];
 	}
 
-	public function isMentionSuccessEvent( EchoEvent $event ) {
+	public function isMentionSuccessEvent( Event $event ) {
 		return $event->getType() === 'mention-success';
 	}
 

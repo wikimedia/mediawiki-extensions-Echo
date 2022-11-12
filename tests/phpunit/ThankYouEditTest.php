@@ -37,7 +37,7 @@ class MWEchoThankYouEditTest extends MediaWikiIntegrationTestCase {
 		$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 		$this->assertCount( 1, $notifications );
 
-		/** @var EchoNotification $notification */
+		/** @var Notification $notification */
 		$notification = reset( $notifications );
 		$this->assertSame( 1, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
 	}
@@ -66,7 +66,7 @@ class MWEchoThankYouEditTest extends MediaWikiIntegrationTestCase {
 		$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 		$this->assertCount( 2, $notifications );
 
-		/** @var EchoNotification $notification */
+		/** @var Notification $notification */
 		$notification = reset( $notifications );
 		$this->assertSame( 10, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
 	}

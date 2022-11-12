@@ -1,9 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Model;
+
 /**
  * Abstract entity for Echo model
  */
-abstract class EchoAbstractEntity {
+abstract class AbstractEntity {
 
 	/**
 	 * Convert an entity's property to array

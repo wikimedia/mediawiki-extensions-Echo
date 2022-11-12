@@ -3,6 +3,8 @@
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
+use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsLookup;
 
@@ -85,7 +87,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			User::newFromId( 2 ),
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
-			$this->mockNotificationMapper( [ $this->mockEchoNotification() ] ),
+			$this->mockNotificationMapper( [ $this->mockNotification() ] ),
 			$this->createMock( TargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
@@ -98,7 +100,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 			User::newFromId( 2 ),
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
-			$this->mockNotificationMapper( [ $this->mockEchoNotification() ] ),
+			$this->mockNotificationMapper( [ $this->mockNotification() ] ),
 			$this->createMock( TargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
@@ -154,16 +156,16 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		return $mapper;
 	}
 
-	protected function mockEchoNotification() {
-		$notification = $this->createMock( EchoNotification::class );
+	protected function mockNotification() {
+		$notification = $this->createMock( Notification::class );
 		$notification->method( 'getEvent' )
-			->willReturn( $this->mockEchoEvent() );
+			->willReturn( $this->mockEvent() );
 
 		return $notification;
 	}
 
-	protected function mockEchoEvent() {
-		$event = $this->createMock( EchoEvent::class );
+	protected function mockEvent() {
+		$event = $this->createMock( Event::class );
 		$event->method( 'getId' )
 			->willReturn( 1 );
 

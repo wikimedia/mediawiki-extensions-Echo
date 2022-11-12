@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
-use EchoEvent;
 use Language;
+use MediaWiki\Extension\Notifications\Model\Event;
 use Message;
 use User;
 
@@ -42,7 +42,7 @@ abstract class EchoEventDigestFormatter {
 	}
 
 	/**
-	 * @param EchoEvent[] $events
+	 * @param Event[] $events
 	 * @param string $distributionType 'web' or 'email'
 	 * @return string[]|false Output format depends on implementation, false if it cannot be formatted
 	 */

@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extension\Notifications\Mapper;
 
-use EchoEvent;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MWException;
 use User;
 
 /**
- * Database mapper for EchoEvent model, which is an immutable class, there should
+ * Database mapper for Event model, which is an immutable class, there should
  * not be any update to it
  */
 class EventMapper extends AbstractMapper {
@@ -15,10 +15,10 @@ class EventMapper extends AbstractMapper {
 	/**
 	 * Insert an event record
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @return int
 	 */
-	public function insert( EchoEvent $event ) {
+	public function insert( Event $event ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
 
 		$row = $event->toDbArray();
@@ -36,26 +36,26 @@ class EventMapper extends AbstractMapper {
 	}
 
 	/**
-	 * Create an EchoEvent by id
+	 * Create an Event by id
 	 *
 	 * @param int $id
 	 * @param bool $fromPrimary
-	 * @return EchoEvent|false False if it wouldn't load/unserialize
+	 * @return Event|false False if it wouldn't load/unserialize
 	 * @throws MWException
 	 */
 	public function fetchById( $id, $fromPrimary = false ) {
 		$db = $fromPrimary ? $this->dbFactory->getEchoDb( DB_PRIMARY ) : $this->dbFactory->getEchoDb( DB_REPLICA );
 
-		$row = $db->selectRow( 'echo_event', EchoEvent::selectFields(), [ 'event_id' => $id ], __METHOD__ );
+		$row = $db->selectRow( 'echo_event', Event::selectFields(), [ 'event_id' => $id ], __METHOD__ );
 
 		// If the row was not found, fall back on the primary database if it makes sense to do so
 		if ( !$row && !$fromPrimary && $this->dbFactory->canRetryPrimary() ) {
 			return $this->fetchById( $id, true );
 		} elseif ( !$row ) {
-			throw new MWException( "No EchoEvent found with ID: $id" );
+			throw new MWException( "No Event found with ID: $id" );
 		}
 
-		return EchoEvent::newFromRow( $row );
+		return Event::newFromRow( $row );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class EventMapper extends AbstractMapper {
 	 * Fetch events associated with a page
 	 *
 	 * @param int $pageId
-	 * @return EchoEvent[] Events
+	 * @return Event[] Events
 	 */
 	public function fetchByPage( $pageId ) {
 		$events = [];
@@ -94,13 +94,13 @@ class EventMapper extends AbstractMapper {
 		// From echo_event
 		$res = $dbr->select(
 			[ 'echo_event' ],
-			EchoEvent::selectFields(),
+			Event::selectFields(),
 			[ 'event_page_id' => $pageId ],
 			__METHOD__
 		);
 		if ( $res ) {
 			foreach ( $res as $row ) {
-				$event = EchoEvent::newFromRow( $row );
+				$event = Event::newFromRow( $row );
 				$events[] = $event;
 				$seenEventIds[] = $event->getId();
 			}
@@ -115,7 +115,7 @@ class EventMapper extends AbstractMapper {
 		}
 		$res = $dbr->select(
 			[ 'echo_event', 'echo_target_page' ],
-			EchoEvent::selectFields(),
+			Event::selectFields(),
 			$conds,
 			__METHOD__,
 			[ 'DISTINCT' ],
@@ -123,7 +123,7 @@ class EventMapper extends AbstractMapper {
 		);
 		if ( $res ) {
 			foreach ( $res as $row ) {
-				$events[] = EchoEvent::newFromRow( $row );
+				$events[] = Event::newFromRow( $row );
 			}
 		}
 
@@ -139,7 +139,7 @@ class EventMapper extends AbstractMapper {
 	public function fetchIdsByPage( $pageId ) {
 		$events = $this->fetchByPage( $pageId );
 		$eventIds = array_map(
-			static function ( EchoEvent $event ) {
+			static function ( Event $event ) {
 				return $event->getId();
 			},
 			$events
@@ -152,11 +152,11 @@ class EventMapper extends AbstractMapper {
 	 *
 	 * @param User $user
 	 * @param int $pageId
-	 * @return EchoEvent[]
+	 * @return Event[]
 	 */
 	public function fetchUnreadByUserAndPage( User $user, $pageId ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
-		$fields = array_merge( EchoEvent::selectFields(), [ 'notification_timestamp' ] );
+		$fields = array_merge( Event::selectFields(), [ 'notification_timestamp' ] );
 
 		$res = $dbr->select(
 			[ 'echo_event', 'echo_notification', 'echo_target_page' ],
@@ -177,7 +177,7 @@ class EventMapper extends AbstractMapper {
 
 		$data = [];
 		foreach ( $res as $row ) {
-			$data[] = EchoEvent::newFromRow( $row );
+			$data[] = Event::newFromRow( $row );
 		}
 
 		return $data;

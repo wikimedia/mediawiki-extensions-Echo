@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Model\Event;
+
 /**
  * @group Database
  * @covers \EchoUserLocator
@@ -22,7 +24,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 		}
 		wfGetDB( DB_PRIMARY )->insert( 'watchlist', $rows, __METHOD__ );
 
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getTitle' )
 			->willReturn( $title );
 
@@ -73,7 +75,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 		if ( $expect instanceof Closure ) {
 			[ $expect, $title ] = $expect();
 		}
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getTitle' )
 			->willReturn( $title );
 
@@ -110,7 +112,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 			/* $summary = */ 'summary'
 		);
 
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getTitle' )
 			->willReturn( $title );
 		$event->method( 'getAgent' )
@@ -152,7 +154,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider locateEventAgentProvider
 	 */
 	public function testLocateEventAgent( $message, $expect, User $agent = null ) {
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getAgent' )
 			->willReturn( $agent );
 
@@ -229,7 +231,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider locateFromEventExtraProvider
 	 */
 	public function testLocateFromEventExtra( $message, $expect, array $extra, array $keys ) {
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getExtra' )
 			->willReturn( $extra );
 		$event->method( 'getExtraParam' )
@@ -242,7 +244,7 @@ class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
 	protected static function arrayToValueMap( array $array ) {
 		$result = [];
 		foreach ( $array as $key => $value ) {
-			// EchoEvent::getExtraParam second argument defaults to null
+			// Event::getExtraParam second argument defaults to null
 			$result[] = [ $key, null, $value ];
 		}
 

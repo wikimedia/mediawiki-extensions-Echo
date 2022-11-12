@@ -1,5 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Model;
+
+use Bundleable;
+use EchoServices;
+use Exception;
+use Hooks;
+use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
@@ -9,12 +16,17 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\UserIdentity;
+use MWEchoDbFactory;
+use MWException;
+use stdClass;
+use Title;
+use User;
 
 /**
  * Immutable class to represent an event.
  * In Echo nomenclature, an event is a single occurrence.
  */
-class EchoEvent extends EchoAbstractEntity implements Bundleable {
+class Event extends AbstractEntity implements Bundleable {
 
 	/** @var string|null */
 	protected $type = null;
@@ -62,7 +74,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	/**
 	 * Other events bundled with this one
 	 *
-	 * @var EchoEvent[]
+	 * @var Event[]
 	 */
 	protected $bundledEvents;
 
@@ -75,10 +87,10 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * You should not call the constructor.
-	 * Instead use one of the factory functions:
-	 * EchoEvent::create        To create a new event
-	 * EchoEvent::newFromRow    To create an event object from a row object
-	 * EchoEvent::newFromID     To create an event object from the database given its ID
+	 * Instead, use one of the factory functions:
+	 * Event::create        To create a new event
+	 * Event::newFromRow    To create an event object from a row object
+	 * Event::newFromID     To create an event object from the database given its ID
 	 */
 	protected function __construct() {
 	}
@@ -86,7 +98,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	## Save the id and timestamp
 	public function __sleep() {
 		if ( !$this->id ) {
-			throw new MWException( "Unable to serialize an uninitialized EchoEvent" );
+			throw new MWException( "Unable to serialize an uninitialized Event" );
 		}
 
 		return [ 'id', 'timestamp' ];
@@ -97,11 +109,11 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	public function __toString() {
-		return "EchoEvent(id={$this->id}; type={$this->type})";
+		return "Event(id={$this->id}; type={$this->type})";
 	}
 
 	/**
-	 * Creates an EchoEvent object
+	 * Creates an Event object
 	 * @param array $info Named arguments:
 	 * type (required): The event type;
 	 * variant: A variant of the type;
@@ -122,7 +134,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * [ 'extra' => Job::newRootJobParams('example') ]
 	 *
 	 * @throws MWException
-	 * @return EchoEvent|false False if aborted via hook or Echo DB is read-only
+	 * @return Event|false False if aborted via hook or Echo DB is read-only
 	 */
 	public static function create( $info = [] ) {
 		global $wgEchoNotifications;
@@ -134,7 +146,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 			return false;
 		}
 
-		$obj = new EchoEvent;
+		$obj = new Event;
 		static $validFields = [ 'type', 'variant', 'agent', 'title', 'extra' ];
 
 		if ( empty( $info['type'] ) ) {
@@ -188,7 +200,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		// @Todo - Database insert logic should not be inside the model
 		$obj->insert();
 
-		Hooks::run( 'EchoEventInsertComplete', [ $obj ] );
+		Hooks::run( 'EventInsertComplete', [ $obj ] );
 
 		global $wgEchoUseJobQueue;
 
@@ -258,7 +270,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 		if ( $targetPages ) {
 			$targetMapper = new TargetPageMapper();
 			foreach ( $targetPages as $title ) {
-				$targetPage = EchoTargetPage::create( $title, $this );
+				$targetPage = TargetPage::create( $title, $this );
 				if ( $targetPage ) {
 					$targetMapper->insert( $targetPage );
 				}
@@ -387,26 +399,26 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * Creates an EchoEvent from a row object
+	 * Creates an Event from a row object
 	 *
 	 * @param stdClass $row row object from echo_event
-	 * @return EchoEvent|false
+	 * @return Event|false
 	 */
 	public static function newFromRow( $row ) {
-		$obj = new EchoEvent();
+		$obj = new Event();
 		return $obj->loadFromRow( $row )
 			? $obj
 			: false;
 	}
 
 	/**
-	 * Creates an EchoEvent from the database by ID
+	 * Creates an Event from the database by ID
 	 *
 	 * @param int $id Event ID
-	 * @return EchoEvent|false
+	 * @return Event|false
 	 */
 	public static function newFromID( $id ) {
-		$obj = new EchoEvent();
+		$obj = new Event();
 		return $obj->loadFromID( $id )
 			? $obj
 			: false;
@@ -597,9 +609,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * @return string
 	 */
 	public function getCategory() {
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
-
-		return $attributeManager->getNotificationCategory( $this->type );
+		return EchoServices::getInstance()->getAttributeManager()->getNotificationCategory( $this->type );
 	}
 
 	/**
@@ -607,9 +617,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 	 * @return string
 	 */
 	public function getSection() {
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
-
-		return $attributeManager->getNotificationSection( $this->type );
+		return EchoServices::getInstance()->getAttributeManager()->getNotificationSection( $this->type );
 	}
 
 	/**
@@ -735,7 +743,7 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 	/**
 	 * Return the list of fields that should be selected to create
-	 * a new event with EchoEvent::newFromRow
+	 * a new event with Event::newFromRow
 	 * @return string[]
 	 */
 	public static function selectFields() {
@@ -753,5 +761,4 @@ class EchoEvent extends EchoAbstractEntity implements Bundleable {
 
 }
 
-// Needed to help migrate AbuseFilter
-class_alias( EchoEvent::class, 'MediaWiki\\Extension\\Notifications\\Model\\Event' );
+class_alias( Event::class, 'EchoEvent' );

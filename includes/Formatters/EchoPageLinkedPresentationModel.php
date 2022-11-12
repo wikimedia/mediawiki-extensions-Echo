@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
-use EchoEvent;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use Title;
@@ -147,10 +147,10 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 
 	/**
 	 * Get the page ID of the linked-from page for a given event.
-	 * @param EchoEvent $event page-linked event
+	 * @param Event $event page-linked event
 	 * @return int Page ID, or 0 if the page doesn't exist
 	 */
-	public function getLinkedPageId( EchoEvent $event ) {
+	public function getLinkedPageId( Event $event ) {
 		$extra = $event->getExtra();
 		if ( isset( $extra['link-from-page-id'] ) ) {
 			return $extra['link-from-page-id'];

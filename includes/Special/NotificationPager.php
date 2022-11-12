@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\Notifications\Special;
 
-use EchoNotification;
 use EchoServices;
 use Exception;
 use IContextSource;
+use MediaWiki\Extension\Notifications\Model\Notification;
 use MWEchoDbFactory;
 use ReverseChronologicalPager;
 
@@ -28,7 +28,7 @@ class NotificationPager extends ReverseChronologicalPager {
 	public function formatRow( $row ) {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
 		throw new Exception( "This pager does not support row formatting. " .
-			"Use 'getNotifications()' to get a list of EchoNotification objects." );
+			"Use 'getNotifications()' to get a list of Notification objects." );
 	}
 
 	public function getQueryInfo() {
@@ -37,7 +37,7 @@ class NotificationPager extends ReverseChronologicalPager {
 
 		return [
 			'tables' => [ 'echo_notification', 'echo_event' ],
-			'fields' => EchoNotification::selectFields(),
+			'fields' => Notification::selectFields(),
 			'conds' => [
 				'notification_user' => $this->getUser()->getId(),
 				'event_type' => $eventTypes,
@@ -61,7 +61,7 @@ class NotificationPager extends ReverseChronologicalPager {
 
 		$notifications = [];
 		foreach ( $this->mResult as $row ) {
-			$notifications[] = EchoNotification::newFromRow( $row );
+			$notifications[] = Notification::newFromRow( $row );
 		}
 
 		// get rid of the overfetched

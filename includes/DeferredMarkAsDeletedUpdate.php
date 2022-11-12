@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\Controller\ModerationController;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Logger\LoggerFactory;
 
 /**
@@ -9,14 +10,14 @@ use MediaWiki\Logger\LoggerFactory;
  */
 class EchoDeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 	/**
-	 * @var EchoEvent[]
+	 * @var Event[]
 	 */
 	protected $events = [];
 
 	/**
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 */
-	public static function add( EchoEvent $event ) {
+	public static function add( Event $event ) {
 		static $update;
 		if ( $update === null ) {
 			$update = new self();
@@ -26,16 +27,16 @@ class EchoDeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 	}
 
 	/**
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 */
-	private function addInternal( EchoEvent $event ) {
+	private function addInternal( Event $event ) {
 		$this->events[] = $event;
 	}
 
 	private function filterEventsWithTitleDbLag() {
 		return array_filter(
 			$this->events,
-			static function ( EchoEvent $event ) {
+			static function ( Event $event ) {
 				if ( !$event->getTitle() && $event->getTitle( true ) ) {
 					// It is very likely this event was found
 					// unrenderable because of replica lag.
@@ -63,7 +64,7 @@ class EchoDeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 		$events = $this->filterEventsWithTitleDbLag();
 
 		$eventIds = array_map(
-			static function ( EchoEvent $event ) {
+			static function ( Event $event ) {
 				return $event->getId();
 			},
 			$events

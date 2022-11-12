@@ -1,21 +1,24 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\Model\TargetPage;
+
 /**
- * @covers \EchoTargetPage
+ * @covers \MediaWiki\Extension\Notifications\Model\TargetPage
  */
-class EchoTargetPageTest extends MediaWikiUnitTestCase {
+class TargetPageTest extends MediaWikiUnitTestCase {
 
 	public function testCreate() {
 		$this->assertNull(
-			EchoTargetPage::create(
+			TargetPage::create(
 				$this->mockTitle( 0 ),
 				$this->mockEchoEvent()
 			)
 		);
 
 		$this->assertInstanceOf(
-			EchoTargetPage::class,
-			EchoTargetPage::create(
+			TargetPage::class,
+			TargetPage::create(
 				$this->mockTitle( 1 ),
 				$this->mockEchoEvent()
 			)
@@ -23,15 +26,15 @@ class EchoTargetPageTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @return EchoTargetPage
+	 * @return TargetPage
 	 */
 	public function testNewFromRow() {
 		$row = (object)[
 			'etp_page' => 2,
 			'etp_event' => 3
 		];
-		$obj = EchoTargetPage::newFromRow( $row );
-		$this->assertInstanceOf( EchoTargetPage::class, $obj );
+		$obj = TargetPage::newFromRow( $row );
+		$this->assertInstanceOf( TargetPage::class, $obj );
 
 		return $obj;
 	}
@@ -41,13 +44,13 @@ class EchoTargetPageTest extends MediaWikiUnitTestCase {
 			'etp_event' => 3
 		];
 		$this->expectException( MWException::class );
-		EchoTargetPage::newFromRow( $row );
+		TargetPage::newFromRow( $row );
 	}
 
 	/**
 	 * @depends testNewFromRow
 	 */
-	public function testToDbArray( EchoTargetPage $obj ) {
+	public function testToDbArray( TargetPage $obj ) {
 		$row = $obj->toDbArray();
 		$this->assertIsArray( $row );
 
@@ -73,10 +76,10 @@ class EchoTargetPageTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @param int $eventId
-	 * @return EchoEvent
+	 * @return Event
 	 */
 	protected function mockEchoEvent( $eventId = 1 ) {
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getId' )
 			->willReturn( $eventId );
 

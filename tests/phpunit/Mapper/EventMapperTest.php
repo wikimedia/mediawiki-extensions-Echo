@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
+use MediaWiki\Extension\Notifications\Model\Event;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -35,7 +36,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideDataTestInsert
 	 */
 	public function testInsert( $message, $dbResult, $result ) {
-		$event = $this->mockEchoEvent();
+		$event = $this->mockEvent();
 		$eventMapper = new EventMapper( $this->mockMWEchoDbFactory( $dbResult ) );
 		$this->assertEquals( $result, $eventMapper->insert( $event ), $message );
 	}
@@ -61,7 +62,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 			)
 		);
 		$res = $eventMapper->fetchById( 1 );
-		$this->assertInstanceOf( EchoEvent::class, $res );
+		$this->assertInstanceOf( Event::class, $res );
 	}
 
 	public function testUnsuccessfulFetchById() {
@@ -77,10 +78,10 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @return EchoEvent
+	 * @return Event
 	 */
-	protected function mockEchoEvent() {
-		$event = $this->createMock( EchoEvent::class );
+	protected function mockEvent() {
+		$event = $this->createMock( Event::class );
 		$event->method( 'toDbArray' )
 			->willReturn( [] );
 
@@ -128,20 +129,20 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 		$page = $this->getExistingTestPage();
 
 		// Create a notification that is not associated with any page
-		EchoEvent::create( [
+		Event::create( [
 			'type' => 'welcome',
 			'agent' => $user,
 		] );
 
 		// Create a notification with a title
-		$eventWithTitle = EchoEvent::create( [
+		$eventWithTitle = Event::create( [
 			'type' => 'welcome',
 			'agent' => $user,
 			'title' => $page->getTitle()
 		] );
 
 		// Create a notification with a target-page
-		$eventWithTargetPage = EchoEvent::create( [
+		$eventWithTargetPage = Event::create( [
 			'type' => 'welcome',
 			'agent' => $user,
 			'extra' => [ 'target-page' => $page->getId() ]

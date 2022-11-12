@@ -10,11 +10,11 @@ use Config;
 use EchoAttributeManager;
 use EchoDataOutputFormatter;
 use EchoForeignNotifications;
-use EchoNotification;
 use EchoSeenTime;
 use EchoServices;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\Model\Notification;
 use MWEchoNotifUser;
 use Title;
 use User;
@@ -265,7 +265,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				 *   discard unread & fetch read
 				 */
 				if ( $notifs && $continue ) {
-					/** @var EchoNotification $first */
+					/** @var Notification $first */
 					$first = reset( $notifs );
 					$continueId = intval( trim( strrchr( $continue, '|' ), '|' ) );
 					if ( $first->getEvent()->getId() !== $continueId ) {
@@ -307,7 +307,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		// get $overfetchedItem before bundling and rendering so that it is not affected by filtering
-		/** @var EchoNotification $overfetchedItem */
+		/** @var Notification $overfetchedItem */
 		$overfetchedItem = count( $notifs ) > $limit ? array_pop( $notifs ) : null;
 
 		$bundler = null;
@@ -317,7 +317,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		while ( $notifs !== [] ) {
-			/** @var EchoNotification $notif */
+			/** @var Notification $notif */
 			$notif = array_shift( $notifs );
 			$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 			if ( $output !== false ) {
@@ -443,7 +443,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		];
 
 		// Format output like any other notification
-		$notif = EchoNotification::newFromRow( $row );
+		$notif = Notification::newFromRow( $row );
 		$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 
 		// Add cross-wiki-specific data

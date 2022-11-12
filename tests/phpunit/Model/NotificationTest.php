@@ -1,39 +1,43 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Extension\Notifications\Model\TargetPage;
+
 /**
- * @covers \EchoNotification
+ * @covers \MediaWiki\Extension\Notifications\Model\Notification
  */
-class EchoNotificationTest extends MediaWikiIntegrationTestCase {
+class NotificationTest extends MediaWikiIntegrationTestCase {
 
 	public function testNewFromRow() {
 		$row = $this->mockNotificationRow() + $this->mockEventRow();
 
-		$notif = EchoNotification::newFromRow( (object)$row );
-		$this->assertInstanceOf( EchoNotification::class, $notif );
+		$notif = Notification::newFromRow( (object)$row );
+		$this->assertInstanceOf( Notification::class, $notif );
 		// getReadTimestamp() should return null
 		$this->assertNull( $notif->getReadTimestamp() );
 		$this->assertEquals(
 			$notif->getTimestamp(),
 			wfTimestamp( TS_MW, $row['notification_timestamp'] )
 		);
-		$this->assertInstanceOf( EchoEvent::class, $notif->getEvent() );
+		$this->assertInstanceOf( Event::class, $notif->getEvent() );
 		$this->assertNull( $notif->getTargetPages() );
 
 		// Provide a read timestamp
 		$row['notification_read_timestamp'] = time() + 1000;
-		$notif = EchoNotification::newFromRow( (object)$row );
+		$notif = Notification::newFromRow( (object)$row );
 		// getReadTimestamp() should return the timestamp in MW format
 		$this->assertEquals(
 			$notif->getReadTimestamp(),
 			wfTimestamp( TS_MW, $row['notification_read_timestamp'] )
 		);
 
-		$notif = EchoNotification::newFromRow( (object)$row, [
-			EchoTargetPage::newFromRow( (object)$this->mockTargetPageRow() )
+		$notif = Notification::newFromRow( (object)$row, [
+			TargetPage::newFromRow( (object)$this->mockTargetPageRow() )
 		] );
 		$this->assertNotEmpty( $notif->getTargetPages() );
 		foreach ( $notif->getTargetPages() as $targetPage ) {
-			$this->assertInstanceOf( EchoTargetPage::class, $targetPage );
+			$this->assertInstanceOf( TargetPage::class, $targetPage );
 		}
 	}
 
@@ -42,7 +46,7 @@ class EchoNotificationTest extends MediaWikiIntegrationTestCase {
 		// Provide an invalid event id
 		$row['notification_event'] = -1;
 		$this->expectException( MWException::class );
-		EchoNotification::newFromRow( (object)$row );
+		Notification::newFromRow( (object)$row );
 	}
 
 	/**

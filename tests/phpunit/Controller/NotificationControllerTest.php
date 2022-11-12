@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\User\UserOptionsLookup;
 use Wikimedia\TestingAccessWrapper;
 
@@ -83,7 +84,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			],
 		] );
 
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getType' )
 			->willReturn( 'unit-test' );
 
@@ -97,7 +98,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 
 	public function testEvaluateUserLocatorPassesParameters() {
 		$callback = function ( $event, $firstOption, $secondOption ) {
-			$this->assertInstanceOf( EchoEvent::class, $event );
+			$this->assertInstanceOf( Event::class, $event );
 			$this->assertEquals( 'first', $firstOption );
 			$this->assertEquals( 'second', $secondOption );
 
@@ -157,7 +158,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			],
 		] );
 
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getType' )
 			->willReturn( 'unit-test' );
 
@@ -170,7 +171,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testDoesNotDeliverDisabledEvent() {
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'isEnabledEvent' )
 			->willReturn( false );
 		// Assume it would have to check the event type to
@@ -257,7 +258,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testEnqueueEvent() {
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getExtraParam' )
 			->willReturn( null );
 		$event->expects( $this->once() )
@@ -280,7 +281,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$queueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$this->assertCount( 0, $queueGroup->getQueuesWithJobs() );
 
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getExtraParam' )
 			->will( $this->returnValueMap(
 				[
@@ -303,7 +304,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$rootJobTimestamp = wfTimestamp();
 		MWTimestamp::setFakeTime( 0 );
 
-		$event = $this->createMock( EchoEvent::class );
+		$event = $this->createMock( Event::class );
 		$event->method( 'getExtraParam' )
 			->will( $this->returnValueMap(
 				[

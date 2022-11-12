@@ -1,11 +1,17 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Model;
+
+use MWException;
+use stdClass;
+use Title;
+
 /**
  * Map a title to an echo event so that we can mark a notification as read
  * when visiting the page. This only supports titles with ids because majority
  * of notifications have page_id and searching by namespace and title is slow
  */
-class EchoTargetPage extends EchoAbstractEntity {
+class TargetPage extends AbstractEntity {
 
 	/**
 	 * @var Title|null|false False if not initialized yet
@@ -18,7 +24,7 @@ class EchoTargetPage extends EchoAbstractEntity {
 	protected $pageId;
 
 	/**
-	 * @var EchoEvent|null
+	 * @var Event|null
 	 */
 	protected $event;
 
@@ -39,13 +45,13 @@ class EchoTargetPage extends EchoAbstractEntity {
 	}
 
 	/**
-	 * Create a EchoTargetPage instance from Title and EchoEvent
+	 * Create a TargetPage instance from Title and Event
 	 *
 	 * @param Title $title
-	 * @param EchoEvent $event
-	 * @return EchoTargetPage|null
+	 * @param Event $event
+	 * @return TargetPage|null
 	 */
-	public static function create( Title $title, EchoEvent $event ) {
+	public static function create( Title $title, Event $event ) {
 		// This only support title with a page_id
 		if ( !$title->getArticleID() ) {
 			return null;
@@ -61,10 +67,10 @@ class EchoTargetPage extends EchoAbstractEntity {
 	}
 
 	/**
-	 * Create a EchoTargetPage instance from stdClass object
+	 * Create a TargetPage instance from stdClass object
 	 *
 	 * @param stdClass $row
-	 * @return EchoTargetPage
+	 * @return TargetPage
 	 * @throws MWException
 	 */
 	public static function newFromRow( $row ) {
@@ -106,11 +112,11 @@ class EchoTargetPage extends EchoAbstractEntity {
 	}
 
 	/**
-	 * @return EchoEvent
+	 * @return Event
 	 */
 	public function getEvent() {
 		if ( !$this->event ) {
-			$this->event = EchoEvent::newFromID( $this->eventId );
+			$this->event = Event::newFromID( $this->eventId );
 		}
 
 		return $this->event;

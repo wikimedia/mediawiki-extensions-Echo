@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Notifications\Formatters;
 
 use EchoDiscussionParser;
-use EchoEvent;
 use Language;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Revision\RevisionRecord;
 use User;
 
@@ -18,7 +18,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	/**
 	 * @inheritDoc
 	 */
-	protected function __construct( EchoEvent $event, Language $language, User $user, $distributionType ) {
+	protected function __construct( Event $event, Language $language, User $user, $distributionType ) {
 		parent::__construct( $event, $language, $user, $distributionType );
 		$this->section = new EchoPresentationModelSection( $event, $user, $language );
 	}
