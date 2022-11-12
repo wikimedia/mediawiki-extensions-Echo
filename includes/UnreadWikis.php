@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\AttributeManager;
+use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
 
@@ -17,7 +19,7 @@ class EchoUnreadWikis {
 	private $id;
 
 	/**
-	 * @var MWEchoDbFactory
+	 * @var DbFactory
 	 */
 	private $dbFactory;
 
@@ -26,7 +28,7 @@ class EchoUnreadWikis {
 	 */
 	public function __construct( $id ) {
 		$this->id = $id;
-		$this->dbFactory = MWEchoDbFactory::newFromDefault();
+		$this->dbFactory = DbFactory::newFromDefault();
 	}
 
 	/**
@@ -81,12 +83,12 @@ class EchoUnreadWikis {
 				continue;
 			}
 			$wikis[$row->euw_wiki] = [
-				EchoAttributeManager::ALERT => [
+				AttributeManager::ALERT => [
 					'count' => $row->euw_alerts,
 					'ts' => wfTimestamp( TS_MW, $row->euw_alerts_ts ) === static::DEFAULT_TS_DB ?
 						static::DEFAULT_TS : wfTimestamp( TS_MW, $row->euw_alerts_ts ),
 				],
-				EchoAttributeManager::MESSAGE => [
+				AttributeManager::MESSAGE => [
 					'count' => $row->euw_messages,
 					'ts' => wfTimestamp( TS_MW, $row->euw_messages_ts ) === static::DEFAULT_TS_DB ?
 						static::DEFAULT_TS : wfTimestamp( TS_MW, $row->euw_messages_ts ),

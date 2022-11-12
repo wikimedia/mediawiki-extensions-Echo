@@ -17,7 +17,7 @@ class TalkPageFunctionalTest extends ApiTestCase {
 	/**
 	 * Creates and updates a user talk page a few times to ensure proper events are
 	 * created. The user performing the edits is self::$users['sysop'].
-	 * @covers \EchoDiscussionParser
+	 * @covers \MediaWiki\Extension\Notifications\DiscussionParser
 	 */
 	public function testAddCommentsToTalkPage() {
 		$talkTitle = self::$users['uploader']->getUser()->getTalkPage();

@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
@@ -27,17 +28,17 @@ class EchoForeignNotifications {
 	/**
 	 * @var int[] [(str) section => (int) count, ...]
 	 */
-	protected $counts = [ EchoAttributeManager::ALERT => 0, EchoAttributeManager::MESSAGE => 0 ];
+	protected $counts = [ AttributeManager::ALERT => 0, AttributeManager::MESSAGE => 0 ];
 
 	/**
 	 * @var array[] [(str) section => (string[]) wikis, ...]
 	 */
-	protected $wikis = [ EchoAttributeManager::ALERT => [], EchoAttributeManager::MESSAGE => [] ];
+	protected $wikis = [ AttributeManager::ALERT => [], AttributeManager::MESSAGE => [] ];
 
 	/**
 	 * @var array [(str) section => (MWTimestamp) timestamp, ...]
 	 */
-	protected $timestamps = [ EchoAttributeManager::ALERT => false, EchoAttributeManager::MESSAGE => false ];
+	protected $timestamps = [ AttributeManager::ALERT => false, AttributeManager::MESSAGE => false ];
 
 	/**
 	 * @var array[] [(str) wiki => [ (str) section => (MWTimestamp) timestamp, ...], ...]
@@ -71,10 +72,10 @@ class EchoForeignNotifications {
 	 * @param string $section Name of section
 	 * @return int
 	 */
-	public function getCount( $section = EchoAttributeManager::ALL ) {
+	public function getCount( $section = AttributeManager::ALL ) {
 		$this->populate();
 
-		if ( $section === EchoAttributeManager::ALL ) {
+		if ( $section === AttributeManager::ALL ) {
 			$count = array_sum( $this->counts );
 		} else {
 			$count = $this->counts[$section] ?? 0;
@@ -87,10 +88,10 @@ class EchoForeignNotifications {
 	 * @param string $section Name of section
 	 * @return MWTimestamp|false
 	 */
-	public function getTimestamp( $section = EchoAttributeManager::ALL ) {
+	public function getTimestamp( $section = AttributeManager::ALL ) {
 		$this->populate();
 
-		if ( $section === EchoAttributeManager::ALL ) {
+		if ( $section === AttributeManager::ALL ) {
 			$max = false;
 			/** @var MWTimestamp $timestamp */
 			foreach ( $this->timestamps as $timestamp ) {
@@ -111,10 +112,10 @@ class EchoForeignNotifications {
 	 * @param string $section Name of section
 	 * @return string[]
 	 */
-	public function getWikis( $section = EchoAttributeManager::ALL ) {
+	public function getWikis( $section = AttributeManager::ALL ) {
 		$this->populate();
 
-		if ( $section === EchoAttributeManager::ALL ) {
+		if ( $section === AttributeManager::ALL ) {
 			$all = [];
 			foreach ( $this->wikis as $wikis ) {
 				$all = array_merge( $all, $wikis );
@@ -126,12 +127,12 @@ class EchoForeignNotifications {
 		return $this->wikis[$section] ?? [];
 	}
 
-	public function getWikiTimestamp( $wiki, $section = EchoAttributeManager::ALL ) {
+	public function getWikiTimestamp( $wiki, $section = AttributeManager::ALL ) {
 		$this->populate();
 		if ( !isset( $this->wikiTimestamps[$wiki] ) ) {
 			return false;
 		}
-		if ( $section === EchoAttributeManager::ALL ) {
+		if ( $section === AttributeManager::ALL ) {
 			$max = false;
 			foreach ( $this->wikiTimestamps[$wiki] as $section => $ts ) {
 				// $ts < $max = invert 0

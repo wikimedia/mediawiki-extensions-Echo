@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use Wikimedia\Rdbms\IDatabase;
@@ -37,7 +38,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testInsert( $message, $dbResult, $result ) {
 		$event = $this->mockEvent();
-		$eventMapper = new EventMapper( $this->mockMWEchoDbFactory( $dbResult ) );
+		$eventMapper = new EventMapper( $this->mockDbFactory( $dbResult ) );
 		$this->assertEquals( $result, $eventMapper->insert( $event ), $message );
 	}
 
@@ -46,7 +47,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testSuccessfulFetchById() {
 		$eventMapper = new EventMapper(
-			$this->mockMWEchoDbFactory(
+			$this->mockDbFactory(
 				[
 					'selectRow' => (object)[
 						'event_id' => 1,
@@ -67,7 +68,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 
 	public function testUnsuccessfulFetchById() {
 		$eventMapper = new EventMapper(
-			$this->mockMWEchoDbFactory(
+			$this->mockDbFactory(
 				[
 					'selectRow' => false
 				]
@@ -90,10 +91,10 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @param array $dbResult
-	 * @return MWEchoDbFactory
+	 * @return DbFactory
 	 */
-	protected function mockMWEchoDbFactory( $dbResult ) {
-		$dbFactory = $this->createMock( MWEchoDbFactory::class );
+	protected function mockDbFactory( $dbResult ) {
+		$dbFactory = $this->createMock( DbFactory::class );
 		$dbFactory->method( 'getEchoDb' )
 			->willReturn( $this->mockDb( $dbResult ) );
 

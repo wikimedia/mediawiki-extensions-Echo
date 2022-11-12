@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
@@ -15,7 +16,7 @@ use MediaWiki\Storage\NameTableStore;
 
 return [
 
-	'EchoAttributeManager' => static function ( MediaWikiServices $services ): EchoAttributeManager {
+	'EchoAttributeManager' => static function ( MediaWikiServices $services ): AttributeManager {
 		$userGroupManager = $services->getUserGroupManager();
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
 		$notifications = $echoConfig->get( 'EchoNotifications' );
@@ -23,7 +24,7 @@ return [
 		$typeAvailability = $echoConfig->get( 'DefaultNotifyTypeAvailability' );
 		$typeAvailabilityByCategory = $echoConfig->get( 'NotifyTypeAvailabilityByCategory' );
 
-		return new EchoAttributeManager(
+		return new AttributeManager(
 			$notifications,
 			$categories,
 			$typeAvailability,

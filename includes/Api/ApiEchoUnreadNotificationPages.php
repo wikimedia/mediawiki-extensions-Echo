@@ -6,12 +6,12 @@ use ApiQuery;
 use ApiQueryBase;
 use ApiUsageException;
 use EchoServices;
+use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\PageRecord;
 use MediaWiki\Page\PageStore;
 use MediaWiki\Title\TitleFactory;
 use MediaWiki\WikiMap\WikiMap;
-use MWEchoDbFactory;
 use MWEchoNotifUser;
 use Title;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -88,7 +88,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$enabledTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
-		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
+		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
 		// If $groupPages is true, we need to fetch all pages and apply the ORDER BY and LIMIT ourselves
 		// after grouping.
 		$extraOptions = $groupPages ? [] : [ 'ORDER BY' => 'count DESC', 'LIMIT' => $limit ];

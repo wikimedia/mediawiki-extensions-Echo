@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\AttributeManager;
+use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
@@ -136,7 +138,7 @@ class MWEchoNotifUser {
 			$services->getMainWANObjectCache(),
 			new UserNotificationGateway(
 				$user,
-				MWEchoDbFactory::newFromDefault(),
+				DbFactory::newFromDefault(),
 				$services->getMainConfig()
 			),
 			new NotificationMapper(),
@@ -164,7 +166,7 @@ class MWEchoNotifUser {
 	 * @return int
 	 */
 	public function getMessageCount() {
-		return $this->getNotificationCount( EchoAttributeManager::MESSAGE );
+		return $this->getNotificationCount( AttributeManager::MESSAGE );
 	}
 
 	/**
@@ -173,7 +175,7 @@ class MWEchoNotifUser {
 	 * @return int
 	 */
 	public function getAlertCount() {
-		return $this->getNotificationCount( EchoAttributeManager::ALERT );
+		return $this->getNotificationCount( AttributeManager::ALERT );
 	}
 
 	/**
@@ -183,7 +185,7 @@ class MWEchoNotifUser {
 	 * @param string $section Notification section
 	 * @return int
 	 */
-	public function getLocalNotificationCount( $section = EchoAttributeManager::ALL ) {
+	public function getLocalNotificationCount( $section = AttributeManager::ALL ) {
 		return $this->getNotificationCount( $section, false );
 	}
 
@@ -198,7 +200,7 @@ class MWEchoNotifUser {
 	 *   If set to 'preference', uses the user's preference.
 	 * @return int
 	 */
-	public function getNotificationCount( $section = EchoAttributeManager::ALL, $global = 'preference' ) {
+	public function getNotificationCount( $section = AttributeManager::ALL, $global = 'preference' ) {
 		if ( !$this->mUser->isRegistered() ) {
 			return 0;
 		}
@@ -228,7 +230,7 @@ class MWEchoNotifUser {
 	 * @return bool|MWTimestamp Timestamp of latest unread alert, or false if there are no unread alerts.
 	 */
 	public function getLastUnreadAlertTime() {
-		return $this->getLastUnreadNotificationTime( EchoAttributeManager::ALERT );
+		return $this->getLastUnreadNotificationTime( AttributeManager::ALERT );
 	}
 
 	/**
@@ -237,7 +239,7 @@ class MWEchoNotifUser {
 	 * @return bool|MWTimestamp
 	 */
 	public function getLastUnreadMessageTime() {
-		return $this->getLastUnreadNotificationTime( EchoAttributeManager::MESSAGE );
+		return $this->getLastUnreadNotificationTime( AttributeManager::MESSAGE );
 	}
 
 	/**
@@ -250,7 +252,7 @@ class MWEchoNotifUser {
 	 *   If set to 'preference', uses the user's preference.
 	 * @return bool|MWTimestamp Timestamp of latest unread message, or false if there are no unread messages.
 	 */
-	public function getLastUnreadNotificationTime( $section = EchoAttributeManager::ALL, $global = 'preference' ) {
+	public function getLastUnreadNotificationTime( $section = AttributeManager::ALL, $global = 'preference' ) {
 		if ( !$this->mUser->isRegistered() ) {
 			return false;
 		}
@@ -368,7 +370,7 @@ class MWEchoNotifUser {
 	 * @param string[] $sections
 	 * @return bool
 	 */
-	public function markAllRead( array $sections = [ EchoAttributeManager::ALL ] ) {
+	public function markAllRead( array $sections = [ AttributeManager::ALL ] ) {
 		if ( $this->readOnlyMode->isReadOnly() ) {
 			return false;
 		}
@@ -376,8 +378,8 @@ class MWEchoNotifUser {
 		global $wgEchoMaxUpdateCount;
 
 		// Mark all sections as read if this is the case
-		if ( in_array( EchoAttributeManager::ALL, $sections ) ) {
-			$sections = EchoAttributeManager::$sections;
+		if ( in_array( AttributeManager::ALL, $sections ) ) {
+			$sections = AttributeManager::$sections;
 		}
 
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
@@ -492,13 +494,13 @@ class MWEchoNotifUser {
 				// Immediately compute new local counts and timestamps
 				$newLocalData = $this->computeLocalCountsAndTimestamps( DB_PRIMARY );
 				// Write the new values to the echo_unread_wikis table
-				$alertTs = $newLocalData[EchoAttributeManager::ALERT]['timestamp'];
-				$messageTs = $newLocalData[EchoAttributeManager::MESSAGE]['timestamp'];
+				$alertTs = $newLocalData[AttributeManager::ALERT]['timestamp'];
+				$messageTs = $newLocalData[AttributeManager::MESSAGE]['timestamp'];
 				$uw->updateCount(
 					WikiMap::getCurrentWikiId(),
-					$newLocalData[EchoAttributeManager::ALERT]['count'],
+					$newLocalData[AttributeManager::ALERT]['count'],
 					$alertTs === -1 ? false : new MWTimestamp( $alertTs ),
-					$newLocalData[EchoAttributeManager::MESSAGE]['count'],
+					$newLocalData[AttributeManager::MESSAGE]['count'],
 					$messageTs === -1 ? false : new MWTimestamp( $messageTs )
 				);
 				// We could set() $newLocalData into the cache here, but we don't because that seems risky;
@@ -600,7 +602,7 @@ class MWEchoNotifUser {
 		$result = [];
 		$totals = [ 'count' => 0, 'timestamp' => -1 ];
 
-		foreach ( EchoAttributeManager::$sections as $section ) {
+		foreach ( AttributeManager::$sections as $section ) {
 			$eventTypesToLoad = $attributeManager->getUserEnabledEventsBySections(
 				$this->mUser,
 				'web',
@@ -633,7 +635,7 @@ class MWEchoNotifUser {
 			$totals['timestamp'] = max( $totals['timestamp'], $timestamp );
 		}
 		$totals['count'] = self::capNotificationCount( $totals['count'] );
-		$result[EchoAttributeManager::ALL] = $totals;
+		$result[AttributeManager::ALL] = $totals;
 		return $result;
 	}
 
@@ -648,7 +650,7 @@ class MWEchoNotifUser {
 		$localData = $this->getCountsAndTimestamps()['local'];
 		$result = [];
 		$totals = [ 'count' => 0, 'timestamp' => -1 ];
-		foreach ( EchoAttributeManager::$sections as $section ) {
+		foreach ( AttributeManager::$sections as $section ) {
 			$localCount = $localData[$section]['count'];
 			$globalCount = self::capNotificationCount( $localCount + $this->getForeignCount( $section ) );
 			$result[$section]['count'] = $globalCount;
@@ -664,7 +666,7 @@ class MWEchoNotifUser {
 			$totals['timestamp'] = max( $totals['timestamp'], $globalTimestamp );
 		}
 		$totals['count'] = self::capNotificationCount( $totals['count'] );
-		$result[EchoAttributeManager::ALL] = $totals;
+		$result[AttributeManager::ALL] = $totals;
 		return $result;
 	}
 
@@ -724,10 +726,10 @@ class MWEchoNotifUser {
 
 	/**
 	 * Get the number of foreign notifications in a given section.
-	 * @param string $section One of EchoAttributeManager::$sections
+	 * @param string $section One of AttributeManager::$sections
 	 * @return int Number of foreign notifications
 	 */
-	protected function getForeignCount( $section = EchoAttributeManager::ALL ) {
+	protected function getForeignCount( $section = AttributeManager::ALL ) {
 		return self::capNotificationCount(
 			$this->getForeignNotifications()->getCount( $section )
 		);
@@ -735,11 +737,11 @@ class MWEchoNotifUser {
 
 	/**
 	 * Get the timestamp of the most recent foreign notification in a given section.
-	 * @param string $section One of EchoAttributeManager::$sections
+	 * @param string $section One of AttributeManager::$sections
 	 * @return MWTimestamp|false Timestamp of the most recent foreign notification, or false if
 	 *  there aren't any
 	 */
-	protected function getForeignTimestamp( $section = EchoAttributeManager::ALL ) {
+	protected function getForeignTimestamp( $section = AttributeManager::ALL ) {
 		return $this->getForeignNotifications()->getTimestamp( $section );
 	}
 

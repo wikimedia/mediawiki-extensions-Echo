@@ -1,10 +1,16 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
+use BatchRowIterator;
+use Iterator;
 use MediaWiki\Extension\Notifications\Iterator\CallbackIterator;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
+use RecursiveIteratorIterator;
+use User;
 
-class EchoUserLocator {
+class UserLocator {
 	/**
 	 * Return all users watching the event title.
 	 *
@@ -69,10 +75,10 @@ class EchoUserLocator {
 	 * If the event occurred on the user page of a registered
 	 * user return that user.
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @return User[]
 	 */
-	public static function locateUserPageOwner( EchoEvent $event ) {
+	public static function locateUserPageOwner( Event $event ) {
 		$title = $event->getTitle();
 		if ( !$title || !$title->inNamespace( NS_USER ) ) {
 			return [];
@@ -191,3 +197,5 @@ class EchoUserLocator {
 		return $users;
 	}
 }
+
+class_alias( UserLocator::class, 'EchoUserLocator' );

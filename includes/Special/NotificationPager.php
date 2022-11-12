@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\Notifications\Special;
 use EchoServices;
 use Exception;
 use IContextSource;
+use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Model\Notification;
-use MWEchoDbFactory;
 use ReverseChronologicalPager;
 
 /**
@@ -19,7 +19,7 @@ class NotificationPager extends ReverseChronologicalPager {
 	 * @param IContextSource $context
 	 */
 	public function __construct( IContextSource $context ) {
-		$dbFactory = MWEchoDbFactory::newFromDefault();
+		$dbFactory = DbFactory::newFromDefault();
 		$this->mDb = $dbFactory->getEchoDb( DB_REPLICA );
 
 		parent::__construct( $context );

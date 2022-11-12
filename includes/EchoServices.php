@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
@@ -39,8 +40,8 @@ class EchoServices {
 		return $this->services->getService( 'EchoPushSubscriptionManager' );
 	}
 
-	/** @return EchoAttributeManager */
-	public function getAttributeManager(): EchoAttributeManager {
+	/** @return AttributeManager */
+	public function getAttributeManager(): AttributeManager {
 		return $this->services->getService( 'EchoAttributeManager' );
 	}
 

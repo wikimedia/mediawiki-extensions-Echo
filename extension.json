@@ -793,7 +793,7 @@
 				"edit-user-talk": {
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditUserTalkPresentationModel",
 					"user-locators": [
-						"EchoUserLocator::locateTalkPageOwner"
+						"MediaWiki\\Extension\\Notifications\\UserLocator::locateTalkPageOwner"
 					],
 					"category": "edit-user-talk",
 					"group": "interactive",
@@ -809,7 +809,7 @@
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoRevertedPresentationModel",
 					"user-locators": [
 						[
-							"EchoUserLocator::locateFromEventExtra",
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
 							[
 								"reverted-user-id"
 							]
@@ -822,7 +822,7 @@
 				"page-linked": {
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoPageLinkedPresentationModel",
 					"user-locators": [
-						"EchoUserLocator::locateArticleCreator"
+						"MediaWiki\\Extension\\Notifications\\UserLocator::locateArticleCreator"
 					],
 					"category": "article-linked",
 					"group": "neutral",
@@ -835,7 +835,7 @@
 				},
 				"minor-watchlist-change": {
 					"user-locators": [
-						"EchoUserLocator::locateUsersWatchingTitle"
+						"MediaWiki\\Extension\\Notifications\\UserLocator::locateUsersWatchingTitle"
 					],
 					"category": "minor-watchlist",
 					"group": "interactive",
@@ -849,7 +849,7 @@
 				},
 				"watchlist-change": {
 					"user-locators": [
-						"EchoUserLocator::locateUsersWatchingTitle"
+						"MediaWiki\\Extension\\Notifications\\UserLocator::locateUsersWatchingTitle"
 					],
 					"section": "message",
 					"category": "watchlist",
@@ -864,7 +864,7 @@
 				"mention": {
 					"user-locators": [
 						[
-							"EchoUserLocator::locateFromEventExtra",
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
 							[
 								"mentioned-users"
 							]
@@ -878,7 +878,7 @@
 				"mention-summary": {
 					"user-locators": [
 						[
-							"EchoUserLocator::locateFromEventExtra",
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
 							[
 								"mentioned-users"
 							]
@@ -892,7 +892,7 @@
 				"mention-failure": {
 					"user-locators": [
 						[
-							"EchoUserLocator::locateEventAgent"
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateEventAgent"
 						]
 					],
 					"canNotifyAgent": true,
@@ -908,7 +908,7 @@
 				"mention-failure-too-many": {
 					"user-locators": [
 						[
-							"EchoUserLocator::locateEventAgent"
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateEventAgent"
 						]
 					],
 					"canNotifyAgent": true,
@@ -920,7 +920,7 @@
 				"mention-success": {
 					"user-locators": [
 						[
-							"EchoUserLocator::locateEventAgent"
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateEventAgent"
 						]
 					],
 					"canNotifyAgent": true,
@@ -936,7 +936,7 @@
 				"user-rights": {
 					"user-locators": [
 						[
-							"EchoUserLocator::locateFromEventExtra",
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
 							[
 								"user"
 							]
@@ -951,7 +951,7 @@
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEmailUserPresentationModel",
 					"user-locators": [
 						[
-							"EchoUserLocator::locateFromEventExtra",
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
 							[
 								"to-user-id"
 							]
@@ -964,7 +964,7 @@
 				"foreign": {
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoForeignPresentationModel",
 					"user-locators": [
-						"EchoUserLocator::locateEventAgent"
+						"MediaWiki\\Extension\\Notifications\\UserLocator::locateEventAgent"
 					],
 					"category": "foreign",
 					"group": "positive",
@@ -972,7 +972,7 @@
 				},
 				"thank-you-edit": {
 					"user-locators": [
-						"EchoUserLocator::locateEventAgent"
+						"MediaWiki\\Extension\\Notifications\\UserLocator::locateEventAgent"
 					],
 					"canNotifyAgent": true,
 					"category": "thank-you-edit",
@@ -982,7 +982,7 @@
 				},
 				"article-reminder": {
 					"user-locators": [
-						"EchoUserLocator::locateEventAgent"
+						"MediaWiki\\Extension\\Notifications\\UserLocator::locateEventAgent"
 					],
 					"canNotifyAgent": true,
 					"category": "article-reminder",
@@ -1061,6 +1061,7 @@
 		"Bundler": "includes/Bundler.php",
 		"EchoArrayList": "includes/EchoArrayList.php",
 		"EchoAttributeManager": "includes/AttributeManager.php",
+		"MediaWiki\\Extension\\Notifications\\AttributeManager": "includes/AttributeManager.php",
 		"EchoCachedList": "includes/EchoCachedList.php",
 		"EchoCallbackIterator": "includes/Iterator/CallbackIterator.php",
 		"MediaWiki\\Extension\\Notifications\\Iterator\\CallbackIterator": "includes/Iterator/CallbackIterator.php",
@@ -1071,6 +1072,7 @@
 		"EchoDiffGroup": "includes/EchoDiffGroup.php",
 		"EchoDiffParser": "includes/EchoDiffParser.php",
 		"EchoDiscussionParser": "includes/DiscussionParser.php",
+		"MediaWiki\\Extension\\Notifications\\DiscussionParser": "includes/DiscussionParser.php",
 		"EchoEditUserTalkPresentationModel": "includes/Formatters/EchoEditUserTalkPresentationModel.php",
 		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditUserTalkPresentationModel": "includes/Formatters/EchoEditUserTalkPresentationModel.php",
 		"EchoEmailFormat": "includes/EmailFormat.php",
@@ -1090,6 +1092,7 @@
 		"EchoNotificationMapper": "includes/Mapper/NotificationMapper.php",
 		"MediaWiki\\Extension\\Notifications\\Mapper\\NotificationMapper": "includes/Mapper/NotificationMapper.php",
 		"EchoNotifier": "includes/Notifier.php",
+		"MediaWiki\\Extension\\Notifications\\Notifier": "includes/Notifier.php",
 		"EchoOnWikiList": "includes/EchoOnWikiList.php",
 		"EchoPresentationModelSection": "includes/Formatters/EchoPresentationModelSection.php",
 		"MediaWiki\\Extension\\Notifications\\Formatters\\EchoPresentationModelSection": "includes/Formatters/EchoPresentationModelSection.php",
@@ -1099,8 +1102,10 @@
 		"EchoSuppressionRowUpdateGenerator": "includes/schemaUpdate.php",
 		"EchoUnreadWikis": "includes/UnreadWikis.php",
 		"EchoUserLocator": "includes/UserLocator.php",
+		"MediaWiki\\Extension\\Notifications\\UserLocator": "includes/UserLocator.php",
 		"GenerateSampleNotifications": "maintenance/generateSampleNotifications.php",
-		"MWEchoDbFactory": "includes/EchoDbFactory.php",
+		"MWEchoDbFactory": "includes/DbFactory.php",
+		"MediaWiki\\Extension\\Notifications\\DbFactory": "includes/DbFactory.php",
 		"MWEchoEmailBatch": "includes/EmailBatch.php",
 		"MWEchoEventLogging": "includes/EventLogging.php",
 		"MWEchoNotifUser": "includes/NotifUser.php",

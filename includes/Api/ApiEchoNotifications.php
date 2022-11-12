@@ -7,11 +7,11 @@ use ApiQuery;
 use ApiQueryBase;
 use Bundler;
 use Config;
-use EchoAttributeManager;
 use EchoDataOutputFormatter;
 use EchoForeignNotifications;
 use EchoSeenTime;
 use EchoServices;
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
@@ -140,7 +140,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 				// we pass ALL to consider all foreign notifications
 				$section = count( $params['sections'] ) === 1
 					? reset( $params['sections'] )
-					: EchoAttributeManager::ALL;
+					: AttributeManager::ALL;
 				if ( $this->crossWikiSummary ) {
 					$foreignNotification = $this->makeForeignNotification( $user, $params['format'], $section );
 					if ( $foreignNotification ) {
@@ -403,7 +403,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	protected function makeForeignNotification(
 		User $user,
 		$format,
-		$section = EchoAttributeManager::ALL
+		$section = AttributeManager::ALL
 	) {
 		$wikis = $this->getForeignNotifications()->getWikis( $section );
 		$count = $this->getForeignNotifications()->getCount( $section );
@@ -505,7 +505,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		};
 
 		if ( $groupBySection ) {
-			foreach ( EchoAttributeManager::$sections as $section ) {
+			foreach ( AttributeManager::$sections as $section ) {
 				if ( !isset( $primary[$section]['list'] ) ) {
 					$primary[$section]['list'] = [];
 				}
@@ -535,7 +535,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 */
 	protected function mergeCount( array $primary, array $results, $groupBySection ) {
 		if ( $groupBySection ) {
-			foreach ( EchoAttributeManager::$sections as $section ) {
+			foreach ( AttributeManager::$sections as $section ) {
 				if ( !isset( $primary[$section]['rawcount'] ) ) {
 					$primary[$section]['rawcount'] = 0;
 				}
@@ -560,7 +560,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
-		$sections = EchoAttributeManager::$sections;
+		$sections = AttributeManager::$sections;
 
 		$params = $this->getCrossWikiParams() + [
 			'filter' => [

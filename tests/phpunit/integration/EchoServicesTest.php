@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\MediaWikiServices;
@@ -35,7 +36,7 @@ class EchoServicesTest extends MediaWikiIntegrationTestCase {
 
 	public function testGetAttributeManager(): void {
 		$attributeManager = $this->echoServices->getAttributeManager();
-		$this->assertInstanceOf( EchoAttributeManager::class, $attributeManager );
+		$this->assertInstanceOf( AttributeManager::class, $attributeManager );
 	}
 
 }

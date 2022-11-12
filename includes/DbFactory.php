@@ -1,13 +1,16 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
  * Database factory class, this will determine whether to use the main database
- * or an external database defined in configuration file
+ * or an external database defined in the configuration file
  */
-class MWEchoDbFactory {
+class DbFactory {
 
 	/**
 	 * The cluster for the database
@@ -37,7 +40,7 @@ class MWEchoDbFactory {
 	 * A singleton is not necessary because it's actually handled
 	 * inside core database object
 	 *
-	 * @return MWEchoDbFactory
+	 * @return DbFactory
 	 */
 	public static function newFromDefault() {
 		global $wgEchoCluster, $wgEchoSharedTrackingDB, $wgEchoSharedTrackingCluster;
@@ -84,7 +87,7 @@ class MWEchoDbFactory {
 	 * Get the database connection for Echo
 	 * @param int $db Index of the connection to get
 	 * @param string[] $groups Query groups.
-	 * @return \Wikimedia\Rdbms\IDatabase
+	 * @return IDatabase
 	 */
 	public function getEchoDb( $db, array $groups = [] ) {
 		return $this->getLB()->getConnection( $db, $groups );
@@ -93,7 +96,8 @@ class MWEchoDbFactory {
 	/**
 	 * @param int $db Index of the connection to get
 	 * @param string[] $groups Query groups
-	 * @return bool|\Wikimedia\Rdbms\IDatabase false if no shared db is configured
+	 *
+	 * @return bool|IDatabase false if no shared db is configured
 	 */
 	public function getSharedDb( $db, array $groups = [] ) {
 		if ( !$this->shared ) {
@@ -113,7 +117,7 @@ class MWEchoDbFactory {
 	 * @param int $db Index of the connection to get
 	 * @param string[] $groups Query groups.
 	 * @param string|bool $wiki The wiki ID, or false for the current wiki
-	 * @return \Wikimedia\Rdbms\IDatabase
+	 * @return IDatabase
 	 */
 	public static function getDB( $db, array $groups = [], $wiki = false ) {
 		global $wgEchoCluster;
@@ -142,3 +146,5 @@ class MWEchoDbFactory {
 		return $this->getLB()->getServerCount() > 1 && $this->getLB()->hasOrMadeRecentPrimaryChanges();
 	}
 }
+
+class_alias( DbFactory::class, 'MWEchoDbFactory' );

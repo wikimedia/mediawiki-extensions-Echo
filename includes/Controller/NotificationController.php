@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Notifications\Controller;
 
 use DeferredUpdates;
-use EchoAttributeManager;
 use EchoCachedList;
 use EchoContainmentList;
 use EchoContainmentSet;
@@ -12,6 +11,7 @@ use EchoServices;
 use InvalidArgumentException;
 use Iterator;
 use MapCacheLRU;
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
 use MediaWiki\Extension\Notifications\Jobs\NotificationDeleteJob;
@@ -448,10 +448,10 @@ class NotificationController {
 	 * user-locator|user-filters attached to the event type.
 	 *
 	 * @param Event $event
-	 * @param string $locator Either EchoAttributeManager::ATTR_LOCATORS or EchoAttributeManager::ATTR_FILTERS
+	 * @param string $locator Either AttributeManager::ATTR_LOCATORS or AttributeManager::ATTR_FILTERS
 	 * @return array
 	 */
-	public static function evaluateUserCallable( Event $event, $locator = EchoAttributeManager::ATTR_LOCATORS ) {
+	public static function evaluateUserCallable( Event $event, $locator = AttributeManager::ATTR_LOCATORS ) {
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$type = $event->getType();
 		$result = [];
@@ -483,7 +483,7 @@ class NotificationController {
 	 */
 	public static function getUsersToNotifyForEvent( Event $event ) {
 		$notify = new FilteredSequentialIterator;
-		foreach ( self::evaluateUserCallable( $event, EchoAttributeManager::ATTR_LOCATORS ) as $users ) {
+		foreach ( self::evaluateUserCallable( $event, AttributeManager::ATTR_LOCATORS ) as $users ) {
 			$notify->add( $users );
 		}
 
@@ -497,7 +497,7 @@ class NotificationController {
 		}
 
 		// Exclude certain users
-		foreach ( self::evaluateUserCallable( $event, EchoAttributeManager::ATTR_FILTERS ) as $users ) {
+		foreach ( self::evaluateUserCallable( $event, AttributeManager::ATTR_FILTERS ) as $users ) {
 			// the result of the callback can be both an iterator or array
 			$users = is_array( $users ) ? $users : iterator_to_array( $users );
 			$notify->addFilter( static function ( UserIdentity $user ) use ( $users ) {

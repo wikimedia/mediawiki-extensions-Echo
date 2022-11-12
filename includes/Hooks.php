@@ -6,8 +6,6 @@ use ApiModuleManager;
 use Config;
 use Content;
 use DeferredUpdates;
-use EchoAttributeManager;
-use EchoDiscussionParser;
 use EchoEmailFormat;
 use EchoEmailFrequency;
 use EchoSeenTime;
@@ -552,7 +550,7 @@ class Hooks implements
 
 		// Try to do this after the HTTP response
 		DeferredUpdates::addCallableUpdate( static function () use ( $revisionRecord, $isRevert ) {
-			EchoDiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
+			DiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
 		} );
 
 		// If the user is not an IP and this is not a null edit,
@@ -897,8 +895,8 @@ class Hooks implements
 	private static function processMarkAsRead( User $user, WebRequest $request, Title $title ) {
 		global $wgEchoCrossWikiNotifications;
 		$subtractions = [
-			EchoAttributeManager::ALERT => 0,
-			EchoAttributeManager::MESSAGE => 0
+			AttributeManager::ALERT => 0,
+			AttributeManager::MESSAGE => 0
 		];
 
 		// Attempt to mark a notification as read when visiting a page
@@ -1010,8 +1008,8 @@ class Hooks implements
 
 		// Add a "My notifications" item to personal URLs
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
-		$msgCount = $notifUser->getMessageCount() - $subtractions[EchoAttributeManager::MESSAGE];
-		$alertCount = $notifUser->getAlertCount() - $subtractions[EchoAttributeManager::ALERT];
+		$msgCount = $notifUser->getMessageCount() - $subtractions[AttributeManager::MESSAGE];
+		$alertCount = $notifUser->getAlertCount() - $subtractions[AttributeManager::ALERT];
 		// But make sure we never show a negative number (T130853)
 		$msgCount = max( 0, $msgCount );
 		$alertCount = max( 0, $alertCount );
@@ -1022,7 +1020,7 @@ class Hooks implements
 		$seenTime = EchoSeenTime::newFromUser( $user );
 		if ( $title->isSpecial( 'Notifications' ) ) {
 			// If this is the Special:Notifications page, seenTime to now
-			$seenTime->setTime( wfTimestamp( TS_MW ), EchoAttributeManager::ALL );
+			$seenTime->setTime( wfTimestamp( TS_MW ), AttributeManager::ALL );
 		}
 		$seenAlertTime = $seenTime->getTime( 'alert', TS_ISO_8601 );
 		$seenMsgTime = $seenTime->getTime( 'message', TS_ISO_8601 );

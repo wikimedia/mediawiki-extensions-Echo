@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
@@ -172,7 +173,7 @@ class MWEchoEmailBatch {
 	 * @return bool true if event exists false otherwise
 	 */
 	protected function setLastEvent() {
-		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
+		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
 		$res = $dbr->selectField(
 			[ 'echo_email_batch' ],
 			'MAX( eeb_event_id )',
@@ -218,7 +219,7 @@ class MWEchoEmailBatch {
 		// composite index, favor insert performance, storage space over read
 		// performance in this case
 		if ( $validEvents ) {
-			$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
+			$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
 
 			$conds = [
 				'eeb_user_id' => $this->mUser->getId(),
@@ -282,7 +283,7 @@ class MWEchoEmailBatch {
 	public function clearProcessedEvent() {
 		global $wgUpdateRowsPerQuery;
 		$eventMapper = new EventMapper();
-		$dbFactory = MWEchoDbFactory::newFromDefault();
+		$dbFactory = DbFactory::newFromDefault();
 		$dbw = $dbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
@@ -376,7 +377,7 @@ class MWEchoEmailBatch {
 			return;
 		}
 
-		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
+		$dbw = DbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
 
 		$row = [
 			'eeb_user_id' => $userId,
@@ -402,7 +403,7 @@ class MWEchoEmailBatch {
 	 * @return IResultWrapper|bool
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
-		$dbr = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
+		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
 		$res = $dbr->select(
 			[ 'echo_email_batch' ],
 			[ 'eeb_user_id' ],

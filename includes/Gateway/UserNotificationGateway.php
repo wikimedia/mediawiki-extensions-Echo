@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Notifications\Gateway;
 
 use Config;
+use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\User\UserIdentity;
-use MWEchoDbFactory;
 use MWEchoNotifUser;
 
 /**
@@ -15,7 +15,7 @@ use MWEchoNotifUser;
 class UserNotificationGateway {
 
 	/**
-	 * @var MWEchoDbFactory
+	 * @var DbFactory
 	 */
 	protected $dbFactory;
 
@@ -45,10 +45,10 @@ class UserNotificationGateway {
 
 	/**
 	 * @param UserIdentity $user
-	 * @param MWEchoDbFactory $dbFactory
+	 * @param DbFactory $dbFactory
 	 * @param Config $config
 	 */
-	public function __construct( UserIdentity $user, MWEchoDbFactory $dbFactory, Config $config ) {
+	public function __construct( UserIdentity $user, DbFactory $dbFactory, Config $config ) {
 		$this->user = $user;
 		$this->dbFactory = $dbFactory;
 		$this->config = $config;

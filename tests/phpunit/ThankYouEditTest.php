@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 
 /**
@@ -15,7 +16,7 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 	}
 
 	private function deleteEchoData() {
-		$db = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
+		$db = DbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
 		$db->delete( 'echo_event', '*', __METHOD__ );
 		$db->delete( 'echo_notification', '*', __METHOD__ );
 	}

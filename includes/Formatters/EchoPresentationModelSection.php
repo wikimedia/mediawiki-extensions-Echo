@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Notifications\Formatters;
 
 use BadMethodCallException;
-use EchoDiscussionParser;
 use Language;
+use MediaWiki\Extension\Notifications\DiscussionParser;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Revision\RevisionRecord;
 use Parser;
@@ -88,10 +88,10 @@ class EchoPresentationModelSection {
 			$this->parsedSectionTitle = false;
 			return false;
 		}
-		$this->parsedSectionTitle = EchoDiscussionParser::getTextSnippet(
+		$this->parsedSectionTitle = DiscussionParser::getTextSnippet(
 			$rawSectionTitle,
 			$this->language,
-			EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
+			DiscussionParser::DEFAULT_SNIPPET_LENGTH,
 			$this->event->getTitle(),
 			// linestart=false, because this wikitext was inside a heading like `== … ==`,
 			// so start-of-line markup like `*` should not be parsed (T299572)

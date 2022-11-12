@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\DbFactory;
+
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../..';
@@ -25,7 +27,7 @@ class ProcessEchoEmailBatch extends Maintenance {
 	}
 
 	public function execute() {
-		$lbFactory = MWEchoDbFactory::newFromDefault();
+		$lbFactory = DbFactory::newFromDefault();
 		$ignoreConfiguredSchedule = $this->getOption( "ignoreConfiguredSchedule", 0 );
 
 		$this->output( "Started processing... \n" );

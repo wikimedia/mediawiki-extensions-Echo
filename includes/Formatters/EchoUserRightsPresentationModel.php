@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
-use EchoDiscussionParser;
+use MediaWiki\Extension\Notifications\DiscussionParser;
 use MediaWiki\Language\RawMessage;
 use SpecialPage;
 use User;
@@ -66,7 +66,7 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	public function getBodyMessage() {
 		$reason = $this->event->getExtraParam( 'reason' );
 		if ( $reason ) {
-			$text = EchoDiscussionParser::getTextSnippet( $reason, $this->language );
+			$text = DiscussionParser::getTextSnippet( $reason, $this->language );
 			return new RawMessage( "$1", [ $text ] );
 		}
 		return false;

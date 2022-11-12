@@ -1,14 +1,23 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
+use EchoEmailFormat;
+use EchoServices;
+use MailAddress;
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextEmailFormatter;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
+use MWEchoEmailBatch;
+use MWEchoEventLogging;
+use MWEchoNotifUser;
+use User;
+use UserMailer;
 
-// @todo Fill in
-class EchoNotifier {
+class Notifier {
 	/**
 	 * Record a Notification for an Event
 	 * Currently used for web-based notifications.
@@ -18,7 +27,7 @@ class EchoNotifier {
 	 */
 	public static function notifyWithNotification( $user, $event ) {
 		// Only create the notification if the user wants to receive that type
-		// of notification and they are eligible to receive it. See bug 47664.
+		// of notification, and they are eligible to receive it. See bug 47664.
 		$attributeManager = EchoServices::getInstance()->getAttributeManager();
 		$userWebNotifications = $attributeManager->getUserEnabledEvents( $user, 'web' );
 		if ( !in_array( $event->getType(), $userWebNotifications ) ) {
@@ -148,3 +157,5 @@ class EchoNotifier {
 		return $content;
 	}
 }
+
+class_alias( Notifier::class, 'EchoNotifier' );

@@ -5,13 +5,14 @@ namespace MediaWiki\Extension\Notifications\Test;
 use ContentHandler;
 use EchoUserLocator;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use User;
 
 /**
  * @group Database
- * @covers \EchoUserLocator
+ * @covers \MediaWiki\Extension\Notifications\UserLocator
  */
 class UserLocatorTest extends MediaWikiIntegrationTestCase {
 
@@ -35,7 +36,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$event->method( 'getTitle' )
 			->willReturn( $title );
 
-		$it = EchoUserLocator::locateUsersWatchingTitle( $event, 10 );
+		$it = UserLocator::locateUsersWatchingTitle( $event, 10 );
 		$this->assertCount( 50, $it );
 		// @todo assert more than one query was issued
 	}
@@ -82,7 +83,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$event->method( 'getTitle' )
 			->willReturn( $title );
 
-		$users = EchoUserLocator::locateTalkPageOwner( $event );
+		$users = UserLocator::locateTalkPageOwner( $event );
 		$this->assertEquals( $expect, array_keys( $users ), $message );
 	}
 
@@ -111,7 +112,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$event->method( 'getAgent' )
 			->willReturn( User::newFromId( 123 ) );
 
-		$users = EchoUserLocator::locateArticleCreator( $event );
+		$users = UserLocator::locateArticleCreator( $event );
 		$this->assertEquals( [ $user->getId() ], array_keys( $users ), $message );
 	}
 
@@ -182,7 +183,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$event->method( 'getAgent' )
 			->willReturn( $agent );
 
-		$users = EchoUserLocator::locateEventAgent( $event );
+		$users = UserLocator::locateEventAgent( $event );
 		$this->assertEquals( $expect, array_keys( $users ), $message );
 	}
 
@@ -261,7 +262,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$event->method( 'getExtraParam' )
 			->willReturnMap( self::arrayToValueMap( $extra ) );
 
-		$users = EchoUserLocator::locateFromEventExtra( $event, $keys );
+		$users = UserLocator::locateFromEventExtra( $event, $keys );
 		$this->assertEquals( $expect, array_keys( $users ), $message );
 	}
 

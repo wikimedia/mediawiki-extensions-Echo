@@ -1,7 +1,9 @@
 <?php
 
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\User\UserOptionsLookup;
 use Wikimedia\TestingAccessWrapper;
 
@@ -59,14 +61,14 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				[ [ 123 ] ],
 				// event user locator config
 				[
-					[ [ EchoUserLocator::class, 'locateFromEventExtra' ], [ 'other-user' ] ],
+					[ [ UserLocator::class, 'locateFromEventExtra' ], [ 'other-user' ] ],
 				],
 				// additional setup
 				static function ( $test, $event ) {
 					$event->expects( $test->any() )
 						->method( 'getExtraParam' )
 						->with( 'other-user' )
-						->will( $test->returnValue( 123 ) );
+						->willReturn( 123 );
 				}
 			],
 		];
@@ -79,7 +81,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$this->setMwGlobals( [
 			'wgEchoNotifications' => [
 				'unit-test' => [
-					EchoAttributeManager::ATTR_LOCATORS => $locatorConfigForEventType
+					AttributeManager::ATTR_LOCATORS => $locatorConfigForEventType
 				],
 			],
 		] );
@@ -92,7 +94,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			$setup( $this, $event );
 		}
 
-		$result = NotificationController::evaluateUserCallable( $event, EchoAttributeManager::ATTR_LOCATORS );
+		$result = NotificationController::evaluateUserCallable( $event, AttributeManager::ATTR_LOCATORS );
 		$this->assertEquals( $expect, array_map( 'array_keys', $result ), $message );
 	}
 
@@ -105,7 +107,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			return [];
 		};
 
-		self::testEvaluateUserLocators(
+		$this->testEvaluateUserLocators(
 			__FUNCTION__,
 			[ [] ],
 			[ [ $callback, 'first', 'second' ] ]
@@ -151,7 +153,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$this->setMwGlobals( [
 			'wgEchoNotifications' => [
 				'unit-test' => [
-					EchoAttributeManager::ATTR_LOCATORS => static function () use ( $users ) {
+					AttributeManager::ATTR_LOCATORS => static function () use ( $users ) {
 						return $users;
 					},
 				],
@@ -283,13 +285,11 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 
 		$event = $this->createMock( Event::class );
 		$event->method( 'getExtraParam' )
-			->will( $this->returnValueMap(
-				[
-					[ 'delay', null, 120 ],
-					[ 'rootJobSignature', null, 'test-signature' ],
-					[ 'rootJobTimestamp', null,  wfTimestamp() ]
-				]
-			) );
+			->willReturnMap( [
+				[ 'delay', null, 120 ],
+				[ 'rootJobSignature', null, 'test-signature' ],
+				[ 'rootJobTimestamp', null, wfTimestamp() ]
+			] );
 		$event->expects( $this->once() )
 			->method( 'getTitle' )
 			->willReturn( Title::newFromText( 'test-title' ) );
@@ -306,13 +306,11 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 
 		$event = $this->createMock( Event::class );
 		$event->method( 'getExtraParam' )
-			->will( $this->returnValueMap(
-				[
-					[ 'delay', null, 10 ],
-					[ 'rootJobSignature', null, 'test-signature' ],
-					[ 'rootJobTimestamp', null,  $rootJobTimestamp ]
-				]
-			) );
+			->willReturnMap( [
+				[ 'delay', null, 10 ],
+				[ 'rootJobSignature', null, 'test-signature' ],
+				[ 'rootJobTimestamp', null, $rootJobTimestamp ]
+			] );
 		$event->expects( $this->once() )
 			->method( 'getId' )
 			->willReturn( 42 );

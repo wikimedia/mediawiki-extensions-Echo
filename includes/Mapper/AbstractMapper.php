@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Notifications\Mapper;
 
 use InvalidArgumentException;
-use MWEchoDbFactory;
+use MediaWiki\Extension\Notifications\DbFactory;
 
 /**
  * Abstract mapper for model
@@ -12,7 +12,7 @@ abstract class AbstractMapper {
 
 	/**
 	 * Echo database factory
-	 * @var MWEchoDbFactory
+	 * @var DbFactory
 	 */
 	protected $dbFactory;
 
@@ -23,10 +23,10 @@ abstract class AbstractMapper {
 	protected $listeners;
 
 	/**
-	 * @param MWEchoDbFactory|null $dbFactory
+	 * @param DbFactory|null $dbFactory
 	 */
-	public function __construct( MWEchoDbFactory $dbFactory = null ) {
-		$this->dbFactory = $dbFactory ?? MWEchoDbFactory::newFromDefault();
+	public function __construct( DbFactory $dbFactory = null ) {
+		$this->dbFactory = $dbFactory ?? DbFactory::newFromDefault();
 	}
 
 	/**

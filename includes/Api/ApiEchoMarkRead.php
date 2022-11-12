@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\Notifications\Api;
 
 use ApiBase;
-use EchoAttributeManager;
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\WikiMap\WikiMap;
-use MWEchoDbFactory;
 use MWEchoNotifUser;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -20,7 +20,7 @@ class ApiEchoMarkRead extends ApiBase {
 		$user = $this->getUser();
 		if ( !$user->isRegistered() ) {
 			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
-		} elseif ( MWEchoDbFactory::newFromDefault()->isReadOnly() ) {
+		} elseif ( DbFactory::newFromDefault()->isReadOnly() ) {
 			$this->dieReadOnly();
 		}
 
@@ -64,7 +64,7 @@ class ApiEchoMarkRead extends ApiBase {
 		}
 
 		$rawCount = 0;
-		foreach ( EchoAttributeManager::$sections as $section ) {
+		foreach ( AttributeManager::$sections as $section ) {
 			$rawSectionCount = $notifUser->getNotificationCount( $section );
 			$result[$section]['rawcount'] = $rawSectionCount;
 			$result[$section]['count'] = NotificationController::formatNotificationCount( $rawSectionCount );
@@ -92,7 +92,7 @@ class ApiEchoMarkRead extends ApiBase {
 				ParamValidator::PARAM_TYPE => 'boolean'
 			],
 			'sections' => [
-				ParamValidator::PARAM_TYPE => EchoAttributeManager::$sections,
+				ParamValidator::PARAM_TYPE => AttributeManager::$sections,
 				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'token' => [

@@ -1,12 +1,13 @@
 <?php
 
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityValue;
 use MediaWiki\User\UserOptionsLookup;
 
 /**
- * @covers \EchoAttributeManager
+ * @covers \MediaWiki\Extension\Notifications\AttributeManager
  */
 class AttributeManagerTest extends MediaWikiUnitTestCase {
 
@@ -15,14 +16,14 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 		array $categories = [],
 		array $defaultNotifyTypeAvailability = [],
 		array $notifyTypeAvailabilityByCategory = []
-	): EchoAttributeManager {
+	): AttributeManager {
 		$userGroupManager = $this->createNoOpMock( UserGroupManager::class, [ 'getUserGroups' ] );
 		$userGroupManager->method( 'getUserGroups' )->willReturn( [ 'echo_group' ] );
 
 		$userOptionsLookup = $this->createNoOpMock( UserOptionsLookup::class, [ 'getOption' ] );
 		$userOptionsLookup->method( 'getOption' )->willReturn( true );
 
-		return new EchoAttributeManager(
+		return new AttributeManager(
 			$notifications,
 			$categories,
 			$defaultNotifyTypeAvailability,
@@ -60,10 +61,10 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 				// notification configuration
 				[
 					'foo' => [
-						EchoAttributeManager::ATTR_LOCATORS => [ 'frown' ],
+						AttributeManager::ATTR_LOCATORS => [ 'frown' ],
 					],
 					'magic' => [
-						EchoAttributeManager::ATTR_LOCATORS => [ 'woot!' ],
+						AttributeManager::ATTR_LOCATORS => [ 'woot!' ],
 					],
 				],
 			],
@@ -77,7 +78,7 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 				// notification configuration
 				[
 					'challah' => [
-						EchoAttributeManager::ATTR_LOCATORS => 'sagen',
+						AttributeManager::ATTR_LOCATORS => 'sagen',
 					],
 				],
 			],
@@ -90,7 +91,7 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 	public function testGetUserLocators( $message, $expect, $type, $notifications ) {
 		$manager = $this->getAttributeManager( $notifications );
 
-		$result = $manager->getUserCallable( $type, EchoAttributeManager::ATTR_LOCATORS );
+		$result = $manager->getUserCallable( $type, AttributeManager::ATTR_LOCATORS );
 		$this->assertEquals( $expect, $result, $message );
 	}
 

@@ -1,13 +1,27 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
+use Article;
+use EchoDiffParser;
+use EchoSummaryParser;
+use Language;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserNameUtils;
+use ParserOptions;
+use ParserOutput;
+use RequestContext;
+use RuntimeException;
+use Sanitizer;
+use TextContent;
+use User;
 
-abstract class EchoDiscussionParser {
+abstract class DiscussionParser {
 	private const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';
 
 	public const DEFAULT_SNIPPET_LENGTH = 150;
@@ -32,10 +46,10 @@ abstract class EchoDiscussionParser {
 		$services = MediaWikiServices::getInstance();
 		$store = $services->getRevisionStore();
 
-		// use replica database if there is a previous revision
+		// use the replica database if there is a previous revision
 		if ( $store->getPreviousRevision( $revision ) ) {
 			$title = Title::newFromID( $revision->getPageId() );
-			// use primary database for new page
+			// use the primary database for new page
 		} else {
 			$title = Title::newFromID( $revision->getPageId(), Title::GAID_FOR_UPDATE );
 		}
@@ -517,7 +531,7 @@ abstract class EchoDiscussionParser {
 	 * of the changes made in it.
 	 *
 	 * @param RevisionRecord $revision
-	 * @see EchoDiscussionParser::interpretDiff
+	 * @see DiscussionParser::interpretDiff
 	 * @return array[] See {@see interpretDiff} for details.
 	 */
 	private static function getChangeInterpretationForRevision( RevisionRecord $revision ) {
@@ -919,9 +933,7 @@ abstract class EchoDiscussionParser {
 	 * @return string The same text, with the section header stripped out.
 	 */
 	private static function stripHeader( $text ) {
-		$text = preg_replace( '/' . self::HEADER_REGEX . '/um', '', $text );
-
-		return $text;
+		return preg_replace( '/' . self::HEADER_REGEX . '/um', '', $text );
 	}
 
 	/**
@@ -1061,7 +1073,7 @@ abstract class EchoDiscussionParser {
 			$match = explode( '|', $match, 2 );
 			$title = Title::newFromText( $match[0] );
 
-			// figure out if we the link is related to a user
+			// figure out if the link is related to a user
 			if (
 				$title &&
 				( $title->getNamespace() === NS_USER || $title->getNamespace() === NS_USER_TALK )
@@ -1293,3 +1305,5 @@ abstract class EchoDiscussionParser {
 		return $lang->truncateForVisual( $section['section-title'] . ' ' . $section['section-text'], $length );
 	}
 }
+
+class_alias( DiscussionParser::class, 'EchoDiscussionParser' );
