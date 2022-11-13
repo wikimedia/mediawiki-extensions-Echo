@@ -1,11 +1,17 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
+use RowUpdateGenerator;
+use stdClass;
+use Title;
+
 /**
  * Performs updates required for respecting suppression within echo:
  *   Updates event_page_id based on event_page_title and event_page_namespace
  *   Updates extra data for page-linked events to contain page id's
  */
-class EchoSuppressionRowUpdateGenerator implements RowUpdateGenerator {
+class SuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	/**
 	 * @var callable Hack to allow replacing Title::makeTitleSafe in tests
 	 */

@@ -1,27 +1,31 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Integration;
+
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
+use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\MediaWikiServices;
+use MediaWikiIntegrationTestCase;
 
 /**
- * @covers EchoServices
+ * @covers \MediaWiki\Extension\Notifications\Services
  * @group Database
  */
-class EchoServicesTest extends MediaWikiIntegrationTestCase {
+class ServicesTest extends MediaWikiIntegrationTestCase {
 
-	/** @var EchoServices */
+	/** @var Services */
 	private $echoServices;
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->echoServices = EchoServices::getInstance();
+		$this->echoServices = Services::getInstance();
 	}
 
 	public function testWrap(): void {
-		$services = EchoServices::wrap( MediaWikiServices::getInstance() );
-		$this->assertInstanceOf( EchoServices::class, $services );
+		$services = Services::wrap( MediaWikiServices::getInstance() );
+		$this->assertInstanceOf( Services::class, $services );
 	}
 
 	public function testGetPushNotificationServiceClient(): void {

@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Notifications\Controller;
 
 use DeferredUpdates;
-use EchoServices;
 use InvalidArgumentException;
 use Iterator;
 use MapCacheLRU;
@@ -18,6 +17,7 @@ use MediaWiki\Extension\Notifications\Jobs\NotificationJob;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\OnWikiList;
+use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
@@ -232,7 +232,7 @@ class NotificationController {
 	 *  this event type
 	 */
 	public static function getEventNotifyTypes( $eventType ) {
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 
 		$category = $attributeManager->getNotificationCategory( $eventType );
 
@@ -452,7 +452,7 @@ class NotificationController {
 	 * @return array
 	 */
 	public static function evaluateUserCallable( Event $event, $locator = AttributeManager::ATTR_LOCATORS ) {
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 		$type = $event->getType();
 		$result = [];
 		foreach ( $attributeManager->getUserCallable( $type, $locator ) as $callable ) {

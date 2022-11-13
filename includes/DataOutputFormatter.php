@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use EchoServices;
 use Language;
 use MediaWiki\Extension\Notifications\Formatters\EchoEventFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoFlyoutFormatter;
@@ -170,7 +169,7 @@ class DataOutputFormatter {
 			$output['*'] = $formatted;
 
 			if ( $notification->getBundledNotifications() &&
-				EchoServices::getInstance()->getAttributeManager()->isBundleExpandable( $event->getType() )
+				Services::getInstance()->getAttributeManager()->isBundleExpandable( $event->getType() )
 			) {
 				$output['bundledNotifications'] = array_values( array_filter( array_map(
 					static function ( Notification $notification ) use ( $format, $user, $lang ) {

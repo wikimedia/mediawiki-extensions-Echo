@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Notifications\Special;
 
-use EchoServices;
 use Exception;
 use IContextSource;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Extension\Notifications\Services;
 use ReverseChronologicalPager;
 
 /**
@@ -32,7 +32,7 @@ class NotificationPager extends ReverseChronologicalPager {
 	}
 
 	public function getQueryInfo() {
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 		$eventTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
 		return [

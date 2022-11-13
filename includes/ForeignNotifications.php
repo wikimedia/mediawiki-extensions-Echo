@@ -1,22 +1,22 @@
 <?php
 
-use MediaWiki\Extension\Notifications\AttributeManager;
-use MediaWiki\Extension\Notifications\NotifUser;
-use MediaWiki\Extension\Notifications\UnreadWikis;
+namespace MediaWiki\Extension\Notifications;
+
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
+use MWTimestamp;
 
 /**
  * Caches the result of UnreadWikis::getUnreadCounts() and interprets the results in various useful ways.
  *
  * If the user has disabled cross-wiki notifications in their preferences
- * (see {@see EchoForeignNotifications::isEnabledByUser}), this class
+ * (see {@see ForeignNotifications::isEnabledByUser}), this class
  * won't do anything and will behave as if the user has no foreign notifications. For example, getCount() will
  * return 0. If you need to get foreign notification information for a user even though they may not have
  * enabled the preference, set $forceEnable=true in the constructor.
  */
-class EchoForeignNotifications {
+class ForeignNotifications {
 	/**
 	 * @var UserIdentity
 	 */

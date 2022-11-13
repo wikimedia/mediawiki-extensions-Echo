@@ -6,16 +6,16 @@ use ApiBase;
 use ApiQuery;
 use ApiQueryBase;
 use Config;
-use EchoForeignNotifications;
-use EchoServices;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Bundler;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\DataOutputFormatter;
+use MediaWiki\Extension\Notifications\ForeignNotifications;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\SeenTime;
+use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\WikiMap\WikiMap;
 use Title;
 use User;
@@ -127,7 +127,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 					}
 				}
 			} else {
-				$attributeManager = EchoServices::getInstance()->getAttributeManager();
+				$attributeManager = Services::getInstance()->getAttributeManager();
 				$result = $this->getPropList(
 					$user,
 					$attributeManager->getUserEnabledEventsBySections( $user, $params['notifiertypes'],
@@ -193,7 +193,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$bundle = false,
 		array $notifierTypes = [ 'web' ]
 	) {
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 		$sectionEvents = $attributeManager->getUserEnabledEventsBySections( $user, $notifierTypes, [ $section ] );
 
 		if ( !$sectionEvents ) {
@@ -450,7 +450,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		// Add cross-wiki-specific data
 		$output['section'] = $section ?: 'all';
 		$output['count'] = $count;
-		$output['sources'] = EchoForeignNotifications::getApiEndpoints( $wikis );
+		$output['sources'] = ForeignNotifications::getApiEndpoints( $wikis );
 		// Add timestamp information
 		foreach ( $output['sources'] as $wiki => &$data ) {
 			$data['ts'] = $timestampsByWiki[$wiki]->getTimestamp( TS_ISO_8601 );

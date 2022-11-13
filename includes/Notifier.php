@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use EchoServices;
 use MailAddress;
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextEmailFormatter;
@@ -10,7 +9,6 @@ use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
-use MWEchoEventLogging;
 use User;
 use UserMailer;
 
@@ -25,7 +23,7 @@ class Notifier {
 	public static function notifyWithNotification( $user, $event ) {
 		// Only create the notification if the user wants to receive that type
 		// of notification, and they are eligible to receive it. See bug 47664.
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 		$userWebNotifications = $attributeManager->getUserEnabledEvents( $user, 'web' );
 		if ( !in_array( $event->getType(), $userWebNotifications ) ) {
 			return;
@@ -65,7 +63,7 @@ class Notifier {
 			return false;
 		}
 
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 		$userEmailNotifications = $attributeManager->getUserEnabledEvents( $user, 'email' );
 		// See if the user wants to receive emails for this category or the user is eligible to receive this email
 		if ( in_array( $event->getType(), $userEmailNotifications ) ) {
@@ -118,7 +116,7 @@ class Notifier {
 			$options = [ 'replyTo' => $replyAddress ];
 
 			UserMailer::send( $toAddress, $fromAddress, $subject, $body, $options );
-			MWEchoEventLogging::logSchemaEchoMail( $user, 'single' );
+			EventLogging::logSchemaEchoMail( $user, 'single' );
 		}
 
 		return true;

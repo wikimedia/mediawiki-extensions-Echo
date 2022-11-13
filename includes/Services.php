@@ -1,27 +1,28 @@
 <?php
 
-use MediaWiki\Extension\Notifications\AttributeManager;
+namespace MediaWiki\Extension\Notifications;
+
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\MediaWikiServices;
 
-class EchoServices {
+class Services {
 
 	/** @var MediaWikiServices */
 	private $services;
 
-	/** @return EchoServices */
-	public static function getInstance(): EchoServices {
+	/** @return Services */
+	public static function getInstance(): Services {
 		return new self( MediaWikiServices::getInstance() );
 	}
 
 	/**
 	 * @param MediaWikiServices $services
-	 * @return EchoServices
+	 * @return Services
 	 */
-	public static function wrap( MediaWikiServices $services ): EchoServices {
+	public static function wrap( MediaWikiServices $services ): Services {
 		return new self( $services );
 	}
 

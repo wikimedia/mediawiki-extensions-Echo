@@ -3,9 +3,6 @@
 namespace MediaWiki\Extension\Notifications;
 
 use CentralIdLookup;
-use EchoForeignNotifications;
-use EchoForeignWikiRequest;
-use EchoServices;
 use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
@@ -58,7 +55,7 @@ class NotifUser {
 	private $targetPageMapper;
 
 	/**
-	 * @var EchoForeignNotifications|null
+	 * @var ForeignNotifications|null
 	 */
 	private $foreignNotifications;
 
@@ -307,7 +304,7 @@ class NotifUser {
 			$talkPageNotificationManager = MediaWikiServices::getInstance()
 				->getTalkPageNotificationManager();
 			if ( $talkPageNotificationManager->userHasNewMessages( $this->mUser ) ) {
-				$attributeManager = EchoServices::getInstance()->getAttributeManager();
+				$attributeManager = Services::getInstance()->getAttributeManager();
 				$categoryMap = $attributeManager->getEventsByCategory();
 				$usertalkTypes = $categoryMap['edit-user-talk'];
 				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser(
@@ -349,7 +346,7 @@ class NotifUser {
 			$talkPageNotificationManager = MediaWikiServices::getInstance()
 				->getTalkPageNotificationManager();
 			if ( !$talkPageNotificationManager->userHasNewMessages( $this->mUser ) ) {
-				$attributeManager = EchoServices::getInstance()->getAttributeManager();
+				$attributeManager = Services::getInstance()->getAttributeManager();
 				$categoryMap = $attributeManager->getEventsByCategory();
 				$usertalkTypes = $categoryMap['edit-user-talk'];
 				$unreadEditUserTalk = $this->notifMapper->fetchUnreadByUser(
@@ -391,7 +388,7 @@ class NotifUser {
 			$sections = AttributeManager::$sections;
 		}
 
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 		$eventTypes = $attributeManager->getUserEnabledEventsBySections( $this->mUser, 'web', $sections );
 
 		$notifs = $this->notifMapper->fetchUnreadByUser( $this->mUser, $wgEchoMaxUpdateCount, null, $eventTypes );
@@ -427,7 +424,7 @@ class NotifUser {
 	 * @param WebRequest|null $originalRequest Original request data to be sent with these requests
 	 */
 	public function markReadForeign( array $eventIds, $wiki, ?WebRequest $originalRequest = null ) {
-		$foreignReq = new EchoForeignWikiRequest(
+		$foreignReq = new ForeignWikiRequest(
 			$this->userFactory->newFromUserIdentity( $this->mUser ),
 			[
 				'action' => 'echomarkread',
@@ -449,7 +446,7 @@ class NotifUser {
 	 * @return array[] Array of notification data as returned by api.php, keyed by event ID
 	 */
 	public function getForeignNotificationInfo( array $eventIds, $wiki, ?WebRequest $originalRequest = null ) {
-		$foreignReq = new EchoForeignWikiRequest(
+		$foreignReq = new ForeignWikiRequest(
 			$this->userFactory->newFromUserIdentity( $this->mUser ),
 			[
 				'action' => 'query',
@@ -607,7 +604,7 @@ class NotifUser {
 	 * @return array[] [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
 	 */
 	protected function computeLocalCountsAndTimestamps( $dbSource = DB_REPLICA ) {
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 		$result = [];
 		$totals = [ 'count' => 0, 'timestamp' => -1 ];
 
@@ -722,13 +719,13 @@ class NotifUser {
 	}
 
 	/**
-	 * Lazy-construct an EchoForeignNotifications instance. This instance is force-enabled, so it
+	 * Lazy-construct an ForeignNotifications instance. This instance is force-enabled, so it
 	 * returns information about cross-wiki notifications even if the user has them disabled.
-	 * @return EchoForeignNotifications
+	 * @return ForeignNotifications
 	 */
 	protected function getForeignNotifications() {
 		if ( !$this->foreignNotifications ) {
-			$this->foreignNotifications = new EchoForeignNotifications( $this->mUser, true );
+			$this->foreignNotifications = new ForeignNotifications( $this->mUser, true );
 		}
 		return $this->foreignNotifications;
 	}

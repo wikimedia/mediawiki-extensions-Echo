@@ -6,7 +6,6 @@ use ApiModuleManager;
 use Config;
 use Content;
 use DeferredUpdates;
-use EchoServices;
 use EchoUserLocator;
 use EmailNotification;
 use ExtensionRegistry;
@@ -63,7 +62,6 @@ use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
 use OutputPage;
 use RecentChange;
-use ResourceLoaderEchoImageModule;
 use Skin;
 use SkinTemplate;
 use SpecialPage;
@@ -295,7 +293,7 @@ class Hooks implements
 			$wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist,
 			$wgEchoWatchlistNotifications;
 
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 
 		// Show email frequency options
 		$freqOptions = [
@@ -1199,7 +1197,7 @@ class Hooks implements
 		}
 
 		if ( $eventName !== false ) {
-			$attributeManager = EchoServices::getInstance()->getAttributeManager();
+			$attributeManager = Services::getInstance()->getAttributeManager();
 			$events = $attributeManager->getUserEnabledEvents( $targetUser, 'email' );
 			if ( in_array( $eventName, $events ) ) {
 				// Do not send watchlist email notification, the user will receive an Echo notification

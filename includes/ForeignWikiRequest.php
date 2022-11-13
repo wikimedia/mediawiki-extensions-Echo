@@ -1,13 +1,23 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
+use ApiMain;
+use CentralAuthSessionProvider;
+use CentralIdLookup;
+use Exception;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
+use MWExceptionHandler;
+use RequestContext;
+use User;
+use WebRequest;
 
-class EchoForeignWikiRequest {
+class ForeignWikiRequest {
 
 	/** @var User */
 	protected $user;
@@ -170,7 +180,7 @@ class EchoForeignWikiRequest {
 	 * @return array[] Array of request parameters to pass to doRequests(), keyed by wiki name
 	 */
 	protected function getRequestParams( $method, $params, ?WebRequest $originalRequest ) {
-		$apis = EchoForeignNotifications::getApiEndpoints( $this->wikis );
+		$apis = ForeignNotifications::getApiEndpoints( $this->wikis );
 		if ( !$apis ) {
 			return [];
 		}
@@ -189,7 +199,7 @@ class EchoForeignWikiRequest {
 					'X-Forwarded-For' => $originalRequest->getIP(),
 					'User-Agent' => (
 						$originalRequest->getHeader( 'User-Agent' )
-						. ' (via EchoForeignWikiRequest MediaWiki/' . MW_VERSION . ')'
+						. ' (via ForeignWikiRequest MediaWiki/' . MW_VERSION . ')'
 					),
 				];
 			}

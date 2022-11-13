@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\Notifications\Api;
 use ApiQuery;
 use ApiQueryBase;
 use ApiUsageException;
-use EchoServices;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\NotifUser;
+use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\PageRecord;
 use MediaWiki\Page\PageStore;
@@ -85,7 +85,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	 * @phan-return array{pages:array[],totalCount:int}
 	 */
 	protected function getFromLocal( $limit, $groupPages ) {
-		$attributeManager = EchoServices::getInstance()->getAttributeManager();
+		$attributeManager = Services::getInstance()->getAttributeManager();
 		$enabledTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
 		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );

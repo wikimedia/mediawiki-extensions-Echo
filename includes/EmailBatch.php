@@ -12,7 +12,6 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
-use MWEchoEventLogging;
 use stdClass;
 use User;
 use UserMailer;
@@ -369,7 +368,7 @@ class EmailBatch {
 
 		// @Todo Push the email to job queue or just send it out directly?
 		UserMailer::send( $toAddress, $fromAddress, $content['subject'], $content['body'], [ 'replyTo' => $replyTo ] );
-		MWEchoEventLogging::logSchemaEchoMail( $this->mUser, $emailDeliveryMode );
+		EventLogging::logSchemaEchoMail( $this->mUser, $emailDeliveryMode );
 	}
 
 	/**

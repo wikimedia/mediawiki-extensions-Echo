@@ -7,6 +7,7 @@
  */
 
 use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\SuppressionRowUpdateGenerator;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -66,7 +67,7 @@ class UpdateEchoSchemaForSuppression extends LoggedUpdateMaintenance {
 		$updater = new BatchRowUpdate(
 			$reader,
 			$writer,
-			new EchoSuppressionRowUpdateGenerator
+			new SuppressionRowUpdateGenerator
 		);
 		$updater->setOutput( function ( $text ) {
 			$this->output( $text );

@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Model;
 
-use EchoServices;
 use Exception;
 use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Bundleable;
@@ -11,6 +10,7 @@ use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
+use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
@@ -356,11 +356,11 @@ class Event extends AbstractEntity implements Bundleable {
 			);
 		}
 		if ( $row->event_page_id ) {
-			$titleCache = EchoServices::getInstance()->getTitleLocalCache();
+			$titleCache = Services::getInstance()->getTitleLocalCache();
 			$titleCache->add( (int)$row->event_page_id );
 		}
 		if ( isset( $this->extra['revid'] ) && $this->extra['revid'] ) {
-			$revisionCache = EchoServices::getInstance()->getRevisionLocalCache();
+			$revisionCache = Services::getInstance()->getRevisionLocalCache();
 			$revisionCache->add( $this->extra['revid'] );
 		}
 
@@ -558,7 +558,7 @@ class Event extends AbstractEntity implements Bundleable {
 			return $this->title;
 		}
 		if ( $this->pageId ) {
-			$titleCache = EchoServices::getInstance()->getTitleLocalCache();
+			$titleCache = Services::getInstance()->getTitleLocalCache();
 			$title = $titleCache->get( $this->pageId );
 			if ( $title ) {
 				$this->title = $title;
@@ -588,7 +588,7 @@ class Event extends AbstractEntity implements Bundleable {
 		}
 
 		if ( isset( $this->extra['revid'] ) ) {
-			$revisionCache = EchoServices::getInstance()->getRevisionLocalCache();
+			$revisionCache = Services::getInstance()->getRevisionLocalCache();
 			$revision = $revisionCache->get( $this->extra['revid'] );
 			if ( $revision ) {
 				$this->revision = $revision;
@@ -608,7 +608,7 @@ class Event extends AbstractEntity implements Bundleable {
 	 * @return string
 	 */
 	public function getCategory() {
-		return EchoServices::getInstance()->getAttributeManager()->getNotificationCategory( $this->type );
+		return Services::getInstance()->getAttributeManager()->getNotificationCategory( $this->type );
 	}
 
 	/**
@@ -616,7 +616,7 @@ class Event extends AbstractEntity implements Bundleable {
 	 * @return string
 	 */
 	public function getSection() {
-		return EchoServices::getInstance()->getAttributeManager()->getNotificationSection( $this->type );
+		return Services::getInstance()->getAttributeManager()->getNotificationSection( $this->type );
 	}
 
 	/**
