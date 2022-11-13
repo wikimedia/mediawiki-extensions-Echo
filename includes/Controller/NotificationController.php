@@ -3,20 +3,20 @@
 namespace MediaWiki\Extension\Notifications\Controller;
 
 use DeferredUpdates;
-use EchoCachedList;
-use EchoContainmentList;
-use EchoContainmentSet;
-use EchoOnWikiList;
 use EchoServices;
 use InvalidArgumentException;
 use Iterator;
 use MapCacheLRU;
 use MediaWiki\Extension\Notifications\AttributeManager;
+use MediaWiki\Extension\Notifications\CachedList;
+use MediaWiki\Extension\Notifications\ContainmentList;
+use MediaWiki\Extension\Notifications\ContainmentSet;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
 use MediaWiki\Extension\Notifications\Jobs\NotificationDeleteJob;
 use MediaWiki\Extension\Notifications\Jobs\NotificationJob;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\OnWikiList;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
@@ -61,7 +61,7 @@ class NotificationController {
 	/**
 	 * Echo event agent per wiki blacklist
 	 *
-	 * @var EchoContainmentList|null
+	 * @var ContainmentList|null
 	 */
 	protected static $wikiBlacklist;
 
@@ -73,7 +73,7 @@ class NotificationController {
 	protected static $whitelistByUser;
 
 	/**
-	 * Returns the count passed in, or MWEchoNotifUser::MAX_BADGE_COUNT + 1,
+	 * Returns the count passed in, or NotifUser::MAX_BADGE_COUNT + 1,
 	 * whichever is less.
 	 *
 	 * @param int $count
@@ -307,7 +307,7 @@ class NotificationController {
 
 		// Ensure we have a blacklist for the user
 		if ( !self::$blacklistByUser->has( (string)$user->getId() ) ) {
-			$blacklist = new EchoContainmentSet( $user );
+			$blacklist = new ContainmentSet( $user );
 
 			// Add the config setting
 			$blacklist->addArray( $wgEchoAgentBlacklist );
@@ -347,7 +347,7 @@ class NotificationController {
 			self::$mutedPageLinkedTitlesCache = new MapCacheLRU( self::$maxUsersTitleCacheSize );
 		}
 		if ( !self::$mutedPageLinkedTitlesCache->has( (string)$user->getId() ) ) {
-			$pageLinkedTitleMutedList = new EchoContainmentSet( $user );
+			$pageLinkedTitleMutedList = new ContainmentSet( $user );
 			$pageLinkedTitleMutedList->addTitleIDsFromUserOption(
 				'echo-notifications-page-linked-title-muted-list'
 			);
@@ -359,7 +359,7 @@ class NotificationController {
 	}
 
 	/**
-	 * @return EchoContainmentList|null
+	 * @return ContainmentList|null
 	 */
 	protected static function getWikiBlacklist() {
 		global $wgEchoOnWikiBlacklist;
@@ -368,10 +368,10 @@ class NotificationController {
 		}
 		if ( self::$wikiBlacklist === null ) {
 			$clusterCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-			self::$wikiBlacklist = new EchoCachedList(
+			self::$wikiBlacklist = new CachedList(
 				$clusterCache,
 				$clusterCache->makeKey( "echo_on_wiki_blacklist" ),
-				new EchoOnWikiList( NS_MEDIAWIKI, $wgEchoOnWikiBlacklist )
+				new OnWikiList( NS_MEDIAWIKI, $wgEchoOnWikiBlacklist )
 			);
 		}
 
@@ -406,7 +406,7 @@ class NotificationController {
 
 		// Ensure we have a whitelist for the user
 		if ( !self::$whitelistByUser->has( (string)$userId ) ) {
-			$whitelist = new EchoContainmentSet( $user );
+			$whitelist = new ContainmentSet( $user );
 			self::$whitelistByUser->set( (string)$userId, $whitelist );
 			$whitelist->addOnWiki(
 				NS_USER,

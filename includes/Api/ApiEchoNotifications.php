@@ -5,16 +5,16 @@ namespace MediaWiki\Extension\Notifications\Api;
 use ApiBase;
 use ApiQuery;
 use ApiQueryBase;
-use Bundler;
 use Config;
 use EchoDataOutputFormatter;
 use EchoForeignNotifications;
-use EchoSeenTime;
 use EchoServices;
 use MediaWiki\Extension\Notifications\AttributeManager;
+use MediaWiki\Extension\Notifications\Bundler;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Extension\Notifications\SeenTime;
 use MediaWiki\WikiMap\WikiMap;
 use MWEchoNotifUser;
 use Title;
@@ -377,7 +377,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 */
 	protected function getPropSeenTime( User $user, array $sections, $groupBySection ) {
 		$result = [];
-		$seenTimeHelper = EchoSeenTime::newFromUser( $user );
+		$seenTimeHelper = SeenTime::newFromUser( $user );
 
 		if ( $groupBySection ) {
 			foreach ( $sections as $section ) {

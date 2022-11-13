@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\Notifications\Special;
 
 use EchoDataOutputFormatter;
-use EchoSeenTime;
 use Html;
 use MediaWiki\Extension\Notifications\OOUI\LabelIconWidget;
+use MediaWiki\Extension\Notifications\SeenTime;
 use MWEchoEventLogging;
 use MWEchoNotifUser;
 use OOUI;
@@ -78,8 +78,7 @@ class SpecialNotifications extends SpecialPage {
 		// Add the notifications to the page (interspersed with date headers)
 		$dateHeader = '';
 		$anyUnread = false;
-		$echoSeenTime = EchoSeenTime::newFromUser( $user );
-		$seenTime = $echoSeenTime->getTime();
+		$seenTime = SeenTime::newFromUser( $user )->getTime();
 		$notifArray = [];
 		foreach ( $notif as $row ) {
 			if ( !$row['*'] ) {

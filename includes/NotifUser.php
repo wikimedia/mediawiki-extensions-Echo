@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\EmailFormat;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
@@ -681,7 +682,7 @@ class MWEchoNotifUser {
 			return $this->userOptionsLookup->getOption( $this->mUser, 'echo-email-format' );
 		}
 
-		return EchoEmailFormat::PLAIN_TEXT;
+		return EmailFormat::PLAIN_TEXT;
 	}
 
 	/**

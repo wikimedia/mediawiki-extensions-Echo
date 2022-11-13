@@ -1,6 +1,10 @@
 <?php
 
-use MediaWiki\Extension\Notifications\DbFactory;
+namespace MediaWiki\Extension\Notifications;
+
+use BatchRowIterator;
+use Language;
+use MailAddress;
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
@@ -8,12 +12,17 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
+use MWEchoEventLogging;
+use MWEchoNotifUser;
+use stdClass;
+use User;
+use UserMailer;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**
  * Handle user email batch ( daily/ weekly )
  */
-class MWEchoEmailBatch {
+class EmailBatch {
 
 	/**
 	 * @var User the user to be notified
@@ -77,14 +86,14 @@ class MWEchoEmailBatch {
 	 *  1 - once everyday
 	 *  7 - once every 7 days
 	 * @param int $userId
-	 * @param bool $enforceFrequency Whether or not email sending frequency should
+	 * @param bool $enforceFrequency Whether email sending frequency should
 	 *  be enforced.
 	 *
 	 *  When true, today's notifications won't be returned if they are
 	 *  configured to go out tonight or at the end of the week.
 	 *
 	 *  When false, all pending notifications will be returned.
-	 * @return MWEchoEmailBatch|false
+	 * @return EmailBatch|false
 	 */
 	public static function newFromUserId( $userId, $enforceFrequency = true ) {
 		$user = User::newFromId( (int)$userId );
@@ -324,7 +333,7 @@ class MWEchoEmailBatch {
 		global $wgPasswordSender, $wgNoReplyAddress;
 
 		if ( $this->userOptionsManager->getOption( $this->mUser, 'echo-email-frequency' )
-			== EchoEmailFrequency::WEEKLY_DIGEST
+			== EmailFrequency::WEEKLY_DIGEST
 		) {
 			$frequency = 'weekly';
 			$emailDeliveryMode = 'weekly_digest';
@@ -342,7 +351,7 @@ class MWEchoEmailBatch {
 		}
 
 		$format = MWEchoNotifUser::newFromUser( $this->mUser )->getEmailFormat();
-		if ( $format == EchoEmailFormat::HTML ) {
+		if ( $format == EmailFormat::HTML ) {
 			$htmlEmailDigestFormatter = new EchoHtmlDigestEmailFormatter( $this->mUser, $this->language, $frequency );
 			$htmlContent = $htmlEmailDigestFormatter->format( $this->events, 'email' );
 

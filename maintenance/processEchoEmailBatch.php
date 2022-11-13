@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\EmailBatch;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
@@ -39,13 +40,13 @@ class ProcessEchoEmailBatch extends Maintenance {
 		while ( $count === $batchSize ) {
 			$count = 0;
 
-			$res = MWEchoEmailBatch::getUsersToNotify( $startUserId, $batchSize );
+			$res = EmailBatch::getUsersToNotify( $startUserId, $batchSize );
 
 			$updated = false;
 			foreach ( $res as $row ) {
 				$userId = intval( $row->eeb_user_id );
 				if ( $userId && $userId > $startUserId ) {
-					$emailBatch = MWEchoEmailBatch::newFromUserId( $userId, !$ignoreConfiguredSchedule );
+					$emailBatch = EmailBatch::newFromUserId( $userId, !$ignoreConfiguredSchedule );
 					if ( $emailBatch ) {
 						$this->output( "processing user_Id " . $userId . " \n" );
 						$emailBatch->process();

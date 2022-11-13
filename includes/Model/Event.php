@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\Notifications\Model;
 
-use Bundleable;
 use EchoServices;
 use Exception;
 use InvalidArgumentException;
+use MediaWiki\Extension\Notifications\Bundleable;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;

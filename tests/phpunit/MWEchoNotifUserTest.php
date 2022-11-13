@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\EmailFormat;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
@@ -58,7 +59,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$this->setMwGlobals( 'wgAllowHTMLEmail', true );
 		$this->assertEquals( $notifUser->getEmailFormat(), $pref );
 		$this->setMwGlobals( 'wgAllowHTMLEmail', false );
-		$this->assertEquals( EchoEmailFormat::PLAIN_TEXT, $notifUser->getEmailFormat() );
+		$this->assertEquals( EmailFormat::PLAIN_TEXT, $notifUser->getEmailFormat() );
 	}
 
 	public function testMarkRead() {

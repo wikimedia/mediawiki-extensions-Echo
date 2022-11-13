@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Model;
 
-use Bundleable;
 use InvalidArgumentException;
+use MediaWiki\Extension\Notifications\Bundleable;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\MediaWikiServices;

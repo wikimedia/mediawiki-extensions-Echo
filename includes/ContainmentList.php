@@ -1,9 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
 /**
  * Interface providing list of contained values and an optional cache key to go along with it.
  */
-interface EchoContainmentList {
+interface ContainmentList {
 	/**
 	 * @return string[] The values contained within this list.
 	 */

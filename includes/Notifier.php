@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use EchoEmailFormat;
 use EchoServices;
 use MailAddress;
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlEmailFormatter;
@@ -11,7 +10,6 @@ use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
-use MWEchoEmailBatch;
 use MWEchoEventLogging;
 use MWEchoNotifUser;
 use User;
@@ -97,7 +95,7 @@ class Notifier {
 				if ( !$bundleHash ) {
 					$bundleHash = md5( $event->getType() . '-' . $event->getId() );
 				}
-				MWEchoEmailBatch::addToQueue( $user->getId(), $event->getId(), $priority, $bundleHash );
+				EmailBatch::addToQueue( $user->getId(), $event->getId(), $priority, $bundleHash );
 
 				return true;
 			}
@@ -144,7 +142,7 @@ class Notifier {
 			return false;
 		}
 
-		if ( $emailFormat === EchoEmailFormat::HTML ) {
+		if ( $emailFormat === EmailFormat::HTML ) {
 			$htmlEmailFormatter = new EchoHtmlEmailFormatter( $user, $lang );
 			$htmlContent = $htmlEmailFormatter->format( $event, 'email' );
 			$multipartBody = [

@@ -1,15 +1,20 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
+use BadMethodCallException;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\MultiUsernameFilter;
+use User;
+use WANObjectCache;
 
 /**
- * Utilizes EchoContainmentList interface to provide a fluent interface to whitelist/blacklist
+ * Utilizes ContainmentList interface to provide a fluent interface to whitelist/blacklist
  * from multiple sources like global variables, wiki pages, etc.
  *
  * Initialize:
  *   $cache = ObjectCache::getLocalClusterInstance();
- *   $set = new EchoContainmentSet;
+ *   $set = new ContainmentSet;
  *   $set->addArray( $wgSomeGlobalParameter );
  *   $set->addOnWiki( NS_USER, 'Foo/bar-baz', $cache, 'some_user_specific_cache_key' );
  *
@@ -18,9 +23,9 @@ use MediaWiki\Preferences\MultiUsernameFilter;
  *       ...
  *   }
  */
-class EchoContainmentSet {
+class ContainmentSet {
 	/**
-	 * @var EchoContainmentList[]
+	 * @var ContainmentList[]
 	 */
 	protected $lists = [];
 
@@ -37,11 +42,11 @@ class EchoContainmentSet {
 	}
 
 	/**
-	 * Add an EchoContainmentList to the set of lists checked by self::contains()
+	 * Add an ContainmentList to the set of lists checked by self::contains()
 	 *
-	 * @param EchoContainmentList $list
+	 * @param ContainmentList $list
 	 */
-	public function add( EchoContainmentList $list ) {
+	public function add( ContainmentList $list ) {
 		$this->lists[] = $list;
 	}
 
@@ -51,7 +56,7 @@ class EchoContainmentSet {
 	 * @param array $list
 	 */
 	public function addArray( array $list ) {
-		$this->add( new EchoArrayList( $list ) );
+		$this->add( new ArrayList( $list ) );
 	}
 
 	/**
@@ -103,12 +108,12 @@ class EchoContainmentSet {
 	public function addOnWiki(
 		$namespace, $title, WANObjectCache $cache = null, $cacheKeyPrefix = ''
 	) {
-		$list = new EchoOnWikiList( $namespace, $title );
+		$list = new OnWikiList( $namespace, $title );
 		if ( $cache ) {
 			if ( $cacheKeyPrefix === '' ) {
 				throw new BadMethodCallException( 'Cache requires providing a cache key prefix.' );
 			}
-			$list = new EchoCachedList( $cache, $cacheKeyPrefix, $list );
+			$list = new CachedList( $cache, $cacheKeyPrefix, $list );
 		}
 		$this->add( $list );
 	}

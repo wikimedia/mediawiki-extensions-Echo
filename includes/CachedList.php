@@ -1,17 +1,22 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
+use UnexpectedValueException;
+use WANObjectCache;
+
 /**
- * Caches an EchoContainmentList within WANObjectCache to prevent needing
+ * Caches an ContainmentList within WANObjectCache to prevent needing
  * to load the nested list from a potentially slow source (mysql, etc).
  */
-class EchoCachedList implements EchoContainmentList {
+class CachedList implements ContainmentList {
 	private const ONE_WEEK = 4233600;
 
 	/** @var WANObjectCache */
 	protected $cache;
 	/** @var string */
 	protected $partialCacheKey;
-	/** @var EchoContainmentList */
+	/** @var ContainmentList */
 	protected $nestedList;
 	/** @var int */
 	protected $timeout;
@@ -22,13 +27,13 @@ class EchoCachedList implements EchoContainmentList {
 	 * @param WANObjectCache $cache Bag to stored cached data in.
 	 * @param string $partialCacheKey Partial cache key, $nestedList->getCacheKey() will be appended
 	 *   to this to construct the cache key used.
-	 * @param EchoContainmentList $nestedList The nested EchoContainmentList to cache the result of.
+	 * @param ContainmentList $nestedList The nested EchoContainmentList to cache the result of.
 	 * @param int $timeout How long in seconds to cache the nested list, defaults to 1 week.
 	 */
 	public function __construct(
 		WANObjectCache $cache,
 		$partialCacheKey,
-		EchoContainmentList $nestedList,
+		ContainmentList $nestedList,
 		$timeout = self::ONE_WEEK
 	) {
 		$this->cache = $cache;

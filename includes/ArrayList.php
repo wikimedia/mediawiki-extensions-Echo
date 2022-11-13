@@ -1,11 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
 /**
- * Implements the EchoContainmentList interface for php arrays.  Possible source
+ * Implements the ContainmentList interface for php arrays.  Possible source
  * of arrays includes $wg* global variables initialized from extensions or global
  * wiki config.
  */
-class EchoArrayList implements EchoContainmentList {
+class ArrayList implements ContainmentList {
 	/**
 	 * @var array
 	 */

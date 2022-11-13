@@ -1,15 +1,19 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
 use MediaWiki\MediaWikiServices;
+use TextContent;
+use Title;
 
 /**
- * Implements EchoContainmentList interface for sourcing a list of items from a wiki
- * page. Uses the pages latest revision ID as cache key.
+ * Implements ContainmentList interface for sourcing a list of items from a wiki
+ * page. Uses the page's latest revision ID as cache key.
  */
-class EchoOnWikiList implements EchoContainmentList {
+class OnWikiList implements ContainmentList {
 	/**
 	 * @var Title|null A title object representing the page to source the list from,
-	 *                        or null if the page does not exist.
+	 *  or null if the page does not exist.
 	 */
 	protected $title;
 

@@ -6,9 +6,6 @@ use ApiModuleManager;
 use Config;
 use Content;
 use DeferredUpdates;
-use EchoEmailFormat;
-use EchoEmailFrequency;
-use EchoSeenTime;
 use EchoServices;
 use EchoUserLocator;
 use EmailNotification;
@@ -303,14 +300,14 @@ class Hooks implements
 
 		// Show email frequency options
 		$freqOptions = [
-			'echo-pref-email-frequency-never' => EchoEmailFrequency::NEVER,
-			'echo-pref-email-frequency-immediately' => EchoEmailFrequency::IMMEDIATELY,
+			'echo-pref-email-frequency-never' => EmailFrequency::NEVER,
+			'echo-pref-email-frequency-immediately' => EmailFrequency::IMMEDIATELY,
 		];
 		// Only show digest options if email batch is enabled
 		if ( $wgEchoEnableEmailBatch ) {
 			$freqOptions += [
-				'echo-pref-email-frequency-daily' => EchoEmailFrequency::DAILY_DIGEST,
-				'echo-pref-email-frequency-weekly' => EchoEmailFrequency::WEEKLY_DIGEST,
+				'echo-pref-email-frequency-daily' => EmailFrequency::DAILY_DIGEST,
+				'echo-pref-email-frequency-weekly' => EmailFrequency::WEEKLY_DIGEST,
 			];
 		}
 		$preferences['echo-email-frequency'] = [
@@ -359,12 +356,12 @@ class Hooks implements
 			// Email format
 			$preferences['echo-email-format'] = [
 				'type' => 'select',
-				'default' => EchoEmailFormat::HTML,
+				'default' => EmailFormat::HTML,
 				'label-message' => 'echo-pref-email-format',
 				'section' => 'echo/emailsettings',
 				'options-messages' => [
-					'echo-pref-email-format-html' => EchoEmailFormat::HTML,
-					'echo-pref-email-format-plain-text' => EchoEmailFormat::PLAIN_TEXT,
+					'echo-pref-email-format-html' => EmailFormat::HTML,
+					'echo-pref-email-format-plain-text' => EmailFormat::PLAIN_TEXT,
 				]
 			];
 		}
@@ -714,7 +711,7 @@ class Hooks implements
 			] );
 		}
 
-		$seenTime = EchoSeenTime::newFromUser( $user );
+		$seenTime = SeenTime::newFromUser( $user );
 
 		// Set seen time to UNIX epoch, so initially all notifications are unseen.
 		$seenTime->setTime( wfTimestamp( TS_MW, 1 ), 'all' );
@@ -1017,7 +1014,7 @@ class Hooks implements
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
 
-		$seenTime = EchoSeenTime::newFromUser( $user );
+		$seenTime = SeenTime::newFromUser( $user );
 		if ( $title->isSpecial( 'Notifications' ) ) {
 			// If this is the Special:Notifications page, seenTime to now
 			$seenTime->setTime( wfTimestamp( TS_MW ), AttributeManager::ALL );
@@ -1222,7 +1219,7 @@ class Hooks implements
 	public function onOutputPageCheckLastModified( &$modifiedTimes, $out ) {
 		$req = $out->getRequest();
 		if ( $req->getRawVal( 'action' ) === 'raw' || $req->getRawVal( 'action' ) === 'render' ) {
-			// Optimisation: Avoid expensive EchoSeenTime compute on non-skin responses (T279213)
+			// Optimisation: Avoid expensive SeenTime compute on non-skin responses (T279213)
 			return;
 		}
 
@@ -1234,8 +1231,8 @@ class Hooks implements
 				$modifiedTimes['notifications-global'] = $lastUpdate;
 			}
 
-			$modifiedTimes['notifications-seen-alert'] = EchoSeenTime::newFromUser( $user )->getTime( 'alert' );
-			$modifiedTimes['notifications-seen-message'] = EchoSeenTime::newFromUser( $user )->getTime( 'message' );
+			$modifiedTimes['notifications-seen-alert'] = SeenTime::newFromUser( $user )->getTime( 'alert' );
+			$modifiedTimes['notifications-seen-message'] = SeenTime::newFromUser( $user )->getTime( 'message' );
 		}
 	}
 
