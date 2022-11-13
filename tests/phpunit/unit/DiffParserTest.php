@@ -3,7 +3,7 @@
 use MediaWiki\Extension\Notifications\DiscussionParser;
 
 /**
- * @covers \EchoDiffParser
+ * @covers \MediaWiki\Extension\Notifications\DiffParser
  * @group Echo
  */
 class DiffParserTest extends MediaWikiUnitTestCase {

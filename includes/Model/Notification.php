@@ -6,8 +6,8 @@ use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Bundleable;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\MediaWikiServices;
-use MWEchoNotifUser;
 use stdClass;
 use User;
 
@@ -119,7 +119,7 @@ class Notification extends AbstractEntity implements Bundleable {
 			$this->bundleHash = $hash;
 		}
 
-		$notifUser = MWEchoNotifUser::newFromUser( $this->user );
+		$notifUser = NotifUser::newFromUser( $this->user );
 
 		// Add listener to refresh notification count upon insert
 		$notifMapper->attachListener( 'insert', 'refresh-notif-count',

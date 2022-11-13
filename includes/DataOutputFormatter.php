@@ -1,5 +1,9 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications;
+
+use EchoServices;
+use Language;
 use MediaWiki\Extension\Notifications\Formatters\EchoEventFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoFlyoutFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoModelFormatter;
@@ -8,12 +12,15 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\WikiMap\WikiMap;
+use MWTimestamp;
+use RequestContext;
+use User;
 
 /**
  * Utility class that formats a notification in the format specified
  * @todo Make this a service with DI
  */
-class EchoDataOutputFormatter {
+class DataOutputFormatter {
 
 	/**
 	 * @var string[] type => class
@@ -157,7 +164,7 @@ class EchoDataOutputFormatter {
 			$formatted = self::formatNotification( $event, $user, $format, $lang );
 			if ( $formatted === false ) {
 				// Can't display it, so mark it as read
-				EchoDeferredMarkAsDeletedUpdate::add( $event );
+				DeferredMarkAsDeletedUpdate::add( $event );
 				return false;
 			}
 			$output['*'] = $formatted;

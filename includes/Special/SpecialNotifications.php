@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extension\Notifications\Special;
 
-use EchoDataOutputFormatter;
 use Html;
+use MediaWiki\Extension\Notifications\DataOutputFormatter;
+use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\OOUI\LabelIconWidget;
 use MediaWiki\Extension\Notifications\SeenTime;
 use MWEchoEventLogging;
-use MWEchoNotifUser;
 use OOUI;
 use SpecialPage;
 
@@ -69,7 +69,7 @@ class SpecialNotifications extends SpecialPage {
 
 		$notif = [];
 		foreach ( $notifications as $notification ) {
-			$output = EchoDataOutputFormatter::formatOutput( $notification, 'special', $user, $this->getLanguage() );
+			$output = DataOutputFormatter::formatOutput( $notification, 'special', $user, $this->getLanguage() );
 			if ( $output ) {
 				$notif[] = $output;
 			}
@@ -121,7 +121,7 @@ class SpecialNotifications extends SpecialPage {
 		if ( $anyUnread ) {
 			$markReadSpecialPage = new SpecialNotificationsMarkRead();
 			$markReadSpecialPage->setContext( $this->getContext() );
-			$notifUser = MWEchoNotifUser::newFromUser( $user );
+			$notifUser = NotifUser::newFromUser( $user );
 			$unreadCount = $notifUser->getAlertCount() + $notifUser->getMessageCount();
 
 			$markAllAsReadText = $this

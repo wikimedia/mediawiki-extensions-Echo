@@ -6,17 +6,17 @@ use ApiBase;
 use ApiQuery;
 use ApiQueryBase;
 use Config;
-use EchoDataOutputFormatter;
 use EchoForeignNotifications;
 use EchoServices;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Bundler;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\DataOutputFormatter;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\SeenTime;
 use MediaWiki\WikiMap\WikiMap;
-use MWEchoNotifUser;
 use Title;
 use User;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -320,7 +320,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		while ( $notifs !== [] ) {
 			/** @var Notification $notif */
 			$notif = array_shift( $notifs );
-			$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
+			$output = DataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 			if ( $output !== false ) {
 				$result['list'][] = $output;
 			} elseif ( $bundler && $notif->getBundledNotifications() ) {
@@ -350,7 +350,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	 */
 	protected function getPropCount( User $user, array $sections, $groupBySection ) {
 		$result = [];
-		$notifUser = MWEchoNotifUser::newFromUser( $user );
+		$notifUser = NotifUser::newFromUser( $user );
 		$global = $this->crossWikiSummary ? 'preference' : false;
 
 		$totalRawCount = 0;
@@ -445,7 +445,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		// Format output like any other notification
 		$notif = Notification::newFromRow( $row );
-		$output = EchoDataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
+		$output = DataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 
 		// Add cross-wiki-specific data
 		$output['section'] = $section ?: 'all';

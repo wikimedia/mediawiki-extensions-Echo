@@ -7,12 +7,12 @@ use ApiQueryBase;
 use ApiUsageException;
 use EchoServices;
 use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\PageRecord;
 use MediaWiki\Page\PageStore;
 use MediaWiki\Title\TitleFactory;
 use MediaWiki\WikiMap\WikiMap;
-use MWEchoNotifUser;
 use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
@@ -198,7 +198,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 
 		return [
 			'pages' => $result,
-			'totalCount' => MWEchoNotifUser::newFromUser( $this->getUser() )->getLocalNotificationCount(),
+			'totalCount' => NotifUser::newFromUser( $this->getUser() )->getLocalNotificationCount(),
 		];
 	}
 

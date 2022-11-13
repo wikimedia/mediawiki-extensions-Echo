@@ -16,12 +16,12 @@ use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
 use MediaWiki\Extension\Notifications\Jobs\NotificationDeleteJob;
 use MediaWiki\Extension\Notifications\Jobs\NotificationJob;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\OnWikiList;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\User\UserIdentity;
-use MWEchoNotifUser;
 use Title;
 use User;
 
@@ -80,7 +80,7 @@ class NotificationController {
 	 * @return int Notification count, with ceiling applied
 	 */
 	public static function getCappedNotificationCount( int $count ): int {
-		return min( $count, MWEchoNotifUser::MAX_BADGE_COUNT + 1 );
+		return min( $count, NotifUser::MAX_BADGE_COUNT + 1 );
 	}
 
 	/**

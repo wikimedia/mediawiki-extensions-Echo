@@ -6,8 +6,8 @@ use ApiBase;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\WikiMap\WikiMap;
-use MWEchoNotifUser;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoMarkRead extends ApiBase {
@@ -24,7 +24,7 @@ class ApiEchoMarkRead extends ApiBase {
 			$this->dieReadOnly();
 		}
 
-		$notifUser = MWEchoNotifUser::newFromUser( $user );
+		$notifUser = NotifUser::newFromUser( $user );
 
 		$params = $this->extractRequestParams();
 

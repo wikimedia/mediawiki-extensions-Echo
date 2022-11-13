@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\Notifications\Jobs;
 
 use Job;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\MediaWikiServices;
-use MWEchoNotifUser;
 use Title;
 use User;
 
@@ -58,7 +58,7 @@ class NotificationDeleteJob extends Job {
 			$notifMapper->deleteByUserEventOffset(
 				$user, $notif->getEvent()->getId()
 			);
-			$notifUser = MWEchoNotifUser::newFromUser( $user );
+			$notifUser = NotifUser::newFromUser( $user );
 			$notifUser->resetNotificationCount();
 		}
 

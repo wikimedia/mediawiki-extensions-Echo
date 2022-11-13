@@ -1,18 +1,19 @@
 <?php
 
 use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\UnreadWikis;
 use Wikimedia\TestingAccessWrapper;
 
 /**
  * Tests for unread wiki database access
  *
  * @group Database
- * @covers \EchoUnreadWikis
+ * @covers \MediaWiki\Extension\Notifications\UnreadWikis
  */
 class UnreadWikisTest extends MediaWikiIntegrationTestCase {
 
 	public function testUpdateCount() {
-		$unread = TestingAccessWrapper::newFromObject( new EchoUnreadWikis( 1 ) );
+		$unread = TestingAccessWrapper::newFromObject( new UnreadWikis( 1 ) );
 		$unread->dbFactory = $this->mockDbFactory( $this->db );
 		$unread->updateCount(
 			'foobar',
@@ -33,7 +34,7 @@ class UnreadWikisTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testUpdateCountFalse() {
-		$unread = TestingAccessWrapper::newFromObject( new EchoUnreadWikis( 1 ) );
+		$unread = TestingAccessWrapper::newFromObject( new UnreadWikis( 1 ) );
 		$unread->dbFactory = $this->mockDbFactory( $this->db );
 		$unread->updateCount(
 			'foobar',

@@ -9,7 +9,6 @@ use MediaWiki\Extension\UserMerge\Hooks\AccountDeleteTablesHook;
 use MediaWiki\Extension\UserMerge\Hooks\AccountFieldsHook;
 use MediaWiki\Extension\UserMerge\Hooks\MergeAccountFromToHook;
 use MWEchoDbFactory;
-use MWEchoNotifUser;
 use User;
 
 class UserMergeHooks implements
@@ -106,9 +105,9 @@ class UserMergeHooks implements
 				}
 			}
 
-			MWEchoNotifUser::newFromUser( $oldUser )->resetNotificationCount();
+			NotifUser::newFromUser( $oldUser )->resetNotificationCount();
 			if ( $newUser->isRegistered() ) {
-				MWEchoNotifUser::newFromUser( $newUser )->resetNotificationCount();
+				NotifUser::newFromUser( $newUser )->resetNotificationCount();
 			}
 		} );
 	}

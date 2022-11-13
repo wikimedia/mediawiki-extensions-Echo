@@ -1,12 +1,14 @@
 <?php
 
 use MediaWiki\Extension\Notifications\AttributeManager;
+use MediaWiki\Extension\Notifications\NotifUser;
+use MediaWiki\Extension\Notifications\UnreadWikis;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
 
 /**
- * Caches the result of EchoUnreadWikis::getUnreadCounts() and interprets the results in various useful ways.
+ * Caches the result of UnreadWikis::getUnreadCounts() and interprets the results in various useful ways.
  *
  * If the user has disabled cross-wiki notifications in their preferences
  * (see {@see EchoForeignNotifications::isEnabledByUser}), this class
@@ -81,7 +83,7 @@ class EchoForeignNotifications {
 			$count = $this->counts[$section] ?? 0;
 		}
 
-		return MWEchoNotifUser::capNotificationCount( $count );
+		return NotifUser::capNotificationCount( $count );
 	}
 
 	/**
@@ -155,7 +157,7 @@ class EchoForeignNotifications {
 			return;
 		}
 
-		$unreadWikis = EchoUnreadWikis::newFromUser( $this->user );
+		$unreadWikis = UnreadWikis::newFromUser( $this->user );
 		if ( !$unreadWikis ) {
 			return;
 		}

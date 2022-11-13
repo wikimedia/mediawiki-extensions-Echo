@@ -1,4 +1,7 @@
 <?php
+
+namespace MediaWiki\Extension\Notifications;
+
 /**
  * MediaWiki Extension: Echo
  *
@@ -21,6 +24,7 @@
  * @author Erik Bernhardson
  */
 
+use UnexpectedValueException;
 use Wikimedia\Diff\Diff;
 use Wikimedia\Diff\UnifiedDiffFormatter;
 
@@ -31,7 +35,7 @@ use Wikimedia\Diff\UnifiedDiffFormatter;
  * to stay consistent with the original diff output and the previous diff
  * parsing code.
  */
-class EchoDiffParser {
+class DiffParser {
 
 	/**
 	 * @var int The number of characters the diff prefixes a line with
@@ -170,11 +174,11 @@ class EchoDiffParser {
 	 * Parse the next line of the unified diff output
 	 *
 	 * @param string $line The next line of the unified diff
-	 * @param EchoDiffGroup|null $change Changes the immediately previous lines
+	 * @param DiffGroup|null $change Changes the immediately previous lines
 	 *
-	 * @return EchoDiffGroup|null Changes to this line and any changed lines immediately previous
+	 * @return DiffGroup|null Changes to this line and any changed lines immediately previous
 	 */
-	protected function parseLine( $line, EchoDiffGroup $change = null ) {
+	protected function parseLine( $line, DiffGroup $change = null ) {
 		if ( $line ) {
 			$op = $line[0];
 			if ( strlen( $line ) > $this->prefixLength ) {
@@ -222,7 +226,7 @@ class EchoDiffParser {
 				}
 				if ( $change === null ) {
 					// @phan-suppress-next-line PhanTypeMismatchArgument
-					$change = new EchoDiffGroup( $this->leftPos, $this->rightPos );
+					$change = new DiffGroup( $this->leftPos, $this->rightPos );
 				}
 				$change->subtract( $line );
 				$this->leftPos++;
@@ -235,7 +239,7 @@ class EchoDiffParser {
 				}
 				if ( $change === null ) {
 					// @phan-suppress-next-line PhanTypeMismatchArgument
-					$change = new EchoDiffGroup( $this->leftPos, $this->rightPos );
+					$change = new DiffGroup( $this->leftPos, $this->rightPos );
 				}
 				$change->add( $line );
 				$this->rightPos++;

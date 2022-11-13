@@ -1,9 +1,11 @@
 <?php
 
+use MediaWiki\Extension\Notifications\SummaryParser;
+
 /**
  * @group Echo
  */
-class EchoSummaryParserTest extends MediaWikiIntegrationTestCase {
+class SummaryParserTest extends MediaWikiIntegrationTestCase {
 	/** @var string[] */
 	private $existingUsers = [
 		'Werdna',
@@ -12,14 +14,14 @@ class EchoSummaryParserTest extends MediaWikiIntegrationTestCase {
 	];
 
 	/**
-	 * @covers \EchoSummaryParser::parse
+	 * @covers \MediaWiki\Extension\Notifications\SummaryParser::parse
 	 * @dataProvider provideParse
 	 *
 	 * @param string $summary
 	 * @param string[] $expectedUsers
 	 */
 	public function testParse( $summary, array $expectedUsers ) {
-		$parser = new EchoSummaryParser( function ( User $user ) {
+		$parser = new SummaryParser( function ( User $user ) {
 			if ( in_array( $user->getName(), $this->existingUsers ) ) {
 				return crc32( $user->getName() );
 			}

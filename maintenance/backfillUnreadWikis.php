@@ -2,6 +2,8 @@
 
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\NotifUser;
+use MediaWiki\Extension\Notifications\UnreadWikis;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\WikiMap\WikiMap;
 
@@ -60,8 +62,8 @@ class BackfillUnreadWikis extends Maintenance {
 					$user = User::newFromRow( $row );
 				}
 
-				$notifUser = MWEchoNotifUser::newFromUser( $user );
-				$uw = EchoUnreadWikis::newFromUser( $user );
+				$notifUser = NotifUser::newFromUser( $user );
+				$uw = UnreadWikis::newFromUser( $user );
 				if ( $uw ) {
 					$alertCount = $notifUser->getNotificationCount( AttributeManager::ALERT, false );
 					$alertUnread = $notifUser->getLastUnreadNotificationTime( AttributeManager::ALERT, false );

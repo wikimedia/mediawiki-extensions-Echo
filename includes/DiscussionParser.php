@@ -3,8 +3,6 @@
 namespace MediaWiki\Extension\Notifications;
 
 use Article;
-use EchoDiffParser;
-use EchoSummaryParser;
 use Language;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
@@ -28,9 +26,11 @@ abstract class DiscussionParser {
 
 	/** @var string|null */
 	protected static $timestampRegex;
+
 	/** @var array[][] */
 	protected static $revisionInterpretationCache = [];
-	/** @var EchoDiffParser|null */
+
+	/** @var DiffParser|null */
 	protected static $diffParser;
 
 	/**
@@ -157,7 +157,7 @@ abstract class DiscussionParser {
 		global $wgEchoMaxMentionsInEditSummary;
 
 		if ( $wgEchoMaxMentionsInEditSummary > 0 && !$user->isBot() && !$isRevert ) {
-			$summaryParser = new EchoSummaryParser();
+			$summaryParser = new SummaryParser();
 			$usersInSummary = $summaryParser->parse( $revision->getComment()->text );
 
 			// Don't allow pinging yourself
@@ -1000,7 +1000,7 @@ abstract class DiscussionParser {
 	 */
 	public static function getMachineReadableDiff( $oldText, $newText ) {
 		if ( !isset( self::$diffParser ) ) {
-			self::$diffParser = new EchoDiffParser;
+			self::$diffParser = new DiffParser;
 		}
 
 		return self::$diffParser->getChangeSet( $oldText, $newText );

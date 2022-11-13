@@ -61,7 +61,6 @@ use MediaWiki\User\Options\Hook\LoadUserOptionsHook;
 use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
-use MWEchoNotifUser;
 use OutputPage;
 use RecentChange;
 use ResourceLoaderEchoImageModule;
@@ -938,7 +937,7 @@ class Hooks implements
 			} else {
 				$markAsReadIds = array_map( 'intval', $markAsReadIds );
 				// Look up the notifications on the foreign wiki
-				$notifUser = MWEchoNotifUser::newFromUser( $user );
+				$notifUser = NotifUser::newFromUser( $user );
 				$notifInfo = $notifUser->getForeignNotificationInfo( $markAsReadIds, $markAsReadWiki, $request );
 				foreach ( $notifInfo as $id => $info ) {
 					$subtractions[$info['section']]++;
@@ -947,7 +946,7 @@ class Hooks implements
 				// Schedule a deferred update to mark these notifications as read on the foreign wiki
 				DeferredUpdates::addCallableUpdate(
 					static function () use ( $user, $markAsReadIds, $markAsReadWiki, $request ) {
-						$notifUser = MWEchoNotifUser::newFromUser( $user );
+						$notifUser = NotifUser::newFromUser( $user );
 						$notifUser->markReadForeign( $markAsReadIds, $markAsReadWiki, $request );
 					}
 				);
@@ -957,7 +956,7 @@ class Hooks implements
 		// Schedule a deferred update to mark local target_page and ?markasread= notifications as read
 		if ( $eventIds ) {
 			DeferredUpdates::addCallableUpdate( static function () use ( $user, $eventIds ) {
-				$notifUser = MWEchoNotifUser::newFromUser( $user );
+				$notifUser = NotifUser::newFromUser( $user );
 				$notifUser->markRead( $eventIds );
 			} );
 		}
@@ -1004,7 +1003,7 @@ class Hooks implements
 		$subtractions = self::processMarkAsRead( $user, $out->getRequest(), $title );
 
 		// Add a "My notifications" item to personal URLs
-		$notifUser = MWEchoNotifUser::newFromUser( $user );
+		$notifUser = NotifUser::newFromUser( $user );
 		$msgCount = $notifUser->getMessageCount() - $subtractions[AttributeManager::MESSAGE];
 		$alertCount = $notifUser->getAlertCount() - $subtractions[AttributeManager::ALERT];
 		// But make sure we never show a negative number (T130853)
@@ -1058,7 +1057,7 @@ class Hooks implements
 			$msgLinkClasses[] = 'mw-echo-notifications-badge-all-read';
 		}
 
-		if ( $msgCount > MWEchoNotifUser::MAX_BADGE_COUNT ) {
+		if ( $msgCount > NotifUser::MAX_BADGE_COUNT ) {
 			$msgLinkClasses[] = 'mw-echo-notifications-badge-long-label';
 		}
 
@@ -1077,7 +1076,7 @@ class Hooks implements
 			$alertLinkClasses[] = 'mw-echo-notifications-badge-all-read';
 		}
 
-		if ( $alertCount > MWEchoNotifUser::MAX_BADGE_COUNT ) {
+		if ( $alertCount > NotifUser::MAX_BADGE_COUNT ) {
 			$alertLinkClasses[] = 'mw-echo-notifications-badge-long-label';
 		}
 
@@ -1225,7 +1224,7 @@ class Hooks implements
 
 		$user = $out->getUser();
 		if ( $user->isRegistered() ) {
-			$notifUser = MWEchoNotifUser::newFromUser( $user );
+			$notifUser = NotifUser::newFromUser( $user );
 			$lastUpdate = $notifUser->getGlobalUpdateTime();
 			if ( $lastUpdate !== false ) {
 				$modifiedTimes['notifications-global'] = $lastUpdate;
@@ -1326,7 +1325,7 @@ class Hooks implements
 					// update runs (T318081)
 					return;
 				}
-				MWEchoNotifUser::newFromUser( $user )->resetNotificationCount();
+				NotifUser::newFromUser( $user )->resetNotificationCount();
 			} );
 		}
 	}
@@ -1410,7 +1409,7 @@ class Hooks implements
 	public function onUserClearNewTalkNotification( $user, $oldid ) {
 		if ( $user->isRegistered() ) {
 			DeferredUpdates::addCallableUpdate( static function () use ( $user ) {
-				MWEchoNotifUser::newFromUser( $user )->clearUserTalkNotifications();
+				NotifUser::newFromUser( $user )->clearUserTalkNotifications();
 			} );
 		}
 	}
@@ -1463,7 +1462,7 @@ class Hooks implements
 
 	public static function getConfigVars( RL\Context $context, Config $config ) {
 		return [
-			'EchoMaxNotificationCount' => MWEchoNotifUser::MAX_BADGE_COUNT,
+			'EchoMaxNotificationCount' => NotifUser::MAX_BADGE_COUNT,
 			'EchoPollForUpdates' => $config->get( 'EchoPollForUpdates' )
 		];
 	}

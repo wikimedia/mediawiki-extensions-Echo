@@ -6,6 +6,7 @@
  */
 
 use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\NotifUser;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -79,7 +80,7 @@ class RecomputeNotifCounts extends Maintenance {
 				} else {
 					$user = User::newFromId( is_object( $rowOrID ) ? $rowOrID->notification_user : $rowOrID );
 				}
-				$notifUser = MWEchoNotifUser::newFromUser( $user );
+				$notifUser = NotifUser::newFromUser( $user );
 				$notifUser->resetNotificationCount();
 			}
 			$count += count( $batch );

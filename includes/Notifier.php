@@ -11,7 +11,6 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
 use MWEchoEventLogging;
-use MWEchoNotifUser;
 use User;
 use UserMailer;
 
@@ -131,7 +130,7 @@ class Notifier {
 	 * @return array|false An array of 'subject' and 'body', or false if things went wrong
 	 */
 	private static function generateEmail( Event $event, User $user ) {
-		$emailFormat = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
+		$emailFormat = NotifUser::newFromUser( $user )->getEmailFormat();
 		$services = MediaWikiServices::getInstance();
 		$userOptionsLookup = $services->getUserOptionsLookup();
 		$lang = $services->getLanguageFactory()

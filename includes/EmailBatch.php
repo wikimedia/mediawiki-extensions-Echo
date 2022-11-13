@@ -13,7 +13,6 @@ use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
 use MWEchoEventLogging;
-use MWEchoNotifUser;
 use stdClass;
 use User;
 use UserMailer;
@@ -350,7 +349,7 @@ class EmailBatch {
 			return;
 		}
 
-		$format = MWEchoNotifUser::newFromUser( $this->mUser )->getEmailFormat();
+		$format = NotifUser::newFromUser( $this->mUser )->getEmailFormat();
 		if ( $format == EmailFormat::HTML ) {
 			$htmlEmailDigestFormatter = new EchoHtmlDigestEmailFormatter( $this->mUser, $this->language, $frequency );
 			$htmlContent = $htmlEmailDigestFormatter->format( $this->events, 'email' );

@@ -1,8 +1,12 @@
 <?php
 
-use MediaWiki\Extension\Notifications\AttributeManager;
-use MediaWiki\Extension\Notifications\DbFactory;
-use MediaWiki\Extension\Notifications\EmailFormat;
+namespace MediaWiki\Extension\Notifications;
+
+use CentralIdLookup;
+use EchoForeignNotifications;
+use EchoForeignWikiRequest;
+use EchoServices;
+use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
@@ -12,12 +16,16 @@ use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserOptionsLookup;
 use MediaWiki\WikiMap\WikiMap;
+use MWTimestamp;
+use ReadOnlyMode;
+use WANObjectCache;
+use WebRequest;
 use Wikimedia\Rdbms\Database;
 
 /**
  * Entity that represents a notification target user
  */
-class MWEchoNotifUser {
+class NotifUser {
 
 	/**
 	 * Notification target user
@@ -127,14 +135,14 @@ class MWEchoNotifUser {
 	/**
 	 * Factory method. The caller should make sure that the user is registered.
 	 * @param UserIdentity $user
-	 * @return MWEchoNotifUser
+	 * @return NotifUser
 	 */
 	public static function newFromUser( UserIdentity $user ) {
 		if ( !$user->isRegistered() ) {
 			throw new InvalidArgumentException( 'User must be logged in to view notification!' );
 		}
 		$services = MediaWikiServices::getInstance();
-		return new MWEchoNotifUser(
+		return new NotifUser(
 			$user,
 			$services->getMainWANObjectCache(),
 			new UserNotificationGateway(
@@ -192,7 +200,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Retrieves number of unread notifications that a user has, would return
-	 * MWEchoNotifUser::MAX_BADGE_COUNT + 1 at most.
+	 * NotifUser::MAX_BADGE_COUNT + 1 at most.
 	 *
 	 * If $wgEchoCrossWikiNotifications is disabled, the $global parameter is ignored.
 	 *
@@ -490,7 +498,7 @@ class MWEchoNotifUser {
 				$this->cache->delete( $globalMemcKey );
 			}
 
-			$uw = EchoUnreadWikis::newFromUser( $this->mUser );
+			$uw = UnreadWikis::newFromUser( $this->mUser );
 			if ( $uw ) {
 				// Immediately compute new local counts and timestamps
 				$newLocalData = $this->computeLocalCountsAndTimestamps( DB_PRIMARY );
@@ -748,7 +756,7 @@ class MWEchoNotifUser {
 
 	/**
 	 * Helper function to produce the capped number of notifications
-	 * based on the value of MWEchoNotifUser::MAX_BADGE_COUNT
+	 * based on the value of NotifUser::MAX_BADGE_COUNT
 	 *
 	 * @param int $number Raw notification count to cap
 	 * @return int Capped notification count

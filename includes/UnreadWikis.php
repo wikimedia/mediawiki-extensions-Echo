@@ -1,14 +1,17 @@
 <?php
 
-use MediaWiki\Extension\Notifications\AttributeManager;
-use MediaWiki\Extension\Notifications\DbFactory;
+namespace MediaWiki\Extension\Notifications;
+
+use CentralIdLookup;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
+use MWTimestamp;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * Manages what wikis a user has unread notifications on
  */
-class EchoUnreadWikis {
+class UnreadWikis {
 
 	private const DEFAULT_TS = '00000000000000';
 	private const DEFAULT_TS_DB = '00010101010101';
@@ -35,7 +38,7 @@ class EchoUnreadWikis {
 	 * Use the user id provided by the CentralIdLookup
 	 *
 	 * @param UserIdentity $user
-	 * @return EchoUnreadWikis|false
+	 * @return UnreadWikis|false
 	 */
 	public static function newFromUser( UserIdentity $user ) {
 		$id = MediaWikiServices::getInstance()
@@ -50,7 +53,8 @@ class EchoUnreadWikis {
 
 	/**
 	 * @param int $index DB_* constant
-	 * @return bool|\Wikimedia\Rdbms\IDatabase
+	 *
+	 * @return bool|IDatabase
 	 */
 	private function getDB( $index ) {
 		return $this->dbFactory->getSharedDb( $index );

@@ -1,13 +1,18 @@
 <?php
 
-class EchoSummaryParser {
+namespace MediaWiki\Extension\Notifications;
+
+use Title;
+use User;
+
+class SummaryParser {
 	/** @var callable */
 	private $userLookup;
 
 	/**
 	 * @param callable|null $userLookup Function that receives User object and returns its id
-	 *     or 0 if the user doesn't exist. Passing null to this parameter will result in default
-	 *     implementation being used.
+	 *  or 0 if the user doesn't exist. Passing null to this parameter will result in default
+	 *  implementation being used.
 	 */
 	public function __construct( callable $userLookup = null ) {
 		$this->userLookup = $userLookup;

@@ -1,4 +1,7 @@
 <?php
+
+namespace MediaWiki\Extension\Notifications;
+
 /**
  * MediaWiki Extension: Echo
  *
@@ -24,7 +27,7 @@
 /**
  * Represents a single set of changes all effecting neighboring lines
  */
-class EchoDiffGroup {
+class DiffGroup {
 	/**
 	 * @var int[] The left and right position this change starts at
 	 */
