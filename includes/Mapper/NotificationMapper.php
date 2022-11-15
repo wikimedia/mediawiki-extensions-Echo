@@ -241,10 +241,11 @@ class NotificationMapper extends AbstractMapper {
 
 		// Start points are specified
 		if ( $offset['timestamp'] && $offset['offset'] ) {
-			$ts = $dbr->addQuotes( $dbr->timestamp( $offset['timestamp'] ) );
 			// The offset and timestamp are those of the first notification we want to return
-			$conds[] = "notification_timestamp < $ts OR " .
-				"( notification_timestamp = $ts AND notification_event <= " . $offset['offset'] . " )";
+			$conds[] = $dbr->buildComparison( '<=', [
+				'notification_timestamp' => $dbr->timestamp( $offset['timestamp'] ),
+				'notification_event' => $offset['offset'],
+			] );
 		}
 
 		$res = $dbr->select(
