@@ -4,7 +4,8 @@
 			"Amire80",
 			"Jon Harald Søby",
 			"Njardarlogar",
-			"Ranveig"
+			"Ranveig",
+			"EdoAug"
 		]
 	},
 	"echo-desc": "Meldingssystem",
@@ -114,7 +115,7 @@
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 min.}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 t.}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 d.}}",
-	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 mnd.}}",
+	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 md.}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 år}}",
 	"notification-timestamp-today": "I dag",
 	"notification-timestamp-yesterday": "I går",

@@ -10,7 +10,8 @@
 			"Macofe",
 			"Nemo bis",
 			"Njardarlogar",
-			"SuperPotato"
+			"SuperPotato",
+			"EdoAug"
 		]
 	},
 	"echo-desc": "System for å gi brukere beskjed om hendelser og meldinger",
@@ -197,7 +198,7 @@
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1m}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1t}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1d}}",
-	"notification-timestamp-ago-months": "{{PLURAL:$1|$1mnd}}",
+	"notification-timestamp-ago-months": "{{PLURAL:$1|$1md}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1år}}",
 	"notification-timestamp-today": "I dag",
 	"notification-timestamp-yesterday": "I går",
