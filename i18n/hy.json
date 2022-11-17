@@ -8,7 +8,8 @@
 			"Lilitik22",
 			"Xelgen",
 			"Աշոտ1997",
-			"Դավիթ Սարոյան"
+			"Դավիթ Սարոյան",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"echo-desc": "Մասնակիցներին միջոցառումների և հաղորդագրությունների մասին ծանուցող համակարգ",
@@ -40,7 +41,7 @@
 	"echo-category-title-mention-failure": "Ձախողված {{PLURAL:$1|հիշատակում|հիշատակումներ}}",
 	"echo-category-title-mention-success": "Հաջողված {{PLURAL:$1|հիշատակում|հիշատակումներ}}",
 	"echo-category-title-other": "{{PLURAL:$1|Այլ}}",
-	"echo-category-title-system": "{{PLURAL:$1|Համակարգ}}",
+	"echo-category-title-system": "{{PLURAL:$1|Համակարգային}}",
 	"echo-category-title-system-emailonly": "{{PLURAL:$1|Համակարգ}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Մասնակցի իրավունքի փոփոխություն|Մասնակցի իրավունքի փոփոխություններ}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Էլ. փոստ այլ մասնակցից|Էլ. փոստեր այլ մասնակիցներից}}",
@@ -66,7 +67,7 @@
 	"echo-specialpage-section-markread": "Խումբը նշել ընթերցված",
 	"echo-specialpage-markasread": "Ծանուցում. նշել որպես ընթերցված",
 	"echo-specialpage-markasread-invalid-id": "Իրադարձության սխալ ID",
-	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|ծանուցում|ծանուցումներ}}",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|ծանուցում}}",
 	"echo-specialpage-pagination-range": "$1 - $2",
 	"echo-specialpage-pagefilters-title": "Վերջին ակտիվություն",
 	"echo-specialpage-pagefilters-subtitle": "Էջեր չընթերցված ծանուցումներով",
