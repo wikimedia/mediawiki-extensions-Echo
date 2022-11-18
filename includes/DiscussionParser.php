@@ -858,7 +858,8 @@ abstract class EchoDiscussionParser {
 		$sectionNum = count( $matches[0] );
 		$sections = [];
 
-		if ( $matches[0][0][1] > 1 ) { // is there text before the first headline?
+		// is there text before the first headline?
+		if ( $matches[0][0][1] > 1 ) {
 			$sections[] = [
 				'header' => false,
 				'content' => substr( $text, 0, $matches[0][0][1] - 1 )

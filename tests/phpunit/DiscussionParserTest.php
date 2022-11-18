@@ -12,6 +12,10 @@ use Wikimedia\TestingAccessWrapper;
  * @covers \EchoDiscussionParser
  * @group Echo
  * @group Database
+ *
+ * TODO test cases for:
+ *  - stripHeader
+ *  - stripSignature
  */
 class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 
@@ -201,7 +205,8 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 					// pages expected to exist (e.g. templates to be expanded)
 					'Template:u' => '[[User:{{{1}}}|{{<includeonly>safesubst:</includeonly>#if:{{{2|}}}|{{{2}}}|{{{1}}}}}]]<noinclude>{{documentation}}</noinclude>',
 				],
-				'title' => 'UTPage', // can't remember, not important here
+				// can't remember, not important here
+				'title' => 'UTPage',
 				'expected' => [
 					// events expected to be fired going from old revision to new
 					[
@@ -225,7 +230,8 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 				'username' => 'Schnark',
 				'lang' => 'de',
 				'pages' => [],
-				'title' => 'UTPage', // can't remember, not important here
+				// can't remember, not important here
+				'title' => 'UTPage',
 				'expected' => [
 					[
 						'type' => 'mention',
@@ -242,7 +248,8 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 				'pages' => [
 					'Predefinição:U' => '[[User:{{{1|<noinclude>Exemplo</noinclude>}}}|{{{{{|safesubst:}}}#if:{{{2|}}}|{{{2}}}|{{{1|<noinclude>Exemplo</noinclude>}}}}}]]<noinclude>{{Atalho|Predefinição:U}}{{Documentação|Predefinição:Usuário/doc}}</noinclude>',
 				],
-				'title' => 'UTPage', // can't remember, not important here
+				// can't remember, not important here
+				'title' => 'UTPage',
 				'expected' => [
 					[
 						'type' => 'mention',
@@ -1012,10 +1019,6 @@ TEXT
 		$this->setTemporaryHook( 'BeforeEchoEventInsert', $callback );
 	}
 
-	// TODO test cases for:
-	// - stripHeader
-	// - stripSignature
-
 	public function testTimestampRegex() {
 		$exemplarTimestamp = self::EXEMPLAR_TIMESTAMP;
 		$timestampRegex = EchoDiscussionParser::getTimestampRegex();
@@ -1152,7 +1155,7 @@ TEXT
 				],
 			],
 			// when adding additional tests, make sure to add the non-anon users
-			// to EchoDiscussionParserTest::$testusers - the DiscussionParser
+			// to EchoDiscussionParserTest::$testUsers - the DiscussionParser
 			// needs the users to exist, because it'll generate a comparison
 			// signature, which is different when the user is considered anon
 		];
@@ -1502,7 +1505,8 @@ TEXT
 	}
 
 	public static function provider_detectSectionTitleAndText() {
-		$name = 'Werdna'; // See EchoDiscussionParserTest::$testusers
+		// See EchoDiscussionParserTest::$testUsers
+		$name = 'Werdna';
 		$comment = self::signedMessage( $name );
 
 		return [

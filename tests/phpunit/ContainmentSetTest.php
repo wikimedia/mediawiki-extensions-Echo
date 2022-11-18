@@ -23,7 +23,8 @@ class ContainmentSetTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testCachedListInnerListIsOnlyCalledOnce() {
-		$innerCache = new HashBagOStuff; // simulate caching
+		// simulate caching
+		$innerCache = new HashBagOStuff;
 		$wanCache = new WANObjectCache( [ 'cache' => $innerCache ] );
 
 		$inner = [ 'bing', 'bang' ];

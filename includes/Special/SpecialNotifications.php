@@ -140,7 +140,8 @@ class SpecialNotifications extends SpecialPage {
 				$markAllAsReadLabelIcon->toString()
 			);
 
-			$formHtml = $markAllAsReadForm->prepareForm()->getHTML( /* First submission attempt */ false );
+			// First submission attempt
+			$formHtml = $markAllAsReadForm->prepareForm()->getHTML( false );
 
 			$markAllAsReadFormWrapper = new OOUI\Tag();
 			$markAllAsReadFormWrapper
@@ -183,7 +184,8 @@ class SpecialNotifications extends SpecialPage {
 					$markAsReadLabelIcon->toString()
 				);
 
-				$formHtml = $markSectionAsReadForm->prepareForm()->getHTML( /* First submission attempt */ false );
+				// First submission attempt
+				$formHtml = $markSectionAsReadForm->prepareForm()->getHTML( false );
 
 				$formWrapper = new OOUI\Tag();
 				$formWrapper

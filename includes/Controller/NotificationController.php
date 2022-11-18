@@ -394,7 +394,8 @@ class NotificationController {
 
 		$userId = $user->getId();
 		if ( $userId === 0 ) {
-			return false; // anonymous user
+			// anonymous user
+			return false;
 		}
 
 		// Ensure we have a list of whitelists

@@ -88,5 +88,5 @@ class RemoveInvalidNotification extends Maintenance {
 	}
 }
 
-$maintClass = RemoveInvalidNotification::class; // Tells it to run the class
+$maintClass = RemoveInvalidNotification::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

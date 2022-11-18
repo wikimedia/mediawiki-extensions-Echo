@@ -75,13 +75,6 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 			]
 		];
 
-		$tpDbResult = [
-			(object)[
-				'etp_page' => 7, // pageid
-				'etp_event' => 1, // eventid
-			],
-		];
-
 		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $notifDbResult ] ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '', [] );
 		$this->assertEmpty( $res );

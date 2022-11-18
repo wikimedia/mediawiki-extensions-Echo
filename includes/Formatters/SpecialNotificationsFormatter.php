@@ -45,7 +45,8 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		$markAsReadButton = Html::rawElement(
 			'div',
 			[ 'class' => 'mw-echo-markAsReadButton' ],
-			$markAsReadForm->prepareForm()->getHTML( /* First submission attempt */ false )
+			// First submission attempt
+			$markAsReadForm->prepareForm()->getHTML( false )
 		);
 
 		$html = Xml::tags(
