@@ -370,14 +370,6 @@
 			"styles": [
 				"nojs/mw.echo.badge.less"
 			],
-			"skinStyles": {
-				"minerva": [
-					"nojs/mw.echo.badge.minerva.less"
-				],
-				"monobook": [
-					"nojs/mw.echo.badge.monobook.less"
-				]
-			},
 			"targets": [
 				"desktop",
 				"mobile"
