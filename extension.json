@@ -366,6 +366,15 @@
 				"mobile"
 			]
 		},
+		"ext.echo.centralauth": {
+			"packageFiles": [
+				"ext.echo.centralauth.js"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
 		"ext.echo.styles.badge": {
 			"styles": [
 				"nojs/mw.echo.badge.less"

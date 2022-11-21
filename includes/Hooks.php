@@ -929,6 +929,9 @@ class Hooks implements
 		$user = $out->getUser();
 
 		if ( !$user->isRegistered() ) {
+			if ( ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
+				$out->addModules( [ 'ext.echo.centralauth' ] );
+			}
 			return;
 		}
 
