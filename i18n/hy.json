@@ -81,7 +81,7 @@
 	"echo-notification-markasread": "Նշել ընթերցված",
 	"echo-notification-markasunread": "Նշել չընթերցված",
 	"echo-notification-markasread-tooltip": "Նշել ընթերցված",
-	"echo-notification-more-options-tooltip": "Այլ կարգավորումներ",
+	"echo-notification-more-options-tooltip": "Այլ ընտրանքներ",
 	"notification-link-text-expand-all": "Բացել",
 	"notification-link-text-expand-alert-count": "Ցույց տալ {{PLURAL:$1|$1 տեղեկացումը|$1 տեղեկացումները}}",
 	"notification-link-text-expand-notice-count": "Ցույց տալ {{PLURAL:$1|$1 ծանուցումը|$1 ծանուցումները}}",

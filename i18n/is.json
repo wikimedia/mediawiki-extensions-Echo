@@ -14,6 +14,8 @@
 	"prefs-echo": "Tilkynningar",
 	"prefs-emailsettings": "Tölvupóststillingar",
 	"prefs-echosubscriptions": "Gefðu mér tilkynningar fyrir eftirfarandi viðburði",
+	"prefs-echocrosswiki": "Tilkynningar á milli wiki-kerfa",
+	"prefs-blocknotificationslist": "Þaggaðir notendur",
 	"echo-pref-send-me": "Senda mér:",
 	"echo-pref-send-to": "Senda til:",
 	"echo-pref-email-format": "Stílviðmið tölvupósts:",
@@ -26,6 +28,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "óstílfærður texti",
 	"echo-pref-cross-wiki-notifications": "Sýna tilkynningar frá öðrum wiki",
+	"echo-pref-notifications-blacklist": "Ekki birta tilkynningar frá þessum notendum. ([[mw:Special:MyLanguage/Help:Notifications#mute|frekari upplýsingar]])",
 	"echo-learn-more": "Vita meira",
 	"echo-new-messages": "Þú hefur ný spjallsíðu skilaboð",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Skilaboð}} á spjallsíðu minni",
@@ -106,5 +109,6 @@
 	"echo-email-batch-subject-daily": "Þú hefur {{PLURAL:$2|nýja tilkynningu|nýjar tilkynningar}} á {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Þú hefur {{PLURAL:$2|nýja tilkynningu|nýjar tilkynningar}} á {{SITENAME}} í þessari viku",
 	"notification-header-foreign-all": "Fleiri skilaboð frá {{PLURAL:$5|öðru wiki|$5 öðrum wiki-um}}",
-	"echo-badge-count": "{{PLURAL:$1|$1|100=99+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100=99+}}",
+	"right-manage-all-push-subscriptions": "Sýsla með allar ýti-áskriftir"
 }
