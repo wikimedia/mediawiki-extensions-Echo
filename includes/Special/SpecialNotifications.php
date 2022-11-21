@@ -95,11 +95,6 @@ class SpecialNotifications extends SpecialPage {
 			if ( $dateHeader !== $row['timestamp']['date'] ) {
 				$dateHeader = $row['timestamp']['date'];
 			}
-			$notifArray[ $dateHeader ] = [
-				'unread' => [],
-				'notices' => []
-			];
-
 			// Collect unread IDs
 			if ( !isset( $row['read'] ) ) {
 				$classes[] = 'mw-echo-notification-unread';
@@ -166,7 +161,7 @@ class SpecialNotifications extends SpecialPage {
 			$heading->appendContent( $dateTitle );
 
 			// Mark all read button
-			if ( $data[ 'unread' ] !== [] ) {
+			if ( isset( $data[ 'unread' ] ) ) {
 				// tell the UI to show 'unread' notifications only (instead of 'all')
 				$out->addJsConfigVars( 'wgEchoReadState', 'unread' );
 
