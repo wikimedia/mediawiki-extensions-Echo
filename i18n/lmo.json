@@ -193,7 +193,7 @@
 	"notification-timestamp-yesterday": "Ier",
 	"notification-inbox-filter-read": "Lesgiude",
 	"notification-inbox-filter-unread": "Nananmò lesgiude",
-	"notification-inbox-filter-all": "Tusscoss",
+	"notification-inbox-filter-all": "Tuscoss",
 	"echo-specialmute-label-mute-notifications": "Fà che i notifiche de {{GENDER:$1|quell}} utent chì i faghen citto",
 	"echo-email-plain-footer": "Per controlà quai messagg de posta eletronica {{GENDER:$1|te}} vegnen mandad, verifica i {{GENDER:$1|to}} preferenze:",
 	"echo-email-html-footer-preference-link-text": "verifica i {{GENDER:$1|to}} preferenze",
