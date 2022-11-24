@@ -20,7 +20,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		// Unsuccessful select
 		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => false ] ) );
 		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '' );
-		$this->assertEmpty( $res );
+		$this->assertSame( [], $res );
 
 		// Successful select
 		$dbResult = [
@@ -40,7 +40,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		];
 		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $dbResult ] ) );
 		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '', [] );
-		$this->assertEmpty( $res );
+		$this->assertSame( [], $res );
 
 		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $dbResult ] ) );
 		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '', [ 'test_event' ] );
@@ -55,7 +55,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		// Unsuccessful select
 		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => false ] ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '' );
-		$this->assertEmpty( $res );
+		$this->assertSame( [], $res );
 
 		// Successful select
 		$notifDbResult = [
@@ -77,7 +77,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 
 		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [ 'select' => $notifDbResult ] ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '', [] );
-		$this->assertEmpty( $res );
+		$this->assertSame( [], $res );
 
 		$notifMapper = new NotificationMapper(
 			$this->mockMWEchoDbFactory( [ 'select' => $notifDbResult ] )
@@ -91,7 +91,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 
 		$notifMapper = new NotificationMapper( $this->mockMWEchoDbFactory( [] ) );
 		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '' );
-		$this->assertEmpty( $res );
+		$this->assertSame( [], $res );
 	}
 
 	public function testFetchByUserOffset() {
