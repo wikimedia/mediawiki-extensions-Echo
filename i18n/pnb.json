@@ -24,6 +24,8 @@
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نویَں ورتنوالے",
 	"echo-specialpage": "اطلاعواں",
 	"echo-none": "تہاڈے کئی کوئی سوچنا نہیں ہے۔",
+	"echo-notification-markasread": "پڑھا نشان لاؤ",
+	"echo-notification-markasread-tooltip": "پڑھا نشان لاؤ",
 	"echo-notification-more-options-tooltip": "ہور اختیار",
 	"notification-link-text-expand-notice-count": "{{PLURAL:$1|$1 اطلاع|$1 اطلاعواں}} دیکھو",
 	"notification-link-text-view-changes": "{{GENDER:$1|دیکھو}} تبدیلیاں",
