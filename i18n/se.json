@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kimberli Mäkäräinen (WMNO)",
 			"Yupik"
 		]
 	},
 	"echo-learn-more": "Lassedieđut",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Ođđa geavaheaddjit",
 	"notification-link-text-expand-all": "Čájet",
+	"notification-link-text-collapse-all": "Čiega",
 	"notification-inbox-filter-all": "Buot"
 }
