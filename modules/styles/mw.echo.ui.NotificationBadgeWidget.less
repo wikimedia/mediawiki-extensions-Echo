@@ -61,13 +61,11 @@
 				}
 
 				.mw-echo-ui-notificationBadgeButtonPopupWidget-footer-buttons {
-					display: table-row;
+					display: flex;
+					padding-bottom: 0;
 
 					.oo-ui-buttonElement {
-						display: table-cell;
-						white-space: normal;
-						width: @notification-popup-width / 2;
-						box-sizing: border-box;
+						flex: 1;
 
 						&:last-child {
 							border-left: 1px solid #c8ccd1;
