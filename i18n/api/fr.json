@@ -32,7 +32,7 @@
 	"apihelp-echomute-summary": "Faire taire ou non les notifications issues de certains utilisateurs ou pages.",
 	"apihelp-echomute-param-type": "Quelle liste de mise en silence à laquelle ajouter ou de laquelle supprimer",
 	"apihelp-echomute-param-mute": "Pages ou utilisateurs à ajouter à la liste de mise en silence",
-	"apihelp-echomute-param-unmute": "Pages ou utilisateurs à enlever de la liste de mise en silence",
+	"apihelp-echomute-param-unmute": "Pages ou utilisateurs à retirer de la liste de mise en silence",
 	"apihelp-echopushsubscriptions-summary": "Gérer les abonnements de poussée d’informations pour l’utilisateur actuel.",
 	"apihelp-echopushsubscriptions-param-command": "Action à effectuer.",
 	"apihelp-echopushsubscriptions+create-summary": "Inscrire des abonnements de poussée d’informations pour l’utilisateur actuel.",
