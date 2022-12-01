@@ -3,7 +3,8 @@
 		"authors": [
 			"Arystanbek",
 			"Macofe",
-			"СеніңШешең"
+			"СеніңШешең",
+			"Batyrbek.kz"
 		]
 	},
 	"echo-desc": "Оқиғалар мен хабарламалар туралы қатысушыларға ескерту \nжүйесі",
@@ -110,7 +111,7 @@
 	"notification-inbox-filter-all": "Барлығы",
 	"echo-notification-alert": "{{PLURAL:$1|Ескертпе ($1)|Ескертпе ($1)|100=Ескертпе (99+)}}",
 	"echo-notification-alert-text-only": "Дабылдар",
-	"echo-overlay-link": "Барлық ескертпелер",
+	"echo-overlay-link": "Барлық ескертпе",
 	"echo-overlay-title": "<b>Ескертпелер</b>",
 	"echo-mark-all-as-read": "Барлығын оқылды деп белгіле",
 	"echo-date-today": "Бүгін",
