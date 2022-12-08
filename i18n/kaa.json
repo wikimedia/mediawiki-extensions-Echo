@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nurlan"
+			"Nurlan",
+			"Ajiniyaz Nurniyazov"
 		]
 	},
+	"prefs-echo": "Xabarlandırıwlar",
+	"echo-mobile-notifications-filter-title": "Xabarlandırıwlar filtri",
+	"notifications": "Xabarlandırıwlar",
+	"echo-specialpage": "Xabarlandırıwlar",
 	"notification-welcome-linktext": "Xosh keldińiz"
 }
