@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
-use Linker;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use Sanitizer;
 
@@ -28,7 +28,8 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 		$revision = $this->event->getRevision();
 		if ( $revision && $revision->getComment() && $this->userCan( RevisionRecord::DELETED_COMMENT ) ) {
 			$summary = $revision->getComment()->text;
-			$summary = Linker::formatComment( $summary );
+			$summary = MediaWikiServices::getInstance()->getCommentFormatter()
+				->format( $summary );
 			$summary = Sanitizer::stripAllTags( $summary );
 
 			return $this->msg( 'notification-body-mention' )
