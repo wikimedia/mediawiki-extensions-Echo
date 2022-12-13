@@ -24,6 +24,7 @@
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 mp}}",
 	"notification-timestamp-today": "Täʹbbe",
 	"notification-timestamp-yesterday": "Jåhtta",
+	"notification-inbox-filter-read": "Lokkum",
 	"notification-inbox-filter-all": "Puk",
 	"echo-date-today": "Täʹbbe",
 	"echo-date-yesterday": "Jåhtta"

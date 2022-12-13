@@ -5,7 +5,8 @@
 			"MGChecker",
 			"Metalhead64",
 			"Purodha",
-			"Tiin"
+			"Tiin",
+			"Brettchenweber"
 		]
 	},
 	"apihelp-echomarkread-description": "Benachrichtigungen für den aktuellen Benutzer als gelesen markieren.",
@@ -38,7 +39,7 @@
 	"apihelp-echopushsubscriptions+delete-summary": "Aufheben der Registrierung von Push-Abonnements für den aktuellen Benutzer oder einen anderen angegebenen Benutzer.",
 	"apihelp-echopushsubscriptions+delete-param-providertoken": "Das mit dem Push-Abonnement zur Abmeldung verbundene Token.",
 	"apihelp-echopushsubscriptions+delete-param-centraluserid": "Die zentrale Benutzer-ID, die mit dem Abonnement zur Aufhebung der Registrierung verbunden ist.",
-	"apihelp-echopushsubscriptions+delete-example": "Aufheben der Registrierung eines Push-Abonnements für den aktuellen Benutzer auf.",
+	"apihelp-echopushsubscriptions+delete-example": "Aufheben der Registrierung eines Push-Abonnements für den aktuellen Benutzer.",
 	"apihelp-query+notifications-description": "Benachrichtigungen abrufen, die auf den aktuellen Benutzer warten.",
 	"apihelp-query+notifications-summary": "Ruft wartende Benachrichtigungen für den aktuellen Benutzer ab.",
 	"apihelp-query+notifications-param-prop": "Einzelheiten der Anfrage.",
@@ -70,7 +71,7 @@
 	"apihelp-query+unreadnotificationpages-param-limit": "Die maximale Anzahl der zurückzugebenden Seiten.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "Listet die Wikis auf, von denen Seiten mit ungelesenen Benachrichtigungen abgerufen werden sollen (Standard: Nur das aktuelle Wiki).",
 	"apihelp-query+unreadnotificationpages-example-1": "Listet Seiten mit (ihre Menge der) ungelesenen Benachrichtigungen auf",
-	"apihelp-echoarticlereminder-summary": "Fordert eine zukünftige Erinnerung über den angegebenen Artikel an",
+	"apihelp-echoarticlereminder-summary": "Fordert eine zukünftige Erinnerung an den angegebenen Artikel an",
 	"apihelp-echoarticlereminder-param-pageid": "Kennung des Artikels, an den der Benutzer erinnert werden soll.",
 	"apihelp-echoarticlereminder-param-title": "Name des Artikels, an den der Benutzer erinnert werden soll.",
 	"apihelp-echoarticlereminder-param-timestamp": "An welchem Zeitstempel der Benutzer erinnert werden soll",
