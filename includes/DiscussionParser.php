@@ -1264,7 +1264,8 @@ abstract class EchoDiscussionParser {
 	 */
 	public static function getTextSnippetFromSummary( $text, Language $lang, $length = self::DEFAULT_SNIPPET_LENGTH ) {
 		// Parse wikitext with summary parser
-		$html = Linker::formatLinksInComment( Sanitizer::escapeHtmlAllowEntities( $text ) );
+		$html = MediaWikiServices::getInstance()->getCommentFormatter()
+			->formatLinks( Sanitizer::escapeHtmlAllowEntities( $text ) );
 		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
 		return $lang->truncateForVisual( $plaintext, $length );
 	}
