@@ -510,9 +510,6 @@ abstract class EchoDiscussionParser {
 		}
 
 		$userIdentity = $revision->getUser();
-		$userID = $userIdentity ? $userIdentity->getId() : 0;
-		$userName = $userIdentity ? $userIdentity->getName() : '';
-		$user = $userID !== 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
 
 		$prevText = '';
 		if ( $revision->getParentId() ) {
@@ -531,7 +528,7 @@ abstract class EchoDiscussionParser {
 		);
 		$output = self::interpretDiff(
 			$changes,
-			$user->getName(),
+			$userIdentity ? $userIdentity->getName() : '',
 			Title::newFromLinkTarget( $revision->getPageAsLinkTarget() )
 		);
 
