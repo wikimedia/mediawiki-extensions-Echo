@@ -179,7 +179,7 @@
 	"notification-inbox-filter-read": "Lidas",
 	"notification-inbox-filter-unread": "Non lidas",
 	"notification-inbox-filter-all": "Todas",
-	"echo-specialmute-label-mute-notifications": "Silenciar notificacións dest{{GENDER:$1|e usuario|a usuaria|a persoa}}",
+	"echo-specialmute-label-mute-notifications": "Silenciar as notificacións {{GENDER:$1|deste usuario|desta usuaria|desta persoa}}",
 	"echo-email-plain-footer": "Para controlar os emais que {{GENDER:$1|lle}} mandamos, {{GENDER:$1|revise}} as súas preferenciasː",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|comprobe}} as súas preferencias",
 	"echo-email-html-footer-with-link": "Para controlar que correos electrónicos {{GENDER:$2|lle}} enviamos, $1.",
