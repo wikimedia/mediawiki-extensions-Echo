@@ -47,7 +47,7 @@
 	"echo-category-title-article-linked": "{{PLURAL:$1|спасылка|спасылкі}} на старонкі",
 	"echo-category-title-reverted": "{{PLURAL:$1|адмена|адмены}} правак",
 	"echo-category-title-mention": "{{PLURAL:$1|Згадванне|Згадванні}}",
-	"echo-category-title-mention-failure": "{{PLURAL:$1|Наўдалае згадванне|Няўдалыя згадванні}}",
+	"echo-category-title-mention-failure": "{{PLURAL:$1|Няўдалае згадванне|Няўдалыя згадванні}}",
 	"echo-category-title-mention-success": "{{PLURAL:$1|Паспяховае згадванне|Паспяховыя згадванні}}",
 	"echo-category-title-other": "{{PLURAL:$1|Іншае|Іншыя}}",
 	"echo-category-title-system": "{{PLURAL:$1|Сістэмнае|Сістэмныя}}",
