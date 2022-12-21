@@ -214,7 +214,7 @@
 	"echo-overlay-link": "Vsa obvestila",
 	"echo-overlay-title": "<b>Obvestila</b>",
 	"echo-mark-all-as-read": "Označi vse kot prebrano",
-	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|obvestilo označeno kot prebrano|obvestili označeni kot prebrani|obvestila označena kot prebrana|obvestil označenih kot prebranih}}",
+	"echo-mark-all-as-read-confirmation": "{{PLURAL:$1|Eno obvestilo označeno kot prebrano|$1 obvestili označeni kot prebrani|$1 obvestila označena kot prebrana|$1 obvestil označenih kot prebrana}}",
 	"echo-mark-wiki-as-read": "Označi vsa kot prebrana v izbranem vikiju: $1",
 	"echo-displaysnippet-title": "Novo obvestilo",
 	"echo-date-today": "Danes",

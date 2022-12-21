@@ -7,6 +7,7 @@
 	},
 	"echo-desc": "Sisteme de notifiche a l'utinde sus a avveneminde e messàgge",
 	"prefs-echo": "Notifeche",
+	"prefs-description-echo": "Scacchie quale notifeche {{GENDER:|vuè}} avè e addò le vuè.",
 	"prefs-emailsettings": "'Mbostaziune de l'email",
 	"prefs-echosubscriptions": "Notificame sus a ste avveneminde",
 	"prefs-echocrosswiki": "Notifeche cross-uicchi",
