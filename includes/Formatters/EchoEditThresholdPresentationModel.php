@@ -16,8 +16,19 @@ class EchoEditThresholdPresentationModel extends EchoEventPresentationModel {
 		if ( !$this->event->getTitle() ) {
 			return false;
 		}
+
+		if ( $this->event->getExtraParam( 'revid' ) ) {
+			$params = [
+				'oldid' => 'prev',
+				'diff' => $this->event->getExtraParam( 'revid' )
+			];
+		} else {
+			$params = [];
+		}
+		$url = $this->event->getTitle()->getLocalURL( $params );
+
 		return [
-			'url' => $this->event->getTitle()->getLocalURL(),
+			'url' => $url,
 			'label' => $this->msg( 'notification-link-thank-you-edit', $this->getViewingUserForGender() )->text()
 		];
 	}
