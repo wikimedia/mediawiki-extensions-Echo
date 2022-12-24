@@ -6,6 +6,11 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableStore;
 
+// PHP unit does not understand code coverage for this file
+// as the @covers annotation cannot cover a specific file.
+// Whether the services return without error is checked in ServiceWiringTest.php
+// @codeCoverageIgnoreStart
+
 return [
 
 	'EchoAttributeManager' => static function ( MediaWikiServices $services ): EchoAttributeManager {
@@ -83,3 +88,5 @@ return [
 	}
 
 ];
+
+// @codeCoverageIgnoreEnd
