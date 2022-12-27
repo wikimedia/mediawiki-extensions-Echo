@@ -111,6 +111,7 @@
 	"notification-link-text-what-links-here": "Hemû girêdanên ber bi vê rûpelê ve",
 	"notification-header-mention-other": "$1{{GENDER:$2|î|ê|î/ê}} li ser <strong>$4</strong> di \"<strong>$5</strong>\" de behsa {{GENDER:$3|te}} kir.",
 	"notification-header-mention-other-nosection": "$1 li ser <strong>$4</strong> {{GENDER:$2|qala}} {{GENDER:$3|te}} kir.",
+	"notification-header-mention-article-talkpage": "$1{{GENDER:$2|î|ê|î/ê}} di rûpela gotûbêjê ya <strong>$4</strong> li ser \"<strong>$5</strong>\" behsa {{GENDER:$3|te}} kir.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Navê bikarhêner tune ye:</strong> $1",
 	"notification-welcome-linktext": "Tu bi xêr hatî",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Te}} guhartina {{GENDER:$2|xwe}} ya yekem kiriye; mala {{GENDER:$2|te}} ava û bi xêr hatî!",

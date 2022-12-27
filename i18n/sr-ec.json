@@ -224,7 +224,7 @@
 	"echo-email-batch-body-intro-daily": "Здраво, $1,\nОво је резиме данашњих активности на пројекту {{SITENAME}} за вас.",
 	"echo-email-batch-body-intro-weekly": "Здраво, $1,\nОво је резиме овонедељне активности на пројекту {{SITENAME}} за вас.",
 	"echo-email-batch-link-text-view-all-notifications": "Прикажи сва обавештења",
-	"notification-header-foreign-alert": "Више обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}",
-	"notification-header-foreign-notice": "Више обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}",
-	"notification-header-foreign-all": "Више обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}"
+	"notification-header-foreign-alert": "Обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}",
+	"notification-header-foreign-notice": "Обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}",
+	"notification-header-foreign-all": "Обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}"
 }

@@ -27,7 +27,8 @@
 			"TheEduGobi",
 			"TheGabrielZaum",
 			"Vonil55",
-			"YuriNikolai"
+			"YuriNikolai",
+			"Fúlvio"
 		]
 	},
 	"echo-desc": "Sistema para notificar usuários sobre eventos e mensagens",
@@ -191,6 +192,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, uma página na {{GENDER:$2|sua}} lista de páginas vigiadas, foi excluída em $3 {{PLURAL:$3|veze|vezes}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, uma página na {{GENDER:$2|sua}} lista de páginas vigiadas, foi movida em $3 {{PLURAL:$3|veze|vezes}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, uma página na {{GENDER:$2|sua}} lista de páginas vigiadas, foi restaurada em $3 {{PLURAL:$3|veze|vezes}}.",
+	"notification-body-watchlist-once": "Não haverá outras notificações por e-mail em caso de atividade adicional, a menos que {{GENDER:$1|você visite}} esta página enquanto estiver conectado.",
 	"notification-welcome-linktext": "Bem-vindo(a)",
 	"notification-header-thank-you-1-edit": "Você acaba de fazer sua primeira edição. Muito obrigado, e seja {{GENDER:$2|bem-vindo|bem-vinda}}!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Você}} acaba de fazer sua décima edição; obrigado e continue por aí!",
