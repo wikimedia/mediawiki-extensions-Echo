@@ -123,8 +123,10 @@ class EchoNotifier {
 	 */
 	private static function generateEmail( Event $event, User $user ) {
 		$emailFormat = MWEchoNotifUser::newFromUser( $user )->getEmailFormat();
-		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
-		$lang = Language::factory( $userOptionsLookup->getOption( $user, 'language' ) );
+		$services = MediaWikiServices::getInstance();
+		$userOptionsLookup = $services->getUserOptionsLookup();
+		$lang = $services->getLanguageFactory()
+			->getLanguage( $userOptionsLookup->getOption( $user, 'language' ) );
 		$formatter = new EchoPlainTextEmailFormatter( $user, $lang );
 		$content = $formatter->format( $event, 'email' );
 		if ( !$content ) {
