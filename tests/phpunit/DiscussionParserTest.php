@@ -1795,11 +1795,12 @@ TEXT
 	}
 
 	public function testGetTextSnippet() {
+		$lang = $this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' );
 		$this->assertEquals(
 			'Page001',
 			EchoDiscussionParser::getTextSnippet(
 				'[[:{{BASEPAGENAME}}]]',
-				Language::factory( 'en' ),
+				$lang,
 				EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
 				Title::newFromText( 'Page001' )
 			)
@@ -1808,7 +1809,7 @@ TEXT
 			'Hello',
 			EchoDiscussionParser::getTextSnippet(
 				'* Hello',
-				Language::factory( 'en' ),
+				$lang,
 				EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
 				null,
 				true
@@ -1818,7 +1819,7 @@ TEXT
 			'* Hello',
 			EchoDiscussionParser::getTextSnippet(
 				'* Hello',
-				Language::factory( 'en' ),
+				$lang,
 				EchoDiscussionParser::DEFAULT_SNIPPET_LENGTH,
 				null,
 				false

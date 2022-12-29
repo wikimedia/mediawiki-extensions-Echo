@@ -10,7 +10,7 @@ use MediaWiki\Extension\Notifications\Model\Event;
 class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 
 	public function testGetTruncatedSectionTitle_short() {
-		$lang = Language::factory( 'en' );
+		$lang = $this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' );
 		$section = new EchoPresentationModelSection(
 			$this->makeEvent( [ 'event_extra' => serialize( [ 'section-title' => 'asdf' ] ) ] ),
 			$this->getTestUser()->getUser(),
@@ -21,7 +21,7 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testGetTruncatedSectionTitle_long() {
-		$lang = Language::factory( 'en' );
+		$lang = $this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' );
 		$section = new EchoPresentationModelSection(
 			$this->makeEvent( [ 'event_extra' => serialize( [ 'section-title' => str_repeat( 'a', 100 ) ] ) ] ),
 			$this->getTestUser()->getUser(),
@@ -42,7 +42,7 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 				'event_extra' => serialize( [ 'section-title' => 'asdf' ] ),
 			] ),
 			$this->getTestUser()->getUser(),
-			Language::factory( 'en' )
+			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' )
 		);
 
 		$titleWithSection = $section->getTitleWithSection();
@@ -55,7 +55,7 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 		$section = new EchoPresentationModelSection(
 			$this->makeEvent(),
 			$this->getTestUser()->getUser(),
-			Language::factory( 'en' )
+			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' )
 		);
 
 		$this->assertFalse( $section->exists() );
@@ -65,7 +65,7 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 		$section = new EchoPresentationModelSection(
 			$this->makeEvent( [ 'event_extra' => serialize( [ 'section-title' => 'asdf' ] ) ] ),
 			$this->getTestUser()->getUser(),
-			Language::factory( 'en' )
+			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' )
 		);
 
 		$this->assertTrue( $section->exists() );

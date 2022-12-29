@@ -4,6 +4,7 @@ use MediaWiki\Extension\Notifications\Formatters\EchoHtmlDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -52,10 +53,15 @@ class MWEchoEmailBatch {
 	/**
 	 * @param User $user
 	 * @param UserOptionsManager $userOptionsManager
+	 * @param LanguageFactory $languageFactory
 	 */
-	public function __construct( User $user, UserOptionsManager $userOptionsManager ) {
+	public function __construct(
+		User $user,
+		UserOptionsManager $userOptionsManager,
+		LanguageFactory $languageFactory
+	) {
 		$this->mUser = $user;
-		$this->language = Language::factory(
+		$this->language = $languageFactory->getLanguage(
 			$userOptionsManager->getOption( $user, 'language' )
 		);
 		$this->userOptionsManager = $userOptionsManager;
@@ -81,13 +87,15 @@ class MWEchoEmailBatch {
 	 */
 	public static function newFromUserId( $userId, $enforceFrequency = true ) {
 		$user = User::newFromId( (int)$userId );
-		$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
+		$services = MediaWikiServices::getInstance();
+		$userOptionsManager = $services->getUserOptionsManager();
+		$languageFactory = $services->getLanguageFactory();
 
 		$userEmailSetting = (int)$userOptionsManager->getOption( $user, 'echo-email-frequency' );
 
 		// clear all existing events if user decides not to receive emails
 		if ( $userEmailSetting == -1 ) {
-			$emailBatch = new self( $user, $userOptionsManager );
+			$emailBatch = new self( $user, $userOptionsManager, $languageFactory );
 			$emailBatch->clearProcessedEvent();
 
 			return false;
@@ -118,7 +126,7 @@ class MWEchoEmailBatch {
 			}
 		}
 
-		return new self( $user, $userOptionsManager );
+		return new self( $user, $userOptionsManager, $languageFactory );
 	}
 
 	/**
