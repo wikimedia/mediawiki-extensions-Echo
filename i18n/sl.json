@@ -19,7 +19,7 @@
 	"prefs-blocknotificationslist": "Utišani uporabniki",
 	"prefs-mutedpageslist": "Strani z utišanim obveščanjem o povezavah na stran",
 	"prefs-echopollupdates": "Sprotna obvestila",
-	"echo-mobile-notifications-filter-title": "Filtriraj obvestila",
+	"echo-mobile-notifications-filter-title": "Filtriranje obvestil",
 	"echo-pref-show-poll-updates": "Prikaži nova obvestila, ko prispejo",
 	"echo-pref-show-poll-updates-help": "Prikaži število neprebranih obvestil v naslovni vrstici in prikaži izrezek vsakega obvestila takoj, ko prispe.",
 	"echo-pref-send-me": "Pošiljaj mi:",

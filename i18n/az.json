@@ -95,6 +95,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|sizi}} <strong>$4</strong> müzakirə səhifəsində {{GENDER:$2|qeyd etdi}}.",
 	"notification-header-mention-failure-user-unknown": "<strong>$3</strong> adlı istifadəçi mövcud olmadığından istifadəçini işarələmə uğursuz oldu.",
 	"notification-header-mention-failure-user-anonymous": "<strong>$3</strong> adlı istifadəçi anonim olduğundan istifadəçini işarələmə uğursuz oldu.",
+	"notification-header-mention-failure-too-many": "{{GENDER:$2|Siz}} $3 və daha artıq istifadəçini işarələməyə çalışdız. Limiti keçən işarələmələr göndərilmədi.",
 	"notification-header-mention-success": "{{GENDER:$2|Siz}} <strong>$3</strong> adlı istifadəçini qeyd etdiniz.",
 	"notification-header-welcome": "{{SITENAME}} saytına {{GENDER:$2|xoş gəldiniz}}, $1! Sizi burada görməyimizə çox şadıq!",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|sizi}} <strong>$4</strong> səhifəsinin qısa məzmununda {{GENDER:$2|qeyd etdi}}.",
