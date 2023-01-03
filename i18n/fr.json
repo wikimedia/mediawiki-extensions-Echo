@@ -182,7 +182,7 @@
 	"notification-header-mention-user-talkpage-v2": "{{GENDER:$2|}}$1 {{GENDER:$3|}}vous a mentionné{{GENDER:$3||e}} sur la <strong>page de discussion de l’utilisat{{GENDER:$5|eur|rice}} $4</strong> dans « <strong>$6</strong> ».",
 	"notification-header-mention-user-talkpage-nosection": "$1{{GENDER:$2|}} vous a mentionné{{GENDER:$3||e}} sur la <strong>page de discussion de l’utilisat{{GENDER:$5|eur|rice}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1{{GENDER:$2|}} vous a mentionné{{GENDER:$3||e}} sur <strong>{{GENDER:$2|}}sa page de discussion</strong> dans « <strong>$4</strong> ».",
-	"notification-header-mention-agent-talkpage-nosection": "{{GENDER:$2|}}$1 {{GENDER:$3|}}vous a mentionné{{GENDER:$3||e}} sur <strong>{{GENDER:$2|}}sa page de discussion</strong>",
+	"notification-header-mention-agent-talkpage-nosection": "{{GENDER:$2|}}$1 {{GENDER:$3|}}vous a mentionné{{GENDER:$3||e|(e)}} sur <strong>{{GENDER:$2|}}sa page de discussion</strong>",
 	"notification-header-mention-article-talkpage": "{{GENDER:$2|}}$1 vous a mentionné{{GENDER:$3||e}} sur la page de discussion de <strong>$4</strong> dans « <strong>$5</strong> ».",
 	"notification-header-mention-article-talkpage-nosection": "$1{{GENDER:$2|}} vous a mentionné{{GENDER:$3||e}} sur la page de discussion de <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "Aucune notification n’a été envoyée lorsque {{GENDER:$2|}}vous avez mentionné <strong>$3</strong> car cet utilisateur n’a pas été trouvé.",
