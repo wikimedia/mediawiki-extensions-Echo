@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Afalau",
 			"Diafol",
 			"Lloffiwr",
 			"Robin Owain"
@@ -15,6 +16,7 @@
 	"echo-pref-email-format": "Fformat yr ebost:",
 	"echo-pref-web": "Gwe",
 	"echo-pref-email": "Ebost",
+	"echo-pref-push": "Apiau",
 	"echo-pref-email-frequency-never": "Peidio ag anfon unrhyw hysbysiadau ebost ataf",
 	"echo-pref-email-frequency-immediately": "Hysbysiadau unigol pan ddigwyddant",
 	"echo-pref-email-frequency-daily": "Crynodeb dyddiol o'r hysbysiadau",
@@ -22,6 +24,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Testun plaen",
 	"echo-learn-more": "Darllen mwy",
+	"echo-log": "Log cyhoeddus",
 	"echo-new-messages": "Mae negeseuon newydd gennych",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|negeseuon}} ar dudalennau sgwrs",
 	"echo-category-title-article-linked": "{{PLURAL:$1|cysylltau i dudalennau}}",
@@ -35,7 +38,9 @@
 	"echo-pref-tooltip-mention": "Hysbyswch fi pan fo rhywun yn gosod cyswllt at fy nhudalen defnyddiwr oddi wrth rhyw dudalen sgwrs.",
 	"notifications": "Hysbysiadau",
 	"tooltip-pt-notifications-alert": "Eich hysbysiadau",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Defnyddwyr newydd",
 	"echo-specialpage": "Hysbysiadau",
+	"echo-specialpage-pagefilters-title": "Gweithgaredd diweddar",
 	"echo-none": "Nid oes unrhyw hysbysiadau gennych.",
 	"notification-link-text-view-message": "Gweld y neges",
 	"notification-link-text-view-mention": "Gweld y crybwyll",
@@ -48,9 +53,14 @@
 	"notification-reverted-email-subject2": "{{GENDER:$2|Dadwnaethpwyd}} eich {{PLURAL:$4||golygiad|golygiadau}} ar {{SITENAME}}",
 	"notification-mention-email-subject": "{{GENDER:$2|Cyfeiriodd}} $1 atoch ar {{SITENAME}}",
 	"notification-user-rights-email-subject": "Newidiodd eich galluoedd fel defnyddiwr ar {{SITENAME}}",
+	"notification-timestamp-today": "Heddiw",
+	"notification-timestamp-yesterday": "Ddoe",
+	"echo-notification-alert-text-only": "Rhybuddion",
+	"echo-notification-notice-text-only": "Hysbysiadau",
 	"echo-overlay-link": "Pob hysbysiad",
 	"echo-overlay-title": "<b>Hysbysiadau</b>",
 	"echo-mark-all-as-read": "Marcio bod y cwbl wedi eu darllen",
+	"echo-displaysnippet-title": "Hysbysiad newydd",
 	"echo-date-today": "Heddiw",
 	"echo-date-yesterday": "Ddoe",
 	"echo-email-batch-subject-daily": "Mae {{PLURAL:$2||hysbysiad|hysbysiadau}} newydd gennych ar {{SITENAME}}",
