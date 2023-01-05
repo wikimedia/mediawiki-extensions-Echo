@@ -73,21 +73,18 @@
 			);
 
 			// remove real item from item list, without touching the DOM
-			this.removeItems( item );
+			this.removeItems( [ item ] );
 
 			// insert real item, hidden
 			item.$element.hide();
-			this.addItems( item );
-
-			// insert fake
-			this.addItems( fakeWidget );
+			this.addItems( [ item, fakeWidget ] );
 
 			// fade out fake
 			// FIXME: Use CSS transition
 			// eslint-disable-next-line no-jquery/no-fade
 			fakeWidget.$element.fadeOut( 400, function () {
 				// remove fake
-				widget.removeItems( fakeWidget );
+				widget.removeItems( [ fakeWidget ] );
 				// fade-in real item
 				// eslint-disable-next-line no-jquery/no-fade
 				item.$element.fadeIn( 400 );
