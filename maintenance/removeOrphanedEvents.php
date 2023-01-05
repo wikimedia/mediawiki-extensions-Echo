@@ -87,7 +87,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			$dbw->delete( 'echo_target_page', [ 'etp_event' => $ids ], __METHOD__ );
 			$targetsProcessed += $dbw->affectedRows();
 			$this->output( "Deleted $eventsProcessed orphaned events and $targetsProcessed target_page rows.\n" );
-			$dbFactory->waitForReplicas();
+			$this->waitForReplication();
 		}
 
 		$this->output( "Removing any remaining orphaned echo_target_page rows with max etp_event of $maxId...\n" );
@@ -116,7 +116,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			$dbw->delete( 'echo_target_page', [ 'etp_event' => $ids ], __METHOD__ );
 			$processed += $dbw->affectedRows();
 			$this->output( "Deleted $processed orphaned target_page rows.\n" );
-			$dbFactory->waitForReplicas();
+			$this->waitForReplication();
 		}
 
 		return [ $eventsProcessed, $targetsProcessed + $processed ];

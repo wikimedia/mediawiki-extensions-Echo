@@ -82,7 +82,7 @@ class RecomputeNotifCounts extends Maintenance {
 			}
 			$count += count( $batch );
 			$this->output( "$count users' counts recomputed.\n" );
-			$dbFactory->waitForReplicas();
+			$this->waitForReplication();
 		}
 	}
 }

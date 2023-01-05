@@ -82,7 +82,7 @@ class BackfillUnreadWikis extends Maintenance {
 
 			$processed += count( $batch );
 			$this->output( "Updated $processed users.\n" );
-			$dbFactory->waitForReplicas();
+			$this->waitForReplication();
 		}
 	}
 }

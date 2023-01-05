@@ -53,7 +53,7 @@ class ProcessEchoEmailBatch extends Maintenance {
 				}
 				$count++;
 			}
-			$lbFactory->waitForReplicas();
+			$this->waitForReplication();
 
 			// double check to make sure that the id is updated
 			if ( !$updated ) {

@@ -135,55 +135,6 @@ class MWEchoDbFactory {
 	}
 
 	/**
-	 * Wait for the replicas of the database
-	 */
-	public function waitForReplicas() {
-		$this->waitFor( $this->getPrimaryPosition() );
-	}
-
-	/**
-	 * Get the current primary database position for the wiki and echo
-	 * db when they have at least one replica in their cluster.
-	 *
-	 * @return array
-	 */
-	public function getPrimaryPosition() {
-		$position = [
-			'wikiDb' => false,
-			'echoDb' => false,
-		];
-		$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
-		if ( $lb->getServerCount() > 1 ) {
-			$position['wikiDb'] = $lb->getPrimaryPos();
-		}
-
-		if ( $this->cluster ) {
-			$lb = $this->getLB();
-			if ( $lb->getServerCount() > 1 ) {
-				$position['echoDb'] = $lb->getPrimaryPos();
-			}
-		}
-
-		return $position;
-	}
-
-	/**
-	 * Receives the output of self::getPrimaryPosition. Waits
-	 * for replicas to catch up to the primary database position at that
-	 * point.
-	 *
-	 * @param array $position
-	 */
-	public function waitFor( array $position ) {
-		if ( $position['wikiDb'] ) {
-			MediaWikiServices::getInstance()->getDBLoadBalancer()->waitFor( $position['wikiDb'] );
-		}
-		if ( $position['echoDb'] ) {
-			$this->getLB()->waitFor( $position['echoDb'] );
-		}
-	}
-
-	/**
 	 * Check whether it makes sense to retry a failed lookup on the primary database.
 	 * @return bool True if there are multiple servers and changes were made in this request; false otherwise
 	 */

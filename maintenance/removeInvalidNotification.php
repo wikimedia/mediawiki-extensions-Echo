@@ -79,7 +79,7 @@ class RemoveInvalidNotification extends Maintenance {
 				$this->commitTransaction( $dbw, __METHOD__ );
 
 				$this->output( "processing " . count( $event ) . " invalid events\n" );
-				$lbFactory->waitForReplicas();
+				$this->waitForReplication();
 			}
 
 			// Cleanup is not necessary for
