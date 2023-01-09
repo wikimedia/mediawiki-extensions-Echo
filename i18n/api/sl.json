@@ -24,5 +24,6 @@
 	"apihelp-query+notifications-param-filter": "Vrnjena filtrirana obvestila.",
 	"apihelp-query+notifications-paramvalue-format-model": "Surovi podatki obvestil",
 	"apihelp-query+notifications-param-limit": "Največje število prikazanih obvestil.",
+	"apihelp-query+notifications-param-titles": "Vračaj samo obvestila za te strani. Če želite prejemati obvestila, ki niso povezana z nobeno stranjo, uporabite kot naslov [].",
 	"apihelp-query+unreadnotificationpages-param-limit": "Največje število prikazanih strani."
 }
