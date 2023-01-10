@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chulsu463"
+			"Chulsu463",
+			"Amire80"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|sini}} mejige"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Sini}} mejige"
 }
