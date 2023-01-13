@@ -593,11 +593,11 @@ abstract class EchoDiscussionParser {
 				// line in multiline mode.
 				$startSection = preg_match( '/\A' . self::HEADER_REGEX . '/um', $content );
 				$sectionCount = self::getSectionCount( $content );
-				$signedUsers = array_keys( self::extractSignatures( $content, $title ) );
+				$signedUsers = self::extractSignatures( $content, $title );
 
 				if (
 					count( $signedUsers ) === 1 &&
-					in_array( $username, $signedUsers )
+					isset( $signedUsers[$username] )
 				) {
 					if ( $sectionCount === 0 ) {
 						$signedSections[] = self::getSectionSpan( $change['right-pos'], $changes['_info']['rhs'] );
@@ -690,15 +690,11 @@ abstract class EchoDiscussionParser {
 		return $actions;
 	}
 
-	private static function getSignedUsers( $content, $title ) {
-		return array_keys( self::extractSignatures( $content, $title ) );
-	}
-
 	private static function hasNewSignature( $oldContent, $newContent, $username, $title ) {
-		$oldSignedUsers = self::getSignedUsers( $oldContent, $title );
-		$newSignedUsers = self::getSignedUsers( $newContent, $title );
+		$oldSignedUsers = self::extractSignatures( $oldContent, $title );
+		$newSignedUsers = self::extractSignatures( $newContent, $title );
 
-		return !in_array( $username, $oldSignedUsers ) && in_array( $username, $newSignedUsers );
+		return !isset( $oldSignedUsers[$username] ) && isset( $newSignedUsers[$username] );
 	}
 
 	/**
@@ -714,7 +710,7 @@ abstract class EchoDiscussionParser {
 				$action['type'] === 'unknown-change' &&
 				self::isInSignedSection( $action['right-pos'], $signedSections )
 			) {
-				$signedUsers = self::getSignedUsers( $action['new_content'], null );
+				$signedUsers = self::extractSignatures( $action['new_content'], null );
 				if ( count( $signedUsers ) === 1 ) {
 					$action['type'] = 'unknown-signed-change';
 				} else {
@@ -988,7 +984,7 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param string $text The text in which to look for signed comments.
 	 * @param Title|null $title
-	 * @return string[] Associative array, the key is the username, the value
+	 * @return array<string,string> Associative array, the key is the username, the value
 	 *  is the last signature that was found.
 	 */
 	private static function extractSignatures( $text, Title $title = null ) {
