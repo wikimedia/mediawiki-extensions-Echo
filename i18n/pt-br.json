@@ -74,7 +74,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Alteração de permissões de usuário|Alterações de permissões de usuário}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-mail de outro usuário|E-mails de outros usuários}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Lembrete|Lembretes}} de página",
-	"echo-category-title-thank-you-edit": "{{PLURAL:$1|marco|marcos}} de edição",
+	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Marco|Marcos}} de edição",
 	"echo-category-title-watchlist": "Editar na página vigiadas",
 	"echo-category-title-minor-watchlist": "Edição menores na página vigiadas",
 	"echo-pref-tooltip-edit-user-talk": "Notifique-me quando alguém editar a minha página de discussão de usuário.",

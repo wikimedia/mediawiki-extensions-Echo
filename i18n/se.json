@@ -12,5 +12,7 @@
 	"notification-link-text-collapse-all": "Čiega",
 	"notification-link-text-view-page": "Čájet siiddu",
 	"notification-welcome-linktext": "Bures boahtin",
-	"notification-inbox-filter-all": "Buot"
+	"notification-timestamp-today": "Odne",
+	"notification-inbox-filter-all": "Buot",
+	"echo-date-today": "Odne"
 }
