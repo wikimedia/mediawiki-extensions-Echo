@@ -25,7 +25,8 @@
 			"Whym",
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
-			"ネイ"
+			"ネイ",
+			"Kokage si"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、利用者に通知するシステム",
@@ -36,7 +37,7 @@
 	"prefs-blocknotificationslist": "ミュートした利用者",
 	"prefs-mutedpageslist": "ページリンク通知をミュートにしているページ",
 	"prefs-echopollupdates": "ライブ通知",
-	"echo-mobile-notifications-filter-title": "フィルター通知",
+	"echo-mobile-notifications-filter-title": "通知を絞り込む",
 	"echo-pref-show-poll-updates": "新着通知を表示",
 	"echo-pref-send-me": "受け取る頻度:",
 	"echo-pref-send-to": "送信先:",

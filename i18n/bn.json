@@ -58,6 +58,8 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|অন্য ব্যবহারকারীর কাছ থেকে ইমেইল|অন্যান্য ব্যবহারকারীর কাছ থেকে ইমেইলসমূহ}}",
 	"echo-category-title-article-reminder": "পাতা {{PLURAL:$1|স্মরণ}}",
 	"echo-category-title-thank-you-edit": "সম্পাদনা {{PLURAL:$1|মাইলফলক|মাইলফলকগুলি}}",
+	"echo-category-title-watchlist": "নজরে রাখা পাতায় সম্পাদনা",
+	"echo-category-title-minor-watchlist": "নজরে রাখা পাতায় অনুল্লেখ্য সম্পাদনা",
 	"echo-pref-tooltip-edit-user-talk": "আমার ব্যবহারকারী আলাপ পাতায় কেউ সম্পাদনা করলে আমাকে বিজ্ঞপ্তি দিন।",
 	"echo-pref-tooltip-article-linked": "কেউ অন্য পাতায় আমার তৈরি কোনো পাতার লিঙ্ক প্রদান করলে আমাকে বিজ্ঞপ্তি দিন।",
 	"echo-pref-tooltip-reverted": "পূর্বাবস্থা বা রোলব্যাক সরঞ্জাম দিয়ে কেউ আমার সম্পাদনা ফেরত নিলে আমাকে বিজ্ঞপ্তি দিন।",
@@ -68,6 +70,8 @@
 	"echo-pref-tooltip-emailuser": "কেউ আমাকে একটি ইমেল প্রেরণ করলে আমাকে বিজ্ঞপ্তি দিন।",
 	"echo-pref-tooltip-article-reminder": "এই পাতা সম্পর্কে আমাকে অবহিত করুন যখন আমি জিজ্ঞেস করব।",
 	"echo-pref-tooltip-thank-you-edit": "আমি ১ম, ১০ম, ১০০তম... সম্পাদনায় পৌঁছলে আমাকে অবহিত করুন।",
+	"echo-pref-tooltip-watchlist": "কেউ আমার নজরে রাখা পাতায় (অনুল্লেখ্য নয় এমন) সম্পাদনা করলে আমাকে অবহিত করুন।",
+	"echo-pref-tooltip-minor-watchlist": "কেউ আমার নজরে রাখা পাতায় অনুল্লেখ্য সম্পাদনা করলে আমাকে অবহিত করুন।",
 	"notifications": "বিজ্ঞপ্তি",
 	"tooltip-pt-notifications-alert": "{{GENDER:|আপনার}} অবহিতি",
 	"tooltip-pt-notifications-notice": "{{GENDER:|আপনার}} বিজ্ঞপ্তি",
@@ -88,6 +92,7 @@
 	"echo-specialpage-markasread": "বিজ্ঞপ্তি: পঠিত হিসেবে চিহ্নিত করুন",
 	"echo-specialpage-markasread-invalid-id": "অবৈধ ঘটনা আইডি",
 	"echo-specialpage-pagefilterwidget-aria-label": "উইকি ও পাতার শিরোনাম অনুসারে ছাঁকুন",
+	"echo-specialpage-special-help-menu-widget-aria-label": "অতিরিক্ত বিকল্প ও বিজ্ঞপ্তির পছন্দ।",
 	"echo-specialpage-pagination-numnotifications": "$1টি {{PLURAL:$1|বিজ্ঞপ্তি}}",
 	"echo-specialpage-pagefilters-title": "সাম্প্রতিক কার্যকলাপ",
 	"echo-specialpage-pagefilters-subtitle": "অপঠিত বিজ্ঞপ্তিসহ পাতা",
@@ -104,6 +109,7 @@
 	"echo-notification-markasread-tooltip": "পঠিত হিসেবে চিহ্নিত করুন",
 	"echo-notification-more-options-tooltip": "আরো বিকল্প",
 	"notification-dynamic-actions-mute-page-linked-confirmation": "\"পাতা সংযোগ\" বিজ্ঞপ্তি এখন \"$1\" পাতার জন্য নিষ্ক্রিয় করা হয়েছে",
+	"notification-dynamic-actions-unmute-page-linked-confirmation": "\"পাতা সংযোগ\" বিজ্ঞপ্তি এখন \"$1\" পাতার জন্য সক্রিয় করা হয়েছে",
 	"notification-dynamic-actions-unwatch": "\"$1\"-এ নতুন কার্যকলাপ নজর রাখা {{GENDER:$3|বন্ধ করুন}}",
 	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|আপনি}} আর \"$1\" পাতাটি নজরে রাখছেন না",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|আপনি}} যেকোন সময় [$2 এই পাতায়] নজরে রাখতে পারেন।",
@@ -207,5 +213,8 @@
 	"notification-header-foreign-alert": "{{PLURAL:$5|আরেকটি উইকি থেকে|$5টি উইকি থেকে}} আরো অবহিতি",
 	"notification-header-foreign-notice": "{{PLURAL:$5|আরেকটি উইকি|$5টি উইকি}} থেকে আরো বিজ্ঞপ্তি",
 	"notification-header-foreign-all": "{{PLURAL:$5|আরেকটি উইকি|$5টি উইকি}} থেকে আরো বিজ্ঞপ্তি",
-	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
+	"group-push-subscription-manager": "পুশ সাবস্ক্রিপশন ব্যবস্থাপক",
+	"group-push-subscription-manager-member": "{{GENDER:$1|পুশ সাবস্ক্রিপশন ব্যবস্থাপক}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:পুশ সাবস্ক্রিপশন ব্যবস্থাপক"
 }
