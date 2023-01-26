@@ -665,7 +665,8 @@ class Hooks implements
 		if ( $userIdentity->isRegistered() ) {
 			$thresholdCount = self::getEditCount( $userIdentity );
 			if ( in_array( $thresholdCount, $thresholds ) ) {
-				DeferredUpdates::addCallableUpdate( static function () use ( $userIdentity, $title, $thresholdCount ) {
+				DeferredUpdates::addCallableUpdate( static function () use (
+					$revisionRecord, $userIdentity, $title, $thresholdCount ) {
 					$notificationMapper = new NotificationMapper();
 					$notifications = $notificationMapper->fetchByUser( $userIdentity, 10, null, [ 'thank-you-edit' ] );
 					/** @var Notification $notification */
@@ -690,6 +691,7 @@ class Hooks implements
 						// Edit threshold notifications are sent to the agent
 						'extra' => [
 							'editCount' => $thresholdCount,
+							'revid' => $revisionRecord->getId(),
 						]
 					] );
 				} );
