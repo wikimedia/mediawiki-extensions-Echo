@@ -150,7 +150,7 @@
 	"notification-header-user-rights-add-only": "I to dirit de utente a inn stad  {{GENDER:$1|modifegad}}. Te see {{GENDER:$4|stad sgiontad|stada sgiontada}} a: $2.",
 	"notification-header-user-rights-remove-only": "I {{GENDER:$4|to}} dirit de utent a inn stad {{GENDER:$1|modifegad}}. te see pu un member de: $2.",
 	"notification-header-user-rights-add-and-remove": "I to dirit de utent a inn stad {{GENDER:$1|modifegad}}. Te see {{GENDER:$6|stad sgiontad|stada sgiontada}} a: $2. Te see pu un member de: $4.",
-	"notification-header-user-rights-expiry-change": "La scadenza de la {{GENDER:$4|toa}} aderenza {{PLURAL:$3|a quell grup chì|a sti grup chì}} l'è stada {{GENDER:$1|modifegada}}: $2.",
+	"notification-header-user-rights-expiry-change": "La scadenza del {{GENDER:$4|tò}} partegnì {{PLURAL:$3|a quell grup chì|a sti grup chì}} l'è stada {{GENDER:$1|modifegada}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Benvegnud|Benvesgnuda|Benvenud/da}} in su {{SITENAME}}, $1! Semm content che {{GENDER:$2|te see}} chì.",
 	"notification-header-mention-summary": "{{GENDER:$2|El $1 el|La $1 la|$1 el/la}} t'ha {{GENDER:$3|menzionad|menzionada|menzionad/da}} in del sunt de la modifega in su <strong>$4</strong>.",
 	"notification-header-watchlist-changed": "{{GENDER:$2|El $1 l'|La $1 l'|$1 l'}}hà cambiad <strong>$3</strong>, una pagina che {{GENDER:$4|te}} tegnet d'oeugg{{PLURAL:$5||, $5 volte}}.",
