@@ -13,5 +13,8 @@
 	"notification-welcome-linktext": "Xosh keldińiz",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Siz}} {{GENDER:$2|dáslepki}} redaktorlawıńızdı qıldıńız; {{GENDER:$2|raxmet}} hám xosh keldińiz!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Siz}} júzinshi{{GENDER:$2|redaktorlawıńızdı}} qıldıńız; úlken {{GENDER:$2|raxmet}}!",
-	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Siz}} on mıńınshı {{GENDER:$2|redaktorlawıńızdı}} qıldıńız; úlken {{GENDER:$2|raxmet}}!"
+	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Siz}} on mıńınshı {{GENDER:$2|redaktorlawıńızdı}} qıldıńız; úlken {{GENDER:$2|raxmet}}!",
+	"echo-overlay-link": "Barlıq eskertkishler",
+	"echo-mark-all-as-read": "Barlıǵın oqıldı dep belgilew",
+	"group-push-subscription-manager": "Push-jazılıw menedjerleri"
 }

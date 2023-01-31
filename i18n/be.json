@@ -172,7 +172,7 @@
 	"notification-header-watchlist-multiuser-created": "<strong>$1</strong>, старонка ў {{GENDER:$2|вашым}} спісе назірання, была створаная $3 {{PLURAL:$3|раз|разы|разоў}}.",
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, старонка ў {{GENDER:$2|вашым}} спісе назірання, была выдаленая $3 {{PLURAL:$3|раз|разы|разоў}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, старонка ў {{GENDER:$2|вашым}} спісе назірання, была перанесеная $3 {{PLURAL:$3|раз|разы|разоў}}.",
-	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, старонка ў {{GENDER:$2|вашым}} спісе назірання, была адноўленая $3 {{PLURAL:$3|раз|разы|разоў}}.",
+	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, старонка ў {{GENDER:$2|вашым}} спісе назірання, была адноўлена $3 {{PLURAL:$3|раз|разы|разоў}}.",
 	"notification-body-watchlist-once": "Іншых апавяшчэнняў на эл. пошту аб далейшай дзейнасці не будзе, калі вы не {{GENDER:$1|наведаеце}} гэтую старонку пасля ўваходу ў сістэму.",
 	"notification-welcome-linktext": "Вітаем",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Вы}} толькі што зрабілі {{GENDER:$2|сваю}} першую праўку; дзякуй {{GENDER:$2|Вам}} за гэта, і вітаем!",
