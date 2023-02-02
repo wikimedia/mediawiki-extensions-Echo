@@ -10,7 +10,7 @@
 	padding: 0.8em 1em 0.5em 1em;
 	box-sizing: border-box;
 	border: 1px solid #c8ccd1;
-	border-bottom: 0;
+	margin-bottom: -1px;
 
 	&:not( [ href ] ) {
 		// Items without a primary URL are not clickable
@@ -29,12 +29,10 @@
 
 	&:focus {
 		text-decoration: none;
-		box-shadow: inset 0 0 0 2px @color-primary;
+		box-shadow: inset 0 0 0 1px @color-primary;
+		border-color: @color-primary;
 		outline: 0;
-	}
-
-	&:last-child {
-		border-bottom: 1px solid #c8ccd1;
+		z-index: 1;
 	}
 
 	&-unread {
