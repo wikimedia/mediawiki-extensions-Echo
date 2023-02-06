@@ -48,6 +48,12 @@
 					&:last-child {
 						border-bottom: 0;
 					}
+
+					// Compensate for adjusted borders
+					&:focus {
+						box-shadow: inset 0 0 0 2px @color-primary;
+						border-color: #c8ccd1;
+					}
 				}
 			}
 
@@ -77,6 +83,11 @@
 							margin: 0;
 							border: 0;
 							padding: 0 0.5em;
+
+							// Compensate for hidden borders
+							&:focus {
+								box-shadow: inset 0 0 0 2px @color-primary;
+							}
 						}
 					}
 				}
