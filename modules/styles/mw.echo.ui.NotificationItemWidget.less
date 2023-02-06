@@ -133,9 +133,12 @@
 			}
 
 			&-menu {
-				.mw-echo-ui-mixin-hover-opacity();
 				vertical-align: bottom;
 				padding: 0;
+
+				> .oo-ui-buttonElement-button {
+					.mw-echo-ui-mixin-hover-opacity();
+				}
 			}
 
 			&-timestamp {
