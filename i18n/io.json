@@ -30,7 +30,7 @@
 	"echo-category-title-mention": "{{PLURAL:$1|Menciono|Mencioni}}",
 	"echo-category-title-mention-failure": "Faliita {{PLURAL:$1|menciono|mencioni}}",
 	"echo-category-title-mention-success": "{{PLURAL:$1|Menciono|Mencioni}} sucesoza",
-	"echo-category-title-other": "{{PLURAL:$1|Altra}}",
+	"echo-category-title-other": "{{PLURAL:$1|Altro}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Modifikuro|Modifikuri}} en l'autoroyuro",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-posto de altra uzero|E-posti de altra uzeri}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Memorohelpilo|Memorohelpili}} di la pagino",
