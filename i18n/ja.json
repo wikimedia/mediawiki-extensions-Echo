@@ -54,6 +54,7 @@
 	"echo-pref-cross-wiki-notifications": "他のウィキからの通知を表示",
 	"echo-pref-notifications-blacklist": "以下の利用者からの通知は表示されません ([[mw:Special:MyLanguage/Help:Notifications#mute|詳細]])。",
 	"echo-pref-notifications-page-linked-title-muted-list": "以下のページからのページリンク通知は表示されません ([[mw:Special:MyLanguage/Help:Notifications#mute|詳細]])。",
+	"echo-pref-dont-email-read-notifications": "要約メールに既読の通知を含めない",
 	"echo-learn-more": "詳細",
 	"echo-log": "公開記録",
 	"echo-new-messages": "あなたの会話ページに新着メッセージがあります",
