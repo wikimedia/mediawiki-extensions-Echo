@@ -45,6 +45,7 @@
 	"notifications": "Avizi",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vua}} informi",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vua}} informi",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nova uzeri",
 	"echo-specialpage": "Avizi",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|avizo|avizi}}",
 	"echo-specialpage-pagefilters-title": "Recenta agadi",

@@ -73,7 +73,7 @@
 	"echo-pref-tooltip-minor-watchlist": "कसैले मेरो अवलोकनसूचीको पृष्ठमा सानो सम्पादन गर्दा मलाई सूचित गर्नुहोस्।",
 	"notifications": "जानकारीहरू",
 	"tooltip-pt-notifications-alert": "{{GENDER:|तपाईंको}} जानकारीहरू",
-	"tooltip-pt-notifications-notice": "{{GENDER:|तपाईको}} जानकारीहरू",
+	"tooltip-pt-notifications-notice": "{{GENDER:|तपाईंको}} जानकारीहरू",
 	"echo-displaynotificationsconfiguration": "सूचना अभिरुचिहरू प्रदर्शन गर्नुहोस्",
 	"echo-displaynotificationsconfiguration-summary": "यो विकिमा सूचनाहरू कसरी कन्फिगर गरिएको छ भन्ने बारे एक सिंहावलोकन हो।",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "श्रेणीद्वारा जानकारीहरू",
