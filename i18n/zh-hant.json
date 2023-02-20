@@ -35,6 +35,7 @@
 	},
 	"echo-desc": "用來通知使用者事件及訊息的系統",
 	"prefs-echo": "通知",
+	"prefs-description-echo": "選擇{{GENDER:|您}}收到的通知以及接收方式。",
 	"prefs-emailsettings": "電子郵件選項",
 	"prefs-echosubscriptions": "通知我這些事件",
 	"prefs-echocrosswiki": "跨 wiki 通知",

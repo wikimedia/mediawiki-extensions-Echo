@@ -19,6 +19,7 @@
 	},
 	"echo-desc": "Sistem de notificare a utilizatorilor cu privire la evenimente și mesaje",
 	"prefs-echo": "Notificări",
+	"prefs-description-echo": "Selectați ce notificări să {{GENDER:|aveți}} și cum să le primiți.",
 	"prefs-emailsettings": "Setări pentru e-mail",
 	"prefs-echosubscriptions": "Notifică-mă despre aceste evenimente",
 	"prefs-echocrosswiki": "Notificări inter-wiki",
