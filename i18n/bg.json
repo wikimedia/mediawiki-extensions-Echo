@@ -154,7 +154,7 @@
 	"notification-header-user-rights-expiry-change": "Срокът на изтичане на членството {{GENDER:$4|Ви}} в {{PLURAL:$3|следната група|следните групи}} беше {{GENDER:$1|променен}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Добре дошли}} в {{SITENAME}}, $1! Радваме се, че {{GENDER:$2|сте}} тук.",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|спомена}} на резюмето на <strong>$4</strong>.",
-	"notification-header-watchlist-multiuser-created": "<strong>$1</strong>, страница от {{GENDER:$2|Вашия}} списък за наблюдение, беше създадена $3 {{PLURAL:$3|веднъж|$3 пъти}}.",
+	"notification-header-watchlist-multiuser-created": "<strong>$1</strong>, страница от {{GENDER:$2|Вашия}} списък за наблюдение, беше създадена {{PLURAL:$3|веднъж|$3 пъти}}.",
 	"notification-welcome-linktext": "Добре дошли!",
 	"notification-header-thank-you-1-edit": "Току-що {{GENDER:$2|направихте}} {{GENDER:$2|Вашата}} първа редакция. {{GENDER:$2|Благодарим}} Ви и добре дошли!",
 	"notification-header-thank-you-10-edit": "Току-що {{GENDER:$2|направихте}} {{GENDER:$2|Вашата}} десета редакция. {{GENDER:$2|Благодарим}} Ви и моля, продължавайте все така!",
