@@ -217,7 +217,7 @@
 	"echo-email-batch-body-intro-daily": "Zdravo, $1,\nOvo je rezime današnjih aktivnosti na projektu {{SITENAME}} za vas.",
 	"echo-email-batch-body-intro-weekly": "Zdravo, $1,\nOvo je rezime ovonedeljne aktivnosti na projektu {{SITENAME}} za vas.",
 	"echo-email-batch-link-text-view-all-notifications": "Prikaži sva obaveštenja",
-	"notification-header-foreign-alert": "Više obaveštenja sa {{PLURAL:$5|drugog vikija|$5 druga vikija|$5 drugih vikija}}",
-	"notification-header-foreign-notice": "Više obaveštenja sa {{PLURAL:$5|drugog vikija|$5 druga vikija|$5 drugih vikija}}",
-	"notification-header-foreign-all": "Više obaveštenja sa {{PLURAL:$5|drugog vikija|$5 druga vikija|$5 drugih vikija}}"
+	"notification-header-foreign-alert": "Obaveštenja sa {{PLURAL:$5|drugog vikija|$5 druga vikija|$5 drugih vikija}}",
+	"notification-header-foreign-notice": "Obaveštenja sa {{PLURAL:$5|drugog vikija|$5 druga vikija|$5 drugih vikija}}",
+	"notification-header-foreign-all": "Obaveštenja sa {{PLURAL:$5|drugog vikija|$5 druga vikija|$5 drugih vikija}}"
 }

@@ -77,6 +77,7 @@
 	"notificationsmarkread-legend": "Atzīmēt paziņojumu kā izlasītu",
 	"echo-none": "Jums nav paziņojumu.",
 	"echo-api-failure": "Neizdevās iegūt paziņojumus.",
+	"echo-api-failure-cross-wiki": "Piekļuve attālajam domēnam tika liegta.",
 	"echo-notification-placeholder": "Nav paziņojumu.",
 	"echo-notification-placeholder-filters": "Nav paziņojumu, kas atbilstu šiem kritērijiem.",
 	"echo-notification-markasread": "Atzīmēt kā lasītu",

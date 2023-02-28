@@ -32,7 +32,7 @@
 	"echo-learn-more": "Darllen mwy",
 	"echo-log": "Log cyhoeddus",
 	"echo-new-messages": "Mae neges newydd ar eich tudalen Sgwrs",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|negeseuon}} ar dudalennau sgwrs",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Golygiad|Golygiad|Olygiad}} i fy nhudalen sgwrs defnyddiwr",
 	"echo-category-title-article-linked": "{{PLURAL:$1|cysylltau i dudalennau}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|dadwneud golygiadau}}",
 	"echo-category-title-mention": "{{PLURAL:$1|cyfeiriadau}}",

@@ -8,7 +8,8 @@
 			"Nullzero",
 			"Octahedron80",
 			"Patsagorn Y.",
-			"Supasate"
+			"Supasate",
+			"Taweetham"
 		]
 	},
 	"echo-desc": "ระบบสำหรับแจ้งเตือนผู้ใช้เกี่ยวกับเหตุการณ์และข้อความ",
@@ -36,7 +37,7 @@
 	"echo-pref-email-format-plain-text": "ข้อความธรรมดา",
 	"echo-pref-cross-wiki-notifications": "แสดงการแจ้งเตือนจากวิกิอื่น",
 	"echo-pref-notifications-blacklist": "ไม่ต้องแสดงการแจ้งเตือนจากผู้ใช้เหล่านี้\n([[mw:Special:MyLanguage/Help:Notifications#mute|เรียนรู้เพิ่มเติม]])",
-	"echo-pref-notifications-page-linked-title-muted-list": "ไม่ต้องแสดงการแจ้งเตือน \"การลิงก์หน้า\" สำหรับหน้าเปล่านี้ ([[mw:Special:MyLanguage/Help:Notifications#mute|เรียนรู้เพิ่มเติม]])",
+	"echo-pref-notifications-page-linked-title-muted-list": "ไม่ต้องแสดงการแจ้งเตือน \"การลิงก์หน้า\" สำหรับหน้าเหล่านี้ ([[mw:Special:MyLanguage/Help:Notifications#mute|เรียนรู้เพิ่มเติม]])",
 	"echo-pref-dont-email-read-notifications": "ไม่ต้องรวมการแจ้งเตือนที่อ่านแล้วในอีเมลสรุป",
 	"echo-learn-more": "เรียนรู้เพิ่มเติม",
 	"echo-log": "ปูมสาธารณะ",

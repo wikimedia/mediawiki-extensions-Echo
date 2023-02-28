@@ -178,7 +178,7 @@
 	"notification-header-watchlist-created": "$1 {{GENDER:$2|erstellte}} <strong>$3</strong>, eine Seite auf {{GENDER:$4|deiner}} Beobachtungsliste {{PLURAL:$5||, $5x}}.",
 	"notification-header-watchlist-deleted": "$1 {{GENDER:$2|löschte}} <strong>$3</strong>, eine Seite auf {{GENDER:$4|deiner}} Beobachtungsliste {{PLURAL:$5||, $5x}}.",
 	"notification-header-watchlist-moved": "$1 {{GENDER:$2|verschob}} <strong>$3</strong>, eine Seite auf {{GENDER:$4|deiner}} Beobachtungsliste {{PLURAL:$5||, $5x}}.",
-	"notification-header-watchlist-restored": "$1 {{GENDER:$2|stellte wieder her}} <strong>$3</strong>, eine Seite auf {{GENDER:$4|deiner}} Beobachtungsliste {{PLURAL:$5||, $5x}}.",
+	"notification-header-watchlist-restored": "$1 {{GENDER:$2|stellte <strong>$3</strong> wieder her}}, eine Seite auf {{GENDER:$4|deiner}} Beobachtungsliste {{PLURAL:$5||, $5x}}.",
 	"notification-header-watchlist-multiuser-changed": "<strong>$1</strong>, eine Seite auf {{GENDER:$2|deiner}} Beobachtungsliste, wurde {{PLURAL:$3|einmal|$3x}} geändert.",
 	"notification-header-watchlist-multiuser-created": "<strong>$1</strong>, eine Seite auf {{GENDER:$2|deiner}} Beobachtungsliste, wurde {{PLURAL:$3||$3x}} erstellt.",
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, eine Seite auf {{GENDER:$2|deiner}} Beobachtungsliste, wurde {{PLURAL:$3|einmal|$3x}} gelöscht.",
