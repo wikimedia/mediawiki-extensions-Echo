@@ -4,7 +4,8 @@
 			"Les Meloures",
 			"Macofe",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"echo-desc": "System fir Benotzer iwwer Evenementer a Messagen z'informéieren",
@@ -91,7 +92,7 @@
 	"echo-api-failure": "D'Notifikatioune konnten net ofgeruff ginn.",
 	"echo-api-failure-cross-wiki": "Den Zougang op d'Remote-Domain gouf net erlaabt.",
 	"echo-notification-placeholder": "Et si keng Notifikatiounen do.",
-	"echo-notification-placeholder-filters": "Et gëtt keng Notifikatiounen déi dëse Kritären entspriechen.",
+	"echo-notification-placeholder-filters": "Et gëtt keng Notifikatiounen, déi dëse Krittären entspriechen.",
 	"echo-notification-loginrequired": "Dir musst Iech alogge fir Är Notifikatiounen ze gesinn.",
 	"echo-notification-popup-loginrequired": "Loggt Iech wgl. a fir Är Notifikatiounen ze gesinn.",
 	"echo-notification-markasread": "Als gelies markéieren",

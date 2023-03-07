@@ -11,6 +11,7 @@
 	"apihelp-echomarkread-param-unreadlist": "Seznam ID-jev obvestil, ki bodo označena kot neprebrana.",
 	"apihelp-echomarkread-param-all": "Ob nastavitvi označi vsa uporabnikova obvestila kot prebrana.",
 	"apihelp-echomarkread-param-sections": "Seznam razdelkov za označitev kot prebranih.",
+	"apihelp-echomarkread-param-wikis": "Seznam vikijev za označevanje obvestila kot prebranega (privzeto samo trenutni viki).",
 	"apihelp-echomarkread-example-1": "Označi obvestilo 8 kot prebrano",
 	"apihelp-echomarkread-example-2": "Označi vsa obvestila kot prebrana",
 	"apihelp-echomarkread-example-3": "Označi obvestilo 1 kot neprebrano",
