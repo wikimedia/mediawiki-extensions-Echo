@@ -207,7 +207,8 @@
 				"oojs-ui.styles.icons-content",
 				"oojs-ui.styles.icons-interactions",
 				"oojs-ui.styles.icons-moderation",
-				"oojs-ui.styles.icons-movement"
+				"oojs-ui.styles.icons-movement",
+				"oojs-ui.styles.icons-editing-core"
 			],
 			"messages": [
 				"echo-badge-count",
