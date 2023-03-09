@@ -652,6 +652,10 @@
 						"all"
 					]
 				},
+				"edit-user-page": {
+					"priority": 4,
+					"tooltip": "echo-pref-tooltip-edit-user-page"
+				},
 				"edit-user-talk": {
 					"priority": 1,
 					"no-dismiss": [
@@ -721,6 +725,9 @@
 				},
 				"edit": {
 					"path": "Echo/modules/icons/edit-progressive.svg"
+				},
+				"edit-user-page": {
+					"path": "Echo/modules/icons/edit-user-page.svg"
 				},
 				"edit-user-talk": {
 					"path": "Echo/modules/icons/edit-user-talk-progressive.svg"
@@ -804,6 +811,21 @@
 					"group": "positive",
 					"section": "message",
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoWelcomePresentationModel"
+				},
+				"edit-user-page": {
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditUserPagePresentationModel",
+					"user-locators": [
+						"EchoUserLocator::locateUserPageOwner"
+					],
+					"category": "edit-user-page",
+					"group": "interactive",
+					"section": "alert",
+					"bundle": {
+						"web": true,
+						"email": false,
+						"expandable": true
+					},
+					"immediate": true
 				},
 				"edit-user-talk": {
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditUserTalkPresentationModel",

@@ -66,6 +66,27 @@ class EchoUserLocator {
 	}
 
 	/**
+	 * If the event occurred on the user page of a registered
+	 * user return that user.
+	 *
+	 * @param EchoEvent $event
+	 * @return User[]
+	 */
+	public static function locateUserPageOwner( EchoEvent $event ) {
+		$title = $event->getTitle();
+		if ( !$title || !$title->inNamespace( NS_USER ) ) {
+			return [];
+		}
+
+		$user = User::newFromName( $title->getDBkey() );
+		if ( $user && $user->isRegistered() ) {
+			return [ $user->getId() => $user ];
+		}
+
+		return [];
+	}
+
+	/**
 	 * Return the event agent
 	 *
 	 * @param Event $event

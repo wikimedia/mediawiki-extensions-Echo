@@ -367,6 +367,7 @@ class Hooks implements
 	 */
 	public static function onEchoGetBundleRules( $event, &$bundleString ) {
 		switch ( $event->getType() ) {
+			case 'edit-user-page':
 			case 'edit-user-talk':
 			case 'page-linked':
 				$bundleString = $event->getType();
@@ -1294,12 +1295,19 @@ class Hooks implements
 			// Let echo handle watchlist notifications entirely
 			return false;
 		}
-		// If a user is watching his/her own talk page, do not send talk page watchlist
-		// email notification if the user is receiving Echo talk page notification
-		if ( $title->isTalkPage() && $targetUser->getTalkPage()->equals( $title ) ) {
+		$eventName = false;
+		// The edit-user-talk and edit-user-page events effectively duplicate watchlist notifications.
+		// If we are sending Echo notification emails, suppress the watchlist notifications.
+		if ( $title->inNamespace( NS_USER_TALK ) && $targetUser->getTalkPage()->equals( $title ) ) {
+			$eventName = 'edit-user-talk';
+		} elseif ( $title->inNamespace( NS_USER ) && $targetUser->getUserPage()->equals( $title ) ) {
+			$eventName = 'edit-user-page';
+		}
+
+		if ( $eventName !== false ) {
 			$attributeManager = EchoServices::getInstance()->getAttributeManager();
 			$events = $attributeManager->getUserEnabledEvents( $targetUser, 'email' );
-			if ( in_array( 'edit-user-talk', $events ) ) {
+			if ( in_array( $eventName, $events ) ) {
 				// Do not send watchlist email notification, the user will receive an Echo notification
 				return false;
 			}

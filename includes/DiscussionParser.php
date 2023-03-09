@@ -122,6 +122,20 @@ abstract class EchoDiscussionParser {
 					];
 				}
 			}
+		} elseif ( $title->inNamespace( NS_USER ) ) {
+			$notifyUser = User::newFromName( $title->getText() );
+			// If the recipient is a valid non-anonymous user and hasn't turned
+			// off their notifications, generate a talk page post Echo notification.
+			if ( $notifyUser && $notifyUser->getId() ) {
+				$events[] = [
+					'type' => 'edit-user-page',
+					'title' => $title,
+					'extra' => [
+						'revid' => $revision->getId(),
+					],
+					'agent' => $user,
+				];
+			}
 		}
 
 		// Notify users mentioned in edit summary
