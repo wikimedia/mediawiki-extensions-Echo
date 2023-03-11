@@ -105,7 +105,7 @@ class UserNotificationGatewayTest extends MediaWikiUnitTestCase {
 			$this->mockConfig()
 		);
 		$res = $gateway->getUnreadNotifications( 'user_talk' );
-		$this->assertEquals( $res, [ 1 => 1, 2 => 2, 3 => 3 ] );
+		$this->assertEquals( [ 1 => 1, 2 => 2, 3 => 3 ], $res );
 	}
 
 	/**

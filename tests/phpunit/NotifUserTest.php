@@ -50,7 +50,7 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $notifUser->getEmailFormat(),
 			$userOptionsLookup->getOption( $user, 'echo-email-format' ) );
 		$this->setMwGlobals( 'wgAllowHTMLEmail', false );
-		$this->assertEquals( $notifUser->getEmailFormat(), EchoEmailFormat::PLAIN_TEXT );
+		$this->assertEquals( EchoEmailFormat::PLAIN_TEXT, $notifUser->getEmailFormat() );
 	}
 
 	public function testMarkRead() {
