@@ -99,8 +99,12 @@
 		} );
 		preferencesButton.$element.children().first().removeAttr( 'role' );
 
+		var footerItems = [ allNotificationsButton ];
+		if ( !mw.user.isTemp() ) {
+			footerItems.push( preferencesButton );
+		}
 		footerButtonGroupWidget = new OO.ui.ButtonGroupWidget( {
-			items: [ allNotificationsButton, preferencesButton ],
+			items: footerItems,
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-buttons' ]
 		} );
 		$footer = $( '<div>' )
