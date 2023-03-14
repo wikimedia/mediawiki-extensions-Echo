@@ -3,7 +3,8 @@
 		"authors": [
 			"Har-wradim",
 			"Macofe",
-			"פוילישער"
+			"פוילישער",
+			"Pacha Tchernof"
 		]
 	},
 	"echo-desc": "סיסטעם פאר נאטיפֿיצירן באניצער וועגן פאסירונגען און מעלדונגען",
@@ -17,7 +18,7 @@
 	"echo-pref-send-to": "שיקט צו:",
 	"echo-pref-email-format": "ע־פאסט פֿארמאט",
 	"echo-pref-web": "וועב",
-	"echo-pref-email": "ע-פאסט",
+	"echo-pref-email": "בליצפּאָסט",
 	"echo-pref-email-frequency-never": "שיקט מיר נישט קיין ע־פאסט אנזאגן",
 	"echo-pref-email-frequency-immediately": "איינציקע אנזאגן ווען זיי קומען אן",
 	"echo-pref-email-frequency-daily": "א טעגליכע רעזומע פון אנזאגן",
