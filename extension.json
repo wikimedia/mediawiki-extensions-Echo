@@ -15,16 +15,21 @@
 	"license-name": "MIT",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.37.0"
+		"MediaWiki": ">= 1.39.0"
 	},
 	"APIMetaModules": {
 		"notifications": {
 			"class": "ApiEchoNotifications",
-			"services": [ "MainConfig" ]
+			"services": [
+				"MainConfig"
+			]
 		},
 		"unreadnotificationpages": {
 			"class": "ApiEchoUnreadNotificationPages",
-			"services": [ "PageStore", "TitleFactory" ]
+			"services": [
+				"PageStore",
+				"TitleFactory"
+			]
 		}
 	},
 	"APIModules": {
@@ -517,7 +522,9 @@
 	"HookHandlers": {
 		"main": {
 			"class": "MediaWiki\\Extension\\Notifications\\Hooks",
-			"services": [ "MainConfig" ]
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"config": {
