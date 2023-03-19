@@ -245,9 +245,11 @@ class EchoForeignWikiRequest {
 
 			if ( !isset( $results[$wiki] ) ) {
 				LoggerFactory::getInstance( 'Echo' )->warning(
-					'Failed to fetch API response from {wiki}. Error code {code}',
+					'Failed to fetch API response from {wiki}. Error: {error}',
 					[
 						'wiki' => $wiki,
+						'error' => $response['response']['error'] ?? 'unknown',
+						'statusCode' => $statusCode,
 						'response' => $response['response'],
 						'request' => $reqs[$wiki],
 					]
