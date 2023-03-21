@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Angpradesh"
+			"Angpradesh",
+			"Proabscorp!"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|आपन॑ के}} जागरुकता संदेश"
+	"prefs-echo": "अधिसूचना सिनी",
+	"notifications": "अधिसूचना सिनी",
+	"tooltip-pt-notifications-alert": "{{GENDER:|आपन॑ के}} जागरुकता संदेश",
+	"echo-specialpage": "अधिसूचना सिनी",
+	"echo-notification-alert-text-only": "चेतावनी सिनी",
+	"echo-notification-notice-text-only": "अधिसूचना सिनी"
 }
