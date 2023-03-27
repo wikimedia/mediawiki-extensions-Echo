@@ -34,8 +34,16 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		if ( $this->isBundled() ) {
 			return false;
 		} else {
+			$params = [];
+			if ( $this->event->getExtraParam( 'revid' ) ) {
+				$params = [
+					'oldid' => 'prev',
+					'diff' => $this->event->getExtraParam( 'revid' )
+				];
+			}
+
 			return [
-				'url' => $this->getPageFrom()->getFullURL(),
+				'url' => $this->getPageFrom()->getFullURL( $params ),
 				'label' => $this->msg( 'notification-link-text-view-page' )->text(),
 			];
 		}
@@ -51,20 +59,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 			'prioritized' => true
 		];
 
-		$revid = $this->event->getExtraParam( 'revid' );
-		$diffLink = null;
-		if ( $revid !== null ) {
-			$diffLink = [
-				'url' => $this->getPageFrom()->getFullURL( [ 'diff' => $revid, 'oldid' => 'prev' ] ),
-				'label' => $this->msg( 'notification-link-text-view-changes', $this->getViewingUserForGender() )
-					->text(),
-				'description' => '',
-				'icon' => 'changes',
-				'prioritized' => true
-			];
-		}
-
-		return [ $whatLinksHereLink, $diffLink, $this->getMuteLink() ];
+		return [ $whatLinksHereLink, $this->getMuteLink() ];
 	}
 
 	protected function getMuteLink() {
