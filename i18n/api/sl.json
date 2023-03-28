@@ -20,6 +20,7 @@
 	"apihelp-echomarkseen-example-1": "Označi vse vrste obvestil kot ogledane",
 	"apihelp-echomarkseen-param-type": "Vrste obvestil za označitev za ogledano: 'opomnik', 'sporočilo' ali 'vse'.",
 	"apihelp-echomarkseen-param-timestampFormat": "Datumski odtis pri izpisovanju, 'ISO_8601' ali 'MW'. 'MW' se ne priporoča, zato ga naj uporabniki zamenjajo z 'ISO_8601'. Ko bo ukinjen, bo ostal v uporabi le 'ISO_8601'.",
+	"apihelp-echomute-param-unmute": "Strani ali uporabniki za odstranitev s spiska utišanih.",
 	"apihelp-query+notifications-description": "Prikaži obvestila, ki čakajo na trenutnega uporabnika.",
 	"apihelp-query+notifications-param-prop": "Zahtevane podrobnosti.",
 	"apihelp-query+notifications-param-filter": "Vrnjena filtrirana obvestila.",

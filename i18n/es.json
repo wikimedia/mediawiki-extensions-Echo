@@ -190,6 +190,7 @@
 	"notification-header-welcome": "¡{{GENDER:$2|Bienvenido|Bienvenida}} a {{SITENAME}}, $1! Nos alegra que estés aquí.",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|te}} {{GENDER:$2|mencionó}} en un resumen de edición en <strong>$4</strong>.",
 	"notification-header-watchlist-changed": "$1 {{GENDER:$2|editó}} {{PLURAL:$5||$5 veces}} la página <strong>$3</strong>, que se encuentra en {{GENDER:$4|tu}} lista de seguimiento.",
+	"notification-header-watchlist-multiuser-changed": "<strong>$1</strong>, una página que {{GENDER:$2|vigilas}}, ha sido modificada $3 {{PLURAL:$3|vez|veces}}.",
 	"notification-welcome-linktext": "Te damos la bienvenida",
 	"notification-header-thank-you-1-edit": "Acabas de hacer {{GENDER:$2|tu}} primera edición. Gracias y ¡{{GENDER:$2|bienvenido|bienvenida}}!",
 	"notification-header-thank-you-10-edit": "Acabas de hacer {{GENDER:$2|tu}} décima edición. Gracias y ¡sigue así!",
