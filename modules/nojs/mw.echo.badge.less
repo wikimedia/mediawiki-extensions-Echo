@@ -32,13 +32,13 @@
 			box-shadow: 0 0 0 1px #fff, 0 0 0 3px #36c;
 			opacity: 1;
 
-			&:after {
+			&::after {
 				border-color: #36c;
 			}
 		}
 
 		// Counter
-		&:after {
+		&::after {
 			position: absolute;
 			display: inline-block;
 			cursor: pointer;
@@ -63,7 +63,7 @@
 		&.mw-echo-notifications-badge-long-label {
 			margin-right: 0.5em;
 
-			&:after {
+			&::after {
 				left: 35%;
 			}
 		}
@@ -71,7 +71,7 @@
 		&.mw-echo-notifications-badge-all-read {
 			opacity: 0.51;
 
-			&:after {
+			&::after {
 				visibility: hidden;
 			}
 		}
@@ -79,11 +79,11 @@
 
 	&.oo-ui-flaggedElement-unseen,
 	&.mw-echo-unseen-notifications {
-		#pt-notifications-alert &:after {
+		#pt-notifications-alert &::after {
 			background-color: @badge-counter-background-unseen-alert;
 		}
 
-		#pt-notifications-notice &:after {
+		#pt-notifications-notice &::after {
 			background-color: @badge-counter-background-unseen-message;
 		}
 	}

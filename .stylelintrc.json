@@ -6,7 +6,6 @@
 	"rules": {
 		"declaration-no-important": null,
 		"selector-max-id": null,
-		"declaration-property-unit-disallowed-list": null,
-		"selector-pseudo-element-colon-notation": null
+		"declaration-property-unit-disallowed-list": null
 	}
 }
