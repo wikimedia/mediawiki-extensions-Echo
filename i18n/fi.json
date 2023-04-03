@@ -68,6 +68,7 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|Sähköposti toiselta käyttäjältä|Sähköpostia toisilta käyttäjiltä}}",
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Muokkausvirstanpylväs|Muokkausvirstanpylväät}}",
 	"echo-pref-tooltip-edit-user-talk": "Ilmoita, kun joku muokkaa keskustelusivuani.",
+	"echo-pref-tooltip-edit-user-page": "Ilmoita, kun joku muokkaa käyttäjäsivuani.",
 	"echo-pref-tooltip-article-linked": "Ilmoita, kun joku linkittää luomaani sivuun toiselta sivulta.",
 	"echo-pref-tooltip-reverted": "Ilmoita, kun joku kumoaa tekemäni muokkauksen käyttäen kumoa- tai palauta-työkalua.",
 	"echo-pref-tooltip-mention": "Ilmoita, kun joku tekee linkin käyttäjäsivulleni.",

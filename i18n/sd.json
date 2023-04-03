@@ -94,6 +94,7 @@
 	"echo-notification-markasunread": "نہ-پڙھيل طور نشان لڳايو",
 	"echo-notification-markasread-tooltip": "پڙھيل طور نشان لڳايو",
 	"echo-notification-more-options-tooltip": "وڌيڪ چارا",
+	"notification-dynamic-actions-mute-page-linked": "\"$1\" تي ڳنڍڻن جا اطلاع {{GENDER:$2|نہ ڏيو}}",
 	"notification-dynamic-actions-unwatch": "\"$1\" تي نين سرگرميءَ کي نظر۾رکڻ {{GENDER:$3|بند ڪريو}}",
 	"notification-dynamic-actions-unwatch-confirmation": "صفحو \"$1\" ھاڻي وڌيڪ {{GENDER:$3|توھان}} جي نظر۾رکيل نہ آھي",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|توھان}} [$2 ھن صفحي] کي ڪنھن بہ وقت نظر۾رکي سگهو ٿا.",
