@@ -83,7 +83,7 @@
 	"echo-pref-tooltip-watchlist": "Meddela mig när någon gör en (vanlig) redigering på en sida i min bevakningslista.",
 	"echo-pref-tooltip-minor-watchlist": "Meddela mig när någon gör en mindre redigering på en sida i min bevakningslista.",
 	"notifications": "Aviseringar",
-	"tooltip-pt-notifications-alert": "{{GENDER:|Dina}} notiser",
+	"tooltip-pt-notifications-alert": "{{GENDER:|Dina}} systemmeddelanden",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Dina}} notiser",
 	"echo-displaynotificationsconfiguration": "Visa aviseringskonfiguration",
 	"echo-displaynotificationsconfiguration-summary": "Detta är en översikt av hur aviseringar är konfigurerade på denna wiki.",
