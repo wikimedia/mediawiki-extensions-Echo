@@ -513,11 +513,11 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	 *                     ],
 	 *                     'messages' => [
 	 *                         'confirmation' => [
-	 *                         	'title' => 'message (parsed as HTML)',
-	 *                         	'description' => 'optional message (parsed as HTML)'
+	 *                              'title' => 'message (parsed as HTML)',
+	 *                              'description' => 'optional message (parsed as HTML)'
 	 *                         ]
 	 *                     ]
-	 *                 	]
+	 *                 ]
 	 *                 'prioritized' => (bool) true to request the link be placed outside the action menu.
 	 *                                  false or omitted for the default behavior. By default, a link will
 	 *                                  be placed inside the menu, unless there are maxPrioritizedActions
