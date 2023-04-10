@@ -26,7 +26,8 @@
 			"Whym",
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
-			"ネイ"
+			"ネイ",
+			"春春眠眠"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、利用者に通知するシステム",
@@ -60,6 +61,7 @@
 	"echo-log": "公開記録",
 	"echo-new-messages": "あなたの会話ページに新着メッセージがあります",
 	"echo-category-title-edit-user-talk": "利用者トークページでの{{PLURAL:$1|編集}}",
+	"echo-category-title-edit-user-page": "利用者ページでの{{PLURAL:$1|編集}}",
 	"echo-category-title-article-linked": "ページへの{{PLURAL:$1|リンク}}",
 	"echo-category-title-reverted": "編集の{{PLURAL:$1|差し戻し}}",
 	"echo-category-title-mention": "{{PLURAL:$1|言及}}",
@@ -76,6 +78,7 @@
 	"echo-category-title-watchlist": "ウォッチページへの編集",
 	"echo-category-title-minor-watchlist": "ウォッチページの細部の編集",
 	"echo-pref-tooltip-edit-user-talk": "誰かが私の利用者トークページを編集したときに通知する。",
+	"echo-pref-tooltip-edit-user-page": "誰かが私の利用者ページを編集したときに通知する。",
 	"echo-pref-tooltip-article-linked": "誰かが自分の作成したページに記事からリンクしたときに通知する。",
 	"echo-pref-tooltip-reverted": "誰かが取り消しや巻き戻しの機能で私の編集を差し戻したときに通知する。",
 	"echo-pref-tooltip-mention": "誰かが私の利用者ページにリンクしたときに通知する。",
