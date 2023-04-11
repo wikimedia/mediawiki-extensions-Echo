@@ -131,9 +131,6 @@
 				"ext.echo.styles.badge",
 				"mediawiki.util",
 				"mediawiki.api"
-			],
-			"targets": [
-				"desktop"
 			]
 		},
 		"ext.echo.ui": {
