@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Merrahtar"
+		]
+	},
+	"notification-link-text-view-changes": "{{GENDER:$1|Кӣһче}} вуайхэзэтҍ",
+	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 с}}",
+	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 мин}}",
+	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 ч}}",
+	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 п.}}",
+	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 ма̄н.}}",
+	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 ыг.}}"
+}

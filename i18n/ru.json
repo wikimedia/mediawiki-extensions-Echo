@@ -80,7 +80,7 @@
 	"echo-learn-more": "Узнать больше",
 	"echo-log": "Общедоступный журнал",
 	"echo-new-messages": "Новые сообщения",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|1=Правка|Правки}} на странице обсуждения",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Правка|Правки}} на моей странице обсуждения",
 	"echo-category-title-article-linked": "{{PLURAL:$1|1=Ссылка на странице|Ссылки на страницах}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|1=Отмена|Отмены}} правок",
 	"echo-category-title-mention": "{{PLURAL:$1|1=Упоминание|Упоминания}}",
