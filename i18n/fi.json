@@ -55,6 +55,7 @@
 	"echo-log": "Julkinen loki",
 	"echo-new-messages": "Sinulle on uusi viesti keskustelusivulla",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Kommentti|Kommenttia}} omalla keskustelusivullani",
+	"echo-category-title-edit-user-page": "{{PLURAL:$1|Muokkaus|Muokkaukset}} käyttäjäsivulleni",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Sivun linkki|Sivujen linkit}}",
 	"echo-category-title-reverted": "{{PLURAL:$1|Muokkauksen kumoaminen|Muokkausten kumoamiset}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Maininta|Maininnat}}",
