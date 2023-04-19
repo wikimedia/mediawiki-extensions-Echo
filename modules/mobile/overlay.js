@@ -11,7 +11,7 @@ var mobile = mw.mobileFrontend.require( 'mobile.startup' ),
  * @return {void}
  */
 function onBeforeExitAnimation( overlay, exit ) {
-	if ( 'transition' in overlay.$el[ 0 ].style ) {
+	if ( getComputedStyle( overlay.$el[ 0 ] ).transitionDuration !== '0s' ) {
 		// Manually detach the overlay from DOM once hide animation completes.
 		overlay.$el[ 0 ].addEventListener( 'transitionend', exit, { once: true } );
 
