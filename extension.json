@@ -20,11 +20,16 @@
 	"APIMetaModules": {
 		"notifications": {
 			"class": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoNotifications",
-			"services": [ "MainConfig" ]
+			"services": [
+				"MainConfig"
+			]
 		},
 		"unreadnotificationpages": {
 			"class": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoUnreadNotificationPages",
-			"services": [ "PageStore", "TitleFactory" ]
+			"services": [
+				"PageStore",
+				"TitleFactory"
+			]
 		}
 	},
 	"APIModules": {
@@ -511,7 +516,9 @@
 	"HookHandlers": {
 		"main": {
 			"class": "MediaWiki\\Extension\\Notifications\\Hooks",
-			"services": [ "MainConfig" ]
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"config": {
