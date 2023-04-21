@@ -42,8 +42,7 @@ function notificationsOverlay( onCountChange, onNotificationListRendered, onBefo
 	var markAllReadButton, overlay,
 		oouiPromise = mw.loader.using( 'oojs-ui' ).then( function () {
 			markAllReadButton = new OO.ui.ButtonWidget( {
-				icon: 'checkAll',
-				title: mw.msg( 'echo-mark-all-as-read' )
+				icon: 'checkAll'
 			} );
 			return View.make(
 				{ class: 'notifications-overlay-header-markAllRead' },

@@ -38,6 +38,9 @@ function notificationsList( echo, markAllReadButton, onCountChange, onNotificati
 			markAllReadButton.toggle(
 				controller.manager.hasLocalUnread()
 			);
+			markAllReadButton.setTitle(
+				mw.msg( 'echo-mark-all-as-read', unreadCounter.getCount() )
+			);
 		},
 		// Create a container which will be revealed when "more options" (...)
 		// is clicked on a notification. Hidden by default.
