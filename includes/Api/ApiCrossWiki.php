@@ -6,7 +6,7 @@ namespace MediaWiki\Extension\Notifications\Api;
 use EchoForeignNotifications;
 use EchoForeignWikiRequest;
 use Exception;
-use WikiMap;
+use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**

@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\WikiMap\WikiMap;
 
 /**
  * Caches the result of EchoUnreadWikis::getUnreadCounts() and interprets the results in various useful ways.

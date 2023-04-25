@@ -63,6 +63,7 @@ use MediaWiki\User\Hook\UserSaveSettingsHook;
 use MediaWiki\User\Options\Hook\LoadUserOptionsHook;
 use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\WikiMap\WikiMap;
 use MWEchoDbFactory;
 use MWEchoNotifUser;
 use MWException;
@@ -76,7 +77,6 @@ use Title;
 use UpdateEchoSchemaForSuppression;
 use User;
 use WebRequest;
-use WikiMap;
 use WikiPage;
 
 class Hooks implements

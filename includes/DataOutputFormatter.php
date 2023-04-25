@@ -7,6 +7,7 @@ use MediaWiki\Extension\Notifications\Formatters\SpecialNotificationsFormatter;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\WikiMap\WikiMap;
 
 /**
  * Utility class that formats a notification in the format specified

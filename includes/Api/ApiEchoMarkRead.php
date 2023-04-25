@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\Notifications\Api;
 use ApiBase;
 use EchoAttributeManager;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\WikiMap\WikiMap;
 use MWEchoDbFactory;
 use MWEchoNotifUser;
-use WikiMap;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoMarkRead extends ApiBase {
