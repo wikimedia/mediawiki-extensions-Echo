@@ -21,6 +21,7 @@
 	},
 	"echo-desc": "Systém pro upozorňování uživatelů na události a zprávy",
 	"prefs-echo": "Upozornění",
+	"prefs-description-echo": "Zvolte si, která upozornění budete dostávat a jak.",
 	"prefs-emailsettings": "Nastavení e-mailu",
 	"prefs-echosubscriptions": "Upozorněte mě na…",
 	"prefs-echocrosswiki": "Upozornění napříč projekty",
