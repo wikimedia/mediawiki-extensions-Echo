@@ -7,7 +7,8 @@
 			"KorkmazO",
 			"McAang",
 			"MuratTheTurkish",
-			"Sayginer"
+			"Sayginer",
+			"Joseph"
 		]
 	},
 	"apihelp-echomarkread-description": "Bildirimleri geçerli kullanıcı için okundu olarak işaretleyin.",
@@ -62,6 +63,7 @@
 	"apihelp-query+notifications-param-messageunreadfirst": "Önce okunmamış uyarı bildirimlerinin gösterilip gösterilmeyeceği (yalnızca groupbysection ayarlanmışsa kullanılır).",
 	"apihelp-query+notifications-param-titles": "Yalnızca bu sayfalar için bildirim döndürün.  Herhangi bir sayfayla ilişkili olmayan bildirimleri almak için, başlık olarak [] kullanın.",
 	"apihelp-query+notifications-param-bundle": "Bildirim türleri gruplama kurallarına göre paket uyumlu okunmamış bildirimlerin gösterilip gösterilmeyeceği.",
+	"apihelp-query+notifications-param-notifiertypes": "Bildirimlerin döndürüleceği bildirici türleri.",
 	"apihelp-query+notifications-example-1": "Web bildirimleri listeleyin",
 	"apihelp-query+notifications-example-2": "Sayımlarla birlikte bölümlere göre gruplandırılmış web bildirimleri listeleyin",
 	"apihelp-query+notifications-example-3": "E-posta bildirimlerini listele",

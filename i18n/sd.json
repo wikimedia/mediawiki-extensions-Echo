@@ -126,6 +126,7 @@
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>آئپي پتن جو ذڪر نٿو ڪري سگهجي:</strong> $1",
 	"notification-header-mention-success": "<strong>$3</strong> وارو {{GENDER:$2|توھان جو}} موڪليو ويو.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|توھان مينشن ڪيو}}:</strong> $3",
+	"notification-header-user-rights-add-only": "{{GENDER:$4|توھان جا}} واپرائيندڙ حق {{GENDER:$1|تبديل ڪيا}} ويا آھن. ھاڻي توھان کي وڌو ويو آھي: $2.",
 	"notification-welcome-linktext": "ڀليڪار",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|توھان}} ھاڻي ھاڻي {{GENDER:$2|پنھنجي}} ڏھين هزاري تبديلي ڪئي؛ {{GENDER:$2|توھان}} جي تمام گهڻي مھرباني!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|توهان جي}} سنوار",
@@ -148,6 +149,7 @@
 	"notification-inbox-filter-all": "سڀ",
 	"echo-specialmute-label-mute-notifications": "ھن {{GENDER:$1|واپرائيندڙ}} پاران اطلاع مِيُوٽِ ڪريو",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|پنھنجون}} ترجيحون چڪاسيو",
+	"echo-email-html-footer-with-link": "اسان ڪھڙيون ايميلون {{GENDER:$2|توهان}} ڏاھن موڪليون ان کي ضابطي ۾ رکڻ لاءِ، $1.",
 	"echo-notification-alert-text-only": "پيغام",
 	"echo-notification-notice-text-only": "اطلاع",
 	"echo-overlay-link": "سڀ اطلاع",
@@ -161,5 +163,8 @@
 	"echo-email-batch-link-text-view-all-notifications": "سڀ اطلاعَ ڏسو",
 	"notification-header-foreign-notice": "وڌيڪ {{PLURAL:$5|ھڪ وکي|$5 ٻين کان}} اطلاع",
 	"echo-foreign-wiki-lang": "$1 - $2",
-	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
+	"group-push-subscription-manager": "پُش سبسڪرپشن انتظامڪار",
+	"group-push-subscription-manager-member": "{{GENDER:$1|پُش سبسڪرپشن انتظامڪار}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:پُش سبسڪرپشن انتظامڪار"
 }

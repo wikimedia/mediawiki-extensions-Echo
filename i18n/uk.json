@@ -20,7 +20,8 @@
 			"SteveR",
 			"Vlad5250",
 			"Ата",
-			"Максим Підліснюк"
+			"Максим Підліснюк",
+			"Andriy.v"
 		]
 	},
 	"echo-desc": "Система сповіщення користувачів про події і повідомлення",
@@ -53,7 +54,7 @@
 	"echo-learn-more": "Дізнатися більше",
 	"echo-log": "Публічний журнал",
 	"echo-new-messages": "У Вас є нові повідомлення",
-	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Зміна|Змін}} на моїй сторінці обговорення користувача",
+	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Зміна|Зміни|Змін}} на моїй сторінці обговорення користувача",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Посилання}} на сторінку",
 	"echo-category-title-reverted": "Скасування {{PLURAL:$1|редагування|редагувань}}",
 	"echo-category-title-mention": "{{PLURAL:$1|Згадування}}",

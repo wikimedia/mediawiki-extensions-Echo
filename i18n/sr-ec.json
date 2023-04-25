@@ -111,7 +111,7 @@
 	"echo-notification-markasunread": "Означи непрочитаним",
 	"echo-notification-markasread-tooltip": "Означите као прочитано",
 	"echo-notification-more-options-tooltip": "Још опција",
-	"notification-dynamic-actions-mute-page-linked": "{{GENDER:$2|Пригуши}} обавештења повезивања „$1”",
+	"notification-dynamic-actions-mute-page-linked": "{{GENDER:$2|Пригуши}} обавештења о повезивању „$1”",
 	"notification-dynamic-actions-mute-page-linked-confirmation-description": "{{GENDER:$2|У}} сваком тренутку можете променити пригушене странице у [$1 подешавањима].",
 	"notification-dynamic-actions-unmute-page-linked": "{{GENDER:$2|Обавештавај}} ме о повезивању „$1”",
 	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Престани}} да надгледаш нову активност на страници „$1”",

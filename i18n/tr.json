@@ -193,6 +193,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, {{GENDER:$2|sizin}} izleme listesindeki bir sayfa $3 {{PLURAL:$3|kere|kere}} silindi.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, {{GENDER:$2|sizin}} izleme listesindeki bir sayfa $3 {{PLURAL:$3|kere|kere}} taşındı.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, {{GENDER:$2|sizin}} izleme listesindeki bir sayfa $3 {{PLURAL:$3|kere|kere}} geri getirildi.",
+	"notification-body-watchlist-once": "İleride etkinlikler olduğunda, oturum açmışken bu sayfayı ziyaret {{GENDER:$1|etmediğiniz}} sürece, başka bir e-posta bildirimi olmayacak.",
 	"notification-welcome-linktext": "Hoş geldiniz",
 	"notification-header-thank-you-1-edit": "İlk {{GENDER:$2|değişikliğinizi}} {{GENDER:$2|yaptınız}}; teşekkürler ve hoş geldiniz!",
 	"notification-header-thank-you-10-edit": "Onuncu {{GENDER:$2|değişikliğinizi}} {{GENDER:$2|yaptınız}}; teşekkürler, lütfen devam edin!",
