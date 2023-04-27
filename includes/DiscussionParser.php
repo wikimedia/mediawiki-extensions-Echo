@@ -28,7 +28,8 @@ abstract class EchoDiscussionParser {
 	public static function generateEventsForRevision( RevisionRecord $revision, $isRevert ) {
 		global $wgEchoMentionsOnMultipleSectionEdits;
 		global $wgEchoMentionOnChanges;
-		$store = MediaWikiServices::getInstance()->getRevisionStore();
+		$services = MediaWikiServices::getInstance();
+		$store = $services->getRevisionStore();
 
 		// use replica database if there is a previous revision
 		if ( $store->getPreviousRevision( $revision ) ) {
@@ -176,7 +177,7 @@ abstract class EchoDiscussionParser {
 
 		// Allow extensions to generate more events for a revision, and de-duplicate
 		// against the standard events created above.
-		Hooks::run( 'EchoGetEventsForRevision', [ &$events, $revision, $isRevert ] );
+		$services->getHookContainer()->run( 'EchoGetEventsForRevision', [ &$events, $revision, $isRevert ] );
 
 		// Create events
 		foreach ( $events as $event ) {

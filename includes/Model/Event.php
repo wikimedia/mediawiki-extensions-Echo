@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Notifications\Model;
 use Bundleable;
 use EchoServices;
 use Exception;
-use Hooks;
 use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
@@ -139,8 +138,9 @@ class Event extends AbstractEntity implements Bundleable {
 	public static function create( $info = [] ) {
 		global $wgEchoNotifications;
 
+		$services = MediaWikiServices::getInstance();
 		// Do not create event and notifications if write access is locked
-		if ( MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly()
+		if ( $services->getReadOnlyMode()->isReadOnly()
 			|| MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY )->isReadOnly()
 		) {
 			return false;
@@ -189,24 +189,25 @@ class Event extends AbstractEntity implements Bundleable {
 
 			// RevisionStore returns UserIdentityValue now, convert to User for passing to hooks.
 			if ( !$obj->agent instanceof User ) {
-				$obj->agent = MediaWikiServices::getInstance()->getUserFactory()->newFromUserIdentity( $obj->agent );
+				$obj->agent = $services->getUserFactory()->newFromUserIdentity( $obj->agent );
 			}
 		}
 
-		if ( !Hooks::run( 'BeforeEchoEventInsert', [ $obj ] ) ) {
+		$hookContainer = $services->getHookContainer();
+		if ( !$hookContainer->run( 'BeforeEchoEventInsert', [ $obj ] ) ) {
 			return false;
 		}
 
 		// @Todo - Database insert logic should not be inside the model
 		$obj->insert();
 
-		Hooks::run( 'EventInsertComplete', [ $obj ] );
+		$hookContainer->run( 'EventInsertComplete', [ $obj ] );
 
 		global $wgEchoUseJobQueue;
 
 		NotificationController::notify( $obj, $wgEchoUseJobQueue );
 
-		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
+		$stats = $services->getStatsdDataFactory();
 		$type = $info['type'];
 		$stats->increment( 'echo.event.all' );
 		$stats->increment( "echo.event.$type" );

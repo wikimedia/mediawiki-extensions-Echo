@@ -9,7 +9,6 @@ use EchoContainmentList;
 use EchoContainmentSet;
 use EchoOnWikiList;
 use EchoServices;
-use Hooks;
 use Iterator;
 use MapCacheLRU;
 use MediaWiki\Extension\Notifications\Exception\CatchableFatalErrorException;
@@ -129,7 +128,9 @@ class NotificationController {
 		$notifyTypes = self::getEventNotifyTypes( $type );
 		$userIds = [];
 		$userIdsCount = 0;
-		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$services = MediaWikiServices::getInstance();
+		$hookContainer = $services->getHookContainer();
+		$userOptionsLookup = $services->getUserOptionsLookup();
 		/** @var bool|null $hasMinorRevision */
 		$hasMinorRevision = null;
 		/** @var User $user */
@@ -147,7 +148,7 @@ class NotificationController {
 					$userNotifyTypes = array_diff( $userNotifyTypes, [ 'email' ] );
 				}
 			}
-			Hooks::run( 'EchoGetNotificationTypes', [ $user, $event, &$userNotifyTypes ] );
+			$hookContainer->run( 'EchoGetNotificationTypes', [ $user, $event, &$userNotifyTypes ] );
 
 			// types such as web, email, etc
 			foreach ( $userNotifyTypes as $type ) {
@@ -490,7 +491,7 @@ class NotificationController {
 		// Hook for injecting more users.
 		// @deprecated
 		$users = [];
-		Hooks::run( 'EchoGetDefaultNotifiedUsers', [ $event, &$users ] );
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'EchoGetDefaultNotifiedUsers', [ $event, &$users ] );
 		// @phan-suppress-next-line PhanImpossibleCondition May be set by hook
 		if ( $users ) {
 			$notify->add( $users );

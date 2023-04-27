@@ -36,7 +36,8 @@ class EchoNotifier {
 	 */
 	public static function notifyWithEmail( $user, $event ) {
 		global $wgEnableEmail, $wgBlockDisablesLogin;
-		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$services = MediaWikiServices::getInstance();
+		$userOptionsLookup = $services->getUserOptionsLookup();
 
 		if (
 			// Email is globally disabled
@@ -51,8 +52,9 @@ class EchoNotifier {
 			return false;
 		}
 
+		$hookContainer = $services->getHookContainer();
 		// Final check on whether to send email for this user & event
-		if ( !Hooks::run( 'EchoAbortEmailNotification', [ $user, $event ] ) ) {
+		if ( !$hookContainer->run( 'EchoAbortEmailNotification', [ $user, $event ] ) ) {
 			return false;
 		}
 
@@ -72,7 +74,7 @@ class EchoNotifier {
 			if ( !empty( $wgEchoNotifications[$event->getType()]['bundle']['web'] ) ||
 				!empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] )
 			) {
-				Hooks::run( 'EchoGetBundleRules', [ $event, &$bundleString ] );
+				$hookContainer->run( 'EchoGetBundleRules', [ $event, &$bundleString ] );
 			}
 			// @phan-suppress-next-line PhanImpossibleCondition May be set by hook
 			if ( $bundleString ) {
