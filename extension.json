@@ -656,16 +656,16 @@
 						"all"
 					]
 				},
-				"edit-user-page": {
-					"priority": 4,
-					"tooltip": "echo-pref-tooltip-edit-user-page"
-				},
 				"edit-user-talk": {
 					"priority": 1,
 					"no-dismiss": [
 						"web"
 					],
 					"tooltip": "echo-pref-tooltip-edit-user-talk"
+				},
+				"edit-user-page": {
+					"priority": 1,
+					"tooltip": "echo-pref-tooltip-edit-user-page"
 				},
 				"reverted": {
 					"priority": 9,
