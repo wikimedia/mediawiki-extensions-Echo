@@ -1,12 +1,20 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test;
+
+use Closure;
+use ContentHandler;
+use EchoUserLocator;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Title\Title;
+use MediaWikiIntegrationTestCase;
+use User;
 
 /**
  * @group Database
  * @covers \EchoUserLocator
  */
-class EchoUserLocatorTest extends MediaWikiIntegrationTestCase {
+class UserLocatorTest extends MediaWikiIntegrationTestCase {
 
 	/** @inheritDoc */
 	protected $tablesUsed = [ 'user', 'watchlist' ];
