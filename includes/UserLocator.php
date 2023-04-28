@@ -131,6 +131,10 @@ class EchoUserLocator {
 
 		$user = User::newFromId( $res->rev_user );
 		if ( $user ) {
+			// T318523: Don't send page-linked notifications for pages created by bot users.
+			if ( $event->getType() === 'page-linked' && $user->isBot() ) {
+				return [];
+			}
 			return [ $user->getId() => $user ];
 		}
 
