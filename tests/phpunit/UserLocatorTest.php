@@ -130,6 +130,37 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expect, array_keys( $users ), $message );
 	}
 
+	public function testDontSendPageLinkedNotificationsForPagesCreatedByBotUsers() {
+		$botUser = $this->getTestUser( [ 'bot' ] )->getUser();
+		$botUser->addToDatabase();
+		$this->editPage( 'TestBotCreatedPage', 'Test', '', NS_MAIN, $botUser );
+		$this->editPage( 'SomeOtherPage', '[[TestBotCreatedPage]]' );
+		$event = $this->createMock( Event::class );
+		$event->method( 'getTitle' )
+			->willReturn( Title::newFromText( 'TestBotCreatedPage' ) );
+		$event->method( 'getAgent' )
+			->willReturn( User::newFromId( 123 ) );
+		$event->method( 'getType' )
+			->willReturn( 'page-linked' );
+		$this->assertEquals( [], EchoUserLocator::locateArticleCreator( $event ) );
+
+		$normalUser = $this->getTestUser()->getUser();
+		$normalUser->addToDatabase();
+		$this->editPage( 'NormalCreatedPage', 'Test', '', NS_MAIN, $normalUser );
+		$this->editPage( 'AnotherPage', '[[NormalCreatedPage]]' );
+		$event = $this->createMock( Event::class );
+		$event->method( 'getTitle' )
+			->willReturn( Title::newFromText( 'NormalCreatedPage' ) );
+		$event->method( 'getAgent' )
+			->willReturn( User::newFromId( 456 ) );
+		$event->method( 'getType' )
+			->willReturn( 'page-linked' );
+		$this->assertEquals(
+			$normalUser->getUser()->getId(),
+			array_key_first( EchoUserLocator::locateArticleCreator( $event ) )
+		);
+	}
+
 	public static function locateEventAgentProvider() {
 		return [
 			[
