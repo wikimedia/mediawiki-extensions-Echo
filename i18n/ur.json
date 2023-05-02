@@ -16,6 +16,7 @@
 	},
 	"echo-desc": "صارفین کو پیغام اور دیگر احوال و وقائع کی اطلاع رسانی کا نظام",
 	"prefs-echo": "اطلاعات",
+	"prefs-description-echo": "کن اطلاع ناموں کو {{GENDER:|آپ}} تک پہنچنا چاہیے اور کس طرح پہنچنا چاہیے۔",
 	"prefs-emailsettings": "برقی خط کے اختیارات",
 	"prefs-echosubscriptions": "ان احوال کے متعلق مجھے آگاہ کریں",
 	"prefs-echocrosswiki": "دیگر ویکیوں کے اطلاع نامے",

@@ -26,6 +26,7 @@
 	},
 	"echo-desc": "이벤트와 메시지를 사용자에게 알리는 시스템",
 	"prefs-echo": "알림",
+	"prefs-description-echo": "무슨 알림을 수신할지, 어떤 방식으로 수신할지를 선택합니다.",
 	"prefs-emailsettings": "이메일 옵션",
 	"prefs-echosubscriptions": "다음의 경우에 내게 알림",
 	"prefs-echocrosswiki": "여러 위키의 알림",
