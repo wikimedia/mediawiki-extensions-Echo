@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Reda Benkhadra",
-			"SADIQUI"
+			"SADIQUI",
+			"Ideophagous"
 		]
 	},
 	"echo-new-messages": "عندك ميساجات جداد",
 	"tooltip-pt-notifications-alert": "{{GENDER:|تنبيهاتك}}",
+	"echo-specialpage-pagefilters-title": "النشاطات اللخرانية",
 	"notification-link-text-collapse-all": "طوي",
 	"notification-link-text-view-message": "وري لميساج",
 	"notification-header-mention-other": "{{GENDER:$2|نغز|نغزات}} $1 {{GENDER:$3|ليك}} ف صفحة <strong>$4</strong> ف لقسم \"<strong>$5</strong>\".",

@@ -223,7 +223,7 @@
 	"echo-email-html-footer-preference-link-text": "sprawdź {{GENDER:$1|swoje}} preferencje",
 	"echo-email-html-footer-with-link": "Aby kontrolować, jakie e-maile wysyłamy do {{GENDER:$2|Ciebie}}, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Powiadomienie ($1)|Powiadomienia ($1)|100=Powiadomienia (99+)}}",
-	"echo-notification-notice": "{{PLURAL:$1|Powiadomienie ($1)|Powiadomienia ($1)|100=Powiadomień (99+)}}",
+	"echo-notification-notice": "{{PLURAL:$1|Komunikat ($1)|Komunikaty ($1)|100=Komunikaty (99+)}}",
 	"echo-notification-alert-text-only": "Powiadomienia",
 	"echo-notification-notice-text-only": "Komunikaty",
 	"echo-overlay-link": "Wszystkie powiadomienia",

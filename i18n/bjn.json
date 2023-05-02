@@ -53,5 +53,6 @@
 	"echo-pref-tooltip-article-reminder": "Padahi ulun pasal laman ngini amun ulun minta.",
 	"tooltip-pt-notifications-alert": "Pamadahan {{GENDER:|Pian}}",
 	"tooltip-pt-notifications-notice": "Pamadahan {{GENDER:|Pian}}",
+	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Pamakai hanyar",
 	"group-push-subscription-manager": "Pangalula langganan tunjul"
 }
