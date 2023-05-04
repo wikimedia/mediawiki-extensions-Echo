@@ -139,5 +139,6 @@
 	"echo-email-batch-subject-weekly": "Sizin bu həftə {{SITENAME}}-da {{PLURAL:$2|yeni bildiriş|yeni bildirişləriniz|}} var",
 	"echo-email-batch-link-text-view-all-notifications": "Bütün bildirişlərə bax",
 	"notification-header-foreign-notice": "{{PLURAL:$5|Başqa vikidən|$5 başqa vikidən}} bildirişlər",
-	"notification-header-foreign-all": "Digər {{PLURAL:$5|vikidən|$5 vikidən}} bildirişlər"
+	"notification-header-foreign-all": "Digər {{PLURAL:$5|vikidən|$5 vikidən}} bildirişlər",
+	"group-push-subscription-manager": "Push abunə menecerləri"
 }
