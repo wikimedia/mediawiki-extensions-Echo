@@ -15,7 +15,6 @@ use EchoSeenTime;
 use EchoServices;
 use EmailNotification;
 use ExtensionRegistry;
-use Hooks as MWHooks;
 use HTMLCheckMatrix;
 use LinksUpdate;
 use LogEntry;
@@ -197,7 +196,7 @@ class Hooks implements
 			$wgEnableUserEmail;
 
 		// allow extensions to define their own event
-		MWHooks::run( 'BeforeCreateEchoEvent',
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'BeforeCreateEchoEvent',
 			[ &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ] );
 
 		// Only allow mention status notifications when enabled
@@ -1363,7 +1362,7 @@ class Hooks implements
 		// notifications for talk page messages, disable the new messages alert.
 		if ( $user->isRegistered()
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
-			&& MWHooks::run( 'EchoCanAbortNewMessagesAlert' )
+			&& MediaWikiServices::getInstance()->getHookContainer()->run( 'EchoCanAbortNewMessagesAlert' )
 		) {
 			// hide new messages alert
 			return false;
