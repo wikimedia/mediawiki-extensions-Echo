@@ -56,12 +56,15 @@
 			"神樂坂秀吉",
 			"科劳",
 			"范",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"Func",
+			"Kishinsagi",
+			"LuciferianThomas"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
 	"prefs-echo": "通知",
-	"prefs-description-echo": "选择 {{GENDER:|you}} 接收哪些通知以及如何接收它们。",
+	"prefs-description-echo": "选择{{GENDER:|您}}想接收哪些通知以及如何接收它们。",
 	"prefs-emailsettings": "电子邮件选项",
 	"prefs-echosubscriptions": "通知我这些事件",
 	"prefs-echocrosswiki": "跨wiki通知",

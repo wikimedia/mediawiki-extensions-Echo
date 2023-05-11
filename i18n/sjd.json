@@ -5,6 +5,9 @@
 		]
 	},
 	"prefs-echo": "Тӣдҍхэмуж",
+	"tooltip-pt-notifications-notice": "{{GENDER:|То̄н}} тӣдҍхэмуж",
+	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Тӣдҍхэмуж категорьяе мӣлльтэ",
+	"echo-specialpage": "Тӣдҍхэмуж",
 	"echo-notification-markasread": "Тӣһтэ гу ло̄гкма",
 	"echo-notification-markasunread": "Тӣһтэ гу эйй ло̄гкма",
 	"notification-link-text-view-changes": "{{GENDER:$1|Кӣһче}} вуайхэзэтҍ",
@@ -15,5 +18,8 @@
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 п.}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 ма̄н.}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 ыг.}}",
-	"echo-overlay-link": "Пугк тӣдҍхэмуж"
+	"echo-notification-notice": "{{PLURAL:$1|Тӣдҍхэмушш ($1)|Тӣдҍхэмуж ($1)|100=Тӣдҍхэмуж (99+)}}",
+	"echo-notification-notice-text-only": "Тӣдҍхэмуж",
+	"echo-overlay-link": "Пугк тӣдҍхэмуж",
+	"echo-overlay-title": "<b>Тӣдҍхэмуж</b>"
 }

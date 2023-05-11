@@ -28,6 +28,7 @@
 	"echo-pref-email-format": "برقی ڈاک فارمیٹ",
 	"echo-pref-web": "ویب",
 	"echo-pref-email": "برقی خط",
+	"echo-pref-push": "اطلاقیے",
 	"echo-pref-email-frequency-never": "برقی خط کے ذریعہ کوئی اطلاع نامہ ارسال نہ کریں",
 	"echo-pref-email-frequency-immediately": "انفرادی اطلاع نامے جیسے ہی وہ موصول ہوں",
 	"echo-pref-email-frequency-daily": "اطلاع ناموں کا یومیہ خلاصہ",
