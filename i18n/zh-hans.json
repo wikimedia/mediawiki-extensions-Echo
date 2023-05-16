@@ -55,7 +55,12 @@
 			"神樂坂秀吉",
 			"科劳",
 			"范",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"Func",
+			"Kishinsagi",
+			"Lakejason0",
+			"LuciferianThomas",
+			"MangoFanFanw"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -280,7 +285,7 @@
 	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
 	"right-manage-all-push-subscriptions": "管理所有推送订阅",
 	"action-manage-all-push-subscriptions": "管理所有推送订阅",
-	"group-push-subscription-manager": "推送订阅管理器",
-	"group-push-subscription-manager-member": "{{GENDER:$1|推送订阅管理器}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:推送订阅管理器"
+	"group-push-subscription-manager": "推送订阅管理",
+	"group-push-subscription-manager-member": "{{GENDER:$1|推送订阅管理}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:推送订阅管理"
 }

@@ -6,6 +6,9 @@
 		]
 	},
 	"prefs-echo": "Xabarlandırıwlar",
+	"prefs-emailsettings": "Elektron pochta parametrleri",
+	"prefs-echosubscriptions": "Belgilengen waqıyalar boyınsha meni xabarlandırıw",
+	"prefs-echocrosswiki": "Wikiaralıq eskertiwler",
 	"echo-mobile-notifications-filter-title": "Xabarlandırıwlar filtri",
 	"notifications": "Xabarlandırıwlar",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Sizdegi}} eskertkishler",
