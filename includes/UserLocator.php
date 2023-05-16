@@ -115,21 +115,7 @@ class EchoUserLocator {
 			return [];
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
-		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
-		$res = $dbr->selectRow(
-			$revQuery['tables'],
-			[ 'rev_user' => $revQuery['fields']['rev_user'] ],
-			[ 'rev_page' => $title->getArticleID() ],
-			__METHOD__,
-			[ 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' ],
-			$revQuery['joins']
-		);
-		if ( !$res || !$res->rev_user ) {
-			return [];
-		}
-
-		$user = User::newFromId( $res->rev_user );
+		$user = self::getArticleAuthorByArticleId( $title->getArticleID() );
 		if ( $user ) {
 			// T318523: Don't send page-linked notifications for pages created by bot users.
 			if ( $event->getType() === 'page-linked' && $user->isBot() ) {
@@ -139,6 +125,28 @@ class EchoUserLocator {
 		}
 
 		return [];
+	}
+
+	/**
+	 * @param int $articleId
+	 * @return User|null
+	 */
+	public static function getArticleAuthorByArticleId( int $articleId ): ?User {
+		$dbr = wfGetDB( DB_REPLICA );
+		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
+		$res = $dbr->selectRow(
+			$revQuery['tables'],
+			[ 'rev_user' => $revQuery['fields']['rev_user'] ],
+			[ 'rev_page' => $articleId ],
+			__METHOD__,
+			[ 'LIMIT' => 1, 'ORDER BY' => 'rev_timestamp, rev_id' ],
+			$revQuery['joins']
+		);
+		if ( !$res || !$res->rev_user ) {
+			return null;
+		}
+
+		return User::newFromId( $res->rev_user );
 	}
 
 	/**

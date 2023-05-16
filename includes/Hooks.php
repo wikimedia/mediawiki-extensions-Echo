@@ -13,6 +13,7 @@ use EchoEmailFormat;
 use EchoEmailFrequency;
 use EchoSeenTime;
 use EchoServices;
+use EchoUserLocator;
 use EmailNotification;
 use ExtensionRegistry;
 use HTMLCheckMatrix;
@@ -945,6 +946,11 @@ class Hooks implements
 				}
 
 				$linkFromPageId = $linksUpdate->getTitle()->getArticleID();
+				// T318523: Don't send page-linked notifications for pages created by bot users.
+				$articleAuthor = EchoUserLocator::getArticleAuthorByArticleId( $title->getArticleID() );
+				if ( $articleAuthor && $articleAuthor->isBot() ) {
+					continue;
+				}
 				Event::create( [
 					'type' => 'page-linked',
 					'title' => $title,
