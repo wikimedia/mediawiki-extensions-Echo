@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Notifications\Formatters;
 
 use EchoDiscussionParser;
-use RawMessage;
+use MediaWiki\Language\RawMessage;
 use SpecialPage;
 use User;
 

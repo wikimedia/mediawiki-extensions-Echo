@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\Notifications\Formatters;
 
 use Linker;
+use MediaWiki\Language\RawMessage;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use Message;
-use RawMessage;
 use Sanitizer;
 
 class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
