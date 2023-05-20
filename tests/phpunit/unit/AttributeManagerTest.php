@@ -563,7 +563,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( $expected, $actual, $message );
 	}
 
-	public function getNotificationSectionProvider() {
+	public static function getNotificationSectionProvider() {
 		yield [ 'event_one', 'alert' ];
 		yield [ 'event_two', 'message' ];
 		yield [ 'event_three', 'alert' ];
@@ -587,7 +587,7 @@ class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
 		$this->assertSame( $expected, $actual );
 	}
 
-	public function isBundleExpandableProvider() {
+	public static function isBundleExpandableProvider() {
 		yield [ 'event_one', false ];
 		yield [ 'event_two', false ];
 		yield [ 'event_three', false ];

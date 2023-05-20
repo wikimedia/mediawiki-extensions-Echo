@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Test;
 
-use Closure;
 use ContentHandler;
 use EchoUserLocator;
 use MediaWiki\Extension\Notifications\Model\Event;
@@ -41,12 +40,12 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		// @todo assert more than one query was issued
 	}
 
-	public function locateTalkPageOwnerProvider() {
+	public static function locateTalkPageOwnerProvider() {
 		return [
 			[
 				'Allows null event title',
 				// expected user id's
-				[],
+				'empty',
 				// event title
 				null
 			],
@@ -54,24 +53,15 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 			[
 				'No users selected for non-user talk namespace',
 				// expected user id's
-				[],
+				'empty',
 				// event title
 				Title::newMainPage(),
 			],
 
 			[
 				'Selects user from NS_USER_TALK',
-				// callback returning expected user ids and event title.
-				// required because database insert must be inside test.
-				function () {
-					$user = $this->getTestUser()->getUser();
-					$user->addToDatabase();
-
-					return [
-						[ $user->getId() ],
-						$user->getTalkPage(),
-					];
-				}
+				// expected user id's
+				'user',
 			],
 		];
 	}
@@ -79,9 +69,14 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider locateTalkPageOwnerProvider
 	 */
-	public function testLocateTalkPageOwner( $message, $expect, Title $title = null ) {
-		if ( $expect instanceof Closure ) {
-			[ $expect, $title ] = $expect();
+	public function testLocateTalkPageOwner( $message, $expectMode, Title $title = null ) {
+		if ( $expectMode === 'user' ) {
+			$user = $this->getTestUser()->getUser();
+			$user->addToDatabase();
+			$expect = [ $user->getId() ];
+			$title = $user->getTalkPage();
+		} else {
+			$expect = [];
 		}
 		$event = $this->createMock( Event::class );
 		$event->method( 'getTitle' )
@@ -91,29 +86,19 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expect, array_keys( $users ), $message );
 	}
 
-	public function locateArticleCreatorProvider() {
+	public static function locateArticleCreatorProvider() {
 		return [
-			[
-				'Something',
-				function () {
-					$user = $this->getTestUser()->getUser();
-					$user->addToDatabase();
-
-					return [
-						[ $user->getId() ],
-						$user->getTalkPage(),
-						$user
-					];
-				}
-			],
+			[ 'Something' ],
 		];
 	}
 
 	/**
 	 * @dataProvider locateArticleCreatorProvider
 	 */
-	public function testLocateArticleCreator( $message, $initialize ) {
-		[ $expect, $title, $user ] = $initialize();
+	public function testLocateArticleCreator( $message ) {
+		$user = $this->getTestUser()->getUser();
+		$user->addToDatabase();
+		$title = $user->getTalkPage();
 		$this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title )->doUserEditContent(
 			/* $content = */ ContentHandler::makeContent( 'content', $title ),
 			/* $user = */ $user,
@@ -127,7 +112,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 			->willReturn( User::newFromId( 123 ) );
 
 		$users = EchoUserLocator::locateArticleCreator( $event );
-		$this->assertEquals( $expect, array_keys( $users ), $message );
+		$this->assertEquals( [ $user->getId() ], array_keys( $users ), $message );
 	}
 
 	public function testDontSendPageLinkedNotificationsForPagesCreatedByBotUsers() {
@@ -201,7 +186,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expect, array_keys( $users ), $message );
 	}
 
-	public function locateFromEventExtraProvider() {
+	public static function locateFromEventExtraProvider() {
 		return [
 			[
 				'Event without extra data returns empty result',

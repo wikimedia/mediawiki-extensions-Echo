@@ -37,7 +37,7 @@ class EchoSummaryParserTest extends MediaWikiIntegrationTestCase {
 		$this->assertArrayEquals( $expectedUsers, $users );
 	}
 
-	public function provideParse() {
+	public static function provideParse() {
 		return [
 			[ '', [] ],
 			[ " \t\r\n   ", [] ],

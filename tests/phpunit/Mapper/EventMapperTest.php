@@ -17,7 +17,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 		$this->tablesUsed[] = 'echo_target_page';
 	}
 
-	public function provideDataTestInsert() {
+	public static function provideDataTestInsert() {
 		return [
 			[
 				'successful insert with next sequence = 1',

@@ -10,7 +10,7 @@ use Wikimedia\TestingAccessWrapper;
  */
 class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 
-	public function evaluateUserLocatorsProvider() {
+	public static function evaluateUserLocatorsProvider() {
 		return [
 			[
 				'With no options no users are notified',
@@ -112,7 +112,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public function getUsersToNotifyForEventProvider() {
+	public static function getUsersToNotifyForEventProvider() {
 		return [
 			[
 				'Filters anonymous users',
@@ -329,13 +329,15 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider PageLinkedTitleMutedByUserDataProvider
-	 * @param Title $title
-	 * @param User $user
-	 * @param UserOptionsLookup $userOptionsLookup
+	 * @param int $mockArticleID
+	 * @param int[] $mockMutedTitlePreferences
 	 * @param bool $expected
 	 */
 	public function testIsPageLinkedTitleMutedByUser(
-		Title $title, User $user, UserOptionsLookup $userOptionsLookup, $expected ): void {
+		int $mockArticleID, array $mockMutedTitlePreferences, $expected ): void {
+		$title = $this->getMockTitle( $mockArticleID );
+		$user = $this->getMockUser();
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $mockMutedTitlePreferences );
 		$wrapper = TestingAccessWrapper::newFromClass( NotificationController::class );
 		$wrapper->mutedPageLinkedTitlesCache = $this->createMock( MapCacheLRU::class );
 		$this->setService( 'UserOptionsLookup', $userOptionsLookup );
@@ -345,24 +347,21 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public function PageLinkedTitleMutedByUserDataProvider(): array {
+	public static function PageLinkedTitleMutedByUserDataProvider(): array {
 		return [
 			[
-				$this->getMockTitle( 123 ),
-				$this->getMockUser(),
-				$this->getUserOptionsLookupMock( [] ),
+				123,
+				[],
 				false
 			],
 			[
-				$this->getMockTitle( 123 ),
-				$this->getMockUser(),
-				$this->getUserOptionsLookupMock( [ 123, 456, 789 ] ),
+				123,
+				[ 123, 456, 789 ],
 				true
 			],
 			[
-				$this->getMockTitle( 456 ),
-				$this->getMockUser(),
-				$this->getUserOptionsLookupMock( [ 489 ] ),
+				456,
+				[ 489 ],
 				false
 			]
 

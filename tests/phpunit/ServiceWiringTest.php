@@ -25,7 +25,7 @@ class ServiceWiringTest extends MediaWikiIntegrationTestCase {
 		$this->addToAssertionCount( 1 );
 	}
 
-	public function provideService() {
+	public static function provideService() {
 		$wiring = require __DIR__ . '/../../ServiceWiring.php';
 		foreach ( $wiring as $name => $_ ) {
 			yield $name => [ $name ];

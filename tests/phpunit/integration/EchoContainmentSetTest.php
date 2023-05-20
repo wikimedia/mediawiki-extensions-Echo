@@ -25,7 +25,7 @@ class EchoContainmentSetTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $expected, $containmentSet->contains( $contains ) );
 	}
 
-	public function addTitlesFromUserOptionProvider(): array {
+	public static function addTitlesFromUserOptionProvider(): array {
 		return [
 			[
 				'foo',

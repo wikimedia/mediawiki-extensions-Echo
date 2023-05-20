@@ -177,7 +177,7 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 		}
 	}
 
-	public function provideHeaderExtractions() {
+	public static function provideHeaderExtractions() {
 		return [
 			[ '', false ],
 			[ '== Grand jury no bill reception ==', 'Grand jury no bill reception' ],
@@ -194,7 +194,7 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, EchoDiscussionParser::extractHeader( $text ) );
 	}
 
-	public function generateEventsForRevisionData() {
+	public static function generateEventsForRevisionDataProvider() {
 		return [
 			[
 				'new' => 637638133,
@@ -375,7 +375,7 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider generateEventsForRevisionData
+	 * @dataProvider generateEventsForRevisionDataProvider
 	 */
 	public function testGenerateEventsForRevision(
 		$newId, $oldId, $username, $lang, $pages, $title, $expected, $precondition = '',
@@ -420,7 +420,7 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, $events );
 	}
 
-	public function provider_generateEventsForRevision_mentionStatus() {
+	public static function provider_generateEventsForRevision_mentionStatus() {
 		return [
 			[
 				'new' => 747747748,
@@ -737,7 +737,7 @@ class EchoDiscussionParserTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, $events );
 	}
 
-	public function provider_extractSections() {
+	public static function provider_extractSections() {
 		return [
 			[
 				'content' => 'Just Text.',
@@ -1039,7 +1039,7 @@ TEXT
 	}
 
 	/**
-	 * @dataProvider signingDetectionData
+	 * @dataProvider signingDetectionDataProvider
 	 * FIXME some of the app logic is in the test...
 	 */
 	public function testSigningDetection( $line, $expectedUser ) {
@@ -1065,7 +1065,7 @@ TEXT
 		}
 	}
 
-	public function signingDetectionData() {
+	public static function signingDetectionDataProvider() {
 		$ts = self::EXEMPLAR_TIMESTAMP;
 
 		return [
@@ -1161,7 +1161,7 @@ TEXT
 		];
 	}
 
-	/** @dataProvider diffData */
+	/** @dataProvider diffDataProvider */
 	public function testDiff( $oldText, $newText, $expected ) {
 		$actual = EchoDiscussionParser::getMachineReadableDiff( $oldText, $newText );
 		unset( $actual['_info'] );
@@ -1170,7 +1170,7 @@ TEXT
 		$this->assertEquals( $expected, $actual );
 	}
 
-	public function diffData() {
+	public static function diffDataProvider() {
 		return [
 			[
 				<<<TEXT
@@ -1272,14 +1272,14 @@ line d',
 		];
 	}
 
-	/** @dataProvider annotationData */
+	/** @dataProvider annotationDataProvider */
 	public function testAnnotation( $message, $diff, $user, $expectedAnnotation ) {
 		$this->setupTestUser( $user );
 		$actual = EchoDiscussionParser::interpretDiff( $diff, $user );
 		$this->assertEquals( $expectedAnnotation, $actual, $message );
 	}
 
-	public function annotationData() {
+	public static function annotationDataProvider() {
 		$ts = self::EXEMPLAR_TIMESTAMP;
 
 		return [
@@ -1709,7 +1709,7 @@ TEXT
 		$this->assertSame( 4, $discussionParser->getOverallUserMentionsCount( $userMentions ) );
 	}
 
-	public function provider_getUserMentions() {
+	public static function provider_getUserMentions() {
 		return [
 			[
 				[ 'NotKnown1' => 0 ],

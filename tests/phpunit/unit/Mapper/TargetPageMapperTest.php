@@ -9,7 +9,7 @@ use Wikimedia\Rdbms\IDatabase;
  */
 class TargetPageMapperTest extends MediaWikiUnitTestCase {
 
-	public function provideDataTestInsert() {
+	public static function provideDataTestInsert() {
 		return [
 			[
 				'successful insert with next sequence = 1',
