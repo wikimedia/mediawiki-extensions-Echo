@@ -7,6 +7,7 @@ use EchoSeenTime;
 use Html;
 use MediaWiki\Extension\Notifications\OOUI\LabelIconWidget;
 use MWEchoEventLogging;
+use MWEchoNotifUser;
 use OOUI;
 use SpecialPage;
 
@@ -121,8 +122,13 @@ class SpecialNotifications extends SpecialPage {
 		if ( $anyUnread ) {
 			$markReadSpecialPage = new SpecialNotificationsMarkRead();
 			$markReadSpecialPage->setContext( $this->getContext() );
+			$notifUser = MWEchoNotifUser::newFromUser( $user );
+			$unreadCount = $notifUser->getAlertCount() + $notifUser->getMessageCount();
 
-			$markAllAsReadText = $this->msg( 'echo-mark-all-as-read' )->text();
+			$markAllAsReadText = $this
+				->msg( 'echo-mark-all-as-read' )
+				->numParams( $unreadCount )
+				->text();
 			$markAllAsReadLabelIcon = new LabelIconWidget( [
 				'label' => $markAllAsReadText,
 				'icon' => 'checkAll',
