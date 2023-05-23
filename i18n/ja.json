@@ -26,7 +26,8 @@
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
 			"ネイ",
-			"Kokage si"
+			"Kokage si",
+			"春春眠眠"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、利用者に通知するシステム",
@@ -225,8 +226,8 @@
 	"notification-header-foreign-alert": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からのアラートがあります",
 	"notification-header-foreign-notice": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります",
 	"notification-header-foreign-all": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります",
-	"right-manage-all-push-subscriptions": "すべてのプッシュ・サブスクリプションを操作する",
-	"action-manage-all-push-subscriptions": "すべてのプッシュ・サブスクリプションを操作する",
+	"right-manage-all-push-subscriptions": "すべてのプッシュ・サブスクリプションを管理",
+	"action-manage-all-push-subscriptions": "すべてのプッシュ・サブスクリプションの管理",
 	"group-push-subscription-manager": "プッシュ・サブスクリプション取扱者",
 	"group-push-subscription-manager-member": "{{GENDER:$1|プッシュ・サブスクリプション取扱者}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:プッシュ・サブスクリプション取扱者"
