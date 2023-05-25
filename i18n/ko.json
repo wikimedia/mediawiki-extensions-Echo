@@ -207,7 +207,7 @@
 	"echo-notification-notice-text-only": "알림",
 	"echo-overlay-link": "모든 알림",
 	"echo-overlay-title": "<b>알림</b>",
-	"echo-mark-all-as-read": "모두 읽은 것으로 표시",
+	"echo-mark-all-as-read": "{{PLURAL:$1|모두}} 읽은 것으로 표시",
 	"echo-mark-all-as-read-confirmation": "{{PLURAL:$1|알림}} $1개를 읽은 것으로 표시했습니다",
 	"echo-mark-wiki-as-read": "선택한 위키에서 모든 항목을 읽은 것으로 표시: $1",
 	"echo-displaysnippet-title": "새 알림",
