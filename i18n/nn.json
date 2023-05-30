@@ -8,7 +8,7 @@
 			"EdoAug"
 		]
 	},
-	"echo-desc": "Meldingssystem",
+	"echo-desc": "System for å varsla brukarar om hendingar og beskjedar",
 	"prefs-echo": "Meldingar og varsel",
 	"prefs-emailsettings": "E-postval",
 	"prefs-echosubscriptions": "Meld meg om desse hendingane",
@@ -133,6 +133,8 @@
 	"echo-overlay-link": "Alle meldingar og varsel",
 	"echo-overlay-title": "<b>Meldingar og varsel</b>",
 	"echo-mark-all-as-read": "Merk alle som lesne",
+	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|varsel}} merka som {{PLURAL:$1|lese|lesne}}",
+	"echo-displaysnippet-title": "Nytt varsel",
 	"echo-date-today": "I dag",
 	"echo-date-yesterday": "I går",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Ei ny melding|$1 nye meldingar|100=99+ nye meldingar}} på <strong>diskusjonssida {{GENDER:$3|di}}</strong>.",

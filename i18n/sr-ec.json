@@ -45,7 +45,7 @@
 	"echo-pref-notifications-page-linked-title-muted-list": "Не приказуј обавештења о повезивању следећих страница. ([[mw:Special:MyLanguage/Help:Notifications#mute|детаљније]])",
 	"echo-pref-dont-email-read-notifications": "Не укључуј прочитана обавештења у е-порукама са резимеом",
 	"echo-learn-more": "Сазнајте више",
-	"echo-log": "Јаван дневник",
+	"echo-log": "Јавани дневник",
 	"echo-new-messages": "Имате нове поруке",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Измена|Измене}} на мојој страници за разговор",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Веза|Везе}} ка страници",
