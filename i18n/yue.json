@@ -8,7 +8,8 @@
 			"Roy17",
 			"Suzukaze-c",
 			"William915",
-			"Wong128hk"
+			"Wong128hk",
+			"捍粵者"
 		]
 	},
 	"echo-desc": "通知系統",
@@ -40,7 +41,7 @@
 	"echo-pref-tooltip-reverted": "有人用「還原」或者「反轉」將我嘅修改打回頭，就話我知。",
 	"echo-pref-tooltip-mention": "有人喺任何傾偈頁提及我嘅用戶頁，話我知。",
 	"notifications": "通知",
-	"tooltip-pt-notifications-alert": "{{GENDER:|你}}嘅提示",
+	"tooltip-pt-notifications-alert": "您嘅提示",
 	"echo-specialpage": "通知",
 	"echo-none": "爾家無通知畀你",
 	"notification-link-text-view-message": "去睇信息",
