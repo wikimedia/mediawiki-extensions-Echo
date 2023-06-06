@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
@@ -177,7 +178,8 @@ abstract class EchoDiscussionParser {
 
 		// Allow extensions to generate more events for a revision, and de-duplicate
 		// against the standard events created above.
-		$services->getHookContainer()->run( 'EchoGetEventsForRevision', [ &$events, $revision, $isRevert ] );
+		( new HookRunner( $services->getHookContainer() ) )
+			->onEchoGetEventsForRevision( $events, $revision, $isRevert );
 
 		// Create events
 		foreach ( $events as $event ) {

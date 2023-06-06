@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Notifications\Model;
 
 use Bundleable;
 use InvalidArgumentException;
+use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\MediaWikiServices;
 use MWEchoNotifUser;
@@ -106,14 +107,13 @@ class Notification extends AbstractEntity implements Bundleable {
 		$notifMapper = new NotificationMapper();
 
 		$services = MediaWikiServices::getInstance();
-		$hookContainer = $services->getHookContainer();
+		$hookRunner = new HookRunner( $services->getHookContainer() );
 		// Get the bundle key for this event if web bundling is enabled
 		$bundleKey = '';
 		if ( !empty( $wgEchoNotifications[$this->event->getType()]['bundle']['web'] ) ) {
-			$hookContainer->run( 'EchoGetBundleRules', [ $this->event, &$bundleKey ] );
+			$hookRunner->onEchoGetBundleRules( $this->event, $bundleKey );
 		}
 
-		// @phan-suppress-next-line PhanImpossibleCondition May be set by hook
 		if ( $bundleKey ) {
 			$hash = md5( $bundleKey );
 			$this->bundleHash = $hash;
@@ -134,7 +134,7 @@ class Notification extends AbstractEntity implements Bundleable {
 			$services->getTalkPageNotificationManager()
 				->setUserHasNewMessages( $this->user );
 		}
-		$hookContainer->run( 'EchoCreateNotificationComplete', [ $this ] );
+		$hookRunner->onEchoCreateNotificationComplete( $this );
 	}
 
 	/**

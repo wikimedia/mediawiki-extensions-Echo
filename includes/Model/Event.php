@@ -9,6 +9,7 @@ use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Logger\LoggerFactory;
@@ -192,15 +193,15 @@ class Event extends AbstractEntity implements Bundleable {
 			}
 		}
 
-		$hookContainer = $services->getHookContainer();
-		if ( !$hookContainer->run( 'BeforeEchoEventInsert', [ $obj ] ) ) {
+		$hookRunner = new HookRunner( $services->getHookContainer() );
+		if ( !$hookRunner->onBeforeEchoEventInsert( $obj ) ) {
 			return false;
 		}
 
 		// @Todo - Database insert logic should not be inside the model
 		$obj->insert();
 
-		$hookContainer->run( 'EventInsertComplete', [ $obj ] );
+		$hookRunner->onEventInsertComplete( $obj );
 
 		global $wgEchoUseJobQueue;
 

@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextEmailFormatter;
+use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
@@ -52,9 +53,9 @@ class EchoNotifier {
 			return false;
 		}
 
-		$hookContainer = $services->getHookContainer();
+		$hookRunner = new HookRunner( $services->getHookContainer() );
 		// Final check on whether to send email for this user & event
-		if ( !$hookContainer->run( 'EchoAbortEmailNotification', [ $user, $event ] ) ) {
+		if ( !$hookRunner->onEchoAbortEmailNotification( $user, $event ) ) {
 			return false;
 		}
 
@@ -74,9 +75,8 @@ class EchoNotifier {
 			if ( !empty( $wgEchoNotifications[$event->getType()]['bundle']['web'] ) ||
 				!empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] )
 			) {
-				$hookContainer->run( 'EchoGetBundleRules', [ $event, &$bundleString ] );
+				$hookRunner->onEchoGetBundleRules( $event, $bundleString );
 			}
-			// @phan-suppress-next-line PhanImpossibleCondition May be set by hook
 			if ( $bundleString ) {
 				$bundleHash = md5( $bundleString );
 			}

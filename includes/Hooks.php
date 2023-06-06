@@ -27,6 +27,7 @@ use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Extension\Notifications\Controller\ModerationController;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;
+use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
@@ -197,8 +198,8 @@ class Hooks implements
 			$wgEnableUserEmail;
 
 		// allow extensions to define their own event
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'BeforeCreateEchoEvent',
-			[ &$wgEchoNotifications, &$wgEchoNotificationCategories, &$wgEchoNotificationIcons ] );
+		( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )->onBeforeCreateEchoEvent(
+			$wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons );
 
 		// Only allow mention status notifications when enabled
 		if ( !$wgEchoMentionStatusNotifications ) {
@@ -748,7 +749,7 @@ class Hooks implements
 
 	/**
 	 * Handler for EchoAbortEmailNotification hook
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param Event $event
 	 * @return bool true - send email, false - do not send email
 	 */
@@ -1194,8 +1195,8 @@ class Hooks implements
 		if (
 			$mytalk &&
 			self::shouldDisplayTalkAlert( $user, $title ) &&
-			MediaWikiServices::getInstance()
-				->getHookContainer()->run( 'BeforeDisplayOrangeAlert', [ $user, $title ] )
+			( new HookRunner( MediaWikiServices::getInstance()
+				->getHookContainer() ) )->onBeforeDisplayOrangeAlert( $user, $title )
 		) {
 			// Create new talk alert inheriting from the talk link data.
 			$links['notifications']['talk-alert'] = array_merge(
@@ -1367,7 +1368,8 @@ class Hooks implements
 		// notifications for talk page messages, disable the new messages alert.
 		if ( $user->isRegistered()
 			&& isset( $wgEchoNotifications['edit-user-talk'] )
-			&& MediaWikiServices::getInstance()->getHookContainer()->run( 'EchoCanAbortNewMessagesAlert' )
+			&& ( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )
+				->onEchoCanAbortNewMessagesAlert()
 		) {
 			// hide new messages alert
 			return false;
