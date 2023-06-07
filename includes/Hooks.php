@@ -204,6 +204,10 @@ class Hooks implements
 			'minor-watchlist' => [
 				'web' => false,
 			],
+			'api-triggered' => [
+				// emails are sent only if sender also sets the API option, which is disabled by default
+				'email' => true,
+			],
 		];
 
 		$echoPushEnabled = $this->config->get( ConfigNames::EnablePush );
@@ -241,7 +245,7 @@ class Hooks implements
 		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
 			$wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification, $wgAPIModules,
 			$wgEchoWatchlistNotifications, $wgEchoSeenTimeCacheType, $wgMainStash, $wgEnableEmail,
-			$wgEnableUserEmail;
+			$wgEnableUserEmail, $wgEchoEnableApiEvents;
 
 		// allow extensions to define their own event
 		( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )->onBeforeCreateEchoEvent(
@@ -268,6 +272,11 @@ class Hooks implements
 		// Only allow user email notifications when enabled
 		if ( !$wgEnableEmail || !$wgEnableUserEmail ) {
 			unset( $wgEchoNotificationCategories['emailuser'] );
+		}
+
+		// Only allow API-triggered notifications when enabled
+		if ( !$wgEchoEnableApiEvents ) {
+			unset( $wgEchoNotificationCategories['api-triggered'] );
 		}
 
 		// Default $wgEchoSeenTimeCacheType to $wgMainStash
