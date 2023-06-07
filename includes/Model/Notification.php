@@ -7,7 +7,6 @@ use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\MediaWikiServices;
 use MWEchoNotifUser;
-use MWException;
 use stdClass;
 use User;
 
@@ -63,7 +62,6 @@ class Notification extends AbstractEntity implements Bundleable {
 	 * @param array $info The following keys are required:
 	 * - 'event' The Event being notified about.
 	 * - 'user' The User being notified.
-	 * @throws MWException
 	 * @return Notification
 	 */
 	public static function create( array $info ) {
@@ -74,7 +72,7 @@ class Notification extends AbstractEntity implements Bundleable {
 			if ( isset( $info[$field] ) ) {
 				$obj->$field = $info[$field];
 			} else {
-				throw new MWException( "Field $field is required" );
+				throw new InvalidArgumentException( "Field $field is required" );
 			}
 		}
 

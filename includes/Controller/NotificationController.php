@@ -11,7 +11,6 @@ use EchoOnWikiList;
 use EchoServices;
 use Iterator;
 use MapCacheLRU;
-use MediaWiki\Extension\Notifications\Exception\CatchableFatalErrorException;
 use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
 use MediaWiki\Extension\Notifications\Jobs\NotificationDeleteJob;
 use MediaWiki\Extension\Notifications\Jobs\NotificationJob;
@@ -561,25 +560,5 @@ class NotificationController {
 		} );
 
 		return $notify->getIterator();
-	}
-
-	/**
-	 * INTERNAL.  Must be public to be callable by the php error handling methods.
-	 *
-	 * Converts E_RECOVERABLE_ERROR, such as passing null to a method expecting
-	 * a non-null object, into exceptions.
-	 * @param int $errno
-	 * @param string $errstr
-	 * @param string $errfile
-	 * @param int $errline
-	 * @return bool
-	 * @throws CatchableFatalErrorException
-	 */
-	public static function formatterErrorHandler( $errno, $errstr, $errfile, $errline ) {
-		if ( $errno !== E_RECOVERABLE_ERROR ) {
-			return false;
-		}
-
-		throw new CatchableFatalErrorException( $errno, $errstr, $errfile, $errline );
 	}
 }

@@ -169,7 +169,6 @@ class EchoDiffParser {
 	 * @param string $line The next line of the unified diff
 	 * @param EchoDiffGroup|null $change Changes the immediately previous lines
 	 *
-	 * @throws MWException
 	 * @return EchoDiffGroup|null Changes to this line and any changed lines immediately previous
 	 */
 	protected function parseLine( $line, EchoDiffGroup $change = null ) {
@@ -216,7 +215,7 @@ class EchoDiffParser {
 			case '-':
 				// subtract
 				if ( $this->left[$this->leftPos] !== $line ) {
-					throw new MWException( 'Positional error: left' );
+					throw new UnexpectedValueException( 'Positional error: left' );
 				}
 				if ( $change === null ) {
 					// @phan-suppress-next-line PhanTypeMismatchArgument
@@ -229,7 +228,7 @@ class EchoDiffParser {
 			case '+':
 				// add
 				if ( $this->right[$this->rightPos] !== $line ) {
-					throw new MWException( 'Positional error: right' );
+					throw new UnexpectedValueException( 'Positional error: right' );
 				}
 				if ( $change === null ) {
 					// @phan-suppress-next-line PhanTypeMismatchArgument
@@ -240,7 +239,7 @@ class EchoDiffParser {
 				break;
 
 			default:
-				throw new MWException( 'Unknown Diff Operation: ' . $op );
+				throw new UnexpectedValueException( 'Unknown Diff Operation: ' . $op );
 		}
 
 		return $change;

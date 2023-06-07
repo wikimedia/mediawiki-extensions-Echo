@@ -19,6 +19,7 @@ use ExtensionRegistry;
 use HTMLCheckMatrix;
 use LinksUpdate;
 use LogEntry;
+use LogicException;
 use MailAddress;
 use MediaWiki\Api\Hook\ApiMain__moduleManagerHook;
 use MediaWiki\Auth\Hook\LocalUserCreatedHook;
@@ -66,7 +67,6 @@ use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
 use MWEchoDbFactory;
 use MWEchoNotifUser;
-use MWException;
 use OutputPage;
 use RecentChange;
 use ResourceLoaderEchoImageModule;
@@ -397,8 +397,6 @@ class Hooks implements
 	 *
 	 * @param User $user User to get preferences for
 	 * @param array &$preferences Preferences array
-	 *
-	 * @throws MWException
 	 */
 	public function onGetPreferences( $user, &$preferences ) {
 		global $wgEchoEnableEmailBatch,
@@ -536,7 +534,7 @@ class Hooks implements
 
 		$invalid = array_intersect( $forceOptionsOff, $forceOptionsOn );
 		if ( $invalid ) {
-			throw new MWException( sprintf(
+			throw new LogicException( sprintf(
 				'The following notifications are both forced and removed: %s',
 				implode( ', ', $invalid )
 			) );
@@ -1758,7 +1756,6 @@ class Hooks implements
 	/**
 	 * @param RecentChange $change
 	 * @return bool|void
-	 * @throws MWException
 	 */
 	public function onRecentChange_save( $change ) {
 		if ( !$this->config->get( 'EchoWatchlistNotifications' ) ) {
