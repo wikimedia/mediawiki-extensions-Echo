@@ -32,7 +32,7 @@ class ResourceLoaderEchoImageModule extends RL\ImageModule {
 
 		// Check to make sure icons are set
 		if ( !isset( $this->definition['icons'] ) ) {
-			throw new MWException( 'Icons must be set.' );
+			throw new RuntimeException( 'Icons must be set.' );
 		}
 
 		$images = [];

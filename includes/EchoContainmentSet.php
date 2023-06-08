@@ -99,8 +99,6 @@ class EchoContainmentSet {
 	 * @param string $title The title of the page containing the list.
 	 * @param WANObjectCache|null $cache An object to cache the page with or null for no cache.
 	 * @param string $cacheKeyPrefix A prefix to be combined with the pages latest revision id and used as a cache key.
-	 *
-	 * @throws MWException
 	 */
 	public function addOnWiki(
 		$namespace, $title, WANObjectCache $cache = null, $cacheKeyPrefix = ''
@@ -108,7 +106,7 @@ class EchoContainmentSet {
 		$list = new EchoOnWikiList( $namespace, $title );
 		if ( $cache ) {
 			if ( $cacheKeyPrefix === '' ) {
-				throw new MWException( 'Cache requires providing a cache key prefix.' );
+				throw new BadMethodCallException( 'Cache requires providing a cache key prefix.' );
 			}
 			$list = new EchoCachedList( $cache, $cacheKeyPrefix, $list );
 		}

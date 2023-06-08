@@ -16,7 +16,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\UserIdentity;
 use MWEchoDbFactory;
-use MWException;
+use RuntimeException;
 use stdClass;
 use Title;
 use User;
@@ -97,7 +97,7 @@ class Event extends AbstractEntity implements Bundleable {
 	## Save the id and timestamp
 	public function __sleep() {
 		if ( !$this->id ) {
-			throw new MWException( "Unable to serialize an uninitialized Event" );
+			throw new RuntimeException( "Unable to serialize an uninitialized Event" );
 		}
 
 		return [ 'id', 'timestamp' ];
@@ -132,7 +132,6 @@ class Event extends AbstractEntity implements Bundleable {
 	 *
 	 * [ 'extra' => Job::newRootJobParams('example') ]
 	 *
-	 * @throws MWException
 	 * @return Event|false False if aborted via hook or Echo DB is read-only
 	 */
 	public static function create( $info = [] ) {
@@ -150,7 +149,7 @@ class Event extends AbstractEntity implements Bundleable {
 		static $validFields = [ 'type', 'variant', 'agent', 'title', 'extra' ];
 
 		if ( empty( $info['type'] ) ) {
-			throw new MWException( "'type' parameter is mandatory" );
+			throw new InvalidArgumentException( "'type' parameter is mandatory" );
 		}
 
 		if ( !isset( $wgEchoNotifications[$info['type']] ) ) {
