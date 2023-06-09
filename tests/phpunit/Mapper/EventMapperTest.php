@@ -73,7 +73,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 				]
 			)
 		);
-		$this->expectException( MWException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$eventMapper->fetchById( 1 );
 	}
 

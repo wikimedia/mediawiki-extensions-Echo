@@ -974,7 +974,6 @@ abstract class EchoDiscussionParser {
 	 *
 	 * @param string $oldText The "left hand side" of the diff.
 	 * @param string $newText The "right hand side" of the diff.
-	 * @throws MWException
 	 * @return array[] Array of changes.
 	 * Each change consists of:
 	 * * An 'action', one of:
@@ -1200,7 +1199,6 @@ abstract class EchoDiscussionParser {
 	 * Gets a regular expression that will match this wiki's
 	 * timestamps as given by ~~~~.
 	 *
-	 * @throws MWException
 	 * @return string regular expression fragment.
 	 */
 	public static function getTimestampRegex() {
@@ -1234,7 +1232,7 @@ abstract class EchoDiscussionParser {
 		}
 
 		if ( !preg_match( "/$output/u", $exemplarTimestamp ) ) {
-			throw new MWException( "Timestamp regex does not match exemplar" );
+			throw new RuntimeException( "Timestamp regex does not match exemplar" );
 		}
 
 		self::$timestampRegex = $output;
