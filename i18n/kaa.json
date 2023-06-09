@@ -47,7 +47,7 @@
 	"notification-header-page-linked": "<strong>$4</strong> degennen <strong>$3</strong> degende silteme berildi.",
 	"notification-welcome-linktext": "Xosh keldińiz",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Siz}} {{GENDER:$2|dáslepki}} redaktorlawıńızdı qıldıńız; {{GENDER:$2|raxmet}} hám xosh keldińiz!",
-	"notification-header-thank-you-100-edit": "{{GENDER:$2|Siz}} júzinshi{{GENDER:$2|redaktorlawıńızdı}} qıldıńız; úlken {{GENDER:$2|raxmet}}!",
+	"notification-header-thank-you-100-edit": "{{GENDER:$2|Siz}} júzinshi márte {{GENDER:$2|redaktorladıńız}}, úlken {{GENDER:$2|raxmet}}!",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Siz}} on mıńınshı {{GENDER:$2|redaktorlawıńızdı}} qıldıńız; úlken {{GENDER:$2|raxmet}}!",
 	"notification-header-reverted": "Siziń {{PLURAL:$4|<strong>$3</strong> betindegi redaktorlawıńız|<strong>$3</strong> betindegi redaktorlawıńız}} {{GENDER:$2|joqqa shıǵarıldı}}.",
 	"notification-page-linked-email-subject": "{{SITENAME}} saytında siz jaratqan betke silteme berildi",
