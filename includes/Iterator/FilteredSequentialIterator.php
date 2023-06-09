@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\Notifications\Iterator;
 use ArrayIterator;
 use CallbackFilterIterator;
 use EmptyIterator;
+use InvalidArgumentException;
 use Iterator;
 use IteratorAggregate;
-use MWException;
 use RecursiveIteratorIterator;
 
 /**
@@ -55,7 +55,6 @@ class FilteredSequentialIterator implements IteratorAggregate {
 
 	/**
 	 * @param Iterator|IteratorAggregate|array $users
-	 * @throws MWException
 	 */
 	public function add( $users ) {
 		if ( is_array( $users ) ) {
@@ -65,7 +64,7 @@ class FilteredSequentialIterator implements IteratorAggregate {
 		} elseif ( $users instanceof IteratorAggregate ) {
 			$it = $users->getIterator();
 		} else {
-			throw new MWException( 'Expected array, Iterator or IteratorAggregate but received:' .
+			throw new InvalidArgumentException( 'Expected array, Iterator or IteratorAggregate but received:' .
 				( is_object( $users ) ? get_class( $users ) : gettype( $users ) )
 			);
 		}

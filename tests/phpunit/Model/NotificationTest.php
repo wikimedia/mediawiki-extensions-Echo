@@ -45,7 +45,7 @@ class NotificationTest extends MediaWikiIntegrationTestCase {
 		$row = $this->mockNotificationRow();
 		// Provide an invalid event id
 		$row['notification_event'] = -1;
-		$this->expectException( MWException::class );
+		$this->expectException( InvalidArgumentException::class );
 		Notification::newFromRow( (object)$row );
 	}
 

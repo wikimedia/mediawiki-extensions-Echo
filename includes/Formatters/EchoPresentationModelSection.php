@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
+use BadMethodCallException;
 use EchoDiscussionParser;
 use Language;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Revision\RevisionRecord;
-use MWException;
 use Parser;
 use Title;
 use User;
@@ -119,7 +119,7 @@ class EchoPresentationModelSection {
 	public function getTitleWithSection() {
 		$title = $this->event->getTitle();
 		if ( $title === null ) {
-			throw new MWException( 'Event #' . $this->event->getId() . ' with no title' );
+			throw new BadMethodCallException( 'Event #' . $this->event->getId() . ' with no title' );
 		}
 		$section = $this->getParsedSectionTitle();
 		if ( $section ) {

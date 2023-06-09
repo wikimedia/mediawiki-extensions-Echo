@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Model;
 
-use MWException;
+use InvalidArgumentException;
 use stdClass;
 use Title;
 
@@ -71,7 +71,6 @@ class TargetPage extends AbstractEntity {
 	 *
 	 * @param stdClass $row
 	 * @return TargetPage
-	 * @throws MWException
 	 */
 	public static function newFromRow( $row ) {
 		$requiredFields = [
@@ -80,7 +79,7 @@ class TargetPage extends AbstractEntity {
 		];
 		foreach ( $requiredFields as $field ) {
 			if ( !isset( $row->$field ) || !$row->$field ) {
-				throw new MWException( $field . ' is not set in the row!' );
+				throw new InvalidArgumentException( $field . ' is not set in the row!' );
 			}
 		}
 		$obj = new self();

@@ -50,7 +50,7 @@ class EchoCachedList implements EchoContainmentList {
 			function () {
 				$result = $this->nestedList->getValues();
 				if ( !is_array( $result ) ) {
-					throw new MWException( sprintf(
+					throw new UnexpectedValueException( sprintf(
 						"Expected array but received '%s' from '%s::getValues'",
 						is_object( $result ) ? get_class( $result ) : gettype( $result ),
 						get_class( $this->nestedList )

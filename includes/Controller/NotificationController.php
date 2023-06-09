@@ -9,6 +9,7 @@ use EchoContainmentList;
 use EchoContainmentSet;
 use EchoOnWikiList;
 use EchoServices;
+use InvalidArgumentException;
 use Iterator;
 use MapCacheLRU;
 use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
@@ -20,7 +21,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\User\UserIdentity;
 use MWEchoNotifUser;
-use MWException;
 use Title;
 use User;
 
@@ -426,18 +426,17 @@ class NotificationController {
 	 * @param Event $event
 	 * @param User $user The user to be notified.
 	 * @param string $type The type of notification delivery to process, e.g. 'email'.
-	 * @throws MWException
 	 */
 	public static function doNotification( $event, $user, $type ) {
 		global $wgEchoNotifiers;
 
 		if ( !isset( $wgEchoNotifiers[$type] ) ) {
-			throw new MWException( "Invalid notification type $type" );
+			throw new InvalidArgumentException( "Invalid notification type $type" );
 		}
 
 		// Don't send any notifications to anonymous users
 		if ( !$user->isRegistered() ) {
-			throw new MWException( "Cannot notify anonymous user: {$user->getName()}" );
+			throw new InvalidArgumentException( "Cannot notify anonymous user: {$user->getName()}" );
 		}
 
 		( $wgEchoNotifiers[$type] )( $user, $event );

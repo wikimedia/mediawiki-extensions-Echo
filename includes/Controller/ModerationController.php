@@ -7,7 +7,6 @@ use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\MediaWikiServices;
 use MWEchoNotifUser;
-use MWException;
 use User;
 
 /**
@@ -20,7 +19,6 @@ class ModerationController {
 	 *
 	 * @param int[] $eventIds
 	 * @param bool $moderate Whether to moderate or unmoderate the events
-	 * @throws MWException
 	 */
 	public static function moderate( array $eventIds, $moderate ) {
 		if ( !$eventIds ) {

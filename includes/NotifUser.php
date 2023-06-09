@@ -122,14 +122,13 @@ class MWEchoNotifUser {
 	}
 
 	/**
-	 * Factory method
+	 * Factory method. The caller should make sure that the user is registered.
 	 * @param UserIdentity $user
-	 * @throws MWException
 	 * @return MWEchoNotifUser
 	 */
 	public static function newFromUser( UserIdentity $user ) {
 		if ( !$user->isRegistered() ) {
-			throw new MWException( 'User must be logged in to view notification!' );
+			throw new InvalidArgumentException( 'User must be logged in to view notification!' );
 		}
 		$services = MediaWikiServices::getInstance();
 		return new MWEchoNotifUser(
