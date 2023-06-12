@@ -20,6 +20,7 @@
 	"echo-category-title-other": "{{PLURAL:$1|ٻیا}}",
 	"echo-category-title-system": "{{PLURAL:$1|نظام}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|سسٹم}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|سسٹم}}",
 	"notifications": "اطلاع نامے",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Your}} الرٹس",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "موجودہ ورتݨ آلے",
