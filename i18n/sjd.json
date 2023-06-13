@@ -19,6 +19,7 @@
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 ма̄н.}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 ыг.}}",
 	"echo-notification-notice": "{{PLURAL:$1|Тӣдҍхэмушш ($1)|Тӣдҍхэмуж ($1)|100=Тӣдҍхэмуж (99+)}}",
+	"echo-notification-alert-text-only": "Тӣдҍлаһтҍмуж",
 	"echo-notification-notice-text-only": "Тӣдҍхэмуж",
 	"echo-overlay-link": "Пугк тӣдҍхэмуж",
 	"echo-overlay-title": "<b>Тӣдҍхэмуж</b>"

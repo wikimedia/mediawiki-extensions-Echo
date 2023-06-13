@@ -39,7 +39,7 @@
 	"echo-pref-dont-email-read-notifications": "V e-pisma s povzetki ne vključi prebranih obvestil",
 	"echo-learn-more": "Več o tem",
 	"echo-log": "Dnevnik",
-	"echo-new-messages": "Imate novo sporočilo na pogovorni strani",
+	"echo-new-messages": "Na pogovorni strani imate novo sporočilo",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Urejanje|Urejanja}} moje uporabniške pogovorne strani",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Povezava|Povezave}} na stran",
 	"echo-category-title-reverted": "{{PLURAL:$1|Vrnitev urejanja|Vrnitve urejanj}}",
