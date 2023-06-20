@@ -8,7 +8,8 @@
 			"Quenhitran",
 			"Thienhau2003",
 			"Trần Nguyễn Minh Huy",
-			"Vinhtantran"
+			"Vinhtantran",
+			"Flyplanevn27"
 		]
 	},
 	"echo-desc": "Hệ thống thông báo cho người dùng về các sự kiện và thay đổi quan trọng",
@@ -202,7 +203,7 @@
 	"notification-inbox-filter-read": "Đọc",
 	"notification-inbox-filter-unread": "Chưa đọc",
 	"notification-inbox-filter-all": "Tất cả",
-	"echo-specialmute-label-mute-notifications": "Làm im thông báo từ {{GENDER:$1}}người dùng này",
+	"echo-specialmute-label-mute-notifications": "Tắt thông báo từ {{GENDER:$1}}người dùng này",
 	"echo-email-plain-footer": "Để kiểm soát các thư điện tử mà chúng tôi gửi cho {{GENDER:$1}}bạn, hãy kiểm tra tùy chọn của {{GENDER:$1}}bạn:",
 	"echo-email-html-footer-preference-link-text": "kiểm tra tùy chọn của {{GENDER:$1}}bạn",
 	"echo-email-html-footer-with-link": "Để kiểm soát các thư điện tử mà chúng tôi gửi cho {{GENDER:$2}}bạn, hãy $1.",

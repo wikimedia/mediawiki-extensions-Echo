@@ -198,6 +198,8 @@
 	"notification-header-watchlist-multiuser-changed": "<strong>$1</strong>, una página que {{GENDER:$2|vigilas}}, ha sido modificada $3 {{PLURAL:$3|vez|veces}}.",
 	"notification-header-watchlist-multiuser-created": "<strong>$1</strong>, una página que {{GENDER:$2|vigilas}}, ha sido creada $3 {{PLURAL:$3|vez|veces}}.",
 	"notification-header-watchlist-multiuser-deleted": "La página de {{GENDER:$2|tu}} lista de seguimiento, <strong>$1</strong>, ha sido eliminada $3 {{PLURAL:$3|vez|veces}}.",
+	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, una página que {{GENDER:$2|vigilas}}, ha sido trasladada $3 {{PLURAL:$3|vez|veces}}.",
+	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, una página que {{GENDER:$2|vigilas}}, ha sido restaurada $3 {{PLURAL:$3|vez|veces}}.",
 	"notification-body-watchlist-once": "No habrá otras notificaciones por correo electrónico en caso de actividad adicional a menos que {{GENDER:$1|visites}} esta página con la sesión iniciada.",
 	"notification-welcome-linktext": "Te damos la bienvenida",
 	"notification-header-thank-you-1-edit": "Acabas de hacer {{GENDER:$2|tu}} primera edición. Gracias y ¡{{GENDER:$2|bienvenido|bienvenida}}!",
