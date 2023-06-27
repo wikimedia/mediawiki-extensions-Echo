@@ -32,7 +32,8 @@
 			"Michel Bakni",
 			"Dyolf77 (WMF)",
 			"Alshamiri1",
-			"Karim185.3"
+			"Karim185.3",
+			"أيوب"
 		]
 	},
 	"echo-desc": "نظام لإخطار المستخدمين عن الأحداث والرسائل",
@@ -203,7 +204,7 @@
 	"notification-header-thank-you-10000-edit": "لقد {{GENDER:$2|قمت|قمتِ}} قبل قليل {{GENDER:$2|بتعديلك|بتعديلكِ}} رقم عشرة آلاف؛ شكرًا جزيلًا {{GENDER:$2|لك|لكِ}}!",
 	"notification-header-thank-you-100000-edit": "لقد قُمت حالًا {{GENDER:$2|بتعديلك}} رقم مائة ألف؛ شكرًا لمساهمتك المذهلة!",
 	"notification-header-thank-you-1000000-edit": "لقد {{GENDER:$2|قمت|قمتِ}} قبل قليل {{GENDER:$2|بتعديلك|بتعديلكِ}} رقم مليون؛ شكرًا {{GENDER:$2|لك|لكِ}} على مساهمتك المذهلة!",
-	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|}} لقد قمت للتو بإنشاء {{GENDER:$2| your}} تعديل عشرة ملايين ؛ شكرًا {{GENDER:$2| you}} لتفانيك الرائع!",
+	"notification-header-thank-you-10000000-edit": "لقد {{GENDER:$2|قُمتَ|قُمتِ}} للتو {{GENDER:$2|بتعديلك|بتعديلكِ}} رقم عشرة ملايين؛ شكرًا {{GENDER:$2|لك لتفانيكَ|لكِ لتفانيكِ}} الرائع!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|تعديلك|تعديلكِ}}",
 	"notification-link-text-view-edit": "اعرض التعديل",
 	"notification-link-article-reminder": "عرض الصفحة",
