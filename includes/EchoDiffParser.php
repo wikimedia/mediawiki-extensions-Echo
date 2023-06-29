@@ -21,6 +21,9 @@
  * @author Erik Bernhardson
  */
 
+use Wikimedia\Diff\Diff;
+use Wikimedia\Diff\UnifiedDiffFormatter;
+
 /**
  * Calculates the individual sets of differences between two pieces of text
  * as individual groupings of add, subtract, and change actions. Internally
