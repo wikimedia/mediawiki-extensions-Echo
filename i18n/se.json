@@ -6,6 +6,7 @@
 		]
 	},
 	"prefs-echo": "Almmuhusat",
+	"prefs-emailsettings": "E-poastta ásahusat",
 	"prefs-echosubscriptions": "Almmut munnje dáin dáhpáhusain",
 	"prefs-echocrosswiki": "Wikiidgaskasaš almmuhusat",
 	"prefs-blocknotificationslist": "Jaskkodahtton geavaheaddjit",
@@ -13,6 +14,7 @@
 	"echo-pref-send-me": "Sádde munnje:",
 	"echo-pref-send-to": "Sádde čujuhussii:",
 	"echo-pref-email": "E-poasta",
+	"echo-pref-push": "Heivehusat",
 	"echo-pref-email-frequency-never": "Sádde munnje almmuhusaid e-poasttain",
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Dušše teaksta",
