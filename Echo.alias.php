@@ -185,11 +185,20 @@ $specialPageAliases['mt'] = [
 /** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = [
 	'Notifications' => [ 'Varsler' ],
+	'DisplayNotificationsConfiguration' => [ 'Vis_varselkonfigurasjon' ],
+	'NotificationsMarkRead' => [ 'Merk_varsel_som_lest' ],
 ];
 
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = [
 	'Notifications' => [ 'Meldingen' ],
+];
+
+/** Norwegian Nynorsk (norsk nynorsk) */
+$specialPageAliases['nn'] = [
+	'Notifications' => [ 'Varsel' ],
+	'DisplayNotificationsConfiguration' => [ 'Syn_varselkonfigurasjon' ],
+	'NotificationsMarkRead' => [ 'Merk_varsel_som_lese' ],
 ];
 
 /** Punjabi (ਪੰਜਾਬੀ) */
