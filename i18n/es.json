@@ -38,14 +38,15 @@
 			"The Anonymouse",
 			"TheBITLINK",
 			"Themasterriot",
-			"Vivaelcelta"
+			"Vivaelcelta",
+			"DarkGames26"
 		]
 	},
 	"echo-desc": "Sistema para notificar a los usuarios sobre eventos y mensajes",
 	"prefs-echo": "Notificaciones",
 	"prefs-emailsettings": "Opciones de correo electrónico",
 	"prefs-echosubscriptions": "Notificarme sobre estos eventos",
-	"prefs-echocrosswiki": "Notificaciones de varios wikis",
+	"prefs-echocrosswiki": "Notificaciones de otros wikis",
 	"prefs-blocknotificationslist": "Usuarios silenciados",
 	"prefs-mutedpageslist": "Páginas silenciadas para notificaciones de enlaces de página",
 	"prefs-echopollupdates": "Notificaciones en vivo",
