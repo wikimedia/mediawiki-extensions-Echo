@@ -465,6 +465,7 @@ class Hooks implements
 			// Email format
 			$preferences['echo-email-format'] = [
 				'type' => 'select',
+				'default' => EchoEmailFormat::HTML,
 				'label-message' => 'echo-pref-email-format',
 				'section' => 'echo/emailsettings',
 				'options-messages' => [
