@@ -20,7 +20,8 @@ class EchoTalkPageFunctionalTest extends ApiTestCase {
 	 * @covers \EchoDiscussionParser
 	 */
 	public function testAddCommentsToTalkPage() {
-		$talkPage = self::$users['uploader']->getUser()->getName();
+		$talkTitle = self::$users['uploader']->getUser()->getTalkPage();
+		$talkPage = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $talkTitle );
 
 		$expectedMessageCount = 0;
 		$this->assertCount( $expectedMessageCount, $this->fetchAllEvents() );
