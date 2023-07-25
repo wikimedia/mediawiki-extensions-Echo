@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bosogo"
+		]
+	},
+	"echo-pref-email": "Эл. почта",
+	"echo-category-title-other": "{{PLURAL:$1|Башка}}"
+}
