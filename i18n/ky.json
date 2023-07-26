@@ -5,5 +5,7 @@
 		]
 	},
 	"echo-pref-email": "Эл. почта",
-	"echo-category-title-other": "{{PLURAL:$1|Башка}}"
+	"echo-category-title-other": "{{PLURAL:$1|Башка}}",
+	"notification-link-text-expand-all": "жаюу",
+	"notification-link-text-collapse-all": "түрүү"
 }
