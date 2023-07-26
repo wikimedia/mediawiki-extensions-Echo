@@ -1,7 +1,8 @@
 {{^hasNotifications}}
 <a href="{{url}}" title="{{title}}"
-   class="{{notificationIconClass}} mw-echo-notification-badge-nojs user-button" id="user-notifications" data-event-name="ui.notifications">
-    {{title}}
+   class="{{notificationButtonClass}} mw-echo-notification-badge-nojs user-button" id="user-notifications" data-event-name="ui.notifications">
+    <span class="{{notificationIconClass}}"></span>
+	<span>{{title}}</span>
 </a>
 {{/hasNotifications}}
 {{#hasNotifications}}

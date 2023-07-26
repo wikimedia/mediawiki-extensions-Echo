@@ -1,9 +1,10 @@
 var
 	mobile = mw.mobileFrontend.require( 'mobile.startup' ),
 	View = mobile.View,
-	Icon = mobile.Icon,
-	notificationIcon = new Icon( {
-		name: 'bellOutline-base20',
+	IconButton = mobile.IconButton,
+	notificationIconButton = new IconButton( {
+		icon: 'bellOutline-base20',
+		tagName: 'a',
 		glyphPrefix: 'wikimedia'
 	} );
 
@@ -34,14 +35,15 @@ function NotificationBadge( options ) {
 		options.hasUnseenNotifications = $el.find( '.notification-unseen' ).length > 0;
 		options.hasNotifications = options.hasUnseenNotifications;
 		$notificationAnchor = $el.find( 'a' );
-		options.title = $notificationAnchor.attr( 'title' );
+		options.title = $notificationAnchor.children().first().text();
 		options.url = $notificationAnchor.attr( 'href' );
 		count = Number( $el.find( '[data-notification-count]' ).data( 'notification-count' ) );
 	}
 
 	View.call( this,
 		$.extend( {
-			notificationIconClass: notificationIcon.getClassName(),
+			notificationButtonClass: notificationIconButton.getClassName(),
+			notificationIconClass: notificationIconButton.getIcon().getClassName(),
 			hasNotifications: false,
 			hasUnseenNotifications: false,
 			notificationCountRaw: 0
