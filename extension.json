@@ -379,10 +379,9 @@
 			]
 		},
 		"ext.echo.styles.badge": {
-			"skinStyles": {
-				"default": [ "nojs/mw.echo.badge.less" ],
-				"minerva": []
-			},
+			"styles": [
+				"nojs/mw.echo.badge.less"
+			],
 			"targets": [
 				"desktop",
 				"mobile"
