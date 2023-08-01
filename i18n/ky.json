@@ -4,6 +4,14 @@
 			"Bosogo"
 		]
 	},
+	"prefs-echo": "Кабарламалар",
 	"echo-pref-email": "Эл. почта",
-	"echo-category-title-other": "{{PLURAL:$1|Башка}}"
+	"echo-learn-more": "Толук маалымат",
+	"echo-category-title-other": "{{PLURAL:$1|Башка}}",
+	"notifications": "Кабарламалар",
+	"echo-specialpage": "Кабарламалар",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|кабарлама}}",
+	"notification-link-text-expand-all": "жаюу",
+	"notification-link-text-collapse-all": "түрүү",
+	"echo-overlay-title": "<b>Кабарламалар</b>"
 }

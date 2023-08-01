@@ -15,7 +15,8 @@
 			"דולב",
 			"חיים",
 			"לואיקה",
-			"ערן"
+			"ערן",
+			"Neriah"
 		]
 	},
 	"echo-desc": "מערכת לשליחת התראות למשתמשים על אירועים והודעות",
@@ -172,7 +173,7 @@
 	"notification-header-watchlist-deleted": "$1 {{GENDER:$2|מחק|מחקה}} את <strong>$3</strong>, דף ברשימת המעקב {{PLURAL:$5||{{GENDER:$4|שלך}}|שלך פעמיים|שלך $5 פעמים}}.",
 	"notification-header-watchlist-moved": "$1 {{GENDER:$2|העביר|העבירה}} את <strong>$3</strong>, דף ברשימת המעקב {{PLURAL:$5||{{GENDER:$4|שלך}}|שלך פעמיים|שלך $5 פעמים}}.",
 	"notification-header-watchlist-restored": "$1 {{GENDER:$2|שחזר|שחזרה}} ממחיקה את <strong>$3</strong>, דף ברשימת המעקב {{PLURAL:$5||{{GENDER:$4|שלך}}|שלך פעמיים|שלך $5 פעמים}}.",
-	"notification-header-watchlist-multiuser-changed": "<strong>$1</strong>, דף ברשימת המעקב {{GENDER:$2|שלך}}, שוּנה {{PLURAL:$3|פעם אחת|פעמיים|$3 פעמים}}.",
+	"notification-header-watchlist-multiuser-changed": "<strong>$1</strong>, דף ברשימת המעקב {{GENDER:$2|שלך}}, שונה {{PLURAL:$3|פעם אחת|פעמיים|$3 פעמים}}.",
 	"notification-header-watchlist-multiuser-created": "<strong>$1</strong>, דף ברשימת המעקב {{GENDER:$2|שלך}}, נוצר {{PLURAL:$3|פעם אחת|פעמיים|$3 פעמים}}.",
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, דף ברשימת המעקב {{GENDER:$2|שלך}}, נמחק {{PLURAL:$3|פעם אחת|פעמיים|$3 פעמים}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, דף ברשימת המעקב {{GENDER:$2|שלך}}, הועבר {{PLURAL:$3|פעם אחת|פעמיים|$3 פעמים}}.",
