@@ -3,9 +3,9 @@ var
 	View = mobile.View,
 	IconButton = mobile.IconButton,
 	notificationIconButton = new IconButton( {
-		icon: 'bellOutline-base20',
+		icon: 'bellOutline-subtle',
 		tagName: 'a',
-		glyphPrefix: 'wikimedia'
+		glyphPrefix: 'echo'
 	} );
 
 /**
