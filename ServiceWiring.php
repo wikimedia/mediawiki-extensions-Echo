@@ -51,8 +51,8 @@ return [
 		$loadBalancer = $cluster
 			? $loadBalancerFactory->getExternalLB( $cluster )
 			: $loadBalancerFactory->getMainLB( $database );
-		$dbw = $loadBalancer->getConnectionRef( DB_PRIMARY, [], $database );
-		$dbr = $loadBalancer->getConnectionRef( DB_REPLICA, [], $database );
+		$dbw = $loadBalancer->getConnection( DB_PRIMARY, [], $database );
+		$dbr = $loadBalancer->getConnection( DB_REPLICA, [], $database );
 
 		$pushProviderStore = new NameTableStore(
 			$loadBalancer,
