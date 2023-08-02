@@ -317,7 +317,8 @@
 			},
 			"styles": [
 				"mobile/overlay.less",
-				"mobile/notificationsFilterOverlay.less"
+				"mobile/notificationsFilterOverlay.less",
+				"mobile/NotificationBadge.less"
 			],
 			"messages": [
 				"notifications",

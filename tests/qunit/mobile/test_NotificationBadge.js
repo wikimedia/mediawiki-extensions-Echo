@@ -8,7 +8,7 @@ QUnit.module( 'ext.echo.mobile - NotificationBadge', function () {
 				hasUnseenNotifications: true,
 				notificationCountRaw: 5
 			} );
-		initialExpectationsMet = badge.$el.find( '.mw-ui-icon' ).length === 0;
+		initialExpectationsMet = badge.$el.find( '.mf-icon' ).length === 0;
 
 		badge.setCount( 0 );
 		assert.true( initialExpectationsMet, 'No icon.' );
