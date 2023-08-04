@@ -8,7 +8,7 @@ QUnit.module( 'ext.echo.mobile - NotificationBadge', function () {
 				hasUnseenNotifications: true,
 				notificationCountRaw: 5
 			} );
-		initialExpectationsMet = badge.$el.find( '.mf-icon' ).length === 0;
+		initialExpectationsMet = badge.$el.find( '.mw-ui-icon,.mf-icon' ).length === 0;
 
 		badge.setCount( 0 );
 		assert.true( initialExpectationsMet, 'No icon.' );
@@ -44,7 +44,7 @@ QUnit.module( 'ext.echo.mobile - NotificationBadge', function () {
 			hasNotifications: false,
 			hasUnseenNotifications: false
 		} );
-		assert.strictEqual( badge.$el.find( '.mw-ui-icon' ).length, 1, 'A bell icon is visible' );
+		assert.strictEqual( badge.$el.find( '.mw-ui-icon,.mf-icon' ).length, 1, 'A bell icon is visible' );
 	} );
 
 	QUnit.test( '.markAsSeen()', function ( assert ) {
@@ -55,7 +55,7 @@ QUnit.module( 'ext.echo.mobile - NotificationBadge', function () {
 		} );
 		// Badge resets counter to zero
 		badge.setCount( 0 );
-		assert.strictEqual( badge.$el.find( '.mw-ui-icon' ).length, 0, 'The bell icon is not visible' );
+		assert.strictEqual( badge.$el.find( '.mw-ui-icon,.mf-icon' ).length, 0, 'The bell icon is not visible' );
 		badge.markAsSeen();
 		assert.strictEqual( badge.$el.find( '.notification-unseen' ).length, 0,
 			'Unseen class disappears after markAsSeen called.' );
