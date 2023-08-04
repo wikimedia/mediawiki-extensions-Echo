@@ -5,6 +5,7 @@ use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
  * @covers \MWEchoDbFactory
+ * @group Database
  */
 class MWEchoDbFactoryTest extends MediaWikiIntegrationTestCase {
 

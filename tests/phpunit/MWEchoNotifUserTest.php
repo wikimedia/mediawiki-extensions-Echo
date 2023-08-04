@@ -6,6 +6,9 @@ use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\TalkPageNotificationManager;
+use MediaWiki\User\UserFactory;
+use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserOptionsLookup;
 
 /**
@@ -42,18 +45,25 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testGetEmailFormat() {
-		$userOptionsLookup = $this->getServiceContainer()->getUserOptionsLookup();
 		$user = User::newFromId( 2 );
+		$pref = 'foo';
+		$userOptionsLookup = $this->createMock( UserOptionsLookup::class );
+		$userOptionsLookup->expects( $this->atLeastOnce() )
+			->method( 'getOption' )
+			->with( $user, 'echo-email-format' )
+			->willReturn( $pref );
+		$this->setService( 'UserOptionsLookup', $userOptionsLookup );
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 
 		$this->setMwGlobals( 'wgAllowHTMLEmail', true );
-		$this->assertEquals( $notifUser->getEmailFormat(),
-			$userOptionsLookup->getOption( $user, 'echo-email-format' ) );
+		$this->assertEquals( $notifUser->getEmailFormat(), $pref );
 		$this->setMwGlobals( 'wgAllowHTMLEmail', false );
 		$this->assertEquals( EchoEmailFormat::PLAIN_TEXT, $notifUser->getEmailFormat() );
 	}
 
 	public function testMarkRead() {
+		$this->setService( 'UserFactory', $this->createMock( UserFactory::class ) );
+		$this->setService( 'TalkPageNotificationManager', $this->createMock( TalkPageNotificationManager::class ) );
 		$notifUser = new MWEchoNotifUser(
 			User::newFromId( 2 ),
 			$this->cache,
@@ -82,6 +92,10 @@ class MWEchoNotifUserTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testMarkAllRead() {
+		$this->setService( 'UserFactory', $this->createMock( UserFactory::class ) );
+		$this->setService( 'TalkPageNotificationManager', $this->createMock( TalkPageNotificationManager::class ) );
+		$this->setService( 'UserGroupManager', $this->createMock( UserGroupManager::class ) );
+		$this->setService( 'UserOptionsLookup', $this->createMock( UserOptionsLookup::class ) );
 		// Successful mark as read & non empty fetch
 		$notifUser = new MWEchoNotifUser(
 			User::newFromId( 2 ),

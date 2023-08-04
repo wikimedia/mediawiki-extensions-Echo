@@ -4,7 +4,10 @@ use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\MediaWikiServices;
 
-/** @covers EchoServices */
+/**
+ * @covers EchoServices
+ * @group Database
+ */
 class EchoServicesTest extends MediaWikiIntegrationTestCase {
 
 	/** @var EchoServices */
