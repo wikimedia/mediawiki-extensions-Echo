@@ -15,6 +15,7 @@ use MediaWikiIntegrationTestCase;
  *
  * @coversNothing PHPUnit does not support covering annotations for files
  * @group Echo
+ * @group Database
  */
 class ServiceWiringTest extends MediaWikiIntegrationTestCase {
 	/**

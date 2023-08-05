@@ -5,6 +5,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @group Echo
  * @covers \EchoSuppressionRowUpdateGenerator
+ * @group Database
  */
 class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 
