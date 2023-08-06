@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
-use Linker;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
@@ -59,7 +58,7 @@ class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 		$revision = $this->event->getRevision();
 		if ( $revision && $revision->getComment() && $this->userCan( RevisionRecord::DELETED_COMMENT ) ) {
 			$summary = $revision->getComment()->text;
-			$summary = Linker::formatComment( $summary );
+			$summary = MediaWikiServices::getInstance()->getCommentFormatter()->format( $summary );
 			$summary = Sanitizer::stripAllTags( $summary );
 		} else {
 			$summary = false;
