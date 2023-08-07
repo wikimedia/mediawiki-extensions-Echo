@@ -1745,13 +1745,14 @@ TEXT
 		$userName = 'Admin';
 		$this->setupTestUser( $userName );
 		$userId = User::newFromName( $userName )->getId();
+		$otherUserId = $userId + 1;
 		$expectedUserMentions = [
 			'validMentions' => [ $userId => $userId ],
 			'unknownUsers' => [],
 			'anonymousUsers' => [],
 		];
 		$userLinks = [ $userName => $userId ];
-		$this->testGetUserMentions( $userLinks, $expectedUserMentions, 1 );
+		$this->testGetUserMentions( $userLinks, $expectedUserMentions, $otherUserId );
 	}
 
 	public function testGetUserMentions_ownMention() {
