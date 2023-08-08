@@ -228,5 +228,6 @@
 	"echo-email-batch-link-text-view-all-notifications": "Прикажи сва обавештења",
 	"notification-header-foreign-alert": "Обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}",
 	"notification-header-foreign-notice": "Обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}",
-	"notification-header-foreign-all": "Обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}"
+	"notification-header-foreign-all": "Обавештења са {{PLURAL:$5|другог викија|$5 друга викија|$5 других викија}}",
+	"echo-foreign-wiki-lang": "$1 — $2"
 }
