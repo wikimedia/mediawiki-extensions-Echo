@@ -118,7 +118,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			$notificationTypes
 		);
 
-		$this->getOutput()->setPageTitle( $this->msg( 'echo-displaynotificationsconfiguration' )->text() );
+		$this->getOutput()->setPageTitleMsg( $this->msg( 'echo-displaynotificationsconfiguration' ) );
 		$this->outputHeader( 'echo-displaynotificationsconfiguration-summary' );
 		$this->outputConfiguration();
 	}
