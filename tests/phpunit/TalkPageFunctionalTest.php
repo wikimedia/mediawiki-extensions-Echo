@@ -7,7 +7,7 @@ use MediaWiki\Extension\Notifications\Model\Event;
  * @group Database
  * @group medium
  */
-class EchoTalkPageFunctionalTest extends ApiTestCase {
+class TalkPageFunctionalTest extends ApiTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();

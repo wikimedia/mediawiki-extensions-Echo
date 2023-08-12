@@ -6,7 +6,7 @@ use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
  * @group Echo
  * @group Database
  */
-class MWEchoThankYouEditTest extends MediaWikiIntegrationTestCase {
+class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();

@@ -8,7 +8,7 @@ use MediaWiki\User\UserOptionsLookup;
 /**
  * @covers \EchoAttributeManager
  */
-class EchoAttributeManagerTest extends MediaWikiUnitTestCase {
+class AttributeManagerTest extends MediaWikiUnitTestCase {
 
 	private function getAttributeManager(
 		array $notifications,
