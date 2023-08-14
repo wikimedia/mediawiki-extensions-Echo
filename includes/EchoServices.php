@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
+use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\MediaWikiServices;
@@ -42,4 +44,13 @@ class EchoServices {
 		return $this->services->getService( 'EchoAttributeManager' );
 	}
 
+	/** @return TitleLocalCache */
+	public function getTitleLocalCache(): TitleLocalCache {
+		return $this->services->getService( 'EchoTitleLocalCache' );
+	}
+
+	/** @return RevisionLocalCache */
+	public function getRevisionLocalCache(): RevisionLocalCache {
+		return $this->services->getService( 'EchoRevisionLocalCache' );
+	}
 }

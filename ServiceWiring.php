@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
+use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\Logger\LoggerFactory;
@@ -85,6 +87,14 @@ return [
 			$pushTopicStore,
 			$maxSubscriptionsPerUser
 		);
+	},
+
+	'EchoTitleLocalCache' => static function ( MediaWikiServices $services ): TitleLocalCache {
+		return new TitleLocalCache();
+	},
+
+	'EchoRevisionLocalCache' => static function ( MediaWikiServices $services ): RevisionLocalCache {
+		return new RevisionLocalCache();
 	}
 
 ];

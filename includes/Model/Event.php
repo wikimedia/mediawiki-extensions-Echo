@@ -6,8 +6,6 @@ use Bundleable;
 use EchoServices;
 use Exception;
 use InvalidArgumentException;
-use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
-use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
@@ -357,11 +355,11 @@ class Event extends AbstractEntity implements Bundleable {
 			);
 		}
 		if ( $row->event_page_id ) {
-			$titleCache = TitleLocalCache::create();
+			$titleCache = EchoServices::getInstance()->getTitleLocalCache();
 			$titleCache->add( (int)$row->event_page_id );
 		}
 		if ( isset( $this->extra['revid'] ) && $this->extra['revid'] ) {
-			$revisionCache = RevisionLocalCache::create();
+			$revisionCache = EchoServices::getInstance()->getRevisionLocalCache();
 			$revisionCache->add( $this->extra['revid'] );
 		}
 
@@ -559,7 +557,7 @@ class Event extends AbstractEntity implements Bundleable {
 			return $this->title;
 		}
 		if ( $this->pageId ) {
-			$titleCache = TitleLocalCache::create();
+			$titleCache = EchoServices::getInstance()->getTitleLocalCache();
 			$title = $titleCache->get( $this->pageId );
 			if ( $title ) {
 				$this->title = $title;
@@ -589,7 +587,7 @@ class Event extends AbstractEntity implements Bundleable {
 		}
 
 		if ( isset( $this->extra['revid'] ) ) {
-			$revisionCache = RevisionLocalCache::create();
+			$revisionCache = EchoServices::getInstance()->getRevisionLocalCache();
 			$revision = $revisionCache->get( $this->extra['revid'] );
 			if ( $revision ) {
 				$this->revision = $revision;
