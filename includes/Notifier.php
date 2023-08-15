@@ -116,7 +116,6 @@ class Notifier {
 			$options = [ 'replyTo' => $replyAddress ];
 
 			UserMailer::send( $toAddress, $fromAddress, $subject, $body, $options );
-			EventLogging::logSchemaEchoMail( $user, 'single' );
 		}
 
 		return true;

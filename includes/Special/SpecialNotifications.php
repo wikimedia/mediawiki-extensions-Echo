@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\Notifications\Special;
 
 use Html;
 use MediaWiki\Extension\Notifications\DataOutputFormatter;
-use MediaWiki\Extension\Notifications\EventLogging;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\OOUI\LabelIconWidget;
 use MediaWiki\Extension\Notifications\SeenTime;
@@ -240,9 +239,6 @@ class SpecialNotifications extends SpecialPage {
 			'oojs-ui.styles.icons-alerts',
 			'oojs-ui.styles.icons-interactions',
 		] );
-
-		// Log visit
-		EventLogging::logSpecialPageVisit( $user, $out->getSkin()->getSkinName() );
 	}
 
 	/**

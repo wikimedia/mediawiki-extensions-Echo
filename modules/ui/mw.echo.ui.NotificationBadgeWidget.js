@@ -270,14 +270,6 @@
 	 * Respond to 'mark all as read' button click
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onMarkAllReadButtonClick = function () {
-		// Log the click action
-		mw.echo.logger.logInteraction(
-			mw.echo.Logger.static.actions.markAllReadClick,
-			mw.echo.Logger.static.context.popup,
-			null, // Event id isn't relevant
-			this.manager.getTypeString() // The type of the list
-		);
-
 		this.controller.markLocalNotificationsRead();
 	};
 
@@ -298,14 +290,6 @@
 			widget.notificationsWidget.resetInitiallyUnseenItems();
 			return;
 		}
-
-		// Log the click event
-		mw.echo.logger.logInteraction(
-			'ui-badge-link-click',
-			mw.echo.Logger.static.context.badge,
-			null,
-			this.controller.getTypeString()
-		);
 
 		if ( this.hasRunFirstTime ) {
 			// HACK: Clippable doesn't resize the clippable area when
