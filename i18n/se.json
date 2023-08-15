@@ -46,6 +46,8 @@
 	"notification-timestamp-yesterday": "Ikte",
 	"notification-inbox-filter-all": "Buot",
 	"echo-specialmute-label-mute-notifications": "Jaskkodahte almmuhusaid, maid {{GENDER:$1|dát geavaheaddji}} lea sádden.",
+	"echo-notification-alert": "{{PLURAL:$1|Várrehus ($1)|Várrehusat ($1)|100=Várrehusat (99+)}}",
+	"echo-notification-alert-text-only": "Várrehusat",
 	"echo-overlay-link": "Buot almmuhusat",
 	"echo-overlay-title": "<b>Almmuhusat</b>",
 	"echo-displaysnippet-title": "Ođđa almmuhus",
