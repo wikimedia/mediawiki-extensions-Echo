@@ -481,7 +481,7 @@
 		"remoteExtPath": "Echo/modules"
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Notifications\\Hooks::onLoadExtensionSchemaUpdates",
+		"LoadExtensionSchemaUpdates": "schema",
 		"GetPreferences": "main",
 		"BeforePageDisplay": "main",
 		"ResourceLoaderRegisterModules": "main",
@@ -508,7 +508,7 @@
 		"SendWatchlistEmailNotification": "main",
 		"GetNewMessagesAlert": "main",
 		"LinksUpdateComplete": "main",
-		"SpecialMuteModifyFormFields": "MediaWiki\\Extension\\Notifications\\Hooks::onSpecialMuteModifyFormFields",
+		"SpecialMuteModifyFormFields": "main",
 		"RecentChange_save": "main",
 		"ApiMain::moduleManager": "main",
 		"SkinTemplateNavigation::Universal": "main",
@@ -520,6 +520,9 @@
 			"services": [
 				"MainConfig"
 			]
+		},
+		"schema": {
+			"class": "MediaWiki\\Extension\\Notifications\\SchemaHooks"
 		}
 	},
 	"config": {
