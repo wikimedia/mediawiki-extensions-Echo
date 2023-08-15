@@ -430,8 +430,6 @@
 		"UserMergeAccountFields": "usermerge",
 		"MergeAccountFromTo": "usermerge",
 		"UserMergeAccountDeleteTables": "usermerge",
-		"EchoGetBundleRules": "MediaWiki\\Extension\\Notifications\\Hooks::onEchoGetBundleRules",
-		"EchoAbortEmailNotification": "MediaWiki\\Extension\\Notifications\\Hooks::onEchoAbortEmailNotification",
 		"PageSaveComplete": "main",
 		"LocalUserCreated": "main",
 		"RollbackComplete": "main",

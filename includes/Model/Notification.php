@@ -6,6 +6,7 @@ use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Bundleable;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\Notifier;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\MediaWikiServices;
 use stdClass;
@@ -111,7 +112,7 @@ class Notification extends AbstractEntity implements Bundleable {
 		// Get the bundle key for this event if web bundling is enabled
 		$bundleKey = '';
 		if ( !empty( $wgEchoNotifications[$this->event->getType()]['bundle']['web'] ) ) {
-			$hookRunner->onEchoGetBundleRules( $this->event, $bundleKey );
+			Notifier::getBundleRules( $this->event, $bundleKey );
 		}
 
 		if ( $bundleKey ) {

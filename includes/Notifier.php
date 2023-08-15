@@ -40,7 +40,7 @@ class Notifier {
 	 * @return bool
 	 */
 	public static function notifyWithEmail( $user, $event ) {
-		global $wgEnableEmail, $wgBlockDisablesLogin;
+		global $wgEnableEmail, $wgBlockDisablesLogin, $wgEchoWatchlistEmailOncePerPage, $wgEnotifMinorEdits;
 		$services = MediaWikiServices::getInstance();
 		$userOptionsLookup = $services->getUserOptionsLookup();
 
@@ -55,6 +55,31 @@ class Notifier {
 			( $wgBlockDisablesLogin && $user->getBlock() )
 		) {
 			return false;
+		}
+
+		$type = $event->getType();
+		if ( $type === 'edit-user-talk' ) {
+			$extra = $event->getExtra();
+			if ( !empty( $extra['minoredit'] ) ) {
+				if ( !$wgEnotifMinorEdits || !$userOptionsLookup->getOption( $user, 'enotifminoredits' ) ) {
+					// Do not send talk page notification email
+					return false;
+				}
+			}
+		// Mimic core code of only sending watchlist notification emails once per page
+		} elseif ( $type === "watchlist-change" || $type === "minor-watchlist-change" ) {
+			// Don't care about rate limiting
+			if ( $wgEchoWatchlistEmailOncePerPage ) {
+				$store = $services->getWatchedItemStore();
+				$ts = $store->getWatchedItem( $user, $event->getTitle() )->getNotificationTimestamp();
+				// if (ts != null) is not sufficient because, if $wgEchoUseJobQueue is set,
+				// wl_notificationtimestamp will have already been set for the new edit
+				// by the time this code runs.
+				if ( $ts !== null && $ts !== $event->getExtraParam( "timestamp" ) ) {
+					// User has already seen an email for this page before
+					return false;
+				}
+			}
 		}
 
 		$hookRunner = new HookRunner( $services->getHookContainer() );
@@ -79,7 +104,7 @@ class Notifier {
 			if ( !empty( $wgEchoNotifications[$event->getType()]['bundle']['web'] ) ||
 				!empty( $wgEchoNotifications[$event->getType()]['bundle']['email'] )
 			) {
-				$hookRunner->onEchoGetBundleRules( $event, $bundleString );
+				self::getBundleRules( $event, $bundleString );
 			}
 			if ( $bundleString ) {
 				$bundleHash = md5( $bundleString );
@@ -119,6 +144,46 @@ class Notifier {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Handler to get bundle rules, handles echo's own events and calls the EchoGetBundleRule hook,
+	 * which defines the bundle rule for the extensions notification.
+	 *
+	 * @param Event $event
+	 * @param string &$bundleString Determines how the notification should be bundled, for example,
+	 * talk page notification is bundled based on namespace and title, the bundle string would be
+	 * 'edit-user-talk-' + namespace + title, email digest/email bundling would use this hash as
+	 * a key to identify bundle-able event.  For web bundling, we bundle further based on user's
+	 * visit to the overlay, we would generate a display hash based on the hash of $bundleString
+	 */
+	public static function getBundleRules( $event, &$bundleString ) {
+		switch ( $event->getType() ) {
+			case 'edit-user-page':
+			case 'edit-user-talk':
+			case 'page-linked':
+				$bundleString = $event->getType();
+				if ( $event->getTitle() ) {
+					$bundleString .= '-' . $event->getTitle()->getNamespace()
+						. '-' . $event->getTitle()->getDBkey();
+				}
+				break;
+			case 'mention-success':
+			case 'mention-failure':
+				$bundleString = 'mention-status-' . $event->getExtraParam( 'revid' );
+				break;
+			case 'watchlist-change':
+			case 'minor-watchlist-change':
+				$bundleString = 'watchlist-change';
+				if ( $event->getTitle() ) {
+					$bundleString .= '-' . $event->getTitle()->getNamespace()
+						. '-' . $event->getTitle()->getDBkey();
+				}
+				break;
+			default:
+				$hookRunner = new HookRunner( MediaWikiServices::getInstance()->getHookContainer() );
+				$hookRunner->onEchoGetBundleRules( $event, $bundleString );
+		}
 	}
 
 	/**
