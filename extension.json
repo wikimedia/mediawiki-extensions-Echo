@@ -117,10 +117,6 @@
 			"dependencies": [
 				"oojs",
 				"mediawiki.user"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.ui.desktop": {
@@ -253,10 +249,6 @@
 				"thursday",
 				"friday",
 				"saturday"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.dm": {
@@ -285,10 +277,6 @@
 				"echo-api-failure",
 				"echo-notification-loginrequired",
 				"echo-api-failure-cross-wiki"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.api": {
@@ -305,10 +293,6 @@
 				"mediawiki.api",
 				"mediawiki.ForeignApi",
 				"oojs"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.mobile": {
@@ -341,10 +325,6 @@
 				"mobile/overlay.js",
 				"mobile/NotificationBadge.js",
 				"mobile/notificationsFilterOverlay.js"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.init": {
@@ -364,38 +344,22 @@
 				"echo-badge-count",
 				"echo-displaysnippet-title",
 				"parentheses"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.centralauth": {
 			"packageFiles": [
 				"ext.echo.centralauth.js"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.styles.badge": {
 			"styles": [
 				"nojs/mw.echo.badge.less"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.styles.notifications": {
 			"styles": [
 				"nojs/mw.echo.notifications.less",
 				"styles/LabelIconWidget.less"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.styles.alert": {
@@ -406,11 +370,7 @@
 				"monobook": [
 					"nojs/mw.echo.alert.monobook.less"
 				]
-			},
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			}
 		},
 		"ext.echo.special": {
 			"scripts": [
@@ -460,19 +420,11 @@
 				"echo-specialpage-section-markread",
 				"echo-specialpage-pagefilterwidget-aria-label",
 				"echo-specialpage-special-help-menu-widget-aria-label"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.echo.styles.special": {
 			"styles": [
 				"nojs/mw.echo.special.less"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		}
 	},
