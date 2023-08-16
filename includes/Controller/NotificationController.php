@@ -12,6 +12,7 @@ use EchoServices;
 use InvalidArgumentException;
 use Iterator;
 use MapCacheLRU;
+use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
 use MediaWiki\Extension\Notifications\Jobs\NotificationDeleteJob;
 use MediaWiki\Extension\Notifications\Jobs\NotificationJob;
@@ -128,7 +129,7 @@ class NotificationController {
 		$userIds = [];
 		$userIdsCount = 0;
 		$services = MediaWikiServices::getInstance();
-		$hookContainer = $services->getHookContainer();
+		$hookRunner = new HookRunner( $services->getHookContainer() );
 		$userOptionsLookup = $services->getUserOptionsLookup();
 		/** @var bool|null $hasMinorRevision */
 		$hasMinorRevision = null;
@@ -147,7 +148,7 @@ class NotificationController {
 					$userNotifyTypes = array_diff( $userNotifyTypes, [ 'email' ] );
 				}
 			}
-			$hookContainer->run( 'EchoGetNotificationTypes', [ $user, $event, &$userNotifyTypes ] );
+			$hookRunner->onEchoGetNotificationTypes( $user, $event, $userNotifyTypes );
 
 			// types such as web, email, etc
 			foreach ( $userNotifyTypes as $type ) {
@@ -489,8 +490,8 @@ class NotificationController {
 		// Hook for injecting more users.
 		// @deprecated
 		$users = [];
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'EchoGetDefaultNotifiedUsers', [ $event, &$users ] );
-		// @phan-suppress-next-line PhanImpossibleCondition May be set by hook
+		( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )
+			->onEchoGetDefaultNotifiedUsers( $event, $users );
 		if ( $users ) {
 			$notify->add( $users );
 		}
