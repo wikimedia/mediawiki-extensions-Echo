@@ -83,7 +83,7 @@ class EchoDiffGroup {
 		$position = $this->position;
 		$changeSet = [];
 
-		// The implodes must come first because we consider array( '' ) to also be false
+		// The implodes must come first because we consider [ '' ] to also be false
 		// meaning a blank link replaced with content is an addition
 		if ( $old && $new ) {
 			$min = min( count( $this->old ), count( $this->new ) );

@@ -153,7 +153,7 @@ class EchoUserLocator {
 	 * Fetch user ids from the event extra data.  Requires additional
 	 * parameter.  Example $wgEchoNotifications parameter:
 	 *
-	 *   'user-locator' => array( array( 'event-extra', 'mentions' ) ),
+	 *   'user-locators' => [ [ 'event-extra', 'mentions' ] ],
 	 *
 	 * The above will look in the 'mentions' parameter for a user id or
 	 * array of user ids.  It will return all these users as notification

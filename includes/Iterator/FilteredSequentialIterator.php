@@ -21,7 +21,7 @@ use RecursiveIteratorIterator;
  *
  * Usage:
  *   $users = new FilteredSequentialIterator;
- *   $users->add( array( $userA, $userB, $userC ) );
+ *   $users->add( [ $userA, $userB, $userC ] );
  *
  *   $it = new BatchRowIterator( ... );
  *   ...

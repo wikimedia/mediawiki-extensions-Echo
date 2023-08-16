@@ -24,7 +24,7 @@ class UserMergeHooks implements
 	 * @param array &$updateFields
 	 */
 	public function onUserMergeAccountFields( array &$updateFields ) {
-		// array( tableName, idField, textField )
+		// [ tableName, idField, textField ]
 		$dbw = MWEchoDbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
 		$updateFields[] = [ 'echo_event', 'event_agent_id', 'db' => $dbw ];
 		$updateFields[] = [ 'echo_notification', 'notification_user', 'db' => $dbw, 'options' => [ 'IGNORE' ] ];

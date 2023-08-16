@@ -49,7 +49,7 @@ class NotificationDeleteJob extends Job {
 
 		$notifMapper = new NotificationMapper();
 
-		// Back-compat for older jobs which used array( $userId => $userId );
+		// Back-compat for older jobs which used [ $userId => $userId ];
 		$userIds = array_values( $this->params['userIds'] );
 		$userId = $userIds[0];
 		$user = User::newFromId( $userId );
