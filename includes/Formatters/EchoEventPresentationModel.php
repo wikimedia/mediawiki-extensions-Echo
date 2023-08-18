@@ -608,7 +608,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 			'label' => $this->language->embedBidi( $truncatedLabel ),
 			'tooltip' => $isTruncated ? $label : '',
 			'description' => '',
-			'icon' => 'userAvatar',
+			'icon' => $user->isTemp() ? 'userTemporary' : 'userAvatar',
 			'prioritized' => true,
 		];
 	}
