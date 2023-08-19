@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use Title;
+use MediaWiki\Title\Title;
 use User;
 
 class SummaryParser {

@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Notifications\Model;
 
 use InvalidArgumentException;
+use MediaWiki\Title\Title;
 use stdClass;
-use Title;
 
 /**
  * Map a title to an echo event so that we can mark a notification as read

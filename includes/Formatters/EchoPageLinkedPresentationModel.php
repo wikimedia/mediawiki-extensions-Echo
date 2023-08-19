@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\Notifications\Formatters;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use SpecialPage;
-use Title;
 
 class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 

@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\Notifications;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use TextContent;
-use Title;
 
 /**
  * Implements ContainmentList interface for sourcing a list of items from a wiki
