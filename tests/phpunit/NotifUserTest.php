@@ -12,6 +12,7 @@ use MediaWiki\User\TalkPageNotificationManager;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserOptionsLookup;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\NotifUser
