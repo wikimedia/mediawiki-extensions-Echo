@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Notifications;
 
+use MediaWiki\Title\Title;
 use RowUpdateGenerator;
 use stdClass;
-use Title;
 
 /**
  * Performs updates required for respecting suppression within echo:

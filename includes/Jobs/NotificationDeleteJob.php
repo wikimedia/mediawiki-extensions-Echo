@@ -6,7 +6,7 @@ use Job;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\MediaWikiServices;
-use Title;
+use MediaWiki\Title\Title;
 use User;
 
 /**

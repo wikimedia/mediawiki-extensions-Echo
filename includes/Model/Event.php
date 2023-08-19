@@ -14,10 +14,10 @@ use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use RuntimeException;
 use stdClass;
-use Title;
 use User;
 
 /**
