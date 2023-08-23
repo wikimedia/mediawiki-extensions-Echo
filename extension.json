@@ -92,7 +92,6 @@
 			"ext.echo.mobile"
 		],
 		"scripts": [
-			"tests/qunit/mobile/test_NotificationBadge.js",
 			"tests/qunit/model/test_mw.echo.dm.BundleNotificationItem.js",
 			"tests/qunit/model/test_mw.echo.dm.CrossWikiNotificationItem.js",
 			"tests/qunit/model/test_mw.echo.dm.FiltersModel.js",
@@ -296,13 +295,9 @@
 			]
 		},
 		"ext.echo.mobile": {
-			"templates": {
-				"NotificationBadge.mustache": "mobile/NotificationBadge.mustache"
-			},
 			"styles": [
 				"mobile/overlay.less",
-				"mobile/notificationsFilterOverlay.less",
-				"mobile/NotificationBadge.less"
+				"mobile/notificationsFilterOverlay.less"
 			],
 			"messages": [
 				"notifications",
@@ -323,7 +318,6 @@
 					"callback": "MediaWiki\\Extension\\Notifications\\Hooks::getConfigVars"
 				},
 				"mobile/overlay.js",
-				"mobile/NotificationBadge.js",
 				"mobile/notificationsFilterOverlay.js"
 			]
 		},

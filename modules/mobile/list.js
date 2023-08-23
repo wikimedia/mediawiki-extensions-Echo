@@ -17,11 +17,9 @@ var mobile = mw.mobileFrontend.require( 'mobile.startup' ),
  * @param {OO.ui.ButtonWidget} markAllReadButton - a button that will be associated with the
  *  read status of the notifications list.
  * @param {FunctionCountChangeCallback} onCountChange callback.
- * @param {Function} onNotificationListRendered a function that is called when the
- *   notifications list has fully rendered (taking no arguments)
  * @return {View}
  */
-function notificationsList( echo, markAllReadButton, onCountChange, onNotificationListRendered ) {
+function notificationsList( echo, markAllReadButton, onCountChange ) {
 	var wrapperWidget,
 		maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
 		echoApi = new echo.api.EchoApi(),
@@ -76,7 +74,6 @@ function notificationsList( echo, markAllReadButton, onCountChange, onNotificati
 		// Populate notifications
 		wrapperWidget.populate().then( function () {
 			controller.updateSeenTime();
-			onNotificationListRendered();
 			markAsReadHandler();
 			// Connect event here as we know that everything loaded correctly
 			modelManager.on( 'update', markAsReadHandler );
