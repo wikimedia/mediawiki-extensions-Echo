@@ -55,7 +55,7 @@
 	"notification-link-text-view-page": "Баракты көрүү",
 	"notification-link-text-what-links-here": "Бул баракка бардык шилтемелер",
 	"notification-welcome-linktext": "Кош келиңиз",
-	"notification-header-thank-you-1-edit": "Баракелде ! {{GENDER:$2|Жаңы}} алгачкы түзөтүүңүздү жасадыңыз. Кош келиңиз !",
+	"notification-header-thank-you-1-edit": "Баракелде ! {{GENDER:$2|Жаңы эле}} алгачкы түзөтүүңүздү жасадыңыз.",
 	"notification-header-thank-you-10-edit": "Баракелде ! {{GENDER:$2|Жаңы}} эле онунчу түзөтүүңүздү жасадыңыз. Уланта бериңиз !",
 	"notification-header-thank-you-100-edit": "Баракелде ! {{GENDER:$2|Жаңы}} эле жүзүнчү түзөтүүңүздү жасадыңыз. Чоң рахмат !",
 	"notification-header-thank-you-1000-edit": "Баракелде ! {{GENDER:$2|Жаңы}} эле миңинчи түзөтүүңүздү жасадыңыз. Жакшы кадам !",
