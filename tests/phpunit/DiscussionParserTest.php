@@ -4,7 +4,7 @@
 
 use MediaWiki\Extension\Notifications\DiscussionParser;
 use MediaWiki\Extension\Notifications\Model\Event;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use Wikimedia\TestingAccessWrapper;
@@ -144,17 +144,8 @@ class DiscussionParserTest extends MediaWikiIntegrationTestCase {
 		],
 	];
 
-	protected function setUp(): void {
-		parent::setUp();
-		$this->overrideConfigValue( 'Diff', false );
-	}
-
-	protected function tearDown(): void {
-		parent::tearDown();
-	}
-
 	private function setupAllTestUsers() {
-		foreach ( array_keys( $this->testUsers ) as $username ) {
+		foreach ( $this->testUsers as $username => $_ ) {
 			$this->setupTestUser( $username );
 		}
 	}
@@ -174,7 +165,7 @@ class DiscussionParserTest extends MediaWikiIntegrationTestCase {
 			foreach ( $preferences as $option => $value ) {
 				$userOptionsManager->setOption( $user, $option, $value );
 			}
-			$user->saveSettings();
+			$userOptionsManager->saveOptions( $user );
 		}
 	}
 
@@ -727,10 +718,12 @@ class DiscussionParserTest extends MediaWikiIntegrationTestCase {
 			}
 		);
 
-		// enable mention failure and success notifications
-		$this->overrideConfigValue( 'EchoMentionStatusNotifications', true );
-		// enable multiple sections mentions
-		$this->overrideConfigValue( 'EchoMentionsOnMultipleSectionEdits', true );
+		$this->overrideConfigValues( [
+			// enable mention failure and success notifications
+			'EchoMentionStatusNotifications' => true,
+			// enable multiple sections mentions
+			'EchoMentionsOnMultipleSectionEdits' => true,
+		] );
 		$this->clearHook( 'EchoGetEventsForRevision' );
 
 		DiscussionParser::generateEventsForRevision( $revision, false );
@@ -944,23 +937,22 @@ TEXT
 	private function setupTestRevisionsForEventGeneration( $newId, $oldId, $username, $lang, $pages,
 		$title, $summary = ''
 	) {
-		$store = MediaWikiServices::getInstance()->getRevisionStore();
+		$services = $this->getServiceContainer();
+		$store = $services->getRevisionStore();
 		// Content language is used by the code that interprets the namespace part of titles
 		// (Title::getTitleParser), so should be the fake language ;)
 		$this->setContentLang( $lang );
 		$this->overrideConfigValues( [
 			// this one allows Mediawiki:xyz pages to be set as messages
-			'UseDatabaseMessages' => true
+			MainConfigNames::UseDatabaseMessages => true
 		] );
-
-		$this->resetServices();
 
 		// pages to be created: templates may be used to ping users (e.g.
 		// {{u|...}}) but if we don't have that template, it just won't work!
 		$pages += [ $title => '' ];
 
 		$user = $this->getTestUser()->getUser();
-		$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
+		$wikiPageFactory = $services->getWikiPageFactory();
 		foreach ( $pages as $pageTitle => $pageText ) {
 			$template = $wikiPageFactory->newFromTitle( Title::newFromText( $pageTitle ) );
 			$template->doUserEditContent( new WikitextContent( $pageText ), $user, '' );
@@ -968,7 +960,7 @@ TEXT
 
 		// force i18n messages to be reloaded from MessageCache (from DB, where a new message
 		// might have been created as page)
-		$this->resetServices();
+		$services->resetServiceForTesting( 'MessageCache' );
 
 		// grab revision excerpts (didn't include them in this src file because
 		// they can be pretty long)
@@ -1029,7 +1021,7 @@ TEXT
 	}
 
 	public function testTimestampRegex_T264922() {
-		$this->overrideConfigValue( 'LanguageCode', 'skr' );
+		$this->overrideConfigValue( MainConfigNames::LanguageCode, 'skr' );
 		$this->assertIsString( DiscussionParser::getTimestampRegex(), 'does not fail' );
 	}
 
