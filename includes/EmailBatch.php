@@ -368,7 +368,6 @@ class EmailBatch {
 
 		// @Todo Push the email to job queue or just send it out directly?
 		UserMailer::send( $toAddress, $fromAddress, $content['subject'], $content['body'], [ 'replyTo' => $replyTo ] );
-		EventLogging::logSchemaEchoMail( $this->mUser, $emailDeliveryMode );
 	}
 
 	/**

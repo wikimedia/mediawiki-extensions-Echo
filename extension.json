@@ -105,19 +105,6 @@
 		]
 	},
 	"ResourceModules": {
-		"ext.echo.logger": {
-			"packageFiles": [
-				"logger/mw.echo.Logger.js",
-				{
-					"name": "logger/config.json",
-					"callback": "MediaWiki\\Extension\\Notifications\\Hooks::getLoggerConfigVars"
-				}
-			],
-			"dependencies": [
-				"oojs",
-				"mediawiki.user"
-			]
-		},
 		"ext.echo.ui.desktop": {
 			"scripts": [
 				"ui/mw.echo.ui.BadgeLinkWidget.js",
@@ -190,7 +177,6 @@
 			"dependencies": [
 				"ext.echo.api",
 				"ext.echo.dm",
-				"ext.echo.logger",
 				"ext.echo.secondaryicons",
 				"oojs",
 				"oojs-ui-core",
@@ -990,23 +976,6 @@
 		"EchoCacheVersion": {
 			"value": "1.12"
 		},
-		"EchoEventLoggingVersion": {
-			"value": "1.12"
-		},
-		"EchoEventLoggingSchemas": {
-			"value": {
-				"Echo": {
-					"enabled": false
-				},
-				"EchoMail": {
-					"enabled": false
-				},
-				"EchoInteraction": {
-					"enabled": false
-				}
-			},
-			"merge_strategy": "array_plus_2d"
-		},
 		"AllowArticleReminderNotification": {
 			"value": false,
 			"description": "This is a feature flag to the Article Reminder notification"
@@ -1038,14 +1007,6 @@
 		"EchoPushMaxSubscriptionsPerUser": {
 			"value": 0,
 			"description": "Maximum number of push subscriptions that may be stored in the DB at any given time for a single central user ID."
-		}
-	},
-	"attributes": {
-		"EventLogging": {
-			"Schemas": {
-				"EchoInteraction": "/analytics/legacy/echointeraction/1.0.0",
-				"EchoMail": "/analytics/legacy/echomail/1.0.0"
-			}
 		}
 	},
 	"manifest_version": 2,

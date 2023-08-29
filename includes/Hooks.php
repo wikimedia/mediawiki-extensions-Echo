@@ -1465,15 +1465,6 @@ class Hooks implements
 		];
 	}
 
-	public static function getLoggerConfigVars( RL\Context $context, Config $config ) {
-		$schemas = $config->get( 'EchoEventLoggingSchemas' );
-		return [
-			'EchoInteractionLogging' => $schemas['EchoInteraction']['enabled'] &&
-				ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ),
-			'EchoEventLoggingVersion' => $config->get( 'EchoEventLoggingVersion' )
-		];
-	}
-
 	/**
 	 * @param WikiPage $article
 	 * @param User $user
