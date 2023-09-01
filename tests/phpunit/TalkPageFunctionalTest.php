@@ -8,19 +8,17 @@ use MediaWiki\Extension\Notifications\Model\Event;
  * @group medium
  */
 class TalkPageFunctionalTest extends ApiTestCase {
-
-	protected function setUp(): void {
-		parent::setUp();
-		$this->db->delete( 'echo_event', '*' );
-	}
+	/** @inheritDoc */
+	protected $tablesUsed = [ 'echo_event' ];
 
 	/**
 	 * Creates and updates a user talk page a few times to ensure proper events are
-	 * created. The user performing the edits is self::$users['sysop'].
+	 * created.
 	 * @covers \MediaWiki\Extension\Notifications\DiscussionParser
 	 */
 	public function testAddCommentsToTalkPage() {
-		$talkTitle = self::$users['uploader']->getUser()->getTalkPage();
+		$editor = $this->getTestSysop()->getUser();
+		$talkTitle = $this->getTestSysop()->getUser()->getTalkPage();
 		$talkPage = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $talkTitle );
 
 		$expectedMessageCount = 0;
@@ -34,7 +32,7 @@ class TalkPageFunctionalTest extends ApiTestCase {
 			$content,
 			'',
 			NS_USER_TALK,
-			self::$users['sysop']->getUser()
+			$editor
 		);
 
 		// Ensure the proper event was created
@@ -52,7 +50,7 @@ class TalkPageFunctionalTest extends ApiTestCase {
 			$content,
 			'',
 			NS_USER_TALK,
-			self::$users['sysop']->getUser()
+			$editor
 		);
 
 		// Ensure another event was created
@@ -70,7 +68,7 @@ class TalkPageFunctionalTest extends ApiTestCase {
 			$content,
 			'',
 			NS_USER_TALK,
-			self::$users['sysop']->getUser()
+			$editor
 		);
 
 		// Ensure this event has the new section title

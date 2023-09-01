@@ -1004,7 +1004,8 @@ TEXT
 		$class = new ReflectionClass( DiscussionParser::class );
 		$property = $class->getProperty( 'revisionInterpretationCache' );
 		$property->setAccessible( true );
-		$property->setValue( [ $revision->getId() => $output ] );
+		$cacheKey = $revision->getId() . '|' . $revision->getPage()->getNamespace() . '|' . $revision->getPage()->getDBkey();
+		$property->setValue( [ $cacheKey => $output ] );
 		return $revision;
 	}
 

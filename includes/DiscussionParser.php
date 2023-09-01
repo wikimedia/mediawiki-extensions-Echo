@@ -27,7 +27,11 @@ abstract class DiscussionParser {
 	/** @var string|null */
 	protected static $timestampRegex;
 
-	/** @var array[][] */
+	/**
+	 * @var array[][]
+	 * FIXME: This static cache can become stale in tests, because it's never reset. We use both rev IDs and title keys
+	 * to mitigate that, but it might still break!
+	 */
 	protected static $revisionInterpretationCache = [];
 
 	/** @var DiffParser|null */
@@ -535,8 +539,14 @@ abstract class DiscussionParser {
 	 * @return array[] See {@see interpretDiff} for details.
 	 */
 	private static function getChangeInterpretationForRevision( RevisionRecord $revision ) {
-		if ( $revision->getId() && isset( self::$revisionInterpretationCache[$revision->getId()] ) ) {
-			return self::$revisionInterpretationCache[$revision->getId()];
+		if ( $revision->getId() ) {
+			$page = $revision->getPage();
+			$cacheKey = $revision->getId() . '|' . $page->getNamespace() . '|' . $page->getDBkey();
+			if ( isset( self::$revisionInterpretationCache[$cacheKey] ) ) {
+				return self::$revisionInterpretationCache[$cacheKey];
+			}
+		} else {
+			$cacheKey = null;
 		}
 
 		$userIdentity = $revision->getUser();
@@ -562,7 +572,9 @@ abstract class DiscussionParser {
 			Title::newFromLinkTarget( $revision->getPageAsLinkTarget() )
 		);
 
-		self::$revisionInterpretationCache[$revision->getId()] = $output;
+		if ( $cacheKey ) {
+			self::$revisionInterpretationCache[$cacheKey] = $output;
+		}
 
 		return $output;
 	}
