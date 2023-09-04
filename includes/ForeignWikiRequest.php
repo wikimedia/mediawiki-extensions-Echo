@@ -141,21 +141,23 @@ class ForeignWikiRequest {
 	 *
 	 * @param string $wiki Name of the wiki to get a token for
 	 * @param WebRequest|null $originalRequest Original request data to be sent with these requests
-	 * @suppress PhanTypeInvalidCallableArraySize getRequestParams can take an array, too (phan bug)
 	 * @return string Token, or empty string if an unable to retrieve the token.
 	 */
 	protected function getCsrfToken( $wiki, ?WebRequest $originalRequest ) {
 		if ( $this->csrfTokens === null ) {
 			$this->csrfTokens = [];
-			$reqs = $this->getRequestParams( 'GET', [
-				'action' => 'query',
-				'meta' => 'tokens',
-				'type' => $this->tokenType,
-				'format' => 'json',
-				'formatversion' => '1',
-				'errorformat' => 'bc',
-				'centralauthtoken' => $this->getCentralAuthToken( $this->user ),
-			], $originalRequest );
+			$reqs = $this->getRequestParams( 'GET', function ( string $wiki ) {
+				// This doesn't depend on the wiki, but 'centralauthtoken' must be different every time
+				return [
+					'action' => 'query',
+					'meta' => 'tokens',
+					'type' => $this->tokenType,
+					'format' => 'json',
+					'formatversion' => '1',
+					'errorformat' => 'bc',
+					'centralauthtoken' => $this->getCentralAuthToken( $this->user ),
+				];
+			}, $originalRequest );
 			$responses = $this->doRequests( $reqs );
 			foreach ( $responses as $w => $response ) {
 				if ( isset( $response['query']['tokens']['csrftoken'] ) ) {
@@ -176,12 +178,12 @@ class ForeignWikiRequest {
 
 	/**
 	 * @param string $method 'GET' or 'POST'
-	 * @param array|callable $params Associative array of query string / POST parameters,
-	 *  or a callback that takes a wiki name and returns such an array
+	 * @param callable $makeParams Callback that takes a wiki name and returns an associative array of
+	 *  query string / POST parameters
 	 * @param WebRequest|null $originalRequest Original request data to be sent with these requests
 	 * @return array[] Array of request parameters to pass to doRequests(), keyed by wiki name
 	 */
-	protected function getRequestParams( $method, $params, ?WebRequest $originalRequest ) {
+	protected function getRequestParams( $method, $makeParams, ?WebRequest $originalRequest ) {
 		$apis = ForeignNotifications::getApiEndpoints( $this->wikis );
 		if ( !$apis ) {
 			return [];
@@ -193,7 +195,7 @@ class ForeignWikiRequest {
 			$reqs[$wiki] = [
 				'method' => $method,
 				'url' => $api['url'],
-				$queryKey => is_callable( $params ) ? $params( $wiki ) : $params
+				$queryKey => $makeParams( $wiki )
 			];
 
 			if ( $originalRequest ) {
