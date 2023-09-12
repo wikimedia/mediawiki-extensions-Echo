@@ -4,7 +4,7 @@
 			"P. S. F. Freitas"
 		]
 	},
-	"echo-desc": "Maranduha reko",
+	"echo-desc": "Ypykatu oikuaauka hag̃ua puruhárape umi mbaꞌe ojehúva ha marandu rehegua",
 	"prefs-echo": "Maranduha",
 	"prefs-emailsettings": "E-mail jeporavo",
 	"prefs-echosubscriptions": "Tomomarandu chéve kóva rehegua",
@@ -20,5 +20,6 @@
 	"notification-link-text-view-message": "Mombe'ukaha jehecha",
 	"notification-link-text-view-changes": "Ñemoambue jehecha",
 	"notification-link-text-view-page": "Kuatiarogue jehecha",
+	"notification-welcome-linktext": "Eg̃uahẽ porãite",
 	"notification-link-text-view-edit": "Jehaijey jehecha"
 }
