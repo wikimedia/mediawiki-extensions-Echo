@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Arystanbek",
 			"BaRaN6161 TURK",
 			"Hedda",
@@ -57,7 +58,7 @@
 	"apihelp-query+notifications-param-alertunreadfirst": "Önce okunmamış mesaj bildirimlerinin gösterilip gösterilmeyeceği (yalnızca groupbysection ayarlanmışsa kullanılır).",
 	"apihelp-query+notifications-param-messagecontinue": "Daha fazla mesaj sonucu mevcut olduğunda, devam etmek için bunu kullanın.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Önce okunmamış uyarı bildirimlerinin gösterilip gösterilmeyeceği (yalnızca groupbysection ayarlanmışsa kullanılır).",
-	"apihelp-query+notifications-param-titles": "Yalnızca bu sayfalar için bildirim döndürün.  Herhangi bir sayfayla ilişkili olmayan bildirimleri almak için, başlık olarak [] kullanın.",
+	"apihelp-query+notifications-param-titles": "Yalnızca bu sayfalar için bildirim döndürün. Herhangi bir sayfayla ilişkili olmayan bildirimleri almak için, başlık olarak [] kullanın.",
 	"apihelp-query+notifications-param-bundle": "Bildirim türleri gruplama kurallarına göre paket uyumlu okunmamış bildirimlerin gösterilip gösterilmeyeceği.",
 	"apihelp-query+notifications-param-notifiertypes": "Bildirimlerin döndürüleceği bildirici türleri.",
 	"apihelp-query+notifications-example-1": "Web bildirimleri listeleyin",

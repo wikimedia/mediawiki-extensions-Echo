@@ -81,7 +81,7 @@
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Cara ma'lumat nyang dibutuhin",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Cara ma'lumat mana nyang pardu bakal saban katègori",
 	"echo-specialpage": "Ma'lumat",
-	"echo-specialpage-section-markread": "Tengerin paguyuban udah dibaca",
+	"echo-specialpage-section-markread": "Tengerin omplokan udah dibaca",
 	"echo-specialpage-markasread": "Ma'lumat: Tengerin udah dibaca",
 	"echo-specialpage-markasread-invalid-id": "ID kejadian kaga' aci",
 	"echo-specialpage-pagefilterwidget-aria-label": "Saring berales wiki èn judul halaman",
@@ -179,9 +179,9 @@
 	"notification-header-foreign-alert": "Pemberitauan laènnya deri {{PLURAL:$5|wiki laènnya|$5 wiki laènnya}}",
 	"notification-header-foreign-notice": "Peratian laènnya deri {{PLURAL:$5|wiki laènnya|$5 wiki laènnya}}",
 	"notification-header-foreign-all": "Ma'lumat laènnya deri {{PLURAL:$5|wiki laènnya|$5 wiki laènnya}}",
-	"right-manage-all-push-subscriptions": "Kelola semua langganan tongolan",
-	"action-manage-all-push-subscriptions": "kelola semua langganan tongolan",
-	"group-push-subscription-manager": "Pengelola langganan tongolan",
-	"group-push-subscription-manager-member": "{{GENDER:$1|pengelola langganan tongolan}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Pengelola langganan tongolan"
+	"right-manage-all-push-subscriptions": "Kelola semua abudemèn tongolan",
+	"action-manage-all-push-subscriptions": "kelola semua abudemèn tongolan",
+	"group-push-subscription-manager": "Pengelola abudemèn tongolan",
+	"group-push-subscription-manager-member": "{{GENDER:$1|pengelola abudemèn tongolan}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Pengelola abudemèn tongolan"
 }

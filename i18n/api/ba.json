@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Sagan",
 			"Айсар",
 			"З. ӘЙЛЕ",
@@ -29,7 +30,7 @@
 	"apihelp-query+notifications-param-limit": "Кире ҡайтарылған белдереүҙәрҙең иң ҙур һаны.",
 	"apihelp-query+notifications-param-alertcontinue": "Иҫкәртеүҙәр өсөн күберәк һөҙөмтәләр рөхсәт ителһә, быны дауам итеү өсөн файҙаланығыҙ.",
 	"apihelp-query+notifications-param-unreadfirst": "Уҡылмаған белдереүҙәрҙе беренсе сиратта күрһәтергә кәрәкме (groupbysection ҡуйылмағанда ғына ҡулланыла).",
-	"apihelp-query+notifications-param-alertunreadfirst": "Уҡылмаған белдереүҙәрҙе беренсе сиратта күрһәтергә кәрәкме (groupbysection ҡуйылғанда  ғына ҡулланыла).",
+	"apihelp-query+notifications-param-alertunreadfirst": "Уҡылмаған белдереүҙәрҙе беренсе сиратта күрһәтергә кәрәкме (groupbysection ҡуйылғанда ғына ҡулланыла).",
 	"apihelp-query+notifications-param-messagecontinue": "Хәбәрҙәр өсөн күберәк һөҙөмтәләр рөхсәт ителһә, быны функцияны дауам итеү өсөн файҙаланығыҙ.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Уҡылмаған белдереүҙәрҙе беренсе сиратта күрһәтергә кәрәкме (groupbysection күрһәтелгәндә генә ҡулланыла).",
 	"apihelp-query+notifications-example-1": "Белдереүҙәр исемлеге",

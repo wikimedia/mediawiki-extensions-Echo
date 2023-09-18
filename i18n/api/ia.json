@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"McDutchie"
 		]
 	},
@@ -47,7 +48,7 @@
 	"apihelp-query+notifications-param-crosswikisummary": "Defini isto como ver pro reciper un notification de summario sur le notificationes de wikis externe.",
 	"apihelp-query+notifications-param-alertcontinue": "Quando plus resultatos de alerta es disponibile, usar isto pro continuar.",
 	"apihelp-query+notifications-param-unreadfirst": "Indica si monstrar notificationes non legite primo (usate solmente si groupbysection non es definite).",
-	"apihelp-query+notifications-param-alertunreadfirst": "Indica si monstrar notificationes de messages non legite  primo (usate solmente si groupbysection non es definite).",
+	"apihelp-query+notifications-param-alertunreadfirst": "Indica si monstrar notificationes de messages non legite primo (usate solmente si groupbysection non es definite).",
 	"apihelp-query+notifications-param-messagecontinue": "Quando plus resultatos de message es disponibile, usar isto pro continuar.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Indica si monstrar notificationes de alertas non legite primo (usate solmente si groupbysection non es definite).",
 	"apihelp-query+notifications-param-titles": "Solmente restituer notificationes pro iste paginas. Pro obtener notificationes non associate a alcun pagina, usa [] como titulo.",

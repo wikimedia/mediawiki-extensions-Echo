@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"C.R.",
 			"Ruthven"
 		]
@@ -36,6 +37,6 @@
 	"apihelp-query+notifications-example-2": "Elenca notifiche, raggruppate pe' seziona, cu 'e cuntegge",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "Paggene 'e chiacchiera 'e gruppo nziem'a ll'argomento suo, e notifiche 'e gruppo nun suòcie a na paggena nziem'a na paggena utente.",
 	"apihelp-query+unreadnotificationpages-param-limit": "'O nummero massimo 'e paggene ca s'avess'a turnà.",
-	"apihelp-query+unreadnotificationpages-param-wikis": "Elenco 'e wiki addò se ponno piglià paggene ch' 'e mmasciate nun liggiute (predefinite p'  'o wiki 'e mo sulamente).",
+	"apihelp-query+unreadnotificationpages-param-wikis": "Elenco 'e wiki addò se ponno piglià paggene ch' 'e mmasciate nun liggiute (predefinite p' 'o wiki 'e mo sulamente).",
 	"apihelp-query+unreadnotificationpages-example-1": "Elenco 'e paggene cu ('o cunto 'e) notifche senza lieggere"
 }
