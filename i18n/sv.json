@@ -232,7 +232,7 @@
 	"echo-overlay-title": "<b>Aviseringar</b>",
 	"echo-mark-all-as-read": "Markera {{PLURAL:$1|alla}} som lästa",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|avisering markerad som läst|aviseringar markerade som lästa}}",
-	"echo-mark-wiki-as-read": "Markera {{PLURAL:$1|alla}} som lästa på vald wiki: $1",
+	"echo-mark-wiki-as-read": "Markera {{PLURAL:$2|alla}} som lästa på vald wiki: $1",
 	"echo-displaysnippet-title": "Ny avisering",
 	"echo-date-today": "Idag",
 	"echo-date-yesterday": "Igår",
