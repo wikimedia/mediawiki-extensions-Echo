@@ -152,6 +152,8 @@ class ForeignWikiRequest {
 				'meta' => 'tokens',
 				'type' => $this->tokenType,
 				'format' => 'json',
+				'formatversion' => '1',
+				'errorformat' => 'bc',
 				'centralauthtoken' => $this->getCentralAuthToken( $this->user ),
 			], $originalRequest );
 			$responses = $this->doRequests( $reqs );
@@ -232,6 +234,8 @@ class ForeignWikiRequest {
 			// results in the format the user requested but in a fixed format that
 			// we can interpret here
 			'format' => 'json',
+			'formatversion' => '1',
+			'errorformat' => 'bc',
 		] + $extraParams + $this->params;
 	}
 
