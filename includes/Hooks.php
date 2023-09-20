@@ -244,42 +244,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Handler for EchoGetBundleRule hook, which defines the bundle rule for each notification
-	 *
-	 * @param Event $event
-	 * @param string &$bundleString Determines how the notification should be bundled, for example,
-	 * talk page notification is bundled based on namespace and title, the bundle string would be
-	 * 'edit-user-talk-' + namespace + title, email digest/email bundling would use this hash as
-	 * a key to identify bundle-able event.  For web bundling, we bundle further based on user's
-	 * visit to the overlay, we would generate a display hash based on the hash of $bundleString
-	 */
-	public static function onEchoGetBundleRules( $event, &$bundleString ) {
-		switch ( $event->getType() ) {
-			case 'edit-user-page':
-			case 'edit-user-talk':
-			case 'page-linked':
-				$bundleString = $event->getType();
-				if ( $event->getTitle() ) {
-					$bundleString .= '-' . $event->getTitle()->getNamespace()
-						. '-' . $event->getTitle()->getDBkey();
-				}
-				break;
-			case 'mention-success':
-			case 'mention-failure':
-				$bundleString = 'mention-status-' . $event->getExtraParam( 'revid' );
-				break;
-			case 'watchlist-change':
-			case 'minor-watchlist-change':
-				$bundleString = 'watchlist-change';
-				if ( $event->getTitle() ) {
-					$bundleString .= '-' . $event->getTitle()->getNamespace()
-						. '-' . $event->getTitle()->getDBkey();
-				}
-				break;
-		}
-	}
-
-	/**
 	 * Handler for GetPreferences hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
 	 *
@@ -632,45 +596,6 @@ class Hooks implements
 			return $editCount;
 		}
 		return $editCount + 1;
-	}
-
-	/**
-	 * Handler for EchoAbortEmailNotification hook
-	 * @param UserIdentity $user
-	 * @param Event $event
-	 * @return bool true - send email, false - do not send email
-	 */
-	public static function onEchoAbortEmailNotification( $user, $event ) {
-		global $wgEchoWatchlistEmailOncePerPage;
-		$type = $event->getType();
-		if ( $type === 'edit-user-talk' ) {
-			$extra = $event->getExtra();
-			if ( !empty( $extra['minoredit'] ) ) {
-				global $wgEnotifMinorEdits;
-				$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
-				if ( !$wgEnotifMinorEdits || !$userOptionsLookup->getOption( $user, 'enotifminoredits' ) ) {
-					// Do not send talk page notification email
-					return false;
-				}
-			}
-		// Mimic core code of only sending watchlist notification emails once per page
-		} elseif ( $type === "watchlist-change" || $type === "minor-watchlist-change" ) {
-			if ( !$wgEchoWatchlistEmailOncePerPage ) {
-				// Don't care about rate limiting
-				return true;
-			}
-			$store = MediaWikiServices::getInstance()->getWatchedItemStore();
-			$ts = $store->getWatchedItem( $user, $event->getTitle() )->getNotificationTimestamp();
-			// if (ts != null) is not sufficient because, if $wgEchoUseJobQueue is set,
-			// wl_notificationtimestamp will have already been set for the new edit
-			// by the time this code runs.
-			if ( $ts !== null && $ts !== $event->getExtraParam( "timestamp" ) ) {
-				// User has already seen an email for this page before
-				return false;
-			}
-		}
-		// Proceed to send notification email
-		return true;
 	}
 
 	/**
