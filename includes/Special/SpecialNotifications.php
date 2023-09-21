@@ -28,7 +28,7 @@ class SpecialNotifications extends SpecialPage {
 		$this->setHeaders();
 
 		$out = $this->getOutput();
-		$out->setPageTitle( $this->msg( 'echo-specialpage' )->text() );
+		$out->setPageTitleMsg( $this->msg( 'echo-specialpage' ) );
 
 		$this->addHelpLink( 'Help:Notifications/Special:Notifications' );
 
