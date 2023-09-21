@@ -246,6 +246,7 @@
 	"echo-displaysnippet-title": "新通知",
 	"echo-date-today": "今日",
 	"echo-date-yesterday": "昨日",
+	"notification-bundle-header-edit-user-page": "<strong>{{GENDER:$2|您的}}使用者頁面</strong>有 {{PLURAL:$1|$1 筆新編輯|100=99+ 筆新編輯}}。",
 	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|您}}的對話頁面</strong>裡有 {{PLURAL:$1|1 則|$1 則|100=99 則以上}}新訊息。",
 	"echo-email-batch-subject-daily": "您在{{SITENAME}}有{{PLURAL:$2|一則新通知}}",
 	"echo-email-batch-subject-weekly": "本週您在{{SITENAME}}有{{PLURAL:$2|一則新通知}}",

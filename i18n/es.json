@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"-jem-",
+			"-sasha-",
 			"2axterix2",
 			"Allan Aguilar",
 			"Amitie 10g",
@@ -72,7 +73,7 @@
 	"echo-pref-dont-email-read-notifications": "No incluyas notificaciones leídas en los correos electrónicos de resumen",
 	"echo-learn-more": "Más información",
 	"echo-log": "Registro público",
-	"echo-new-messages": "Tienes un nuevo mensaje de discusión",
+	"echo-new-messages": "Tienes mensajes nuevos",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Edición|Ediciones}} en mi página de discusión",
 	"echo-category-title-edit-user-page": "{{PLURAL:$1|Edición|Ediciones}} en mi página de {{GENDER:|usuario|usuaria}}",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Enlace|Enlaces}} de página",
