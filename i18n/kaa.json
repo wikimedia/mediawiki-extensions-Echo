@@ -75,6 +75,8 @@
 	"notification-inbox-filter-read": "Oqılǵan",
 	"notification-inbox-filter-unread": "Oqılmaǵan",
 	"notification-inbox-filter-all": "Barlıǵı",
+	"echo-notification-alert": "{{PLURAL:$1|Eskertiw ($1)|Eskertiw ($1)|100=Eskertiw (99+)}}",
+	"echo-notification-notice": "{{PLURAL:$1|Málimleme ($1)|Málimleme ($1)|100=Málimleme (99+)}}",
 	"echo-notification-alert-text-only": "Dabıllar",
 	"echo-notification-notice-text-only": "Málimlemeler",
 	"echo-overlay-link": "Barlıq bildirmeler",
