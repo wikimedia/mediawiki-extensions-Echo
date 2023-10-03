@@ -35,6 +35,7 @@
 	"echo-pref-cross-wiki-notifications": "Näita teavitusi teistest vikidest",
 	"echo-pref-notifications-blacklist": "Neilt kasutajatelt teavitusi ei näidata. ([[mw:Special:MyLanguage/Help:Notifications#mute|lisateave]])",
 	"echo-pref-notifications-page-linked-title-muted-list": "Ära kuva tüübi \"Leheküljelink\" teavitusi nende lehekülgede kohta. ([[mw:Special:MyLanguage/Help:Notifications#mute|lisateave]])",
+	"echo-pref-dont-email-read-notifications": "Jäta loetuks märgitud teavitused kokkuvõttest välja",
 	"echo-learn-more": "Lisateave",
 	"echo-log": "Avalik logi",
 	"echo-new-messages": "Sulle on aruteluleheküljel uusi sõnumeid",
