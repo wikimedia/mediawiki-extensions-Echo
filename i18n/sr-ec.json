@@ -196,7 +196,7 @@
 	"notification-page-linked-email-subject": "Страница коју {{GENDER:$3|сте}} направили је повезана на пројекту {{SITENAME}}",
 	"notification-reverted-email-subject2": "{{PLURAL:$4|{{GENDER:$3|Ваша}} измена је {{GENDER:$2|враћена}}|Ваше измене су враћене}} на пројекту {{SITENAME}}.",
 	"notification-mention-email-subject": "$1 {{GENDER:$3|Вас}} је {{GENDER:$2|поменуо|поменула}} на пројекту {{SITENAME}}",
-	"notification-user-rights-email-subject": "{{GENDER:$3|Ваша}} корисничка права су промењена на пројекту {{SITENAME}}.",
+	"notification-user-rights-email-subject": "{{GENDER:$3|Ваша}} корисничка права су промењена на {{SITENAME}}.",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 сек.}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 мин.}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 ч.}}",

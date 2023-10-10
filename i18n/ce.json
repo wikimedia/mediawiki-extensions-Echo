@@ -94,6 +94,7 @@
 	"echo-notification-more-options-tooltip": "Дукха таронаш",
 	"notification-link-text-expand-all": "Схьайаста",
 	"notification-link-text-expand-alert-count": "Гайта {{PLURAL:$1|$1 дӀахьедар}}",
+	"notification-link-text-expand-notice-count": "Гайта {{PLURAL:$1|$1 хаам}}",
 	"notification-link-text-expand-all-count": "Гайта {{PLURAL:$1|$1 дӀахаийтар}}",
 	"notification-link-text-collapse-all": "ДӀахьарчо",
 	"notification-link-text-view-message": "Хааме хьажар",

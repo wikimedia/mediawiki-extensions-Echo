@@ -60,7 +60,8 @@
 			"Kishinsagi",
 			"Lakejason0",
 			"LuciferianThomas",
-			"MangoFanFanw"
+			"MangoFanFanw",
+			"LittlePaw365"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -81,7 +82,7 @@
 	"echo-pref-email": "电子邮件",
 	"echo-pref-push": "应用程序",
 	"echo-pref-email-frequency-never": "不要给我发送任何电子邮件通知",
-	"echo-pref-email-frequency-immediately": "每一新事件都单独通知",
+	"echo-pref-email-frequency-immediately": "收到的每个通知的电子邮件",
 	"echo-pref-email-frequency-daily": "每日一次通知摘要",
 	"echo-pref-email-frequency-weekly": "每周一次通知摘要",
 	"echo-pref-email-format-html": "HTML",
@@ -110,7 +111,7 @@
 	"echo-category-title-watchlist": "监视列表的页面编辑",
 	"echo-category-title-minor-watchlist": "监视列表的页面小编辑",
 	"echo-pref-tooltip-edit-user-talk": "当有人编辑我的用户讨论页时通知我。",
-	"echo-pref-tooltip-article-linked": "当有人链接到我从另一页面创建的页面时通知我。",
+	"echo-pref-tooltip-article-linked": "当有人在其他页面链接我创建的页面时通知我。",
 	"echo-pref-tooltip-reverted": "当有人用撤销或回退工具来还原我的编辑时通知我。",
 	"echo-pref-tooltip-mention": "当有人链接我的用户页时通知我。",
 	"echo-pref-tooltip-mention-failure": "当我不能向某人发送提及时通知我。",
