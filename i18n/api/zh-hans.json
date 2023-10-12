@@ -6,7 +6,8 @@
 			"SkyEye FAST",
 			"Tr jason",
 			"Yfdyh000",
-			"忒有钱"
+			"忒有钱",
+			"LittlePaw365"
 		]
 	},
 	"apihelp-echomarkread-description": "对当前用户标记通知为已读。",
@@ -51,7 +52,7 @@
 	"apihelp-query+notifications-paramvalue-format-special": "格式化用于Special:Notifications页面（并仅限于此！）不要依赖HTML，这可能在任何指定的时间更改。",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">已弃用</span>。使用<kbd>$1format=model</kbd>用于原始数据",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">已弃用</span>。使用<kbd>$1format=model</kbd>用于原始数据",
-	"apihelp-query+notifications-param-limit": "返回通知的最大数量。",
+	"apihelp-query+notifications-param-limit": "最大返回通知数。",
 	"apihelp-query+notifications-param-wikis": "要检索通知表单的wiki列表（默认仅当前wiki）。",
 	"apihelp-query+notifications-param-crosswikisummary": "设置为真以启用外来wiki上通知的摘要通知。",
 	"apihelp-query+notifications-param-alertcontinue": "当更多提醒结果可用时，使用这个继续。",
@@ -68,7 +69,7 @@
 	"apihelp-query+unreadnotificationpages-description": "获取当前用户未读通知的相关页面。",
 	"apihelp-query+unreadnotificationpages-summary": "获取当前用户未读通知的相关页面。",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "将讨论页与它们的主题页面一起分组，并将未分配给某一页面的通知与当前用户的用户页一起分组。",
-	"apihelp-query+unreadnotificationpages-param-limit": "返回页面的最大数量。",
+	"apihelp-query+unreadnotificationpages-param-limit": "最大返回页面数。",
 	"apihelp-query+unreadnotificationpages-param-wikis": "要取得来自未读通知页面的wiki列表（默认仅当前wiki）。",
 	"apihelp-query+unreadnotificationpages-example-1": "列举有（对应数量）未读通知的页面",
 	"apihelp-echoarticlereminder-summary": "请求今后有关特定条目的提醒",
