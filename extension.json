@@ -448,7 +448,21 @@
 		"main": {
 			"class": "MediaWiki\\Extension\\Notifications\\Hooks",
 			"services": [
-				"MainConfig"
+				"AuthManager",
+				"CentralIdLookup",
+				"MainConfig",
+				"EchoAttributeManager",
+				"HookContainer",
+				"ContentLanguage",
+				"LinkRenderer",
+				"NamespaceInfo",
+				"PermissionManager",
+				"RevisionStore",
+				"StatsdDataFactory",
+				"TalkPageNotificationManager",
+				"UserEditTracker",
+				"UserFactory",
+				"UserOptionsManager"
 			]
 		},
 		"schema": {
