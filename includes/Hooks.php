@@ -45,6 +45,7 @@ use MediaWiki\Hook\SpecialMuteModifyFormFieldsHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
@@ -168,9 +169,7 @@ class Hooks implements
 	 * @param array &$defaults
 	 */
 	public function onUserGetDefaultOptions( &$defaults ) {
-		global $wgAllowHTMLEmail, $wgEchoNotificationCategories, $wgEchoEnablePush;
-
-		if ( $wgAllowHTMLEmail ) {
+		if ( $this->config->get( MainConfigNames::AllowHTMLEmail ) ) {
 			$defaults['echo-email-format'] = 'html';
 		} else {
 			$defaults['echo-email-format'] = 'plain-text';
@@ -206,7 +205,9 @@ class Hooks implements
 				'web' => false,
 			],
 		];
-		if ( $wgEchoEnablePush ) {
+
+		$echoPushEnabled = $this->config->get( ConfigNames::EnablePush );
+		if ( $echoPushEnabled ) {
 			$presets['default']['push'] = true;
 			$presets['article-linked']['push'] = false;
 			$presets['mention-failure']['push'] = false;
@@ -215,7 +216,7 @@ class Hooks implements
 			$presets['minor-watchlist']['push'] = false;
 		}
 
-		foreach ( $wgEchoNotificationCategories as $category => $categoryData ) {
+		foreach ( $this->config->get( ConfigNames::NotificationCategories ) as $category => $categoryData ) {
 			if ( !isset( $defaults["echo-subscriptions-email-{$category}"] ) ) {
 				$defaults["echo-subscriptions-email-{$category}"] = $presets[$category]['email']
 					?? $presets['default']['email'];
@@ -224,7 +225,7 @@ class Hooks implements
 				$defaults["echo-subscriptions-web-{$category}"] = $presets[$category]['web']
 					?? $presets['default']['web'];
 			}
-			if ( $wgEchoEnablePush && !isset( $defaults["echo-subscriptions-push-{$category}"] ) ) {
+			if ( $echoPushEnabled && !isset( $defaults["echo-subscriptions-push-{$category}"] ) ) {
 				$defaults["echo-subscriptions-push-{$category}"] = $presets[$category]['push']
 					// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 					?? $presets['default']['push'];
@@ -280,19 +281,18 @@ class Hooks implements
 	 * @param ResourceLoader $resourceLoader
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
-		global $wgExtensionDirectory, $wgEchoNotificationIcons, $wgEchoSecondaryIcons;
 		$resourceLoader->register( 'ext.echo.emailicons', [
 			'class' => ResourceLoaderEchoImageModule::class,
-			'icons' => $wgEchoNotificationIcons,
+			'icons' => $this->config->get( ConfigNames::NotificationIcons ),
 			'selector' => '.mw-echo-icon-{name}',
-			'localBasePath' => $wgExtensionDirectory,
+			'localBasePath' => $this->config->get( MainConfigNames::ExtensionDirectory ),
 			'remoteExtPath' => 'Echo/modules'
 		] );
 		$resourceLoader->register( 'ext.echo.secondaryicons', [
 			'class' => ResourceLoaderEchoImageModule::class,
-			'icons' => $wgEchoSecondaryIcons,
+			'icons' => $this->config->get( ConfigNames::SecondaryIcons ),
 			'selector' => '.mw-echo-icon-{name}',
-			'localBasePath' => $wgExtensionDirectory,
+			'localBasePath' => $this->config->get( MainConfigNames::ExtensionDirectory ),
 			'remoteExtPath' => 'Echo/modules'
 		] );
 	}
@@ -305,19 +305,13 @@ class Hooks implements
 	 * @param array &$preferences Preferences array
 	 */
 	public function onGetPreferences( $user, &$preferences ) {
-		global $wgEchoEnableEmailBatch,
-			$wgEchoNotifiers, $wgEchoNotificationCategories, $wgEchoNotifications,
-			$wgAllowHTMLEmail, $wgEchoPollForUpdates,
-			$wgEchoCrossWikiNotifications, $wgEchoPerUserBlacklist,
-			$wgEchoWatchlistNotifications;
-
 		// Show email frequency options
 		$freqOptions = [
 			'echo-pref-email-frequency-never' => EmailFrequency::NEVER,
 			'echo-pref-email-frequency-immediately' => EmailFrequency::IMMEDIATELY,
 		];
 		// Only show digest options if email batch is enabled
-		if ( $wgEchoEnableEmailBatch ) {
+		if ( $this->config->get( ConfigNames::EnableEmailBatch ) ) {
 			$freqOptions += [
 				'echo-pref-email-frequency-daily' => EmailFrequency::DAILY_DIGEST,
 				'echo-pref-email-frequency-weekly' => EmailFrequency::WEEKLY_DIGEST,
@@ -364,7 +358,7 @@ class Hooks implements
 		];
 
 		// Only show this option if html email is allowed, otherwise it is always plain text format
-		if ( $wgAllowHTMLEmail ) {
+		if ( $this->config->get( MainConfigNames::AllowHTMLEmail ) ) {
 			// Email format
 			$preferences['echo-email-format'] = [
 				'type' => 'select',
@@ -405,7 +399,7 @@ class Hooks implements
 
 		// Build the columns (notify types)
 		$columns = [];
-		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
+		foreach ( $this->config->get( ConfigNames::Notifiers ) as $notifierType => $notifierData ) {
 			$formatMessage = wfMessage( 'echo-pref-' . $notifierType )->escaped();
 			$columns[$formatMessage] = $notifierType;
 		}
@@ -413,17 +407,18 @@ class Hooks implements
 		// Build the rows (notification categories)
 		$rows = [];
 		$tooltips = [];
+		$notificationCategories = $this->config->get( ConfigNames::NotificationCategories );
 		foreach ( $validSortedCategories as $category ) {
 			$categoryMessage = wfMessage( 'echo-category-title-' . $category )->numParams( 1 )->escaped();
 			$rows[$categoryMessage] = $category;
-			if ( isset( $wgEchoNotificationCategories[$category]['tooltip'] ) ) {
-				$tooltips[$categoryMessage] = wfMessage( $wgEchoNotificationCategories[$category]['tooltip'] )->text();
+			if ( isset( $notificationCategories[$category]['tooltip'] ) ) {
+				$tooltips[$categoryMessage] = wfMessage( $notificationCategories[$category]['tooltip'] )->text();
 			}
 		}
 
 		// Figure out the individual exceptions in the matrix and make them disabled
 		$forceOptionsOff = $forceOptionsOn = [];
-		foreach ( $wgEchoNotifiers as $notifierType => $notifierData ) {
+		foreach ( $this->config->get( ConfigNames::Notifiers ) as $notifierType => $notifierData ) {
 			foreach ( $validSortedCategories as $category ) {
 				// See if this notify type is non-dismissable
 				if ( !$this->attributeManager->isNotifyTypeDismissableForCategory( $category, $notifierType ) ) {
@@ -454,7 +449,7 @@ class Hooks implements
 			'tooltips' => $tooltips,
 		];
 
-		if ( $wgEchoCrossWikiNotifications ) {
+		if ( $this->config->get( ConfigNames::CrossWikiNotifications ) ) {
 			$preferences['echo-cross-wiki-notifications'] = [
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-cross-wiki-notifications',
@@ -462,7 +457,7 @@ class Hooks implements
 			];
 		}
 
-		if ( $wgEchoPollForUpdates ) {
+		if ( $this->config->get( ConfigNames::PollForUpdates ) ) {
 			$preferences['echo-show-poll-updates'] = [
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-show-poll-updates',
@@ -478,18 +473,20 @@ class Hooks implements
 		// Otherwise, that preference could be lost entirely. This hiding logic
 		// is not abstracted since there are only three preferences in core
 		// that are potentially made obsolete by Echo.
-		if ( isset( $wgEchoNotifications['edit-user-talk'] ) ) {
+		$notifications = $this->config->get( ConfigNames::Notifications );
+		if ( isset( $notifications['edit-user-talk'] ) ) {
 			$preferences['enotifusertalkpages']['type'] = 'hidden';
 			unset( $preferences['enotifusertalkpages']['section'] );
 		}
-		if ( $wgEchoWatchlistNotifications && isset( $wgEchoNotifications['watchlist-change'] ) ) {
+		if ( $this->config->get( ConfigNames::WatchlistNotifications ) &&
+			isset( $notifications['watchlist-change'] ) ) {
 			$preferences['enotifwatchlistpages']['type'] = 'hidden';
 			unset( $preferences['enotifusertalkpages']['section'] );
 			$preferences['enotifminoredits']['type'] = 'hidden';
 			unset( $preferences['enotifminoredits']['section'] );
 		}
 
-		if ( $wgEchoPerUserBlacklist ) {
+		if ( $this->config->get( ConfigNames::PerUserBlacklist ) ) {
 			$preferences['echo-notifications-blacklist'] = [
 				'type' => 'usersmultiselect',
 				'label-message' => 'echo-pref-notifications-blacklist',
@@ -856,8 +853,7 @@ class Hooks implements
 		] );
 	}
 
-	private static function processMarkAsRead( User $user, WebRequest $request, Title $title ) {
-		global $wgEchoCrossWikiNotifications;
+	private function processMarkAsRead( User $user, WebRequest $request, Title $title ) {
 		$subtractions = [
 			AttributeManager::ALERT => 0,
 			AttributeManager::MESSAGE => 0
@@ -878,7 +874,8 @@ class Hooks implements
 		// Attempt to mark as read the event IDs in the ?markasread= parameter, if present
 		$markAsReadIds = array_filter( explode( '|', $request->getText( 'markasread' ) ) );
 		$markAsReadWiki = $request->getText( 'markasreadwiki', WikiMap::getCurrentWikiId() );
-		$markAsReadLocal = !$wgEchoCrossWikiNotifications || $markAsReadWiki === WikiMap::getCurrentWikiId();
+		$markAsReadLocal = !$this->config->get( ConfigNames::CrossWikiNotifications ) ||
+			$markAsReadWiki === WikiMap::getCurrentWikiId();
 		if ( $markAsReadIds ) {
 			if ( $markAsReadLocal ) {
 				// gather the IDs that we didn't already find with target_pages
@@ -966,7 +963,7 @@ class Hooks implements
 		$title = $skinTemplate->getTitle();
 		$out = $skinTemplate->getOutput();
 
-		$subtractions = self::processMarkAsRead( $user, $out->getRequest(), $title );
+		$subtractions = $this->processMarkAsRead( $user, $out->getRequest(), $title );
 
 		// Add a "My notifications" item to personal URLs
 		$notifUser = NotifUser::newFromUser( $user );
@@ -1126,12 +1123,10 @@ class Hooks implements
 	 * @return bool
 	 */
 	public function onAbortTalkPageEmailNotification( $targetUser, $title ) {
-		global $wgEchoNotifications;
-
 		// Send legacy talk page email notification if
 		// 1. echo is disabled for them or
 		// 2. echo talk page notification is disabled
-		if ( !isset( $wgEchoNotifications['edit-user-talk'] ) ) {
+		if ( !isset( $this->config->get( ConfigNames::Notifications )['edit-user-talk'] ) ) {
 			// Legacy talk page email notification
 			return true;
 		}
@@ -1149,8 +1144,8 @@ class Hooks implements
 	 * @return bool
 	 */
 	public function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
-		global $wgEchoNotifications, $wgEchoWatchlistNotifications;
-		if ( $wgEchoWatchlistNotifications && isset( $wgEchoNotifications["watchlist-change"] ) ) {
+		if ( $this->config->get( ConfigNames::WatchlistNotifications ) &&
+			isset( $this->config->get( ConfigNames::Notifications )["watchlist-change"] ) ) {
 			// Let echo handle watchlist notifications entirely
 			return false;
 		}
@@ -1215,12 +1210,10 @@ class Hooks implements
 	 *     or true to allow the new messages alert
 	 */
 	public function onGetNewMessagesAlert( &$newMessagesAlert, $newtalks, $user, $out ) {
-		global $wgEchoNotifications;
-
 		// If the user has the notifications flyout turned on and is receiving
 		// notifications for talk page messages, disable the new messages alert.
 		if ( $user->isRegistered()
-			&& isset( $wgEchoNotifications['edit-user-talk'] )
+			&& isset( $this->config->get( ConfigNames::Notifications )['edit-user-talk'] )
 			&& ( new HookRunner( $this->hookContainer ) )->onEchoCanAbortNewMessagesAlert()
 		) {
 			// hide new messages alert
@@ -1300,10 +1293,10 @@ class Hooks implements
 	 * @return array
 	 */
 	public static function getVirtualUserOptions() {
-		global $wgEchoWatchlistNotifications;
+		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$options = [];
 		$options['echo-subscriptions-email-edit-user-talk'] = 'enotifusertalkpages';
-		if ( $wgEchoWatchlistNotifications ) {
+		if ( $config->get( ConfigNames::WatchlistNotifications ) ) {
 			$options['echo-subscriptions-email-watchlist'] = 'enotifwatchlistpages';
 			$options['echo-subscriptions-email-minor-watchlist'] = 'enotifminoredits';
 		}
@@ -1425,7 +1418,7 @@ class Hooks implements
 	public static function getConfigVars( RL\Context $context, Config $config ) {
 		return [
 			'EchoMaxNotificationCount' => NotifUser::MAX_BADGE_COUNT,
-			'EchoPollForUpdates' => $config->get( 'EchoPollForUpdates' )
+			'EchoPollForUpdates' => $config->get( ConfigNames::PollForUpdates )
 		];
 	}
 
@@ -1479,7 +1472,7 @@ class Hooks implements
 	 * @param array &$fields
 	 */
 	public function onSpecialMuteModifyFormFields( $target, $user, &$fields ) {
-		$echoPerUserBlacklist = $this->config->get( 'EchoPerUserBlacklist' );
+		$echoPerUserBlacklist = $this->config->get( ConfigNames::PerUserBlacklist );
 		if ( $echoPerUserBlacklist ) {
 			$id = $target ? $this->centralIdLookup->centralIdFromLocalUser( $target ) : 0;
 			$list = MultiUsernameFilter::splitIds(
@@ -1519,7 +1512,7 @@ class Hooks implements
 				'logid' => $change->getAttribute( "rc_logid" ),
 				'status' => $change->mExtra["pageStatus"],
 				'timestamp' => $change->getAttribute( "rc_timestamp" ),
-				'emailonce' => $this->config->get( 'EchoWatchlistEmailOncePerPage' )
+				'emailonce' => $this->config->get( ConfigNames::WatchlistEmailOncePerPage ),
 			],
 			'agent' => $change->getPerformerIdentity(),
 		] );
