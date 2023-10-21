@@ -662,7 +662,7 @@ abstract class DiscussionParser {
 							$sectionSpan = self::getSectionSpan( $nextSectionStart, $changes['_info']['rhs'] );
 							$nextSectionStart = $sectionSpan[1] + 1;
 							$sectionSignedUsers = self::extractSignatures( $section['content'], $title );
-							if ( !empty( $sectionSignedUsers ) ) {
+							if ( $sectionSignedUsers ) {
 								$signedSections[] = $sectionSpan;
 								if ( !$section['header'] ) {
 									$fullSection = self::getFullSection(
@@ -725,7 +725,7 @@ abstract class DiscussionParser {
 			}
 		}
 
-		if ( !empty( $signedSections ) ) {
+		if ( $signedSections ) {
 			$actions = self::convertToUnknownSignedChanges( $signedSections, $actions );
 		}
 
