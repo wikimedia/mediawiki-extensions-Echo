@@ -128,7 +128,7 @@
 	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|en|he}} deus lezet ur gemennadenn {{GENDER:$3|ganeoc’h}} e \"<strong>$4</strong>\".",
 	"notification-header-page-linked": "Graet ez eus bet ul liamm eus <strong>$4</strong> davet <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Liammet eus <strong>$1</strong>.",
-	"notification-bundle-header-page-linked": "Graet eo bet liammoù eus {{PLURAL:$5||$5 pajenn|100=99+ pajenn}} war-zu strong>$3</strong>.",
+	"notification-bundle-header-page-linked": "Graet eo bet liammoù eus {{PLURAL:$5||$5 pajenn|100=99+ pajenn}} war-zu <strong>$3</strong>.",
 	"notification-header-article-reminder": "Emañ ur bajenn {{GENDER:$2|ho}} peus goulennet bezañ adc’halvet diwar he fenn e <strong>$3</strong>",
 	"notification-link-text-what-links-here": "An holl liammoù war-zu ar bajenn-mañ",
 	"notification-header-mention-other": "{{GENDER:$2|Meneget}} {{GENDER:$3|oc’h}} bet gant $1 war bajenn <strong>$4</strong> e \"<strong>$5</strong>\".",
