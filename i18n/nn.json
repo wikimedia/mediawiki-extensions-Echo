@@ -65,6 +65,7 @@
 	"notification-dynamic-actions-mute-page-linked": "{{GENDER:$2|Slå av}} lenkjenotisar for «$1»",
 	"notification-dynamic-actions-mute-page-linked-confirmation": "Notisar for sidelenkjer er no avslegne for sida «$1»",
 	"notification-dynamic-actions-mute-page-linked-confirmation-description": "{{GENDER:$2|Du}} kan styra avslegne lenkjenotisar i [$1 innstillingane dine] kva tid som helst.",
+	"notification-dynamic-actions-unmute-page-linked-confirmation": "Notisar for sidelenkjer er no påslegne for sida «$1",
 	"notification-dynamic-actions-unmute-page-linked-confirmation-description": "{{GENDER:$2|Du}} kan styra avslegne lenkjenotisar i [$1 innstillingane dine] kva tid som helst.",
 	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Slutt}} å fylgja med på ny aktivitet på «$1»",
 	"notification-link-text-expand-all": "Vis",
