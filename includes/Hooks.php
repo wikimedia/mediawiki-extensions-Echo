@@ -479,7 +479,8 @@ class Hooks implements
 			unset( $preferences['enotifusertalkpages']['section'] );
 		}
 		if ( $this->config->get( ConfigNames::WatchlistNotifications ) &&
-			isset( $notifications['watchlist-change'] ) ) {
+			isset( $notifications['watchlist-change'] )
+		) {
 			$preferences['enotifwatchlistpages']['type'] = 'hidden';
 			unset( $preferences['enotifusertalkpages']['section'] );
 			$preferences['enotifminoredits']['type'] = 'hidden';
@@ -565,7 +566,8 @@ class Hooks implements
 			$thresholdCount = $this->getEditCount( $userIdentity );
 			if ( in_array( $thresholdCount, $thresholds ) ) {
 				DeferredUpdates::addCallableUpdate( static function () use (
-					$revisionRecord, $userIdentity, $title, $thresholdCount ) {
+					$revisionRecord, $userIdentity, $title, $thresholdCount
+				) {
 					$notificationMapper = new NotificationMapper();
 					$notifications = $notificationMapper->fetchByUser( $userIdentity, 10, null, [ 'thank-you-edit' ] );
 					/** @var Notification $notification */
@@ -695,8 +697,7 @@ class Hooks implements
 	 * @param array $oldUGMs
 	 * @param array $newUGMs
 	 */
-	public function onUserGroupsChanged( $userId, $add, $remove, $performer,
-		$reason, $oldUGMs, $newUGMs ) {
+	public function onUserGroupsChanged( $userId, $add, $remove, $performer, $reason, $oldUGMs, $newUGMs ) {
 		if ( !$performer ) {
 			// TODO: Implement support for autopromotion
 			return;
@@ -1145,7 +1146,8 @@ class Hooks implements
 	 */
 	public function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
 		if ( $this->config->get( ConfigNames::WatchlistNotifications ) &&
-			isset( $this->config->get( ConfigNames::Notifications )["watchlist-change"] ) ) {
+			isset( $this->config->get( ConfigNames::Notifications )["watchlist-change"] )
+		) {
 			// Let echo handle watchlist notifications entirely
 			return false;
 		}
