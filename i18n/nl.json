@@ -109,6 +109,7 @@
 	"echo-specialpage-markasread": "Notificatie: Markeer als gelezen",
 	"echo-specialpage-markasread-invalid-id": "Ongeldige gebeurtenis-ID",
 	"echo-specialpage-pagefilterwidget-aria-label": "Filter met wiki en paginatitel",
+	"echo-specialpage-special-help-menu-widget-aria-label": "Extra opties en meldingsvoorkeuren.",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|melding|meldingen}}",
 	"echo-specialpage-pagefilters-title": "Recente activiteit",
 	"echo-specialpage-pagefilters-subtitle": "Pagina's met ongelezen meldingen",
@@ -126,7 +127,10 @@
 	"echo-notification-more-options-tooltip": "Meer opties",
 	"notification-dynamic-actions-mute-page-linked": "{{GENDER:$2|Demp}} meldingen voor \"$1\"",
 	"notification-dynamic-actions-mute-page-linked-confirmation": "Meldingen over paginakoppelingen zijn nu uitgeschakeld voor de pagina \"$1\"",
+	"notification-dynamic-actions-mute-page-linked-confirmation-description": "{{GENDER:$2|U}} kunt uw gedempte pagina’s op elk gewenst moment beheren in [$1 uw voorkeuren].",
+	"notification-dynamic-actions-unmute-page-linked": "Meldingen van koppelingen op “$1” {{GENDER:$2|niet meer dempen}}",
 	"notification-dynamic-actions-unmute-page-linked-confirmation": "Meldingen over paginakoppelingen zijn nu ingeschakeld voor de pagina \"$1\"",
+	"notification-dynamic-actions-unmute-page-linked-confirmation-description": "{{GENDER:$2|U}} kunt uw gedempte pagina’s op elk gewenst moment beheren in [$1 uw voorkeuren].",
 	"notification-dynamic-actions-unwatch": "{{GENDER:$3|Stop}} met het volgen van nieuwe activiteit op \"$1\"",
 	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|U}} volgt de pagina \"$1\" niet meer",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|U}} kunt [$2 deze pagina] op elk moment volgen.",
@@ -186,6 +190,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, een pagina op {{GENDER:$2|uw}} volglijst is $3 {{PLURAL:$3|keer}} verwijderd.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, een pagina op {{GENDER:$2|uw}} volglijst is $3 {{PLURAL:$3|keer}} hernoemd.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, een pagina op {{GENDER:$2|uw}} volglijst is $3 {{PLURAL:$3|keer}} teruggeplaatst.",
+	"notification-body-watchlist-once": "Er komen geen andere e-mailmeldingen in geval van verdere activiteit, tenzij u deze pagina bezoekt terwijl u bent aangemeld.{{GENDER:$1|}}",
 	"notification-welcome-linktext": "Welkom",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|U}} hebt {{GENDER:$2|uw}} eerste bewerking gemaakt; dank {{GENDER:$2|u}} wel, en welkom!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|U}} hebt {{GENDER:$2|uw}} tiende bewerking gemaakt; dank {{GENDER:$2|u}} wel, en ga zo door!",
@@ -240,5 +245,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "Alle meldingen bekijken",
 	"notification-header-foreign-alert": "Meer meldingen van {{PLURAL:$5|een andere wiki|$5 andere wiki's}}",
 	"notification-header-foreign-notice": "Meer notificaties van {{PLURAL:$5|een andere wiki|$5 andere wiki's}}",
-	"notification-header-foreign-all": "Meer meldingen van {{PLURAL:$5|een andere wiki|$5 andere wiki's}}"
+	"notification-header-foreign-all": "Meer meldingen van {{PLURAL:$5|een andere wiki|$5 andere wiki's}}",
+	"right-manage-all-push-subscriptions": "Alle push-abonnementen beheren",
+	"action-manage-all-push-subscriptions": "alle push-abonnementen te beheren",
+	"group-push-subscription-manager": "Beheerders push-abonnementen",
+	"group-push-subscription-manager-member": "{{GENDER:$1|beheerder push-abonnementen}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Beheerders push-abonnementen"
 }
