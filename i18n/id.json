@@ -16,11 +16,13 @@
 			"Veracious",
 			"William Surya Permana",
 			"WongKentir",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Stevannus rua"
 		]
 	},
 	"echo-desc": "Sistem pemberitahuan ke pengguna tentang pesan dan peristiwa",
 	"prefs-echo": "Pemberitahuan",
+	"prefs-description-echo": "Pilih notifikasi mana yang {{GENDER:|Anda}} dapatkan dan cara menerimanya.",
 	"prefs-emailsettings": "Opsi surel",
 	"prefs-echosubscriptions": "Beri tahu saya mengenai peristiwa berikut",
 	"prefs-echocrosswiki": "Pemberitahuan lintas-wiki",
