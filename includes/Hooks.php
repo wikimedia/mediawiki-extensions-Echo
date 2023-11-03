@@ -305,6 +305,10 @@ class Hooks implements
 	 * @param array &$preferences Preferences array
 	 */
 	public function onGetPreferences( $user, &$preferences ) {
+		// The following messages are generated upstrem:
+		// * prefs-echo
+		// * prefs-description-echo
+
 		// Show email frequency options
 		$freqOptions = [
 			'echo-pref-email-frequency-never' => EmailFrequency::NEVER,
@@ -320,6 +324,8 @@ class Hooks implements
 		$preferences['echo-email-frequency'] = [
 			'type' => 'select',
 			'label-message' => 'echo-pref-send-me',
+			// The following message is generated upstrem:
+			// * prefs-emailsettings
 			'section' => 'echo/emailsettings',
 			'options-messages' => $freqOptions
 		];
@@ -327,6 +333,8 @@ class Hooks implements
 		$preferences['echo-dont-email-read-notifications'] = [
 			'type' => 'toggle',
 			'label-message' => 'echo-pref-dont-email-read-notifications',
+			// The following message is generated upstrem:
+			// * prefs-emailsettings
 			'section' => 'echo/emailsettings',
 			'hide-if' => [ 'OR', [ '===', 'echo-email-frequency', '-1' ], [ '===', 'echo-email-frequency', '0' ] ]
 		];
@@ -354,6 +362,8 @@ class Hooks implements
 			'raw' => true,
 			'default' => $emailAddress,
 			'label-message' => 'echo-pref-send-to',
+			// The following message is generated upstrem:
+			// * prefs-emailsettings
 			'section' => 'echo/emailsettings'
 		];
 
@@ -364,6 +374,8 @@ class Hooks implements
 				'type' => 'select',
 				'default' => EmailFormat::HTML,
 				'label-message' => 'echo-pref-email-format',
+				// The following message is generated upstrem:
+				// * prefs-emailsettings
 				'section' => 'echo/emailsettings',
 				'options-messages' => [
 					'echo-pref-email-format-html' => EmailFormat::HTML,
@@ -400,6 +412,10 @@ class Hooks implements
 		// Build the columns (notify types)
 		$columns = [];
 		foreach ( $this->config->get( ConfigNames::Notifiers ) as $notifierType => $notifierData ) {
+			// The following messages are generated here
+			// * echo-pref-web
+			// * echo-pref-email
+			// * echo-pref-push
 			$formatMessage = wfMessage( 'echo-pref-' . $notifierType )->escaped();
 			$columns[$formatMessage] = $notifierType;
 		}
@@ -440,6 +456,8 @@ class Hooks implements
 		}
 		$preferences['echo-subscriptions'] = [
 			'class' => HTMLCheckMatrix::class,
+			// The following message is generated upstrem:
+			// * prefs-echosubscriptions
 			'section' => 'echo/echosubscriptions',
 			'rows' => $rows,
 			'columns' => $columns,
@@ -453,6 +471,8 @@ class Hooks implements
 			$preferences['echo-cross-wiki-notifications'] = [
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-cross-wiki-notifications',
+				// The following message is generated upstrem:
+				// * prefs-echocrosswiki
 				'section' => 'echo/echocrosswiki'
 			];
 		}
@@ -462,6 +482,8 @@ class Hooks implements
 				'type' => 'toggle',
 				'label-message' => 'echo-pref-show-poll-updates',
 				'help-message' => 'echo-pref-show-poll-updates-help',
+				// The following message is generated upstrem:
+				// * prefs-echopollupdates
 				'section' => 'echo/echopollupdates'
 			];
 		}
@@ -491,12 +513,16 @@ class Hooks implements
 			$preferences['echo-notifications-blacklist'] = [
 				'type' => 'usersmultiselect',
 				'label-message' => 'echo-pref-notifications-blacklist',
+				// The following message is generated upstrem:
+				// * prefs-blocknotificationslist
 				'section' => 'echo/blocknotificationslist',
 				'filter' => MultiUsernameFilter::class,
 			];
 			$preferences['echo-notifications-page-linked-title-muted-list'] = [
 				'type' => 'titlesmultiselect',
 				'label-message' => 'echo-pref-notifications-page-linked-title-muted-list',
+				// The following message is generated upstrem:
+				// * prefs-mutedpageslist
 				'section' => 'echo/mutedpageslist',
 				'showMissing' => false,
 				'excludeDynamicNamespaces' => true,
