@@ -28,7 +28,7 @@
 	"apihelp-echomute-param-mute": "Pagina’s of gebruikers om aan de dempingslijst toe te voegen",
 	"apihelp-echomute-param-unmute": "Pagina’s of gebruikers om uit de dempingslijst te verwijderen",
 	"apihelp-echopushsubscriptions-summary": "Push-abonnementen voor de huidige gebruiker beheren.",
-	"apihelp-echopushsubscriptions-param-command": "Uit te voeren handeling.",
+	"apihelp-echopushsubscriptions-param-command": "De te verrichten handeling.",
 	"apihelp-echopushsubscriptions+create-summary": "Push-abonnementen voor de huidige gebruiker registreren.",
 	"apihelp-echopushsubscriptions+create-param-provider": "De push-dienstaanbieder waarvoor een token moet worden geregistreerd.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "Het te registreren token.",
