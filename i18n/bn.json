@@ -11,7 +11,8 @@
 			"Nasir8891",
 			"Sayak Sarkar",
 			"Yahya",
-			"আফতাবুজ্জামান"
+			"আফতাবুজ্জামান",
+			"খাত্তাব হাসান"
 		]
 	},
 	"echo-desc": "ঘটনা এবং বার্তা সম্পর্কে ব্যবহারকারীদের বিজ্ঞপ্তি দেয়ার জন্য ব্যবস্থা",
@@ -159,7 +160,7 @@
 	"notification-header-welcome": "{{SITENAME}}-এ {{GENDER:$2|স্বাগতম}}, $1! {{GENDER:$2|আপনাকে}} এখানে দেখে আমরা আনন্দিত।",
 	"notification-header-mention-summary": "$1 <strong>$4</strong>-এ একটি সম্পাদনা সারাংশে {{GENDER:$3|আপনাকে}} {{GENDER:$2|উল্লেখ করেছেন}}।",
 	"notification-welcome-linktext": "স্বাগতম",
-	"notification-header-thank-you-1-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} প্রথম সম্পাদনা করেছেন; {{GENDER:$2|আপনাকে}} ধন্যবাদ, এবং স্বাগতম!",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} প্রথম সম্পাদনা করেছেন; {{GENDER:$2|আপনাকে}} ধন্যবাদ এবং স্বাগতম!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} দশম সম্পাদনা করেছেন; {{GENDER:$2|আপনাকে}} ধন্যবাদ, এবং দয়া করে অব্যাহত রাখুন!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} শততম সম্পাদনা করেছেন; {{GENDER:$2|আপনাকে}} অনেক ধন্যবাদ!",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|আপনি}} এইমাত্র {{GENDER:$2|আপনার}} এক হাজারতম সম্পাদনা করেছেন; একজন দুর্দান্ত অবদানকারী হওয়ার জন্য {{GENDER:$2|আপনাকে}} ধন্যবাদ!",
