@@ -7,7 +7,6 @@ use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\NotifUser;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\User\TalkPageNotificationManager;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
@@ -28,7 +27,7 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 		$this->cache = new WANObjectCache( [
-			'cache' => MediaWikiServices::getInstance()->getMainObjectStash(),
+			'cache' => $this->getServiceContainer()->getMainObjectStash(),
 		] );
 	}
 
