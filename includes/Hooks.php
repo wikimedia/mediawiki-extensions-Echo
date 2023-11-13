@@ -1088,7 +1088,7 @@ class Hooks implements
 					'text' => $skinTemplate->msg( 'echo-new-messages' )->text(),
 					'class' => [ 'mw-echo-alert' ],
 					// unset icon
-					'icon' => '',
+					'icon' => null,
 				]
 			);
 
