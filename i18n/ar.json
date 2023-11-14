@@ -184,7 +184,7 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|صلاحياتك}} تم {{GENDER:$1|تغييرها}}. أنت تمت إضافتك إلى: $2. أنت لم تعد عضوا في: $4.",
 	"notification-header-user-rights-expiry-change": "تاريخ انتهاء {{GENDER:$4|عضويتك}} في {{PLURAL:$3|المجموعة|المجموعات}} التالية تم {{GENDER:$1|تغييرها}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|مرحبًا بك|مرحبًا بكِ}} في {{SITENAME}}، $1! نحن سعداءُ {{GENDER:$2|بتواجدك|بتواجدكِ}} هنا.",
-	"notification-header-mention-summary": "$1 {{GENDER:$2|ذكر|ذكرت}}{{GENDER:$3|ك}} في ملخص تعديل في <strong>$4</strong>.",
+	"notification-header-mention-summary": "{{GENDER:$2|ذكر|ذكرت}}{{GENDER:$3|ك}} $1 في ملخص تعديل في <strong>$4</strong>.",
 	"notification-header-watchlist-changed": "$1 {{GENDER:$2|غير|غيرت}} <strong>$3</strong>، صفحة في {{GENDER:$4|قائمة مراقبتك}} {{PLURAL:$5||، $5 مرات}}.",
 	"notification-header-watchlist-created": "$1 {{GENDER:$2|أنشأ|أنشأت}} <strong>$3</strong>، صفحة في {{GENDER:$4|قائمة مراقبتك}} {{PLURAL:$5||، $5 مرات}}.",
 	"notification-header-watchlist-deleted": "$1 {{GENDER:$2|حذف|حذفت}} <strong>$3</strong>، صفحة في {{GENDER:$4|قائمة مراقبتك}} {{PLURAL:$5||، $5 مرات}}.",
