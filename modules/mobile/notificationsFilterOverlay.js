@@ -1,4 +1,4 @@
-var Overlay = mw.mobileFrontend.require( 'mobile.startup' ).Overlay;
+var Overlay = require( 'mobile.startup' ).Overlay;
 
 /**
  * Overlay for notifications filter
