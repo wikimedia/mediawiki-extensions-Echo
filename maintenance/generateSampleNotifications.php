@@ -3,7 +3,6 @@
 // @phan-file-suppress PhanUndeclaredClassMethod, PhanUndeclaredClassConstant Other extensions used for testing purposes
 
 use MediaWiki\Extension\Notifications\Model\Event;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 
@@ -214,7 +213,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function addToPageContent( Title $title, User $agent, $contentText ) {
-		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
 		$previousContent = "";
 		$page->loadPageData( WikiPage::READ_LATEST );
 		$revision = $page->getRevisionRecord();
@@ -267,7 +266,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function generateReverted( User $user, User $agent ) {
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$services->getUserGroupManager()->addUserToGroup( $agent, 'sysop' );
 
 		// revert (undo)
