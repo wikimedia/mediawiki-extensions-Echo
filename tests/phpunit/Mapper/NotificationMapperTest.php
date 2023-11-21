@@ -144,46 +144,42 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 				$this->returnValue( [ 13, 21 ] ),
 				$this->returnValue( [ 55 ] )
 			);
-		$mockDb->expects( $this->exactly( 7 ) )
+		$expectedArgs = [
+			[
+				'echo_notification',
+				[ 'notification_user' => 1, 'notification_event' => [ 1, 2, 3, 5 ] ],
+			],
+			[
+				'echo_notification',
+				[ 'notification_user' => 1, 'notification_event' => [ 8, 13, 21, 34 ] ],
+			],
+			[
+				'echo_event',
+				[ 'event_id' => [ 13, 21 ] ],
+			],
+			[
+				'echo_target_page',
+				[ 'etp_event' => [ 13, 21 ] ],
+			],
+			[
+				'echo_notification',
+				[ 'notification_user' => 1, 'notification_event' => [ 55, 89 ] ],
+			],
+			[
+				'echo_event',
+				[ 'event_id' => [ 55 ] ],
+			],
+			[
+				'echo_target_page',
+				[ 'etp_event' => [ 55 ] ],
+			]
+		];
+		$mockDb->expects( $this->exactly( count( $expectedArgs ) ) )
 			->method( 'delete' )
-			->withConsecutive(
-				[
-					'echo_notification',
-					[ 'notification_user' => 1, 'notification_event' => [ 1, 2, 3, 5 ] ],
-					$this->anything()
-				],
-				[
-					'echo_notification',
-					[ 'notification_user' => 1, 'notification_event' => [ 8, 13, 21, 34 ] ],
-					$this->anything()
-				],
-				[
-					'echo_event',
-					[ 'event_id' => [ 13, 21 ] ],
-					$this->anything()
-				],
-				[
-					'echo_target_page',
-					[ 'etp_event' => [ 13, 21 ] ],
-					$this->anything()
-				],
-				[
-					'echo_notification',
-					[ 'notification_user' => 1, 'notification_event' => [ 55, 89 ] ],
-					$this->anything()
-				],
-				[
-					'echo_event',
-					[ 'event_id' => [ 55 ] ],
-					$this->anything()
-				],
-				[
-					'echo_target_page',
-					[ 'etp_event' => [ 55 ] ],
-					$this->anything()
-				]
-			)
-			->willReturn( true );
+			->willReturnCallback( function ( $table, $conds ) use ( &$expectedArgs ): bool {
+				$this->assertSame( array_shift( $expectedArgs ), [ $table, $conds ] );
+				return true;
+			} );
 
 		$notifMapper = new NotificationMapper( $this->mockDbFactory( $mockDb ) );
 		$this->assertTrue( $notifMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ) );

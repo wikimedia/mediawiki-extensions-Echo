@@ -17,7 +17,11 @@ class NotificationServiceClientUnitTest extends MediaWikiUnitTestCase {
 
 		$mock->expects( $this->exactly( $numOfCalls ) )
 			->method( 'sendRequest' )
-			->withConsecutive( ...$expected );
+			->willReturnCallback( function ( $provider, $payload ) use ( &$expected ): void {
+				$expectedIdx = array_search( [ $provider, $payload ], $expected, true );
+				$this->assertNotFalse( $expectedIdx, "Unexpected arguments (provider: $provider)" );
+				unset( $expected[$expectedIdx] );
+			} );
 
 		$mock->sendCheckEchoRequests( $subscriptions );
 	}
