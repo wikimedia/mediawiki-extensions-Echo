@@ -1,5 +1,4 @@
-var mobile = mw.mobileFrontend.require( 'mobile.startup' ),
-	util = mobile.util,
+var mobile = require( 'mobile.startup' ),
 	View = mobile.View,
 	promisedView = mobile.promisedView;
 
@@ -42,7 +41,7 @@ function notificationsList( echo, markAllReadButton, onCountChange ) {
 		},
 		// Create a container which will be revealed when "more options" (...)
 		// is clicked on a notification. Hidden by default.
-		$moreOptions = util.parseHTML( '<div>' )
+		$moreOptions = $( '<div>' )
 			.addClass( 'notifications-overlay-overlay position-fixed' );
 
 	echo.config.maxPrioritizedActions = 1;
