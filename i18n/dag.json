@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Attah Mohammed"
+		]
+	},
+	"prefs-echo": "Lahibali teera",
+	"echo-pref-send-me": "Timmi ma:",
+	"echo-pref-send-to": "Zaŋ tahi:",
+	"echo-learn-more": "Bɔhim pahi",
+	"echo-category-title-other": "{{PLURAL:$1|Other}}",
+	"echo-category-title-system": "{{PLURAL:$1||System}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|System}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|System}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|User rights change|User rights changes}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Email from other user|Emails from other users}}",
+	"echo-category-title-article-reminder": "Peeji {{PLURAL:$1|reminder reminders}}",
+	"echo-category-title-thank-you-edit": "Mali niŋ {{PLURAL:$1|milestone|milestones}}"
+}
