@@ -7,10 +7,10 @@ use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\NotifUser;
+use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\TalkPageNotificationManager;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
-use MediaWiki\User\UserOptionsLookup;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
