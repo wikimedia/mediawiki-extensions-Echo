@@ -7,7 +7,7 @@ use ApiMain;
 use CentralIdLookup;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
-use MediaWiki\User\UserOptionsManager;
+use MediaWiki\User\Options\UserOptionsManager;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoMute extends ApiBase {

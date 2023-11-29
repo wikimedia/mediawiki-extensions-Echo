@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Notifications\Special;
 use Html;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
-use MediaWiki\User\UserOptionsManager;
+use MediaWiki\User\Options\UserOptionsManager;
 use OOUIHTMLForm;
 use UnlistedSpecialPage;
 use User;
