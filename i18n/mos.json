@@ -130,6 +130,8 @@
 	"notification-link-text-what-links-here": "Pag-kãngã link fãa",
 	"notification-header-mention-other": "$1 {{GENDER:$2| mentioned}} {{GENDER:$3|you}} on <strong>$4</strong> in \"<strong>$5</strong>\"",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2| mentioned}} {{GENDER:$3|you}} on <strong>$4</strong>.",
+	"notification-link-text-view-edit": "Ges-y n tool-y neda",
+	"notification-link-article-reminder": "Seb-vão paalé",
 	"notification-timestamp-today": "Rũndã-rũndã",
 	"notification-timestamp-yesterday": "Sẽn yaa wa ne-a wã",
 	"notification-inbox-filter-read": "Karme",
