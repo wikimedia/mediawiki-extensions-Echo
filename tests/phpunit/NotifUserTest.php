@@ -9,6 +9,7 @@ use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\TalkPageNotificationManager;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
 use Wikimedia\Rdbms\IDatabase;

@@ -4,9 +4,9 @@ namespace MediaWiki\Extension\Notifications\Api;
 
 use ApiBase;
 use ApiMain;
-use CentralIdLookup;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
+use MediaWiki\User\CentralId\CentralIdLookup;
 use MediaWiki\User\Options\UserOptionsManager;
 use Wikimedia\ParamValidator\ParamValidator;
 

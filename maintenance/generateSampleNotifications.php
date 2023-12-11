@@ -5,6 +5,8 @@
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {

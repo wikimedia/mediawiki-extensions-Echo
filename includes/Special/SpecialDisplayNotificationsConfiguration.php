@@ -2,13 +2,13 @@
 
 namespace MediaWiki\Extension\Notifications\Special;
 
-use Html;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
+use MediaWiki\Html\Html;
+use MediaWiki\SpecialPage\UnlistedSpecialPage;
 use MediaWiki\User\Options\UserOptionsManager;
+use MediaWiki\User\User;
 use OOUIHTMLForm;
-use UnlistedSpecialPage;
-use User;
 
 class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	/**

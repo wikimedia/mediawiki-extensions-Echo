@@ -7,7 +7,7 @@ use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
-use User;
+use MediaWiki\User\User;
 
 /**
  * This job is created when sending notifications to the target users.  The purpose

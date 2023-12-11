@@ -4,6 +4,8 @@ use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\UnreadWikis;
+use MediaWiki\User\CentralId\CentralIdLookup;
+use MediaWiki\User\User;
 use MediaWiki\WikiMap\WikiMap;
 
 $IP = getenv( 'MW_INSTALL_PATH' );

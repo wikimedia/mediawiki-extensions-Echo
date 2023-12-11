@@ -7,7 +7,7 @@ use IContextSource;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\Services;
-use ReverseChronologicalPager;
+use MediaWiki\Pager\ReverseChronologicalPager;
 
 /**
  * This pager is used by Special:Notifications (NO-JS).

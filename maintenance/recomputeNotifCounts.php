@@ -7,6 +7,7 @@
 
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\NotifUser;
+use MediaWiki\User\User;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'

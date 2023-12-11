@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use CentralIdLookup;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\CentralId\CentralIdLookup;
 use MediaWiki\User\UserIdentity;
-use MWTimestamp;
+use MediaWiki\Utils\MWTimestamp;
 use Wikimedia\Rdbms\IDatabase;
 
 /**

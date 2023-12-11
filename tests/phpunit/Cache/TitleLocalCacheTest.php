@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
+use MediaWiki\Title\Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**

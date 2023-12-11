@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Title\Title;
 
 /**
  * @group Echo

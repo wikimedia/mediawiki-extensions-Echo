@@ -3,6 +3,7 @@
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\User\User;
 use Wikimedia\Rdbms\IDatabase;
 
 /**

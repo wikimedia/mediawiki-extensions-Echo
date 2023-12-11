@@ -7,17 +7,17 @@ use Language;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserNameUtils;
 use ParserOptions;
 use ParserOutput;
 use RequestContext;
 use RuntimeException;
-use Sanitizer;
 use TextContent;
-use User;
 
 abstract class DiscussionParser {
 	private const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';

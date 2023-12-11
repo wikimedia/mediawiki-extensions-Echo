@@ -15,10 +15,10 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use RuntimeException;
 use stdClass;
-use User;
 
 /**
  * Immutable class to represent an event.

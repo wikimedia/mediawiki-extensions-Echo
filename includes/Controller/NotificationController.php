@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\Notifications\Controller;
 
-use DeferredUpdates;
 use InvalidArgumentException;
 use Iterator;
 use MapCacheLRU;
+use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\CachedList;
 use MediaWiki\Extension\Notifications\ContainmentList;
@@ -22,8 +22,8 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use User;
 
 /**
  * This class represents the controller for notifications
