@@ -1004,11 +1004,8 @@ TEXT
 		// store diff in some local cache var, to circumvent
 		// DiscussionParser::getChangeInterpretationForRevision's attempt to
 		// retrieve parent revision from DB
-		$class = new ReflectionClass( DiscussionParser::class );
-		$property = $class->getProperty( 'revisionInterpretationCache' );
-		$property->setAccessible( true );
 		$cacheKey = $revision->getId() . '|' . $revision->getPage()->getNamespace() . '|' . $revision->getPage()->getDBkey();
-		$property->setValue( [ $cacheKey => $output ] );
+		TestingAccessWrapper::newFromClass( DiscussionParser::class )->revisionInterpretationCache = [ $cacheKey => $output ];
 		return $revision;
 	}
 
