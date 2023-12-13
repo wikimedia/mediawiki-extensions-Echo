@@ -680,7 +680,6 @@ class Hooks implements
 	public static function getNewUserPreferenceOverrides() {
 		return [
 			'echo-subscriptions-web-reverted' => false,
-			'echo-subscriptions-email-reverted' => false,
 			'echo-subscriptions-web-article-linked' => true,
 			'echo-subscriptions-email-mention' => true,
 			'echo-subscriptions-email-article-linked' => true,
