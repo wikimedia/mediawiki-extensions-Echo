@@ -230,6 +230,7 @@
 	"echo-displaysnippet-title": "Ново обавештење",
 	"echo-date-today": "Данас",
 	"echo-date-yesterday": "Јуче",
+	"notification-bundle-header-edit-user-page": "{{PLURAL:$1|Једна нова измена|$1 нове измене|$1 нових измена|100=99+ нових измена}} на <strong>{{GENDER:$2|Вашој}} корисничкој станици</strong>.",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Једна нова порука|$1 нове поруке|$1 нових порука|100=99+ нових порука}} на <strong>{{GENDER:$3|вашој}} страници за разговор</strong>.",
 	"echo-email-batch-subject-daily": "Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на пројекту {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "Имате {{PLURAL:$2|ново обавештење|нова обавештења}} на пројекту {{SITENAME}} ове седмице",
