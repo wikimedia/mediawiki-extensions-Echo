@@ -34,10 +34,12 @@
 		this.animated = !!config.animated;
 
 		// Initialization
-		this.setGroupElement( config.$group || this.$element );
+		this.setGroupElement( config.$group || $( '<div>' ) );
 
+		this.$group.addClass( 'mw-echo-ui-sortedListWidget-group' );
 		this.$element
-			.addClass( 'mw-echo-ui-sortedListWidget' );
+			.addClass( 'mw-echo-ui-sortedListWidget' )
+			.append( this.$group );
 	};
 
 	/* Initialization */
