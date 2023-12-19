@@ -44,6 +44,8 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Balibu mali sɔŋ",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Ninvuɣ' pala",
 	"echo-specialpage": "Lahibali teera",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|notification|notifications}}",
+	"echo-specialpage-pagefilters-title": "Tuma din na niŋda",
 	"echo-notification-more-options-tooltip": "Soya pam bɛni",
 	"notification-link-text-expand-all": "Yɛligi",
 	"notification-link-text-collapse-all": "Wurimya",

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Soumaya"
+			"Soumaya",
+			"Raizkgh"
 		]
 	},
 	"echo-desc": "Sõng-n-taag sẽn yaa sõma",
@@ -28,8 +29,8 @@
 	"echo-pref-email-format-html": "HTML wã",
 	"echo-pref-email-format-plain-text": "sõsg sẽn yaa vẽenega",
 	"echo-pref-cross-wiki-notifications": "Wilg-y bũmb nins sẽn be wiki-rãmbã pʋgẽ wã",
-	"echo-pref-notifications-blacklist": "Da wilg-y nin-kãensã sẽn wa n togs bũmb ningã ye. [[mw:Special:MyLanguage/Help:Notifications#mute) (bãng sẽn paase)]]",
-	"echo-pref-notifications-page-linked-title-muted-list": "Pa wilg-y \"Page link\" sõss nins sẽn be seb-kãensã pʋgẽ ye. [[mw:Special:MyLanguage/Help:Notifications#mute) (bãng sẽn paase)]]",
+	"echo-pref-notifications-blacklist": "Da wilg-y nin-kãensã sẽn wa n togs bũmb ningã ye. ([[mw:Special:MyLanguage/Help:Notifications#mute|learn more]])",
+	"echo-pref-notifications-page-linked-title-muted-list": "Pa wilg-y \"Page link\" sõss nins sẽn be seb-kãensã pʋgẽ ye. ([[mw:Special:MyLanguage/Help:Notifications#mute|learn more]])",
 	"echo-pref-dont-email-read-notifications": "Pa segd n tall sõss nins b sẽn karemdã n wilg b sẽn na n gʋls-b to-to wã ye",
 	"echo-learn-more": "Bao n bãng bũmb a taab",
 	"echo-log": "B sẽn da maand bũmb ninsã",
