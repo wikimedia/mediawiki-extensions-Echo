@@ -148,7 +148,7 @@
 	"echo-overlay-link": "အသိပေးချက်များ အားလုံး",
 	"echo-overlay-title": "<b>အသိပေးချက်များ</b>",
 	"echo-mark-all-as-read": "{{PLURAL:$1|အကုန်လုံး}} ဖတ်ရှုပြီးဖြစ်ကြောင်း မှတ်သားရန်",
-	"echo-mark-wiki-as-read": "ရွေးချယ်ထားသည့်ဝီကီထဲတွင် အားလုံးကို ဖတ်ရှုပြီးသားအဖြစ် သတ်မှတ်ရန်: $1",
+	"echo-mark-wiki-as-read": "ရွေးချယ်ထားသည့်ဝီကီထဲတွင် {{PLURAL:$2|အားလုံး}}ကို ဖတ်ရှုပြီးသားအဖြစ် သတ်မှတ်ရန်: $1",
 	"echo-displaysnippet-title": "အသိပေးချက်အသစ်",
 	"echo-date-today": "ယနေ့",
 	"echo-date-yesterday": "မနေ့",
