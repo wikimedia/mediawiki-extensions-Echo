@@ -1057,7 +1057,6 @@
 		"RecomputeNotifCounts": "maintenance/recomputeNotifCounts.php",
 		"RemoveInvalidNotification": "maintenance/removeInvalidNotification.php",
 		"RemoveOrphanedEvents": "maintenance/removeOrphanedEvents.php",
-		"UpdateEchoSchemaForSuppression": "maintenance/updateEchoSchemaForSuppression.php",
 		"EchoUpdatePerUserBlacklist": "maintenance/updatePerUserBlacklist.php",
 		"EchoPush\\PushNotifier": "includes/Push/PushNotifier.php",
 		"MediaWiki\\Extension\\Notifications\\Push\\PushNotifier": "includes/Push/PushNotifier.php"
