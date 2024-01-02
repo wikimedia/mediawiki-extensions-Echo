@@ -102,7 +102,7 @@
 	"notification-header-emailuser": "Һеҙгә электрон хатты $1 {{GENDER:$2|ебәрҙе}}.",
 	"notification-edit-talk-page-email-subject2": "$1 {{GENDER:$2|Ҡатнашыусы}}  {{GENDER\n:$3|һеҙгә}} «{{SITENAME}}» сайтында һеҙгә хәбәр ҡалдырҙы.",
 	"notification-page-linked-email-subject": "{{GENDER:$3|Һеҙ}} яһаған биткә «{{SITENAME}}» сайтында һылтанма яһалды",
-	"notification-reverted-email-subject2": "«{{SITENAME}}» сайтында {{GENDER\n:$3|һеҙҙең }} {{PLURAL:$4|1=үҙгәртеүҙәр}} {{GENDER:$2|кире ҡайтарылды}}.",
+	"notification-reverted-email-subject2": "«{{SITENAME}}» сайтында {{GENDER\n:$3|һеҙҙең }} {{PLURAL:$4|1=үҙгәртеү}} {{GENDER:$2|кире ҡайтарылды}}.",
 	"notification-mention-email-subject": "«{{SITENAME}}» сайтында {{GENDER:$3|һеҙҙе}}  $1 {{GENDER:$2|телгә алды}}",
 	"notification-user-rights-email-subject": "{{SITENAME}} сайтында {{GENDER\n:$3|һеҙҙең}} ҡатнашыусы хоҡуҡтарығыҙ үҙгәртелде",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 секунд}}",
