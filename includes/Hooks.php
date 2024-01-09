@@ -372,7 +372,6 @@ class Hooks implements
 			// Email format
 			$preferences['echo-email-format'] = [
 				'type' => 'select',
-				'default' => EmailFormat::HTML,
 				'label-message' => 'echo-pref-email-format',
 				// The following message is generated upstrem:
 				// * prefs-emailsettings
