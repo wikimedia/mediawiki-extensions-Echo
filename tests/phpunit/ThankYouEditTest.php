@@ -10,12 +10,6 @@ use MediaWiki\Title\Title;
  */
 class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 
-	protected function setUp(): void {
-		parent::setUp();
-		$this->tablesUsed[] = 'echo_event';
-		$this->tablesUsed[] = 'echo_notification';
-	}
-
 	private function deleteEchoData() {
 		$db = DbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
 		$db->delete( 'echo_event', '*', __METHOD__ );

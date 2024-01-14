@@ -27,8 +27,6 @@ class ApiEchoPushSubscriptionsDeleteTest extends ApiTestCase {
 			'wgEchoEnablePush' => true,
 			'wgEchoPushMaxSubscriptionsPerUser' => 3
 		] );
-		$this->tablesUsed[] = 'echo_push_subscription';
-		$this->tablesUsed[] = 'echo_push_provider';
 
 		// Use mutable users for our generic users so we don't get two references to the same User
 		$this->user = $this->getMutableTestUser()->getUser();

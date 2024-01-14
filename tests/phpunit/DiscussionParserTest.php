@@ -29,11 +29,6 @@ class DiscussionParserTest extends MediaWikiIntegrationTestCase {
 	private const EXEMPLAR_TIMESTAMP = '20:47, 2 November 2022 (UTC)';
 
 	/**
-	 * @var string[]
-	 */
-	protected $tablesUsed = [ 'user', 'revision', 'ip_changes', 'text', 'page' ];
-
-	/**
 	 * Convenience users for use in these tests.
 	 * Can be setup one by one using the setupTestUser() method
 	 * Or all at once using the setupAllTestUsers() method

@@ -16,9 +16,6 @@ use MediaWikiIntegrationTestCase;
  */
 class UserLocatorTest extends MediaWikiIntegrationTestCase {
 
-	/** @inheritDoc */
-	protected $tablesUsed = [ 'user', 'watchlist' ];
-
 	public function testLocateUsersWatchingTitle() {
 		$title = Title::makeTitleSafe( NS_USER_TALK, 'Something_something_something' );
 		$key = $title->getDBkey();
