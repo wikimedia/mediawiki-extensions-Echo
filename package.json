@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "grunt test",
 		"doc": "jsduck",
-		"minify-svg": "svgo --config=.svgo.config.js --quiet --recursive --folder modules/icons/",
+		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder modules/icons/",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js",
 		"selenium-daily": "npm run selenium-test -- --mochaOpts.grep @daily"
 	},
