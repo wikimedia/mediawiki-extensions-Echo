@@ -9,7 +9,8 @@
 			"Octahedron80",
 			"Patsagorn Y.",
 			"Supasate",
-			"Taweetham"
+			"Taweetham",
+			"Ekminarin"
 		]
 	},
 	"echo-desc": "ระบบสำหรับแจ้งเตือนผู้ใช้เกี่ยวกับเหตุการณ์และข้อความ",
@@ -44,6 +45,7 @@
 	"echo-log": "ปูมสาธารณะ",
 	"echo-new-messages": "คุณมีข้อความหน้าคุยใหม่",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|การแก้ไข}}หน้าคุยกับผู้ใช้ของฉัน",
+	"echo-category-title-edit-user-page": "{{PLURAL:$1|แก้ไข}}หน้าผู้ใช้ของฉัน",
 	"echo-category-title-article-linked": "{{PLURAL:$1|การเชื่อมโยง}}หน้า",
 	"echo-category-title-reverted": "{{PLURAL:$1|การย้อน}}การแก้ไข",
 	"echo-category-title-mention": "{{PLURAL:$1|การกล่าวถึง}}",
@@ -59,6 +61,7 @@
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|หลักไมล์}}การแก้ไข",
 	"echo-category-title-watchlist": "แก้ไขรายการเฝ้าดู",
 	"echo-pref-tooltip-edit-user-talk": "แจ้งเตือนฉันเมื่อมีคนแก้ไขหน้าคุยกับผู้ใช้ของฉัน",
+	"echo-pref-tooltip-edit-user-page": "แจ้งเตือนฉันเมื่อมีคนแก้ไขหน้าผู้ใช้ของฉัน",
 	"echo-pref-tooltip-article-linked": "แจ้งเตือนฉันเมื่อมีคนเชื่อมโยงจากหน้าบทความถึงหน้าที่ฉันสร้าง",
 	"echo-pref-tooltip-reverted": "แจ้งเตือนฉันเมื่อมีคนแปลงกลับการแก้ไขของฉัน โดยใช้เครื่องมือเลิกทำหรือย้อนรวดเดียว",
 	"echo-pref-tooltip-mention": "แจ้งเตือนฉันเมื่อมีคนเชื่อมโยงไปยังหน้าผู้ใช้ของฉัน",
