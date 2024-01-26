@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Controller;
 
+use IDBAccessObject;
 use InvalidArgumentException;
 use Iterator;
 use MapCacheLRU;
@@ -20,7 +21,6 @@ use MediaWiki\Extension\Notifications\OnWikiList;
 use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
@@ -187,7 +187,7 @@ class NotificationController {
 		}
 
 		$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
-		$rev = $revisionStore->getRevisionById( $revId, RevisionStore::READ_LATEST );
+		$rev = $revisionStore->getRevisionById( $revId, IDBAccessObject::READ_LATEST );
 		if ( !$rev ) {
 			$logger = LoggerFactory::getInstance( 'Echo' );
 			$logger->debug(
