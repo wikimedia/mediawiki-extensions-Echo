@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Notifications;
 
 use Article;
+use IDBAccessObject;
 use Language;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
@@ -55,7 +56,7 @@ abstract class DiscussionParser {
 			$title = Title::newFromID( $revision->getPageId() );
 			// use the primary database for new page
 		} else {
-			$title = Title::newFromID( $revision->getPageId(), Title::GAID_FOR_UPDATE );
+			$title = Title::newFromID( $revision->getPageId(), IDBAccessObject::READ_LATEST );
 		}
 
 		// not a valid title
