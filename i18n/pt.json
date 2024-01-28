@@ -234,7 +234,7 @@
 	"echo-overlay-title": "<b>Notificações</b>",
 	"echo-mark-all-as-read": "Marcar {{PLURAL:$1|como lida|todas como lidas}}",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|notificação marcada como lida|notificações marcadas como lidas}}",
-	"echo-mark-wiki-as-read": "Marcar {{PLURAL:$1|como lida|todas como lidas}} na wiki selecionada: $1",
+	"echo-mark-wiki-as-read": "Marcar {{PLURAL:$2|como lida|todas como lidas}} na wiki selecionada: $1",
 	"echo-displaysnippet-title": "Notificação nova",
 	"echo-date-today": "Hoje",
 	"echo-date-yesterday": "Ontem",
