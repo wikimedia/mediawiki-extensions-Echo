@@ -10,7 +10,8 @@
 			"Patsagorn Y.",
 			"Supasate",
 			"Taweetham",
-			"Ekminarin"
+			"Ekminarin",
+			"RidJasper"
 		]
 	},
 	"echo-desc": "ระบบสำหรับแจ้งเตือนผู้ใช้เกี่ยวกับเหตุการณ์และข้อความ",
@@ -183,8 +184,9 @@
 	"notification-inbox-filter-read": "อ่านแล้ว",
 	"notification-inbox-filter-unread": "ยังไม่ได้อ่าน",
 	"notification-inbox-filter-all": "ทั้งหมด",
-	"echo-email-plain-footer": "หากต้องการควบคุมอีเมลที่เราส่งหาคุณ ให้ตรวจสอบการตั้งค่าของคุณ:",
-	"echo-email-html-footer-preference-link-text": "ตรวจสอบการตั้งค่าของคุณ",
+	"echo-specialmute-label-mute-notifications": "ปิดการแจ้งเตือนจาก{{GENDER:$1|ผู้ใช้}}นี้",
+	"echo-email-plain-footer": "หากต้องการควบคุมอีเมลที่เราส่งหา{{GENDER:$1|คุณ}} ให้ตรวจสอบการตั้งค่า{{GENDER:$1|ของคุณ}}:",
+	"echo-email-html-footer-preference-link-text": "ตรวจสอบการตั้งค่า{{GENDER:$1|ของคุณ}}",
 	"echo-email-html-footer-with-link": "หากต้องการควบคุมอีเมลที่เราส่งหาคุณ ดู $1",
 	"echo-notification-alert": "{{PLURAL:$1|การเตือน ($1)|100=การเตือน (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|ประกาศ ($1)|ประกาศ ($1)|100=ประกาศ (99+)}}",
@@ -192,9 +194,9 @@
 	"echo-notification-notice-text-only": "ประกาศ",
 	"echo-overlay-link": "การแจ้งเตือนทั้งหมด",
 	"echo-overlay-title": "<b>การแจ้งเตือน</b>",
-	"echo-mark-all-as-read": "ทำเครื่องหมายทั้งหมดว่าอ่านแล้ว",
+	"echo-mark-all-as-read": "ทำเครื่องหมาย{{PLURAL:$1|ทั้งหมด}}ว่าอ่านแล้ว",
 	"echo-mark-all-as-read-confirmation": "ทำเครื่องหมายการแจ้งเตือน $1 รายการว่าอ่านแล้ว",
-	"echo-mark-wiki-as-read": "ทำเครื่องหมายทั้งหมดว่าอ่านแล้วในวิกิที่เลือก: $1",
+	"echo-mark-wiki-as-read": "ทำเครื่องหมาย{{PLURAL:$2|ทั้งหมด}}ว่าอ่านแล้วในวิกิที่เลือก: $1",
 	"echo-displaysnippet-title": "การแจ้งเตือนใหม่",
 	"echo-date-today": "วันนี้",
 	"echo-date-yesterday": "เมื่อวานนี้",
