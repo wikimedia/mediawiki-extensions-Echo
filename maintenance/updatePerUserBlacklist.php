@@ -31,7 +31,6 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 	}
 
 	public function doDBUpdates() {
-		$lbFactory = $this->getServiceContainer()->getDBLoadBalancerFactory();
 		$dbw = $this->getDB( DB_PRIMARY );
 		$dbr = $this->getDB( DB_REPLICA );
 		$iterator = new BatchRowIterator(
@@ -86,7 +85,7 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 					__METHOD__
 				);
 				$processed += $dbw->affectedRows();
-				$lbFactory->waitForReplication();
+				$this->waitForReplication();
 			}
 
 			$this->output( "Updated $processed Users\n" );
