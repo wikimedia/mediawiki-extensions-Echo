@@ -164,6 +164,7 @@
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>, 'na pàgene sus a l'elenghe de le pàggene condrollate {{GENDER:$2|tune}}, ha state scangellate $3 {{PLURAL:$3|vote}}.",
 	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>, 'na pàgene sus a l'elenghe de le pàggene condrollate {{GENDER:$2|tune}}, ha state spustate $3 {{PLURAL:$3|vote}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>, 'na pàgene sus a l'elenghe de le pàggene condrollate {{GENDER:$2|tune}}, ha state repristinate $3 {{PLURAL:$3|vote}}.",
+	"notification-body-watchlist-once": "Non ge onna stà otre notifeche email ce stonne otre attivitate a mene ca vè {{GENDER:$1|'ndruche}} sta pàgene mendre ca ste jndre.",
 	"notification-welcome-linktext": "Bovègne",
 	"notification-header-thank-you-1-edit": "E' fatte mo mo 'u prima cangiamende tune; grazie e {{GENDER:$2|bovègne}}!",
 	"notification-header-thank-you-10-edit": "E' fatte mo mo 'u decime cangiamende {{GENDER:$2|tune}}; {{GENDER:$2|te}} rengraziame, e condinue accussì!",
