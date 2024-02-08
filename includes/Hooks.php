@@ -671,21 +671,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Get overrides for new users.  This allows changes that only apply going forward,
-	 * without affecting existing users.
-	 *
-	 * @return bool[] Associative array mapping key to bool for whether it should be enabled
-	 */
-	public static function getNewUserPreferenceOverrides() {
-		return [
-			'echo-subscriptions-web-reverted' => false,
-			'echo-subscriptions-web-article-linked' => true,
-			'echo-subscriptions-email-mention' => true,
-			'echo-subscriptions-email-article-linked' => true,
-		];
-	}
-
-	/**
 	 * Handler for LocalUserCreated hook.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LocalUserCreated
 	 * @param User $user User object that was created.
@@ -693,10 +678,6 @@ class Hooks implements
 	 */
 	public function onLocalUserCreated( $user, $autocreated ) {
 		if ( !$autocreated ) {
-			$overrides = self::getNewUserPreferenceOverrides();
-			foreach ( $overrides as $prefKey => $value ) {
-				$this->userOptionsManager->setOption( $user, $prefKey, $value );
-			}
 			Event::create( [
 				'type' => 'welcome',
 				'agent' => $user,
