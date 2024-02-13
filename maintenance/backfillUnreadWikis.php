@@ -40,7 +40,7 @@ class BackfillUnreadWikis extends Maintenance {
 		} else {
 			$userQuery = User::getQueryInfo();
 			$iterator = new BatchRowIterator(
-				wfGetDB( DB_REPLICA ), $userQuery['tables'], 'user_id', $this->getBatchSize()
+				$this->getReplicaDB(), $userQuery['tables'], 'user_id', $this->getBatchSize()
 			);
 			$iterator->setFetchColumns( $userQuery['fields'] );
 			$iterator->addJoinConditions( $userQuery['joins'] );

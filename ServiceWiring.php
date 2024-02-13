@@ -95,7 +95,9 @@ return [
 	},
 
 	'EchoRevisionLocalCache' => static function ( MediaWikiServices $services ): RevisionLocalCache {
-		return new RevisionLocalCache();
+		return new RevisionLocalCache(
+			$services->getConnectionProvider()
+		);
 	}
 
 ];

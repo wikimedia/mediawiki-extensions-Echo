@@ -27,7 +27,8 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 				'wl_title' => $key
 			];
 		}
-		wfGetDB( DB_PRIMARY )->insert( 'watchlist', $rows, __METHOD__ );
+
+		$this->getDb()->insert( 'watchlist', $rows, __METHOD__ );
 
 		$event = $this->createMock( Event::class );
 		$event->method( 'getTitle' )
