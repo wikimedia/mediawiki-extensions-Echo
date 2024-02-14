@@ -138,8 +138,9 @@ class UserLocator {
 	 * @return User|null
 	 */
 	public static function getArticleAuthorByArticleId( int $articleId ): ?User {
-		$dbr = wfGetDB( DB_REPLICA );
-		$revQuery = MediaWikiServices::getInstance()->getRevisionStore()->getQueryInfo();
+		$services = MediaWikiServices::getInstance();
+		$dbr = $services->getConnectionProvider()->getReplicaDatabase();
+		$revQuery = $services->getRevisionStore()->getQueryInfo();
 		$res = $dbr->selectRow(
 			$revQuery['tables'],
 			[ 'rev_user' => $revQuery['fields']['rev_user'] ],
