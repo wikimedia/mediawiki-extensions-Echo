@@ -3,7 +3,8 @@
 		"authors": [
 			"Cedric31",
 			"Nicolas Eynaud",
-			"Vriullop"
+			"Vriullop",
+			"Lhanars"
 		]
 	},
 	"echo-desc": "Sistèma per avertir los utilizaires dels eveniments e messatges",
@@ -48,6 +49,7 @@
 	"echo-specialpage-pagefilters-subtitle": "Paginas amb de notificacions pas legidas",
 	"echo-none": "Avètz pas recebut cap de notificacion.",
 	"echo-notification-placeholder": "I a pas cap de notificacion.",
+	"echo-notification-placeholder-filters": "Non i a cap de notificacion que coïncidís amb aqueles critèris.",
 	"echo-notification-markasread": "Marcar coma legit",
 	"echo-notification-markasunread": "Marcar coma pas legit",
 	"echo-notification-markasread-tooltip": "Marcar coma legit",
@@ -73,6 +75,7 @@
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Avètz mencionat}}:</strong> $3",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|Demest las notificacions|$3 notificacions}} qu'{{GENDER:$2|avètz faita}}{{PLURAL:$3||s}} sus la pagina de discussion <strong>$4</strong>, $5 {{PLURAL:$5|es pas estada mandada|son pas estadas mandadas}} e $6 {{PLURAL:$6|es estada mandada|son estadas mandadas}}.",
 	"notification-welcome-linktext": "Benvenguda",
+	"notification-header-thank-you-100-edit": "Acabatz de far un centenar de modificacions; grandmercé!",
 	"notification-link-text-view-edit": "Afichar la modificacion",
 	"notification-header-reverted": "{{PLURAL:$4|Vòstra modificacion sus <strong>$3</strong> es estada|Vòstras modificacions sus <strong>$3</strong> son estadas}} {{GENDER:$2|anullada}}{{PLURAL:$4||s}}",
 	"notification-header-emailuser": "$1 vos {{GENDER:$2|a mandat}} un corrièr electronic.",
