@@ -48,6 +48,8 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Dalībnieka tiesību izmaiņas|Dalībnieka tiesības izmaiņas|Dalībnieka tiesību izmaiņas}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|E-pasti no citiem dalībniekiem|E-pasts no citiem dalībniekiem|E-pasti no citiem dalībniekiem}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Lapu atgādinājumi|Lapas atgādinājums|Lapu atgādinājumi}}",
+	"echo-category-title-watchlist": "Labojums uzraugāmā lapā",
+	"echo-category-title-minor-watchlist": "Maznozīmīgs labojums uzraugāmā lapā",
 	"echo-pref-tooltip-edit-user-talk": "Paziņot man, kad kāds pievieno ziņojumu vai atbild manā diskusiju lapā.",
 	"echo-pref-tooltip-article-linked": "Paziņot man, kad kāds citā lapā izveido saiti uz manis izveidotu lapu.",
 	"echo-pref-tooltip-reverted": "Paziņot man, kad kāds atceļ manis veiktu labojumu, izmantojot saiti \"atcelt\" vai atcelšanas rīku.",
