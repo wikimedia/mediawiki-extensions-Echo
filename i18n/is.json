@@ -45,7 +45,7 @@
 	"echo-pref-tooltip-article-linked": "Tilkynna mér þegar einhver tengir í síðu sem ég bjó til frá annarri síðu.",
 	"echo-pref-tooltip-reverted": "Gefðu mér tilkynningu þegar einhver tekur aftur breytingu sem ég gerði.",
 	"echo-pref-tooltip-mention": "Tilkynntu mér þegar einhver tengir í notandasíðuna mína.",
-	"echo-pref-tooltip-user-rights": "Tilkynntu mér þegar einhver breytir notendaréttendum mínum.",
+	"echo-pref-tooltip-user-rights": "Tilkynna mér þegar einhver breytir notandaréttindunum mínum.",
 	"echo-pref-tooltip-emailuser": "Tilkynntu mér um þegar einhver sendir mér tölvupóst.",
 	"notifications": "Tilkynningar",
 	"tooltip-pt-notifications-alert": "Tilkynningar til {{GENDER:|þín}}",
