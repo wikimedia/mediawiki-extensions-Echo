@@ -42,7 +42,7 @@ function notificationsList( echo, markAllReadButton, onCountChange ) {
 		// Create a container which will be revealed when "more options" (...)
 		// is clicked on a notification. Hidden by default.
 		$moreOptions = $( '<div>' )
-			.addClass( 'notifications-overlay-overlay position-fixed' );
+			.addClass( 'notifications-overlay-overlay position-fixed skin-invert' );
 
 	echo.config.maxPrioritizedActions = 1;
 
