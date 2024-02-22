@@ -1,8 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Integration\Model;
+
+use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\Model\TargetPage;
+use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;

@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test;
+
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Tests\Api\ApiTestCase;
 

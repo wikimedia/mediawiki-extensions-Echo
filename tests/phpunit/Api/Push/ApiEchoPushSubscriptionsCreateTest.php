@@ -1,5 +1,8 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\API;
+
+use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Extension\Notifications\Push\Utils;
 use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Tests\Api\ApiTestCase;

@@ -1,8 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test;
+
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\MainConfigNames;
+use MediaWikiIntegrationTestCase;
 
 class EchoHooksTest extends MediaWikiIntegrationTestCase {
 	/**

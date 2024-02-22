@@ -1,7 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Cache;
+
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
 use MediaWiki\Title\Title;
+use MediaWikiIntegrationTestCase;
 use Wikimedia\TestingAccessWrapper;
 
 /**

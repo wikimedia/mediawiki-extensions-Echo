@@ -1,10 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Integration\Mapper;
+
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MainConfigNames;
 use MediaWiki\User\User;
+use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\DeleteQueryBuilder;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;

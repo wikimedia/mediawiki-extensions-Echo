@@ -1,9 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Unit;
+
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\User\User;
+use MediaWikiUnitTestCase;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\SelectQueryBuilder;

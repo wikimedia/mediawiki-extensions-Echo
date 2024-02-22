@@ -1153,8 +1153,8 @@
 		"MediaWiki\\Extension\\Notifications\\": "includes/"
 	},
 	"TestAutoloadClasses": {
-		"EchoAbstractMapperStub": "tests/phpunit/Mapper/EchoAbstractMapperStub.php",
-		"EchoExecuteFirstArgumentStub": "tests/phpunit/Mapper/EchoExecuteFirstArgumentStub.php"
+		"MediaWiki\\Extension\\Notifications\\Test\\EchoAbstractMapperStub": "tests/phpunit/Mapper/EchoAbstractMapperStub.php",
+		"MediaWiki\\Extension\\Notifications\\Test\\Integration\\Mapper\\EchoExecuteFirstArgumentStub": "tests/phpunit/Mapper/EchoExecuteFirstArgumentStub.php"
 	},
 	"TestAutoloadNamespaces": {
 		"MediaWiki\\Extension\\Notifications\\Test\\": "tests/phpunit/",

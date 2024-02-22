@@ -1,8 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test;
+
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Title\Title;
+use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 
 /**

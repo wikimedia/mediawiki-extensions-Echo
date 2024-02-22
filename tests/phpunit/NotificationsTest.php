@@ -1,11 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test;
+
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use MediaWikiIntegrationTestCase;
 
 /**
  * Tests for the built in notification types

@@ -1,7 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Maintenance;
+
 use MediaWiki\Extension\Notifications\SuppressionRowUpdateGenerator;
 use MediaWiki\Title\Title;
+use MediaWikiIntegrationTestCase;
 use PHPUnit\Framework\TestCase;
 
 /**

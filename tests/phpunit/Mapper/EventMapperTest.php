@@ -1,8 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Integration\Mapper;
+
+use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\InsertQueryBuilder;

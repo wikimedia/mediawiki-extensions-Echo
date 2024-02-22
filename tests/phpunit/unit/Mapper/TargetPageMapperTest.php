@@ -1,8 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Unit;
+
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Model\TargetPage;
+use MediaWikiUnitTestCase;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\InsertQueryBuilder;

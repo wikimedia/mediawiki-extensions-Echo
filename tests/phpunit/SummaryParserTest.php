@@ -1,8 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test;
+
 use MediaWiki\Extension\Notifications\SummaryParser;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @group Echo

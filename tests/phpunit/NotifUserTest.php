@@ -1,5 +1,8 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test;
+
+use Exception;
 use MediaWiki\Extension\Notifications\EmailFormat;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
@@ -13,6 +16,8 @@ use MediaWiki\User\TalkPageNotificationManager;
 use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
+use MediaWikiIntegrationTestCase;
+use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
