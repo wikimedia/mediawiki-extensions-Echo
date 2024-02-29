@@ -48,6 +48,32 @@
 		"echo-email-frequency": 0,
 		"echo-dont-email-read-notifications": false
 	},
+	"ConditionalUserOptions": {
+		"echo-subscriptions-web-reverted": [
+			[
+				false,
+				[ "registered-after", "20240208200000" ]
+			]
+		],
+		"echo-subscriptions-web-article-linked": [
+			[
+				true,
+				[ "registered-after", "20240208200000" ]
+			]
+		],
+		"echo-subscriptions-email-mention": [
+			[
+				true,
+				[ "registered-after", "20240208200000" ]
+			]
+		],
+		"echo-subscriptions-email-article-linked": [
+			[
+				true,
+				[ "registered-after", "20240208200000" ]
+			]
+		]
+	},
 	"ExtensionFunctions": [
 		"MediaWiki\\Extension\\Notifications\\Hooks::initEchoExtension"
 	],
