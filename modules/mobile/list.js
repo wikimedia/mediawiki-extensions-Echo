@@ -19,8 +19,7 @@ var mobile = require( 'mobile.startup' ),
  * @return {View}
  */
 function notificationsList( echo, markAllReadButton, onCountChange ) {
-	var wrapperWidget,
-		maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
+	var maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
 		echoApi = new echo.api.EchoApi(),
 		unreadCounter = new echo.dm.UnreadNotificationCounter( echoApi, 'all', maxNotificationCount ),
 		modelManager = new echo.dm.ModelManager( unreadCounter, { type: [ 'message', 'alert' ] } ),
@@ -46,7 +45,7 @@ function notificationsList( echo, markAllReadButton, onCountChange ) {
 
 	echo.config.maxPrioritizedActions = 1;
 
-	wrapperWidget = new echo.ui.NotificationsWrapper( controller, modelManager, {
+	var wrapperWidget = new echo.ui.NotificationsWrapper( controller, modelManager, {
 		$overlay: $moreOptions
 	} );
 
