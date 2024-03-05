@@ -9,19 +9,13 @@ mw.echo.config.maxPrioritizedActions = 2;
  */
 function initDesktop() {
 	'use strict';
-	var uri;
 
 	// Remove ?markasread=XYZ from the URL
-	try {
-		uri = new mw.Uri();
-		if ( uri.query.markasread !== undefined ) {
-			delete uri.query.markasread;
-			delete uri.query.markasreadwiki;
-			window.history.replaceState( null, document.title, uri );
-		}
-	} catch ( e ) {
-		// Catch problems when the URI is malformed (T261799)
-		// e.g. #/media/Fitxer:Campbells_Soup_Cans_MOMA_reduced_80%.jpg
+	var url = new URL( location.href );
+	if ( url.searchParams.has( 'markasread' ) ) {
+		url.searchParams.delete( 'markasread' );
+		url.searchParams.delete( 'markasreadwiki' );
+		history.replaceState( null, '', url );
 	}
 
 	// Activate ooui

@@ -344,7 +344,7 @@
 			"dependencies": [
 				"ext.echo.api",
 				"mediawiki.jqueryMsg",
-				"mediawiki.Uri"
+				"web2017-polyfills"
 			],
 			"messages": [
 				"echo-badge-count",
