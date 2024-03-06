@@ -62,7 +62,8 @@
 			"科劳",
 			"范",
 			"飞舞回堂前",
-			"Anterdc99"
+			"Anterdc99",
+			"Aaron Liu"
 		]
 	},
 	"echo-desc": "用于通知用户有关活动和消息的系统",
@@ -196,7 +197,7 @@
 	"notification-compact-header-page-linked": "链接自<strong>$1</strong>。",
 	"notification-bundle-header-page-linked": "有人在{{PLURAL:$5||$5个页面|100=超过99个页面}}中加入了指向<strong>$3</strong>的链接。",
 	"notification-header-article-reminder": "{{GENDER:$2|您}}请求提醒的页面位于<strong>$3</strong>",
-	"notification-link-text-what-links-here": "所有链入页面",
+	"notification-link-text-what-links-here": "指向本页的链接",
 	"notification-header-mention-other": "$1在<strong>$4</strong>中的“<strong>$5</strong>”{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-other-nosection": "$1在<strong>$4</strong>{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
 	"notification-header-mention-user-talkpage-v2": "$1在<strong>$4{{GENDER:$5|的}}用户讨论页</strong>的“<strong>$6</strong>”中{{GENDER:$2|提到}}了{{GENDER:$3|您}}。",
