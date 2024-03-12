@@ -941,7 +941,7 @@ TEXT
 		// (Title::getTitleParser), so should be the fake language ;)
 		$this->setContentLang( $lang );
 		$this->overrideConfigValues( [
-			// this one allows Mediawiki:xyz pages to be set as messages
+			// this one allows MediaWiki:xyz pages to be set as messages
 			MainConfigNames::UseDatabaseMessages => true
 		] );
 

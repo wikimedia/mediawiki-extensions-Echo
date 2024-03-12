@@ -210,7 +210,7 @@
 	/**
 	 * Get the notification timestamp
 	 *
-	 * @return {number} Notification timestamp in Mediawiki timestamp format
+	 * @return {number} Notification timestamp in MediaWiki timestamp format
 	 */
 	mw.echo.dm.NotificationItem.prototype.getTimestamp = function () {
 		return this.timestamp;
