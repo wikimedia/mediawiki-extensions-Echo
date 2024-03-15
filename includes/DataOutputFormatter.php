@@ -11,6 +11,7 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
 use RequestContext;
@@ -22,7 +23,7 @@ use RequestContext;
 class DataOutputFormatter {
 
 	/**
-	 * @var string[] type => class
+	 * @var array<string,class-string<EchoEventFormatter>> type => class
 	 */
 	protected static $formatters = [
 		'flyout' => EchoFlyoutFormatter::class,
@@ -223,13 +224,13 @@ class DataOutputFormatter {
 	/**
 	 * Helper function for converting UTC timezone to a user's timezone
 	 *
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param string|int $ts
 	 * @param int $format output format
 	 *
 	 * @return string
 	 */
-	public static function getUserLocalTime( User $user, $ts, $format = TS_MW ) {
+	public static function getUserLocalTime( UserIdentity $user, $ts, $format = TS_MW ) {
 		$timestamp = new MWTimestamp( $ts );
 		$timestamp->offsetForUser( $user );
 

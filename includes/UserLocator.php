@@ -168,7 +168,7 @@ class UserLocator {
 	 *
 	 * @param Event $event
 	 * @param string[] $keys one or more keys to check for user ids
-	 * @return User[]
+	 * @return array<int,User>
 	 */
 	public static function locateFromEventExtra( Event $event, array $keys ) {
 		$users = [];

@@ -481,7 +481,7 @@ class NotificationController {
 	 * Retrieves an array of User objects to be notified for an Event.
 	 *
 	 * @param Event $event
-	 * @return Iterator values are User objects
+	 * @return Iterator<User>
 	 */
 	public static function getUsersToNotifyForEvent( Event $event ) {
 		$notify = new FilteredSequentialIterator;

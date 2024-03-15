@@ -114,7 +114,7 @@ class ForeignNotifications {
 	 * @param string $section Name of section
 	 * @return string[]
 	 */
-	public function getWikis( $section = AttributeManager::ALL ) {
+	public function getWikis( $section = AttributeManager::ALL ): array {
 		$this->populate();
 
 		if ( $section === AttributeManager::ALL ) {
@@ -202,7 +202,7 @@ class ForeignNotifications {
 	 * @param string[] $wikis
 	 * @return array[] [(string) wiki => (array) data]
 	 */
-	public static function getApiEndpoints( array $wikis ) {
+	public static function getApiEndpoints( array $wikis ): array {
 		global $wgConf;
 		$wgConf->loadFullData();
 

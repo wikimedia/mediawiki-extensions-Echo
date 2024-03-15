@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Notifications\Mapper;
 
 use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Model\Event;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 
 /**
  * Database mapper for Event model, which is an immutable class, there should
@@ -154,11 +154,11 @@ class EventMapper extends AbstractMapper {
 	/**
 	 * Fetch events unread by a user and associated with a page
 	 *
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param int $pageId
 	 * @return Event[]
 	 */
-	public function fetchUnreadByUserAndPage( User $user, $pageId ) {
+	public function fetchUnreadByUserAndPage( UserIdentity $user, $pageId ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$fields = array_merge( Event::selectFields(), [ 'notification_timestamp' ] );
 

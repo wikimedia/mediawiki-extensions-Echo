@@ -89,9 +89,9 @@ class SubscriptionManager extends AbstractMapper {
 	/**
 	 * Get full data for all registered subscriptions for a user (by central ID).
 	 * @param int $centralId
-	 * @return array array of Subscription objects
+	 * @return Subscription[]
 	 */
-	public function getSubscriptionsForUser( int $centralId ) {
+	public function getSubscriptionsForUser( int $centralId ): array {
 		$res = $this->dbr->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'echo_push_subscription' )

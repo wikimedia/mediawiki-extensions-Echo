@@ -7,7 +7,7 @@ use CachedBagOStuff;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\CentralId\CentralIdLookup;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use UnexpectedValueException;
 
 /**
@@ -22,23 +22,16 @@ class SeenTime {
 	 */
 	private static $allowedTypes = [ 'alert', 'message' ];
 
-	/**
-	 * @var User
-	 */
-	private $user;
+	private UserIdentity $user;
 
 	/**
-	 * @param User $user A logged in user
+	 * @param UserIdentity $user A logged in user
 	 */
-	private function __construct( User $user ) {
+	private function __construct( UserIdentity $user ) {
 		$this->user = $user;
 	}
 
-	/**
-	 * @param User $user
-	 * @return SeenTime
-	 */
-	public static function newFromUser( User $user ) {
+	public static function newFromUser( UserIdentity $user ): self {
 		return new self( $user );
 	}
 
