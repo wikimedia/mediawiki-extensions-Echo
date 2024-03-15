@@ -19,7 +19,7 @@ class ApiEchoMute extends ApiBase {
 	private $userOptionsManager;
 
 	/** @var string[][] */
-	private static $muteLists = [
+	private const MUTE_LISTS = [
 		'user' => [
 			'pref' => 'echo-notifications-blacklist',
 			'type' => 'user',
@@ -49,7 +49,7 @@ class ApiEchoMute extends ApiBase {
 	}
 
 	public function execute() {
-		$user = $this->getUser()->getInstanceForUpdate();
+		$user = $this->getUser();
 		if ( !$user || !$user->isRegistered() ) {
 			$this->dieWithError(
 				[ 'apierror-mustbeloggedin', $this->msg( 'action-editmyoptions' ) ],
@@ -60,7 +60,7 @@ class ApiEchoMute extends ApiBase {
 		$this->checkUserRightsAny( 'editmyoptions' );
 
 		$params = $this->extractRequestParams();
-		$mutelistInfo = self::$muteLists[ $params['type'] ];
+		$mutelistInfo = self::MUTE_LISTS[ $params['type'] ];
 		$prefValue = $this->userOptionsManager->getOption( $user, $mutelistInfo['pref'] );
 		$ids = $this->parsePref( $prefValue );
 		$targetsToMute = $params['mute'] ?? [];
@@ -89,7 +89,7 @@ class ApiEchoMute extends ApiBase {
 				$mutelistInfo['pref'],
 				$this->serializePref( $ids )
 			);
-			$user->saveSettings();
+			$this->userOptionsManager->saveOptions( $user );
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), 'success' );
@@ -128,7 +128,7 @@ class ApiEchoMute extends ApiBase {
 		return [
 			'type' => [
 				ParamValidator::PARAM_REQUIRED => true,
-				ParamValidator::PARAM_TYPE => array_keys( self::$muteLists ),
+				ParamValidator::PARAM_TYPE => array_keys( self::MUTE_LISTS ),
 			],
 			'mute' => [
 				ParamValidator::PARAM_ISMULTI => true,
