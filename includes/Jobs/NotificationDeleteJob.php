@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\Notifications\Jobs;
 
 use Job;
+use JobQueueGroup;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\NotifUser;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 
@@ -21,13 +21,20 @@ use MediaWiki\User\User;
  * queued for them.
  */
 class NotificationDeleteJob extends Job {
+	private JobQueueGroup $jobQueueGroup;
 
 	/**
 	 * @param Title $title
 	 * @param array $params
+	 * @param JobQueueGroup $jobQueueGroup
 	 */
-	public function __construct( Title $title, array $params ) {
+	public function __construct(
+		Title $title,
+		array $params,
+		JobQueueGroup $jobQueueGroup
+	) {
 		parent::__construct( 'EchoNotificationDeleteJob', $title, $params );
+		$this->jobQueueGroup = $jobQueueGroup;
 	}
 
 	/**
@@ -40,9 +47,13 @@ class NotificationDeleteJob extends Job {
 			// If there are multiple users, queue a single job for each one
 			$jobs = [];
 			foreach ( $this->params['userIds'] as $userId ) {
-				$jobs[] = new NotificationDeleteJob( $this->title, [ 'userIds' => [ $userId ] ] );
+				$jobs[] = new NotificationDeleteJob(
+					$this->title,
+					[ 'userIds' => [ $userId ] ],
+					$this->jobQueueGroup
+				);
 			}
-			MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
+			$this->jobQueueGroup->push( $jobs );
 
 			return true;
 		}

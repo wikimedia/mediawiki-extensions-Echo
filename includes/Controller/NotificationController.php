@@ -215,13 +215,15 @@ class NotificationController {
 			return;
 		}
 
+		$jobQueueGroup = MediaWikiServices::getInstance()->getJobQueueGroup();
 		$job = new NotificationDeleteJob(
 			$event->getTitle() ?: Title::newMainPage(),
 			[
 				'userIds' => $userIds
-			]
+			],
+			$jobQueueGroup
 		);
-		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $job );
+		$jobQueueGroup->push( $job );
 	}
 
 	/**
