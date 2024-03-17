@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\Notifications\Api;
 
 use ApiBase;
 use ApiMain;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Cache\LinkBatchFactory;
 use MediaWiki\Title\Title;
 use MediaWiki\User\CentralId\CentralIdLookup;
 use MediaWiki\User\Options\UserOptionsManager;
@@ -14,6 +14,9 @@ class ApiEchoMute extends ApiBase {
 
 	/** @var CentralIdLookup */
 	private $centralIdLookup;
+
+	/** @var LinkBatchFactory */
+	private $linkBatchFactory;
 
 	/** @var UserOptionsManager */
 	private $userOptionsManager;
@@ -34,17 +37,20 @@ class ApiEchoMute extends ApiBase {
 	 * @param ApiMain $main
 	 * @param string $action
 	 * @param CentralIdLookup $centralIdLookup
+	 * @param LinkBatchFactory $linkBatchFactory
 	 * @param UserOptionsManager $userOptionsManager
 	 */
 	public function __construct(
 		ApiMain $main,
 		$action,
 		CentralIdLookup $centralIdLookup,
+		LinkBatchFactory $linkBatchFactory,
 		UserOptionsManager $userOptionsManager
 	) {
 		parent::__construct( $main, $action );
 
 		$this->centralIdLookup = $centralIdLookup;
+		$this->linkBatchFactory = $linkBatchFactory;
 		$this->userOptionsManager = $userOptionsManager;
 	}
 
@@ -97,7 +103,7 @@ class ApiEchoMute extends ApiBase {
 
 	private function lookupIds( $names, $type ) {
 		if ( $type === 'title' ) {
-			$linkBatch = MediaWikiServices::getInstance()->getLinkBatchFactory()->newLinkBatch();
+			$linkBatch = $this->linkBatchFactory->newLinkBatch();
 			foreach ( $names as $name ) {
 				$linkBatch->addObj( Title::newFromText( $name ) );
 			}
