@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chuvash2014"
+			"Chuvash2014",
+			"Astahar"
 		]
 	},
-	"echo-pref-email-format-html": "HTML"
+	"echo-pref-email-format-html": "HTML",
+	"echo-category-title-other": "{{PLURAL:$1|Ытти}}",
+	"echo-category-title-system": "{{PLURAL:$1|Системӑри}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|Системӑри}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Системӑри}}",
+	"echo-category-title-user-rights": "Хутшӑнаканӑн {{PLURAL:$1|правине|прависене}} улӑштарни"
 }
