@@ -36,7 +36,7 @@ abstract class DiscussionParser {
 	protected static $revisionInterpretationCache = [];
 
 	/** @var DiffParser|null */
-	protected static $diffParser;
+	protected static $diffParser = null;
 
 	/**
 	 * Given a RevisionRecord object, generates Event objects for
@@ -1012,7 +1012,7 @@ abstract class DiscussionParser {
 	 * * 'left_pos' and 'right_pos' (in lines) of the change.
 	 */
 	public static function getMachineReadableDiff( $oldText, $newText ) {
-		if ( !isset( self::$diffParser ) ) {
+		if ( self::$diffParser === null ) {
 			self::$diffParser = new DiffParser;
 		}
 
