@@ -92,7 +92,7 @@
 	"echo-notification-markasread": "Билгалйе йешна санна",
 	"echo-notification-markasunread": "Билгалйе ца-йешна санна",
 	"echo-notification-markasread-tooltip": "Билгалйе йешна санна",
-	"echo-notification-more-options-tooltip": "Дукха таронаш",
+	"echo-notification-more-options-tooltip": "Кхин сов таронаш",
 	"notification-link-text-expand-all": "Схьайаста",
 	"notification-link-text-expand-alert-count": "Гайта {{PLURAL:$1|$1 дӀахьедар}}",
 	"notification-link-text-expand-notice-count": "Гайта {{PLURAL:$1|$1 хаам}}",
