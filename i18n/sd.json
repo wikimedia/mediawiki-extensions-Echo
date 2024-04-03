@@ -158,7 +158,7 @@
 	"echo-notification-notice-text-only": "اطلاع",
 	"echo-overlay-link": "سڀ اطلاع",
 	"echo-overlay-title": "<b>اطلاعَ</b>",
-	"echo-mark-all-as-read": "سڀ پڙھيل طور نشان لڳايو",
+	"echo-mark-all-as-read": "{{PLURAL:$1|سڀ}} پڙھيل طور نشان لڳايو",
 	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|اطلاع|اطلاعن}} کي پڙھيل طور نشان لڳايو ويو",
 	"echo-displaysnippet-title": "نوان اطلاع",
 	"echo-date-today": "اڄ",
