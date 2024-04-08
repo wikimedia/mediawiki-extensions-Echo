@@ -168,6 +168,8 @@
 	"notification-header-foreign-notice": "وڌيڪ {{PLURAL:$5|ھڪ وکي|$5 ٻين کان}} اطلاع",
 	"echo-foreign-wiki-lang": "$1 - $2",
 	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
+	"right-manage-all-push-subscriptions": "سڀني پش سبسڪرپشنن کي سنڀاليو",
+	"action-manage-all-push-subscriptions": "سڀني پش سبسڪرپشنن کي سنڀاليو",
 	"group-push-subscription-manager": "پُش سبسڪرپشن انتظامڪار",
 	"group-push-subscription-manager-member": "{{GENDER:$1|پُش سبسڪرپشن انتظامڪار}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:پُش سبسڪرپشن انتظامڪار"

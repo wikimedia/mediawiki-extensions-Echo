@@ -6,7 +6,8 @@
 			"Jeluang Terluang",
 			"Kurniasan",
 			"Pizza1016",
-			"Tofeiku"
+			"Tofeiku",
+			"Hakimi97"
 		]
 	},
 	"echo-desc": "Sistem untuk memberitahu pengguna tentang peristiwa dan pesanan",
@@ -27,6 +28,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Teks biasa",
 	"echo-pref-cross-wiki-notifications": "Tunjuk pemberitahuan daripada wiki lain",
+	"echo-pref-dont-email-read-notifications": "Jangan sertakan pemberitahuan baca dalam e-mel ringkasan",
 	"echo-learn-more": "Ketahui lebih lanjut",
 	"echo-log": "Log awam",
 	"echo-new-messages": "Anda mempunyai pesanan baru",
