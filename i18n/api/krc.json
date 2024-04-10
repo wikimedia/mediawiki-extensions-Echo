@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ernác"
+			"Ernác",
+			"Къарачайлы"
 		]
 	},
 	"apihelp-echomarkread-param-list": "Окъулгъанлача белгилер ючюн ID'лени билдириулени тизмеси.",
@@ -14,5 +15,5 @@
 	"apihelp-query+notifications-param-prop": "Соруу ючюн деталла.",
 	"apihelp-query+notifications-param-sections": "Соруу ючюн билдириу тюрлюлери ('билдириу' бла 'джазылгъан' дегенлени комбинациялары).",
 	"apihelp-query+notifications-param-limit": "Къайтарылыучу билдириулени максимал саны.",
-	"apihelp-query+notifications-example-1": "Билдириулени тизмеси"
+	"apihelp-query+notifications-example-1": "Веб-билдириулени тизмеси"
 }
