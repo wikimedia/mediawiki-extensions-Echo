@@ -4,6 +4,7 @@ use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\User\User;
+use Wikimedia\Rdbms\DeleteQueryBuilder;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -180,6 +181,10 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 			->willReturnCallback( function ( $table, $conds ) use ( &$expectedArgs ): bool {
 				$this->assertSame( array_shift( $expectedArgs ), [ $table, $conds ] );
 				return true;
+			} );
+		$mockDb->method( 'newDeleteQueryBuilder' )
+			->willReturnCallback( static function () use ( $mockDb ) {
+				return new DeleteQueryBuilder( $mockDb );
 			} );
 
 		$notifMapper = new NotificationMapper( $this->mockDbFactory( $mockDb ) );

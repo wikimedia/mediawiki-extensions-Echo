@@ -92,14 +92,14 @@ class UserMergeHooks implements
 				// Delete notifications
 				$ids = array_merge( $selfIds, $welcomeIds, $thankYouIds );
 				if ( $ids !== [] ) {
-					$dbw->delete(
-						'echo_notification',
-						[
+					$dbw->newDeleteQueryBuilder()
+						->deleteFrom( 'echo_notification' )
+						->where( [
 							'notification_user' => $newUser->getId(),
 							'notification_event' => $ids
-						],
-						$method
-					);
+						] )
+						->caller( $method )
+						->execute();
 				}
 			}
 

@@ -150,11 +150,11 @@ class UnreadWikis {
 				->execute();
 		} else {
 			// No unread notifications, delete the row
-			$dbw->delete(
-				'echo_unread_wikis',
-				$conditions,
-				__METHOD__
-			);
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'echo_unread_wikis' )
+				->where( $conditions )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 }

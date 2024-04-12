@@ -232,8 +232,16 @@ class EventMapper extends AbstractMapper {
 			]
 		);
 		if ( $orphanedEventIds ) {
-			$dbw->delete( 'echo_event', [ 'event_id' => $orphanedEventIds ], __METHOD__ );
-			$dbw->delete( 'echo_target_page', [ 'etp_event' => $orphanedEventIds ], __METHOD__ );
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'echo_event' )
+				->where( [ 'event_id' => $orphanedEventIds ] )
+				->caller( __METHOD__ )
+				->execute();
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'echo_target_page' )
+				->where( [ 'etp_event' => $orphanedEventIds ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 

@@ -85,9 +85,17 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			foreach ( $batch as $row ) {
 				$ids[] = $row->event_id;
 			}
-			$dbw->delete( 'echo_event', [ 'event_id' => $ids ], __METHOD__ );
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'echo_event' )
+				->where( [ 'event_id' => $ids ] )
+				->caller( __METHOD__ )
+				->execute();
 			$eventsProcessed += $dbw->affectedRows();
-			$dbw->delete( 'echo_target_page', [ 'etp_event' => $ids ], __METHOD__ );
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'echo_target_page' )
+				->where( [ 'etp_event' => $ids ] )
+				->caller( __METHOD__ )
+				->execute();
 			$targetsProcessed += $dbw->affectedRows();
 			$this->output( "Deleted $eventsProcessed orphaned events and $targetsProcessed target_page rows.\n" );
 			$this->waitForReplication();
@@ -116,7 +124,11 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 			foreach ( $batch as $row ) {
 				$ids[] = $row->etp_event;
 			}
-			$dbw->delete( 'echo_target_page', [ 'etp_event' => $ids ], __METHOD__ );
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'echo_target_page' )
+				->where( [ 'etp_event' => $ids ] )
+				->caller( __METHOD__ )
+				->execute();
 			$processed += $dbw->affectedRows();
 			$this->output( "Deleted $processed orphaned target_page rows.\n" );
 			$this->waitForReplication();

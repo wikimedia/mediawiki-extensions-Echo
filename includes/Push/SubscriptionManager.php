@@ -123,11 +123,11 @@ class SubscriptionManager extends AbstractMapper {
 		if ( $centralId ) {
 			$cond['eps_user'] = $centralId;
 		}
-		$this->dbw->delete(
-			'echo_push_subscription',
-			$cond,
-			__METHOD__
-		);
+		$this->dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'echo_push_subscription' )
+			->where( $cond )
+			->caller( __METHOD__ )
+			->execute();
 		return $this->dbw->affectedRows();
 	}
 

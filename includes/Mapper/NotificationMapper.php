@@ -391,14 +391,14 @@ class NotificationMapper extends AbstractMapper {
 			foreach ( $batch as $row ) {
 				$eventIds[] = $row->notification_event;
 			}
-			$dbw->delete(
-				'echo_notification',
-				[
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'echo_notification' )
+				->where( [
 					'notification_user' => $userId,
 					'notification_event' => $eventIds,
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 
 			// Find out which events are now orphaned, i.e. no longer referenced in echo_notifications
 			// (besides the rows we just deleted) or in echo_email_batch, and delete them

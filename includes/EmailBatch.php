@@ -310,10 +310,14 @@ class EmailBatch {
 			foreach ( $batch as $row ) {
 				$eventIds[] = $row->eeb_event_id;
 			}
-			$dbw->delete( 'echo_email_batch', [
-				'eeb_user_id' => $this->mUser->getId(),
-				'eeb_event_id' => $eventIds
-			], __METHOD__ );
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'echo_email_batch' )
+				->where( [
+					'eeb_user_id' => $this->mUser->getId(),
+					'eeb_event_id' => $eventIds
+				] )
+				->caller( __METHOD__ )
+				->execute();
 
 			// Find out which events are now orphaned, i.e. no longer referenced in echo_email_batch
 			// (besides the rows we just deleted) or in echo_notification, and delete them
