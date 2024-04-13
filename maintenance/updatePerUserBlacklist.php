@@ -73,17 +73,17 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 				$user = User::newFromId( $row->up_user );
 				$ids = $centralIdLookup->centralIdsFromNames( $names, $user );
 
-				$dbw->update(
-					'user_properties',
-					[
+				$dbw->newUpdateQueryBuilder()
+					->update( 'user_properties' )
+					->set( [
 						'up_value'  => implode( "\n", $ids ),
-					],
-					[
+					] )
+					->where( [
 						'up_user' => $row->up_user,
 						'up_property' => 'echo-notifications-blacklist',
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 				$processed += $dbw->affectedRows();
 				$this->waitForReplication();
 			}

@@ -5,6 +5,7 @@ use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\User\User;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\UpdateQueryBuilder;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway
@@ -155,6 +156,8 @@ class UserNotificationGatewayTest extends MediaWikiUnitTestCase {
 			'selectRowCount' => '',
 		];
 		$db = $this->createMock( IDatabase::class );
+		$db->method( 'affectedRows' )
+			->willReturn( $dbResult['update'] ? 1 : 0 );
 		$db->method( 'update' )
 			->willReturn( $dbResult['update'] );
 		$db->method( 'select' )
@@ -163,6 +166,10 @@ class UserNotificationGatewayTest extends MediaWikiUnitTestCase {
 			->willReturn( $dbResult['selectRow'] );
 		$db->method( 'selectRowCount' )
 			->willReturn( $dbResult['selectRowCount'] );
+		$db->method( 'newUpdateQueryBuilder' )
+			->willReturnCallback( static function () use ( $db ) {
+				return new UpdateQueryBuilder( $db );
+			} );
 
 		return $db;
 	}

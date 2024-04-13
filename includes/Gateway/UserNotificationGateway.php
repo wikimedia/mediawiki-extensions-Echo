@@ -78,16 +78,17 @@ class UserNotificationGateway {
 		foreach (
 			array_chunk( $eventIDs, $this->config->get( 'UpdateRowsPerQuery' ) ) as $batch
 		) {
-			$success = $dbw->update(
-				self::$notificationTable,
-				[ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ],
-				[
+			$dbw->newUpdateQueryBuilder()
+				->update( self::$notificationTable )
+				->set( [ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ] )
+				->where( [
 					'notification_user' => $this->user->getId(),
 					'notification_event' => $batch,
 					'notification_read_timestamp' => null,
-				],
-				__METHOD__
-			) && $success;
+				] )
+				->caller( __METHOD__ )
+				->execute();
+			$success = $dbw->affectedRows() && $success;
 		}
 
 		return $success;
@@ -113,16 +114,17 @@ class UserNotificationGateway {
 		foreach (
 			array_chunk( $eventIDs, $this->config->get( 'UpdateRowsPerQuery' ) ) as $batch
 		) {
-			$success = $dbw->update(
-				self::$notificationTable,
-				[ 'notification_read_timestamp' => null ],
-				[
+			$dbw->newUpdateQueryBuilder()
+				->update( self::$notificationTable )
+				->set( [ 'notification_read_timestamp' => null ] )
+				->where( [
 					'notification_user' => $this->user->getId(),
 					'notification_event' => $batch,
-					'notification_read_timestamp IS NOT NULL'
-				],
-				__METHOD__
-			) && $success;
+					$dbw->expr( 'notification_read_timestamp', '!=', null ),
+				] )
+				->caller( __METHOD__ )
+				->execute();
+			$success = $dbw->affectedRows() && $success;
 		}
 		return $success;
 	}
@@ -138,15 +140,15 @@ class UserNotificationGateway {
 			return false;
 		}
 
-		$dbw->update(
-			self::$notificationTable,
-			[ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ],
-			[
+		$dbw->newUpdateQueryBuilder()
+			->update( self::$notificationTable )
+			->set( [ 'notification_read_timestamp' => $dbw->timestamp( wfTimestampNow() ) ] )
+			->where( [
 				'notification_user' => $this->user->getId(),
 				'notification_read_timestamp' => null,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		return true;
 	}

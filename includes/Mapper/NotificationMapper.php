@@ -37,7 +37,11 @@ class NotificationMapper extends AbstractMapper {
 					$dbw->timestamp( $row['notification_timestamp'] );
 				$row['notification_read_timestamp'] =
 					$dbw->timestampOrNull( $row['notification_read_timestamp'] );
-				$dbw->insert( 'echo_notification', $row, $fname );
+				$dbw->newInsertQueryBuilder()
+					->insertInto( 'echo_notification' )
+					->row( $row )
+					->caller( $fname )
+					->execute();
 				foreach ( $listeners as $listener ) {
 					$dbw->onTransactionCommitOrIdle( $listener, $fname );
 				}

@@ -23,7 +23,11 @@ class EventMapper extends AbstractMapper {
 
 		$row = $event->toDbArray();
 
-		$dbw->insert( 'echo_event', $row, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'echo_event' )
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 
 		$id = $dbw->insertId();
 
@@ -66,17 +70,17 @@ class EventMapper extends AbstractMapper {
 
 		$selectDeleted = $deleted ? 0 : 1;
 		$setDeleted = $deleted ? 1 : 0;
-		$dbw->update(
-			'echo_event',
-			[
+		$dbw->newUpdateQueryBuilder()
+			->update( 'echo_event' )
+			->set( [
 				'event_deleted' => $setDeleted,
-			],
-			[
+			] )
+			->where( [
 				'event_deleted' => $selectDeleted,
 				'event_id' => $eventIds,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

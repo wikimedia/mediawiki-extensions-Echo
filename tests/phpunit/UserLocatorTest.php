@@ -28,7 +28,11 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 			];
 		}
 
-		$this->getDb()->insert( 'watchlist', $rows, __METHOD__ );
+		$this->getDb()->newInsertQueryBuilder()
+			->insertInto( 'watchlist' )
+			->rows( $rows )
+			->caller( __METHOD__ )
+			->execute();
 
 		$event = $this->createMock( Event::class );
 		$event->method( 'getTitle' )
