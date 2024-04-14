@@ -396,12 +396,12 @@ class EmailBatch {
 			'eeb_event_hash' => $hash
 		];
 
-		$dbw->insert(
-			'echo_email_batch',
-			$row,
-			__METHOD__,
-			[ 'IGNORE' ]
-		);
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'echo_email_batch' )
+			->ignore()
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

@@ -4,6 +4,7 @@ use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\InsertQueryBuilder;
 
 /**
  * @group Database
@@ -114,6 +115,10 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $dbResult['select'] );
 		$db->method( 'selectRow' )
 			->willReturn( $dbResult['selectRow'] );
+		$db->method( 'newInsertQueryBuilder' )
+			->willReturnCallback( static function () use ( $db ) {
+				return new InsertQueryBuilder( $db );
+			} );
 
 		return $db;
 	}

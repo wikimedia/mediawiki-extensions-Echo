@@ -69,9 +69,10 @@ class SubscriptionManager extends AbstractMapper {
 			$this->delete( [ $oldest->getToken() ], $centralId );
 		}
 		$topicId = $topic ? $this->pushTopicStore->acquireId( $topic ) : null;
-		$this->dbw->insert(
-			'echo_push_subscription',
-			[
+		$this->dbw->newInsertQueryBuilder()
+			->insertInto( 'echo_push_subscription' )
+			->ignore()
+			->row( [
 				'eps_user' => $centralId,
 				'eps_provider' => $this->pushProviderStore->acquireId( $provider ),
 				'eps_token' => $token,
@@ -79,10 +80,9 @@ class SubscriptionManager extends AbstractMapper {
 				'eps_data' => null,
 				'eps_topic' => $topicId,
 				'eps_updated' => $this->dbw->timestamp()
-			],
-			__METHOD__,
-			[ 'IGNORE' ]
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 		return (bool)$this->dbw->affectedRows();
 	}
 
