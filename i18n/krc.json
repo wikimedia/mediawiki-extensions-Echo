@@ -44,7 +44,7 @@
 	"echo-none": "Билдириуюгюз болмагъанды.",
 	"notification-link-text-view-message": "Билдириуню кёр",
 	"notification-link-text-view-mention": "Сагъыныуну кёр",
-	"notification-link-text-view-changes": "Тюрлендириулерени {{GENDER:$1|кёргюзт}}",
+	"notification-link-text-view-changes": "Тюрлендирилени {{GENDER:$1|кёргюзт}}",
 	"notification-link-text-view-page": "Бетни кёр",
 	"notification-link-text-view-edit": "Тюрлендириуню кёр",
 	"notification-header-reverted": "{{PLURAL:$4|$3 бетдеги тюзетиуюгюз|$3 бетдеги тюзетиулеригиз}} {{GENDER:$2|кери алынды}}.",
