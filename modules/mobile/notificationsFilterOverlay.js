@@ -8,7 +8,6 @@ var Overlay = require( 'mobile.startup' ).Overlay;
  * @param {Function} options.onBeforeExit executes before overlay closes
  * @param {jQuery.Object} options.$notifReadState - notification read status widgets
  * @param {jQuery.Object} options.$crossWikiUnreadFilter - notification unread filter
- *
  */
 function notificationsFilterOverlay( options ) {
 	// Don't call overlay.hide(), because that doesn't invoke the onBeforeExit callback (T258954)
