@@ -17,6 +17,7 @@
 	"prefs-echopollupdates": "ДӀахаийтарш хӀинца йолу ханнахь",
 	"echo-mobile-notifications-filter-title": "ДӀахаийтарийн литтарг",
 	"echo-pref-show-poll-updates": "Керла дӀахаийтарш гайта уьш йазмадийнехь",
+	"echo-pref-show-poll-updates-help": "Гайта дешна доцо дӀахаийтарш лакхарчу панелан тӀехь, цул совнах хӀора дӀахаийтаршна гайна гучуболу хаам, из схьа ма кхаьчча.",
 	"echo-pref-send-me": "Баийта соьга:",
 	"echo-pref-send-to": "Хаам баийта тӀе:",
 	"echo-pref-email-format": "Хааман формат:",
