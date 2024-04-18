@@ -76,7 +76,7 @@ class UserMergeHooks implements
 					],
 					$method,
 					[ 'ORDER BY' => 'notification_timestamp ASC' ]
-				) ?: [];
+				);
 				foreach ( $thankYouRows as $row ) {
 					$event = Event::newFromRow( $row );
 					$editCount = $event ? $event->getExtraParam( 'editCount' ) : null;

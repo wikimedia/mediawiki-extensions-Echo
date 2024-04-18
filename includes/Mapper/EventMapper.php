@@ -101,12 +101,10 @@ class EventMapper extends AbstractMapper {
 			[ 'event_page_id' => $pageId ],
 			__METHOD__
 		);
-		if ( $res ) {
-			foreach ( $res as $row ) {
-				$event = Event::newFromRow( $row );
-				$events[] = $event;
-				$seenEventIds[] = $event->getId();
-			}
+		foreach ( $res as $row ) {
+			$event = Event::newFromRow( $row );
+			$events[] = $event;
+			$seenEventIds[] = $event->getId();
 		}
 
 		// From echo_target_page
@@ -124,10 +122,8 @@ class EventMapper extends AbstractMapper {
 			[ 'DISTINCT' ],
 			[ 'echo_target_page' => [ 'INNER JOIN', 'event_id=etp_event' ] ]
 		);
-		if ( $res ) {
-			foreach ( $res as $row ) {
-				$events[] = Event::newFromRow( $row );
-			}
+		foreach ( $res as $row ) {
+			$events[] = Event::newFromRow( $row );
 		}
 
 		return $events;

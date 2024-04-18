@@ -20,12 +20,6 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function fetchUnreadByUser( User $user, $limit, array $eventTypes = [] ) {
-		// Unsuccessful select
-		$notifMapper = new NotificationMapper( $this->mockDbFactory( [ 'select' => false ] ) );
-		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '' );
-		$this->assertSame( [], $res );
-
-		// Successful select
 		$dbResult = [
 			(object)[
 				'event_id' => 1,
@@ -55,12 +49,6 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testFetchByUser() {
-		// Unsuccessful select
-		$notifMapper = new NotificationMapper( $this->mockDbFactory( [ 'select' => false ] ) );
-		$res = $notifMapper->fetchByUser( $this->mockUser(), 10, '' );
-		$this->assertSame( [], $res );
-
-		// Successful select
 		$notifDbResult = [
 			(object)[
 				'event_id' => 1,

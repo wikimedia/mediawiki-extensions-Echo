@@ -265,11 +265,6 @@ class NotificationMapper extends AbstractMapper {
 			]
 		);
 
-		// query failure of some sort
-		if ( !$res ) {
-			return [];
-		}
-
 		/** @var Notification[] $allNotifications */
 		$allNotifications = [];
 		foreach ( $res as $row ) {
@@ -298,7 +293,7 @@ class NotificationMapper extends AbstractMapper {
 	 *
 	 * @param UserIdentity $userIdentity
 	 * @param int[] $eventIds
-	 * @return Notification[]|false
+	 * @return Notification[]
 	 */
 	public function fetchByUserEvents( UserIdentity $userIdentity, array $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
@@ -317,15 +312,11 @@ class NotificationMapper extends AbstractMapper {
 			]
 		 );
 
-		if ( $result ) {
-			$notifications = [];
-			foreach ( $result as $row ) {
-				$notifications[] = Notification::newFromRow( $row );
-			}
-			return $notifications;
-		} else {
-			return false;
+		$notifications = [];
+		foreach ( $result as $row ) {
+			$notifications[] = Notification::newFromRow( $row );
 		}
+		return $notifications;
 	}
 
 	/**
@@ -418,7 +409,7 @@ class NotificationMapper extends AbstractMapper {
 	 * Fetch ids of users that have notifications for certain events
 	 *
 	 * @param int[] $eventIds
-	 * @return int[]|false
+	 * @return int[]
 	 */
 	public function fetchUsersWithNotificationsForEvents( array $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
@@ -432,15 +423,11 @@ class NotificationMapper extends AbstractMapper {
 			__METHOD__
 		);
 
-		if ( $res ) {
-			$userIds = [];
-			foreach ( $res as $row ) {
-				$userIds[] = $row->userId;
-			}
-			return $userIds;
-		} else {
-			return false;
+		$userIds = [];
+		foreach ( $res as $row ) {
+			$userIds[] = $row->userId;
 		}
+		return $userIds;
 	}
 
 }

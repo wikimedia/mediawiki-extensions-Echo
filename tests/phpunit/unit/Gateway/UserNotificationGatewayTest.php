@@ -91,13 +91,6 @@ class UserNotificationGatewayTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testGetUnreadNotifications() {
-		$gateway = new UserNotificationGateway(
-			$this->mockUser(),
-			$this->mockDbFactory( [ 'select' => false ] ),
-			$this->mockConfig()
-		);
-		$this->assertSame( [], $gateway->getUnreadNotifications( 'user_talk' ) );
-
 		$dbResult = [
 			(object)[ 'notification_event' => 1 ],
 			(object)[ 'notification_event' => 2 ],

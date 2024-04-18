@@ -108,13 +108,6 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 			[ 'echo_notification' => [ 'INNER JOIN', 'notification_event = event_id' ] ]
 		);
 
-		if ( $rows === false ) {
-			return [
-				'pages' => [],
-				'totalCount' => 0,
-			];
-		}
-
 		$nullCount = 0;
 		$pageCounts = [];
 		foreach ( $rows as $row ) {

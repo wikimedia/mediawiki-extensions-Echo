@@ -221,10 +221,8 @@ class UserNotificationGateway {
 		);
 
 		$eventIds = [];
-		if ( $res ) {
-			foreach ( $res as $row ) {
-				$eventIds[$row->notification_event] = $row->notification_event;
-			}
+		foreach ( $res as $row ) {
+			$eventIds[$row->notification_event] = $row->notification_event;
 		}
 
 		return $eventIds;
