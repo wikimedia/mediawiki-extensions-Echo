@@ -3,6 +3,7 @@
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Model\TargetPage;
+use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\InsertQueryBuilder;
 
@@ -73,7 +74,7 @@ class TargetPageMapperTest extends MediaWikiUnitTestCase {
 		$dbResult += [
 			'insert' => '',
 			'insertId' => '',
-			'select' => '',
+			'select' => [],
 			'delete' => ''
 		];
 		$db = $this->createMock( IDatabase::class );
@@ -82,7 +83,7 @@ class TargetPageMapperTest extends MediaWikiUnitTestCase {
 		$db->method( 'insertId' )
 			->willReturn( $dbResult['insertId'] );
 		$db->method( 'select' )
-			->willReturn( $dbResult['select'] );
+			->willReturn( new FakeResultWrapper( $dbResult['select'] ) );
 		$db->method( 'delete' )
 			->willReturn( $dbResult['delete'] );
 		$db->method( 'newInsertQueryBuilder' )

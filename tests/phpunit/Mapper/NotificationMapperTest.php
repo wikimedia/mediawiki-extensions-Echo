@@ -5,6 +5,7 @@ use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\User\User;
 use Wikimedia\Rdbms\DeleteQueryBuilder;
+use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -115,7 +116,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		$this->setMwGlobals( [ 'wgUpdateRowsPerQuery' => 4 ] );
 		$mockDb = $this->createMock( IDatabase::class );
 		$makeResultRows = static function ( $eventIds ) {
-			return new ArrayIterator( array_map( static function ( $eventId ) {
+			return new FakeResultWrapper( array_map( static function ( $eventId ) {
 				return (object)[ 'notification_event' => $eventId ];
 			}, $eventIds ) );
 		};
@@ -229,7 +230,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 	protected function mockDb( array $dbResult ) {
 		$dbResult += [
 			'insert' => '',
-			'select' => '',
+			'select' => [],
 			'selectRow' => '',
 			'delete' => ''
 		];
@@ -238,7 +239,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		$db->method( 'insert' )
 			->willReturn( $dbResult['insert'] );
 		$db->method( 'select' )
-			->willReturn( $dbResult['select'] );
+			->willReturn( new FakeResultWrapper( $dbResult['select'] ) );
 		$db->method( 'delete' )
 			->willReturn( $dbResult['delete'] );
 		$db->method( 'selectRow' )
