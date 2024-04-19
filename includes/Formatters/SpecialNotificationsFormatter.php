@@ -7,7 +7,6 @@ use MediaWiki\Html\Html;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Utils\MWTimestamp;
 use OOUI\IconWidget;
-use Xml;
 
 /**
  * A formatter for Special:Notifications
@@ -49,7 +48,7 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 			$markAsReadForm->prepareForm()->getHTML( false )
 		);
 
-		$html = Xml::tags(
+		$html = Html::rawElement(
 			'div',
 			[ 'class' => 'mw-echo-title' ],
 			$model->getHeaderMessage()->parse()
@@ -57,10 +56,10 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 
 		$body = $model->getBodyMessage();
 		if ( $body ) {
-			$html .= Xml::tags(
+			$html .= Html::element(
 				'div',
 				[ 'class' => 'mw-echo-payload' ],
-				$body->escaped()
+				$body->text()
 			) . "\n";
 		}
 
@@ -97,7 +96,7 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 		}
 
 		$pipe = wfMessage( 'pipe-separator' )->inLanguage( $this->language )->text();
-		$html .= Xml::tags(
+		$html .= Html::rawElement(
 			'div',
 			[ 'class' => 'mw-echo-notification-footer' ],
 			implode(
@@ -106,13 +105,11 @@ class SpecialNotificationsFormatter extends EchoEventFormatter {
 			)
 		) . "\n";
 
-		// Wrap everything in mw-echo-content class
-		$html = Xml::tags( 'div', [ 'class' => 'mw-echo-content' ], $html );
-
-		// And then add the mark as read button
-		// and the icon in front and wrap with
-		// mw-echo-state class.
-		return Xml::tags( 'div', [ 'class' => 'mw-echo-state' ], $markAsReadButton . $icon . $html );
+		return Html::rawElement( 'div', [ 'class' => 'mw-echo-state' ],
+			$markAsReadButton .
+			$icon .
+			Html::rawElement( 'div', [ 'class' => 'mw-echo-content' ], $html )
+		);
 	}
 
 	private function getIconURL( EchoEventPresentationModel $model ) {

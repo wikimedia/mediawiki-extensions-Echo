@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\Notifications\Formatters;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Utils\MWTimestamp;
-use Xml;
 
 /**
  * A formatter for the notification flyout popup
@@ -23,7 +22,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 			]
 		);
 
-		$html = Xml::tags(
+		$html = Html::rawElement(
 			'div',
 			[ 'class' => 'mw-echo-title' ],
 			$model->getHeaderMessage()->parse()
@@ -31,7 +30,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 
 		$body = $model->getBodyMessage();
 		if ( $body ) {
-			$html .= Xml::tags(
+			$html .= Html::rawElement(
 				'div',
 				[ 'class' => 'mw-echo-payload' ],
 				$body->parse()
@@ -49,7 +48,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		foreach ( $secondaryLinks as $link ) {
 			$footerItems[] = Html::element( 'a', [ 'href' => $link['url'] ], $link['label'] );
 		}
-		$html .= Xml::tags(
+		$html .= Html::rawElement(
 			'div',
 			[ 'class' => 'mw-echo-notification-footer' ],
 			$this->language->pipeList( $footerItems )
@@ -65,11 +64,10 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 			) . "\n";
 		}
 
-		// Wrap everything in mw-echo-content class
-		$html = Xml::tags( 'div', [ 'class' => 'mw-echo-content' ], $html );
-
-		// And then add the icon in front and wrap with mw-echo-state class.
-		return Xml::tags( 'div', [ 'class' => 'mw-echo-state' ], $icon . $html );
+		return Html::rawElement( 'div', [ 'class' => 'mw-echo-state' ],
+			$icon .
+			Html::rawElement( 'div', [ 'class' => 'mw-echo-content' ], $html )
+		);
 	}
 
 	private function getIconURL( EchoEventPresentationModel $model ) {
