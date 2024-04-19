@@ -4,6 +4,7 @@ use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\User\User;
+use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\UpdateQueryBuilder;
 
@@ -144,9 +145,9 @@ class UserNotificationGatewayTest extends MediaWikiUnitTestCase {
 	protected function mockDb( array $dbResult = [] ) {
 		$dbResult += [
 			'update' => '',
-			'select' => '',
+			'select' => [],
 			'selectRow' => '',
-			'selectRowCount' => '',
+			'selectRowCount' => 0,
 		];
 		$db = $this->createMock( IDatabase::class );
 		$db->method( 'affectedRows' )
@@ -154,7 +155,7 @@ class UserNotificationGatewayTest extends MediaWikiUnitTestCase {
 		$db->method( 'update' )
 			->willReturn( $dbResult['update'] );
 		$db->method( 'select' )
-			->willReturn( $dbResult['select'] );
+			->willReturn( new FakeResultWrapper( $dbResult['select'] ) );
 		$db->method( 'selectRow' )
 			->willReturn( $dbResult['selectRow'] );
 		$db->method( 'selectRowCount' )

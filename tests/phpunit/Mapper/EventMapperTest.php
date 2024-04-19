@@ -3,6 +3,7 @@
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
+use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\InsertQueryBuilder;
 
@@ -103,7 +104,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 		$dbResult += [
 			'insert' => '',
 			'insertId' => '',
-			'select' => '',
+			'select' => [],
 			'selectRow' => ''
 		];
 		$db = $this->createMock( IDatabase::class );
@@ -112,7 +113,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 		$db->method( 'insertId' )
 			->willReturn( $dbResult['insertId'] );
 		$db->method( 'select' )
-			->willReturn( $dbResult['select'] );
+			->willReturn( new FakeResultWrapper( $dbResult['select'] ) );
 		$db->method( 'selectRow' )
 			->willReturn( $dbResult['selectRow'] );
 		$db->method( 'newInsertQueryBuilder' )
