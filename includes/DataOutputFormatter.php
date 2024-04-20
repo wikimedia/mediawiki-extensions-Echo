@@ -81,10 +81,10 @@ class DataOutputFormatter {
 		if ( $timeDiff > 172800 ) {
 			$date = self::getDateHeader( $user, $timestampMw );
 		// 'Today'
-		} elseif ( substr( self::getUserLocalTime( $user, $now ), 0, 8 ) === $dateFormat ) {
+		} elseif ( str_starts_with( self::getUserLocalTime( $user, $now ), $dateFormat ) ) {
 			$date = wfMessage( 'echo-date-today' )->escaped();
 		// 'Yesterday'
-		} elseif ( substr( self::getUserLocalTime( $user, $now - 86400 ), 0, 8 ) === $dateFormat ) {
+		} elseif ( str_starts_with( self::getUserLocalTime( $user, $now - 86400 ), $dateFormat ) ) {
 			$date = wfMessage( 'echo-date-yesterday' )->escaped();
 		} else {
 			$date = self::getDateHeader( $user, $timestampMw );
