@@ -196,7 +196,7 @@
 	"notification-user-rights-email-subject": "{{SITENAME}} saytındakı istifadəçi hüquqlarınız {{GENDER:$3|dəyişdirilib}}",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 sn}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 dq}}",
-	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 st}}",
+	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 saat}}",
 	"notification-timestamp-ago-days": "{{PLURAL:$1|$1 g}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 ay}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 il}}",
