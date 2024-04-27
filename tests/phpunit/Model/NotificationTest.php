@@ -6,6 +6,7 @@ use MediaWiki\Extension\Notifications\Model\TargetPage;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\Model\Notification
@@ -45,8 +46,13 @@ class NotificationTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testNewFromRowWithException() {
+		$queryBuilder = $this->createMock( SelectQueryBuilder::class );
+		$queryBuilder->method( $this->logicalOr( 'select', 'from', 'where', 'caller' ) )->willReturnSelf();
+		$queryBuilder->method( 'fetchRow' )->willReturn( false );
+		$db = $this->createMock( IDatabase::class );
+		$db->method( 'newSelectQueryBuilder' )->willReturn( $queryBuilder );
 		$lb = $this->createMock( ILoadBalancer::class );
-		$lb->method( 'getConnection' )->willReturn( $this->createMock( IDatabase::class ) );
+		$lb->method( 'getConnection' )->willReturn( $db );
 		$lbFactory = $this->createMock( LBFactory::class );
 		$lbFactory->method( 'getExternalLB' )->willReturn( $lb );
 		$this->setService( 'DBLoadBalancer', $lb );

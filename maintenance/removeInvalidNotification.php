@@ -44,15 +44,15 @@ class RemoveInvalidNotification extends Maintenance {
 		$count = $batchSize;
 
 		while ( $count == $batchSize ) {
-			$res = $dbr->select(
-				[ 'echo_event' ],
-				[ 'event_id' ],
-				[
+			$res = $dbr->newSelectQueryBuilder()
+				->select( 'event_id' )
+				->from( 'echo_event' )
+				->where( [
 					'event_type' => $this->invalidEventType,
-				],
-				__METHOD__,
-				[ 'LIMIT' => $batchSize ]
-			);
+				] )
+				->limit( $batchSize )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 
 			$event = [];
 			$count = 0;

@@ -7,6 +7,7 @@ use MediaWiki\User\User;
 use Wikimedia\Rdbms\DeleteQueryBuilder;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\Mapper\NotificationMapper
@@ -175,6 +176,10 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 			->willReturnCallback( static function () use ( $mockDb ) {
 				return new DeleteQueryBuilder( $mockDb );
 			} );
+		$mockDb->method( 'newSelectQueryBuilder' )
+			->willReturnCallback( static function () use ( $mockDb ) {
+				return new SelectQueryBuilder( $mockDb );
+			} );
 
 		$notifMapper = new NotificationMapper( $this->mockDbFactory( $mockDb ) );
 		$this->assertTrue( $notifMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ) );
@@ -246,6 +251,10 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $dbResult['selectRow'] );
 		$db->method( 'onTransactionCommitOrIdle' )
 			->will( new EchoExecuteFirstArgumentStub );
+		$db->method( 'newSelectQueryBuilder' )
+			->willReturnCallback( static function () use ( $db ) {
+				return new SelectQueryBuilder( $db );
+			} );
 
 		return $db;
 	}

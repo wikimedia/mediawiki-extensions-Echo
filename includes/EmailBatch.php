@@ -181,12 +181,12 @@ class EmailBatch {
 	 */
 	protected function setLastEvent() {
 		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
-		$res = $dbr->selectField(
-			[ 'echo_email_batch' ],
-			'MAX( eeb_event_id )',
-			[ 'eeb_user_id' => $this->mUser->getId() ],
-			__METHOD__
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->select( 'MAX( eeb_event_id )' )
+			->from( 'echo_email_batch' )
+			->where( [ 'eeb_user_id' => $this->mUser->getId() ] )
+			->caller( __METHOD__ )
+			->fetchField();
 
 		if ( $res ) {
 			$this->lastEvent = $res;
@@ -227,49 +227,38 @@ class EmailBatch {
 		// performance in this case
 		if ( $validEvents ) {
 			$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
+			$queryBuilder = $dbr->newSelectQueryBuilder()
+				->select( array_merge( Event::selectFields(), [
+					'eeb_id',
+					'eeb_user_id',
+					'eeb_event_priority',
+					'eeb_event_id',
+					'eeb_event_hash',
+				] ) )
+				->from( 'echo_email_batch' )
+				->join( 'echo_event', null, 'event_id = eeb_event_id' )
+				->where( [
+					'eeb_user_id' => $this->mUser->getId(),
+					'event_type' => $validEvents
+				] )
+				->orderBy( 'eeb_event_priority' )
+				->limit( self::$displaySize + 1 )
+				->caller( __METHOD__ );
 
-			$conds = [
-				'eeb_user_id' => $this->mUser->getId(),
-				'event_id = eeb_event_id',
-				'event_type' => $validEvents
-			];
-
-			$tables = [ 'echo_email_batch', 'echo_event' ];
 			if ( $this->userOptionsManager->getOption(
 				$this->mUser, 'echo-dont-email-read-notifications'
 			) ) {
-				$conds = array_merge(
-					$conds,
-					[
-						'notification_event = event_id',
-						'notification_read_timestamp IS NULL',
-					]
-				);
-				$tables[] = 'echo_notification';
+				$queryBuilder
+					->join( 'echo_notification', null, 'notification_event = event_id' )
+					->andWhere( [ 'notification_read_timestamp' => null ] );
 			}
 
 			// See setLastEvent() for more detail for this variable
 			if ( $this->lastEvent ) {
-				$conds[] = 'eeb_event_id <= ' . (int)$this->lastEvent;
+				$queryBuilder->andWhere( $dbr->expr( 'eeb_event_id', '<=', (int)$this->lastEvent ) );
 			}
-			$fields = array_merge( Event::selectFields(), [
-				'eeb_id',
-				'eeb_user_id',
-				'eeb_event_priority',
-				'eeb_event_id',
-				'eeb_event_hash',
-			] );
 
-			$res = $dbr->select(
-				$tables,
-				$fields,
-				$conds,
-				__METHOD__,
-				[
-					'ORDER BY' => 'eeb_event_priority',
-					'LIMIT' => self::$displaySize + 1,
-				]
-			);
+			$res = $queryBuilder->fetchResultSet();
 
 			foreach ( $res as $row ) {
 				// records in the queue inserted before email bundling code
@@ -410,18 +399,17 @@ class EmailBatch {
 	 * @param int $startUserId
 	 * @param int $batchSize
 	 *
-	 * @return IResultWrapper|bool
+	 * @return IResultWrapper
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
 		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
-		$res = $dbr->select(
-			[ 'echo_email_batch' ],
-			[ 'eeb_user_id' ],
-			[ 'eeb_user_id > ' . (int)$startUserId ],
-			__METHOD__,
-			[ 'ORDER BY' => 'eeb_user_id', 'LIMIT' => $batchSize ]
-		);
-
-		return $res;
+		return $dbr->newSelectQueryBuilder()
+			->select( 'eeb_user_id' )
+			->from( 'echo_email_batch' )
+			->where( $dbr->expr( 'eeb_user_id', '>', (int)$startUserId ) )
+			->orderBy( 'eeb_user_id' )
+			->limit( $batchSize )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 	}
 }

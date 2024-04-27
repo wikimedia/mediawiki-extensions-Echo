@@ -175,24 +175,19 @@ class UserNotificationGateway {
 		}
 
 		$db = $this->getDB( $dbSource );
-		return $db->selectRowCount(
-			[
-				self::$notificationTable,
-				self::$eventTable
-			],
-			'1',
-			[
+		return $db->newSelectQueryBuilder()
+			->select( '1' )
+			->from( self::$notificationTable )
+			->leftJoin( self::$eventTable, null, 'notification_event=event_id' )
+			->where( [
 				'notification_user' => $this->user->getId(),
 				'notification_read_timestamp' => null,
 				'event_deleted' => 0,
 				'event_type' => $eventTypesToLoad,
-			],
-			__METHOD__,
-			[ 'LIMIT' => $cap ],
-			[
-				'echo_event' => [ 'LEFT JOIN', 'notification_event=event_id' ],
-			]
-		);
+			] )
+			->limit( $cap )
+			->caller( __METHOD__ )
+			->fetchRowCount();
 	}
 
 	/**
@@ -204,21 +199,18 @@ class UserNotificationGateway {
 	 */
 	public function getUnreadNotifications( $type ) {
 		$dbr = $this->getDB( DB_REPLICA );
-		$res = $dbr->select(
-			[
-				self::$notificationTable,
-				self::$eventTable
-			],
-			[ 'notification_event' ],
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( 'notification_event' )
+			->from( self::$notificationTable )
+			->join( self::$eventTable, null, 'notification_event = event_id' )
+			->where( [
 				'notification_user' => $this->user->getId(),
 				'notification_read_timestamp' => null,
 				'event_deleted' => 0,
 				'event_type' => $type,
-				'notification_event = event_id'
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$eventIds = [];
 		foreach ( $res as $row ) {

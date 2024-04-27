@@ -92,17 +92,14 @@ class SubscriptionManager extends AbstractMapper {
 	 * @return array array of Subscription objects
 	 */
 	public function getSubscriptionsForUser( int $centralId ) {
-		$res = $this->dbr->select(
-			[ 'echo_push_subscription', 'echo_push_provider', 'echo_push_topic' ],
-			'*',
-			[ 'eps_user' => $centralId ],
-			__METHOD__,
-			[],
-			[
-				'echo_push_provider' => [ 'INNER JOIN', [ 'eps_provider = epp_id' ] ],
-				'echo_push_topic' => [ 'LEFT JOIN', [ 'eps_topic = ept_id' ] ],
-			]
-		);
+		$res = $this->dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'echo_push_subscription' )
+			->join( 'echo_push_provider', null, 'eps_provider = epp_id' )
+			->leftJoin( 'echo_push_topic', null, 'eps_topic = ept_id' )
+			->where( [ 'eps_user' => $centralId ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$result = [];
 		foreach ( $res as $row ) {
 			$result[] = Subscription::newFromRow( $row );

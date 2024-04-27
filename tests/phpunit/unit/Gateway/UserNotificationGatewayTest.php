@@ -6,6 +6,7 @@ use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\User\User;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 use Wikimedia\Rdbms\UpdateQueryBuilder;
 
 /**
@@ -163,6 +164,10 @@ class UserNotificationGatewayTest extends MediaWikiUnitTestCase {
 		$db->method( 'newUpdateQueryBuilder' )
 			->willReturnCallback( static function () use ( $db ) {
 				return new UpdateQueryBuilder( $db );
+			} );
+		$db->method( 'newSelectQueryBuilder' )
+			->willReturnCallback( static function () use ( $db ) {
+				return new SelectQueryBuilder( $db );
 			} );
 
 		return $db;

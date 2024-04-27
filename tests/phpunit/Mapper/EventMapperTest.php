@@ -6,6 +6,7 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\InsertQueryBuilder;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * @group Database
@@ -119,6 +120,10 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 		$db->method( 'newInsertQueryBuilder' )
 			->willReturnCallback( static function () use ( $db ) {
 				return new InsertQueryBuilder( $db );
+			} );
+		$db->method( 'newSelectQueryBuilder' )
+			->willReturnCallback( static function () use ( $db ) {
+				return new SelectQueryBuilder( $db );
 			} );
 
 		return $db;

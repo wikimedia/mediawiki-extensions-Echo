@@ -13,6 +13,7 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use MWExceptionHandler;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * Database mapper for Notification model
@@ -175,7 +176,7 @@ class NotificationMapper extends AbstractMapper {
 
 		$conds = [];
 		if ( $excludeEventIds ) {
-			$conds[] = 'event_id NOT IN ( ' . $dbr->makeList( $excludeEventIds ) . ' ) ';
+			$conds[] = $dbr->expr( 'event_id', '!=', $excludeEventIds );
 		}
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
@@ -251,19 +252,15 @@ class NotificationMapper extends AbstractMapper {
 			] );
 		}
 
-		$res = $dbr->select(
-			[ 'echo_notification', 'echo_event' ],
-			Notification::selectFields(),
-			$conds,
-			__METHOD__,
-			[
-				'ORDER BY' => 'notification_timestamp DESC, notification_event DESC',
-				'LIMIT' => $limit,
-			],
-			[
-				'echo_event' => [ 'LEFT JOIN', 'notification_event=event_id' ],
-			]
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->select( Notification::selectFields() )
+			->from( 'echo_notification' )
+			->leftJoin( 'echo_event', null, 'notification_event=event_id' )
+			->where( $conds )
+			->orderBy( [ 'notification_timestamp', 'notification_event' ], SelectQueryBuilder::SORT_DESC )
+			->limit( $limit )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		/** @var Notification[] $allNotifications */
 		$allNotifications = [];
@@ -298,19 +295,16 @@ class NotificationMapper extends AbstractMapper {
 	public function fetchByUserEvents( UserIdentity $userIdentity, array $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
-		$result = $dbr->select(
-			[ 'echo_notification', 'echo_event' ],
-			Notification::selectFields(),
-			[
+		$result = $dbr->newSelectQueryBuilder()
+			->select( Notification::selectFields() )
+			->from( 'echo_notification' )
+			->join( 'echo_event', null, 'notification_event=event_id' )
+			->where( [
 				'notification_user' => $userIdentity->getId(),
 				'notification_event' => $eventIds
-			],
-			 __METHOD__,
-			[],
-			[
-				'echo_event' => [ 'INNER JOIN', 'notification_event=event_id' ],
-			]
-		 );
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$notifications = [];
 		foreach ( $result as $row ) {
@@ -328,23 +322,18 @@ class NotificationMapper extends AbstractMapper {
 	 */
 	public function fetchByUserOffset( UserIdentity $userIdentity, $offset ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
-		$row = $dbr->selectRow(
-			[ 'echo_notification', 'echo_event' ],
-			Notification::selectFields(),
-			[
+		$row = $dbr->newSelectQueryBuilder()
+			->select( Notification::selectFields() )
+			->from( 'echo_notification' )
+			->leftJoin( 'echo_event', null, 'notification_event=event_id' )
+			->where( [
 				'notification_user' => $userIdentity->getId(),
 				'event_deleted' => 0,
-			],
-			__METHOD__,
-			[
-				'ORDER BY' => 'notification_timestamp DESC, notification_event DESC',
-				'OFFSET' => $offset,
-				'LIMIT' => 1
-			],
-			[
-				'echo_event' => [ 'LEFT JOIN', 'notification_event=event_id' ],
-			]
-		);
+			] )
+			->orderBy( [ 'notification_timestamp', 'notification_event' ], SelectQueryBuilder::SORT_DESC )
+			->offset( $offset )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		if ( $row ) {
 			return Notification::newFromRow( $row );
@@ -414,20 +403,15 @@ class NotificationMapper extends AbstractMapper {
 	public function fetchUsersWithNotificationsForEvents( array $eventIds ) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 
-		$res = $dbr->select(
-			[ 'echo_notification' ],
-			[ 'userId' => 'DISTINCT notification_user' ],
-			[
+		return $dbr->newSelectQueryBuilder()
+			->select( 'notification_user' )
+			->distinct()
+			->from( 'echo_notification' )
+			->where( [
 				'notification_event' => $eventIds
-			],
-			__METHOD__
-		);
-
-		$userIds = [];
-		foreach ( $res as $row ) {
-			$userIds[] = $row->userId;
-		}
-		return $userIds;
+			] )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 	}
 
 }

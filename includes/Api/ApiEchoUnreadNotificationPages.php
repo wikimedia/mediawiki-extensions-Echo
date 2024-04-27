@@ -16,6 +16,7 @@ use MediaWiki\Title\TitleFactory;
 use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	use ApiCrossWiki;
@@ -89,24 +90,26 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 		$enabledTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
 		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
-		// If $groupPages is true, we need to fetch all pages and apply the ORDER BY and LIMIT ourselves
-		// after grouping.
-		$extraOptions = $groupPages ? [] : [ 'ORDER BY' => 'count DESC', 'LIMIT' => $limit ];
-		$rows = $dbr->select(
-			[ 'echo_event', 'echo_notification' ],
-			[ 'event_page_id', 'count' => 'COUNT(*)' ],
-			[
+		$queryBuilder = $dbr->newSelectQueryBuilder()
+			->select( [ 'event_page_id', 'count' => 'COUNT(*)' ] )
+			->from( 'echo_event' )
+			->join( 'echo_notification', null, 'notification_event = event_id' )
+			->where( [
 				'notification_user' => $this->getUser()->getId(),
 				'notification_read_timestamp' => null,
 				'event_deleted' => 0,
 				'event_type' => $enabledTypes,
-			],
-			__METHOD__,
-			[
-				'GROUP BY' => 'event_page_id',
-			] + $extraOptions,
-			[ 'echo_notification' => [ 'INNER JOIN', 'notification_event = event_id' ] ]
-		);
+			] )
+			->groupBy( 'event_page_id' )
+			->caller( __METHOD__ );
+		// If $groupPages is true, we need to fetch all pages and apply the ORDER BY and LIMIT ourselves
+		// after grouping.
+		if ( !$groupPages ) {
+			$queryBuilder
+				->orderBy( 'count', SelectQueryBuilder::SORT_DESC )
+				->limit( $limit );
+		}
+		$rows = $queryBuilder->fetchResultSet();
 
 		$nullCount = 0;
 		$pageCounts = [];
