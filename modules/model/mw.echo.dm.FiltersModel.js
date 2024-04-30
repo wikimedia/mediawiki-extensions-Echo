@@ -3,7 +3,7 @@
 	 * Filters model for displaying filtered notification list.
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 *
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -32,9 +32,9 @@
 	/* Events */
 
 	/**
-	 * @event update
-	 *
 	 * The filters have been updated
+	 *
+	 * @event mw.echo.dm.FiltersModel#update
 	 */
 
 	/* Methods */
@@ -43,6 +43,7 @@
 	 * Set the read state filter
 	 *
 	 * @param {string} readState Notifications read state
+	 * @fires mw.echo.dm.FiltersModel#update
 	 */
 	mw.echo.dm.FiltersModel.prototype.setReadState = function ( readState ) {
 		var allowed = [ 'all', 'read', 'unread' ];

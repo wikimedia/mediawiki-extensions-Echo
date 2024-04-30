@@ -1,3 +1,7 @@
+/**
+ * @module module:ext.echo.init
+ */
+
 /* eslint-disable no-jquery/no-global-selector */
 mw.echo = mw.echo || {};
 mw.echo.config = mw.echo.config || {};

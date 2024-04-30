@@ -64,9 +64,9 @@
 	/* Events */
 
 	/**
-	 * @event markAllRead
-	 *
 	 * Mark all notifications as read in the selected wiki
+	 *
+	 * @event mw.echo.ui.SpecialHelpMenuWidget#markAllRead
 	 */
 
 	/* Methods */
@@ -100,6 +100,7 @@
 	 * Handle menu choose events
 	 *
 	 * @param {OO.ui.MenuOptionWidget} item Chosen item
+	 * @fires mw.echo.ui.SpecialHelpMenuWidget#markAllRead
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget.prototype.onMenuChoose = function ( item ) {
 		var data = item.getData();

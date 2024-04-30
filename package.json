@@ -5,7 +5,7 @@
 	"description": "Build tools for Echo.",
 	"scripts": {
 		"test": "grunt test",
-		"doc": "jsduck",
+		"doc": "jsdoc -c .jsdoc.json",
 		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder modules/icons/",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js",
 		"selenium-daily": "npm run selenium-test -- --mochaOpts.grep @daily"
@@ -22,6 +22,9 @@
 		"grunt-contrib-watch": "1.1.0",
 		"grunt-eslint": "24.3.0",
 		"grunt-stylelint": "0.19.0",
+		"jsdoc": "4.0.2",
+		"jsdoc-class-hierarchy": "1.1.2",
+		"jsdoc-wmf-theme": "1.0.0",
 		"stylelint-config-wikimedia": "0.16.1",
 		"svgo": "3.2.0",
 		"wdio-mediawiki": "2.3.0"

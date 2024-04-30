@@ -28,10 +28,10 @@
 	/* Events */
 
 	/**
-	 * @event update
-	 * @param {string} time Seen time, as a full UTC ISO 8601 timestamp.
-	 *
 	 * Seen time has been updated for the given source
+	 *
+	 * @event mw.echo.dm.SeenTimeModel#update
+	 * @param {string} time Seen time, as a full UTC ISO 8601 timestamp.
 	 */
 
 	/* Methods */
@@ -50,7 +50,7 @@
 	 *
 	 * @private
 	 * @param {string} time Seen time, as a full UTC ISO 8601 timestamp.
-	 * @fires update
+	 * @fires mw.echo.dm.SeenTimeModel#update
 	 */
 	mw.echo.dm.SeenTimeModel.prototype.setSeenTime = function ( time ) {
 		var model = this,

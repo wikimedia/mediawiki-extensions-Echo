@@ -62,7 +62,7 @@
 	/**
 	 * The notice was dismissed.
 	 *
-	 * @event dismiss
+	 * @event mw.echo.ui.FooterNoticeWidget#dismiss
 	 */
 
 	/* Methods */
@@ -70,7 +70,7 @@
 	/**
 	 * Respond to dismiss button click.
 	 *
-	 * @fires dismiss
+	 * @fires mw.echo.ui.FooterNoticeWidget#dismiss
 	 */
 	mw.echo.ui.FooterNoticeWidget.prototype.onDismissButtonClick = function () {
 		this.toggle( false );

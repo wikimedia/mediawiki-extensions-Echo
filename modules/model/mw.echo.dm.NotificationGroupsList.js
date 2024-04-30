@@ -46,9 +46,9 @@
 	/* Events */
 
 	/**
-	 * @event discard
-	 *
 	 * A group was permanently removed
+	 *
+	 * @event mw.echo.dm.NotificationGroupsList#discard
 	 */
 
 	/* Methods */
@@ -133,7 +133,7 @@
 	 * for the sake of sorting. To avoid ambiguity, we use 'discard' event.
 	 *
 	 * @param {string} groupName Group name
-	 * @fires discard
+	 * @fires mw.echo.dm.NotificationGroupsList#discard
 	 */
 	mw.echo.dm.NotificationGroupsList.prototype.removeGroup = function ( groupName ) {
 		var group = this.getGroupByName( groupName );

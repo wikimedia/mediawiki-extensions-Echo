@@ -4,7 +4,7 @@
 	 *
 	 * @class
 	 * @extends OO.ui.Widget
-	 * @mixins OO.ui.mixin.PendingElement
+	 * @mixes OO.ui.mixin.PendingElement
 	 *
 	 * @constructor
 	 * @param {mw.echo.Controller} controller Echo controller

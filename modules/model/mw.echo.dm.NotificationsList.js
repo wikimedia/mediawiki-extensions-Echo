@@ -67,24 +67,24 @@
 	/* Events */
 
 	/**
-	 * @event update
-	 * @param {mw.echo.dm.NotificationItem[]} items Current items in the list
-	 *
 	 * The list has been updated
+	 *
+	 * @event mw.echo.dm.NotificationsList#update
+	 * @param {mw.echo.dm.NotificationItem[]} items Current items in the list
 	 */
 
 	/**
-	 * @event itemUpdate
-	 * @param {mw.echo.dm.NotificationItem} item Item that has changed
-	 *
 	 * An item in the list has been updated
+	 *
+	 * @event mw.echo.dm.NotificationsList#itemUpdate
+	 * @param {mw.echo.dm.NotificationItem} item Item that has changed
 	 */
 
 	/**
-	 * @event discard
-	 * @param {mw.echo.dm.NotificationItem} item Item that was discarded
-	 *
 	 * An item was discarded
+	 *
+	 * @event mw.echo.dm.NotificationsList#discard
+	 * @param {mw.echo.dm.NotificationItem} item Item that was discarded
 	 */
 
 	/* Methods */
@@ -93,7 +93,7 @@
 	 * Set the items in this list
 	 *
 	 * @param {mw.echo.dm.NotificationItem[]} items Items to insert into the list
-	 * @fires update
+	 * @fires mw.echo.dm.NotificationsList#update
 	 */
 	mw.echo.dm.NotificationsList.prototype.setItems = function ( items ) {
 		this.clearItems();
@@ -111,6 +111,7 @@
 	 * temporarily moving them.
 	 *
 	 * @param {mw.echo.dm.NotificationItem[]} items Items to insert into the list
+	 * @fires mw.echo.dm.NotificationsList#discard
 	 */
 	mw.echo.dm.NotificationsList.prototype.discardItems = function ( items ) {
 		this.removeItems( items );

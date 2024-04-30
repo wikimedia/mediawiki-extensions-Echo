@@ -81,11 +81,11 @@
 	/* Events */
 
 	/**
-	 * @event change
+	 * Pagination changed
+	 *
+	 * @event mw.echo.ui.PaginationWidget#change
 	 * @param {string} direction Direction of movement 'prev',
 	 * 'next' or 'start'
-	 *
-	 * Pagination changed
 	 */
 
 	/* Methods */
@@ -94,7 +94,7 @@
 	 * Respond to dir select widget choose event
 	 *
 	 * @param {OO.ui.ButtonOptionWidget} item Chosen button
-	 * @fires change
+	 * @fires mw.echo.ui.PaginationWidget#change
 	 */
 	mw.echo.ui.PaginationWidget.prototype.onDirSelectWidgetChoose = function ( item ) {
 		var dir = item && item.getData();
@@ -132,6 +132,7 @@
 	 *
 	 * @param {boolean} disabled Disable widget
 	 * @chainable
+	 * @return {mw.echo.ui.PaginationWidget}
 	 */
 	mw.echo.ui.PaginationWidget.prototype.setDisabled = function ( disabled ) {
 		// Parent method

@@ -4,7 +4,7 @@
 	 *
 	 * @class
 	 * @extends OO.ui.ButtonOptionWidget
-	 * @mixins OO.ui.mixin.PendingElement
+	 * @mixes OO.ui.mixin.PendingElement
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
@@ -108,15 +108,20 @@
 	};
 
 	/**
+	 * @typedef {Object} ConfirmationMessages
+	 * @memberof mw.echo.ui.MenuItemWidget
+	 * @property {string} title Title for the confirmation dialog
+	 * @property {string} description Description for the confirmation dialog
+	 */
+
+	/**
 	 * Get the messages for the confirmation dialog
 	 * We expect optionally two messages - title and description.
 	 *
 	 * NOTE: The messages are parsed as HTML. If user-input is expected
 	 * please make sure to properly escape it.
 	 *
-	 * @return {Object} Messages for the confirmation dialog
-	 * @return {string} return.title Title for the confirmation dialog
-	 * @return {string} return.description Description for the confirmation dialog
+	 * @return {mw.echo.ui.MenuItemWidget.ConfirmationMessages} Messages for the confirmation dialog
 	 */
 	mw.echo.ui.MenuItemWidget.prototype.getConfirmationMessages = function () {
 		return this.messages.confirmation;

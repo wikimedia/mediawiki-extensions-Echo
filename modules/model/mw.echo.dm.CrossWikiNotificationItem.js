@@ -32,10 +32,10 @@
 	/* Events */
 
 	/**
-	 * @event discard
-	 * @param {string} name The symbolic name for the list model that was discarded
-	 *
 	 * A sub list has been discarded
+	 *
+	 * @event mw.echo.dm.CrossWikiNotificationItem#discard
+	 * @param {string} name The symbolic name for the list model that was discarded
 	 */
 
 	/* Methods */
@@ -44,7 +44,7 @@
 	 * Respond to list being removed from the cross-wiki bundle.
 	 *
 	 * @param {mw.echo.dm.NotificationGroupsList} sourceModel The source model that was removed
-	 * @fires discard
+	 * @fires mw.echo.dm.CrossWikiNotificationItem#discard
 	 */
 	mw.echo.dm.CrossWikiNotificationItem.prototype.onListDiscard = function ( sourceModel ) {
 		this.emit( 'discard', sourceModel.getName() );

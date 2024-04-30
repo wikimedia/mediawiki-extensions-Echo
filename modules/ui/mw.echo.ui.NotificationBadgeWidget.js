@@ -191,13 +191,15 @@
 	/* Events */
 
 	/**
-	 * @event allRead
 	 * All notifications were marked as read
+	 *
+	 * @event mw.echo.ui.NotificationBadgeWidget#allRead
 	 */
 
 	/**
-	 * @event finishLoading
 	 * Notifications have successfully finished being processed and are fully loaded
+	 *
+	 * @event mw.echo.ui.NotificationBadgeWidget#finishLoading
 	 */
 
 	/* Methods */
@@ -272,7 +274,7 @@
 	 * Extend the response to button click so we can also update the notification list.
 	 *
 	 * @param {boolean} isVisible The popup is visible
-	 * @fires finishLoading
+	 * @fires mw.echo.ui.NotificationBadgeWidget#finishLoading
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
 		var widget = this;

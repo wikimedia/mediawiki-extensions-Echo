@@ -3,7 +3,7 @@
 	 * Echo notification UnreadNotificationCounter model
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 *
 	 * @constructor
 	 * @param {Object} api An instance of EchoAPI.
@@ -38,10 +38,10 @@
 	/* Events */
 
 	/**
-	 * @event countChange
-	 * @param {number} count Notification count
-	 *
 	 * The number of unread notification represented by this counter has changed.
+	 *
+	 * @event mw.echo.dm.UnreadNotificationCounter#countChange
+	 * @param {number} count Notification count
 	 */
 
 	/* Methods */
@@ -80,6 +80,7 @@
 	 *
 	 * @param {number} count
 	 * @param {boolean} isEstimation Whether this number is estimated or accurate
+	 * @fires mw.echo.dm.UnreadNotificationCounter#countChange
 	 */
 	mw.echo.dm.UnreadNotificationCounter.prototype.setCount = function ( count, isEstimation ) {
 		if ( isEstimation ) {

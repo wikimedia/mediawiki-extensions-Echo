@@ -4,8 +4,8 @@
 	 *
 	 * @class
 	 * @extends OO.ui.OptionWidget
-	 * @mixins OO.ui.mixin.IconElement
-	 * @mixins OO.ui.mixin.TitledElement
+	 * @mixes OO.ui.mixin.IconElement
+	 * @mixes OO.ui.mixin.TitledElement
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object

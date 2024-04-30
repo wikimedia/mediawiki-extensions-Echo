@@ -129,6 +129,8 @@
 
 	/**
 	 * Update item state when the item model changes.
+	 *
+	 * @fires OO.EventEmitter#sortChange
 	 */
 	mw.echo.ui.BundleNotificationItemWidget.prototype.updateDataFromModel = function () {
 		this.toggleRead( this.model.isRead() );

@@ -3,9 +3,12 @@ var mobile = require( 'mobile.startup' ),
 	promisedView = mobile.promisedView;
 
 /**
- * This callback is displayed as a global member.
- *
- * @callback FunctionCountChangeCallback
+ * @module module:ext.echo.mobile
+ */
+
+/**
+ * @typedef {Function} FunctionCountChangeCallback
+ * @memberof module:ext.echo.mobile
  * @param {number} count a capped (0-99 or 99+) count
  */
 
@@ -15,7 +18,7 @@ var mobile = require( 'mobile.startup' ),
  * @param {mw.echo} echo class
  * @param {OO.ui.ButtonWidget} markAllReadButton - a button that will be associated with the
  *  read status of the notifications list.
- * @param {FunctionCountChangeCallback} onCountChange callback.
+ * @param {module:ext.echo.mobile.FunctionCountChangeCallback} onCountChange callback.
  * @return {View}
  */
 function notificationsList( echo, markAllReadButton, onCountChange ) {

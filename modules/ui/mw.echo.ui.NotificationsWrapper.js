@@ -4,7 +4,7 @@
 	 *
 	 * @class
 	 * @extends OO.ui.Widget
-	 * @mixins OO.ui.mixin.PendingElement
+	 * @mixes OO.ui.mixin.PendingElement
 	 *
 	 * @constructor
 	 * @param {mw.echo.Controller} controller Echo controller
@@ -50,8 +50,9 @@
 	/* Events */
 
 	/**
-	 * @event finishLoading
 	 * Notifications have successfully finished being processed and are fully loaded
+	 *
+	 * @event mw.echo.ui.NotificationsWrapper#finishLoading
 	 */
 
 	/* Methods */
@@ -61,6 +62,7 @@
 	 *
 	 * @return {jQuery.Promise} A promise that is resolved when all notifications
 	 *  were fetched from the API and added to the model and UI.
+	 * @fires mw.echo.ui.NotificationsWrapper#finishLoading
 	 */
 	mw.echo.ui.NotificationsWrapper.prototype.populate = function () {
 		var widget = this;

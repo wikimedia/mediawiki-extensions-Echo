@@ -1,14 +1,18 @@
 var mobile = require( 'mobile.startup' );
 
 /**
- * @fires echo.mobile every time the notifications overlay is opened
+ * @module module:ext.echo.mobile
+ */
+
+/**
+ * @fires module:ext.echo.mobile#echo.mobile every time the notifications overlay is opened
  */
 function onOpenNotificationsOverlay() {
 	mw.hook( 'echo.mobile' ).fire( true );
 }
 
 /**
- * @fires echo.mobile every time the notifications overlay is closed
+ * @fires module:ext.echo.mobile#echo.mobile every time the notifications overlay is closed
  */
 function onCloseNotificationsOverlay() {
 	mw.hook( 'echo.mobile' ).fire( false );

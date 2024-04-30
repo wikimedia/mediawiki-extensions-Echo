@@ -17,7 +17,7 @@
 	 * - getCount - Get a total count of available notifications currently in the model
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 *
 	 * @constructor
 	 * @param {mw.echo.dm.UnreadNotificationCounter} counter Unread counter
@@ -63,45 +63,45 @@
 	/* Events */
 
 	/**
-	 * @event update
-	 * @param {Object[]} Current available notifications
-	 *
 	 * The model has been rebuilt or has been updated
-	 */
-
-	/**
-	 * @event discard
-	 * @param {string} modelId Discard model id
 	 *
-	 * A model has been permanently removed
+	 * @event mw.echo.dm.ModelManager#update
+	 * @param {Object[]} Current available notifications
 	 */
 
 	/**
-	 * @event seen
+	 * A model has been permanently removed
+	 *
+	 * @event mw.echo.dm.ModelManager#discard
+	 * @param {string} modelId Discard model id
+	 */
+
+	/**
+	 * All notifications in that source are seen
+	 *
+	 * @event mw.echo.dm.ModelManager#seen
 	 * @param {string} source Source where seenTime was updated
 	 * @param {number} timestamp The new seen timestamp, as a full UTC ISO 8601 timestamp
-	 *
-	 * All notifications in that source are seen
 	 */
 
 	/**
-	 * @event allTalkRead
-	 *
 	 * There are no more local talk page notifications
+	 *
+	 * @event mw.echo.dm.ModelManager#allTalkRead
 	 */
 
 	/**
-	 * @event modelItemUpdate
+	 * A specific item inside a notifications model has been updated
+	 *
+	 * @event mw.echo.dm.ModelManager#modelItemUpdate
 	 * @param {string} modelId Model ID
 	 * @param {mw.echo.dm.NotificationItem} item Updated item
-	 *
-	 * A specific item inside a notifications model has been updated
 	 */
 
 	/**
-	 * @event localCountChange
-	 *
 	 * There was a change in the count of local unread notifications
+	 *
+	 * @event mw.echo.dm.ModelManager#localCountChange
 	 */
 
 	/* Methods */
@@ -110,7 +110,7 @@
 	 * Respond to seen time change for a given source
 	 *
 	 * @param {string} timestamp Seen time, as a full UTC ISO 8601 timestamp
-	 * @fires seen
+	 * @fires mw.echo.dm.ModelManager#seen
 	 */
 	mw.echo.dm.ModelManager.prototype.onSeenTimeUpdate = function ( timestamp ) {
 		var models = this.getAllNotificationModels();
@@ -154,6 +154,7 @@
 	 *   'modelId': {mw.echo.dm.SortedList},
 	 *   ...
 	 * }
+	 * @fires mw.echo.dm.ModelManager#update
 	 */
 	mw.echo.dm.ModelManager.prototype.setNotificationModels = function ( modelDefinitions ) {
 		this.resetNotificationModels();
@@ -176,8 +177,8 @@
 	 * Respond to model update event
 	 *
 	 * @param {string} modelName Model name
-	 * @param {mw.echo.dm.notificationItem} item Notification item
-	 * @fires modelUpdate
+	 * @param {mw.echo.dm.NotificationItem} item Notification item
+	 * @fires mw.echo.dm.ModelManager#modelItemUpdate
 	 */
 	mw.echo.dm.ModelManager.prototype.onModelItemUpdate = function ( modelName, item ) {
 		this.checkLocalUnreadTalk();
@@ -241,7 +242,7 @@
 	 * Remove a model from the manager
 	 *
 	 * @param {string} modelName Symbolic name of the model
-	 * @fires remove
+	 * @fires mw.echo.dm.ModelManager#discard
 	 */
 	mw.echo.dm.ModelManager.prototype.removeNotificationModel = function ( modelName ) {
 		delete this.notificationModels[ modelName ];
@@ -301,7 +302,7 @@
 	 * Check whether there are talk notifications, and emit an event
 	 * in case there aren't any left.
 	 *
-	 * @fires allTalkRead
+	 * @fires mw.echo.dm.ModelManager#allTalkRead
 	 */
 	mw.echo.dm.ModelManager.prototype.checkLocalUnreadTalk = function () {
 		if ( !this.hasLocalUnreadTalk() ) {

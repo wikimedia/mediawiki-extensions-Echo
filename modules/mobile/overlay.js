@@ -1,3 +1,7 @@
+/**
+ * @module module:ext.echo.mobile
+ */
+
 var mobile = require( 'mobile.startup' ),
 	Overlay = mobile.Overlay,
 	list = require( './list.js' ),
@@ -7,7 +11,6 @@ var mobile = require( 'mobile.startup' ),
 /**
  * @param {Overlay} overlay
  * @param {Function} exit
- * @return {void}
  */
 function onBeforeExitAnimation( overlay, exit ) {
 	if ( getComputedStyle( overlay.$el[ 0 ] ).transitionDuration !== '0s' ) {
@@ -20,13 +23,6 @@ function onBeforeExitAnimation( overlay, exit ) {
 		exit();
 	}
 }
-
-/**
- * This callback is displayed as a global member.
- *
- * @callback FunctionCountChangeCallback
- * @param {number} count a capped (0-99 or 99+) count
- */
 
 /**
  * @param {number} count a capped (0-99 or 99+) count.

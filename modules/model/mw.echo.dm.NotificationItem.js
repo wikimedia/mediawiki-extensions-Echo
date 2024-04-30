@@ -4,8 +4,8 @@
 	 * Notification item data structure.
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
-	 * @mixins OO.SortedEmitterList
+	 * @mixes OO.EventEmitter
+	 * @mixes OO.SortedEmitterList
 	 *
 	 * @constructor
 	 * @param {number} id Notification id,
@@ -74,9 +74,9 @@
 	/* Events */
 
 	/**
-	 * @event update
-	 *
 	 * Item details have changed or were updated
+	 *
+	 * @event mw.echo.dm.NotificationItem#update
 	 */
 
 	/* Methods */
@@ -176,7 +176,8 @@
 	 *
 	 * @param {boolean} [read] The current read state. If not given, the state will
 	 *  become the opposite of its current state.
-	 * @fires update
+	 * @fires mw.echo.dm.NotificationItem#update
+	 * @fires OO.EventEmitter#sortChange
 	 */
 	mw.echo.dm.NotificationItem.prototype.toggleRead = function ( read ) {
 		read = read !== undefined ? read : !this.read;
@@ -192,7 +193,7 @@
 	 *
 	 * @param {boolean} [seen] The current seen state. If not given, the state will
 	 *  become the opposite of its current state.
-	 * @fires update
+	 * @fires mw.echo.dm.NotificationItem#update
 	 */
 	mw.echo.dm.NotificationItem.prototype.toggleSeen = function ( seen ) {
 		seen = seen !== undefined ? seen : !this.seen;

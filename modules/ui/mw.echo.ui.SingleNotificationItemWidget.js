@@ -4,7 +4,7 @@
 	 *
 	 * @class
 	 * @extends mw.echo.ui.NotificationItemWidget
-	 * @mixins OO.ui.mixin.PendingElement
+	 * @mixes OO.ui.mixin.PendingElement
 	 *
 	 * @constructor
 	 * @param {mw.echo.Controller} controller Echo notifications controller
@@ -62,7 +62,7 @@
 	 * when its read state was updated
 	 *
 	 * @inheritdoc
-	 * @fires sortChange
+	 * @fires OO.EventEmitter#sortChange
 	 */
 	mw.echo.ui.SingleNotificationItemWidget.prototype.toggleRead = function ( read ) {
 		var oldState = this.read;

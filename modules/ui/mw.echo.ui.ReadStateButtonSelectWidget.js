@@ -40,7 +40,7 @@
 	/* Events */
 
 	/**
-	 * @event filter
+	 * @event mw.echo.ui.ReadStateButtonSelectWidget#filter
 	 * @param {string} readState The chosen read state
 	 */
 
@@ -50,7 +50,7 @@
 	 * Respond to choose event
 	 *
 	 * @param {OO.ui.ButtonOptionWidget} item Chosen item
-	 * @fires filter
+	 * @fires mw.echo.ui.ReadStateButtonSelectWidget#filter
 	 */
 	mw.echo.ui.ReadStateButtonSelectWidget.prototype.onChoose = function ( item ) {
 		var data = item && item.getData();

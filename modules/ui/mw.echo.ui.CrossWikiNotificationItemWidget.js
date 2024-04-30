@@ -10,7 +10,7 @@
 	 *
 	 * @class
 	 * @extends mw.echo.ui.NotificationItemWidget
-	 * @mixins OO.ui.mixin.PendingElement
+	 * @mixes OO.ui.mixin.PendingElement
 	 *
 	 * @constructor
 	 * @param {mw.echo.Controller} controller Echo notifications controller

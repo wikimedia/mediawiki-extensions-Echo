@@ -3,7 +3,7 @@
 	 * Source pages model for notification filtering
 	 *
 	 * @class
-	 * @mixins OO.EventEmitter
+	 * @mixes OO.EventEmitter
 	 *
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -29,9 +29,9 @@
 	/* Events */
 
 	/**
-	 * @event update
-	 *
 	 * The state of the source page model has changed
+	 *
+	 * @event mw.echo.dm.SourcePagesModel#update
 	 */
 
 	/* Methods */
@@ -41,7 +41,7 @@
 	 *
 	 * @param {string} source New source
 	 * @param {string} page New page
-	 * @fires update
+	 * @fires mw.echo.dm.SourcePagesModel#update
 	 */
 	mw.echo.dm.SourcePagesModel.prototype.setCurrentSourcePage = function ( source, page ) {
 		if (
@@ -77,6 +77,7 @@
 	 * previously set information.
 	 *
 	 * @param {Object} sourceData A detailed object about sources and pages
+	 * @fires mw.echo.dm.SourcePagesModel#update
 	 */
 	mw.echo.dm.SourcePagesModel.prototype.setAllSources = function ( sourceData ) {
 		this.reset();

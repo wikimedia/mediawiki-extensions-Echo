@@ -76,11 +76,11 @@
 	/* Events */
 
 	/**
-	 * @event modified
-	 *
 	 * The content of this list has changed.
 	 * This event is to state that not only has the content changed
 	 * but the actual DOM has been manipulated.
+	 *
+	 * @event mw.echo.ui.NotificationsListWidget#modified
 	 */
 
 	/* Methods */
@@ -112,7 +112,7 @@
 	 *
 	 * @param {Object} models Object of new models to populate the
 	 *  list.
-	 * @fires modified
+	 * @fires mw.echo.ui.NotificationsListWidget#modified
 	 */
 	mw.echo.ui.NotificationsListWidget.prototype.resetDataFromModel = function ( models ) {
 		var itemWidgets = [],
@@ -213,7 +213,7 @@
 	 *
 	 * @param {string} [label] Label for the option widget
 	 * @param {string} [link] Link for the option widget
-	 * @fires modified
+	 * @fires mw.echo.ui.NotificationsListWidget#modified
 	 */
 	mw.echo.ui.NotificationsListWidget.prototype.resetLoadingOption = function ( label, link ) {
 		this.loadingOptionWidget.setLabel( label || '' );

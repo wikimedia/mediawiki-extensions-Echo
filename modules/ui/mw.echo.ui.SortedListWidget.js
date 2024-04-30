@@ -5,7 +5,7 @@
 	 *
 	 * @class
 	 * @extends OO.ui.Widget
-	 * @mixins OO.SortedEmitterList
+	 * @mixes OO.SortedEmitterList
 	 *
 	 * @constructor
 	 * @param {Function} sortingCallback Callback that compares two items.
@@ -154,7 +154,8 @@
 	 *
 	 * @param {OO.EventEmitter[]} items Items to remove
 	 * @chainable
-	 * @fires remove
+	 * @return {mw.echo.ui.SortedListWidget}
+	 * @fires OO.EmitterList#remove
 	 */
 	mw.echo.ui.SortedListWidget.prototype.removeItems = function ( items ) {
 		var i, item, index;
@@ -243,7 +244,8 @@
 	 * Clear all items
 	 *
 	 * @chainable
-	 * @fires clear
+	 * @return {mw.echo.ui.SortedListWidget}
+	 * @fires OO.EmitterList#clear
 	 */
 	mw.echo.ui.SortedListWidget.prototype.clearItems = function () {
 		var i, len, item;

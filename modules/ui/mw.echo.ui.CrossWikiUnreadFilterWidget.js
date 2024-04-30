@@ -4,7 +4,7 @@
 	 *
 	 * @class
 	 * @extends OO.ui.Widget
-	 * @mixins OO.ui.mixin.PendingElement
+	 * @mixes OO.ui.mixin.PendingElement
 	 *
 	 * @constructor
 	 * @param {mw.echo.Controller} controller Echo controller
@@ -76,11 +76,11 @@
 	/* Events */
 
 	/**
-	 * @event filter
+	 * A source page filter was chosen
+	 *
+	 * @event mw.echo.ui.CrossWikiUnreadFilterWidget#filter
 	 * @param {string} source Source symbolic name
 	 * @param {number} [pageId] Chosen page ID
-	 *
-	 * A source page filter was chosen
 	 */
 
 	/* Methods */
@@ -90,7 +90,7 @@
 	 *
 	 * @param {mw.echo.ui.PageFilterWidget} widget The widget the event originated from
 	 * @param {mw.echo.ui.PageNotificationsOptionWidget} item The chosen item
-	 * @fires filter
+	 * @fires mw.echo.ui.CrossWikiUnreadFilterWidget#filter
 	 */
 	mw.echo.ui.CrossWikiUnreadFilterWidget.prototype.onPageFilterChoose = function ( widget, item ) {
 		var source = widget.getSource(),

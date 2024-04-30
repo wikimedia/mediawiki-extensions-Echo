@@ -23,7 +23,6 @@
 	/**
 	 * Prioritize a promise
 	 *
-	 * @external Promise
 	 * @param {jQuery.Promise|Promise} promise Promise
 	 * @return {jQuery.Promise} The main deferred object that resolves
 	 *  or rejects when the latest promise is resolved or rejected.
