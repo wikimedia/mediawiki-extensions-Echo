@@ -68,7 +68,7 @@ class EchoHooksTest extends MediaWikiIntegrationTestCase {
 			$services->getNamespaceInfo(),
 			$services->getPermissionManager(),
 			$services->getRevisionStore(),
-			$services->getStatsdDataFactory(),
+			$services->getStatsFactory(),
 			$services->getTalkPageNotificationManager(),
 			$services->getUserEditTracker(),
 			$services->getUserFactory(),
