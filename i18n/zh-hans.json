@@ -245,6 +245,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|您}}的编辑",
 	"notification-link-text-view-edit": "查看编辑",
 	"notification-link-article-reminder": "查看页面",
+	"notification-link-api-triggered": "查看页面",
 	"notification-header-reverted": "有人{{GENDER:$2|回退}}了您{{PLURAL:$4|对<strong>$3</strong>所作出的编辑}}。",
 	"notification-header-emailuser": "$1向您{{GENDER:$2|发送}}了电子邮件。",
 	"notification-edit-user-page-email-subject": "$1{{GENDER:$2|编辑了}}{{GENDER:$3|您}}在{{SITENAME}}的用户页。",

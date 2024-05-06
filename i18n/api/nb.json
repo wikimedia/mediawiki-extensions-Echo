@@ -6,6 +6,7 @@
 			"Jon Harald Søby"
 		]
 	},
+	"apihelp-echocreateevent-param-section": "Seksjon der et varsel skal leveres",
 	"apihelp-echomarkread-summary": "Marker varsler som lest for den gjeldende brukeren.",
 	"apihelp-echomarkread-param-list": "En liste over ID-er for beskjeder som skal merkes som lest.",
 	"apihelp-echomarkread-param-unreadlist": "En liste av beskjed-IDer som merkes som ulest.",

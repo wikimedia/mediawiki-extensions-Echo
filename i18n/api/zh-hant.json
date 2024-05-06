@@ -3,9 +3,11 @@
 		"authors": [
 			"Cwlin0416",
 			"Kly",
+			"Winston Sung",
 			"Winstonyin"
 		]
 	},
+	"apihelp-echocreateevent-example": "傳送通知",
 	"apihelp-echomarkread-summary": "把目前使用者的通知標記為已讀。",
 	"apihelp-echomarkread-param-list": "要標記為已讀的通知 ID 清單。",
 	"apihelp-echomarkread-param-unreadlist": "要標記為未讀的通知 ID 清單。",
