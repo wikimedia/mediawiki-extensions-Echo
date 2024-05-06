@@ -123,6 +123,7 @@
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Brugernavnet findes ikke:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP adresser kan ikke blive nævnt:</strong> $1",
 	"notification-header-mention-success": "{{GENDER:$2|Dit}} ping af <strong>$3</strong> blev sendt.",
+	"notification-header-mention-success-bundle": "{{PLURAL:$3|Et ping|$3 ping}}, som {{GENDER:$2|du lavede}} på diskussionssiden for <strong>$4</strong>, {{PLURAL:$3|blev}} sendt.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Du nævnte}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|Dine}} brugerrettigheder blev {{GENDER:$1|ændret}}. Du er blevet tilføjet til: $2.",
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Dine}} brugerrettigheder blev {{GENDER:$1|ændret}}. Du er ikke længere medlem af: $2.",
