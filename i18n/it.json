@@ -163,6 +163,7 @@
 	"notification-header-user-rights-expiry-change": "La scadenza della {{GENDER:$4|tua}} appartenenza {{PLURAL:$3|al seguente gruppo|ai seguenti gruppi}} è stata {{GENDER:$1|modificata}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Benvenuto|Benvenuta|Benvenuto/a}} su {{SITENAME}}, $1! Siamo lieti che {{GENDER:$2|tu sia}} qui.",
 	"notification-header-mention-summary": "$1 ti {{GENDER:$2|ha}} {{GENDER:$3|menzionato|menzionata|menzionato/a}} nell'oggetto di una modifica su <strong>$4</strong>.",
+	"notification-tooltip-api-triggered": "Questa notifica ti è stata inviata da $1",
 	"notification-welcome-linktext": "Benvenuto",
 	"notification-header-thank-you-1-edit": "Hai appena fatto la tua prima modifica; grazie e {{GENDER:$2|benvenuto|benvenuta|benvenuto/a}}!",
 	"notification-header-thank-you-10-edit": "Hai appena fatto la tua decima modifica; grazie e {{GENDER:$2|continua}} così!",
@@ -174,6 +175,7 @@
 	"notification-link-thank-you-edit": "La {{GENDER:$1|tua}} modifica",
 	"notification-link-text-view-edit": "Vedi modifica",
 	"notification-link-article-reminder": "Vedi pagina",
+	"notification-link-api-triggered": "Vedi pagina",
 	"notification-header-reverted": "{{PLURAL:$4|La tua modifica|Le tue modifiche}} su <strong>$3</strong> {{PLURAL:$4|è stata annullata|sono state annullate}}{{GENDER:$2|}}",
 	"notification-header-emailuser": "$1 ti {{GENDER:$2|ha inviato}} una email.",
 	"notification-edit-user-page-email-subject": "$1 {{GENDER:$2|ha modificato}} la {{GENDER:$3|tua}} pagina utente su {{SITENAME}}",
@@ -218,5 +220,6 @@
 	"echo-email-batch-link-text-view-all-notifications": "Vedi tutte le notifiche",
 	"notification-header-foreign-alert": "Altri avvisi da {{PLURAL:$5|un altro wiki|altri $5 wiki}}",
 	"notification-header-foreign-notice": "Altre notizie da {{PLURAL:$5|un altro wiki|altri $5 wiki}}",
-	"notification-header-foreign-all": "Altre notifiche da {{PLURAL:$5|un altro wiki|altri $5 wiki}}"
+	"notification-header-foreign-all": "Altre notifiche da {{PLURAL:$5|un altro wiki|altri $5 wiki}}",
+	"action-echo-create": "inviare notifiche ad altri"
 }
