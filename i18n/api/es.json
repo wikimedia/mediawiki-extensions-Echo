@@ -16,6 +16,7 @@
 	},
 	"apihelp-echocreateevent-summary": "Activar manualmente una notificación a un usuario",
 	"apihelp-echocreateevent-example": "Enviar una notificación",
+	"apihelp-echocreateevent-param-user": "Usuario al que enviar la notificación",
 	"apihelp-echocreateevent-param-header": "Contenido del encabezado de la notificación",
 	"apihelp-echocreateevent-param-content": "Contenido del cuerpo de la notificación.",
 	"apihelp-echocreateevent-param-page": "Página para vincular en la notificación",

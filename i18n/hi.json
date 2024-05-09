@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abijeet Patro",
 			"Akash.bhargude",
 			"Anamdas",
 			"Angpradesh",
@@ -192,6 +193,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|आपका}} सम्पादन",
 	"notification-link-text-view-edit": "संपादन देखें",
 	"notification-link-article-reminder": "पृष्ठ देखें",
+	"notification-link-api-triggered": "पृष्ठ देखें",
 	"notification-header-reverted": "<strong>$3</strong> पर आपके {{PLURAL:$4|संपादन|संपादनों}} को {{GENDER:$2|पूर्ववत कर दिया गया}} है।",
 	"notification-header-emailuser": "$1 ने आपको ईमेल {{GENDER:$2|भेजा}} है।",
 	"notification-edit-talk-page-email-subject2": "$1 ने {{GENDER:$3|आपके}} लिए {{SITENAME}} पर संदेश {{GENDER:$2|छोड़ा है}}",
