@@ -5,7 +5,7 @@ use MediaWiki\Title\Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @covers MediaWiki\Extension\Notifications\Cache\TitleLocalCache
+ * @covers \MediaWiki\Extension\Notifications\Cache\TitleLocalCache
  * @group Database
  */
 class TitleLocalCacheTest extends MediaWikiIntegrationTestCase {
