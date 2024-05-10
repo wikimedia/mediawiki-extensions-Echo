@@ -313,11 +313,22 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 
 		$i = 0;
 		foreach ( $byCategoryConditional as $condition => $overrides ) {
+			// Remove rows identical to the defaults
+			$flippedCategoryNames = $this->flippedCategoryNames;
+			foreach ( $this->categoryNames as $internal => $formatted ) {
+				foreach ( $overrides as $key => $unused ) {
+					if ( str_ends_with( $key, "-$internal" ) ) {
+						continue 2;
+					}
+				}
+				unset( $flippedCategoryNames[$formatted] );
+			}
+
 			$this->outputCheckMatrix(
 				'enabled-by-default-conditional' . ++$i,
 				$this->msg( 'echo-displaynotificationsconfiguration-enabled-default-conditional-legend' )
 					->plaintextParams( $condition ),
-				$this->flippedCategoryNames,
+				$flippedCategoryNames,
 				$this->flippedNotifyTypes,
 				array_keys( array_filter( array_merge( $byCategory, $overrides ) ) )
 			);
