@@ -9,11 +9,8 @@ use MediaWiki\Extension\UserMerge\Hooks\AccountFieldsHook;
 use MediaWiki\Extension\UserMerge\Hooks\MergeAccountFromToHook;
 use MediaWiki\User\User;
 
-class UserMergeHooks implements
-	AccountFieldsHook,
-	MergeAccountFromToHook,
-	AccountDeleteTablesHook
-{
+// @phan-suppress-next-line PhanUndeclaredInterface
+class UserMergeHooks implements AccountFieldsHook, MergeAccountFromToHook, AccountDeleteTablesHook {
 
 	/**
 	 * For integration with the UserMerge extension.
