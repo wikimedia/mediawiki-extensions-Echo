@@ -8,7 +8,6 @@ use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\CentralId\CentralIdLookup;
 use MediaWiki\User\User;
-use ObjectCache;
 use UnexpectedValueException;
 
 /**
@@ -51,11 +50,12 @@ class SeenTime {
 	 */
 	private static function cache() {
 		static $wrappedCache = null;
+		$services = MediaWikiServices::getInstance();
 
 		// Use a configurable cache backend (T222851) and wrap it with CachedBagOStuff
 		// for an in-process cache (T144534)
 		if ( $wrappedCache === null ) {
-			$cacheConfig = MediaWikiServices::getInstance()->getMainConfig()->get( 'EchoSeenTimeCacheType' );
+			$cacheConfig = $services->getMainConfig()->get( 'EchoSeenTimeCacheType' );
 			if ( $cacheConfig === null ) {
 				// Hooks::initEchoExtension sets EchoSeenTimeCacheType to $wgMainStash if it's
 				// null, so this can only happen if $wgMainStash is also null
@@ -63,7 +63,7 @@ class SeenTime {
 					'Either $wgEchoSeenTimeCacheType or $wgMainStash must be set'
 				);
 			}
-			return new CachedBagOStuff( ObjectCache::getInstance( $cacheConfig ) );
+			return new CachedBagOStuff( $services->getObjectCacheFactory()->getInstance( $cacheConfig ) );
 		}
 
 		return $wrappedCache;
