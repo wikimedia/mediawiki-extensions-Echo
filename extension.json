@@ -112,9 +112,6 @@
 	"GroupPermissions": {
 		"push-subscription-manager": {
 			"manage-all-push-subscriptions": true
-		},
-		"bot": {
-			"echo-create": true
 		}
 	},
 	"MessagesDirs": {
