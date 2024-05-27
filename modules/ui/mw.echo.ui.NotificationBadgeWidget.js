@@ -10,18 +10,18 @@
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
 	 * @param {Object} links Links object, containing 'notifications' and 'preferences' URLs
 	 * @param {Object} config Configuration object
-	 * @cfg {string|string[]} [type='message'] The type or array of types of
+	 * @param {string|string[]} [config.type='message'] The type or array of types of
 	 *  notifications that are in this model. They can be 'alert', 'message' or
 	 *  an array of both. Defaults to 'message'
-	 * @cfg {number} [numItems=0] The number of items that are in the button display
-	 * @cfg {string} [convertedNumber] A converted version of the initial count
-	 * @cfg {string} [badgeLabel=0] The initial label for the badge. This is the
+	 * @param {number} [config.numItems=0] The number of items that are in the button display
+	 * @param {string} [config.convertedNumber] A converted version of the initial count
+	 * @param {string} [config.badgeLabel=0] The initial label for the badge. This is the
 	 *  formatted version of the number of items in the badge.
-	 * @cfg {boolean} [hasUnseen=false] Whether there are unseen items
-	 * @cfg {number} [popupWidth=450] The width of the popup
-	 * @cfg {string} [badgeIcon] Icon to use for the popup header
-	 * @cfg {string} [href] URL the badge links to
-	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
+	 * @param {boolean} [config.hasUnseen=false] Whether there are unseen items
+	 * @param {number} [config.popupWidth=450] The width of the popup
+	 * @param {string} [config.badgeIcon] Icon to use for the popup header
+	 * @param {string} [config.href] URL the badge links to
+	 * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */
 	mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( controller, manager, links, config ) {

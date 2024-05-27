@@ -8,12 +8,12 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
-	 * @cfg {string} [type] Optional action type. Used to note a dynamic action, by setting it to 'dynamic-action'
-	 * @cfg {string} [url] Item URL for links
-	 * @cfg {string} [tooltip] Tooltip for links
-	 * @cfg {string} [description] An optional description for the item
-	 * @cfg {Object} [actionData] Action data
-	 * @cfg {boolean} [prioritized] The item is prioritized outside the
+	 * @param {string} [config.type] Optional action type. Used to note a dynamic action, by setting it to 'dynamic-action'
+	 * @param {string} [config.url] Item URL for links
+	 * @param {string} [config.tooltip] Tooltip for links
+	 * @param {string} [config.description] An optional description for the item
+	 * @param {Object} [config.actionData] Action data
+	 * @param {boolean} [config.prioritized] The item is prioritized outside the
 	 *  popup menu.
 	 */
 	mw.echo.ui.MenuItemWidget = function MwEchoUiMenuItemWidget( config ) {

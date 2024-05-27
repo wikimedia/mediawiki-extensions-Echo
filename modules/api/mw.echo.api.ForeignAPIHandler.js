@@ -9,7 +9,7 @@
 	 * @param {string} apiUrl A url for the access point of the
 	 *  foreign API.
 	 * @param {Object} [config] Configuration object
-	 * @cfg {boolean} [unreadOnly] Whether this handler should request unread
+	 * @param {boolean} [config.unreadOnly] Whether this handler should request unread
 	 *  notifications by default.
 	 */
 	mw.echo.api.ForeignAPIHandler = function MwEchoApiForeignAPIHandler( apiUrl, config ) {

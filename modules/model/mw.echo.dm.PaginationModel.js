@@ -7,9 +7,9 @@
 	 *
 	 * @constructor
 	 * @param {Object} config Configuration object
-	 * @cfg {string} [pageNext] The continue value of the next page
-	 * @cfg {number} [itemsPerPage] The number of items per page
-	 * @cfg {number} [currentPageItemCount] The number of items that are in the
+	 * @param {string} [config.pageNext] The continue value of the next page
+	 * @param {number} [config.itemsPerPage] The number of items per page
+	 * @param {number} [config.currentPageItemCount] The number of items that are in the
 	 *  current page. If not given, the initial count defaults to the total number
 	 *  of items per page.
 	 */

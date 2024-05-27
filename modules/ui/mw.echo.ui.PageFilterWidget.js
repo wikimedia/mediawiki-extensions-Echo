@@ -9,10 +9,10 @@
 	 * @param {mw.echo.dm.FiltersModel} filterModel Filters model
 	 * @param {string} source Symbolic name for the source
 	 * @param {Object} [config] Configuration object
-	 * @cfg {string} [title] The title of this page group, usually
+	 * @param {string} [config.title] The title of this page group, usually
 	 *  the name of the wiki that the pages belong to
-	 * @cfg {number} [unreadCount] Number of unread notifications
-	 * @cfg {number} [initialSelection] The page title of the option to select initially
+	 * @param {number} [config.unreadCount] Number of unread notifications
+	 * @param {number} [config.initialSelection] The page title of the option to select initially
 	 */
 	mw.echo.ui.PageFilterWidget = function MwEchoUiPageFilterWidget( filterModel, source, config ) {
 		config = config || {};

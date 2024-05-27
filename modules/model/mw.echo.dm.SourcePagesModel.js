@@ -7,7 +7,7 @@
 	 *
 	 * @constructor
 	 * @param {Object} config Configuration object
-	 * @cfg {string} [currentSource] The selected source for the model.
+	 * @param {string} [config.currentSource] The selected source for the model.
 	 *  Defaults to the current wiki.
 	 */
 	mw.echo.dm.SourcePagesModel = function MwEchoDmSourcePagesModel( config ) {

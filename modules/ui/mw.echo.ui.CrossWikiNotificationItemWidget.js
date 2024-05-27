@@ -16,7 +16,7 @@
 	 * @param {mw.echo.Controller} controller Echo notifications controller
 	 * @param {mw.echo.dm.CrossWikiNotificationItem} model Notification group model
 	 * @param {Object} [config] Configuration object
-	 * @cfg {boolean} [animateSorting=false] Animate the sorting of items
+	 * @param {boolean} [config.animateSorting=false] Animate the sorting of items
 	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget = function MwEchoUiCrossWikiNotificationItemWidget( controller, model, config ) {
 		config = config || {};

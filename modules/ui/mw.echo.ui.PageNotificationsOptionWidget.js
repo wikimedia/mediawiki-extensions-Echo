@@ -9,8 +9,8 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
-	 * @cfg {number} [count] Number of unread notifications
-	 * @cfg {boolean} [isCapped] The count for this widget is capped
+	 * @param {number} [config.count] Number of unread notifications
+	 * @param {boolean} [config.isCapped] The count for this widget is capped
 	 */
 	mw.echo.ui.PageNotificationsOptionWidget = function MwEchoUiPageNotificationsOptionWidget( config ) {
 		config = config || {};

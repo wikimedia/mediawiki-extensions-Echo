@@ -7,11 +7,11 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
-	 * @cfg {string} [type] The notification types this button represents;
+	 * @param {string} [config.type] The notification types this button represents;
 	 *  'message', 'alert' or 'all'
-	 * @cfg {string} [href] URL the badge links to
-	 * @cfg {string} [numItems=0] The number of items that are in the button display
-	 * @cfg {string} [convertedNumber] A converted version of the initial count
+	 * @param {string} [config.href] URL the badge links to
+	 * @param {string} [config.numItems=0] The number of items that are in the button display
+	 * @param {string} [config.convertedNumber] A converted version of the initial count
 	 */
 	mw.echo.ui.BadgeLinkWidget = function MwEchoUiBadgeLinkWidget( config ) {
 		config = config || {};

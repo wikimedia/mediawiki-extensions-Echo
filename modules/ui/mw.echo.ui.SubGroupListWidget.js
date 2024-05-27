@@ -7,10 +7,10 @@
 	 * @param {mw.echo.Controller} controller Notifications controller
 	 * @param {mw.echo.dm.SortedList} listModel Notifications list model for this source
 	 * @param {Object} config Configuration object
-	 * @cfg {boolean} [showTitle=false] Show the title of this group
-	 * @cfg {boolean} [showMarkAllRead=false] Show a mark all read button for this group
-	 * @cfg {boolean} [animateSorting=false] Animate the sorting of items
-	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
+	 * @param {boolean} [config.showTitle=false] Show the title of this group
+	 * @param {boolean} [config.showMarkAllRead=false] Show a mark all read button for this group
+	 * @param {boolean} [config.animateSorting=false] Animate the sorting of items
+	 * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */
 	mw.echo.ui.SubGroupListWidget = function MwEchoUiSubGroupListWidget( controller, listModel, config ) {

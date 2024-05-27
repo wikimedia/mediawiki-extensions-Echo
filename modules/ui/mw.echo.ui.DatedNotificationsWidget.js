@@ -10,8 +10,8 @@
 	 * @param {mw.echo.Controller} controller Echo controller
 	 * @param {mw.echo.dm.ModelManager} modelManager Model manager
 	 * @param {Object} [config] Configuration object
-	 * @cfg {boolean} [animateSorting=false] Animate the sorting of items
-	 * @cfg {jQuery} [$overlay] An overlay for the popup menus
+	 * @param {boolean} [config.animateSorting=false] Animate the sorting of items
+	 * @param {jQuery} [config.$overlay] An overlay for the popup menus
 	 */
 	mw.echo.ui.DatedNotificationsWidget = function MwEchoUiDatedNotificationsListWidget( controller, modelManager, config ) {
 		config = config || {};
