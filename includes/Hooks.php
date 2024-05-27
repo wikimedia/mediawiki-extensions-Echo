@@ -9,7 +9,6 @@ use EchoUserLocator;
 use EmailNotification;
 use ExtensionRegistry;
 use HTMLCheckMatrix;
-use IBufferingStatsdDataFactory;
 use Language;
 use LogEntry;
 use LogicException;
@@ -124,11 +123,7 @@ class Hooks implements
 	private NamespaceInfo $namespaceInfo;
 	private PermissionManager $permissionManager;
 	private RevisionStore $revisionStore;
-
-	/**
-	 * @var IBufferingStatsdDataFactory|StatsFactory|null
-	 */
-	private $statsFactory;
+	private StatsFactory $statsFactory;
 	private TalkPageNotificationManager $talkPageNotificationManager;
 	private UserEditTracker $userEditTracker;
 	private UserFactory $userFactory;
@@ -147,7 +142,7 @@ class Hooks implements
 		NamespaceInfo $namespaceInfo,
 		PermissionManager $permissionManager,
 		RevisionStore $revisionStore,
-		$statsFactory,
+		StatsFactory $statsFactory,
 		TalkPageNotificationManager $talkPageNotificationManager,
 		UserEditTracker $userEditTracker,
 		UserFactory $userFactory,
@@ -163,7 +158,7 @@ class Hooks implements
 		$this->namespaceInfo = $namespaceInfo;
 		$this->permissionManager = $permissionManager;
 		$this->revisionStore = $revisionStore;
-		$this->statsFactory = $statsFactory;
+		$this->statsFactory = $statsFactory->withComponent( 'Echo' );
 		$this->talkPageNotificationManager = $talkPageNotificationManager;
 		$this->userEditTracker = $userEditTracker;
 		$this->userFactory = $userFactory;
@@ -1131,15 +1126,9 @@ class Hooks implements
 			// Record that the user is going to see an indicator that they have unseen notifications
 			// This is part of tracking how likely users are to click a badge with unseen notifications.
 			// The other part is the 'echo.unseen.click' counter, see ext.echo.init.js.
-			if ( $this->statsFactory instanceof IBufferingStatsdDataFactory ) {
-				$this->statsFactory->increment( 'echo.unseen' );
-			}
-
-			if ( $this->statsFactory instanceof StatsFactory ) {
-				$this->statsFactory->withComponent( 'Echo' )->getCounter( 'unseen_total' )
-					->copyToStatsdAt( 'echo.unseen' )
-					->increment();
-			}
+			$this->statsFactory->getCounter( 'unseen_total' )
+				->copyToStatsdAt( 'echo.unseen' )
+				->increment();
 		}
 	}
 
