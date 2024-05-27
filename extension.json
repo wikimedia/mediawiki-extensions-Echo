@@ -500,7 +500,7 @@
 				"NamespaceInfo",
 				"PermissionManager",
 				"RevisionStore",
-				"StatsdDataFactory",
+				"StatsFactory",
 				"TalkPageNotificationManager",
 				"UserEditTracker",
 				"UserFactory",
