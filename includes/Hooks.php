@@ -83,6 +83,7 @@ use MediaWiki\WikiMap\WikiMap;
 use RecentChange;
 use Skin;
 use SkinTemplate;
+use Wikimedia\Stats\StatsFactory;
 use WikiPage;
 
 class Hooks implements
@@ -123,7 +124,11 @@ class Hooks implements
 	private NamespaceInfo $namespaceInfo;
 	private PermissionManager $permissionManager;
 	private RevisionStore $revisionStore;
-	private IBufferingStatsdDataFactory $statsdDataFactory;
+
+	/**
+	 * @var IBufferingStatsdDataFactory|StatsFactory|null
+	 */
+	private $statsFactory;
 	private TalkPageNotificationManager $talkPageNotificationManager;
 	private UserEditTracker $userEditTracker;
 	private UserFactory $userFactory;
@@ -142,7 +147,7 @@ class Hooks implements
 		NamespaceInfo $namespaceInfo,
 		PermissionManager $permissionManager,
 		RevisionStore $revisionStore,
-		IBufferingStatsdDataFactory $statsdDataFactory,
+		$statsFactory,
 		TalkPageNotificationManager $talkPageNotificationManager,
 		UserEditTracker $userEditTracker,
 		UserFactory $userFactory,
@@ -158,7 +163,7 @@ class Hooks implements
 		$this->namespaceInfo = $namespaceInfo;
 		$this->permissionManager = $permissionManager;
 		$this->revisionStore = $revisionStore;
-		$this->statsdDataFactory = $statsdDataFactory;
+		$this->statsFactory = $statsFactory;
 		$this->talkPageNotificationManager = $talkPageNotificationManager;
 		$this->userEditTracker = $userEditTracker;
 		$this->userFactory = $userFactory;
@@ -1126,7 +1131,15 @@ class Hooks implements
 			// Record that the user is going to see an indicator that they have unseen notifications
 			// This is part of tracking how likely users are to click a badge with unseen notifications.
 			// The other part is the 'echo.unseen.click' counter, see ext.echo.init.js.
-			$this->statsdDataFactory->increment( 'echo.unseen' );
+			if ( $this->statsFactory instanceof IBufferingStatsdDataFactory ) {
+				$this->statsFactory->increment( 'echo.unseen' );
+			}
+
+			if ( $this->statsFactory instanceof StatsFactory ) {
+				$this->statsFactory->withComponent( 'Echo' )->getCounter( 'unseen_total' )
+					->copyToStatsdAt( 'echo.unseen' )
+					->increment();
+			}
 		}
 	}
 
