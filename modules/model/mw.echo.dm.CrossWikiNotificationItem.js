@@ -9,7 +9,7 @@
 	 * @constructor
 	 * @param {number} id Notification id
 	 * @param {Object} [config] Configuration object
-	 * @cfg {number} count The initial anticipated count of notifications through all
+	 * @param {number} config.count The initial anticipated count of notifications through all
 	 *  of the sources.
 	 */
 	mw.echo.dm.CrossWikiNotificationItem = function MwEchoDmCrossWikiNotificationItem( id, config ) {

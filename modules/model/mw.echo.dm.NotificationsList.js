@@ -10,16 +10,16 @@
 	 *
 	 * @constructor
 	 * @param {Object} config Configuration options
-	 * @cfg {Function} [sortingCallback] A function defining the sorting order
+	 * @param {Function} [config.sortingCallback] A function defining the sorting order
 	 *  of items in this list.
-	 * @cfg {string} [title] An optional title for this notifications list
-	 * @cfg {string} [name='local'] Symbolic name for this list
-	 * @cfg {string} [source='local'] Symbolic name for the source of this list.
+	 * @param {string} [config.title] An optional title for this notifications list
+	 * @param {string} [config.name='local'] Symbolic name for this list
+	 * @param {string} [config.source='local'] Symbolic name for the source of this list.
 	 *  This is used mainly for recognizing where API actions should be by the
 	 *  controller.
-	 * @cfg {string} [sourceURL] The URL for the article base of the remote
+	 * @param {string} [config.sourceURL] The URL for the article base of the remote
 	 *  group or wiki
-	 * @cfg {string} [timestamp=0] A timestamp representing the latest item in
+	 * @param {string} [config.timestamp=0] A timestamp representing the latest item in
 	 *  the list.
 	 */
 	mw.echo.dm.NotificationsList = function MwEchoDmNotificationsList( config ) {

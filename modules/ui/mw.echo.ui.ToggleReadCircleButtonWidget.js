@@ -7,7 +7,7 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration options
-	 * @cfg {boolean} [markAsRead=true] Display mark as read state. If false, the button displays
+	 * @param {boolean} [config.markAsRead=true] Display mark as read state. If false, the button displays
 	 *  mark as unread state.
 	 */
 	mw.echo.ui.ToggleReadCircleButtonWidget = function MwEchoUiToggleReadCircleButtonWidget( config ) {

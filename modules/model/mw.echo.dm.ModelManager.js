@@ -22,10 +22,10 @@
 	 * @constructor
 	 * @param {mw.echo.dm.UnreadNotificationCounter} counter Unread counter
 	 * @param {Object} [config] Configuration object
-	 * @cfg {string|string[]} [type="message"] The type of the notifications in
+	 * @param {string|string[]} [config.type="message"] The type of the notifications in
 	 *  the models that this manager handles.
-	 * @cfg {number} [itemsPerPage=25] Number of items per page
-	 * @cfg {string} [readState] Notifications read state. Pass through to mw.echo.dm.FiltersModel
+	 * @param {number} [config.itemsPerPage=25] Number of items per page
+	 * @param {string} [config.readState] Notifications read state. Pass through to mw.echo.dm.FiltersModel
 	 */
 	mw.echo.dm.ModelManager = function MwEchoDmModelManager( counter, config ) {
 		config = config || {};

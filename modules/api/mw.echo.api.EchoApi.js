@@ -6,7 +6,7 @@
 	 *
 	 * @constructor
 	 * @param {Object} config Configuration options
-	 * @cfg {number} [limit=25] Number of notifications to fetch
+	 * @param {number} [config.limit=25] Number of notifications to fetch
 	 */
 	mw.echo.api.EchoApi = function MwEchoApiEchoApi( config ) {
 		config = config || {};

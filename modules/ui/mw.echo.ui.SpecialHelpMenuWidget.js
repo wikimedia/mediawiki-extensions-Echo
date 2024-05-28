@@ -4,7 +4,7 @@
 	 *
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
 	 * @param {Object} config Configuration object
-	 * @cfg {string} [prefLink] Link to preferences page
+	 * @param {string} [config.prefLink] Link to preferences page
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget = function MwEchoUiSpecialHelpMenuWidget( manager, config ) {
 		config = config || {};

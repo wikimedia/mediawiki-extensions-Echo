@@ -8,7 +8,7 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
-	 * @cfg {string} [link] A link that this widget leads to.
+	 * @param {string} [config.link] A link that this widget leads to.
 	 */
 	mw.echo.ui.PlaceholderItemWidget = function MwEchoUiPlaceholderItemWidget( config ) {
 		config = config || {};

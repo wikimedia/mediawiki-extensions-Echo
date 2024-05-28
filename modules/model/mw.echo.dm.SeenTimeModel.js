@@ -3,7 +3,7 @@
 	 * SeenTime model for Echo notifications
 	 *
 	 * @param {Object} [config] Configuration
-	 * @cfg {string|string[]} [types='alert','message'] The types of notifications
+	 * @param {string|string[]} [config.types='alert','message'] The types of notifications
 	 *  that this model handles
 	 */
 	mw.echo.dm.SeenTimeModel = function MwEchoSeenTimeModel( config ) {

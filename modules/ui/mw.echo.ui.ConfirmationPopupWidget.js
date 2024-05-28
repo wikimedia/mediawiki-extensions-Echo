@@ -9,7 +9,7 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration object
-	 * @cfg {number} [interval=2000] The number of milliseconds that it takes
+	 * @param {number} [config.interval=2000] The number of milliseconds that it takes
 	 *  for the popup to disappear after appearing.
 	 */
 	mw.echo.ui.ConfirmationPopupWidget = function MwEchoUiConfirmationPopupWidget( config ) {

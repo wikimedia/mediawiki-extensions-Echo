@@ -12,7 +12,7 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration options
-	 * @cfg {boolean} [foreign] The list contains foreign notifications
+	 * @param {boolean} [config.foreign] The list contains foreign notifications
 	 */
 	mw.echo.dm.NotificationGroupsList = function MwEchoDmNotificationGroupsList( config ) {
 		config = config || {};

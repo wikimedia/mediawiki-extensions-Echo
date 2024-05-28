@@ -11,9 +11,9 @@
 	 * @param {mw.echo.Controller} controller Echo controller
 	 * @param {mw.echo.dm.NotificationItem} model Notification item model
 	 * @param {Object} [config] Configuration options
-	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
+	 * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
-	 * @cfg {boolean} [bundle=false] This notification item is part of a bundle.
+	 * @param {boolean} [config.bundle=false] This notification item is part of a bundle.
 	 */
 	mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( controller, model, config ) {
 		config = config || {};

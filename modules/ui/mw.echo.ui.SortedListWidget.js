@@ -10,13 +10,13 @@
 	 * @constructor
 	 * @param {Function} sortingCallback Callback that compares two items.
 	 * @param {Object} [config] Configuration options
-	 * @cfg {jQuery} [$group] The container element created by the class. If this configuration
+	 * @param {jQuery} [config.$group] The container element created by the class. If this configuration
 	 *  is omitted, the group element will use a generated `<div>`.
-	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
+	 * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
-	 * @cfg {number} [timestamp=0] A fallback timestamp for the list, usually representing
+	 * @param {number} [config.timestamp=0] A fallback timestamp for the list, usually representing
 	 *  the timestamp of the latest item.
-	 * @cfg {boolean} [animated=false] Animate the sorting of items
+	 * @param {boolean} [config.animated=false] Animate the sorting of items
 	 */
 	mw.echo.ui.SortedListWidget = function MwEchoUiSortedListWidget( sortingCallback, config ) {
 		config = config || {};

@@ -10,9 +10,9 @@
 	 * @param {string} type The notification type 'message', 'alert', or 'all'.
 	 * @param {number} max Maximum number supported. Above this number there is no precision, we only know it is 'more than max'.
 	 * @param {Object} config Configuration object
-	 * @cfg {boolean} [localOnly=false] The update only takes into account
+	 * @param {boolean} [config.localOnly=false] The update only takes into account
 	 *  local notifications and ignores the number of cross-wiki notifications.
-	 * @cfg {string} [source='local'] The source for this counter. Specifically important if the counter
+	 * @param {string} [config.source='local'] The source for this counter. Specifically important if the counter
 	 *  is set to be counting only local notifications
 	 */
 	mw.echo.dm.UnreadNotificationCounter = function mwEchoDmUnreadNotificationCounter( api, type, max, config ) {

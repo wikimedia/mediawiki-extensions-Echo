@@ -11,9 +11,9 @@
 	 * @param {mw.echo.dm.ModelManager} manager Model manager
 	 * @param {Object} [config] Configuration object
 	 *  marked as read when they are seen.
-	 * @cfg {string} [timestamp=0] A timestamp representing the latest item in
+	 * @param {string} [config.timestamp=0] A timestamp representing the latest item in
 	 *  the list.
-	 * @cfg {jQuery} [$overlay] A jQuery element functioning as an overlay
+	 * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
 	 *  for popups.
 	 */
 	mw.echo.ui.NotificationsListWidget = function MwEchoUiNotificationsListWidget( controller, manager, config ) {

@@ -9,13 +9,13 @@
 	 * @constructor
 	 * @param {mw.echo.dm.PaginationModel} paginationModel Pagination model
 	 * @param {Object} [config] Configuration object
-	 * @cfg {number} [itemsPerPage=25] Number of items per page
-	 * @cfg {number} [showFirstButton=true] Show a button that allows the user
+	 * @param {number} [config.itemsPerPage=25] Number of items per page
+	 * @param {number} [config.showFirstButton=true] Show a button that allows the user
 	 *  to go back to the first page.
-	 * @cfg {number} [showFirstButtonAfter=2] Pick the number of pages that it
+	 * @param {number} [config.showFirstButtonAfter=2] Pick the number of pages that it
 	 *  takes to show the button that takes the user back to the first set
 	 *  of results.
-	 * @cfg {string} [startButtonLabel] The label used for the start button
+	 * @param {string} [config.startButtonLabel] The label used for the start button
 	 */
 	mw.echo.ui.PaginationWidget = function MwEchoUiPaginationWidget( paginationModel, config ) {
 		config = config || {};
