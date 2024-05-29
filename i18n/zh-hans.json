@@ -159,7 +159,7 @@
 	"echo-api-failure": "获取通知失败。",
 	"echo-api-failure-cross-wiki": "对远程域的访问被拒绝。",
 	"echo-notification-placeholder": "没有收到通知。",
-	"echo-notification-placeholder-filters": "没有符合这些筛选条件的通知。",
+	"echo-notification-placeholder-filters": "没有符合这些条件的通知。",
 	"echo-notification-loginrequired": "您必须登录才能查看您的通知。",
 	"echo-notification-popup-loginrequired": "请登录以查看您的通知。",
 	"echo-notification-markasread": "标记为已读",
