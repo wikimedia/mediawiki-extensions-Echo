@@ -9,13 +9,15 @@
 	&-row {
 		display: flex;
 		align-items: start;
+		flex-wrap: wrap;
 		gap: 1em;
 	}
 
 	&-toolbarWrapper {
-		height: 3.5em;
+		min-height: 3.5em;
 		position: -webkit-sticky;
 		position: sticky;
+		padding-bottom: 1em;
 		padding-top: 0.5em;
 		margin-top: -0.5em;
 		top: 0;
@@ -30,14 +32,22 @@
 		}
 	}
 
-	&-main {
+	&-sidebar {
+		flex-basis: @specialpage-sidebar-width;
 		flex-grow: 1;
+		max-width: @specialpage-sidebar-max-width;
+	}
+
+	&-main {
+		flex-basis: @specialpage-main-width;
+		flex-grow: 2;
 
 		&-toolbar {
 			&-top {
 				.mw-echo-ui-notificationsInboxWidget-row {
 					display: flex;
 					align-items: center;
+					flex-wrap: wrap;
 				}
 			}
 		}
@@ -47,10 +57,11 @@
 		// Override for the top toolbar so we get
 		// filters and pagination under one another
 		&-main {
+			min-width: 0;
+
 			&-toolbar {
 				&-top {
 					.mw-echo-ui-notificationsInboxWidget-row {
-						flex-wrap: wrap;
 						text-align: center;
 						justify-content: center;
 					}
@@ -73,7 +84,7 @@
 		}
 
 		&-toolbarWrapper {
-			height: 7em;
+			min-height: 7em;
 		}
 	}
 }
