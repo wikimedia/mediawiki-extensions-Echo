@@ -40,6 +40,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		$maxId = (int)$dbr->newSelectQueryBuilder()
 			->select( 'MAX(event_id)' )
 			->from( 'echo_event' )
+			->caller( __METHOD__ )
 			->fetchField();
 		$eventsProcessedTotal = 0;
 		$targetsProcessedTotal = 0;
