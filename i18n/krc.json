@@ -205,7 +205,7 @@
 	"notification-inbox-filter-all": "Барысы да",
 	"echo-specialmute-label-mute-notifications": "Бу {{GENDER:$1|хайырланыучудан}} келген хапарландырыуланы тауушсуз эт",
 	"echo-email-plain-footer": "Къайсы электрон мектубланы {{GENDER:$1|сизге}} джибергенибизни контроль этер ючюн {{GENDER:$1|сизни}} джарашдырыуларыгъызны контроль этигиз.",
-	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|Джарашдырыуларыгъызны}} контроль этигзи",
+	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|Джарашдырыуларыгъызны}} контроль этигиз",
 	"echo-email-html-footer-with-link": "{{GENDER:$2|Сизге}} къайсы электрон мектубланы джибергенибизни контроль этер ючюн $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Билдириу ($1)|Билдириуле ($1)|100=Билдириуле (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Хапарландырыу ($1)|Хапарландырыула ($1)|100=Хапарландырыула (99+)}}",

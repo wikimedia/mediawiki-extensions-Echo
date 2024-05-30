@@ -6,7 +6,8 @@
 			"Kuldeepburjbhalaike",
 			"Satdeep gill",
 			"Tow",
-			"ਪ੍ਰਚਾਰਕ"
+			"ਪ੍ਰਚਾਰਕ",
+			"Cabal"
 		]
 	},
 	"echo-desc": "ਘਟਨਾਵਾਂ ਅਤੇ ਸੰਦੇਸ਼ਾਂ ਬਾਰੇ ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਸੂਚਿਤ ਕਰਨ ਲਈ ਪ੍ਰਣਾਲੀ",
@@ -141,7 +142,7 @@
 	"notification-timestamp-yesterday": "ਬੀਤਿਆ ਕੱਲ੍ਹ",
 	"notification-inbox-filter-read": "ਪੜ੍ਹੇ ਹੋਏ",
 	"notification-inbox-filter-unread": "ਅਣ-ਪੜ੍ਹਿਆ",
-	"notification-inbox-filter-all": "ਸਭ",
+	"notification-inbox-filter-all": "ਸਾਰੇ",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|ਤੁਹਾਡੀਆਂ}} ਤਰਜੀਹਾਂ ਜਾਂਚੋ",
 	"echo-notification-alert": "{{PLURAL:$1|ਚੌਕਸੀ ($1)|ਚੌਕਸੀਆਂ ($1)|100=ਚੌਕਸੀਆਂ (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|ਨੋਟਿਸ ($1)|100=ਨੋਟਿਸ (99+)}}",
