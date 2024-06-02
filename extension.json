@@ -156,6 +156,7 @@
 				"ext.echo.ui",
 				"ext.echo.styles.badge",
 				"mediawiki.util",
+				"mediawiki.user",
 				"mediawiki.api"
 			]
 		},
@@ -422,6 +423,7 @@
 			"dependencies": [
 				"ext.echo.ui",
 				"mediawiki.Uri",
+				"mediawiki.user",
 				"ext.echo.styles.special"
 			],
 			"messages": [
