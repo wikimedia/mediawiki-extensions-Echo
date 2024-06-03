@@ -65,23 +65,21 @@
 	 * @fires mw.echo.ui.NotificationsWrapper#finishLoading
 	 */
 	mw.echo.ui.NotificationsWrapper.prototype.populate = function () {
-		const widget = this;
-
 		this.pushPending();
 		return this.controller.fetchLocalNotifications( true )
 			.catch( ( errorObj ) => {
 				if ( errorObj.errCode === 'notlogin-required' ) {
 					// Login required message
-					widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-loginrequired' ) );
+					this.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-loginrequired' ) );
 				} else {
 					// Generic API failure message
-					widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure' ) );
+					this.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure' ) );
 				}
 			} )
 			.always( () => {
-				widget.popPending();
-				widget.emit( 'finishLoading' );
-				widget.promiseRunning = false;
+				this.popPending();
+				this.emit( 'finishLoading' );
+				this.promiseRunning = false;
 			} );
 	};
 }() );

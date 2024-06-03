@@ -53,8 +53,6 @@
 	 * @inheritdoc
 	 */
 	mw.echo.ui.SortedListWidget.prototype.onItemSortChange = function ( item ) {
-		const widget = this;
-
 		if ( this.animated ) {
 			// Create a fake widget with cloned contents
 			const fakeWidget = new mw.echo.ui.ClonedNotificationItemWidget(
@@ -85,7 +83,7 @@
 			// eslint-disable-next-line no-jquery/no-fade
 			fakeWidget.$element.fadeOut( 400, () => {
 				// remove fake
-				widget.removeItems( [ fakeWidget ] );
+				this.removeItems( [ fakeWidget ] );
 				// fade-in real item
 				// eslint-disable-next-line no-jquery/no-fade
 				item.$element.fadeIn( 400 );

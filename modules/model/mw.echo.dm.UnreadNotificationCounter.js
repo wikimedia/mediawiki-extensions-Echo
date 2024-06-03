@@ -119,8 +119,6 @@
 	 *  count is fetched, with the actual unread notification count.
 	 */
 	mw.echo.dm.UnreadNotificationCounter.prototype.update = function () {
-		const model = this;
-
 		if ( !this.api ) {
 			return $.Deferred().reject();
 		}
@@ -130,7 +128,7 @@
 			this.type,
 			this.localOnly
 		) ).then( ( actualCount ) => {
-			model.setCount( actualCount, false );
+			this.setCount( actualCount, false );
 
 			return actualCount;
 		} );

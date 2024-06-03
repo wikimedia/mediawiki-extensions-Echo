@@ -428,13 +428,11 @@
 	 * @return {mw.echo.dm.NotificationItem[]} All notifications from that source
 	 */
 	mw.echo.dm.ModelManager.prototype.getNotificationsBySource = function ( source ) {
-		const manager = this;
-
 		source = source || 'local';
 
 		const notifications = [];
 		Object.keys( this.getAllNotificationModels() ).forEach( ( modelName ) => {
-			const model = manager.getNotificationModel( modelName );
+			const model = this.getNotificationModel( modelName );
 			if ( model.getSource() === source ) {
 				notifications.push( ...model.getItems() );
 			}
@@ -449,13 +447,12 @@
 	 * @return {string[]} All model IDs that use this source
 	 */
 	mw.echo.dm.ModelManager.prototype.getModelsBySource = function ( source ) {
-		const modelIds = [],
-			manager = this;
+		const modelIds = [];
 
 		source = source || 'local';
 
 		Object.keys( this.getAllNotificationModels() ).forEach( ( modelName ) => {
-			const model = manager.getNotificationModel( modelName );
+			const model = this.getNotificationModel( modelName );
 			if ( model.getSource() === source ) {
 				modelIds.push( modelName );
 			}
