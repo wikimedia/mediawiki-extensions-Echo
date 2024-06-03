@@ -252,7 +252,6 @@
 						.append( $.parseHTML( messages.description ) );
 
 				// Get rid of the button
-				item.disconnect( this );
 				if ( item.isPrioritized() ) {
 					widget.actionsButtonSelectWidget.removeItems( [ item ] );
 				} else {
