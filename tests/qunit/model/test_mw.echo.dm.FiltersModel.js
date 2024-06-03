@@ -22,14 +22,14 @@ QUnit.test.each( 'Constructing the model', {
 		}
 	}
 }, function ( assert, data ) {
-	var defaultValues = {
+	const defaultValues = {
 		getReadState: 'all'
 	};
-	var expected = $.extend( true, {}, defaultValues, data.expected );
+	const expected = $.extend( true, {}, defaultValues, data.expected );
 
-	var model = new mw.echo.dm.FiltersModel( data.config );
+	const model = new mw.echo.dm.FiltersModel( data.config );
 
-	for ( var method in expected ) {
+	for ( const method in expected ) {
 		assert.deepEqual(
 			// Run the method
 			model[ method ](),
@@ -42,7 +42,7 @@ QUnit.test.each( 'Constructing the model', {
 } );
 
 QUnit.test( 'Changing filters', function ( assert ) {
-	var model = new mw.echo.dm.FiltersModel();
+	const model = new mw.echo.dm.FiltersModel();
 
 	assert.strictEqual(
 		model.getReadState(),
@@ -73,8 +73,8 @@ QUnit.test( 'Changing filters', function ( assert ) {
 } );
 
 QUnit.test( '.setReadState() events', function ( assert ) {
-	var results = [];
-	var model = new mw.echo.dm.FiltersModel();
+	const results = [];
+	const model = new mw.echo.dm.FiltersModel();
 
 	// Listen to update event
 	model.on( 'update', function () {

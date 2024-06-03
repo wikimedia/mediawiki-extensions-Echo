@@ -30,7 +30,7 @@
 	 * @inheritdoc
 	 */
 	mw.echo.api.ForeignAPIHandler.prototype.getTypeParams = function ( type ) {
-		var params = {
+		let params = {
 			// Backwards compatibility
 			notforn: 1
 		};

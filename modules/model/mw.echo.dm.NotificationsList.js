@@ -124,10 +124,10 @@
 	 * @return {number[]} Item IDs
 	 */
 	mw.echo.dm.NotificationsList.prototype.getAllItemIds = function () {
-		var idArray = [],
+		const idArray = [],
 			items = this.getItems();
 
-		for ( var i = 0; i < items.length; i++ ) {
+		for ( let i = 0; i < items.length; i++ ) {
 			idArray.push( items[ i ].getId() );
 		}
 
@@ -141,10 +141,10 @@
 	 * @return {number[]} Item IDs
 	 */
 	mw.echo.dm.NotificationsList.prototype.getAllItemIdsByType = function ( type ) {
-		var idArray = [],
+		const idArray = [],
 			items = this.getItems();
 
-		for ( var i = 0; i < items.length; i++ ) {
+		for ( let i = 0; i < items.length; i++ ) {
 			if ( items[ i ].getType() === type ) {
 				idArray.push( items[ i ].getId() );
 			}
@@ -196,7 +196,7 @@
 	 * @return {string} Latest timestamp
 	 */
 	mw.echo.dm.NotificationsList.prototype.getTimestamp = function () {
-		var items = this.getItems();
+		const items = this.getItems();
 
 		return (
 			// In the cases where we want a single timestamp for a
@@ -235,7 +235,7 @@
 	 * @return {boolean} There are unseen items in the list
 	 */
 	mw.echo.dm.NotificationsList.prototype.hasUnseen = function () {
-		var isItemUnseen = function ( item ) {
+		const isItemUnseen = function ( item ) {
 				return !item.isSeen();
 			},
 			items = this.getItems();

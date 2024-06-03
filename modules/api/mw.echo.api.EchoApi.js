@@ -31,7 +31,7 @@
 	mw.echo.api.EchoApi.prototype.registerForeignSources = function ( sources, unreadOnly, limit ) {
 		limit = limit || this.limit;
 
-		for ( var s in sources ) {
+		for ( const s in sources ) {
 			this.network.setApiHandler( s, new mw.echo.api.ForeignAPIHandler( sources[ s ].url, {
 				unreadOnly: !!unreadOnly,
 				limit: limit
@@ -45,9 +45,9 @@
 	 * @param {string[]} sources An array of source names
 	 */
 	mw.echo.api.EchoApi.prototype.registerLocalSources = function ( sources ) {
-		var localHandler = this.network.getApiHandler( 'local' );
+		const localHandler = this.network.getApiHandler( 'local' );
 
-		for ( var i = 0; i < sources.length; i++ ) {
+		for ( let i = 0; i < sources.length; i++ ) {
 			this.network.setApiHandler( sources[ i ], localHandler );
 		}
 	};
@@ -102,7 +102,7 @@
 	 * @return {Object} API parameter definitions to override
 	 */
 	mw.echo.api.EchoApi.prototype.convertFiltersToAPIParams = function ( filterObject ) {
-		var overrideParams = {};
+		const overrideParams = {};
 
 		filterObject = filterObject || {};
 
@@ -125,7 +125,7 @@
 		}
 
 		if ( filterObject.titles ) {
-			var titles = Array.isArray( filterObject.titles ) ? filterObject.titles : [ filterObject.titles ];
+			const titles = Array.isArray( filterObject.titles ) ? filterObject.titles : [ filterObject.titles ];
 			if ( titles.indexOf( null ) !== -1 ) {
 				// Map null to '[]'
 				titles.splice( titles.indexOf( null ), 1, '[]' );
@@ -149,7 +149,7 @@
 	 *  requested types.
 	 */
 	mw.echo.api.EchoApi.prototype.fetchNotificationsFromRemoteSource = function ( type, source, isForced, filters ) {
-		var handler = this.network.getApiHandler( source );
+		const handler = this.network.getApiHandler( source );
 
 		if ( !handler ) {
 			return $.Deferred().reject().promise();
@@ -206,14 +206,14 @@
 	 *  names to an array of their items' API data objects.
 	 */
 	mw.echo.api.EchoApi.prototype.fetchNotificationGroups = function ( sourceArray, type, bundle ) {
-		var overrideParams = { notcrosswikisummary: false, notbundle: bundle };
+		const overrideParams = { notcrosswikisummary: false, notbundle: bundle };
 		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sourceArray, true, overrideParams )
 			.then( function ( result ) {
-				var items = OO.getProp( result, 'query', 'notifications', 'list' ),
+				const items = OO.getProp( result, 'query', 'notifications', 'list' ),
 					groups = {};
 
 				// Split the items to groups
-				for ( var i = 0; i < items.length; i++ ) {
+				for ( let i = 0; i < items.length; i++ ) {
 					groups[ items[ i ].wiki ] = groups[ items[ i ].wiki ] || [];
 					groups[ items[ i ].wiki ].push( items[ i ] );
 				}

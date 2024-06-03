@@ -1,4 +1,4 @@
-var Overlay = require( 'mobile.startup' ).Overlay;
+const Overlay = require( 'mobile.startup' ).Overlay;
 
 /**
  * @module module:ext.echo.mobile
@@ -24,14 +24,14 @@ function notificationsFilterOverlay( options ) {
 	options.$crossWikiUnreadFilter.on( 'click', hideOverlay );
 	options.$notifReadState.find( '.oo-ui-buttonElement' ).on( 'click', hideOverlay );
 
-	var $content = $( '<div>' ).append(
+	const $content = $( '<div>' ).append(
 		$( '<div>' )
 			.addClass( 'notifications-filter-overlay-read-state' )
 			.append( options.$notifReadState ),
 		options.$crossWikiUnreadFilter
 	);
 
-	var overlay = Overlay.make( {
+	const overlay = Overlay.make( {
 		onBeforeExit: options.onBeforeExit,
 		heading: '<strong>' + mw.message( 'echo-mobile-notifications-filter-title' ).escaped() + '</strong>',
 		className: 'overlay notifications-filter-overlay notifications-overlay navigation-drawer'

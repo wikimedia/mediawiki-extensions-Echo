@@ -65,11 +65,11 @@
 	OO.mixinClass( mw.echo.ui.DatedNotificationsWidget, OO.ui.mixin.PendingElement );
 
 	mw.echo.ui.DatedNotificationsWidget.prototype.onManagerDiscardModel = function ( modelId ) {
-		var model = this.models[ modelId ],
+		const model = this.models[ modelId ],
 			list = this.getList();
 
 		if ( model ) {
-			var group = list.getItemFromId( model.getName() );
+			const group = list.getItemFromId( model.getName() );
 			list.removeItems( [ group ] );
 		}
 	};
@@ -79,7 +79,7 @@
 	 * @param {string} source Symbolic name of the source group
 	 */
 	mw.echo.ui.DatedNotificationsWidget.prototype.onModelRemoveSource = function ( source ) {
-		var list = this.getList(),
+		const list = this.getList(),
 			group = list.getItemFromId( source );
 
 		list.removeItems( [ group ] );
@@ -93,16 +93,16 @@
 	 * @param {Object} models List models, indexed by ID
 	 */
 	mw.echo.ui.DatedNotificationsWidget.prototype.populateFromModel = function ( models ) {
-		var groupWidgets = [];
+		const groupWidgets = [];
 
 		// Detach all attached models
-		for ( var modelId in this.models ) {
+		for ( const modelId in this.models ) {
 			this.detachModel( modelId );
 		}
 
-		for ( var model in models ) {
+		for ( const model in models ) {
 			// Create SubGroup widgets
-			var subgroupWidget = new mw.echo.ui.DatedSubGroupListWidget(
+			const subgroupWidget = new mw.echo.ui.DatedSubGroupListWidget(
 				this.controller,
 				models[ model ],
 				{
@@ -163,10 +163,10 @@
 	 * @return {number} The number of all notifications
 	 */
 	mw.echo.ui.DatedNotificationsWidget.prototype.getAllNotificationCount = function () {
-		var count = 0,
+		let count = 0,
 			groups = this.getList().getItems();
 
-		for ( var i = 0; i < groups.length; i++ ) {
+		for ( let i = 0; i < groups.length; i++ ) {
 			count += groups[ i ].getListWidget().getItemCount();
 		}
 

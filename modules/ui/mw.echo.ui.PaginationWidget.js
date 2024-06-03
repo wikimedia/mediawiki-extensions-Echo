@@ -97,7 +97,7 @@
 	 * @fires mw.echo.ui.PaginationWidget#change
 	 */
 	mw.echo.ui.PaginationWidget.prototype.onDirSelectWidgetChoose = function ( item ) {
-		var dir = item && item.getData();
+		const dir = item && item.getData();
 
 		if ( dir ) {
 			this.emit( 'change', dir );
@@ -154,11 +154,11 @@
 	 * per page, and the number of notifications on the current page.
 	 */
 	mw.echo.ui.PaginationWidget.prototype.updateLabel = function () {
-		var itemsInPage = this.model.getCurrentPageItemCount(),
+		const itemsInPage = this.model.getCurrentPageItemCount(),
 			firstNotifNum = this.model.getCurrPageIndex() * this.itemsPerPage,
 			lastNotifNum = firstNotifNum + itemsInPage;
 
-		var label;
+		let label;
 		if ( itemsInPage === 0 ) {
 			label = '';
 		} else if ( !this.model.hasPrevPage() && !this.model.hasNextPage() ) {

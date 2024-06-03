@@ -2,7 +2,7 @@
  * @module module:ext.echo.mobile
  */
 
-var mobile = require( 'mobile.startup' ),
+const mobile = require( 'mobile.startup' ),
 	Overlay = mobile.Overlay,
 	list = require( './list.js' ),
 	promisedView = mobile.promisedView,
@@ -44,7 +44,7 @@ function onCountChange( count ) {
  * @return {Overlay}
  */
 function notificationsOverlay( onBeforeExit ) {
-	var markAllReadButton,
+	let markAllReadButton,
 		oouiPromise = mw.loader.using( 'oojs-ui' ).then( function () {
 			markAllReadButton = new OO.ui.ButtonWidget( {
 				icon: 'checkAll'

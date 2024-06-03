@@ -1,4 +1,4 @@
-var mobile = require( 'mobile.startup' ),
+const mobile = require( 'mobile.startup' ),
 	View = mobile.View,
 	promisedView = mobile.promisedView;
 
@@ -22,7 +22,7 @@ var mobile = require( 'mobile.startup' ),
  * @return {View}
  */
 function notificationsList( echo, markAllReadButton, onCountChange ) {
-	var maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
+	const maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
 		echoApi = new echo.api.EchoApi(),
 		unreadCounter = new echo.dm.UnreadNotificationCounter( echoApi, 'all', maxNotificationCount ),
 		modelManager = new echo.dm.ModelManager( unreadCounter, { type: [ 'message', 'alert' ] } ),
@@ -48,7 +48,7 @@ function notificationsList( echo, markAllReadButton, onCountChange ) {
 
 	echo.config.maxPrioritizedActions = 1;
 
-	var wrapperWidget = new echo.ui.NotificationsWrapper( controller, modelManager, {
+	const wrapperWidget = new echo.ui.NotificationsWrapper( controller, modelManager, {
 		$overlay: $moreOptions
 	} );
 
@@ -60,7 +60,7 @@ function notificationsList( echo, markAllReadButton, onCountChange ) {
 		markAsReadHandler();
 	} );
 	markAllReadButton.on( 'click', function () {
-		var numNotifications = controller.manager.getLocalUnread().length;
+		const numNotifications = controller.manager.getLocalUnread().length;
 
 		controller.markLocalNotificationsRead()
 			.then( function () {

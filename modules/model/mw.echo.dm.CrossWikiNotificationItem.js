@@ -65,10 +65,10 @@
 	 * @return {string[]} Source names
 	 */
 	mw.echo.dm.CrossWikiNotificationItem.prototype.getSourceNames = function () {
-		var sourceNames = [],
+		const sourceNames = [],
 			sourceLists = this.list.getItems();
 
-		for ( var i = 0; i < sourceLists.length; i++ ) {
+		for ( let i = 0; i < sourceLists.length; i++ ) {
 			sourceNames.push( sourceLists[ i ].getName() );
 		}
 
@@ -102,11 +102,11 @@
 	 * @return {boolean} There are unseen items
 	 */
 	mw.echo.dm.CrossWikiNotificationItem.prototype.hasUnseen = function () {
-		var sourceLists = this.getList().getItems();
+		const sourceLists = this.getList().getItems();
 
-		for ( var i = 0; i < sourceLists.length; i++ ) {
-			var items = sourceLists[ i ].getItems();
-			for ( var j = 0; j < items.length; j++ ) {
+		for ( let i = 0; i < sourceLists.length; i++ ) {
+			const items = sourceLists[ i ].getItems();
+			for ( let j = 0; j < items.length; j++ ) {
 				if ( !items[ j ].isSeen() ) {
 					return true;
 				}
@@ -137,7 +137,7 @@
 	 * @return {mw.echo.dm.NotificationItem[]} All items across all sources
 	 */
 	mw.echo.dm.CrossWikiNotificationItem.prototype.getItems = function () {
-		var notifications = [];
+		let notifications = [];
 		this.list.getItems().forEach( function ( sourceList ) {
 			notifications = notifications.concat( sourceList.getItems() );
 		} );

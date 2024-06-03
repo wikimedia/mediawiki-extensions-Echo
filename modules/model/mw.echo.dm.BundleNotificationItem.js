@@ -90,7 +90,7 @@
 	 * @return {boolean} There are unseen items
 	 */
 	mw.echo.dm.BundleNotificationItem.prototype.hasUnseen = function () {
-		var isUnseen = function ( item ) {
+		const isUnseen = function ( item ) {
 			return !item.isSeen();
 		};
 		return this.list.getItems().some( isUnseen );

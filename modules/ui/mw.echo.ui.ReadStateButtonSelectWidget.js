@@ -53,7 +53,7 @@
 	 * @fires mw.echo.ui.ReadStateButtonSelectWidget#filter
 	 */
 	mw.echo.ui.ReadStateButtonSelectWidget.prototype.onChoose = function ( item ) {
-		var data = item && item.getData();
+		const data = item && item.getData();
 
 		if ( data ) {
 			this.emit( 'filter', data );

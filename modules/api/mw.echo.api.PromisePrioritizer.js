@@ -28,7 +28,7 @@
 	 *  or rejects when the latest promise is resolved or rejected.
 	 */
 	mw.echo.api.PromisePrioritizer.prototype.prioritize = function ( promise ) {
-		var previousPromise = this.promise;
+		const previousPromise = this.promise;
 
 		promise
 			.then(
@@ -53,7 +53,7 @@
 	 *  latest prioritized promise.
 	 */
 	mw.echo.api.PromisePrioritizer.prototype.setSuccess = function ( promise ) {
-		var prioritizer = this;
+		const prioritizer = this;
 
 		if ( this.promise === promise ) {
 			this.promise.done( function () {
@@ -74,7 +74,7 @@
 	 *  latest prioritized promise
 	 */
 	mw.echo.api.PromisePrioritizer.prototype.setFailure = function ( promise ) {
-		var prioritizer = this;
+		const prioritizer = this;
 
 		if ( this.promise === promise ) {
 			this.promise.fail( function () {

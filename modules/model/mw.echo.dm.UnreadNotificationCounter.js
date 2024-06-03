@@ -119,7 +119,7 @@
 	 *  count is fetched, with the actual unread notification count.
 	 */
 	mw.echo.dm.UnreadNotificationCounter.prototype.update = function () {
-		var model = this;
+		const model = this;
 
 		if ( !this.api ) {
 			return $.Deferred().reject();

@@ -65,7 +65,7 @@
 	 * @fires OO.EventEmitter#sortChange
 	 */
 	mw.echo.ui.SingleNotificationItemWidget.prototype.toggleRead = function ( read ) {
-		var oldState = this.read;
+		const oldState = this.read;
 
 		// Parent method
 		mw.echo.ui.SingleNotificationItemWidget.super.prototype.toggleRead.call( this, read );

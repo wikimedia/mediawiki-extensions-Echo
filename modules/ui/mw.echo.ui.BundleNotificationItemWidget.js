@@ -114,7 +114,7 @@
 	 * in the model
 	 */
 	mw.echo.ui.BundleNotificationItemWidget.prototype.populateFromModel = function () {
-		var widget = this;
+		const widget = this;
 		this.getList().addItems( this.model.getList().getItems().map( function ( singleNotifModel ) {
 			return new mw.echo.ui.SingleNotificationItemWidget(
 				widget.controller,
