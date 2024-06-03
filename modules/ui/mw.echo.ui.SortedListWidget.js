@@ -53,12 +53,11 @@
 	 * @inheritdoc
 	 */
 	mw.echo.ui.SortedListWidget.prototype.onItemSortChange = function ( item ) {
-		let fakeWidget,
-			widget = this;
+		const widget = this;
 
 		if ( this.animated ) {
 			// Create a fake widget with cloned contents
-			fakeWidget = new mw.echo.ui.ClonedNotificationItemWidget(
+			const fakeWidget = new mw.echo.ui.ClonedNotificationItemWidget(
 				item.$element.clone( true ),
 				{
 					id: item.getId() + '.42',
@@ -136,11 +135,10 @@
 	 * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
 	 */
 	mw.echo.ui.SortedListWidget.prototype.findItemFromData = function ( data ) {
-		let i, len, item,
-			hash = OO.getHash( data );
+		const hash = OO.getHash( data );
 
-		for ( i = 0, len = this.items.length; i < len; i++ ) {
-			item = this.items[ i ];
+		for ( let i = 0, len = this.items.length; i < len; i++ ) {
+			const item = this.items[ i ];
 			if ( hash === OO.getHash( item.getData() ) ) {
 				return item;
 			}
@@ -158,17 +156,15 @@
 	 * @fires OO.EmitterList#remove
 	 */
 	mw.echo.ui.SortedListWidget.prototype.removeItems = function ( items ) {
-		let i, item, index;
-
 		if ( !Array.isArray( items ) ) {
 			items = [ items ];
 		}
 
 		if ( items.length > 0 ) {
 			// Remove specific items
-			for ( i = 0; i < items.length; i++ ) {
-				item = items[ i ];
-				index = this.items.indexOf( item );
+			for ( let i = 0; i < items.length; i++ ) {
+				const item = items[ i ];
+				const index = this.items.indexOf( item );
 				if ( index !== -1 ) {
 					item.setElementGroup( null );
 					item.$element.detach();
@@ -248,10 +244,8 @@
 	 * @fires OO.EmitterList#clear
 	 */
 	mw.echo.ui.SortedListWidget.prototype.clearItems = function () {
-		let i, len, item;
-
-		for ( i = 0, len = this.items.length; i < len; i++ ) {
-			item = this.items[ i ];
+		for ( let i = 0, len = this.items.length; i < len; i++ ) {
+			const item = this.items[ i ];
 			item.setElementGroup( null );
 			item.$element.detach();
 		}

@@ -163,9 +163,9 @@
 	 * @return {number} The number of all notifications
 	 */
 	mw.echo.ui.DatedNotificationsWidget.prototype.getAllNotificationCount = function () {
-		let count = 0,
-			groups = this.getList().getItems();
+		const groups = this.getList().getItems();
 
+		let count = 0;
 		for ( let i = 0; i < groups.length; i++ ) {
 			count += groups[ i ].getListWidget().getItemCount();
 		}

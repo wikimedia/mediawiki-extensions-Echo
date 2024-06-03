@@ -244,13 +244,12 @@
 		item.pushPending();
 		this.controller.performDynamicAction( actionData, this.getModel().getSource() )
 			.then( function () {
-				let $title = $( '<p>' )
+				const $title = $( '<p>' )
 						.addClass( 'mw-echo-ui-notificationItemWidget-notify-title' )
 						.append( $.parseHTML( messages.title ) ),
 					$description = $( '<p>' )
 						.addClass( 'mw-echo-ui-notificationItemWidget-notify-description' )
-						.append( $.parseHTML( messages.description ) ),
-					$confirmation;
+						.append( $.parseHTML( messages.description ) );
 
 				// Get rid of the button
 				item.disconnect( this );
@@ -266,7 +265,7 @@
 				$description.toggle( !!$description.text() );
 
 				// Display confirmation
-				$confirmation = $( '<div>' )
+				const $confirmation = $( '<div>' )
 					.append( $title, $description );
 
 				// Send to mw.notify

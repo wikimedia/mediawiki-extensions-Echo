@@ -23,11 +23,9 @@ function onCloseNotificationsOverlay() {
  * with the Toast notifications defined by common/toast.js.
  */
 function init() {
-	let
-		notificationsFilterOverlay = require( './notificationsFilterOverlay.js' ),
+	const notificationsFilterOverlay = require( './notificationsFilterOverlay.js' ),
 		notificationsOverlay = require( './overlay.js' ),
-		overlayManager = mobile.getOverlayManager(),
-		initialized = false;
+		overlayManager = mobile.getOverlayManager();
 
 	function showNotificationOverlay() {
 		const overlay = notificationsOverlay(
@@ -40,6 +38,7 @@ function init() {
 		return overlay;
 	}
 
+	let initialized = false;
 	// Once the DOM is loaded add the overlay and overlay manager. Minerva will handle the
 	// notification button that will link to Special:Notifications.
 	$( function () {

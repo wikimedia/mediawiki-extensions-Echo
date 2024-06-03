@@ -44,21 +44,21 @@ function onCountChange( count ) {
  * @return {Overlay}
  */
 function notificationsOverlay( onBeforeExit ) {
-	let markAllReadButton,
-		oouiPromise = mw.loader.using( 'oojs-ui' ).then( function () {
-			markAllReadButton = new OO.ui.ButtonWidget( {
-				icon: 'checkAll'
-			} );
-			return View.make(
-				{ class: 'notifications-overlay-header-markAllRead' },
-				[ markAllReadButton.$element ]
-			);
-		} ),
-		markAllReadButtonView = promisedView( oouiPromise );
+	let markAllReadButton;
+	const oouiPromise = mw.loader.using( 'oojs-ui' ).then( function () {
+		markAllReadButton = new OO.ui.ButtonWidget( {
+			icon: 'checkAll'
+		} );
+		return View.make(
+			{ class: 'notifications-overlay-header-markAllRead' },
+			[ markAllReadButton.$element ]
+		);
+	} );
+	const markAllReadButtonView = promisedView( oouiPromise );
 	// hide the button spinner as it is confusing to see in the top right corner
 	markAllReadButtonView.$el.hide();
 
-	var overlay = Overlay.make(
+	const overlay = Overlay.make(
 		{
 			heading: '<strong>' + mw.message( 'notifications' ).escaped() + '</strong>',
 			footerAnchor: {

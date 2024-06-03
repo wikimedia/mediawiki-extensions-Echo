@@ -24,9 +24,7 @@ function initDesktop() {
 
 	// Activate OOUI
 	$( function () {
-		let messageController,
-			alertController,
-			maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
+		const maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
 			pollingRate = require( './config.json' ).EchoPollForUpdates,
 			documentTitle = document.title,
 			$existingAlertLink = $( '#pt-notifications-alert a' ),
@@ -41,22 +39,23 @@ function initDesktop() {
 			hasUnseenMessages = $existingMessageLink.hasClass( 'mw-echo-unseen-notifications' ),
 			// latestMessageNotifTime is the time of most recent notification that came when we called showNotificationSnippet last
 			// the function showNotificationSnippet returns the time of the latest notification and latestMessageNotifTime is updated
-			latestMessageNotifTime = new Date(),
-			latestAlertNotifTime = new Date(),
-			alertCount = parseInt( numAlerts ),
-			messageCount = parseInt( numMessages ),
-			loadingPromise = null,
 			// Store links
 			links = {
 				notifications: $existingAlertLink.attr( 'href' ) || mw.util.getUrl( 'Special:Notifications' ),
 				preferences: ( $( '#pt-preferences a' ).attr( 'href' ) || mw.util.getUrl( 'Special:Preferences' ) ) +
 					'#mw-prefsection-echo'
 			};
+		let alertController, messageController,
+			latestMessageNotifTime = new Date(),
+			latestAlertNotifTime = new Date(),
+			alertCount = parseInt( numAlerts ),
+			messageCount = parseInt( numMessages ),
+			loadingPromise = null;
 
 		function updateDocumentTitleWithNotificationCount( totalAlertCount, totalMessageCount ) {
-			let totalCount = totalAlertCount + totalMessageCount,
-				newTitle = documentTitle;
+			const totalCount = totalAlertCount + totalMessageCount;
 
+			let newTitle = documentTitle;
 			if ( totalCount > 0 ) {
 				let convertedTotalCount = totalCount <= maxNotificationCount ? totalCount : maxNotificationCount + 1;
 				convertedTotalCount = mw.msg( 'echo-badge-count', mw.language.convertNumber( convertedTotalCount ) );

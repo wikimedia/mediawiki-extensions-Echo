@@ -115,23 +115,22 @@
 	 * @fires mw.echo.ui.NotificationsListWidget#modified
 	 */
 	mw.echo.ui.NotificationsListWidget.prototype.resetDataFromModel = function ( models ) {
-		let itemWidgets = [],
-			$elements = $();
+		const itemWidgets = [];
+		let $elements = $();
 
-		let modelId;
 		// Detach all attached models
-		for ( modelId in this.models ) {
+		for ( const modelId in this.models ) {
 			this.detachModel( modelId );
 		}
 
 		// Attach and process new models
-		for ( modelId in models ) {
+		for ( const modelId in models ) {
 			const model = models[ modelId ];
 			this.attachModel( modelId, model );
 
-			var widget;
 			// Build widgets based on the data in the model
 			if ( model.isGroup() ) {
+				let widget;
 				if ( model.isForeign() ) {
 					// One Widget to Rule Them All
 					widget = new mw.echo.ui.CrossWikiNotificationItemWidget(
@@ -161,7 +160,7 @@
 				// Separate widgets per item
 				for ( let i = 0; i < subItems.length; i++ ) {
 					const subItem = subItems[ i ];
-					widget = new mw.echo.ui.SingleNotificationItemWidget(
+					const widget = new mw.echo.ui.SingleNotificationItemWidget(
 						this.controller,
 						subItem,
 						{

@@ -32,8 +32,8 @@
 	 *  finished with some resolution or rejection.
 	 */
 	mw.echo.api.NetworkHandler.static.waitForAllPromises = function ( promiseArray ) {
-		let promises = promiseArray.slice( 0 ),
-			counter = 0,
+		let counter = 0;
+		const promises = promiseArray.slice( 0 ),
 			deferred = $.Deferred(),
 			countPromises = function () {
 				counter++;

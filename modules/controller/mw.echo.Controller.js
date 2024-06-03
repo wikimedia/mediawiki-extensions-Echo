@@ -287,7 +287,6 @@
 								data.seenTime[ controller.getTypeString() ]
 						);
 
-						var itemModel;
 						// Collect common data
 						const newNotifData = controller.createNotificationData( notifData );
 						if ( notifData.type === 'foreign' ) {
@@ -310,7 +309,7 @@
 						} else if ( Array.isArray( newNotifData.bundledNotifications ) ) {
 							// local bundle
 							newNotifData.modelName = 'bundle_' + notifData.id;
-							itemModel = new mw.echo.dm.BundleNotificationItem(
+							const itemModel = new mw.echo.dm.BundleNotificationItem(
 								notifData.id,
 								newNotifData.bundledNotifications.map( createBundledNotification.bind( null, newNotifData.modelName ) ),
 								newNotifData
@@ -318,7 +317,7 @@
 							allModels[ newNotifData.modelName ] = itemModel;
 						} else {
 							// Local single notifications
-							itemModel = new mw.echo.dm.NotificationItem(
+							const itemModel = new mw.echo.dm.NotificationItem(
 								notifData.id,
 								newNotifData
 							);
@@ -451,7 +450,7 @@
 	 *  all notifications for the given source were marked as read
 	 */
 	mw.echo.Controller.prototype.markAllRead = function ( source ) {
-		let controller = this,
+		const controller = this,
 			itemIds = [],
 			readState = this.manager.getFiltersModel().getReadState(),
 			localCounter = this.manager.getLocalCounter();
@@ -460,7 +459,7 @@
 
 		this.manager.getNotificationsBySource( source ).forEach( function ( notification ) {
 			if ( !notification.isRead() ) {
-				itemIds = itemIds.concat( notification.getAllIds() );
+				itemIds.push( ...notification.getAllIds() );
 				notification.toggleRead( true );
 
 				if ( readState === 'unread' ) {
@@ -540,13 +539,11 @@
 		return this.api.fetchNotificationGroups( xwikiModel.getSourceNames(), this.manager.getTypeString(), true )
 			.then(
 				function ( groupList ) {
-					let items = [];
-
 					for ( const group in groupList ) {
 						const listModel = xwikiModel.getItemBySource( group );
 						const groupItems = groupList[ group ];
 
-						items = [];
+						const items = [];
 						for ( let i = 0; i < groupItems.length; i++ ) {
 							const notifData = controller.createNotificationData( groupItems[ i ] );
 							items.push(
@@ -585,7 +582,7 @@
 	 *  for the set type of this controller, in the given source.
 	 */
 	mw.echo.Controller.prototype.markItemsRead = function ( itemIds, modelName, isRead ) {
-		let model = this.manager.getNotificationModel( modelName ),
+		const model = this.manager.getNotificationModel( modelName ),
 			readState = this.manager.getFiltersModel().getReadState(),
 			allIds = [];
 
@@ -612,7 +609,7 @@
 		}
 
 		items.forEach( function ( notification ) {
-			allIds = allIds.concat( notification.getAllIds() );
+			allIds.push( ...notification.getAllIds() );
 			if ( readState === 'all' ) {
 				notification.toggleRead( isRead );
 			}
@@ -641,7 +638,7 @@
 	 *  for the set type of this controller, in the given source.
 	 */
 	mw.echo.Controller.prototype.markCrossWikiItemsRead = function ( itemIds, source ) {
-		let allIds = [],
+		const allIds = [],
 			xwikiModel = this.manager.getNotificationModel( 'xwiki' );
 
 		if ( !xwikiModel ) {
@@ -656,7 +653,7 @@
 		this.manager.updateCurrentPageItemCount();
 
 		notifs.forEach( function ( notif ) {
-			allIds = allIds.concat( notif.getAllIds() );
+			allIds.push( ...notif.getAllIds() );
 		} );
 		this.manager.getUnreadCounter().estimateChange( -allIds.length );
 		return this.api.markItemsRead( allIds, source, true )
@@ -681,16 +678,15 @@
 
 		return this.api.fetchNotificationGroups( xwikiModel.getSourceNames(), this.manager.getTypeString() )
 			.then( function ( groupList ) {
-				let promises = [],
-					idArray = [];
+				const promises = [];
 
 				for ( const group in groupList ) {
 					const listModel = xwikiModel.getItemBySource( group );
 					const groupItems = groupList[ group ];
 
-					idArray = [];
+					const idArray = [];
 					for ( let i = 0; i < groupItems.length; i++ ) {
-						idArray = idArray.concat( groupItems[ i ].id ).concat( groupItems[ i ].bundledIds || [] );
+						idArray.push( ...groupItems[ i ].id, ...( groupItems[ i ].bundledIds || [] ) );
 					}
 
 					// Mark items as read in the API
