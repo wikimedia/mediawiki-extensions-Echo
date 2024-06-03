@@ -56,7 +56,7 @@
 		const model = this;
 
 		let hasChanged = false;
-		this.getTypes().forEach( function ( type ) {
+		this.getTypes().forEach( ( type ) => {
 			if ( model.seenTime[ type ] !== time ) {
 				model.seenTime[ type ] = time;
 				hasChanged = true;

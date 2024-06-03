@@ -1,4 +1,4 @@
-QUnit.module( 'ext.echo.dm - NotificationItem', function ( hooks ) {
+QUnit.module( 'ext.echo.dm - NotificationItem', ( hooks ) => {
 	const fakeData = {
 		type: 'alert',
 		read: true,
@@ -67,7 +67,7 @@ QUnit.module( 'ext.echo.dm - NotificationItem', function ( hooks ) {
 				]
 			}
 		}
-	}, function ( assert, data ) {
+	}, ( assert, data ) => {
 		const defaultValues = {
 			getId: undefined,
 			getContentHeader: '',
@@ -94,7 +94,7 @@ QUnit.module( 'ext.echo.dm - NotificationItem', function ( hooks ) {
 		);
 
 		const methods = ( data.methods === 'all' ? Object.keys( expected ) : data.methods );
-		methods.forEach( function ( method ) {
+		methods.forEach( ( method ) => {
 			assert.deepEqual(
 				// Run the method
 				itemModel[ method ](),
@@ -106,12 +106,12 @@ QUnit.module( 'ext.echo.dm - NotificationItem', function ( hooks ) {
 		} );
 	} );
 
-	QUnit.test( 'Emitting update event', function ( assert ) {
+	QUnit.test( 'Emitting update event', ( assert ) => {
 		const results = [];
 		const itemModel = new mw.echo.dm.NotificationItem( 0, $.extend( true, {}, fakeData, { seen: false, read: false } ) );
 
 		// Listen to update event
-		itemModel.on( 'update', function () {
+		itemModel.on( 'update', () => {
 			results.push( [
 				itemModel.isRead(),
 				itemModel.isSeen()

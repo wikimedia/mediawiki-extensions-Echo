@@ -22,7 +22,7 @@ QUnit.test.each( 'Constructing the model', {
 			isForeign: true
 		}
 	}
-}, function ( assert, data ) {
+}, ( assert, data ) => {
 	const defaultValues = {
 		getAllItemIds: [],
 		getAllItemIdsByType: [],
@@ -50,7 +50,7 @@ QUnit.test.each( 'Constructing the model', {
 	}
 } );
 
-QUnit.test( 'Handling notification items', function ( assert ) {
+QUnit.test( 'Handling notification items', ( assert ) => {
 	const model = new mw.echo.dm.NotificationsList( { timestamp: '200101010000' } );
 	const items = [
 		new mw.echo.dm.NotificationItem( 0, { type: 'alert', timestamp: '201609190000', read: false, seen: false } ),
@@ -137,7 +137,7 @@ QUnit.test( 'Handling notification items', function ( assert ) {
 
 } );
 
-QUnit.test( 'Intercepting events', function ( assert ) {
+QUnit.test( 'Intercepting events', ( assert ) => {
 	const model = new mw.echo.dm.NotificationsList();
 	const result = [];
 	const items = [
@@ -151,13 +151,13 @@ QUnit.test( 'Intercepting events', function ( assert ) {
 
 	// Listen to events
 	model
-		.on( 'update', function ( itms ) {
+		.on( 'update', ( itms ) => {
 			result.push( 'update:' + itms.length );
 		} )
-		.on( 'discard', function ( item ) {
+		.on( 'discard', ( item ) => {
 			result.push( 'discard:' + item.getId() );
 		} )
-		.on( 'itemUpdate', function ( item ) {
+		.on( 'itemUpdate', ( item ) => {
 			result.push( 'itemUpdate:' + item.getId() );
 		} );
 

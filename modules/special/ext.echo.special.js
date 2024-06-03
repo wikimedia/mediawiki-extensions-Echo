@@ -4,7 +4,7 @@
 	/*!
 	 * Echo Special:Notifications page initialization
 	 */
-	$( function () {
+	$( () => {
 		const limitNotifications = 50,
 			links = mw.config.get( 'wgNotificationsSpecialPageLinks' ),
 			// FIXME: Use CSS transition

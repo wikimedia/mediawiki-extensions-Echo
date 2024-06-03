@@ -23,7 +23,7 @@
 
 		this.listWidget = new mw.echo.ui.SortedListWidget(
 			// Sorting callback
-			function ( a, b ) {
+			( ( a, b ) => {
 				// Reverse sorting
 				if ( b.getTimestamp() < a.getTimestamp() ) {
 					return -1;
@@ -33,7 +33,7 @@
 
 				// Fallback on IDs
 				return b.getId() - a.getId();
-			},
+			} ),
 			// Config
 			{
 				classes: [ 'mw-echo-ui-bundleNotificationItemWidget-group' ],
@@ -50,11 +50,11 @@
 			.css( 'display', 'none' );
 
 		// Prevent clicks on the list padding area from activating the primary link
-		this.listWidget.$element.on( 'click', function ( e ) {
+		this.listWidget.$element.on( 'click', ( e ) => {
 			if ( e.target.closest( 'a' ) === this.$element[ 0 ] ) {
 				e.preventDefault();
 			}
-		}.bind( this ) );
+		} );
 
 		// Initialize closed
 		this.expanded = false;
@@ -115,16 +115,14 @@
 	 */
 	mw.echo.ui.BundleNotificationItemWidget.prototype.populateFromModel = function () {
 		const widget = this;
-		this.getList().addItems( this.model.getList().getItems().map( function ( singleNotifModel ) {
-			return new mw.echo.ui.SingleNotificationItemWidget(
-				widget.controller,
-				singleNotifModel,
-				{
-					$overlay: widget.$overlay,
-					bundle: true
-				}
-			);
-		} ) );
+		this.getList().addItems( this.model.getList().getItems().map( ( singleNotifModel ) => new mw.echo.ui.SingleNotificationItemWidget(
+			widget.controller,
+			singleNotifModel,
+			{
+				$overlay: widget.$overlay,
+				bundle: true
+			}
+		) ) );
 	};
 
 	/**

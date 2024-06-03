@@ -307,7 +307,7 @@
 		this.controller.fetchLocalNotifications( this.hasRunFirstTime )
 			.then(
 				// Success
-				function () {
+				() => {
 					if ( widget.popup.isVisible() ) {
 						// Fire initialization hook
 						mw.hook( 'ext.echo.popup.onInitialize' ).fire( widget.manager.getTypeString(), widget.controller );
@@ -317,7 +317,7 @@
 					}
 				},
 				// Failure
-				function ( errorObj ) {
+				( errorObj ) => {
 					if ( errorObj.errCode === 'notlogin-required' ) {
 						// Login required message
 						widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-loginrequired' ) );
@@ -328,7 +328,7 @@
 				}
 			)
 			.then( this.emit.bind( this, 'finishLoading' ) )
-			.always( function () {
+			.always( () => {
 				widget.popup.clip();
 				// Pop pending
 				widget.popPending();

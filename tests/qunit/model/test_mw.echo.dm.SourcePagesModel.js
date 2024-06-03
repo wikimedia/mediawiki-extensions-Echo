@@ -1,4 +1,4 @@
-QUnit.module( 'ext.echo.dm - SourcePagesModel', function () {
+QUnit.module( 'ext.echo.dm - SourcePagesModel', () => {
 	// Mock partial API response we feed into the model
 	const sources = {
 		local: {
@@ -75,7 +75,7 @@ QUnit.module( 'ext.echo.dm - SourcePagesModel', function () {
 		}
 	};
 
-	QUnit.test( 'Creating source-page map', function ( assert ) {
+	QUnit.test( 'Creating source-page map', ( assert ) => {
 		const model = new mw.echo.dm.SourcePagesModel();
 
 		model.setAllSources( sources );

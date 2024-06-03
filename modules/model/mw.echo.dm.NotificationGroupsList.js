@@ -21,7 +21,7 @@
 		mw.echo.dm.NotificationGroupsList.super.call( this );
 
 		// Sorting callback
-		this.setSortingCallback( function ( a, b ) {
+		this.setSortingCallback( ( a, b ) => {
 			// Reverse sorting
 			if ( b.getTimestamp() < a.getTimestamp() ) {
 				return -1;

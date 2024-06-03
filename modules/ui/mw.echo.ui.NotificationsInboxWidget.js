@@ -238,7 +238,7 @@
 		return fetchPromise
 			.then(
 				// Success
-				function () {
+				() => {
 					// Fire initialization hook
 					mw.hook( 'ext.echo.special.onInitialize' ).fire( widget.controller.manager.getTypeString(), widget.controller );
 
@@ -247,7 +247,7 @@
 					widget.controller.updateSeenTime();
 				},
 				// Failure
-				function ( errObj ) {
+				( errObj ) => {
 					let msg;
 					if ( errObj.errCode === 'notlogin-required' ) {
 						// Login required message

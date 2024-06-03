@@ -45,7 +45,7 @@ function onCountChange( count ) {
  */
 function notificationsOverlay( onBeforeExit ) {
 	let markAllReadButton;
-	const oouiPromise = mw.loader.using( 'oojs-ui' ).then( function () {
+	const oouiPromise = mw.loader.using( 'oojs-ui' ).then( () => {
 		markAllReadButton = new OO.ui.ButtonWidget( {
 			icon: 'checkAll'
 		} );
@@ -71,15 +71,13 @@ function notificationsOverlay( onBeforeExit ) {
 			isBorderBox: false,
 			className: 'overlay notifications-overlay navigation-drawer',
 			onBeforeExit: function ( exit ) {
-				onBeforeExit( function () {
+				onBeforeExit( () => {
 					onBeforeExitAnimation( overlay, exit );
 				} );
 			}
 		},
 		promisedView(
-			oouiPromise.then( function () {
-				return list( mw.echo, markAllReadButton, onCountChange );
-			} )
+			oouiPromise.then( () => list( mw.echo, markAllReadButton, onCountChange ) )
 		)
 	);
 	return overlay;

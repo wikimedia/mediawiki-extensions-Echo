@@ -122,8 +122,8 @@
 	 * @param {number} timestamp New seen timestamp
 	 */
 	mw.echo.dm.CrossWikiNotificationItem.prototype.updateSeenState = function ( timestamp ) {
-		this.getList().getItems().forEach( function ( source ) {
-			source.getItems().forEach( function ( notification ) {
+		this.getList().getItems().forEach( ( source ) => {
+			source.getItems().forEach( ( notification ) => {
 				notification.toggleSeen(
 					notification.isRead() || notification.getTimestamp() < timestamp
 				);
@@ -138,7 +138,7 @@
 	 */
 	mw.echo.dm.CrossWikiNotificationItem.prototype.getItems = function () {
 		let notifications = [];
-		this.list.getItems().forEach( function ( sourceList ) {
+		this.list.getItems().forEach( ( sourceList ) => {
 			notifications = notifications.concat( sourceList.getItems() );
 		} );
 

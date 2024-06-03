@@ -30,14 +30,14 @@
 
 		this.listWidget = new mw.echo.ui.SortedListWidget(
 			// Sorting callback
-			function ( a, b ) {
+			( ( a, b ) => {
 				// Reverse sorting
 				if ( b.getTimestamp() < a.getTimestamp() ) {
 					return -1;
 				} else if ( b.getTimestamp() > a.getTimestamp() ) {
 					return 1;
 				}
-			},
+			} ),
 			// Config
 			{
 				classes: [ 'mw-echo-ui-datedNotificationsWidget-group' ],
@@ -118,7 +118,7 @@
 			groupWidgets.push( subgroupWidget );
 		}
 
-		this.getList().getItems().forEach( function ( widget ) {
+		this.getList().getItems().forEach( ( widget ) => {
 			// Destroy all available widgets
 			widget.destroy();
 		} );

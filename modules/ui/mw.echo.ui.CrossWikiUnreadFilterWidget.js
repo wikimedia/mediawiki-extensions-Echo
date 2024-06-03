@@ -17,7 +17,7 @@
 		// Parent constructor
 		mw.echo.ui.CrossWikiUnreadFilterWidget.super.call( this,
 			// Sorting callback
-			function ( a, b ) {
+			( a, b ) => {
 				// Local source is always first
 				if ( a.getSource() === 'local' ) {
 					return -1;

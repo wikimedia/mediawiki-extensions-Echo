@@ -31,7 +31,7 @@
 
 		this.listWidget = new mw.echo.ui.SortedListWidget(
 			// Sorting callback
-			config.sortingCallback || function ( a, b ) {
+			config.sortingCallback || ( ( a, b ) => {
 				// Reverse sorting
 				if ( b.getTimestamp() < a.getTimestamp() ) {
 					return -1;
@@ -41,7 +41,7 @@
 
 				// Fallback on IDs
 				return b.getId() - a.getId();
-			},
+			} ),
 			// Config
 			{
 				$overlay: this.$overlay,

@@ -158,7 +158,7 @@
 		}
 
 		return fetchNotifPromise
-			.fail( function () {
+			.fail( () => {
 				// Mark API error state
 				me.apiErrorState[ type ][ fetchingSource ] = true;
 			} );

@@ -129,7 +129,7 @@
 			this.source,
 			this.type,
 			this.localOnly
-		) ).then( function ( actualCount ) {
+		) ).then( ( actualCount ) => {
 			model.setCount( actualCount, false );
 
 			return actualCount;

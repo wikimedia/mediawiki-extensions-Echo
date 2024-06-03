@@ -243,7 +243,7 @@
 		// Send to controller
 		item.pushPending();
 		this.controller.performDynamicAction( actionData, this.getModel().getSource() )
-			.then( function () {
+			.then( () => {
 				const $title = $( '<p>' )
 						.addClass( 'mw-echo-ui-notificationItemWidget-notify-title' )
 						.append( $.parseHTML( messages.title ) ),

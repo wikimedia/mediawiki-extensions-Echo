@@ -17,7 +17,7 @@ QUnit.test.each( 'Constructing the model', {
 			getCurrentPageItemCount: 10
 		}
 	}
-}, function ( assert, data ) {
+}, ( assert, data ) => {
 	const defaultValues = {
 		getPageContinue: undefined,
 		getCurrPageIndex: 0,
@@ -45,12 +45,12 @@ QUnit.test.each( 'Constructing the model', {
 	}
 } );
 
-QUnit.test( 'Emitting update event', function ( assert ) {
+QUnit.test( 'Emitting update event', ( assert ) => {
 	const results = [];
 	const model = new mw.echo.dm.PaginationModel();
 
 	// Listen to update event
-	model.on( 'update', function () {
+	model.on( 'update', () => {
 		results.push( [
 			model.getCurrPageIndex(),
 			model.hasNextPage()

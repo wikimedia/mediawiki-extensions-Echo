@@ -21,7 +21,7 @@ QUnit.test.each( 'Constructing the model', {
 			getReadState: 'read'
 		}
 	}
-}, function ( assert, data ) {
+}, ( assert, data ) => {
 	const defaultValues = {
 		getReadState: 'all'
 	};
@@ -41,7 +41,7 @@ QUnit.test.each( 'Constructing the model', {
 	}
 } );
 
-QUnit.test( 'Changing filters', function ( assert ) {
+QUnit.test( 'Changing filters', ( assert ) => {
 	const model = new mw.echo.dm.FiltersModel();
 
 	assert.strictEqual(
@@ -72,12 +72,12 @@ QUnit.test( 'Changing filters', function ( assert ) {
 	);
 } );
 
-QUnit.test( '.setReadState() events', function ( assert ) {
+QUnit.test( '.setReadState() events', ( assert ) => {
 	const results = [];
 	const model = new mw.echo.dm.FiltersModel();
 
 	// Listen to update event
-	model.on( 'update', function () {
+	model.on( 'update', () => {
 		results.push( model.getReadState() );
 	} );
 

@@ -61,9 +61,7 @@
 	 */
 	mw.echo.api.EchoApi.prototype.fetchUnreadNotificationPages = function ( sources ) {
 		return this.network.getApiHandler( 'local' ).fetchUnreadNotificationPages( sources )
-			.then( function ( data ) {
-				return OO.getProp( data, 'query', 'unreadnotificationpages' );
-			} );
+			.then( ( data ) => OO.getProp( data, 'query', 'unreadnotificationpages' ) );
 	};
 
 	/**
@@ -162,9 +160,7 @@
 			!!isForced,
 			this.convertFiltersToAPIParams( filters )
 		) )
-			.then( function ( result ) {
-				return OO.getProp( result.query, 'notifications' );
-			} );
+			.then( ( result ) => OO.getProp( result.query, 'notifications' ) );
 	};
 
 	/**
@@ -191,9 +187,7 @@
 			isForced,
 			this.convertFiltersToAPIParams( filters )
 		) )
-			.then( function ( result ) {
-				return OO.getProp( result.query, 'notifications' );
-			} );
+			.then( ( result ) => OO.getProp( result.query, 'notifications' ) );
 	};
 
 	/**
@@ -208,7 +202,7 @@
 	mw.echo.api.EchoApi.prototype.fetchNotificationGroups = function ( sourceArray, type, bundle ) {
 		const overrideParams = { notcrosswikisummary: false, notbundle: bundle };
 		return this.network.getApiHandler( 'local' ).fetchNotifications( type, sourceArray, true, overrideParams )
-			.then( function ( result ) {
+			.then( ( result ) => {
 				const items = OO.getProp( result, 'query', 'notifications', 'list' ),
 					groups = {};
 

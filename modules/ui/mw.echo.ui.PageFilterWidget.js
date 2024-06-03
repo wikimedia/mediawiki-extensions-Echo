@@ -133,9 +133,7 @@
 
 		return OO.binarySearch(
 			this.items,
-			function ( otherItem ) {
-				return widget.sortingFunction( item, otherItem );
-			},
+			( otherItem ) => widget.sortingFunction( item, otherItem ),
 			true
 		);
 	};

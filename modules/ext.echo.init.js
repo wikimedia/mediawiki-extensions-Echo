@@ -23,7 +23,7 @@ function initDesktop() {
 	}
 
 	// Activate OOUI
-	$( function () {
+	$( () => {
 		const maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
 			pollingRate = require( './config.json' ).EchoPollForUpdates,
 			documentTitle = document.title,
@@ -73,7 +73,7 @@ function initDesktop() {
 		 */
 		function showNotificationSnippet( modelManager, highestNotifTime ) {
 			let highestTime = highestNotifTime;
-			modelManager.getLocalNotifications().forEach( function ( notificationItem ) {
+			modelManager.getLocalNotifications().forEach( ( notificationItem ) => {
 				const timestampAsDate = new Date( notificationItem.timestamp );
 				if ( timestampAsDate > highestNotifTime ) {
 					if ( timestampAsDate > highestTime ) {
@@ -95,7 +95,7 @@ function initDesktop() {
 		 * @param {mw.echo.ui.NotificationBadgeWidget} badgeWidget
 		 */
 		function updateBadgeState( modelManager, badgeWidget ) {
-			modelManager.getLocalNotifications().forEach( function ( notificationItem ) {
+			modelManager.getLocalNotifications().forEach( ( notificationItem ) => {
 				if ( !notificationItem.isSeen() ) {
 					badgeWidget.updateBadgeSeenState( true );
 				}
@@ -129,7 +129,7 @@ function initDesktop() {
 			// This part executes only once, either when header icons are clicked or after completion of 60secs whichever occur first.
 			const echoApi = new mw.echo.api.EchoApi();
 
-			loadingPromise = mw.loader.using( 'ext.echo.ui.desktop' ).then( function () {
+			loadingPromise = mw.loader.using( 'ext.echo.ui.desktop' ).then( () => {
 
 				// Overlay
 				mw.echo.ui.$overlay.appendTo( document.body );
@@ -155,15 +155,15 @@ function initDesktop() {
 				// Replace the link button with the ooui button
 				$existingAlertLink.parent().replaceWith( mw.echo.ui.alertWidget.$element );
 
-				alertModelManager.on( 'allTalkRead', function () {
+				alertModelManager.on( 'allTalkRead', () => {
 					// If there was a talk page notification, get rid of it
 					$( '#pt-talk-alert' ).remove();
 				} );
 
 				// listen to event countChange and change title only if polling rate is non-zero
 				if ( isLivePollingFeatureEnabledOnWiki() ) {
-					alertModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
-						alertController.fetchLocalNotifications().then( function () {
+					alertModelManager.getUnreadCounter().on( 'countChange', ( count ) => {
+						alertController.fetchLocalNotifications().then( () => {
 							updateBadgeState( alertModelManager, mw.echo.ui.alertWidget );
 							if ( userHasOptedInToLiveNotifications() ) {
 								latestAlertNotifTime = showNotificationSnippet( alertModelManager, latestAlertNotifTime );
@@ -199,8 +199,8 @@ function initDesktop() {
 
 					// listen to event countChange and change title only if polling rate is non-zero
 					if ( isLivePollingFeatureEnabledOnWiki() ) {
-						messageModelManager.getUnreadCounter().on( 'countChange', function ( count ) {
-							messageController.fetchLocalNotifications().then( function () {
+						messageModelManager.getUnreadCounter().on( 'countChange', ( count ) => {
+							messageController.fetchLocalNotifications().then( () => {
 								updateBadgeState( messageModelManager, mw.echo.ui.messageWidget );
 								if ( userHasOptedInToLiveNotifications() ) {
 									latestMessageNotifTime = showNotificationSnippet( messageModelManager, latestMessageNotifTime );
@@ -234,15 +234,15 @@ function initDesktop() {
 			// Fire the notification API requests
 			const echoApi = new mw.echo.api.EchoApi();
 			echoApi.fetchNotifications( clickedSection )
-				.then( function ( data ) {
+				.then( ( data ) => {
 					mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - timeOfClick );
 					return data;
 				} );
 
-			loadEcho().then( function () {
+			loadEcho().then( () => {
 				// Now that the module loaded, show the popup
 				const selectedWidget = clickedSection === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
-				selectedWidget.once( 'finishLoading', function () {
+				selectedWidget.once( 'finishLoading', () => {
 					// Log timing after notifications are shown
 					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - timeOfClick );
 				} );
@@ -255,7 +255,7 @@ function initDesktop() {
 					// The other part is the 'echo.unseen' counter, see EchoHooks::onSkinTemplateNavigationUniversal().
 					mw.track( 'counter.MediaWiki.echo.unseen.click' );
 				}
-			}, function () {
+			}, () => {
 				// Un-dim badge if loading failed
 				$badge.removeClass( 'mw-echo-notifications-badge-dimmed' );
 			} );
@@ -288,13 +288,13 @@ function initDesktop() {
  */
 function initMobile() {
 	if ( !mw.user.isAnon() ) {
-		mw.loader.using( [ 'ext.echo.mobile', 'mobile.startup' ] ).then( function ( require ) {
+		mw.loader.using( [ 'ext.echo.mobile', 'mobile.startup' ] ).then( ( require ) => {
 			require( 'ext.echo.mobile' ).init();
 		} );
 	}
 }
 
-$( function () {
+$( () => {
 	if ( mw.config.get( 'wgMFMode' ) ) {
 		initMobile();
 	} else {
