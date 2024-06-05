@@ -18,8 +18,6 @@
 		mw.echo.ui.CrossWikiUnreadFilterWidget.super.call( this,
 			// Sorting callback
 			function ( a, b ) {
-				let diff;
-
 				// Local source is always first
 				if ( a.getSource() === 'local' ) {
 					return -1;
@@ -27,7 +25,7 @@
 					return 1;
 				}
 
-				diff = Number( b.getTotalCount() ) - Number( a.getTotalCount() );
+				const diff = Number( b.getTotalCount() ) - Number( a.getTotalCount() );
 				if ( diff !== 0 ) {
 					return diff;
 				}

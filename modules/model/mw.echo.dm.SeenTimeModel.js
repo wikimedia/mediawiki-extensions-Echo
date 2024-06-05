@@ -53,9 +53,9 @@
 	 * @fires mw.echo.dm.SeenTimeModel#update
 	 */
 	mw.echo.dm.SeenTimeModel.prototype.setSeenTime = function ( time ) {
-		let model = this,
-			hasChanged = false;
+		const model = this;
 
+		let hasChanged = false;
 		this.getTypes().forEach( function ( type ) {
 			if ( model.seenTime[ type ] !== time ) {
 				model.seenTime[ type ] = time;

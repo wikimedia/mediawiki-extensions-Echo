@@ -122,8 +122,7 @@
 	 *  fetched from the API.
 	 */
 	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type, sources, overrideParams ) {
-		let fetchingSource = 'local',
-			me = this,
+		const me = this,
 			params = $.extend( {
 				action: 'query',
 				formatversion: 2,
@@ -135,6 +134,7 @@
 				uselang: this.userLang
 			}, this.getTypeParams( type ) );
 
+		let fetchingSource = 'local';
 		if ( !this.isSourceLocal( sources ) ) {
 			params.notwikis = sources;
 			params.notfilter = '!read';

@@ -200,9 +200,9 @@
 	 * @return {number} A count of all notifications
 	 */
 	mw.echo.dm.ModelManager.prototype.getAllNotificationCount = function () {
-		let count = 0,
-			models = this.getAllNotificationModels();
+		const models = this.getAllNotificationModels();
 
+		let count = 0;
 		for ( const model in models ) {
 			count += models[ model ].getCount();
 		}
@@ -428,15 +428,15 @@
 	 * @return {mw.echo.dm.NotificationItem[]} All notifications from that source
 	 */
 	mw.echo.dm.ModelManager.prototype.getNotificationsBySource = function ( source ) {
-		let notifications = [],
-			manager = this;
+		const manager = this;
 
 		source = source || 'local';
 
+		const notifications = [];
 		Object.keys( this.getAllNotificationModels() ).forEach( function ( modelName ) {
 			const model = manager.getNotificationModel( modelName );
 			if ( model.getSource() === source ) {
-				notifications = notifications.concat( model.getItems() );
+				notifications.push( ...model.getItems() );
 			}
 		} );
 		return notifications;

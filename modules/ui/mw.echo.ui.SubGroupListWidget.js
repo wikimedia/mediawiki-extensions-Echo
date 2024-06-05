@@ -193,8 +193,8 @@
 	 *  If this is empty, the widget will request all the items from the model.
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.resetItemsFromModel = function ( items ) {
-		let itemWidgets = [],
-			$elements = $();
+		const itemWidgets = [];
+		let $elements = $();
 
 		items = items || this.model.getItems();
 
