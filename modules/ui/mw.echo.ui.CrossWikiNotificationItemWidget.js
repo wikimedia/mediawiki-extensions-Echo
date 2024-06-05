@@ -216,8 +216,6 @@
 	 * Only fetch the first time we expand.
 	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.expand = function () {
-		const widget = this;
-
 		this.toggleExpanded( !this.expanded );
 		this.updateExpandButton();
 
@@ -239,14 +237,14 @@
 						// message in that case
 						if ( result.errCode === 'notlogin-required' ) {
 							// Login error
-							widget.showErrorMessage(
+							this.showErrorMessage(
 								mw.message( 'echo-notification-popup-loginrequired' ),
 								// Set the option link to the login page
 								loginPageTitle.getUrl()
 							);
 						} else {
 							// General error
-							widget.showErrorMessage( mw.msg( 'echo-api-failure' ) );
+							this.showErrorMessage( mw.msg( 'echo-api-failure' ) );
 						}
 					}
 				)

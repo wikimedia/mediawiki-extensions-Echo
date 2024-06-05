@@ -222,8 +222,6 @@
 	 *  have been fetched.
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.populateNotifications = function ( direction ) {
-		const widget = this;
-
 		let fetchPromise;
 		if ( direction === 'prev' ) {
 			fetchPromise = this.controller.fetchPrevPageByDate();
@@ -240,11 +238,11 @@
 				// Success
 				() => {
 					// Fire initialization hook
-					mw.hook( 'ext.echo.special.onInitialize' ).fire( widget.controller.manager.getTypeString(), widget.controller );
+					mw.hook( 'ext.echo.special.onInitialize' ).fire( this.controller.manager.getTypeString(), this.controller );
 
-					widget.popPending();
+					this.popPending();
 					// Update seen time
-					widget.controller.updateSeenTime();
+					this.controller.updateSeenTime();
 				},
 				// Failure
 				( errObj ) => {
@@ -256,9 +254,9 @@
 						// Generic API failure message
 						msg = mw.msg( 'echo-api-failure' );
 					}
-					widget.error = true;
-					widget.noticeMessageWidget.setLabel( msg );
-					widget.displayMessage( true );
+					this.error = true;
+					this.noticeMessageWidget.setLabel( msg );
+					this.displayMessage( true );
 				}
 			)
 			.always( this.popPending.bind( this ) );

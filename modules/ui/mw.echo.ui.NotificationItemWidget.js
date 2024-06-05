@@ -237,8 +237,7 @@
 		}
 
 		const actionData = item && item.getActionData(),
-			messages = item && item.getConfirmationMessages(),
-			widget = this;
+			messages = item && item.getConfirmationMessages();
 
 		// Send to controller
 		item.pushPending();
@@ -253,10 +252,10 @@
 
 				// Get rid of the button
 				if ( item.isPrioritized() ) {
-					widget.actionsButtonSelectWidget.removeItems( [ item ] );
+					this.actionsButtonSelectWidget.removeItems( [ item ] );
 				} else {
 					// It's inside the popup menu
-					widget.menuPopupButtonWidget.getMenu().removeItems( [ item ] );
+					this.menuPopupButtonWidget.getMenu().removeItems( [ item ] );
 				}
 
 				// Make sure to hide either piece if it is empty

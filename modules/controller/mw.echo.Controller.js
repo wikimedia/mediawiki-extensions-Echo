@@ -80,8 +80,7 @@
 	 *  model is updated with the unread notification count per page per wiki
 	 */
 	mw.echo.Controller.prototype.fetchUnreadPagesByWiki = function () {
-		const controller = this,
-			filterModel = this.manager.getFiltersModel(),
+		const filterModel = this.manager.getFiltersModel(),
 			sourcePageModel = filterModel.getSourcePagesModel();
 
 		return this.api.fetchUnreadNotificationPages()
@@ -98,7 +97,7 @@
 				}
 
 				// Register the foreign sources in the API
-				controller.api.registerForeignSources( foreignSources, false );
+				this.api.registerForeignSources( foreignSources, false );
 
 				// Register pages
 				sourcePageModel.setAllSources( result );
@@ -115,8 +114,7 @@
 	 *  days and the items are item IDs.
 	 */
 	mw.echo.Controller.prototype.fetchLocalNotificationsByDate = function ( page ) {
-		const controller = this,
-			pagination = this.manager.getPaginationModel(),
+		const pagination = this.manager.getPaginationModel(),
 			filters = this.manager.getFiltersModel(),
 			currentSource = filters.getSourcePagesModel().getCurrentSource(),
 			continueValue = pagination.getPageContinue( page || pagination.getCurrPageIndex() );
@@ -153,12 +151,12 @@
 					// anyways.
 					const maxSeenTime = data.seenTime.alert < data.seenTime.notice ?
 						data.seenTime.notice : data.seenTime.alert;
-					controller.manager.getSeenTimeModel().setSeenTime(
+					this.manager.getSeenTimeModel().setSeenTime(
 						maxSeenTime
 					);
 
 					// Collect common data
-					const newNotifData = controller.createNotificationData( notifData );
+					const newNotifData = this.createNotificationData( notifData );
 					if ( notifData.type !== 'foreign' ) {
 						const localizedDate = moment.utc( newNotifData.timestamp ).local().format( 'YYYYMMDD' );
 
@@ -185,7 +183,7 @@
 
 					// Set up model
 					models[ symbolicName ] = new mw.echo.dm.NotificationsList( {
-						type: controller.manager.getTypes(),
+						type: this.manager.getTypes(),
 						name: symbolicName,
 						source: currentSource,
 						title: date,
@@ -208,16 +206,16 @@
 				}
 
 				// Register local sources
-				controller.api.registerLocalSources( Object.keys( models ) );
+				this.api.registerLocalSources( Object.keys( models ) );
 
 				// Update the manager
-				controller.manager.setNotificationModels( models );
+				this.manager.setNotificationModels( models );
 
 				// Update the pagination
 				pagination.setNextPageContinue( data.continue );
 
 				// Update the local counter
-				controller.manager.getLocalCounter().update();
+				this.manager.getLocalCounter().update();
 
 				return dateItemIds;
 			} )
@@ -239,9 +237,8 @@
 	 * @return {jQuery.Promise} A promise that resolves with an array of notification IDs
 	 */
 	mw.echo.Controller.prototype.fetchLocalNotifications = function ( isForced ) {
-		const controller = this,
-			// Create a new local list model
-			localListModel = new mw.echo.dm.NotificationsList( {
+		// Create a new local list model
+		const localListModel = new mw.echo.dm.NotificationsList( {
 				type: this.manager.getTypes()
 			} ),
 			localItems = [],
@@ -260,7 +257,7 @@
 				( data ) => {
 					const allModels = { local: localListModel },
 						createBundledNotification = function ( modelName, rawBundledNotifData ) {
-							const bundleNotifData = controller.createNotificationData( rawBundledNotifData );
+							const bundleNotifData = this.createNotificationData( rawBundledNotifData );
 							bundleNotifData.bundled = true;
 							bundleNotifData.modelName = modelName;
 							return new mw.echo.dm.NotificationItem(
@@ -276,17 +273,17 @@
 						const notifData = data.list[ i ];
 
 						// Set source's seenTime
-						controller.manager.getSeenTimeModel().setSeenTime(
-							controller.getTypes().length > 1 ?
+						this.manager.getSeenTimeModel().setSeenTime(
+							this.getTypes().length > 1 ?
 								(
 									data.seenTime.alert < data.seenTime.notice ?
 										data.seenTime.notice : data.seenTime.alert
 								) :
-								data.seenTime[ controller.getTypeString() ]
+								data.seenTime[ this.getTypeString() ]
 						);
 
 						// Collect common data
-						const newNotifData = controller.createNotificationData( notifData );
+						const newNotifData = this.createNotificationData( notifData );
 						if ( notifData.type === 'foreign' ) {
 							// x-wiki notification multi-group
 							// We need to request a new list model
@@ -295,7 +292,7 @@
 							foreignListModel.setForeign( true );
 
 							// Register foreign sources
-							controller.api.registerForeignSources( notifData.sources, true );
+							this.api.registerForeignSources( notifData.sources, true );
 							// Add the lists according to the sources
 							for ( const source in notifData.sources ) {
 								foreignListModel.getList().addGroup(
@@ -338,16 +335,16 @@
 					// Refresh local items
 					localListModel.addItems( localItems );
 
-					// Update the controller
-					controller.manager.setNotificationModels( allModels );
+					// Update the this
+					this.manager.setNotificationModels( allModels );
 
 					return idArray;
 				},
 				// Failure
 				( errCode, errObj ) => {
-					if ( !controller.manager.getNotificationModel( 'local' ) ) {
-						// Update the controller
-						controller.manager.setNotificationModels( { local: localListModel } );
+					if ( !this.manager.getNotificationModel( 'local' ) ) {
+						// Update the this
+						this.manager.setNotificationModels( { local: localListModel } );
 					}
 					return {
 						errCode: errCode,
@@ -448,8 +445,7 @@
 	 *  all notifications for the given source were marked as read
 	 */
 	mw.echo.Controller.prototype.markAllRead = function ( source ) {
-		const controller = this,
-			itemIds = [],
+		const itemIds = [],
 			readState = this.manager.getFiltersModel().getReadState(),
 			localCounter = this.manager.getLocalCounter();
 
@@ -462,7 +458,7 @@
 
 				if ( readState === 'unread' ) {
 					// Remove the items if we are in 'unread' filter state
-					const model = controller.manager.getNotificationModel( notification.getModelName() );
+					const model = this.manager.getNotificationModel( notification.getModelName() );
 					model.discardItems( notification );
 				}
 			}
@@ -525,8 +521,7 @@
 	 *  model.
 	 */
 	mw.echo.Controller.prototype.fetchCrossWikiNotifications = function () {
-		const controller = this,
-			xwikiModel = this.manager.getNotificationModel( 'xwiki' );
+		const xwikiModel = this.manager.getNotificationModel( 'xwiki' );
 
 		if ( !xwikiModel ) {
 			// There is no xwiki notifications model, so we can't
@@ -543,7 +538,7 @@
 
 						const items = [];
 						for ( let i = 0; i < groupItems.length; i++ ) {
-							const notifData = controller.createNotificationData( groupItems[ i ] );
+							const notifData = this.createNotificationData( groupItems[ i ] );
 							items.push(
 								new mw.echo.dm.NotificationItem( groupItems[ i ].id, $.extend( notifData, {
 									modelName: 'xwiki',
@@ -663,8 +658,7 @@
 	 *  are marked as read
 	 */
 	mw.echo.Controller.prototype.markEntireCrossWikiItemAsRead = function () {
-		const controller = this,
-			xwikiModel = this.manager.getNotificationModel( 'xwiki' );
+		const xwikiModel = this.manager.getNotificationModel( 'xwiki' );
 
 		if ( !xwikiModel ) {
 			return $.Deferred().reject().promise();
@@ -687,15 +681,15 @@
 
 					// Mark items as read in the API
 					promises.push(
-						controller.api.markItemsRead( idArray, listModel.getName(), true )
+						this.api.markItemsRead( idArray, listModel.getName(), true )
 					);
 				}
 
 				// Synchronously remove this model from the widget
-				controller.removeCrossWikiItem();
+				this.removeCrossWikiItem();
 
 				return mw.echo.api.NetworkHandler.static.waitForAllPromises( promises ).then(
-					controller.refreshUnreadCount.bind( controller )
+					this.refreshUnreadCount.bind( this )
 				);
 			} );
 	};
@@ -724,8 +718,6 @@
 	 *  seenTime was updated for all the controller's types and sources.
 	 */
 	mw.echo.Controller.prototype.updateSeenTime = function () {
-		const controller = this;
-
 		return this.api.updateSeenTime(
 			this.getTypes(),
 			// For consistency, use current source, though seenTime
@@ -733,7 +725,7 @@
 			this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource()
 		)
 			.then( ( time ) => {
-				controller.manager.getSeenTimeModel().setSeenTime( time );
+				this.manager.getSeenTimeModel().setSeenTime( time );
 			} );
 	};
 

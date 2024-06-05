@@ -129,11 +129,9 @@
 	 * @return {number} Insertion index
 	 */
 	mw.echo.ui.PageFilterWidget.prototype.findInsertionIndex = function ( item ) {
-		const widget = this;
-
 		return OO.binarySearch(
 			this.items,
-			( otherItem ) => widget.sortingFunction( item, otherItem ),
+			( otherItem ) => this.sortingFunction( item, otherItem ),
 			true
 		);
 	};

@@ -277,14 +277,12 @@
 	 * @fires mw.echo.ui.NotificationBadgeWidget#finishLoading
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
-		const widget = this;
-
 		if ( this.promiseRunning ) {
 			return;
 		}
 
 		if ( !isVisible ) {
-			widget.notificationsWidget.resetInitiallyUnseenItems();
+			this.notificationsWidget.resetInitiallyUnseenItems();
 			return;
 		}
 
@@ -308,31 +306,31 @@
 			.then(
 				// Success
 				() => {
-					if ( widget.popup.isVisible() ) {
+					if ( this.popup.isVisible() ) {
 						// Fire initialization hook
-						mw.hook( 'ext.echo.popup.onInitialize' ).fire( widget.manager.getTypeString(), widget.controller );
+						mw.hook( 'ext.echo.popup.onInitialize' ).fire( this.manager.getTypeString(), this.controller );
 
 						// Update seen time
-						return widget.controller.updateSeenTime();
+						return this.controller.updateSeenTime();
 					}
 				},
 				// Failure
 				( errorObj ) => {
 					if ( errorObj.errCode === 'notlogin-required' ) {
 						// Login required message
-						widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-loginrequired' ) );
+						this.notificationsWidget.resetLoadingOption( mw.msg( 'echo-notification-loginrequired' ) );
 					} else {
 						// Generic API failure message
-						widget.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure' ) );
+						this.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure' ) );
 					}
 				}
 			)
 			.then( this.emit.bind( this, 'finishLoading' ) )
 			.always( () => {
-				widget.popup.clip();
+				this.popup.clip();
 				// Pop pending
-				widget.popPending();
-				widget.promiseRunning = false;
+				this.popPending();
+				this.promiseRunning = false;
 			} );
 		this.hasRunFirstTime = true;
 	};

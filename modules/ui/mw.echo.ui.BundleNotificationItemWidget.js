@@ -114,12 +114,11 @@
 	 * in the model
 	 */
 	mw.echo.ui.BundleNotificationItemWidget.prototype.populateFromModel = function () {
-		const widget = this;
 		this.getList().addItems( this.model.getList().getItems().map( ( singleNotifModel ) => new mw.echo.ui.SingleNotificationItemWidget(
-			widget.controller,
+			this.controller,
 			singleNotifModel,
 			{
-				$overlay: widget.$overlay,
+				$overlay: this.$overlay,
 				bundle: true
 			}
 		) ) );

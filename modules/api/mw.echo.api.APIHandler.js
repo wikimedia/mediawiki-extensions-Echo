@@ -122,17 +122,16 @@
 	 *  fetched from the API.
 	 */
 	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type, sources, overrideParams ) {
-		const me = this,
-			params = $.extend( {
-				action: 'query',
-				formatversion: 2,
-				meta: 'notifications',
-				notsections: this.normalizedType[ type ],
-				notformat: 'model',
-				notlimit: this.limit,
-				notprop: 'list|count|seenTime',
-				uselang: this.userLang
-			}, this.getTypeParams( type ) );
+		const params = $.extend( {
+			action: 'query',
+			formatversion: 2,
+			meta: 'notifications',
+			notsections: this.normalizedType[ type ],
+			notformat: 'model',
+			notlimit: this.limit,
+			notprop: 'list|count|seenTime',
+			uselang: this.userLang
+		}, this.getTypeParams( type ) );
 
 		let fetchingSource = 'local';
 		if ( !this.isSourceLocal( sources ) ) {
@@ -143,7 +142,7 @@
 
 		// Initialize the nested value if it doesn't yet exist
 		this.fetchNotificationsPromise[ type ] = this.fetchNotificationsPromise[ type ] || {};
-		me.apiErrorState[ type ] = me.apiErrorState[ type ] || {};
+		this.apiErrorState[ type ] = this.apiErrorState[ type ] || {};
 
 		// Reset cached values
 		this.fetchNotificationsPromise[ type ][ fetchingSource ] = null;
@@ -160,7 +159,7 @@
 		return fetchNotifPromise
 			.fail( () => {
 				// Mark API error state
-				me.apiErrorState[ type ][ fetchingSource ] = true;
+				this.apiErrorState[ type ][ fetchingSource ] = true;
 			} );
 	};
 

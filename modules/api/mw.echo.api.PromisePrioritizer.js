@@ -53,14 +53,12 @@
 	 *  latest prioritized promise.
 	 */
 	mw.echo.api.PromisePrioritizer.prototype.setSuccess = function ( promise ) {
-		const prioritizer = this;
-
 		if ( this.promise === promise ) {
 			this.promise.done( ( ...args ) => {
-				prioritizer.deferred.resolve( ...args );
+				this.deferred.resolve( ...args );
 
-				prioritizer.promise = null;
-				prioritizer.deferred = $.Deferred();
+				this.promise = null;
+				this.deferred = $.Deferred();
 			} );
 		}
 	};
@@ -74,14 +72,12 @@
 	 *  latest prioritized promise
 	 */
 	mw.echo.api.PromisePrioritizer.prototype.setFailure = function ( promise ) {
-		const prioritizer = this;
-
 		if ( this.promise === promise ) {
 			this.promise.fail( ( ...args ) => {
-				prioritizer.deferred.reject( ...args );
+				this.deferred.reject( ...args );
 
-				prioritizer.promise = null;
-				prioritizer.deferred = $.Deferred();
+				this.promise = null;
+				this.deferred = $.Deferred();
 			} );
 		}
 	};
