@@ -85,7 +85,7 @@
 			sourcePageModel = filterModel.getSourcePagesModel();
 
 		return this.api.fetchUnreadNotificationPages()
-			.then( function ( data ) {
+			.then( ( data ) => {
 				const result = {},
 					foreignSources = {};
 
@@ -132,7 +132,7 @@
 				titles: filters.getSourcePagesModel().getGroupedPagesForCurrentTitle()
 			}
 		)
-			.then( function ( data ) {
+			.then( ( data ) => {
 				const dateItemIds = {},
 					dateItems = {},
 					models = {};
@@ -223,12 +223,10 @@
 			} )
 			.then(
 				null,
-				function ( errCode, errObj ) {
-					return {
-						errCode: errCode,
-						errInfo: OO.getProp( errObj, 'error', 'info' )
-					};
-				}
+				( errCode, errObj ) => ( {
+					errCode: errCode,
+					errInfo: OO.getProp( errObj, 'error', 'info' )
+				} )
 			);
 	};
 	/**
@@ -259,7 +257,7 @@
 		return this.api.fetchNotifications( this.manager.getTypeString(), 'local', !!isForced, { unreadFirst: true, bundle: true } /* filters */ )
 			.then(
 				// Success
-				function ( data ) {
+				( data ) => {
 					const allModels = { local: localListModel },
 						createBundledNotification = function ( modelName, rawBundledNotifData ) {
 							const bundleNotifData = controller.createNotificationData( rawBundledNotifData );
@@ -346,7 +344,7 @@
 					return idArray;
 				},
 				// Failure
-				function ( errCode, errObj ) {
+				( errCode, errObj ) => {
 					if ( !controller.manager.getNotificationModel( 'local' ) ) {
 						// Update the controller
 						controller.manager.setNotificationModels( { local: localListModel } );
@@ -457,7 +455,7 @@
 
 		source = source || this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource();
 
-		this.manager.getNotificationsBySource( source ).forEach( function ( notification ) {
+		this.manager.getNotificationsBySource( source ).forEach( ( notification ) => {
 			if ( !notification.isRead() ) {
 				itemIds.push( ...notification.getAllIds() );
 				notification.toggleRead( true );
@@ -494,7 +492,7 @@
 		const readState = this.manager.getFiltersModel().getReadState(),
 			modelItems = {};
 
-		this.manager.getLocalNotifications().forEach( function ( notification ) {
+		this.manager.getLocalNotifications().forEach( ( notification ) => {
 			if ( !notification.isRead() ) {
 				notification.toggleRead( true );
 
@@ -538,7 +536,7 @@
 
 		return this.api.fetchNotificationGroups( xwikiModel.getSourceNames(), this.manager.getTypeString(), true )
 			.then(
-				function ( groupList ) {
+				( groupList ) => {
 					for ( const group in groupList ) {
 						const listModel = xwikiModel.getItemBySource( group );
 						const groupItems = groupList[ group ];
@@ -559,14 +557,12 @@
 						listModel.setItems( items );
 					}
 				},
-				function ( errCode, errObj ) {
-					return {
-						errCode: errCode,
-						errInfo: errCode === 'http' ?
-							mw.msg( 'echo-api-failure-cross-wiki' ) :
-							OO.getProp( errObj, 'error', 'info' )
-					};
-				}
+				( errCode, errObj ) => ( {
+					errCode: errCode,
+					errInfo: errCode === 'http' ?
+						mw.msg( 'echo-api-failure-cross-wiki' ) :
+						OO.getProp( errObj, 'error', 'info' )
+				} )
 			);
 	};
 
@@ -608,7 +604,7 @@
 			// to reflect the new pagination? etc.
 		}
 
-		items.forEach( function ( notification ) {
+		items.forEach( ( notification ) => {
 			allIds.push( ...notification.getAllIds() );
 			if ( readState === 'all' ) {
 				notification.toggleRead( isRead );
@@ -652,7 +648,7 @@
 		// Update pagination count
 		this.manager.updateCurrentPageItemCount();
 
-		notifs.forEach( function ( notif ) {
+		notifs.forEach( ( notif ) => {
 			allIds.push( ...notif.getAllIds() );
 		} );
 		this.manager.getUnreadCounter().estimateChange( -allIds.length );
@@ -677,7 +673,7 @@
 		this.manager.getUnreadCounter().estimateChange( -xwikiModel.getCount() );
 
 		return this.api.fetchNotificationGroups( xwikiModel.getSourceNames(), this.manager.getTypeString() )
-			.then( function ( groupList ) {
+			.then( ( groupList ) => {
 				const promises = [];
 
 				for ( const group in groupList ) {
@@ -736,7 +732,7 @@
 			// will be updated globally
 			this.manager.getFiltersModel().getSourcePagesModel().getCurrentSource()
 		)
-			.then( function ( time ) {
+			.then( ( time ) => {
 				controller.manager.getSeenTimeModel().setSeenTime( time );
 			} );
 	};

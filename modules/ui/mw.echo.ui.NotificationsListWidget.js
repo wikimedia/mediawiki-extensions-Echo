@@ -22,7 +22,7 @@
 		mw.echo.ui.NotificationsListWidget.super.call(
 			this,
 			// Sorting callback
-			function ( a, b ) {
+			( a, b ) => {
 				if ( !a.isRead() && b.isRead() ) {
 					return -1; // Unread items are always above read items
 				} else if ( a.isRead() && !b.isRead() ) {

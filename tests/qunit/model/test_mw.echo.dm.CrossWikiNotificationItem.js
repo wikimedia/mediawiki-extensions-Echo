@@ -26,7 +26,7 @@ QUnit.test.each( 'Constructing the model', {
 			getCount: 10
 		}
 	}
-}, function ( assert, data ) {
+}, ( assert, data ) => {
 	const defaults = {
 		getModelName: 'xwiki',
 		getSourceNames: [],
@@ -54,7 +54,7 @@ QUnit.test.each( 'Constructing the model', {
 	}
 } );
 
-QUnit.test( 'Managing notification lists', function ( assert ) {
+QUnit.test( 'Managing notification lists', ( assert ) => {
 	const model = new mw.echo.dm.CrossWikiNotificationItem( 1 );
 	const groupDefinitions = [
 		{
@@ -95,7 +95,7 @@ QUnit.test( 'Managing notification lists', function ( assert ) {
 	];
 
 	// Add groups to model
-	groupDefinitions.forEach( function ( def ) {
+	groupDefinitions.forEach( ( def ) => {
 		model.getList().addGroup(
 			def.name,
 			def.sourceData,
@@ -115,8 +115,8 @@ QUnit.test( 'Managing notification lists', function ( assert ) {
 	);
 
 	// Mark all items as seen except one
-	groupDefinitions.forEach( function ( def ) {
-		def.items.forEach( function ( item ) {
+	groupDefinitions.forEach( ( def ) => {
+		def.items.forEach( ( item ) => {
 			item.toggleSeen( true );
 		} );
 	} );
@@ -143,7 +143,7 @@ QUnit.test( 'Managing notification lists', function ( assert ) {
 	);
 } );
 
-QUnit.test( 'Update seen state', function ( assert ) {
+QUnit.test( 'Update seen state', ( assert ) => {
 	const model = new mw.echo.dm.CrossWikiNotificationItem( 1 );
 	const groupDefinitions = [
 		{
@@ -184,9 +184,7 @@ QUnit.test( 'Update seen state', function ( assert ) {
 	];
 
 	// Count all actual items
-	const numAllItems = groupDefinitions.reduce( function ( prev, curr ) {
-		return prev + curr.items.length;
-	}, 0 );
+	const numAllItems = groupDefinitions.reduce( ( prev, curr ) => prev + curr.items.length, 0 );
 
 	// Add groups to model
 	for ( let i = 0; i < groupDefinitions.length; i++ ) {
@@ -197,9 +195,7 @@ QUnit.test( 'Update seen state', function ( assert ) {
 		);
 	}
 
-	let numUnseenItems = model.getItems().filter( function ( item ) {
-		return !item.isSeen();
-	} ).length;
+	let numUnseenItems = model.getItems().filter( ( item ) => !item.isSeen() ).length;
 	assert.strictEqual(
 		numUnseenItems,
 		numAllItems,
@@ -209,9 +205,7 @@ QUnit.test( 'Update seen state', function ( assert ) {
 	// Update seen time to be bigger than 'foo' but smaller than the other groups
 	model.updateSeenState( '201601010400' );
 
-	numUnseenItems = model.getItems().filter( function ( item ) {
-		return !item.isSeen();
-	} ).length;
+	numUnseenItems = model.getItems().filter( ( item ) => !item.isSeen() ).length;
 	assert.strictEqual(
 		numUnseenItems,
 		numAllItems - groupDefinitions[ 0 ].items.length,
@@ -221,9 +215,7 @@ QUnit.test( 'Update seen state', function ( assert ) {
 	// Update seen time to be bigger than all
 	model.updateSeenState( '201701010000' );
 
-	numUnseenItems = model.getItems().filter( function ( item ) {
-		return !item.isSeen();
-	} ).length;
+	numUnseenItems = model.getItems().filter( ( item ) => !item.isSeen() ).length;
 	assert.strictEqual(
 		numUnseenItems,
 		0,
@@ -231,7 +223,7 @@ QUnit.test( 'Update seen state', function ( assert ) {
 	);
 } );
 
-QUnit.test( 'Emit discard event', function ( assert ) {
+QUnit.test( 'Emit discard event', ( assert ) => {
 	const results = [];
 	const model = new mw.echo.dm.CrossWikiNotificationItem( -1 );
 	const groupDefinitions = [
@@ -282,7 +274,7 @@ QUnit.test( 'Emit discard event', function ( assert ) {
 	}
 
 	// Listen to event
-	model.on( 'discard', function ( name ) {
+	model.on( 'discard', ( name ) => {
 		results.push( name );
 	} );
 

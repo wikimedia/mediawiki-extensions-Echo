@@ -53,27 +53,27 @@ function notificationsList( echo, markAllReadButton, onCountChange ) {
 	} );
 
 	// Events
-	unreadCounter.on( 'countChange', function ( count ) {
+	unreadCounter.on( 'countChange', ( count ) => {
 		onCountChange(
 			controller.manager.getUnreadCounter().getCappedNotificationCount( count )
 		);
 		markAsReadHandler();
 	} );
-	markAllReadButton.on( 'click', function () {
+	markAllReadButton.on( 'click', () => {
 		const numNotifications = controller.manager.getLocalUnread().length;
 
 		controller.markLocalNotificationsRead()
-			.then( function () {
+			.then( () => {
 				mw.notify( mw.msg( 'echo-mark-all-as-read-confirmation', numNotifications ) );
 				markAllReadButton.toggle( false );
-			}, function () {
+			}, () => {
 				markAllReadButton.toggle( false );
 			} );
 	} );
 
 	return promisedView(
 		// Populate notifications
-		wrapperWidget.populate().then( function () {
+		wrapperWidget.populate().then( () => {
 			controller.updateSeenTime();
 			markAsReadHandler();
 			// Connect event here as we know that everything loaded correctly

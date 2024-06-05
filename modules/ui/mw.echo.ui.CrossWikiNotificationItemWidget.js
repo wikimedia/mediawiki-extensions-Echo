@@ -31,7 +31,7 @@
 
 		this.listWidget = new mw.echo.ui.SortedListWidget(
 			// Sorting callback
-			function ( a, b ) {
+			( ( a, b ) => {
 				// Define the sorting order.
 				// This will go by the lists' timestamp, which in turn
 				// take the latest timestamp in their items
@@ -43,7 +43,7 @@
 
 				// Fallback on IDs
 				return b.getSource() - a.getSource();
-			},
+			} ),
 			// Config
 			{
 				classes: [ 'mw-echo-ui-crossWikiNotificationItemWidget-group' ],
@@ -232,7 +232,7 @@
 			// Query all sources
 			this.controller.fetchCrossWikiNotifications()
 				.catch(
-					function ( result ) {
+					( result ) => {
 						const loginPageTitle = mw.Title.newFromText( 'Special:UserLogin' );
 						// If failure, check if the failure is due to login
 						// so we can display a more comprehensive error

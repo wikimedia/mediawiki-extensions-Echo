@@ -83,7 +83,7 @@
 			// fade out fake
 			// FIXME: Use CSS transition
 			// eslint-disable-next-line no-jquery/no-fade
-			fakeWidget.$element.fadeOut( 400, function () {
+			fakeWidget.$element.fadeOut( 400, () => {
 				// remove fake
 				widget.removeItems( [ fakeWidget ] );
 				// fade-in real item

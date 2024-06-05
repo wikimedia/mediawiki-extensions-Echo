@@ -29,7 +29,7 @@ function init() {
 
 	function showNotificationOverlay() {
 		const overlay = notificationsOverlay(
-			function ( exit ) {
+			( exit ) => {
 				onCloseNotificationsOverlay();
 				exit();
 			} );
@@ -41,7 +41,7 @@ function init() {
 	let initialized = false;
 	// Once the DOM is loaded add the overlay and overlay manager. Minerva will handle the
 	// notification button that will link to Special:Notifications.
-	$( function () {
+	$( () => {
 		overlayManager.add( /^\/notifications$/, showNotificationOverlay );
 
 		/**
@@ -73,7 +73,7 @@ function init() {
 		// The code is bundled here since it makes use of loadModuleScript. This also allows
 		// the possibility of invoking the filter from outside the Special page in future.
 		// Once the 'ext.echo.special.onInitialize' hook has fired, load notification filter.
-		mw.hook( 'ext.echo.special.onInitialize' ).add( function () {
+		mw.hook( 'ext.echo.special.onInitialize' ).add( () => {
 			// eslint-disable-next-line no-jquery/no-global-selector
 			const $crossWikiUnreadFilter = $( '.mw-echo-ui-crossWikiUnreadFilterWidget' ),
 				// eslint-disable-next-line no-jquery/no-global-selector
@@ -90,7 +90,7 @@ function init() {
 			addFilterButton();
 
 			// setup route
-			overlayManager.add( /^\/notifications-filter$/, function () {
+			overlayManager.add( /^\/notifications-filter$/, () => {
 				onOpenNotificationsOverlay();
 				return notificationsFilterOverlay( {
 					onBeforeExit: function ( exit ) {

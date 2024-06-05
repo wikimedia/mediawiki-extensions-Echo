@@ -1,6 +1,6 @@
 QUnit.module( 'ext.echo.dm - NotificationGroupsList' );
 
-QUnit.test( 'Constructing the model', function ( assert ) {
+QUnit.test( 'Constructing the model', ( assert ) => {
 	const model = new mw.echo.dm.NotificationGroupsList();
 
 	assert.strictEqual(
@@ -10,7 +10,7 @@ QUnit.test( 'Constructing the model', function ( assert ) {
 	);
 } );
 
-QUnit.test( 'Managing lists', function ( assert ) {
+QUnit.test( 'Managing lists', ( assert ) => {
 	const model = new mw.echo.dm.NotificationGroupsList();
 	const groupDefinitions = [
 		{
@@ -50,7 +50,7 @@ QUnit.test( 'Managing lists', function ( assert ) {
 		}
 	];
 
-	groupDefinitions.forEach( function ( def, i ) {
+	groupDefinitions.forEach( ( def, i ) => {
 		model.addGroup(
 			def.name,
 			def.sourceData,
@@ -95,7 +95,7 @@ QUnit.test( 'Managing lists', function ( assert ) {
 	);
 } );
 
-QUnit.test( 'Emitting discard event', function ( assert ) {
+QUnit.test( 'Emitting discard event', ( assert ) => {
 	const results = [];
 	const model = new mw.echo.dm.NotificationGroupsList();
 	const groups = {
@@ -121,7 +121,7 @@ QUnit.test( 'Emitting discard event', function ( assert ) {
 
 	// Listen to the event
 	model
-		.on( 'discard', function ( g ) {
+		.on( 'discard', ( g ) => {
 			results.push( g.getName() );
 		} );
 

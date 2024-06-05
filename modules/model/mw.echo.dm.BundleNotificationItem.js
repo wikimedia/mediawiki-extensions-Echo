@@ -15,7 +15,7 @@
 		// Parent constructor
 		mw.echo.dm.BundleNotificationItem.super.call( this, id, config );
 
-		this.getSecondaryUrls().forEach( function ( link ) {
+		this.getSecondaryUrls().forEach( ( link ) => {
 			// hack: put all secondary actions in the menu for now
 			// this is a temporary fix for
 			// - alignment of the labels
@@ -27,7 +27,7 @@
 		this.count = bundledNotificationModels.length;
 
 		// bundled notifications use the compact header and do not have icons
-		bundledNotificationModels.forEach( function ( bundled ) {
+		bundledNotificationModels.forEach( ( bundled ) => {
 			bundled.content.header = bundled.content.compactHeader;
 			delete bundled.iconURL;
 		} );
@@ -59,9 +59,7 @@
 	 * @return {boolean} Whether this bundle is completely read
 	 */
 	mw.echo.dm.BundleNotificationItem.prototype.isRead = function () {
-		return this.list.getItems().every( function ( item ) {
-			return item.isRead();
-		} );
+		return this.list.getItems().every( ( item ) => item.isRead() );
 	};
 
 	/**
@@ -102,7 +100,7 @@
 	 * @param {number} timestamp New seen timestamp
 	 */
 	mw.echo.dm.BundleNotificationItem.prototype.updateSeenState = function ( timestamp ) {
-		this.list.getItems().forEach( function ( notification ) {
+		this.list.getItems().forEach( ( notification ) => {
 			notification.toggleSeen(
 				notification.isRead() || notification.getTimestamp() < timestamp
 			);
@@ -126,9 +124,7 @@
 	 * @return {number[]}
 	 */
 	mw.echo.dm.BundleNotificationItem.prototype.getAllIds = function () {
-		return this.list.getItems().map( function ( item ) {
-			return item.getId();
-		} );
+		return this.list.getItems().map( ( item ) => item.getId() );
 	};
 
 	/**

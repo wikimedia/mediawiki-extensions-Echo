@@ -35,7 +35,7 @@
 		this.fallbackTimestamp = config.timestamp || 0;
 
 		// Sorting callback
-		this.setSortingCallback( config.sortingCallback || function ( a, b ) {
+		this.setSortingCallback( config.sortingCallback || ( ( a, b ) => {
 			if ( !a.isRead() && b.isRead() ) {
 				return -1; // Unread items are always above read items
 			} else if ( a.isRead() && !b.isRead() ) {
@@ -55,7 +55,7 @@
 
 			// Fallback on IDs
 			return b.getId() - a.getId();
-		} );
+		} ) );
 
 		// Events
 		this.aggregate( { update: 'itemUpdate' } );
@@ -215,9 +215,7 @@
 	 * @return {mw.echo.dm.NotificationItem[]} An array of matching items
 	 */
 	mw.echo.dm.NotificationsList.prototype.findByIds = function ( ids ) {
-		return this.getItems().filter( function ( item ) {
-			return ids.indexOf( item.getId() ) !== -1;
-		} );
+		return this.getItems().filter( ( item ) => ids.indexOf( item.getId() ) !== -1 );
 	};
 
 	/**
@@ -249,7 +247,7 @@
 	 * @param {string} timestamp New seen timestamp
 	 */
 	mw.echo.dm.NotificationsList.prototype.updateSeenState = function ( timestamp ) {
-		this.getItems().forEach( function ( notification ) {
+		this.getItems().forEach( ( notification ) => {
 			notification.toggleSeen(
 				notification.isRead() || notification.getTimestamp() < timestamp
 			);

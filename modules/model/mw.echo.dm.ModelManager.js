@@ -433,7 +433,7 @@
 		source = source || 'local';
 
 		const notifications = [];
-		Object.keys( this.getAllNotificationModels() ).forEach( function ( modelName ) {
+		Object.keys( this.getAllNotificationModels() ).forEach( ( modelName ) => {
 			const model = manager.getNotificationModel( modelName );
 			if ( model.getSource() === source ) {
 				notifications.push( ...model.getItems() );
@@ -454,7 +454,7 @@
 
 		source = source || 'local';
 
-		Object.keys( this.getAllNotificationModels() ).forEach( function ( modelName ) {
+		Object.keys( this.getAllNotificationModels() ).forEach( ( modelName ) => {
 			const model = manager.getNotificationModel( modelName );
 			if ( model.getSource() === source ) {
 				modelIds.push( modelName );

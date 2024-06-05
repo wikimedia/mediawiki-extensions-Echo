@@ -46,9 +46,7 @@
 			type: type.length === 1 ? type[ 0 ] : 'all',
 			timestampFormat: 'ISO_8601'
 		} )
-			.then( function ( data ) {
-				return data.query.echomarkseen.timestamp;
-			} );
+			.then( ( data ) => data.query.echomarkseen.timestamp );
 	};
 
 	/**
@@ -72,9 +70,7 @@
 		}
 
 		return this.api.postWithToken( 'csrf', data )
-			.then( function ( result ) {
-				return OO.getProp( result.query, 'echomarkread', type, 'rawcount' ) || 0;
-			} );
+			.then( ( result ) => OO.getProp( result.query, 'echomarkread', type, 'rawcount' ) || 0 );
 	};
 
 	/**
@@ -124,7 +120,7 @@
 		}
 
 		return this.api.get( apiData )
-			.then( function ( result ) {
+			.then( ( result ) => {
 				if ( type === 'message' || type === 'alert' ) {
 					return OO.getProp( result.query, 'notifications', normalizedType, 'rawcount' ) || 0;
 				} else {
