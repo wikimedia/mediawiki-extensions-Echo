@@ -81,7 +81,7 @@
 	 */
 	mw.echo.api.APIHandler.prototype.fetchUnreadNotificationPages = function ( sources ) {
 		sources = sources || '*';
-		var params = {
+		const params = {
 			action: 'query',
 			meta: 'unreadnotificationpages',
 			uselang: this.userLang,
@@ -122,7 +122,7 @@
 	 *  fetched from the API.
 	 */
 	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type, sources, overrideParams ) {
-		var fetchingSource = 'local',
+		let fetchingSource = 'local',
 			me = this,
 			params = $.extend( {
 				action: 'query',
@@ -150,7 +150,7 @@
 		this.apiErrorState[ type ][ fetchingSource ] = false;
 
 		// Create the fetch promise
-		var fetchNotifPromise = this.api.get( $.extend( true, params, overrideParams ) );
+		const fetchNotifPromise = this.api.get( $.extend( true, params, overrideParams ) );
 
 		// Only cache promises that don't have override params in them
 		if ( !overrideParams ) {
@@ -226,7 +226,7 @@
 	 * @return {boolean} The model is in API error state
 	 */
 	mw.echo.api.APIHandler.prototype.isFetchingErrorState = function ( type, sources ) {
-		var fetchingSource = 'local';
+		let fetchingSource = 'local';
 
 		if ( !this.isSourceLocal( sources ) ) {
 			fetchingSource = 'foreign';
@@ -245,7 +245,7 @@
 	 *  fetched from the API.
 	 */
 	mw.echo.api.APIHandler.prototype.getFetchNotificationPromise = function ( type, sources, overrideParams ) {
-		var fetchingSource = 'local';
+		let fetchingSource = 'local';
 
 		if ( !this.isSourceLocal( sources ) ) {
 			fetchingSource = 'foreign';

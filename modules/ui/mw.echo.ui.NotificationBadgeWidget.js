@@ -43,7 +43,7 @@
 		this.controller = controller;
 		this.manager = manager;
 
-		var adjustedTypeString = this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString();
+		const adjustedTypeString = this.controller.getTypeString() === 'message' ? 'notice' : this.controller.getTypeString();
 
 		// Properties
 		this.types = this.manager.getTypes();
@@ -51,7 +51,7 @@
 		this.numItems = config.numItems || 0;
 		this.hasRunFirstTime = false;
 
-		var buttonFlags = [];
+		const buttonFlags = [];
 		if ( config.hasUnseen ) {
 			buttonFlags.push( 'unseen' );
 		}
@@ -80,7 +80,7 @@
 		);
 
 		// Footer
-		var allNotificationsButton = new OO.ui.ButtonWidget( {
+		const allNotificationsButton = new OO.ui.ButtonWidget( {
 			icon: 'next',
 			label: mw.msg( 'echo-overlay-link' ),
 			href: links.notifications,
@@ -88,7 +88,7 @@
 		} );
 		allNotificationsButton.$element.children().first().removeAttr( 'role' );
 
-		var preferencesButton = new OO.ui.ButtonWidget( {
+		const preferencesButton = new OO.ui.ButtonWidget( {
 			icon: 'settings',
 			label: mw.msg( 'mypreferences' ),
 			href: links.preferences,
@@ -96,15 +96,15 @@
 		} );
 		preferencesButton.$element.children().first().removeAttr( 'role' );
 
-		var footerItems = [ allNotificationsButton ];
+		const footerItems = [ allNotificationsButton ];
 		if ( !mw.user.isTemp() ) {
 			footerItems.push( preferencesButton );
 		}
-		var footerButtonGroupWidget = new OO.ui.ButtonGroupWidget( {
+		const footerButtonGroupWidget = new OO.ui.ButtonGroupWidget( {
 			items: footerItems,
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-buttons' ]
 		} );
-		var $footer = $( '<div>' )
+		const $footer = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer' )
 			.append( footerButtonGroupWidget.$element );
 
@@ -243,10 +243,10 @@
 	 * Update the badge state and label based on changes to the model
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
-		var unreadCount = this.manager.getUnreadCounter().getCount();
-		var cappedUnreadCount = this.manager.getUnreadCounter().getCappedNotificationCount( unreadCount );
-		var convertedCount = mw.language.convertNumber( cappedUnreadCount );
-		var badgeLabel = mw.msg( 'echo-badge-count', convertedCount );
+		const unreadCount = this.manager.getUnreadCounter().getCount();
+		const cappedUnreadCount = this.manager.getUnreadCounter().getCappedNotificationCount( unreadCount );
+		const convertedCount = mw.language.convertNumber( cappedUnreadCount );
+		const badgeLabel = mw.msg( 'echo-badge-count', convertedCount );
 		this.markAllReadLabel = mw.msg( 'echo-mark-all-as-read', convertedCount );
 		this.markAllReadButton.setLabel( this.markAllReadLabel );
 
@@ -277,7 +277,7 @@
 	 * @fires mw.echo.ui.NotificationBadgeWidget#finishLoading
 	 */
 	mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
-		var widget = this;
+		const widget = this;
 
 		if ( this.promiseRunning ) {
 			return;

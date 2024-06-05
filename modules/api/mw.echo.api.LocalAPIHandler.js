@@ -55,7 +55,7 @@
 	 * @inheritdoc
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.markAllRead = function ( source, type ) {
-		var data = {
+		const data = {
 			action: 'echomarkread'
 		};
 		type = Array.isArray( type ) ? type : [ type ];
@@ -81,7 +81,7 @@
 	 * @inheritdoc
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.markItemsRead = function ( source, itemIdArray, isRead ) {
-		var data = {
+		const data = {
 			action: 'echomarkread'
 		};
 
@@ -107,7 +107,7 @@
 	 * @return {jQuery.Promise} Promise which resolves with the unread count
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.fetchUnreadCount = function ( type, ignoreCrossWiki ) {
-		var normalizedType = this.normalizedType[ type ],
+		const normalizedType = this.normalizedType[ type ],
 			apiData = {
 				action: 'query',
 				meta: 'notifications',

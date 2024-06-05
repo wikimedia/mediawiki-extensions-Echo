@@ -1,5 +1,5 @@
 QUnit.module( 'ext.echo.dm - NotificationItem', function ( hooks ) {
-	var fakeData = {
+	const fakeData = {
 		type: 'alert',
 		read: true,
 		seen: true,
@@ -25,8 +25,8 @@ QUnit.module( 'ext.echo.dm - NotificationItem', function ( hooks ) {
 			}
 		]
 	};
-	var now = 1234567890000;
-	var nowFormatted = '2009-02-13T23:31:30Z';
+	const now = 1234567890000;
+	const nowFormatted = '2009-02-13T23:31:30Z';
 
 	hooks.beforeEach( function () {
 		this.sandbox.useFakeTimers( now );
@@ -68,7 +68,7 @@ QUnit.module( 'ext.echo.dm - NotificationItem', function ( hooks ) {
 			}
 		}
 	}, function ( assert, data ) {
-		var defaultValues = {
+		const defaultValues = {
 			getId: undefined,
 			getContentHeader: '',
 			getContentBody: '',
@@ -86,14 +86,14 @@ QUnit.module( 'ext.echo.dm - NotificationItem', function ( hooks ) {
 			getModelName: 'local',
 			getAllIds: []
 		};
-		var expected = $.extend( true, {}, defaultValues, data.expected );
+		const expected = $.extend( true, {}, defaultValues, data.expected );
 
-		var itemModel = new mw.echo.dm.NotificationItem(
+		const itemModel = new mw.echo.dm.NotificationItem(
 			data.params.id,
 			data.params.config
 		);
 
-		var methods = ( data.methods === 'all' ? Object.keys( expected ) : data.methods );
+		const methods = ( data.methods === 'all' ? Object.keys( expected ) : data.methods );
 		methods.forEach( function ( method ) {
 			assert.deepEqual(
 				// Run the method
@@ -107,8 +107,8 @@ QUnit.module( 'ext.echo.dm - NotificationItem', function ( hooks ) {
 	} );
 
 	QUnit.test( 'Emitting update event', function ( assert ) {
-		var results = [];
-		var itemModel = new mw.echo.dm.NotificationItem( 0, $.extend( true, {}, fakeData, { seen: false, read: false } ) );
+		const results = [];
+		const itemModel = new mw.echo.dm.NotificationItem( 0, $.extend( true, {}, fakeData, { seen: false, read: false } ) );
 
 		// Listen to update event
 		itemModel.on( 'update', function () {

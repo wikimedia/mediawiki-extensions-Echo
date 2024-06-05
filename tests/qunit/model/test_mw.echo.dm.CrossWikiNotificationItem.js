@@ -27,7 +27,7 @@ QUnit.test.each( 'Constructing the model', {
 		}
 	}
 }, function ( assert, data ) {
-	var defaults = {
+	const defaults = {
 		getModelName: 'xwiki',
 		getSourceNames: [],
 		getCount: 0,
@@ -35,14 +35,14 @@ QUnit.test.each( 'Constructing the model', {
 		getItems: [],
 		isEmpty: true
 	};
-	var expected = $.extend( true, {}, defaults, data.expected );
+	const expected = $.extend( true, {}, defaults, data.expected );
 
-	var model = new mw.echo.dm.CrossWikiNotificationItem(
+	const model = new mw.echo.dm.CrossWikiNotificationItem(
 		data.params.id,
 		data.params.config
 	);
 
-	for ( var method in defaults ) {
+	for ( const method in defaults ) {
 		assert.deepEqual(
 			// Run the method
 			model[ method ](),
@@ -55,8 +55,8 @@ QUnit.test.each( 'Constructing the model', {
 } );
 
 QUnit.test( 'Managing notification lists', function ( assert ) {
-	var model = new mw.echo.dm.CrossWikiNotificationItem( 1 );
-	var groupDefinitions = [
+	const model = new mw.echo.dm.CrossWikiNotificationItem( 1 );
+	const groupDefinitions = [
 		{
 			name: 'foo',
 			sourceData: {
@@ -144,8 +144,8 @@ QUnit.test( 'Managing notification lists', function ( assert ) {
 } );
 
 QUnit.test( 'Update seen state', function ( assert ) {
-	var model = new mw.echo.dm.CrossWikiNotificationItem( 1 );
-	var groupDefinitions = [
+	const model = new mw.echo.dm.CrossWikiNotificationItem( 1 );
+	const groupDefinitions = [
 		{
 			name: 'foo',
 			sourceData: {
@@ -184,12 +184,12 @@ QUnit.test( 'Update seen state', function ( assert ) {
 	];
 
 	// Count all actual items
-	var numAllItems = groupDefinitions.reduce( function ( prev, curr ) {
+	const numAllItems = groupDefinitions.reduce( function ( prev, curr ) {
 		return prev + curr.items.length;
 	}, 0 );
 
 	// Add groups to model
-	for ( var i = 0; i < groupDefinitions.length; i++ ) {
+	for ( let i = 0; i < groupDefinitions.length; i++ ) {
 		model.getList().addGroup(
 			groupDefinitions[ i ].name,
 			groupDefinitions[ i ].sourceData,
@@ -197,7 +197,7 @@ QUnit.test( 'Update seen state', function ( assert ) {
 		);
 	}
 
-	var numUnseenItems = model.getItems().filter( function ( item ) {
+	let numUnseenItems = model.getItems().filter( function ( item ) {
 		return !item.isSeen();
 	} ).length;
 	assert.strictEqual(
@@ -232,9 +232,9 @@ QUnit.test( 'Update seen state', function ( assert ) {
 } );
 
 QUnit.test( 'Emit discard event', function ( assert ) {
-	var results = [];
-	var model = new mw.echo.dm.CrossWikiNotificationItem( -1 );
-	var groupDefinitions = [
+	const results = [];
+	const model = new mw.echo.dm.CrossWikiNotificationItem( -1 );
+	const groupDefinitions = [
 		{
 			name: 'foo',
 			sourceData: {
@@ -273,7 +273,7 @@ QUnit.test( 'Emit discard event', function ( assert ) {
 	];
 
 	// Add groups to model
-	for ( var i = 0; i < groupDefinitions.length; i++ ) {
+	for ( let i = 0; i < groupDefinitions.length; i++ ) {
 		model.getList().addGroup(
 			groupDefinitions[ i ].name,
 			groupDefinitions[ i ].sourceData,

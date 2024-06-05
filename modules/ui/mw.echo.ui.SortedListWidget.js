@@ -53,7 +53,7 @@
 	 * @inheritdoc
 	 */
 	mw.echo.ui.SortedListWidget.prototype.onItemSortChange = function ( item ) {
-		var fakeWidget,
+		let fakeWidget,
 			widget = this;
 
 		if ( this.animated ) {
@@ -105,7 +105,7 @@
 	 */
 	mw.echo.ui.SortedListWidget.prototype.setGroupElement = function ( $group ) {
 		this.$group = $group;
-		for ( var i = 0, len = this.items.length; i < len; i++ ) {
+		for ( let i = 0, len = this.items.length; i < len; i++ ) {
 			this.$group.append( this.items[ i ].$element );
 		}
 	};
@@ -117,10 +117,10 @@
 	 * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
 	 */
 	mw.echo.ui.SortedListWidget.prototype.getItemFromId = function ( id ) {
-		var hash = OO.getHash( id );
+		const hash = OO.getHash( id );
 
-		for ( var i = 0, len = this.items.length; i < len; i++ ) {
-			var item = this.items[ i ];
+		for ( let i = 0, len = this.items.length; i < len; i++ ) {
+			const item = this.items[ i ];
 			if ( hash === OO.getHash( item.getId() ) ) {
 				return item;
 			}
@@ -136,7 +136,7 @@
 	 * @return {OO.ui.Element|null} Item with equivalent data, `null` if none exists
 	 */
 	mw.echo.ui.SortedListWidget.prototype.findItemFromData = function ( data ) {
-		var i, len, item,
+		let i, len, item,
 			hash = OO.getHash( data );
 
 		for ( i = 0, len = this.items.length; i < len; i++ ) {
@@ -158,7 +158,7 @@
 	 * @fires OO.EmitterList#remove
 	 */
 	mw.echo.ui.SortedListWidget.prototype.removeItems = function ( items ) {
-		var i, item, index;
+		let i, item, index;
 
 		if ( !Array.isArray( items ) ) {
 			items = [ items ];
@@ -248,7 +248,7 @@
 	 * @fires OO.EmitterList#clear
 	 */
 	mw.echo.ui.SortedListWidget.prototype.clearItems = function () {
-		var i, len, item;
+		let i, len, item;
 
 		for ( i = 0, len = this.items.length; i < len; i++ ) {
 			item = this.items[ i ];
@@ -267,7 +267,7 @@
 	 * @return {string} Latest timestamp
 	 */
 	mw.echo.ui.SortedListWidget.prototype.getTimestamp = function () {
-		var items = this.getItems();
+		const items = this.getItems();
 
 		return (
 			items.length > 0 ?

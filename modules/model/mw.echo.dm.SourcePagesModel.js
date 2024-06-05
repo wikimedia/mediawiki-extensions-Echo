@@ -81,7 +81,7 @@
 	 */
 	mw.echo.dm.SourcePagesModel.prototype.setAllSources = function ( sourceData ) {
 		this.reset();
-		for ( var source in sourceData ) {
+		for ( const source in sourceData ) {
 			if ( Object.prototype.hasOwnProperty.call( sourceData, source ) ) {
 				this.setSourcePagesDetails( source, sourceData[ source ] );
 			}
@@ -170,8 +170,8 @@
 			pages: {}
 		};
 
-		for ( var i = 0; i < details.pages.length; i++ ) {
-			var page = details.pages[ i ];
+		for ( let i = 0; i < details.pages.length; i++ ) {
+			const page = details.pages[ i ];
 			this.sources[ source ].pages[ page.title ] = page;
 		}
 	};

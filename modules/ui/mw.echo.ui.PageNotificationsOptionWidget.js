@@ -26,7 +26,7 @@
 
 		this.count = config.count !== undefined ? config.count : 0;
 
-		var countLabel = mw.language.convertNumber( this.count );
+		let countLabel = mw.language.convertNumber( this.count );
 		countLabel = config.isCapped ?
 			mw.msg( 'echo-badge-count', countLabel ) : countLabel;
 
@@ -35,7 +35,7 @@
 			label: countLabel
 		} );
 
-		var $row = $( '<div>' )
+		const $row = $( '<div>' )
 			.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-row' )
 			.append(
 				$( '<div>' )

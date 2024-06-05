@@ -119,7 +119,7 @@
 	 * @param {string} groupName Symbolic name of the group
 	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.onModelDiscard = function ( groupName ) {
-		var list = this.getList(),
+		const list = this.getList(),
 			group = list.getItemFromId( groupName );
 
 		list.removeItems( [ group ] );
@@ -143,10 +143,10 @@
 	 * in the model
 	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.populateFromModel = function () {
-		var groupWidgets = [],
+		const groupWidgets = [],
 			groups = this.model.getList().getItems();
 
-		for ( var i = 0; i < groups.length; i++ ) {
+		for ( let i = 0; i < groups.length; i++ ) {
 			// Create SubGroup widgets
 			groupWidgets.push(
 				new mw.echo.ui.SubGroupListWidget(
@@ -168,13 +168,13 @@
 	 * @param {boolean} [show] Show titles
 	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.toggleTitles = function ( show ) {
-		var items = this.getList().getItems();
+		const items = this.getList().getItems();
 
 		show = show === undefined ? !this.showTitles : show;
 
 		if ( this.showTitles !== show ) {
 			this.showTitles = show;
-			for ( var i = 0; i < items.length; i++ ) {
+			for ( let i = 0; i < items.length; i++ ) {
 				items[ i ].toggleTitle( show );
 			}
 		}
@@ -216,7 +216,7 @@
 	 * Only fetch the first time we expand.
 	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.expand = function () {
-		var widget = this;
+		const widget = this;
 
 		this.toggleExpanded( !this.expanded );
 		this.updateExpandButton();
@@ -233,7 +233,7 @@
 			this.controller.fetchCrossWikiNotifications()
 				.catch(
 					function ( result ) {
-						var loginPageTitle = mw.Title.newFromText( 'Special:UserLogin' );
+						const loginPageTitle = mw.Title.newFromText( 'Special:UserLogin' );
 						// If failure, check if the failure is due to login
 						// so we can display a more comprehensive error
 						// message in that case
@@ -281,7 +281,7 @@
 	 * Update the expand button label
 	 */
 	mw.echo.ui.CrossWikiNotificationItemWidget.prototype.updateExpandButton = function () {
-		var type = this.model.getType();
+		const type = this.model.getType();
 
 		this.toggleExpandButton.setLabel(
 			this.expanded ?

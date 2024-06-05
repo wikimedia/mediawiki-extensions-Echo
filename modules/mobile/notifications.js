@@ -1,4 +1,4 @@
-var mobile = require( 'mobile.startup' );
+const mobile = require( 'mobile.startup' );
 
 /**
  * @module module:ext.echo.mobile
@@ -23,14 +23,14 @@ function onCloseNotificationsOverlay() {
  * with the Toast notifications defined by common/toast.js.
  */
 function init() {
-	var
+	let
 		notificationsFilterOverlay = require( './notificationsFilterOverlay.js' ),
 		notificationsOverlay = require( './overlay.js' ),
 		overlayManager = mobile.getOverlayManager(),
 		initialized = false;
 
 	function showNotificationOverlay() {
-		var overlay = notificationsOverlay(
+		const overlay = notificationsOverlay(
 			function ( exit ) {
 				onCloseNotificationsOverlay();
 				exit();
@@ -53,7 +53,7 @@ function init() {
 		 */
 		function addFilterButton() {
 			// Create filter button once the notifications overlay has been loaded
-			var filterStatusButton = new OO.ui.ButtonWidget(
+			const filterStatusButton = new OO.ui.ButtonWidget(
 				{
 					href: '#/notifications-filter',
 					classes: [ 'mw-echo-ui-notificationsInboxWidget-main-toolbar-nav-filter-placeholder' ],
@@ -76,7 +76,7 @@ function init() {
 		// Once the 'ext.echo.special.onInitialize' hook has fired, load notification filter.
 		mw.hook( 'ext.echo.special.onInitialize' ).add( function () {
 			// eslint-disable-next-line no-jquery/no-global-selector
-			var $crossWikiUnreadFilter = $( '.mw-echo-ui-crossWikiUnreadFilterWidget' ),
+			const $crossWikiUnreadFilter = $( '.mw-echo-ui-crossWikiUnreadFilterWidget' ),
 				// eslint-disable-next-line no-jquery/no-global-selector
 				$notifReadState = $( '.mw-echo-ui-notificationsInboxWidget-main-toolbar-readState' );
 

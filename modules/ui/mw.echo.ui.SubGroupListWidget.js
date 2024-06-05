@@ -49,7 +49,7 @@
 			}
 		);
 
-		var sourceURL = this.model.getSourceURL() ?
+		const sourceURL = this.model.getSourceURL() ?
 			this.model.getSourceURL().replace( '$1', 'Special:Notifications' ) :
 			null;
 		if ( sourceURL ) {
@@ -136,7 +136,7 @@
 	 * Respond to window resize event
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.resizeHeader = function () {
-		var contentWidth = this.$pageContentText.width(),
+		const contentWidth = this.$pageContentText.width(),
 			screenTooNarrow = this.$header.width() > contentWidth;
 
 		// Screen too narrow, put the button under the date
@@ -178,7 +178,7 @@
 	 * @return {boolean} Sub group has unread notifications
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.hasUnread = function () {
-		var isUnread = function ( item ) {
+		const isUnread = function ( item ) {
 				return !item.isRead();
 			},
 			items = this.model.getItems();
@@ -193,13 +193,13 @@
 	 *  If this is empty, the widget will request all the items from the model.
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.resetItemsFromModel = function ( items ) {
-		var itemWidgets = [],
+		let itemWidgets = [],
 			$elements = $();
 
 		items = items || this.model.getItems();
 
-		for ( var i = 0; i < items.length; i++ ) {
-			var widget = new mw.echo.ui.SingleNotificationItemWidget(
+		for ( let i = 0; i < items.length; i++ ) {
+			const widget = new mw.echo.ui.SingleNotificationItemWidget(
 				this.controller,
 				items[ i ],
 				{
@@ -228,9 +228,9 @@
 	 * @param {mw.echo.dm.NotificationItem[]} items Notification item models
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.onModelDiscardItems = function ( items ) {
-		var itemWidgets = [];
+		const itemWidgets = [];
 
-		for ( var i = 0; i < items.length; i++ ) {
+		for ( let i = 0; i < items.length; i++ ) {
 			itemWidgets.push( this.listWidget.getItemFromId( items[ i ].getId() ) );
 		}
 		this.listWidget.removeItems( itemWidgets );

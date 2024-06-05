@@ -1,7 +1,7 @@
 QUnit.module( 'ext.echo.dm - SeenTimeModel' );
 
 QUnit.test( '.getTypes()', function ( assert ) {
-	var model = new mw.echo.dm.SeenTimeModel();
+	const model = new mw.echo.dm.SeenTimeModel();
 
 	assert.deepEqual(
 		model.getTypes(),
@@ -11,7 +11,7 @@ QUnit.test( '.getTypes()', function ( assert ) {
 } );
 
 QUnit.test( '.setSeenTime() reflected', function ( assert ) {
-	var model;
+	let model;
 
 	model = new mw.echo.dm.SeenTimeModel();
 	model.setSeenTime( '20160101010000' );
@@ -33,8 +33,8 @@ QUnit.test( '.setSeenTime() reflected', function ( assert ) {
 } );
 
 QUnit.test( '.setSeenTime() events', function ( assert ) {
-	var results = [];
-	var model = new mw.echo.dm.SeenTimeModel();
+	const results = [];
+	const model = new mw.echo.dm.SeenTimeModel();
 
 	// Attach a listener
 	model.on( 'update', function ( time ) {

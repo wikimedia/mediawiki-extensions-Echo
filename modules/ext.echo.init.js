@@ -15,7 +15,7 @@ function initDesktop() {
 	'use strict';
 
 	// Remove ?markasread=XYZ from the URL
-	var url = new URL( location.href );
+	const url = new URL( location.href );
 	if ( url.searchParams.has( 'markasread' ) ) {
 		url.searchParams.delete( 'markasread' );
 		url.searchParams.delete( 'markasreadwiki' );
@@ -24,7 +24,7 @@ function initDesktop() {
 
 	// Activate OOUI
 	$( function () {
-		var messageController,
+		let messageController,
 			alertController,
 			maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
 			pollingRate = require( './config.json' ).EchoPollForUpdates,
@@ -54,11 +54,11 @@ function initDesktop() {
 			};
 
 		function updateDocumentTitleWithNotificationCount( totalAlertCount, totalMessageCount ) {
-			var totalCount = totalAlertCount + totalMessageCount,
+			let totalCount = totalAlertCount + totalMessageCount,
 				newTitle = documentTitle;
 
 			if ( totalCount > 0 ) {
-				var convertedTotalCount = totalCount <= maxNotificationCount ? totalCount : maxNotificationCount + 1;
+				let convertedTotalCount = totalCount <= maxNotificationCount ? totalCount : maxNotificationCount + 1;
 				convertedTotalCount = mw.msg( 'echo-badge-count', mw.language.convertNumber( convertedTotalCount ) );
 				newTitle = mw.msg( 'parentheses', convertedTotalCount ) + ' ' + documentTitle;
 			}
@@ -73,9 +73,9 @@ function initDesktop() {
 		 * @return {Date} Timestamp of latest notification
 		 */
 		function showNotificationSnippet( modelManager, highestNotifTime ) {
-			var highestTime = highestNotifTime;
+			let highestTime = highestNotifTime;
 			modelManager.getLocalNotifications().forEach( function ( notificationItem ) {
-				var timestampAsDate = new Date( notificationItem.timestamp );
+				const timestampAsDate = new Date( notificationItem.timestamp );
 				if ( timestampAsDate > highestNotifTime ) {
 					if ( timestampAsDate > highestTime ) {
 						highestTime = timestampAsDate;
@@ -128,15 +128,15 @@ function initDesktop() {
 				return loadingPromise;
 			}
 			// This part executes only once, either when header icons are clicked or after completion of 60secs whichever occur first.
-			var echoApi = new mw.echo.api.EchoApi();
+			const echoApi = new mw.echo.api.EchoApi();
 
 			loadingPromise = mw.loader.using( 'ext.echo.ui.desktop' ).then( function () {
 
 				// Overlay
 				mw.echo.ui.$overlay.appendTo( document.body );
 
-				var unreadAlertCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'alert', maxNotificationCount );
-				var alertModelManager = new mw.echo.dm.ModelManager( unreadAlertCounter, { type: 'alert' } );
+				const unreadAlertCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'alert', maxNotificationCount );
+				const alertModelManager = new mw.echo.dm.ModelManager( unreadAlertCounter, { type: 'alert' } );
 				alertController = new mw.echo.Controller( echoApi, alertModelManager );
 
 				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget(
@@ -177,8 +177,8 @@ function initDesktop() {
 
 				// Load message button and popup if messages exist
 				if ( $existingMessageLink.length ) {
-					var unreadMessageCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'message', maxNotificationCount );
-					var messageModelManager = new mw.echo.dm.ModelManager( unreadMessageCounter, { type: 'message' } );
+					const unreadMessageCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'message', maxNotificationCount );
+					const messageModelManager = new mw.echo.dm.ModelManager( unreadMessageCounter, { type: 'message' } );
 					messageController = new mw.echo.Controller( echoApi, messageModelManager );
 
 					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget(
@@ -218,7 +218,7 @@ function initDesktop() {
 
 		// Respond to click on the notification button and load the UI on demand
 		$( '.mw-echo-notification-badge-nojs' ).on( 'click', function ( e ) {
-			var timeOfClick = mw.now(),
+			const timeOfClick = mw.now(),
 				$badge = $( this ),
 				clickedSection = $badge.parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
 			if ( e.which !== 1 || $badge.data( 'clicked' ) ) {
@@ -233,7 +233,7 @@ function initDesktop() {
 			$badge.addClass( 'mw-echo-notifications-badge-dimmed' );
 
 			// Fire the notification API requests
-			var echoApi = new mw.echo.api.EchoApi();
+			const echoApi = new mw.echo.api.EchoApi();
 			echoApi.fetchNotifications( clickedSection )
 				.then( function ( data ) {
 					mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - timeOfClick );
@@ -242,7 +242,7 @@ function initDesktop() {
 
 			loadEcho().then( function () {
 				// Now that the module loaded, show the popup
-				var selectedWidget = clickedSection === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
+				const selectedWidget = clickedSection === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
 				selectedWidget.once( 'finishLoading', function () {
 					// Log timing after notifications are shown
 					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - timeOfClick );

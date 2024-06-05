@@ -77,7 +77,7 @@
 	 * @param {mw.echo.dm.NotificationItem[]} [groupItems] Optional items to add to this group
 	 */
 	mw.echo.dm.NotificationGroupsList.prototype.addGroup = function ( groupSource, sourceData, groupItems ) {
-		var groupListModel = new mw.echo.dm.NotificationsList( {
+		const groupListModel = new mw.echo.dm.NotificationsList( {
 			title: sourceData.title,
 			name: groupSource,
 			source: groupSource,
@@ -100,7 +100,7 @@
 	 * @return {string} Latest timestamp
 	 */
 	mw.echo.dm.NotificationGroupsList.prototype.getTimestamp = function () {
-		var items = this.getItems();
+		const items = this.getItems();
 
 		return (
 			items.length > 0 ?
@@ -116,7 +116,7 @@
 	 * @param {mw.echo.dm.NotificationItem[]} groupItems Items to add to this group
 	 */
 	mw.echo.dm.NotificationGroupsList.prototype.addItemsToGroup = function ( groupSource, groupItems ) {
-		var group = this.getGroupByName( groupSource );
+		const group = this.getGroupByName( groupSource );
 
 		if ( group ) {
 			group.addItems( groupItems );
@@ -136,7 +136,7 @@
 	 * @fires mw.echo.dm.NotificationGroupsList#discard
 	 */
 	mw.echo.dm.NotificationGroupsList.prototype.removeGroup = function ( groupName ) {
-		var group = this.getGroupByName( groupName );
+		const group = this.getGroupByName( groupName );
 
 		if ( group ) {
 			this.removeItems( group );
@@ -151,9 +151,9 @@
 	 * @return {mw.echo.dm.NotificationsList|null} Requested group, null if none was found.
 	 */
 	mw.echo.dm.NotificationGroupsList.prototype.getGroupByName = function ( groupName ) {
-		var items = this.getItems();
+		const items = this.getItems();
 
-		for ( var i = 0; i < items.length; i++ ) {
+		for ( let i = 0; i < items.length; i++ ) {
 			if ( items[ i ].getName() === groupName ) {
 				return items[ i ];
 			}

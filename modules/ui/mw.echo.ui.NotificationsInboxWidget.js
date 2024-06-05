@@ -126,11 +126,11 @@
 				.addClass( 'mw-echo-ui-notificationsInboxWidget-toolbarWrapper' )
 				.append( this.$topToolbar );
 
-		var $sidebar = $( '<div>' )
+		const $sidebar = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationsInboxWidget-sidebar' )
 			.append( this.xwikiUnreadWidget.$element );
 
-		var $main = $( '<div>' )
+		const $main = $( '<div>' )
 			.addClass( 'mw-echo-ui-notificationsInboxWidget-main' )
 			.append(
 				this.$toolbarWrapper,
@@ -222,9 +222,9 @@
 	 *  have been fetched.
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.populateNotifications = function ( direction ) {
-		var widget = this;
+		const widget = this;
 
-		var fetchPromise;
+		let fetchPromise;
 		if ( direction === 'prev' ) {
 			fetchPromise = this.controller.fetchPrevPageByDate();
 		} else if ( direction === 'next' ) {
@@ -248,7 +248,7 @@
 				},
 				// Failure
 				function ( errObj ) {
-					var msg;
+					let msg;
 					if ( errObj.errCode === 'notlogin-required' ) {
 						// Login required message
 						msg = mw.msg( 'echo-notification-loginrequired' );
@@ -296,10 +296,10 @@
 	 * in case the list is empty.
 	 */
 	mw.echo.ui.NotificationsInboxWidget.prototype.resetMessageLabel = function () {
-		var count = this.manager.getPaginationModel().getCurrentPageItemCount();
+		const count = this.manager.getPaginationModel().getCurrentPageItemCount();
 
 		if ( count === 0 ) {
-			var label = this.manager.getFiltersModel().getReadState() === 'all' ?
+			const label = this.manager.getFiltersModel().getReadState() === 'all' ?
 				mw.msg( 'echo-notification-placeholder' ) :
 				mw.msg( 'echo-notification-placeholder-filters' );
 

@@ -75,7 +75,7 @@
 	 * Respond to source page change
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget.prototype.onSourcePageUpdate = function () {
-		var sourcePagesModel = this.manager.getFiltersModel().getSourcePagesModel(),
+		const sourcePagesModel = this.manager.getFiltersModel().getSourcePagesModel(),
 			source = sourcePagesModel.getCurrentSource(),
 			sourcePages = sourcePagesModel.getSourcePages( source ),
 			currentPage = sourcePagesModel.getCurrentPage(),
@@ -103,7 +103,7 @@
 	 * @fires mw.echo.ui.SpecialHelpMenuWidget#markAllRead
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget.prototype.onMenuChoose = function ( item ) {
-		var data = item.getData();
+		const data = item.getData();
 		if ( data.href ) {
 			location.href = data.href;
 		} else if ( data === 'markAllRead' ) {
@@ -118,7 +118,7 @@
 	 * @return {string} Mark all read button label
 	 */
 	mw.echo.ui.SpecialHelpMenuWidget.prototype.getMarkAllReadOptionLabel = function ( count ) {
-		var pageModel = this.manager.getFiltersModel().getSourcePagesModel(),
+		const pageModel = this.manager.getFiltersModel().getSourcePagesModel(),
 			source = pageModel.getCurrentSource(),
 			sourceTitle = pageModel.getSourceTitle( source );
 

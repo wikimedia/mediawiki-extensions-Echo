@@ -18,7 +18,7 @@ QUnit.test.each( 'Constructing the model', {
 		}
 	}
 }, function ( assert, data ) {
-	var defaultValues = {
+	const defaultValues = {
 		getPageContinue: undefined,
 		getCurrPageIndex: 0,
 		getPrevPageContinue: '',
@@ -29,11 +29,11 @@ QUnit.test.each( 'Constructing the model', {
 		getCurrentPageItemCount: 25,
 		getItemsPerPage: 25
 	};
-	var expected = $.extend( true, {}, defaultValues, data.expected );
+	const expected = $.extend( true, {}, defaultValues, data.expected );
 
-	var model = new mw.echo.dm.PaginationModel( data.config );
+	const model = new mw.echo.dm.PaginationModel( data.config );
 
-	for ( var method in expected ) {
+	for ( const method in expected ) {
 		assert.deepEqual(
 			// Run the method
 			model[ method ](),
@@ -46,8 +46,8 @@ QUnit.test.each( 'Constructing the model', {
 } );
 
 QUnit.test( 'Emitting update event', function ( assert ) {
-	var results = [];
-	var model = new mw.echo.dm.PaginationModel();
+	const results = [];
+	const model = new mw.echo.dm.PaginationModel();
 
 	// Listen to update event
 	model.on( 'update', function () {

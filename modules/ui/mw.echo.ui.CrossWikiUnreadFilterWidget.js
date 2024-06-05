@@ -18,7 +18,7 @@
 		mw.echo.ui.CrossWikiUnreadFilterWidget.super.call( this,
 			// Sorting callback
 			function ( a, b ) {
-				var diff;
+				let diff;
 
 				// Local source is always first
 				if ( a.getSource() === 'local' ) {
@@ -45,11 +45,11 @@
 		this.model = filtersModel;
 		this.previousPageSelected = null;
 
-		var titleWidget = new OO.ui.LabelWidget( {
+		const titleWidget = new OO.ui.LabelWidget( {
 			classes: [ 'mw-echo-ui-crossWikiUnreadFilterWidget-title' ],
 			label: mw.msg( 'echo-specialpage-pagefilters-title' )
 		} );
-		var subtitleWidget = new OO.ui.LabelWidget( {
+		const subtitleWidget = new OO.ui.LabelWidget( {
 			classes: [ 'mw-echo-ui-crossWikiUnreadFilterWidget-subtitle' ],
 			label: mw.msg( 'echo-specialpage-pagefilters-subtitle' )
 		} );
@@ -93,7 +93,7 @@
 	 * @fires mw.echo.ui.CrossWikiUnreadFilterWidget#filter
 	 */
 	mw.echo.ui.CrossWikiUnreadFilterWidget.prototype.onPageFilterChoose = function ( widget, item ) {
-		var source = widget.getSource(),
+		const source = widget.getSource(),
 			page = item && item.getData();
 
 		if ( item ) {
@@ -131,15 +131,15 @@
 	 * Populate the widget from the model data
 	 */
 	mw.echo.ui.CrossWikiUnreadFilterWidget.prototype.populateDataFromModel = function () {
-		var widgets = [],
+		const widgets = [],
 			sourcePageModel = this.model.getSourcePagesModel(),
 			selectedSource = sourcePageModel.getCurrentSource(),
 			selectedPage = sourcePageModel.getCurrentPage(),
 			sources = sourcePageModel.getSourcesArray();
 
-		for ( var i = 0; i < sources.length; i++ ) {
-			var source = sources[ i ];
-			var widget = new mw.echo.ui.PageFilterWidget(
+		for ( let i = 0; i < sources.length; i++ ) {
+			const source = sources[ i ];
+			const widget = new mw.echo.ui.PageFilterWidget(
 				sourcePageModel,
 				source,
 				{
@@ -156,8 +156,8 @@
 		this.addItems( widgets );
 
 		// Select the current source
-		var selectedWidget = this.findItemFromData( selectedSource );
-		var item;
+		const selectedWidget = this.findItemFromData( selectedSource );
+		let item;
 		if ( selectedPage ) {
 			// Select a specific page
 			item = selectedWidget.findItemFromData( selectedPage );

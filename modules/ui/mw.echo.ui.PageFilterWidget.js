@@ -64,12 +64,12 @@
 	 * Populate the widget from the model
 	 */
 	mw.echo.ui.PageFilterWidget.prototype.populateDataFromModel = function () {
-		var optionWidgets = [],
+		const optionWidgets = [],
 			sourcePages = this.model.getSourcePages( this.source );
 
-		for ( var title in sourcePages ) {
-			var isUserPage = sourcePages[ title ].ns === mw.config.get( 'wgNamespaceIds' ).user;
-			var widget = new mw.echo.ui.PageNotificationsOptionWidget( {
+		for ( const title in sourcePages ) {
+			const isUserPage = sourcePages[ title ].ns === mw.config.get( 'wgNamespaceIds' ).user;
+			const widget = new mw.echo.ui.PageNotificationsOptionWidget( {
 				label: isUserPage ? sourcePages[ title ].unprefixed : title,
 				title: isUserPage ? sourcePages[ title ].unprefixed : title,
 				icon: isUserPage ? 'userAvatar' : 'article',
@@ -112,8 +112,8 @@
 	 */
 	mw.echo.ui.PageFilterWidget.prototype.setItems = function ( items ) {
 		this.clearItems();
-		for ( var i = 0; i < items.length; i++ ) {
-			var index = this.findInsertionIndex( items[ i ] );
+		for ( let i = 0; i < items.length; i++ ) {
+			const index = this.findInsertionIndex( items[ i ] );
 			this.addItems( [ items[ i ] ], index );
 		}
 
@@ -129,7 +129,7 @@
 	 * @return {number} Insertion index
 	 */
 	mw.echo.ui.PageFilterWidget.prototype.findInsertionIndex = function ( item ) {
-		var widget = this;
+		const widget = this;
 
 		return OO.binarySearch(
 			this.items,

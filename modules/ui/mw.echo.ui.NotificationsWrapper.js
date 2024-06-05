@@ -65,7 +65,7 @@
 	 * @fires mw.echo.ui.NotificationsWrapper#finishLoading
 	 */
 	mw.echo.ui.NotificationsWrapper.prototype.populate = function () {
-		var widget = this;
+		const widget = this;
 
 		this.pushPending();
 		return this.controller.fetchLocalNotifications( true )

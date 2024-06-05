@@ -46,7 +46,7 @@
 	 * @fires mw.echo.dm.FiltersModel#update
 	 */
 	mw.echo.dm.FiltersModel.prototype.setReadState = function ( readState ) {
-		var allowed = [ 'all', 'read', 'unread' ];
+		const allowed = [ 'all', 'read', 'unread' ];
 		if (
 			this.readState !== readState &&
 			allowed.indexOf( readState ) > -1

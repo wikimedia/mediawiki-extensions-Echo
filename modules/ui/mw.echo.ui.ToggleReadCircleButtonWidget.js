@@ -48,7 +48,7 @@
 		this.markAsRead = isMarkAsRead;
 
 		this.$circle.toggleClass( 'mw-echo-ui-toggleReadCircleButtonWidget-circle-unread', !this.markAsRead );
-		var label = this.markAsRead ?
+		const label = this.markAsRead ?
 			mw.msg( 'echo-notification-markasread' ) :
 			mw.msg( 'echo-notification-markasunread' );
 		this.setLabel( label );

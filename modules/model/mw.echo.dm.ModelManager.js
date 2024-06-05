@@ -113,9 +113,9 @@
 	 * @fires mw.echo.dm.ModelManager#seen
 	 */
 	mw.echo.dm.ModelManager.prototype.onSeenTimeUpdate = function ( timestamp ) {
-		var models = this.getAllNotificationModels();
+		const models = this.getAllNotificationModels();
 
-		for ( var modelId in models ) {
+		for ( const modelId in models ) {
 			models[ modelId ].updateSeenState( timestamp );
 		}
 
@@ -128,7 +128,7 @@
 	 * @param {string} modelId Model name
 	 */
 	mw.echo.dm.ModelManager.prototype.onModelDiscardItems = function ( modelId ) {
-		var model = this.getNotificationModel( modelId );
+		const model = this.getNotificationModel( modelId );
 
 		// If the model is empty, remove it
 		if ( model.isEmpty() ) {
@@ -159,7 +159,7 @@
 	mw.echo.dm.ModelManager.prototype.setNotificationModels = function ( modelDefinitions ) {
 		this.resetNotificationModels();
 
-		for ( var modelId in modelDefinitions ) {
+		for ( const modelId in modelDefinitions ) {
 			this.notificationModels[ modelId ] = modelDefinitions[ modelId ];
 			this.notificationModels[ modelId ].connect( this, {
 				discard: [ 'onModelDiscardItems', modelId ],
@@ -200,10 +200,10 @@
 	 * @return {number} A count of all notifications
 	 */
 	mw.echo.dm.ModelManager.prototype.getAllNotificationCount = function () {
-		var count = 0,
+		let count = 0,
 			models = this.getAllNotificationModels();
 
-		for ( var model in models ) {
+		for ( const model in models ) {
 			count += models[ model ].getCount();
 		}
 
@@ -256,7 +256,7 @@
 	 * @private
 	 */
 	mw.echo.dm.ModelManager.prototype.resetNotificationModels = function () {
-		for ( var model in this.notificationModels ) {
+		for ( const model in this.notificationModels ) {
 			if ( Object.prototype.hasOwnProperty.call( this.notificationModels, model ) ) {
 				this.notificationModels[ model ].disconnect( this );
 				delete this.notificationModels[ model ];
@@ -279,7 +279,7 @@
 	 * @return {boolean} Local model has unread notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnread = function () {
-		var isUnread = function ( item ) {
+		const isUnread = function ( item ) {
 			return !item.isRead();
 		};
 
@@ -292,7 +292,7 @@
 	 * @return {mw.echo.dm.NotificationItem[]} Local unread notifications
 	 */
 	mw.echo.dm.ModelManager.prototype.getLocalUnread = function () {
-		var isUnread = function ( item ) {
+		const isUnread = function ( item ) {
 			return !item.isRead();
 		};
 
@@ -316,7 +316,7 @@
 	 * @return {boolean} Local model has unread talk page notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnreadTalk = function () {
-		var isUnreadUserTalk = function ( item ) {
+		const isUnreadUserTalk = function ( item ) {
 			return !item.isRead() && item.getCategory() === 'edit-user-talk';
 		};
 
@@ -330,7 +330,7 @@
 	 * @return {boolean} The given model has unseen notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasUnseenInModel = function ( modelId ) {
-		var model = this.getNotificationModel( modelId || 'local' );
+		const model = this.getNotificationModel( modelId || 'local' );
 
 		return model && model.hasUnseen();
 	};
@@ -343,9 +343,9 @@
 	 */
 	mw.echo.dm.ModelManager.prototype.hasUnseenInSource = function ( source ) {
 		source = source || 'local';
-		var modelNames = this.getModelsBySource( source );
+		const modelNames = this.getModelsBySource( source );
 
-		for ( var i = 0; i < modelNames.length; i++ ) {
+		for ( let i = 0; i < modelNames.length; i++ ) {
 			if ( this.getNotificationModel( modelNames[ i ] ).hasUnseen() ) {
 				return true;
 			}
@@ -360,9 +360,9 @@
 	 * @return {boolean} Local model has unseen notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasUnseenInAnyModel = function () {
-		var models = this.getAllNotificationModels();
+		const models = this.getAllNotificationModels();
 
-		for ( var model in models ) {
+		for ( const model in models ) {
 			if ( models[ model ].hasUnseen() ) {
 				return true;
 			}
@@ -428,13 +428,13 @@
 	 * @return {mw.echo.dm.NotificationItem[]} All notifications from that source
 	 */
 	mw.echo.dm.ModelManager.prototype.getNotificationsBySource = function ( source ) {
-		var notifications = [],
+		let notifications = [],
 			manager = this;
 
 		source = source || 'local';
 
 		Object.keys( this.getAllNotificationModels() ).forEach( function ( modelName ) {
-			var model = manager.getNotificationModel( modelName );
+			const model = manager.getNotificationModel( modelName );
 			if ( model.getSource() === source ) {
 				notifications = notifications.concat( model.getItems() );
 			}
@@ -449,13 +449,13 @@
 	 * @return {string[]} All model IDs that use this source
 	 */
 	mw.echo.dm.ModelManager.prototype.getModelsBySource = function ( source ) {
-		var modelIds = [],
+		const modelIds = [],
 			manager = this;
 
 		source = source || 'local';
 
 		Object.keys( this.getAllNotificationModels() ).forEach( function ( modelName ) {
-			var model = manager.getNotificationModel( modelName );
+			const model = manager.getNotificationModel( modelName );
 			if ( model.getSource() === source ) {
 				modelIds.push( modelName );
 			}
