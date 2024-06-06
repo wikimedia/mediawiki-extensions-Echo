@@ -12,6 +12,7 @@
 		"max-len": "off",
 		"prefer-arrow-callback": "error",
 		"implicit-arrow-linebreak": "error",
-		"arrow-body-style": "error"
+		"arrow-body-style": "error",
+		"no-jquery/no-extend": "warn"
 	}
 }
