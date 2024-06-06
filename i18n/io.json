@@ -105,6 +105,7 @@
 	"notification-timestamp-today": "Hodie",
 	"notification-timestamp-yesterday": "Hiere",
 	"notification-inbox-filter-read": "Lektita",
+	"notification-inbox-filter-unread": "Ne lektita",
 	"notification-inbox-filter-all": "Omna",
 	"echo-specialmute-label-mute-notifications": "Silencigez avizi de ca {{GENDER:$1|uzero}}",
 	"echo-notification-alert": "{{PLURAL:$1|($1) avizo|($1) avizi|100=(99+) avizi}}",
