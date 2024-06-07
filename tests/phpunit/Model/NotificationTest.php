@@ -66,9 +66,8 @@ class NotificationTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * Mock a notification row from database
-	 * @return array
 	 */
-	protected function mockNotificationRow() {
+	protected function mockNotificationRow(): array {
 		return [
 			'notification_user' => 1,
 			'notification_event' => 1,
@@ -80,9 +79,8 @@ class NotificationTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * Mock an event row from database
-	 * @return array
 	 */
-	protected function mockEventRow() {
+	protected function mockEventRow(): array {
 		return [
 			'event_id' => 1,
 			'event_type' => 'test_event',
@@ -97,9 +95,8 @@ class NotificationTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * Mock a target page row
-	 * @return array
 	 */
-	protected function mockTargetPageRow() {
+	protected function mockTargetPageRow(): array {
 		return [
 			'etp_page' => 2,
 			'etp_event' => 1

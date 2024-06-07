@@ -22,11 +22,10 @@ class ForeignWikiRequest {
 	/** @var User */
 	protected $user;
 
-	/** @var array */
-	protected $params;
+	protected array $params;
 
-	/** @var array */
-	protected $wikis;
+	/** @var string[] */
+	protected array $wikis;
 
 	/** @var string|null */
 	protected $wikiParam;
@@ -43,7 +42,7 @@ class ForeignWikiRequest {
 	/**
 	 * @param User $user
 	 * @param array $params Request parameters
-	 * @param array $wikis Wikis to send the request to
+	 * @param string[] $wikis Wikis to send the request to
 	 * @param string|null $wikiParam Parameter name to set to the name of the wiki
 	 * @param string|null $postToken If set, use POST requests and inject a token of this type;
 	 *  if null, use GET requests.

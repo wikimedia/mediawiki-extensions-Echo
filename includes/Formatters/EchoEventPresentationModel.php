@@ -12,6 +12,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
 use Message;
 use MessageLocalizer;
@@ -127,6 +128,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 		global $wgEchoNotifications;
 		// @todo don't depend upon globals
 
+		/** @var class-string<EchoEventPresentationModel> $class */
 		$class = $wgEchoNotifications[$event->getType()]['presentation-model'];
 		return new $class( $event, $language, $user, $distributionType );
 	}
@@ -562,10 +564,10 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 	}
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return string
 	 */
-	protected function getTruncatedUsername( User $user ) {
+	protected function getTruncatedUsername( UserIdentity $user ) {
 		return $this->language->embedBidi( $this->language->truncateForVisual(
 			$user->getName(), self::USERNAME_RECOMMENDED_LENGTH, '...', false ) );
 	}
