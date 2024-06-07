@@ -51,11 +51,7 @@
 		// Initialization
 		this.$element
 			.addClass( 'mw-echo-ui-pageNotificationsOptionWidget' )
-			.append(
-				$( '<div>' )
-					.addClass( 'mw-echo-ui-pageNotificationsOptionWidget-table' )
-					.append( $row )
-			);
+			.append( $row );
 
 		if ( this.getIcon() ) {
 			$row.prepend(
