@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Notifications\Test;
 
 use ContentHandler;
-use EchoUserLocator;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Title\Title;
@@ -130,7 +129,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 			->willReturn( User::newFromId( 123 ) );
 		$event->method( 'getType' )
 			->willReturn( 'page-linked' );
-		$this->assertEquals( [], EchoUserLocator::locateArticleCreator( $event ) );
+		$this->assertEquals( [], UserLocator::locateArticleCreator( $event ) );
 
 		$normalUser = $this->getTestUser()->getUser();
 		$normalUser->addToDatabase();
@@ -145,7 +144,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 			->willReturn( 'page-linked' );
 		$this->assertEquals(
 			$normalUser->getUser()->getId(),
-			array_key_first( EchoUserLocator::locateArticleCreator( $event ) )
+			array_key_first( UserLocator::locateArticleCreator( $event ) )
 		);
 	}
 

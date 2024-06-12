@@ -6,10 +6,10 @@ use BadMethodCallException;
 use Language;
 use MediaWiki\Extension\Notifications\DiscussionParser;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use Parser;
 
 /**
  * Component that represents a section of a page to be used from EchoEventPresentationModel subclass.

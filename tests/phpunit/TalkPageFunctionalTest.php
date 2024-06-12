@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Tests\Api\ApiTestCase;
 
 /**
  * @group Echo

@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Special;
 
-use IContextSource;
 use LogicException;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\Services;

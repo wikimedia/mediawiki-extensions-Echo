@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Notifications;
 
 use Language;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Notifications\Formatters\EchoEventFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoFlyoutFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoModelFormatter;
@@ -14,7 +15,6 @@ use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
-use RequestContext;
 
 /**
  * Utility class that formats a notification in the format specified

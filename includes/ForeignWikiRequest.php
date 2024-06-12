@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Notifications;
 use ApiMain;
 use CentralAuthSessionProvider;
 use Exception;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
@@ -15,7 +16,6 @@ use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
 use MWExceptionHandler;
-use RequestContext;
 
 class ForeignWikiRequest {
 

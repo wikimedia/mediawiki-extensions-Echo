@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\Notifications\Push\Utils;
 use MediaWiki\Extension\Notifications\Services;
+use MediaWiki\Tests\Api\ApiTestCase;
 use MediaWiki\User\User;
 
 /**

@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Tests\Api\ApiTestCase;
+
 /**
  * @group medium
  * @group API

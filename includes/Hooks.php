@@ -4,11 +4,8 @@ namespace MediaWiki\Extension\Notifications;
 
 use ApiModuleManager;
 use Content;
-use EchoAttributeManager;
-use EchoUserLocator;
 use EmailNotification;
 use ExtensionRegistry;
-use HTMLCheckMatrix;
 use Language;
 use LogEntry;
 use LogicException;
@@ -30,22 +27,23 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
 use MediaWiki\Hook\AbortTalkPageEmailNotificationHook;
-use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\EmailUserCompleteHook;
 use MediaWiki\Hook\GetNewMessagesAlertHook;
 use MediaWiki\Hook\LinksUpdateCompleteHook;
 use MediaWiki\Hook\LoginFormValidErrorMessagesHook;
-use MediaWiki\Hook\OutputPageCheckLastModifiedHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\RecentChange_saveHook;
 use MediaWiki\Hook\SendWatchlistEmailNotificationHook;
 use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Hook\SpecialMuteModifyFormFieldsHook;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\HTMLForm\Field\HTMLCheckMatrix;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\Hook\OutputPageCheckLastModifiedHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
@@ -116,7 +114,7 @@ class Hooks implements
 	private AuthManager $authManager;
 	private CentralIdLookup $centralIdLookup;
 	private Config $config;
-	private EchoAttributeManager $attributeManager;
+	private AttributeManager $attributeManager;
 	private HookContainer $hookContainer;
 	private Language $contentLanguage;
 	private LinkRenderer $linkRenderer;
@@ -135,7 +133,7 @@ class Hooks implements
 		AuthManager $authManager,
 		CentralIdLookup $centralIdLookup,
 		Config $config,
-		EchoAttributeManager $attributeManager,
+		AttributeManager $attributeManager,
 		HookContainer $hookContainer,
 		Language $contentLanguage,
 		LinkRenderer $linkRenderer,
@@ -816,7 +814,7 @@ class Hooks implements
 
 				$linkFromPageId = $linksUpdate->getTitle()->getArticleID();
 				// T318523: Don't send page-linked notifications for pages created by bot users.
-				$articleAuthor = EchoUserLocator::getArticleAuthorByArticleId( $title->getArticleID() );
+				$articleAuthor = UserLocator::getArticleAuthorByArticleId( $title->getArticleID() );
 				if ( $articleAuthor && $articleAuthor->isBot() ) {
 					continue;
 				}
