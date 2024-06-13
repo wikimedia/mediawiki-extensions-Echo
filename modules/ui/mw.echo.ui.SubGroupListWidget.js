@@ -178,12 +178,7 @@
 	 * @return {boolean} Sub group has unread notifications
 	 */
 	mw.echo.ui.SubGroupListWidget.prototype.hasUnread = function () {
-		const isUnread = function ( item ) {
-				return !item.isRead();
-			},
-			items = this.model.getItems();
-
-		return items.some( isUnread );
+		return this.model.getItems().some( ( item ) => !item.isRead() );
 	};
 
 	/**

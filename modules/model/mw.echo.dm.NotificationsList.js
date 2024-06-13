@@ -233,12 +233,7 @@
 	 * @return {boolean} There are unseen items in the list
 	 */
 	mw.echo.dm.NotificationsList.prototype.hasUnseen = function () {
-		const isItemUnseen = function ( item ) {
-				return !item.isSeen();
-			},
-			items = this.getItems();
-
-		return !!items.some( isItemUnseen );
+		return this.getItems().some( ( item ) => !item.isSeen() );
 	};
 
 	/**

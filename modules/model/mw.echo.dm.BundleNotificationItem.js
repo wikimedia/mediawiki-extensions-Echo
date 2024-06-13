@@ -88,10 +88,7 @@
 	 * @return {boolean} There are unseen items
 	 */
 	mw.echo.dm.BundleNotificationItem.prototype.hasUnseen = function () {
-		const isUnseen = function ( item ) {
-			return !item.isSeen();
-		};
-		return this.list.getItems().some( isUnseen );
+		return this.list.getItems().some( ( item ) => !item.isSeen() );
 	};
 
 	/**

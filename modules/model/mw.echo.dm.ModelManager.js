@@ -279,11 +279,7 @@
 	 * @return {boolean} Local model has unread notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnread = function () {
-		const isUnread = function ( item ) {
-			return !item.isRead();
-		};
-
-		return this.getLocalNotifications().some( isUnread );
+		return this.getLocalNotifications().some( ( item ) => !item.isRead() );
 	};
 
 	/**
@@ -292,11 +288,7 @@
 	 * @return {mw.echo.dm.NotificationItem[]} Local unread notifications
 	 */
 	mw.echo.dm.ModelManager.prototype.getLocalUnread = function () {
-		const isUnread = function ( item ) {
-			return !item.isRead();
-		};
-
-		return this.getLocalNotifications().filter( isUnread );
+		return this.getLocalNotifications().filter( ( item ) => !item.isRead() );
 	};
 	/**
 	 * Check whether there are talk notifications, and emit an event
@@ -316,11 +308,9 @@
 	 * @return {boolean} Local model has unread talk page notifications.
 	 */
 	mw.echo.dm.ModelManager.prototype.hasLocalUnreadTalk = function () {
-		const isUnreadUserTalk = function ( item ) {
-			return !item.isRead() && item.getCategory() === 'edit-user-talk';
-		};
-
-		return this.getLocalNotifications().some( isUnreadUserTalk );
+		return this.getLocalNotifications().some(
+			( item ) => !item.isRead() && item.getCategory() === 'edit-user-talk'
+		);
 	};
 
 	/**
