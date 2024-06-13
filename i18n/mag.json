@@ -228,6 +228,8 @@
 	"notification-header-foreign-alert": "{{PLURAL:$5|एगो दुसर विकि|$5 दुसर विकि}}से आउ चेतावनी",
 	"notification-header-foreign-notice": "{{PLURAL:$5|एगो दुसर विकि|$5 दुसर विकि}}से आउ अधिसूचना",
 	"notification-header-foreign-all": "{{PLURAL:$5|एगो दुसर विकि|$5 दुसर विकि}}से आउ अधिसूचना",
+	"right-echo-create": "अन्यके अधिसूचना भेजी",
+	"action-echo-create": "अन्यके अधिसूचना भेजी",
 	"right-manage-all-push-subscriptions": "सब पुश् सदस्सता प्रबन्धित करी",
 	"action-manage-all-push-subscriptions": "सब पुश् सदस्सता प्रबन्धित करी",
 	"group-push-subscription-manager": "पुश् सदस्सता प्रबन्धक",
