@@ -9,10 +9,6 @@
 		"commonjs": true
 	},
 	"rules": {
-		"max-len": "off",
-		"prefer-arrow-callback": "error",
-		"implicit-arrow-linebreak": "error",
-		"arrow-body-style": "error",
-		"no-jquery/no-extend": "warn"
+		"max-len": "off"
 	}
 }

@@ -122,7 +122,7 @@
 	 *  fetched from the API.
 	 */
 	mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( type, sources, overrideParams ) {
-		const params = $.extend( {
+		const params = Object.assign( {
 			action: 'query',
 			formatversion: 2,
 			meta: 'notifications',

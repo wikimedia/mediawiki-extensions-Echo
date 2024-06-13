@@ -50,7 +50,7 @@
 		// Properties
 		this.id = id;
 		this.modelName = config.modelName || 'local';
-		this.content = $.extend( { header: '', body: '' }, config.content );
+		this.content = Object.assign( { header: '', body: '' }, config.content );
 		this.category = config.category || '';
 		this.type = config.type || 'message';
 		this.foreign = !!config.foreign;

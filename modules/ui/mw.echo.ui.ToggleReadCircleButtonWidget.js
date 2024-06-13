@@ -14,7 +14,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.ToggleReadCircleButtonWidget.super.call( this, $.extend( {
+		mw.echo.ui.ToggleReadCircleButtonWidget.super.call( this, Object.assign( {
 			invisibleLabel: true,
 			// Set a dummy icon so we get focus styles
 			icon: '_'

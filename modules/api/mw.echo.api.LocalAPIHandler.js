@@ -133,7 +133,7 @@
 	 * @inheritdoc
 	 */
 	mw.echo.api.LocalAPIHandler.prototype.getTypeParams = function ( type ) {
-		return $.extend( {}, this.typeParams[ type ], {
+		return Object.assign( {}, this.typeParams[ type ], {
 			notcrosswikisummary: 1
 		} );
 	};

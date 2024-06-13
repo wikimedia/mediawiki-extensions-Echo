@@ -36,9 +36,9 @@
 		};
 
 		if ( this.unreadOnly ) {
-			params = $.extend( {}, params, { notfilter: '!read' } );
+			params = Object.assign( {}, params, { notfilter: '!read' } );
 		}
 
-		return $.extend( {}, this.typeParams[ type ], params );
+		return Object.assign( {}, this.typeParams[ type ], params );
 	};
 }() );

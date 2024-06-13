@@ -540,7 +540,7 @@
 						for ( let i = 0; i < groupItems.length; i++ ) {
 							const notifData = this.createNotificationData( groupItems[ i ] );
 							items.push(
-								new mw.echo.dm.NotificationItem( groupItems[ i ].id, $.extend( notifData, {
+								new mw.echo.dm.NotificationItem( groupItems[ i ].id, Object.assign( notifData, {
 									modelName: 'xwiki',
 									source: group,
 									bundled: true,

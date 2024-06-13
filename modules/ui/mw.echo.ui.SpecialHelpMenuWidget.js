@@ -10,7 +10,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.SpecialHelpMenuWidget.super.call( this, $.extend( {
+		mw.echo.ui.SpecialHelpMenuWidget.super.call( this, Object.assign( {
 			icon: 'settings',
 			label: mw.msg( 'echo-specialpage-special-help-menu-widget-aria-label' ),
 			indicator: 'down',

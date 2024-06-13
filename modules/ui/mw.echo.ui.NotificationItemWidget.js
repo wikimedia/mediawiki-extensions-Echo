@@ -19,7 +19,7 @@
 		config = config || {};
 
 		// Parent constructor
-		mw.echo.ui.NotificationItemWidget.super.call( this, $.extend( { data: model.getId() }, config ) );
+		mw.echo.ui.NotificationItemWidget.super.call( this, Object.assign( { data: model.getId() }, config ) );
 
 		this.controller = controller;
 		this.model = model;

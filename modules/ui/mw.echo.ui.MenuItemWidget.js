@@ -25,7 +25,7 @@
 		this.isLink = config.url && !this.isDynamicAction();
 
 		// Parent constructor
-		mw.echo.ui.MenuItemWidget.super.call( this, $.extend( { framed: false }, config ) );
+		mw.echo.ui.MenuItemWidget.super.call( this, Object.assign( { framed: false }, config ) );
 
 		// Mixin constructors
 		OO.ui.mixin.PendingElement.call( this, config );

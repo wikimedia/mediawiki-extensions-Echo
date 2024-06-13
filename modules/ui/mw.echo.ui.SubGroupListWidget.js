@@ -23,7 +23,7 @@
 		this.model = listModel;
 
 		// Parent constructor
-		mw.echo.ui.SubGroupListWidget.super.call( this, $.extend( { data: this.getSource() }, config ) );
+		mw.echo.ui.SubGroupListWidget.super.call( this, Object.assign( { data: this.getSource() }, config ) );
 
 		this.showTitle = !!config.showTitle;
 		this.showMarkAllRead = !!config.showMarkAllRead;
