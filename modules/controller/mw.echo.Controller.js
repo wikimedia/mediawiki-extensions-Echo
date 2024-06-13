@@ -256,7 +256,7 @@
 				// Success
 				( data ) => {
 					const allModels = { local: localListModel },
-						createBundledNotification = function ( modelName, rawBundledNotifData ) {
+						createBundledNotification = ( modelName, rawBundledNotifData ) => {
 							const bundleNotifData = this.createNotificationData( rawBundledNotifData );
 							bundleNotifData.bundled = true;
 							bundleNotifData.modelName = modelName;
