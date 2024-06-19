@@ -594,14 +594,8 @@
 		},
 		"EchoNotifiers": {
 			"value": {
-				"web": [
-					"EchoNotifier",
-					"notifyWithNotification"
-				],
-				"email": [
-					"EchoNotifier",
-					"notifyWithEmail"
-				]
+				"web": "MediaWiki\\Extension\\Notifications\\Notifier::notifyWithNotification",
+				"email": "MediaWiki\\Extension\\Notifications\\Notifier::notifyWithEmail"
 			}
 		},
 		"EchoAgentBlacklist": {
@@ -807,7 +801,7 @@
 			"value": {
 				"welcome": {
 					"user-locators": [
-						"EchoUserLocator::locateEventAgent"
+						"MediaWiki\\Extension\\Notifications\\UserLocator::locateEventAgent"
 					],
 					"canNotifyAgent": true,
 					"category": "system-noemail",
@@ -818,7 +812,7 @@
 				"edit-user-page": {
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditUserPagePresentationModel",
 					"user-locators": [
-						"EchoUserLocator::locateUserPageOwner"
+						"MediaWiki\\Extension\\Notifications\\UserLocator::locateUserPageOwner"
 					],
 					"category": "edit-user-page",
 					"group": "interactive",
@@ -1033,7 +1027,7 @@
 				"api-alert": {
 					"user-locators": [
 						[
-							"EchoUserLocator::locateFromEventExtra",
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
 							[
 								"recipients"
 							]
@@ -1048,7 +1042,7 @@
 				"api-notice": {
 					"user-locators": [
 						[
-							"EchoUserLocator::locateFromEventExtra",
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
 							[
 								"recipients"
 							]
