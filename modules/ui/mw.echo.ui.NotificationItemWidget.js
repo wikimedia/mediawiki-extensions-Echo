@@ -39,10 +39,18 @@
 		} );
 
 		let $icon;
+		const iconUrl = this.model.getIconURL();
 		// Icon
-		if ( this.model.getIconURL() ) {
+		if ( iconUrl ) {
+			// Only invert non colored images
+			/* eslint-disable es-x/no-array-prototype-includes */
+			const invertIconClass =
+				iconUrl.includes( 'progressive' ) ||
+				iconUrl.includes( 'constructive' ) ||
+				iconUrl.includes( 'failure' ) ? '' : 'skin-invert';
+			/* eslint-disable-next-line mediawiki/class-doc */
 			$icon = $( '<div>' )
-				.addClass( 'mw-echo-ui-notificationItemWidget-icon' )
+				.addClass( `mw-echo-ui-notificationItemWidget-icon ${ invertIconClass }` )
 				.append( $( '<img>' ).attr( {
 					src: this.model.getIconURL(),
 					role: 'presentation',

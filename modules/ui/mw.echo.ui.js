@@ -8,6 +8,6 @@
 		 * @property {jQuery}
 		 */
 		$overlay: $( '<div>' )
-			.addClass( 'mw-echo-ui-overlay notheme' )
+			.addClass( 'mw-echo-ui-overlay' )
 	};
 }() );
