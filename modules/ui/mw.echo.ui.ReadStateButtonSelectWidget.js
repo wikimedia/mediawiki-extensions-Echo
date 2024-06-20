@@ -10,7 +10,7 @@
 	 */
 	mw.echo.ui.ReadStateButtonSelectWidget = function MwEchoUiReadStateButtonSelectWidget( config ) {
 		// Parent constructor
-		mw.echo.ui.ReadStateButtonSelectWidget.super.call( this, Object.assign( config, {
+		mw.echo.ui.ReadStateButtonSelectWidget.super.call( this, Object.assign( {}, config, {
 			items: [
 				new OO.ui.ButtonOptionWidget( {
 					data: 'all',
