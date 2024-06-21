@@ -108,6 +108,19 @@
 			.addClass( 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer' )
 			.append( footerButtonGroupWidget.$element );
 
+		const screenWidth = $( window ).width();
+		// FIXME 639 is @max-width-breakpoint-mobile value in wikimedia-ui-base.less,
+		// should be updated with aproppriate JS exported Codex token once available, T366622
+		const maxWidthBreakPoint = 639;
+		const isUnderBreakpointMobile = screenWidth < maxWidthBreakPoint;
+		const mql = window.matchMedia( `(max-width: ${ maxWidthBreakPoint }px)` );
+		const matchMedia = function ( event ) {
+			if ( event.matches ) {
+				this.popup.containerPadding = 0;
+			} else {
+				this.popup.containerPadding = 20;
+			}
+		};
 		this.popup = new OO.ui.PopupWidget( {
 			$content: this.notificationsWidget.$element,
 			$footer: $footer,
@@ -115,7 +128,7 @@
 			hideWhenOutOfView: false,
 			autoFlip: false,
 			autoClose: true,
-			containerPadding: 20,
+			containerPadding: isUnderBreakpointMobile ? 0 : 20,
 			$floatableContainer: this.$element,
 			// Also ignore clicks from the nested action menu items, that
 			// actually exist in the overlay
@@ -130,6 +143,7 @@
 			),
 			classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-popup' ]
 		} );
+		mql.addEventListener( 'change', matchMedia.bind( this ) );
 		// Append the popup to the overlay
 		this.$overlay.append( this.popup.$element );
 
