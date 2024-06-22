@@ -5,7 +5,7 @@
 	"description": "Build tools for Echo.",
 	"scripts": {
 		"test": "grunt test",
-		"doc": "jsdoc -c .jsdoc.json",
+		"doc": "jsdoc -c jsdoc.json",
 		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder modules/icons/",
 		"selenium-test": "wdio tests/selenium/wdio.conf.js",
 		"selenium-daily": "npm run selenium-test -- --mochaOpts.grep @daily"
