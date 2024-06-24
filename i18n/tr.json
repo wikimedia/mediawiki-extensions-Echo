@@ -83,7 +83,7 @@
 	"echo-category-title-watchlist": "İzlenen sayfada düzenleme",
 	"echo-category-title-minor-watchlist": "İzlenen sayfada küçük düzenleme",
 	"echo-category-title-api-triggered": "API ile tetiklenen bildirimler",
-	"echo-pref-tooltip-edit-user-talk": "Birisi kullanıcı mesaj sayfamı düzenlediğinde bana bildir.",
+	"echo-pref-tooltip-edit-user-talk": "Birisi mesaj sayfamı düzenlediğinde bana bildir.",
 	"echo-pref-tooltip-edit-user-page": "Birisi kullanıcı sayfamı değiştirdiğinde bana haber ver.",
 	"echo-pref-tooltip-article-linked": "Bir kullanıcı, bir sayfadan benim oluşturduğum bir sayfaya bağlantı verdiğinde bana bildirim gönder.",
 	"echo-pref-tooltip-reverted": "Yaptığım bir değişiklik geri alındığı takdirde bana bildirim gönder.",
