@@ -42,6 +42,7 @@ class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 			$msg->params( $this->getViewingUserForGender() );
 			return $msg;
 		} else {
+			// Messages: notification-header-edit-user-page
 			$msg = parent::getHeaderMessage();
 			$msg->params( $this->getViewingUserForGender() );
 			return $msg;
