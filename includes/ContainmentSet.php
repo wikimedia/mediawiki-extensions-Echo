@@ -13,7 +13,7 @@ use WANObjectCache;
  * from multiple sources like global variables, wiki pages, etc.
  *
  * Initialize:
- *   $cache = ObjectCache::getLocalClusterInstance();
+ *   $cache = ObjectCacheFactory::getLocalClusterInstance();
  *   $set = new ContainmentSet;
  *   $set->addArray( $wgSomeGlobalParameter );
  *   $set->addOnWiki( NS_USER, 'Foo/bar-baz', $cache, 'some_user_specific_cache_key' );
