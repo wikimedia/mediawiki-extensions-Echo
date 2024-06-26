@@ -13,12 +13,7 @@
 		}
 	},
 	"plugins": [
-		"plugins/markdown",
-		"node_modules/jsdoc-wmf-theme/plugins/allow-dots-in-modules",
-		"node_modules/jsdoc-wmf-theme/plugins/betterlinks",
-		"node_modules/jsdoc-wmf-theme/plugins/externals",
-		"node_modules/jsdoc-wmf-theme/plugins/summarize",
-		"node_modules/jsdoc-class-hierarchy"
+		"node_modules/jsdoc-wmf-theme/plugins/default"
 	],
 	"source": {
 		"include": [ "modules" ]
@@ -32,40 +27,12 @@
 			"maintitle": "Echo",
 			"repository": "https://gerrit.wikimedia.org/g/mediawiki/extensions/Echo/",
 			"prefixMap": {
-				"OO.ui.": "https://doc.wikimedia.org/oojs-ui/master/js/{type}.html",
-				"OO.": "https://doc.wikimedia.org/oojs/master/{type}.html",
-				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html"
+				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html",
+				"mw.echo.": true
 			},
-			"prefixMapIgnore": [
-				"mw.echo."
-			],
 			"linkMap": {
-				"Array": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
-				"Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
-				"Object": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-				"Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
-
 				"Overlay": "https://doc.wikimedia.org/MobileFrontend/master/js/js/Overlay.html",
-				"View": "https://doc.wikimedia.org/MobileFrontend/master/js/js/View.html",
-
-				"Blob": "https://developer.mozilla.org/en-US/docs/Web/API/Blob",
-				"DataTransfer": "https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer",
-				"DataTransferItem": "https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItem",
-				"Event": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
-				"HTMLDocument": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument",
-				"HTMLElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement",
-				"KeyboardEvent": "https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent",
-				"MutationRecord": "https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord",
-				"Node": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
-				"NodeList": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
-				"Range": "https://developer.mozilla.org/en-US/docs/Web/API/Range",
-				"Selection": "https://developer.mozilla.org/en-US/docs/Web/API/Selection",
-
-				"jQuery": "http://api.jquery.com/",
-				"jQuery.Deferred": "http://api.jquery.com/jQuery.Deferred/",
-				"jQuery.Event": "http://api.jquery.com/Types/#Event",
-				"jQuery.jqXHR": "http://api.jquery.com/Types/#jqXHR",
-				"jQuery.Promise": "http://api.jquery.com/Types/#Promise"
+				"View": "https://doc.wikimedia.org/MobileFrontend/master/js/js/View.html"
 			}
 		}
 	}
