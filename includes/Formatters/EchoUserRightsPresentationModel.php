@@ -20,15 +20,15 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 		[ $formattedName, $genderName ] = $this->getAgentForOutput();
 		$add = array_map(
 			[ $this->language, 'embedBidi' ],
-			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'add', [] ) ) )
+			$this->getLocalizedGroupNames( $this->event->getExtraParam( 'add', [] ), $genderName )
 		);
 		$remove = array_map(
 			[ $this->language, 'embedBidi' ],
-			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'remove', [] ) ) )
+			$this->getLocalizedGroupNames( $this->event->getExtraParam( 'remove', [] ), $genderName )
 		);
 		$expiryChanged = array_map(
 			[ $this->language, 'embedBidi' ],
-			$this->getLocalizedGroupNames( array_values( $this->event->getExtraParam( 'expiry-changed', [] ) ) )
+			$this->getLocalizedGroupNames( $this->event->getExtraParam( 'expiry-changed', [] ), $genderName )
 		);
 		if ( $expiryChanged ) {
 			$msg = $this->msg( 'notification-header-user-rights-expiry-change' );
@@ -72,11 +72,16 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 		return false;
 	}
 
-	private function getLocalizedGroupNames( array $names ) {
-		return array_map( function ( $name ) {
-			$msg = $this->msg( 'group-' . $name );
-			return $msg->isBlank() ? $name : $msg->text();
-		}, $names );
+	/**
+	 * @param string[] $names
+	 * @param string $genderName
+	 * @return string[]
+	 */
+	private function getLocalizedGroupNames( array $names, string $genderName ) {
+		return array_map(
+			fn ( $name ) => $this->language->getGroupMemberName( $name, $genderName ),
+			array_values( $names )
+		);
 	}
 
 	public function getPrimaryLink() {
