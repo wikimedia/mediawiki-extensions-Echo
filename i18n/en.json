@@ -178,7 +178,7 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|mentioned}} {{GENDER:$3|you}} on <strong>{{GENDER:$2|his|her|their}} talk page</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|mentioned}} {{GENDER:$3|you}} on the <strong>$4</strong> talk page in \"<strong>$5</strong>\".",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|mentioned}} {{GENDER:$3|you}} on the <strong>$4</strong> talk page.",
-	"notification-header-mention-failure-user-unknown": "Cannot send {{GENDER:$2|your}} mention of <strong>$3</strong> because an account with this name doesn't exists.",
+	"notification-header-mention-failure-user-unknown": "Cannot send {{GENDER:$2|your}} mention of <strong>$3</strong> because an account with this name doesn't exist.",
 	"notification-header-mention-failure-user-anonymous": "Cannot send {{GENDER:$2|your}} mention of <strong>$3</strong> because the person is anonymous.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|You}} tried to mention more than $3 {{PLURAL:$3|user|users}}. All mentions above that limit were not sent.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|A mention|$3 mentions}} {{GENDER:$2|you made}} on the <strong>$4</strong> talk page {{PLURAL:$3|could}} not be sent.",
