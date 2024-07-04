@@ -19,6 +19,8 @@
 	"notification-header-user-rights-add-only": "{{GENDER:$4|То̄н}} оаннӭй вуэйймуж {{GENDER:$1|воа̄йхуввенҍ}}. То̄нн лӣ лажьха группая: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Пӯррь пуэдӓнт}} {{SITENAME}} са̄ййта, $1! Роа̄мм лӣ {{GENDER:$2|то̄н}} тэста уййнэ.",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|То̄нн}} еськ лыгкекь {{GENDER:$2|то̄н}} авьтмусс воа̄йхэз. Па̄ссьпушшэпь {{GENDER:$2|тоннӭ}} тэнн эвтэсьт, я пӯррь пуэдтҍмушш!",
+	"notification-header-thank-you-10-edit": "{{GENDER:$2|То̄нн}} еськ лыгкекь {{GENDER:$2|то̄н}} лоагант воа̄йхэз. Па̄ссьпушшэпь {{GENDER:$2|то̄ннӭ}} тэнн эвтэсьт, ю̄тҍк тэнн шэ ӣӈкэсьт!",
+	"notification-header-thank-you-100-edit": "{{GENDER:$2|То̄нн}} еськ лыгкекь {{GENDER:$2|то̄н}} чӯдӓнт воа̄йхэз. Шӯрр па̄ссьпэ тэнн эвтэсьт!",
 	"notification-link-article-reminder": "Кӣһче лыст",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 с}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 мин}}",
