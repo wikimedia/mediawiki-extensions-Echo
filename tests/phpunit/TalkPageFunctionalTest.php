@@ -88,7 +88,7 @@ class TalkPageFunctionalTest extends ApiTestCase {
 	 * @return \stdClass[] All talk page edit events in db sorted from oldest to newest
 	 */
 	protected function fetchAllEvents() {
-		$res = $this->db->newSelectQueryBuilder()
+		$res = $this->getDb()->newSelectQueryBuilder()
 			->select( Event::selectFields() )
 			->from( 'echo_event' )
 			->where( [
