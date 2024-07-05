@@ -18,38 +18,39 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 
 	public function getHeaderMessage() {
 		[ $formattedName, $genderName ] = $this->getAgentForOutput();
+		$viewingUser = $this->getViewingUserForGender();
 		$add = array_map(
 			[ $this->language, 'embedBidi' ],
-			$this->getLocalizedGroupNames( $this->event->getExtraParam( 'add', [] ), $genderName )
+			$this->getLocalizedGroupNames( $this->event->getExtraParam( 'add', [] ), $viewingUser )
 		);
 		$remove = array_map(
 			[ $this->language, 'embedBidi' ],
-			$this->getLocalizedGroupNames( $this->event->getExtraParam( 'remove', [] ), $genderName )
+			$this->getLocalizedGroupNames( $this->event->getExtraParam( 'remove', [] ), $viewingUser )
 		);
 		$expiryChanged = array_map(
 			[ $this->language, 'embedBidi' ],
-			$this->getLocalizedGroupNames( $this->event->getExtraParam( 'expiry-changed', [] ), $genderName )
+			$this->getLocalizedGroupNames( $this->event->getExtraParam( 'expiry-changed', [] ), $viewingUser )
 		);
 		if ( $expiryChanged ) {
 			$msg = $this->msg( 'notification-header-user-rights-expiry-change' );
 			$msg->params( $genderName );
 			$msg->params( $this->language->commaList( $expiryChanged ) );
 			$msg->params( count( $expiryChanged ) );
-			$msg->params( $this->getViewingUserForGender() );
+			$msg->params( $viewingUser );
 			return $msg;
 		} elseif ( $add && !$remove ) {
 			$msg = $this->msg( 'notification-header-user-rights-add-only' );
 			$msg->params( $genderName );
 			$msg->params( $this->language->commaList( $add ) );
 			$msg->params( count( $add ) );
-			$msg->params( $this->getViewingUserForGender() );
+			$msg->params( $viewingUser );
 			return $msg;
 		} elseif ( !$add && $remove ) {
 			$msg = $this->msg( 'notification-header-user-rights-remove-only' );
 			$msg->params( $genderName );
 			$msg->params( $this->language->commaList( $remove ) );
 			$msg->params( count( $remove ) );
-			$msg->params( $this->getViewingUserForGender() );
+			$msg->params( $viewingUser );
 			return $msg;
 		} else {
 			$msg = $this->msg( 'notification-header-user-rights-add-and-remove' );
@@ -58,7 +59,7 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 			$msg->params( count( $add ) );
 			$msg->params( $this->language->commaList( $remove ) );
 			$msg->params( count( $remove ) );
-			$msg->params( $this->getViewingUserForGender() );
+			$msg->params( $viewingUser );
 			return $msg;
 		}
 	}
