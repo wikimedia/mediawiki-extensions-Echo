@@ -42,6 +42,7 @@ describe( 'Echo', () => {
 
 	} );
 
+	// Skipped on 2022-01-17 in 754491 because of T299339
 	it.skip( 'checks for welcome message after signup', async () => {
 
 		const username = Util.getTestString( 'NewUser-' );
