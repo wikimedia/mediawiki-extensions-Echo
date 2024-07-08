@@ -153,7 +153,7 @@
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$3|vas}} je {{GENDER:$2|omenil|omenila|omenil_a}} na <strong>{{GENDER:$2|svoji}} pogovorni strani</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|vas}} je {{GENDER:$2|omenil|omenila|omenil_a}} v razdelku »<strong>$5</strong>« na pogovorni strani članka <strong>$4</strong>.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|vas}} je {{GENDER:$2|omenil|omenila|omenil_a}} na pogovorni strani članka <strong>$4</strong>.",
-	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Vaša}} omemba uporabnika <strong>$3</strong> ni bila poslana, saj uporabnik ni bil najden.",
+	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|Vaša}} omemba uporabnika <strong>$3</strong> ni bila poslana, saj uporabnik s tem računom ne obstaja.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|Vaša}} omemba uporabnika <strong>$3</strong> ni bila poslana, saj je uporabnik anonimen.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|Poskusili ste}} omeniti več kot $3 {{PLURAL:$3|uporabnika|uporabnika|uporabnike|uporabnikov}}. Vse omembe nad to mejo niso bile poslane.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Omembe|$3 omemb}}, ki ste jih {{GENDER:$2|opravili}} na pogovorni strani <strong>$4</strong>, {{PLURAL:$3|ni}} bilo mogoče poslati.",
