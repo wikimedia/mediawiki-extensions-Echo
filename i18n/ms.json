@@ -117,5 +117,8 @@
 	"echo-email-batch-body-intro-daily": "$1,\nYang berikut ialah ringkasan kegiatan hari ini di {{SITENAME}} untuk rujukan anda.",
 	"echo-email-batch-body-intro-weekly": "$1,\nYang berikut ialah ringkasan kegiatan minggu ini di {{SITENAME}} untuk rujukan anda.",
 	"echo-email-batch-link-text-view-all-notifications": "Baca semua pemberitahuan",
-	"notification-header-foreign-all": "Lebih pemberitahuan daripada {{PLURAL:$5|wiki lain|$5 wiki lain}}"
+	"notification-header-foreign-all": "Lebih pemberitahuan daripada {{PLURAL:$5|wiki lain|$5 wiki lain}}",
+	"group-push-subscription-manager": "Pengurus pemberitahuan pacuan",
+	"group-push-subscription-manager-member": "{{GENDER:$1|pengurus pemberitahuan pacuan}}",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Pengurus pemberitahuan pacuan"
 }
