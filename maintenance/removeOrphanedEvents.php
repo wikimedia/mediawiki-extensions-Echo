@@ -73,7 +73,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		$iterator->addConditions( [
 			'notification_user' => null,
 			'eeb_user_id' => null,
-			'event_id < ' . $maxId
+			$dbr->expr( 'event_id', '<', $maxId ),
 		] );
 		$iterator->setCaller( __METHOD__ );
 
@@ -113,7 +113,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		$iterator->addConditions(
 			[
 				'event_type' => null,
-				'etp_event < ' . $maxId
+				$dbr->expr( 'etp_event', '<', $maxId ),
 			]
 		);
 		$iterator->addOptions( [ 'DISTINCT' ] );

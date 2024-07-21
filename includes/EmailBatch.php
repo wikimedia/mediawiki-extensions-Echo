@@ -290,7 +290,7 @@ class EmailBatch {
 		$iterator->addConditions( [ 'eeb_user_id' => $this->mUser->getId() ] );
 		if ( $this->lastEvent ) {
 			// There is a processed cutoff point
-			$iterator->addConditions( [ 'eeb_event_id <= ' . (int)$this->lastEvent ] );
+			$iterator->addConditions( [ $dbr->expr( 'eeb_event_id', '<=', (int)$this->lastEvent ) ] );
 		}
 		$iterator->setCaller( __METHOD__ );
 
