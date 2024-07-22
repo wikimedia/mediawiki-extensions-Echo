@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"IJzeren Jan"
+		]
+	},
+	"echo-desc": "Sistema za uvědovmjenje koristnikov o sobytjah i soobčenjah",
+	"prefs-echo": "Uvědomjenja",
+	"prefs-emailsettings": "Opcije e-pošty",
+	"prefs-echosubscriptions": "Uvědomjati me o slědujučih sobytjah",
+	"prefs-echocrosswiki": "Uvědomjenja od drugyh vikiprojektov",
+	"prefs-blocknotificationslist": "Ignorovani koristniki",
+	"prefs-mutedpageslist": "Stranice s ignorovanymi uvědomjenjami odnosno linkov",
+	"prefs-echopollupdates": "Žive uvědomjenja",
+	"echo-mobile-notifications-filter-title": "Filtrovati uvědomjenja",
+	"echo-pref-show-poll-updates": "Pokazyvati nove uvědomjenja směsta, kogda prihodet",
+	"echo-pref-send-me": "Poslati mi:",
+	"echo-pref-send-to": "Poslati na:",
+	"echo-pref-email-format": "Format e-pošty:",
+	"echo-pref-web": "Veb",
+	"echo-pref-email": "E-pošta",
+	"echo-pref-push": "Aplikacije",
+	"echo-pref-email-frequency-immediately": "Uvědomjenje o vsakom individualnom sobytju",
+	"echo-pref-email-format-html": "HTML",
+	"echo-pref-email-format-plain-text": "Goly tekst",
+	"echo-pref-cross-wiki-notifications": "Pokazyvati uvědomjenja s drugyh viki",
+	"echo-learn-more": "Daljše informacije",
+	"echo-log": "Občedostupny dnevnik",
+	"echo-new-messages": "Vy imajete novo soobčenje na besědnoj stranici",
+	"notifications": "Uvědomjenja",
+	"notification-timestamp-today": "Dnes",
+	"notification-timestamp-yesterday": "Včera",
+	"notification-inbox-filter-read": "Pročitane",
+	"notification-inbox-filter-unread": "Nepročitane",
+	"notification-inbox-filter-all": "Vse",
+	"echo-specialmute-label-mute-notifications": "Ignorovati uvědomjenja od {{GENDER:$1|tutogo koristnika|tutoj koristnice}}",
+	"echo-date-today": "Dnes",
+	"echo-date-yesterday": "Včera"
+}
