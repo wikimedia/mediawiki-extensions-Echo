@@ -676,7 +676,7 @@
 
 					const idArray = [];
 					for ( let i = 0; i < groupItems.length; i++ ) {
-						idArray.push( ...groupItems[ i ].id, ...( groupItems[ i ].bundledIds || [] ) );
+						idArray.push( groupItems[ i ].id, ...( groupItems[ i ].bundledIds || [] ) );
 					}
 
 					// Mark items as read in the API
