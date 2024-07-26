@@ -135,7 +135,8 @@ class NotificationMapper extends AbstractMapper {
 		array $titles = null,
 		$dbSource = DB_REPLICA
 	) {
-		$conds = [ 'notification_read_timestamp IS NOT NULL' ];
+		$dbr = $this->dbFactory->getEchoDb( $dbSource );
+		$conds = [ $dbr->expr( 'notification_read_timestamp', '!=', null ) ];
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
 			if ( !$conds['event_page_id'] ) {
@@ -366,7 +367,7 @@ class NotificationMapper extends AbstractMapper {
 		);
 		$iterator->addConditions( [
 			'notification_user' => $userId,
-			'notification_event < ' . (int)$eventId
+			$dbw->expr( 'notification_event', '<', (int)$eventId ),
 		] );
 		$iterator->setCaller( __METHOD__ );
 
