@@ -12,7 +12,7 @@ class SubscriptionManagerTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( 'wgEchoPushMaxSubscriptionsPerUser', 1 );
+		$this->overrideConfigValue( 'EchoPushMaxSubscriptionsPerUser', 1 );
 	}
 
 	public function testManagePushSubscriptions(): void {

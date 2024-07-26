@@ -81,11 +81,9 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider evaluateUserLocatorsProvider
 	 */
 	public function testEvaluateUserLocators( $message, $expect, $locatorConfigForEventType, $setup = null ) {
-		$this->setMwGlobals( [
-			'wgEchoNotifications' => [
-				'unit-test' => [
-					AttributeManager::ATTR_LOCATORS => $locatorConfigForEventType
-				],
+		$this->overrideConfigValue( 'EchoNotifications', [
+			'unit-test' => [
+				AttributeManager::ATTR_LOCATORS => $locatorConfigForEventType
 			],
 		] );
 
@@ -153,13 +151,11 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$expect,
 		$users
 	) {
-		$this->setMwGlobals( [
-			'wgEchoNotifications' => [
-				'unit-test' => [
-					AttributeManager::ATTR_LOCATORS => static function () use ( $users ) {
-						return $users;
-					},
-				],
+		$this->overrideConfigValue( 'EchoNotifications', [
+			'unit-test' => [
+				AttributeManager::ATTR_LOCATORS => static function () use ( $users ) {
+					return $users;
+				},
 			],
 		] );
 
@@ -249,11 +245,11 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		array $notifyTypeAvailabilityByCategory,
 		array $notifications
 	) {
-		$this->setMwGlobals( [
-			'wgDefaultNotifyTypeAvailability' => $defaultNotifyTypeAvailability,
-			'wgNotifyTypeAvailabilityByCategory' => $notifyTypeAvailabilityByCategory,
-			'wgEchoNotifications' => $notifications,
-			'wgEchoNotificationCategories' => array_fill_keys(
+		$this->overrideConfigValues( [
+			'DefaultNotifyTypeAvailability' => $defaultNotifyTypeAvailability,
+			'NotifyTypeAvailabilityByCategory' => $notifyTypeAvailabilityByCategory,
+			'EchoNotifications' => $notifications,
+			'EchoNotificationCategories' => array_fill_keys(
 				array_keys( $notifyTypeAvailabilityByCategory ),
 				[ 'priority' => 4 ]
 			),

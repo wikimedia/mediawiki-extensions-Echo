@@ -10,7 +10,7 @@ use MediaWiki\Tests\Api\ApiTestCase;
 class ApiEchoPushSubscriptionsTest extends ApiTestCase {
 
 	public function testRequiresToken(): void {
-		$this->setMwGlobals( 'wgEchoEnablePush', true );
+		$this->overrideConfigValue( 'EchoEnablePush', true );
 		$params = [
 			'action' => 'echopushsubscriptions',
 			'command' => 'create',

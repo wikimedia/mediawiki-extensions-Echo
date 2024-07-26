@@ -18,9 +18,9 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( [
-			'wgEchoEnablePush' => true,
-			'wgEchoPushMaxSubscriptionsPerUser' => 2
+		$this->overrideConfigValues( [
+			'EchoEnablePush' => true,
+			'EchoPushMaxSubscriptionsPerUser' => 2,
 		] );
 		$this->user = $this->getTestUser()->getUser();
 		$this->createTestData();

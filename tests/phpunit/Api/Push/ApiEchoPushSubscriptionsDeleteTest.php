@@ -24,9 +24,9 @@ class ApiEchoPushSubscriptionsDeleteTest extends ApiTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( [
-			'wgEchoEnablePush' => true,
-			'wgEchoPushMaxSubscriptionsPerUser' => 3
+		$this->overrideConfigValues( [
+			'EchoEnablePush' => true,
+			'EchoPushMaxSubscriptionsPerUser' => 3,
 		] );
 
 		// Use mutable users for our generic users so we don't get two references to the same User
