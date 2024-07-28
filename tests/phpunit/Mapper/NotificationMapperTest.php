@@ -3,6 +3,7 @@
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\MainConfigNames;
 use MediaWiki\User\User;
 use Wikimedia\Rdbms\DeleteQueryBuilder;
 use Wikimedia\Rdbms\FakeResultWrapper;
@@ -114,7 +115,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testDeleteByUserEventOffset() {
-		$this->setMwGlobals( [ 'wgUpdateRowsPerQuery' => 4 ] );
+		$this->overrideConfigValue( MainConfigNames::UpdateRowsPerQuery, 4 );
 		$mockDb = $this->createMock( IDatabase::class );
 		$makeResultRows = static function ( $eventIds ) {
 			return new FakeResultWrapper( array_map( static function ( $eventId ) {
