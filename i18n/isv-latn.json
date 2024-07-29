@@ -4,7 +4,7 @@
 			"IJzeren Jan"
 		]
 	},
-	"echo-desc": "Sistema za uvědovmjenje koristnikov o sobytjah i soobčenjah",
+	"echo-desc": "Sistema za uvědomjenje koristnikov o sobytjah i soobčenjah",
 	"prefs-echo": "Uvědomjenja",
 	"prefs-description-echo": "Izberite, kako uvědomjenja {{GENDER:|vy}} hočete dostavati i kakym sposobom.",
 	"prefs-emailsettings": "Opcije e-pošty",
@@ -22,7 +22,7 @@
 	"echo-pref-web": "Veb",
 	"echo-pref-email": "E-pošta",
 	"echo-pref-push": "Aplikacije",
-	"echo-pref-email-frequency-never": "Ne posylati mi uvědomnjenja na e-poštu",
+	"echo-pref-email-frequency-never": "Ne posylati mi uvědomjenja na e-poštu",
 	"echo-pref-email-frequency-immediately": "Uvědomjenje o vsakom individualnom sobytju",
 	"echo-pref-email-frequency-daily": "Vsakodnevny prěgled uvědomjenij",
 	"echo-pref-email-frequency-weekly": "Vsakotydnjevy prěgled uvědomjenij",
@@ -58,8 +58,8 @@
 	"echo-pref-tooltip-article-linked": "Uvědomiti me, kogda někto doda link na stvorjenu mnoju stranicu s drugoj stranice.",
 	"echo-pref-tooltip-reverted": "Uvědomiti me, kogda někto odčini sdělanu mnoju pravku s pomočju orudja za vračenje ili brzo odčinjenje.",
 	"echo-pref-tooltip-mention": "Uvědomiti me, kogda někto sdělaje link na moju koristničsku stranicu",
-	"echo-pref-tooltip-mention-failure": "Uvědomiti me, kogda ne uda mi se odpraviti někomu spomnjenje.",
-	"echo-pref-tooltip-mention-success": "Uvědomiti me, kogda ja odpravju někomu spomnjenje.",
+	"echo-pref-tooltip-mention-failure": "Uvědomiti me, kogda ne uda mi se odpraviti někomu spomněnje.",
+	"echo-pref-tooltip-mention-success": "Uvědomiti me, kogda ja odpravju někomu spomněnje.",
 	"echo-pref-tooltip-user-rights": "Uvědomiti me, kogda někto izměni moje prava koristnika.",
 	"echo-pref-tooltip-emailuser": "Uvědomiti me, kogda někto pošlje mi e-poštu.",
 	"echo-pref-tooltip-article-reminder": "Uvědomiti me o tutuoj stranici, kogda ja poprošu.",
