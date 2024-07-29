@@ -37,11 +37,13 @@
 		background-color: #ececec;
 
 		.skin-theme-clientpref-night & {
-			background-color: @background-color-interactive-subtle;
+			@media screen {
+				background-color: @background-color-interactive-subtle;
+			}
 		}
 
 		.skin-theme-clientpref-os & {
-			@media ( prefers-color-scheme: dark ) {
+			@media screen and ( prefers-color-scheme: dark ) {
 				background-color: @background-color-interactive-subtle;
 			}
 		}
