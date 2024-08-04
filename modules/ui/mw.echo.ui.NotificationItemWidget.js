@@ -208,7 +208,8 @@
 		if ( this.model.getPrimaryUrl() ) {
 			this.$element
 				.attr( 'href', this.model.getPrimaryUrl() )
-				.on( 'click', this.onPrimaryLinkClick.bind( this ) );
+				.on( 'click', this.onPrimaryLinkClick.bind( this ) )
+				.on( 'auxclick', this.onPrimaryLinkAuxclick.bind( this ) );
 		}
 	};
 
@@ -224,6 +225,24 @@
 	 * @return {boolean} true
 	 */
 	mw.echo.ui.NotificationItemWidget.prototype.onPrimaryLinkClick = function () {
+		return true;
+	};
+
+	/**
+	 * Respond to primary link middle-click by immediately marking as read,
+	 * then let the browser open the link in a new tab as normal.
+	 * Opening the link would also mark as read, but this way the user gets immediate feedback.
+	 *
+	 * @param {Event} event
+	 *
+	 * @return {boolean} true
+	 */
+	mw.echo.ui.NotificationItemWidget.prototype.onPrimaryLinkAuxclick = function ( event ) {
+		if ( event.button === 1 ) {
+			this.$element.removeClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen' );
+			this.markRead( true );
+		}
+		// Don't prevent default action, let the browser take care of opening a new tab.
 		return true;
 	};
 
