@@ -124,6 +124,7 @@
 	"notification-inbox-filter-all": "Semua",
 	"echo-notification-alert": "{{PLURAL:$1|Pesanan ($1)|100=Pesanan (99+)}}",
 	"echo-notification-alert-text-only": "Peringatan",
+	"echo-notification-notice-text-only": "Pemberitahuan",
 	"echo-overlay-link": "Semua pemberitahuan",
 	"echo-overlay-title": "<b>Pemberitahuan</b>",
 	"echo-mark-all-as-read": "Tanda semua sebagai dibaca",
