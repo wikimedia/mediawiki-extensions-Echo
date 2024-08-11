@@ -34,9 +34,6 @@ class ContainmentSet {
 	 */
 	protected $recipient;
 
-	/**
-	 * @param User $recipient
-	 */
 	public function __construct( User $recipient ) {
 		$this->recipient = $recipient;
 	}

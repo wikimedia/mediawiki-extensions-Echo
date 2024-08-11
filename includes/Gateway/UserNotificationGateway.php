@@ -43,11 +43,6 @@ class UserNotificationGateway {
 	 */
 	private $config;
 
-	/**
-	 * @param UserIdentity $user
-	 * @param DbFactory $dbFactory
-	 * @param Config $config
-	 */
 	public function __construct( UserIdentity $user, DbFactory $dbFactory, Config $config ) {
 		$this->user = $user;
 		$this->dbFactory = $dbFactory;

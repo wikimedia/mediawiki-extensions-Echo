@@ -31,11 +31,6 @@ class ApiEchoPushSubscriptionsDelete extends ApiBase {
 		return $module;
 	}
 
-	/**
-	 * @param ApiMain $mainModule
-	 * @param string $moduleName
-	 * @param SubscriptionManager $subscriptionManager
-	 */
 	public function __construct(
 		ApiMain $mainModule,
 		string $moduleName,
