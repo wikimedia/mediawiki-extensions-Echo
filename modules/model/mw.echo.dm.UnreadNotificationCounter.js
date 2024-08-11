@@ -78,7 +78,7 @@ mw.echo.dm.UnreadNotificationCounter.prototype.getCount = function () {
  * Set the current count
  *
  * @param {number} count
- * @param {boolean} isEstimation Whether this number is estimated or accurate
+ * @param {boolean} [isEstimation=false] Whether this number is estimated or accurate
  * @fires mw.echo.dm.UnreadNotificationCounter#countChange
  */
 mw.echo.dm.UnreadNotificationCounter.prototype.setCount = function ( count, isEstimation ) {

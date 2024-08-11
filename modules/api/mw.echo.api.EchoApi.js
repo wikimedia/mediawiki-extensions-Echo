@@ -194,7 +194,7 @@ mw.echo.api.EchoApi.prototype.fetchNotifications = function ( type, sources, isF
  *
  * @param {string[]} sourceArray An array of sources to fetch from the group
  * @param {string} type Notification type
- * @param {boolean} bundle Bundle local notifications
+ * @param {boolean} [bundle=false] Bundle local notifications
  * @return {jQuery.Promise} A promise that resolves with an object that maps wiki
  *  names to an array of their items' API data objects.
  */
@@ -266,7 +266,7 @@ mw.echo.api.EchoApi.prototype.fetchUnreadCount = function ( source, type, localO
  * to be updated globally - but we will let the consumer of
  * this method override the choice of which source to update.
  *
- * @param {string} [type='alert,message'] Notification type
+ * @param {string|string[]} [type=['alert','message']] Notification type
  * @param {string} [source='local'] Notification source
  * @return {jQuery.Promise} A promise that is resolved when the operation is complete.
  */

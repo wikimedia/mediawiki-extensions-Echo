@@ -15,7 +15,7 @@
  *  optionally, the body of the notification.
  * @param {string} [config.content.header=''] The header text of the notification
  * @param {string} [config.content.body=''] The body text of the notification
- * @param {string} [config.category] The category of this notification. The category identifies
+ * @param {string} [config.category=''] The category of this notification. The category identifies
  *  where the notification originates from.
  * @param {string} [config.type='message'] The notification type 'message' or 'alert'
  * @param {boolean} [config.read=false] State the read state of the option
@@ -26,7 +26,7 @@
  * @param {boolean} [config.bundled=false] This notification is part of a bundle
  * @param {number[]} [config.bundledIds] IDs of notifications bundled with this one
  * @param {string} [config.modelName='local'] The name of the model this item belongs to
- * @param {string} [config.source] The source this notification is coming from, if it is foreign
+ * @param {string} [config.source=''] The source this notification is coming from, if it is foreign
  * @param {Object[]} [config.secondaryUrls] An array of objects defining the secondary URLs
  *  for this notification. The secondary URLs are expected to have this structure:
  *    ```
