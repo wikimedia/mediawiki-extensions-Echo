@@ -5,7 +5,7 @@
  * @mixes OO.EventEmitter
  *
  * @constructor
- * @param {Object} config Configuration object
+ * @param {Object} [config={}]
  * @param {string} [config.currentSource] The selected source for the model.
  *  Defaults to the current wiki.
  */

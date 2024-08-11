@@ -8,7 +8,7 @@
  * @param {Object} api An instance of EchoAPI.
  * @param {string} type The notification type 'message', 'alert', or 'all'.
  * @param {number} max Maximum number supported. Above this number there is no precision, we only know it is 'more than max'.
- * @param {Object} config Configuration object
+ * @param {Object} [config={}]
  * @param {boolean} [config.localOnly=false] The update only takes into account
  *  local notifications and ignores the number of cross-wiki notifications.
  * @param {string} [config.source='local'] The source for this counter. Specifically important if the counter

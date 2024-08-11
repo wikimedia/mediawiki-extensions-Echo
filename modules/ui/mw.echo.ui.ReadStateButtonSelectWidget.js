@@ -5,7 +5,7 @@
  * @extends OO.ui.ButtonSelectWidget
  *
  * @constructor
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  */
 mw.echo.ui.ReadStateButtonSelectWidget = function MwEchoUiReadStateButtonSelectWidget( config ) {
 	// Parent constructor

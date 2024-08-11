@@ -7,7 +7,7 @@
  * @constructor
  * @param {string} apiUrl A url for the access point of the
  *  foreign API.
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {boolean} [config.unreadOnly] Whether this handler should request unread
  *  notifications by default.
  */

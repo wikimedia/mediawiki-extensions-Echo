@@ -5,7 +5,7 @@
  * @extends OO.ui.ButtonWidget
  *
  * @constructor
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {string} [config.type] The notification types this button represents;
  *  'message', 'alert' or 'all'
  * @param {string} [config.href] URL the badge links to

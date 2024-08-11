@@ -8,7 +8,7 @@
  * @constructor
  * @param {number} id Notification id
  * @param {mw.echo.dm.NotificationItem[]} bundledNotificationModels
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  */
 mw.echo.dm.BundleNotificationItem = function MwEchoDmBundleNotificationItem( id, bundledNotificationModels, config ) {
 	// Parent constructor

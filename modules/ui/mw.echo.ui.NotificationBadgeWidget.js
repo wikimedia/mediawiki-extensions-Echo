@@ -8,7 +8,7 @@
  * @param {mw.echo.Controller} controller Echo notifications controller
  * @param {mw.echo.dm.ModelManager} manager Model manager
  * @param {Object} links Links object, containing 'notifications' and 'preferences' URLs
- * @param {Object} config Configuration object
+ * @param {Object} [config={}]
  * @param {string|string[]} [config.type='message'] The type or array of types of
  *  notifications that are in this model. They can be 'alert', 'message' or
  *  an array of both. Defaults to 'message'

@@ -9,7 +9,7 @@
  * @constructor
  * @param {mw.echo.Controller} controller Echo notifications controller
  * @param {mw.echo.dm.BundleNotificationItem} model Notification group model
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {boolean} [config.animateSorting=false] Animate the sorting of items
  */
 mw.echo.ui.BundleNotificationItemWidget = function MwEchoUiBundleNotificationItemWidget( controller, model, config ) {

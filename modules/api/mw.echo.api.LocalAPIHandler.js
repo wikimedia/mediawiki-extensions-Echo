@@ -5,7 +5,7 @@
  * @extends mw.echo.api.APIHandler
  *
  * @constructor
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  */
 mw.echo.api.LocalAPIHandler = function MwEchoApiLocalAPIHandler( config ) {
 	// Parent constructor

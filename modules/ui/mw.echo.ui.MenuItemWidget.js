@@ -6,7 +6,7 @@
  * @mixes OO.ui.mixin.PendingElement
  *
  * @constructor
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {string} [config.type] Optional action type. Used to note a dynamic action, by setting it to 'dynamic-action'
  * @param {string} [config.url] Item URL for links
  * @param {string} [config.tooltip] Tooltip for links

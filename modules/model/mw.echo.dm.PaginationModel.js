@@ -5,7 +5,7 @@
  * @mixes OO.EventEmitter
  *
  * @constructor
- * @param {Object} config Configuration object
+ * @param {Object} [config={}]
  * @param {string} [config.pageNext] The continue value of the next page
  * @param {number} [config.itemsPerPage] The number of items per page
  * @param {number} [config.currentPageItemCount] The number of items that are in the

@@ -5,7 +5,7 @@
  * @mixes OO.EventEmitter
  *
  * @constructor
- * @param {Object} config Configuration object
+ * @param {Object} [config={}]
  * @param {string} [config.readState='all'] Notifications read state. Allowed
  *  values are 'all', 'read' or 'unread'.
  * @param {string} [config.selectedSource] Currently selected source

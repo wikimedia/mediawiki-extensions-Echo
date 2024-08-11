@@ -7,7 +7,7 @@
  *
  * @constructor
  * @param {number} id Notification id
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {number} config.count The initial anticipated count of notifications through all
  *  of the sources.
  */

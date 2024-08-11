@@ -7,7 +7,7 @@
  *
  * @constructor
  * @param {mw.echo.dm.PaginationModel} paginationModel Pagination model
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {number} [config.itemsPerPage=25] Number of items per page
  * @param {number} [config.showFirstButton=true] Show a button that allows the user
  *  to go back to the first page.

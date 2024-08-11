@@ -6,7 +6,7 @@
  *
  * @constructor
  * @param {mw.Api} api
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {number} [config.limit=25] The limit on how many notifications to fetch
  * @param {string} [config.userLang=mw.config.get( 'wgUserLanguage' )] User language. Defaults
  *  to the default user language configuration settings.

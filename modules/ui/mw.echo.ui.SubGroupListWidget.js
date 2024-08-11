@@ -5,7 +5,7 @@
  *
  * @param {mw.echo.Controller} controller Notifications controller
  * @param {mw.echo.dm.SortedList} listModel Notifications list model for this source
- * @param {Object} config Configuration object
+ * @param {Object} [config={}]
  * @param {boolean} [config.showTitle=false] Show the title of this group
  * @param {boolean} [config.showMarkAllRead=false] Show a mark all read button for this group
  * @param {boolean} [config.animateSorting=false] Animate the sorting of items

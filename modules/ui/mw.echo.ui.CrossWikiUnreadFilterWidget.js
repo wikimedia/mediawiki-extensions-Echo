@@ -8,7 +8,7 @@
  * @constructor
  * @param {mw.echo.Controller} controller Echo controller
  * @param {mw.echo.dm.FiltersModel} filtersModel Filter model
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  */
 mw.echo.ui.CrossWikiUnreadFilterWidget = function MwEchoUiCrossWikiUnreadFilterWidget( controller, filtersModel, config ) {
 	config = config || {};

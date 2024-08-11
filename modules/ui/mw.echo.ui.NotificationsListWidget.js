@@ -8,7 +8,7 @@
  * @constructor
  * @param {mw.echo.Controller} controller Echo notifications controller
  * @param {mw.echo.dm.ModelManager} manager Model manager
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  *  marked as read when they are seen.
  * @param {string} [config.timestamp=0] A timestamp representing the latest item in
  *  the list.

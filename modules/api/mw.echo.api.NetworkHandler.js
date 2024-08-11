@@ -5,7 +5,7 @@
  * @class
  *
  * @constructor
- * @param {Object} config Configuration options
+ * @param {Object} [config={}]
  * @param {number} config.limit Number of notifications to fetch
  */
 mw.echo.api.NetworkHandler = function MwEchoApiNetworkHandler( config ) {

@@ -7,7 +7,7 @@
  * @constructor
  * @param {mw.echo.dm.FiltersModel} filterModel Filters model
  * @param {string} source Symbolic name for the source
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {string} [config.title] The title of this page group, usually
  *  the name of the wiki that the pages belong to
  * @param {number} [config.unreadCount] Number of unread notifications

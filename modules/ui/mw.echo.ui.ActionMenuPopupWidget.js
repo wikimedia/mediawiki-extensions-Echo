@@ -14,7 +14,7 @@
  * @extends OO.ui.ButtonWidget
  *
  * @constructor
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
  *  for popups.
  * @param {Object} [config.horizontalPosition='auto'] How to position the menu, see OO.ui.FloatableElement.

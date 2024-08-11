@@ -5,7 +5,7 @@
  * @extends OO.ui.ButtonWidget
  *
  * @constructor
- * @param {Object} [config] Configuration options
+ * @param {Object} [config={}]
  * @param {boolean} [config.markAsRead=true] Display mark as read state. If false, the button displays
  *  mark as unread state.
  */

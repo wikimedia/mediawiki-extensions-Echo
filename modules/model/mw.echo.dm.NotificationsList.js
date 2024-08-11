@@ -8,7 +8,7 @@
  * @extends mw.echo.dm.SortedList
  *
  * @constructor
- * @param {Object} config Configuration options
+ * @param {Object} [config={}]
  * @param {Function} [config.sortingCallback] A function defining the sorting order
  *  of items in this list.
  * @param {string} [config.title] An optional title for this notifications list

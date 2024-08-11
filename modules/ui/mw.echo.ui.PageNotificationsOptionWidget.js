@@ -7,7 +7,7 @@
  * @mixes OO.ui.mixin.TitledElement
  *
  * @constructor
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {number} [config.count] Number of unread notifications
  * @param {boolean} [config.isCapped] The count for this widget is capped
  */

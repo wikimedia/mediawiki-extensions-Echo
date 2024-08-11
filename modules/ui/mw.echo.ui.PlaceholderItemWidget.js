@@ -6,7 +6,7 @@
  * @mixes OO.ui.mixin.LabelElement
  *
  * @constructor
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {string} [config.link] A link that this widget leads to.
  */
 mw.echo.ui.PlaceholderItemWidget = function MwEchoUiPlaceholderItemWidget( config ) {

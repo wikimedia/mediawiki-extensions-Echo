@@ -2,7 +2,7 @@
  * Widget for the settings menu in the Special:Notifications page
  *
  * @param {mw.echo.dm.ModelManager} manager Model manager
- * @param {Object} config Configuration object
+ * @param {Object} [config={}]
  * @param {string} [config.prefLink] Link to preferences page
  */
 mw.echo.ui.SpecialHelpMenuWidget = function MwEchoUiSpecialHelpMenuWidget( manager, config ) {

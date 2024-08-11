@@ -9,7 +9,7 @@
  * @constructor
  * @param {mw.echo.Controller} controller Echo controller
  * @param {mw.echo.dm.NotificationItem} model Notification item model
- * @param {Object} [config] Configuration options
+ * @param {Object} [config={}]
  * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
  *  for popups.
  * @param {boolean} [config.bundle=false] This notification item is part of a bundle.

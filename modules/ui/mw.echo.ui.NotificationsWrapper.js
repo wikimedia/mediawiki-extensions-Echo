@@ -8,7 +8,7 @@
  * @constructor
  * @param {mw.echo.Controller} controller Echo controller
  * @param {mw.echo.dm.ModelManager} model Notifications model manager
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
  *  for popups.
  */

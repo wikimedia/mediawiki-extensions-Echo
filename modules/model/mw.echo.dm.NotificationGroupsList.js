@@ -10,7 +10,7 @@
  * @extends mw.echo.dm.SortedList
  *
  * @constructor
- * @param {Object} [config] Configuration options
+ * @param {Object} [config={}]
  * @param {boolean} [config.foreign] The list contains foreign notifications
  */
 mw.echo.dm.NotificationGroupsList = function MwEchoDmNotificationGroupsList( config ) {

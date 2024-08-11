@@ -1,7 +1,7 @@
 /**
  * SeenTime model for Echo notifications
  *
- * @param {Object} [config] Configuration
+ * @param {Object} [config={}]
  * @param {string|string[]} [config.types='alert','message'] The types of notifications
  *  that this model handles
  */

@@ -20,7 +20,7 @@
  *
  * @constructor
  * @param {mw.echo.dm.UnreadNotificationCounter} counter Unread counter
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {string|string[]} [config.type="message"] The type of the notifications in
  *  the models that this manager handles.
  * @param {number} [config.itemsPerPage=25] Number of items per page

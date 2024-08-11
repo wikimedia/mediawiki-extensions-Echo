@@ -8,7 +8,7 @@
  * @constructor
  * @param {mw.echo.Controller} controller Echo controller
  * @param {mw.echo.dm.ModelManager} manager Model manager
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {number} [config.limit=25] Limit the number of notifications per page
  * @param {string} [config.prefLink] Link to preferences page
  * @param {jQuery} [config.$overlay] An overlay for the popup menus

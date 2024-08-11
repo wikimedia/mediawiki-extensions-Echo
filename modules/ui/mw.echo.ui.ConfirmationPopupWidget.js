@@ -7,7 +7,7 @@
  * @extends OO.ui.Widget
  *
  * @constructor
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {number} [config.interval=2000] The number of milliseconds that it takes
  *  for the popup to disappear after appearing.
  */

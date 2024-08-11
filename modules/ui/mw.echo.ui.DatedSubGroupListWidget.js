@@ -8,7 +8,7 @@
  * @constructor
  * @param {mw.echo.Controller} controller Notifications controller
  * @param {mw.echo.dm.SortedList} listModel Notifications list model for this source
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  */
 mw.echo.ui.DatedSubGroupListWidget = function MwEchoUiDatedSubGroupListWidget( controller, listModel, config ) {
 	const now = moment(),

@@ -8,7 +8,7 @@
  *
  * @constructor
  * @param {number} id Notification id,
- * @param {Object} [config] Configuration object
+ * @param {Object} [config={}]
  * @param {string} [config.iconUrl] A URL for the given icon.
  * @param {string} [config.iconType] A string noting the icon type.
  * @param {Object} [config.content] The message object defining the text for the header and,

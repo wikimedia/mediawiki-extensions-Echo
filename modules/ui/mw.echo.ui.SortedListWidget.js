@@ -8,7 +8,7 @@
  *
  * @constructor
  * @param {Function} sortingCallback Callback that compares two items.
- * @param {Object} [config] Configuration options
+ * @param {Object} [config={}]
  * @param {jQuery} [config.$group] The container element created by the class. If this configuration
  *  is omitted, the group element will use a generated `<div>`.
  * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
