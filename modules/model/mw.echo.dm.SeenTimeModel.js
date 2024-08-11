@@ -48,7 +48,7 @@
 	/**
 	 * Set the seen time value for the source
 	 *
-	 * @private
+	 * @internal
 	 * @param {string} time Seen time, as a full UTC ISO 8601 timestamp.
 	 * @fires mw.echo.dm.SeenTimeModel#update
 	 */
@@ -69,7 +69,7 @@
 	/**
 	 * Get the types associated with this model
 	 *
-	 * @private
+	 * @internal
 	 * @return {string[]} Types for this model; an array of 'alert', 'message' or both.
 	 */
 	mw.echo.dm.SeenTimeModel.prototype.getTypes = function () {
