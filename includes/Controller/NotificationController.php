@@ -519,7 +519,7 @@ class NotificationController {
 		$notify->addFilter( static function ( $user ) use ( &$seen, $fname ) {
 			if ( !$user instanceof User ) {
 				wfDebugLog( $fname, 'Expected all User instances, received: ' .
-					( is_object( $user ) ? get_class( $user ) : gettype( $user ) )
+					get_debug_type( $user )
 				);
 
 				return false;
