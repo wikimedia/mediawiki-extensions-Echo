@@ -137,6 +137,7 @@
 	"notification-header-mention-success": "{{GENDER:$2| توهان جو}} ذڪر <strong>$3</strong> ڏانھن موڪليو ويو.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|توھان مينشن ڪيو}}:</strong> $3",
 	"notification-header-user-rights-add-only": "{{GENDER:$4|توھان جا}} واپرائيندڙ حق {{GENDER:$1|تبديل ڪيا}} ويا آھن. ھاڻي توھان کي وڌو ويو آھي: $2.",
+	"notification-header-welcome": "$1! {{SITENAME}} ۾ {{GENDER:$2|ڀليڪار}}،  {{GENDER:$2|اوھان کي}} ھتي ڏسي خوشي ٿي.",
 	"notification-welcome-linktext": "ڀليڪار",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|توھان}} ھاڻي ھاڻي {{GENDER:$2|پنھنجي}} ڏھين هزاري تبديلي ڪئي؛ {{GENDER:$2|توھان}} جي تمام گهڻي مھرباني!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|توهان جي}} سنوار",
