@@ -58,11 +58,6 @@ class EmailBatch {
 	 */
 	protected static $displaySize = 20;
 
-	/**
-	 * @param User $user
-	 * @param UserOptionsManager $userOptionsManager
-	 * @param LanguageFactory $languageFactory
-	 */
 	public function __construct(
 		User $user,
 		UserOptionsManager $userOptionsManager,

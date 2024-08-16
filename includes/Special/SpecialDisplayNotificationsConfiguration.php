@@ -61,10 +61,6 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	 */
 	private $userOptionsManager;
 
-	/**
-	 * @param AttributeManager $attributeManager
-	 * @param UserOptionsManager $userOptionsManager
-	 */
 	public function __construct(
 		AttributeManager $attributeManager,
 		UserOptionsManager $userOptionsManager

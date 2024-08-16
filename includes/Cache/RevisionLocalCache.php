@@ -13,10 +13,6 @@ class RevisionLocalCache extends LocalCache {
 	private IConnectionProvider $dbProvider;
 	private RevisionStore $revisionStore;
 
-	/**
-	 * @param IConnectionProvider $dbProvider
-	 * @param RevisionStore $revisionStore
-	 */
 	public function __construct(
 		IConnectionProvider $dbProvider,
 		RevisionStore $revisionStore

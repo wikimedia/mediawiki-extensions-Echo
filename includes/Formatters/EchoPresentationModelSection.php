@@ -41,11 +41,6 @@ class EchoPresentationModelSection {
 	 */
 	protected $language;
 
-	/**
-	 * @param Event $event
-	 * @param User $user
-	 * @param Language $language
-	 */
 	public function __construct( Event $event, User $user, Language $language ) {
 		$this->event = $event;
 		$this->user = $user;
