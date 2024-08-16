@@ -80,7 +80,7 @@ QUnit.module( 'ext.echo.dm - NotificationItem', ( hooks ) => {
 			isBundled: false,
 			getTimestamp: nowFormatted,
 			getPrimaryUrl: undefined,
-			getIconURL: undefined,
+			getIconUrl: undefined,
 			getIconType: undefined,
 			getSecondaryUrls: [],
 			getModelName: 'local',

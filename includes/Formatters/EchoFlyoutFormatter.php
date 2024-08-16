@@ -18,7 +18,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 			'img',
 			[
 				'class' => 'mw-echo-icon',
-				'src' => $this->getIconURL( $model ),
+				'src' => $this->getIconUrl( $model ),
 			]
 		);
 
@@ -70,7 +70,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		);
 	}
 
-	private function getIconURL( EchoEventPresentationModel $model ) {
+	private function getIconUrl( EchoEventPresentationModel $model ) {
 		return EchoIcon::getUrl(
 			$model->getIconType(),
 			$this->language->getDir()
