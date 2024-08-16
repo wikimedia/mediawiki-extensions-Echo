@@ -57,7 +57,7 @@ class CachedList implements ContainmentList {
 				if ( !is_array( $result ) ) {
 					throw new UnexpectedValueException( sprintf(
 						"Expected array but received '%s' from '%s::getValues'",
-						is_object( $result ) ? get_class( $result ) : gettype( $result ),
+						get_debug_type( $result ),
 						get_class( $this->nestedList )
 					) );
 				}
