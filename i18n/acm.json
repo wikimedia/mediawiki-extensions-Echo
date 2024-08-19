@@ -4,12 +4,16 @@
 			"MRidhaAJ"
 		]
 	},
-	"echo-desc": "نظام لإخطار المستخدمين عن الأحداث والرسايل",
-	"prefs-echo": "إشعارات",
-	"prefs-emailsettings": "خيارات الايميل",
-	"prefs-echosubscriptions": "كللي على هاي الأحداث",
-	"prefs-echocrosswiki": "إشعارات تعبر الويكي",
+	"echo-desc": "نظام يذكر النفرات عالاحداث والرسايل",
+	"prefs-echo": "اشعارات",
+	"prefs-emailsettings": "اعدادات الايميل",
+	"prefs-echosubscriptions": "كلي على هاي الاحداث",
+	"prefs-echocrosswiki": "إشعارات التعبر الويكي",
 	"prefs-blocknotificationslist": "المستخدمين المسكتين",
-	"prefs-mutedpageslist": "صفحات صامته لإشعارات وصلة صفحه",
-	"prefs-echopollupdates": "الإخطارات المباشره"
+	"prefs-mutedpageslist": "صفحات ساكته لاشعارات ربطه صفحه",
+	"prefs-echopollupdates": "الاشعارات اللايف",
+	"echo-mobile-notifications-filter-title": "فلتر الاشعارات",
+	"echo-pref-show-poll-updates": "طلع اشعارات جديده من يجن",
+	"echo-pref-send-me": "دزلي:",
+	"echo-pref-send-to": "دز ل:"
 }
