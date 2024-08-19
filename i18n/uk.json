@@ -50,7 +50,7 @@
 	"echo-pref-email-format-html": "HTML",
 	"echo-pref-email-format-plain-text": "Простий текст",
 	"echo-pref-cross-wiki-notifications": "Показувати сповіщення з інших вікі",
-	"echo-pref-notifications-blacklist": "Не показувати сповіщення від цих користувачів. ([https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications#mute дізнайтеся більше])",
+	"echo-pref-notifications-blacklist": "Не показувати сповіщень від цих користувачів. ([[mw:Special:MyLanguage/Help:Notifications#mute|дізнайтесь більше]])",
 	"echo-pref-notifications-page-linked-title-muted-list": "Не відображати сповіщення \"Посилання на сторінку\" для цих сторінок. ([https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications#mute дізнайтеся більше])",
 	"echo-pref-dont-email-read-notifications": "Не включати вже прочитані сповіщення в електронні листи зі збірками сповіщень",
 	"echo-learn-more": "Дізнатися більше",
