@@ -29,7 +29,7 @@
 		// bundled notifications use the compact header and do not have icons
 		bundledNotificationModels.forEach( ( bundled ) => {
 			bundled.content.header = bundled.content.compactHeader;
-			delete bundled.iconURL;
+			delete bundled.iconUrl;
 		} );
 
 		this.list = new mw.echo.dm.NotificationsList();

@@ -391,7 +391,7 @@
 				compactHeader: content.compactHeader,
 				body: content.body
 			},
-			iconURL: content.iconUrl,
+			iconUrl: content.iconUrl,
 			iconType: content.icon,
 			primaryUrl: OO.getProp( content.links, 'primary', 'url' ),
 			secondaryUrls: OO.getProp( content.links, 'secondary' ) || [],

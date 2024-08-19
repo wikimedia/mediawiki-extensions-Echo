@@ -57,7 +57,7 @@
 		this.bundled = !!config.bundled;
 		this.source = config.source || '';
 		this.iconType = config.iconType;
-		this.iconURL = config.iconURL;
+		this.iconUrl = config.iconUrl;
 
 		this.read = !!config.read;
 		this.seen = !!config.seen;
@@ -242,8 +242,8 @@
 	 *
 	 * @return {string} Notification icon URL
 	 */
-	mw.echo.dm.NotificationItem.prototype.getIconURL = function () {
-		return this.iconURL;
+	mw.echo.dm.NotificationItem.prototype.getIconUrl = function () {
+		return this.iconUrl;
 	};
 
 	/**

@@ -39,7 +39,7 @@
 		} );
 
 		let $icon;
-		const iconUrl = this.model.getIconURL();
+		const iconUrl = this.model.getIconUrl();
 		// Icon
 		if ( iconUrl ) {
 			// Only invert non colored images
@@ -52,7 +52,7 @@
 			$icon = $( '<div>' )
 				.addClass( `mw-echo-ui-notificationItemWidget-icon ${ invertIconClass }` )
 				.append( $( '<img>' ).attr( {
-					src: this.model.getIconURL(),
+					src: this.model.getIconUrl(),
 					role: 'presentation',
 					alt: ' '
 				} ) );
