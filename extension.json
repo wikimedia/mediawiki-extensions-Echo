@@ -15,7 +15,7 @@
 	"license-name": "MIT",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.42.0"
+		"MediaWiki": ">= 1.43"
 	},
 	"APIMetaModules": {
 		"notifications": {
@@ -59,25 +59,37 @@
 		"echo-subscriptions-web-reverted": [
 			[
 				false,
-				[ "registered-after", "20240208200000" ]
+				[
+					"registered-after",
+					"20240208200000"
+				]
 			]
 		],
 		"echo-subscriptions-web-article-linked": [
 			[
 				true,
-				[ "registered-after", "20240208200000" ]
+				[
+					"registered-after",
+					"20240208200000"
+				]
 			]
 		],
 		"echo-subscriptions-email-mention": [
 			[
 				true,
-				[ "registered-after", "20240208200000" ]
+				[
+					"registered-after",
+					"20240208200000"
+				]
 			]
 		],
 		"echo-subscriptions-email-article-linked": [
 			[
 				true,
-				[ "registered-after", "20240208200000" ]
+				[
+					"registered-after",
+					"20240208200000"
+				]
 			]
 		]
 	},
