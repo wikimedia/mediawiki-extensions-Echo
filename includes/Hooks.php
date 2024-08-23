@@ -16,6 +16,7 @@ use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\Config\Config;
 use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Deferred\DeferredUpdates;
+use MediaWiki\Deferred\LinksUpdate\LinksTable;
 use MediaWiki\Deferred\LinksUpdate\LinksUpdate;
 use MediaWiki\Extension\Notifications\Controller\ModerationController;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
@@ -806,8 +807,9 @@ class Hooks implements
 		$max = 10;
 		// Only create notifications for links to content namespace pages
 		// @Todo - use one big insert instead of individual insert inside foreach loop
-		foreach ( $linksUpdate->getAddedLinks() as $title ) {
-			if ( $this->namespaceInfo->isContent( $title->getNamespace() ) ) {
+		foreach ( $linksUpdate->getPageReferenceIterator( 'pagelinks', LinksTable::INSERTED ) as $pageReference ) {
+			if ( $this->namespaceInfo->isContent( $pageReference->getNamespace() ) ) {
+				$title = Title::newFromPageReference( $pageReference );
 				if ( $title->isRedirect() ) {
 					continue;
 				}
