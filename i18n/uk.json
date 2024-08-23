@@ -258,8 +258,8 @@
 	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
 	"right-echo-create": "Надсилання сповіщень іншим",
 	"action-echo-create": "надсилання сповіщень іншим",
-	"right-manage-all-push-subscriptions": "Керувати всіма push-підписками",
-	"action-manage-all-push-subscriptions": "керувати всіма push-підписками",
+	"right-manage-all-push-subscriptions": "Керування всіма push-підписками",
+	"action-manage-all-push-subscriptions": "керування всіма push-підписками",
 	"group-push-subscription-manager": "Керівники push-підписками",
 	"group-push-subscription-manager-member": "{{GENDER:$1|керівник|керівниця}} push-підписками",
 	"grouppage-push-subscription-manager": "{{ns:project}}:Керівники push-підписками"
