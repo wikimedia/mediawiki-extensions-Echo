@@ -4,5 +4,6 @@
 			"Constraque"
 		]
 	},
-	"notifications": "Ознаміня"
+	"notifications": "Ознаміня",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Вашы}} ознаміня"
 }
