@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Constraque"
+		]
+	},
+	"notifications": "Ознаміня",
+	"tooltip-pt-notifications-notice": "{{GENDER:|Вашы}} ознаміня"
+}
