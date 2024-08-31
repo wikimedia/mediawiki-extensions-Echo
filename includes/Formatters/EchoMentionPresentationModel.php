@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Notifications\Formatters;
 use MediaWiki\Extension\Notifications\DiscussionParser;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Language\Language;
+use MediaWiki\Language\RawMessage;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\User;
 
@@ -85,7 +86,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 	public function getBodyMessage() {
 		$content = $this->event->getExtraParam( 'content' );
 		if ( $content && $this->userCan( RevisionRecord::DELETED_TEXT ) ) {
-			$msg = $this->msg( 'notification-body-mention' );
+			$msg = new RawMessage( '$1' );
 			$msg->plaintextParams(
 				DiscussionParser::getTextSnippet(
 					$content,

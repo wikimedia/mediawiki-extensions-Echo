@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
+use MediaWiki\Language\RawMessage;
+
 class EchoEmailUserPresentationModel extends EchoEventPresentationModel {
 
 	/** @inheritDoc */
@@ -22,6 +24,6 @@ class EchoEmailUserPresentationModel extends EchoEventPresentationModel {
 	/** @inheritDoc */
 	public function getBodyMessage() {
 		$preview = $this->event->getExtraParam( 'preview' );
-		return $preview ? $this->msg( 'notification-body-emailuser' )->plaintextParams( $preview ) : false;
+		return $preview ? ( new RawMessage( '$1' ) )->plaintextParams( $preview ) : false;
 	}
 }

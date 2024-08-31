@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Notifications\Formatters;
 
 use MediaWiki\Extension\Notifications\DiscussionParser;
+use MediaWiki\Language\RawMessage;
 use MediaWiki\Revision\RevisionRecord;
 
 class EchoRevertedPresentationModel extends EchoEventPresentationModel {
@@ -33,7 +34,7 @@ class EchoRevertedPresentationModel extends EchoEventPresentationModel {
 			!$this->isAutomaticSummary( $summary ) &&
 			$this->userCan( RevisionRecord::DELETED_COMMENT )
 		) {
-			$msg = $this->msg( 'notification-body-reverted' );
+			$msg = new RawMessage( '$1' );
 			$msg->plaintextParams( $this->formatSummary( $summary ) );
 			return $msg;
 		} else {

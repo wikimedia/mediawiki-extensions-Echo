@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
+use MediaWiki\Language\RawMessage;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Revision\RevisionRecord;
@@ -36,8 +37,9 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 				->format( $summary );
 			$summary = Sanitizer::stripAllTags( $summary );
 
-			return $this->msg( 'notification-body-mention' )
-				->plaintextParams( $summary );
+			$msg = new RawMessage( '$1' );
+			$msg->plaintextParams( $summary );
+			return $msg;
 		} else {
 			return false;
 		}
