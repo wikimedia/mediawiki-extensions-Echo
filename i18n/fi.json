@@ -131,7 +131,7 @@
 	"notification-link-text-expand-alert-count": "Näytä {{PLURAL:$1|$1 hälytys|$1 hälytystä}}",
 	"notification-link-text-expand-notice-count": "Näytä {{PLURAL:$1|$1 ilmoitus|$1 ilmoitusta}}",
 	"notification-link-text-expand-all-count": "Näytä {{PLURAL:$1|$1 ilmoitus|$1 ilmoitusta}}",
-	"notification-link-text-collapse-all": "Supista",
+	"notification-link-text-collapse-all": "Tiivistä",
 	"notification-link-text-view-message": "Näytä viesti",
 	"notification-link-text-view-mention": "Näytä maininta",
 	"notification-link-text-view-mention-failure": "Näytä {{PLURAL:$1|maininta|maininnat}}",
