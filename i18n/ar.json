@@ -35,7 +35,8 @@
 			"علاء",
 			"محمد أحمد عبد الفتاح",
 			"مشعل الحربي",
-			"Mohammed Qays"
+			"Mohammed Qays",
+			"Mohanad"
 		]
 	},
 	"echo-desc": "نظام لإخطار المستخدمين عن الأحداث والرسائل",
@@ -200,7 +201,7 @@
 	"notification-header-watchlist-multiuser-changed": "<strong>$1</strong>، صفحة في {{GENDER:$2|قائمة مراقبتك}}، تم تغييرها $3 {{PLURAL:$3|مرة|مرات}}.",
 	"notification-header-watchlist-multiuser-created": "<strong>$1</strong>، صفحة في {{GENDER:$2|قائمة مراقبتك}}، تم إنشاؤها $3 {{PLURAL:$3|مرة|مرات}}.",
 	"notification-header-watchlist-multiuser-deleted": "<strong>$1</strong>، صفحة في {{GENDER:$2|قائمة مراقبتك}}، تم حذفها $3 {{PLURAL:$3|مرة|مرات}}.",
-	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>، صفحة في {{GENDER:$2|قائمة مراقبتك}}، تم نقلها $3 {{PLURAL:$3|مرة|مرات}}.",
+	"notification-header-watchlist-multiuser-moved": "<strong>$1</strong>، صفحة في {{GENDER:$2|قائمة مراقبتك}}، نُقلت $3 {{PLURAL:$3|مرة|مرات}}.",
 	"notification-header-watchlist-multiuser-restored": "<strong>$1</strong>، صفحة في {{GENDER:$2|قائمة مراقبتك}}، تم استرجاعها $3 {{PLURAL:$3|مرة|مرات}}.",
 	"notification-body-watchlist-once": "لن يكون هناك أي إخطارات أخرى بالبريد الإلكتروني في حالة حدوث نشاط إضافي ما لم {{GENDER:$1| قمت بزيارة}} هذه الصفحة أثناء تسجيل الدخول.",
 	"notification-welcome-linktext": "أهلاً بك.",
