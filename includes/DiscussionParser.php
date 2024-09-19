@@ -1088,8 +1088,9 @@ abstract class DiscussionParser {
 
 			// figure out if the link is related to a user
 			if (
-				$title &&
-				( $title->getNamespace() === NS_USER || $title->getNamespace() === NS_USER_TALK )
+				$title
+				&& ( $title->getNamespace() === NS_USER || $title->getNamespace() === NS_USER_TALK )
+				&& !$title->isSubpage()
 			) {
 				$usernames[] = $title->getText();
 			} elseif ( $title && $title->isSpecial( 'Contributions' ) ) {
