@@ -398,8 +398,10 @@ class Event extends AbstractEntity implements Bundleable {
 		$this->pageId = $row->event_page_id;
 		$this->deleted = $row->event_deleted;
 
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
+
 		if ( $row->event_agent_id ) {
-			$this->agent = User::newFromId( (int)$row->event_agent_id );
+			$this->agent = $userFactory->newFromId( (int)$row->event_agent_id );
 		} elseif ( $row->event_agent_ip ) {
 			// Due to an oversight, non-existing users could be inserted as IPs.
 			// This wouldn't cause problems if there wasn't the limit of 39 bytes for
@@ -410,9 +412,9 @@ class Event extends AbstractEntity implements Bundleable {
 			if ( IPUtils::isValid( $row->event_agent_ip )
 				|| strlen( $row->event_agent_ip ) < 39
 			) {
-				$this->agent = User::newFromName( $row->event_agent_ip, false );
+				$this->agent = $userFactory->newFromName( $row->event_agent_ip );
 			} else {
-				$this->agent = User::newFromName( ActorStore::UNKNOWN_USER_NAME, false );
+				$this->agent = $userFactory->newFromName( ActorStore::UNKNOWN_USER_NAME );
 			}
 		}
 

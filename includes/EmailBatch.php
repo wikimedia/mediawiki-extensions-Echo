@@ -74,10 +74,11 @@ class EmailBatch {
 	 * @return EmailBatch|false
 	 */
 	public static function newFromUserId( $userId, $enforceFrequency = true ) {
-		$user = User::newFromId( (int)$userId );
 		$services = MediaWikiServices::getInstance();
 		$userOptionsManager = $services->getUserOptionsManager();
 		$languageFactory = $services->getLanguageFactory();
+		$userFactory = $services->getUserFactory();
+		$user = $userFactory->newFromId( (int)$userId );
 
 		$userEmailSetting = (int)$userOptionsManager->getOption( $user, 'echo-email-frequency' );
 

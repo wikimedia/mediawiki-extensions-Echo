@@ -4,9 +4,9 @@ namespace MediaWiki\Extension\Notifications\Formatters;
 
 use MediaWiki\Extension\Notifications\DiscussionParser;
 use MediaWiki\Language\RawMessage;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\SpecialPage\SpecialPage;
-use MediaWiki\User\User;
 
 /**
  * Formatter for 'user-rights' notifications
@@ -151,7 +151,9 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 	}
 
 	private function getLogLink(): array {
-		$affectedUserPage = User::newFromId( $this->event->getExtraParam( 'user' ) )->getUserPage();
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
+
+		$affectedUserPage = $userFactory->newFromId( $this->event->getExtraParam( 'user' ) )->getUserPage();
 		$query = [
 			'type' => 'rights',
 			'page' => $affectedUserPage->getPrefixedText(),

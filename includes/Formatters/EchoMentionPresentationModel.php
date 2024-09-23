@@ -8,6 +8,7 @@ use MediaWiki\Language\Language;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentityValue;
 
 class EchoMentionPresentationModel extends EchoEventPresentationModel {
 
@@ -66,7 +67,8 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 			// make sure it is a user talk page but NOT the agent's talk page.
 		} elseif ( $this->onUserTalkpage() ) {
 			$username = $this->event->getTitle()->getText();
-			$msg->params( $this->getTruncatedUsername( User::newFromName( $username, false ) ) );
+			// We don't claim they are anonymous, it's just an envelope for passing the username
+			$msg->params( $this->getTruncatedUsername( UserIdentityValue::newAnonymous( $username ) ) );
 			$msg->params( $username );
 		} else {
 			$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );

@@ -79,12 +79,15 @@ class RecomputeNotifCounts extends Maintenance {
 		}
 
 		$count = 0;
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		foreach ( $userIterator as $batch ) {
 			foreach ( $batch as $rowOrID ) {
 				if ( is_object( $rowOrID ) && isset( $rowOrID->user_id ) ) {
 					$user = User::newFromRow( $rowOrID );
 				} else {
-					$user = User::newFromId( is_object( $rowOrID ) ? $rowOrID->notification_user : $rowOrID );
+					$user = $userFactory->newFromId(
+						(int)( is_object( $rowOrID ) ? $rowOrID->notification_user : $rowOrID )
+					);
 				}
 				$notifUser = NotifUser::newFromUser( $user );
 				$notifUser->resetNotificationCount();

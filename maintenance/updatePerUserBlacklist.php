@@ -6,7 +6,6 @@
  */
 
 use MediaWiki\Maintenance\LoggedUpdateMaintenance;
-use MediaWiki\User\User;
 use MediaWiki\Utils\BatchRowIterator;
 
 // @codeCoverageIgnoreStart
@@ -58,6 +57,8 @@ class UpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 		$this->output( "Updating Echo Notification Blacklist...\n" );
 
 		$centralIdLookup = $this->getServiceContainer()->getCentralIdLookup();
+		$userFactory = $this->getServiceContainer()->getUserFactory();
+
 		$processed = 0;
 		foreach ( $iterator as $batch ) {
 			foreach ( $batch as $row ) {
@@ -76,7 +77,7 @@ class UpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 					continue;
 				}
 
-				$user = User::newFromId( $row->up_user );
+				$user = $userFactory->newFromId( (int)$row->up_user );
 				$ids = $centralIdLookup->centralIdsFromNames( $names, $user );
 
 				$dbw->newUpdateQueryBuilder()

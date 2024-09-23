@@ -13,7 +13,6 @@ use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\MainConfigNames;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\TalkPageNotificationManager;
-use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
 use MediaWikiIntegrationTestCase;
@@ -40,8 +39,9 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 
 	public function testNewFromUser() {
 		$exception = false;
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		try {
-			NotifUser::newFromUser( User::newFromId( 0 ) );
+			NotifUser::newFromUser( $userFactory->newFromId( 0 ) );
 		} catch ( Exception $e ) {
 			$exception = true;
 			$this->assertEquals( "User must be logged in to view notification!",
@@ -49,12 +49,13 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 		}
 		$this->assertTrue( $exception, "Got exception" );
 
-		$notifUser = NotifUser::newFromUser( User::newFromId( 2 ) );
+		$notifUser = NotifUser::newFromUser( $userFactory->newFromId( 2 ) );
 		$this->assertInstanceOf( NotifUser::class, $notifUser );
 	}
 
 	public function testGetEmailFormat() {
-		$user = User::newFromId( 2 );
+		$userFactory = $this->getServiceContainer()->getUserFactory();
+		$user = $userFactory->newFromId( 2 );
 		$pref = 'foo';
 		$userOptionsLookup = $this->createMock( UserOptionsLookup::class );
 		$userOptionsLookup->expects( $this->atLeastOnce() )
@@ -73,8 +74,9 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 	public function testMarkRead() {
 		$this->setService( 'UserFactory', $this->createMock( UserFactory::class ) );
 		$this->setService( 'TalkPageNotificationManager', $this->createMock( TalkPageNotificationManager::class ) );
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		$notifUser = new NotifUser(
-			User::newFromId( 2 ),
+			$userFactory->newFromId( 2 ),
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockNotificationMapper(),
@@ -87,7 +89,7 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue( $notifUser->markRead( [ 1 ] ) );
 
 		$notifUser = new NotifUser(
-			User::newFromId( 2 ),
+			$userFactory->newFromId( 2 ),
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockNotificationMapper(),
@@ -105,9 +107,10 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 		$this->setService( 'TalkPageNotificationManager', $this->createMock( TalkPageNotificationManager::class ) );
 		$this->setService( 'UserGroupManager', $this->createMock( UserGroupManager::class ) );
 		$this->setService( 'UserOptionsLookup', $this->createMock( UserOptionsLookup::class ) );
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		// Successful mark as read & non empty fetch
 		$notifUser = new NotifUser(
-			User::newFromId( 2 ),
+			$userFactory->newFromId( 2 ),
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockNotificationMapper( [ $this->mockNotification() ] ),
@@ -120,7 +123,7 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 
 		// Unsuccessful mark as read & non empty fetch
 		$notifUser = new NotifUser(
-			User::newFromId( 2 ),
+			$userFactory->newFromId( 2 ),
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockNotificationMapper( [ $this->mockNotification() ] ),
@@ -133,7 +136,7 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 
 		// Successful mark as read & empty fetch
 		$notifUser = new NotifUser(
-			User::newFromId( 2 ),
+			$userFactory->newFromId( 2 ),
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockNotificationMapper(),
@@ -146,7 +149,7 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 
 		// Unsuccessful mark as read & empty fetch
 		$notifUser = new NotifUser(
-			User::newFromId( 2 ),
+			$userFactory->newFromId( 2 ),
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockNotificationMapper(),
@@ -196,8 +199,9 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 	}
 
 	protected function newNotifUser() {
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		return new NotifUser(
-			User::newFromId( 2 ),
+			$userFactory->newFromId( 2 ),
 			$this->cache,
 			$this->mockUserNotificationGateway(),
 			$this->mockNotificationMapper(),

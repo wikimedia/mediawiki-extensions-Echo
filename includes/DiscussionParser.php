@@ -18,6 +18,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentityValue;
 use MediaWiki\User\UserNameUtils;
 use RuntimeException;
 use Wikimedia\Rdbms\IDBAccessObject;
@@ -114,7 +115,7 @@ abstract class DiscussionParser {
 		}
 
 		if ( $title->getNamespace() === NS_USER_TALK ) {
-			$notifyUser = User::newFromName( $title->getText() );
+			$notifyUser = $userFactory->newFromName( $title->getText() );
 			// If the recipient is a valid non-anonymous user generate a talk page post notification.
 			if ( $notifyUser && $notifyUser->getId() ) {
 				$permManager = $services->getPermissionManager();
@@ -143,7 +144,7 @@ abstract class DiscussionParser {
 				}
 			}
 		} elseif ( $title->inNamespace( NS_USER ) ) {
-			$notifyUser = User::newFromName( $title->getText() );
+			$notifyUser = $userFactory->newFromName( $title->getText() );
 			// If the recipient is a valid non-anonymous user and hasn't turned
 			// off their notifications, generate a talk page post Echo notification.
 			if ( $notifyUser && $notifyUser->getId() ) {
@@ -344,13 +345,14 @@ abstract class DiscussionParser {
 		}
 
 		if ( $wgEchoMentionStatusNotifications ) {
+			$userFactory = MediawikiServices::getInstance()->getUserFactory();
 			// TODO batch?
 			foreach ( $userMentions['validMentions'] as $mentionedUserId ) {
 				$events[] = [
 					'type' => 'mention-success',
 					'title' => $title,
 					'extra' => [
-						'subject-name' => User::newFromId( $mentionedUserId )->getName(),
+						'subject-name' => $userFactory->newFromId( $mentionedUserId )->getName(),
 						'section-title' => $header,
 						'revid' => $revision->getId(),
 					],
@@ -417,6 +419,7 @@ abstract class DiscussionParser {
 
 		$count = 0;
 		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 
 		foreach ( $userLinks as $dbk => $page_id ) {
 			// If more users are being pinged this is likely a spam/attack vector
@@ -438,7 +441,7 @@ abstract class DiscussionParser {
 				continue;
 			}
 
-			$user = User::newFromName( $dbk );
+			$user = $userFactory->newFromName( $dbk );
 			// 3. the user name is not valid
 			if ( !$user ) {
 				$userMentions['unknownUsers'][] = str_replace( '_', ' ', $dbk );
@@ -1207,7 +1210,7 @@ abstract class DiscussionParser {
 
 		// Step 1: Get an exemplar timestamp
 		$title = Title::newMainPage();
-		$user = User::newFromName( 'Test' );
+		$user = UserIdentityValue::newAnonymous( 'Test' );
 		$options = new ParserOptions( $user );
 
 		$parser = MediaWikiServices::getInstance()->getParser();

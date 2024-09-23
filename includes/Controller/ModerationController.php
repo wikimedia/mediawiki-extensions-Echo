@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Notifications\Controller;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\User\User;
 
 /**
  * This class represents the controller for moderating notifications
@@ -37,10 +36,11 @@ class ModerationController {
 			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 			$lbFactory->waitForReplication( [ 'timeout' => 5 ] );
 			$lbFactory->flushReplicaSnapshots( $fname );
+			$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 			// Recompute the notification count for the
 			// users whose notifications have been moderated.
 			foreach ( $affectedUserIds as $userId ) {
-				$user = User::newFromId( $userId );
+				$user = $userFactory->newFromId( $userId );
 				NotifUser::newFromUser( $user )->resetNotificationCount();
 			}
 		} );

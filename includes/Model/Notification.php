@@ -107,7 +107,8 @@ class Notification extends AbstractEntity implements Bundleable {
 			return false;
 		}
 
-		$user = User::newFromId( $row->notification_user );
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
+		$user = $userFactory->newFromId( (int)$row->notification_user );
 
 		$notification = new Notification( $user, $event );
 

@@ -7,6 +7,8 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityValue;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -107,11 +109,12 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 			/* $summary = */ 'summary'
 		);
 
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		$event = $this->createMock( Event::class );
 		$event->method( 'getTitle' )
 			->willReturn( $title );
 		$event->method( 'getAgent' )
-			->willReturn( User::newFromId( 123 ) );
+			->willReturn( $userFactory->newFromId( 123 ) );
 
 		$users = UserLocator::locateArticleCreator( $event );
 		$this->assertEquals( [ $user->getId() ], array_keys( $users ), $message );
@@ -119,6 +122,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 
 	public function testDontSendPageLinkedNotificationsForPagesCreatedByBotUsers() {
 		$botUser = $this->getTestUser( [ 'bot' ] )->getUser();
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		$botUser->addToDatabase();
 		$this->editPage( 'TestBotCreatedPage', 'Test', '', NS_MAIN, $botUser );
 		$this->editPage( 'SomeOtherPage', '[[TestBotCreatedPage]]' );
@@ -126,7 +130,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$event->method( 'getTitle' )
 			->willReturn( Title::newFromText( 'TestBotCreatedPage' ) );
 		$event->method( 'getAgent' )
-			->willReturn( User::newFromId( 123 ) );
+			->willReturn( $userFactory->newFromId( 123 ) );
 		$event->method( 'getType' )
 			->willReturn( 'page-linked' );
 		$this->assertEquals( [], UserLocator::locateArticleCreator( $event ) );
@@ -139,7 +143,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$event->method( 'getTitle' )
 			->willReturn( Title::newFromText( 'NormalCreatedPage' ) );
 		$event->method( 'getAgent' )
-			->willReturn( User::newFromId( 456 ) );
+			->willReturn( $userFactory->newFromId( 456 ) );
 		$event->method( 'getType' )
 			->willReturn( 'page-linked' );
 		$this->assertEquals(
@@ -163,7 +167,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 				// expected result user id's
 				[],
 				// event agent
-				User::newFromName( '4.5.6.7', false ),
+				UserIdentityValue::newAnonymous( '4.5.6.7' ),
 			],
 
 			[
@@ -171,7 +175,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 				// expected result user id's
 				[ 42 ],
 				// event agent
-				User::newFromId( 42 ),
+				UserIdentityValue::newRegistered( 42, 'Dummy' ),
 			],
 		];
 	}
@@ -179,10 +183,13 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider locateEventAgentProvider
 	 */
-	public function testLocateEventAgent( $message, $expect, ?User $agent = null ) {
+	public function testLocateEventAgent( $message, $expect, ?UserIdentity $agent = null ) {
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		$event = $this->createMock( Event::class );
 		$event->method( 'getAgent' )
-			->willReturn( $agent );
+			->willReturnCallback( static function () use ( $agent, $userFactory ): ?User {
+				return $agent ? $userFactory->newFromUserIdentity( $agent ) : null;
+			} );
 
 		$users = UserLocator::locateEventAgent( $event );
 		$this->assertEquals( $expect, array_keys( $users ), $message );
@@ -215,7 +222,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 				// expected user list
 				[ 123 ],
 				// event extra data
-				[ 'foo' => User::newFromId( 123 ) ],
+				[ 'foo' => UserIdentityValue::newRegistered( 123, 'Dummy' ) ],
 				// extra keys to get ids from
 				[ 'foo' ],
 			],
@@ -245,7 +252,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 				// expected user list
 				[ 123 ],
 				// event extra data
-				[ 'foo' => [ User::newFromId( 123 ) ] ],
+				[ 'foo' => [ UserIdentityValue::newRegistered( 123, 'Dummy' ) ] ],
 				// extra keys to get ids from
 				[ 'foo' ],
 			],
@@ -257,24 +264,31 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider locateFromEventExtraProvider
 	 */
 	public function testLocateFromEventExtra( $message, $expect, array $extra, array $keys ) {
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		$event = $this->createMock( Event::class );
 		$event->method( 'getExtra' )
 			->willReturn( $extra );
 		$event->method( 'getExtraParam' )
-			->willReturnMap( self::arrayToValueMap( $extra ) );
+			->willReturnCallback( static function ( $key, $default = null ) use ( $extra, $userFactory ) {
+				$value = $extra[$key] ?? null;
+				if ( is_array( $value ) ) {
+					return array_map(
+						static function ( $value ) use ( $userFactory ) {
+							return $value instanceof UserIdentity
+								? $userFactory->newFromUserIdentity( $value )
+								: $value;
+						},
+						$value
+					);
+				} else {
+					return $value instanceof UserIdentity
+						? $userFactory->newFromUserIdentity( $value )
+						: $value;
+				}
+			} );
 
 		$users = UserLocator::locateFromEventExtra( $event, $keys );
 		$this->assertEquals( $expect, array_keys( $users ), $message );
-	}
-
-	protected static function arrayToValueMap( array $array ) {
-		$result = [];
-		foreach ( $array as $key => $value ) {
-			// Event::getExtraParam second argument defaults to null
-			$result[] = [ $key, null, $value ];
-		}
-
-		return $result;
 	}
 
 }

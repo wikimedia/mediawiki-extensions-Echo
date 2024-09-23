@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications;
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
@@ -30,6 +31,8 @@ class SummaryParser {
 		// to prevent fun stuff like "[[foo /* section */ bar]]".
 		$summary = preg_replace( '#/\*.*?\*/#', ' [] ', $summary );
 
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
+
 		$users = [];
 		$regex = '/\[\[([' . Title::legalChars() . ']++)(?:\|.*?)?\]\]/';
 		if ( preg_match_all( $regex, $summary, $matches ) ) {
@@ -43,7 +46,7 @@ class SummaryParser {
 					 && $title->isLocal()
 					 && $title->getNamespace() === NS_USER
 				) {
-					$user = User::newFromName( $title->getText() );
+					$user = $userFactory->newFromName( $title->getText() );
 					if ( $user && ( $this->userLookup )( $user ) > 0 ) {
 						$users[$user->getName()] = $user;
 					}

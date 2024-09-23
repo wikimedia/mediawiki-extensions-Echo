@@ -980,8 +980,10 @@ TEXT
 		$content = new WikitextContent( $newText );
 		$revision = MutableRevisionRecord::newFromContent( $title, $content );
 
+		$userFactory = $services->getUserFactory();
+
 		$revision->setId( $newId );
-		$revision->setUser( User::newFromName( $username ) );
+		$revision->setUser( $userFactory->newFromName( $username ) );
 
 		$revision->setParentId( $oldId );
 		$comment = CommentStoreComment::newUnsavedComment(
@@ -1738,7 +1740,8 @@ TEXT
 	public function testGetUserMentions_validMention() {
 		$userName = 'Admin';
 		$this->setupTestUser( $userName );
-		$userId = User::newFromName( $userName )->getId();
+		$userFactory = $this->getServiceContainer()->getUserFactory();
+		$userId = $userFactory->newFromName( $userName )->getId();
 		$otherUserId = $userId + 1;
 		$expectedUserMentions = [
 			'validMentions' => [ $userId => $userId ],
@@ -1752,7 +1755,8 @@ TEXT
 	public function testGetUserMentions_ownMention() {
 		$userName = 'Admin';
 		$this->setupTestUser( $userName );
-		$userId = User::newFromName( 'Admin' )->getId();
+		$userFactory = $this->getServiceContainer()->getUserFactory();
+		$userId = $userFactory->newFromName( 'Admin' )->getId();
 		$expectedUserMentions = [
 			'validMentions' => [],
 			'unknownUsers' => [],

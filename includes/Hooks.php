@@ -1222,8 +1222,11 @@ class Hooks implements
 			// nothing to notify
 			return;
 		}
-		$userTo = User::newFromName( $address->name );
-		$userFrom = User::newFromName( $from->name );
+
+		$userTo = $this->userFactory->newFromName( $address->name );
+		$userFrom = $this->userFactory->newFromName( $from->name );
+		'@phan-var User $userTo';
+		'@phan-var User $userFrom';
 
 		$autoSubject = wfMessage( 'defemailsubject', $from->name )->inContentLanguage()->text();
 		if ( $subject === $autoSubject ) {

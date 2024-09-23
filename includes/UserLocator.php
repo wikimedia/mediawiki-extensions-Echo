@@ -44,7 +44,8 @@ class UserLocator {
 
 		// add callback to convert user id to user objects
 		$echoCallbackIt = new CallbackIterator( $recursiveIt, static function ( $row ) {
-			return User::newFromId( $row->wl_user );
+			$userFactory = MediaWikiServices::getInstance()->getUserFactory();
+			return $userFactory->newFromId( (int)$row->wl_user );
 		} );
 
 		return $echoCallbackIt;
@@ -63,7 +64,9 @@ class UserLocator {
 			return [];
 		}
 
-		$user = User::newFromName( $title->getDBkey() );
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
+
+		$user = $userFactory->newFromName( $title->getDBkey() );
 		if ( $user && $user->isRegistered() ) {
 			return [ $user->getId() => $user ];
 		}
@@ -83,8 +86,9 @@ class UserLocator {
 		if ( !$title || !$title->inNamespace( NS_USER ) ) {
 			return [];
 		}
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 
-		$user = User::newFromName( $title->getDBkey() );
+		$user = $userFactory->newFromName( $title->getDBkey() );
 		if ( $user && $user->isRegistered() ) {
 			return [ $user->getId() => $user ];
 		}
@@ -139,6 +143,7 @@ class UserLocator {
 	 */
 	public static function getArticleAuthorByArticleId( int $articleId ): ?User {
 		$services = MediaWikiServices::getInstance();
+		$userFactory = $services->getUserFactory();
 		$dbr = $services->getConnectionProvider()->getReplicaDatabase();
 		$revQuery = $services->getRevisionStore()->getQueryInfo();
 		$res = $dbr->newSelectQueryBuilder()
@@ -154,7 +159,7 @@ class UserLocator {
 			return null;
 		}
 
-		return User::newFromId( $res->rev_user );
+		return $userFactory->newFromId( (int)$res->rev_user );
 	}
 
 	/**
@@ -172,6 +177,7 @@ class UserLocator {
 	 * @return array<int,User>
 	 */
 	public static function locateFromEventExtra( Event $event, array $keys ) {
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 		$users = [];
 		foreach ( $keys as $key ) {
 			$userIds = $event->getExtraParam( $key );
@@ -190,7 +196,7 @@ class UserLocator {
 					}
 					$user = $userId;
 				} else {
-					$user = User::newFromId( $userId );
+					$user = $userFactory->newFromId( $userId );
 				}
 				$users[$user->getId()] = $user;
 			}

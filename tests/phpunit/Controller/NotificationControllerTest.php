@@ -9,6 +9,8 @@ use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityValue;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWikiIntegrationTestCase;
 use PHPUnit\Framework\TestCase;
@@ -118,7 +120,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				// expected result
 				[],
 				// users returned from locator
-				[ User::newFromName( '4.5.6.7', false ) ],
+				[ UserIdentityValue::newAnonymous( '4.5.6.7' ) ],
 			],
 
 			[
@@ -126,7 +128,10 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				// expected result
 				[ 123 ],
 				// users returned from locator
-				[ User::newFromId( 123 ), User::newFromId( 123 ) ],
+				[
+					UserIdentityValue::newRegistered( 123, 'Dummy' ),
+					UserIdentityValue::newRegistered( 123, 'Dummy' ),
+				],
 			],
 
 			[
@@ -134,7 +139,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				// expected result
 				[ 123 ],
 				// users returned from locator
-				[ null, 'foo', User::newFromId( 123 ), (object)[], 456 ],
+				[ null, 'foo', UserIdentityValue::newRegistered( 123, 'Dummy' ), (object)[], 456 ],
 			],
 		];
 	}
@@ -147,10 +152,18 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$expect,
 		$users
 	) {
+		$userFactory = $this->getServiceContainer()->getUserFactory();
 		$this->overrideConfigValue( 'EchoNotifications', [
 			'unit-test' => [
-				AttributeManager::ATTR_LOCATORS => static function () use ( $users ) {
-					return $users;
+				AttributeManager::ATTR_LOCATORS => static function () use ( $users, $userFactory ) {
+					return array_map(
+						static function ( $user ) use ( $userFactory ) {
+							return $user instanceof UserIdentity
+								? $userFactory->newFromUserIdentity( $user )
+								: $user;
+						},
+						$users
+					);
 				},
 			],
 		] );

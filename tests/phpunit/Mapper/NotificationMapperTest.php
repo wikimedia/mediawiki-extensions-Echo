@@ -92,7 +92,8 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 	public function testFetchByUserOffset() {
 		// Unsuccessful select
 		$notifMapper = new NotificationMapper( $this->mockDbFactory( [ 'selectRow' => false ] ) );
-		$res = $notifMapper->fetchByUserOffset( User::newFromId( 1 ), 500 );
+		$userFactory = $this->getServiceContainer()->getUserFactory();
+		$res = $notifMapper->fetchByUserOffset( $userFactory->newFromId( 1 ), 500 );
 		$this->assertFalse( $res );
 
 		// Successful select
@@ -110,7 +111,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 			'notification_bundle_hash' => 'testhash',
 		];
 		$notifMapper = new NotificationMapper( $this->mockDbFactory( [ 'selectRow' => $dbResult ] ) );
-		$row = $notifMapper->fetchByUserOffset( User::newFromId( 1 ), 500 );
+		$row = $notifMapper->fetchByUserOffset( $userFactory->newFromId( 1 ), 500 );
 		$this->assertInstanceOf( Notification::class, $row );
 	}
 
@@ -183,7 +184,8 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 			} );
 
 		$notifMapper = new NotificationMapper( $this->mockDbFactory( $mockDb ) );
-		$this->assertTrue( $notifMapper->deleteByUserEventOffset( User::newFromId( 1 ), 500 ) );
+		$userFactory = $this->getServiceContainer()->getUserFactory();
+		$this->assertTrue( $notifMapper->deleteByUserEventOffset( $userFactory->newFromId( 1 ), 500 ) );
 	}
 
 	/**

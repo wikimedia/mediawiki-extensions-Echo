@@ -7,7 +7,7 @@ use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\JobQueue\Job;
 use MediaWiki\JobQueue\JobQueueGroup;
 use MediaWiki\Title\Title;
-use MediaWiki\User\User;
+use MediaWiki\User\UserFactory;
 
 /**
  * This job is created when sending notifications to the target users.  The purpose
@@ -28,6 +28,7 @@ class NotificationDeleteJob extends Job {
 		Title $title,
 		array $params,
 		private readonly JobQueueGroup $jobQueueGroup,
+		private readonly UserFactory $userFactory,
 	) {
 		parent::__construct( 'EchoNotificationDeleteJob', $title, $params );
 	}
@@ -45,7 +46,8 @@ class NotificationDeleteJob extends Job {
 				$jobs[] = new NotificationDeleteJob(
 					$this->title,
 					[ 'userIds' => [ $userId ] ],
-					$this->jobQueueGroup
+					$this->jobQueueGroup,
+					$this->userFactory
 				);
 			}
 			$this->jobQueueGroup->push( $jobs );
@@ -58,7 +60,7 @@ class NotificationDeleteJob extends Job {
 		// Back-compat for older jobs which used [ $userId => $userId ];
 		$userIds = array_values( $this->params['userIds'] );
 		$userId = $userIds[0];
-		$user = User::newFromId( $userId );
+		$user = $this->userFactory->newFromId( $userId );
 		$notif = $notifMapper->fetchByUserOffset( $user, $wgEchoMaxUpdateCount );
 		if ( $notif ) {
 			$notifMapper->deleteByUserEventOffset(

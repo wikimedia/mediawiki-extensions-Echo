@@ -12,6 +12,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWiki\User\UserNameUtils;
 use Wikimedia\Rdbms\IDBAccessObject;
 
 // @codeCoverageIgnoreStart
@@ -197,8 +198,9 @@ class GenerateSampleNotifications extends Maintenance {
 
 	private function getOptionUser( string $optionName ): User {
 		$username = $this->getOption( $optionName );
-		$user = User::newFromName( $username );
-		if ( !$user->isRegistered() ) {
+		$userFactory = $this->getServiceContainer()->getUserFactory();
+		$user = $userFactory->newFromName( $username, UserNameUtils::RIGOR_NONE );
+		if ( !$user || !$user->isRegistered() ) {
 			$this->fatalError( "User $username does not seem to exist in this wiki" );
 		}
 		return $user;
