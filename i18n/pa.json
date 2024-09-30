@@ -142,7 +142,7 @@
 	"notification-timestamp-today": "ਅੱਜ",
 	"notification-timestamp-yesterday": "ਬੀਤਿਆ ਕੱਲ੍ਹ",
 	"notification-inbox-filter-read": "ਪੜ੍ਹੇ ਹੋਏ",
-	"notification-inbox-filter-unread": "ਅਣ-ਪੜ੍ਹਿਆ",
+	"notification-inbox-filter-unread": "ਨਹੀਂ-ਪੜ੍ਹਿਆ",
 	"notification-inbox-filter-all": "ਸਾਰੇ",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|ਤੁਹਾਡੀਆਂ}} ਤਰਜੀਹਾਂ ਜਾਂਚੋ",
 	"echo-notification-alert": "{{PLURAL:$1|ਚੌਕਸੀ ($1)|ਚੌਕਸੀਆਂ ($1)|100=ਚੌਕਸੀਆਂ (99+)}}",
@@ -162,6 +162,7 @@
 	"echo-email-batch-body-intro-weekly": "ਸਤਿ ਸ਼੍ਰੀ ਅਕਾਲ $1,\nਤੁਹਾਡੇ ਲਈ {{SITENAME}} ਉੱਤੇ ਹਫਤਾਵਰ ਸਰਗਰਮੀ ਦਾ ਸਾਰ।",
 	"echo-email-batch-link-text-view-all-notifications": "ਸਾਰੀਆਂ ਸੂਚਨਾਵਾਂ ਦੇਖੋ",
 	"notification-header-foreign-notice": "{{PLURAL:$5|ਇੱਕ ਹੋਰ ਵਿਕੀ|$5 ਹੋਰ ਵਿਕੀਆਂ}} ਤੋਂ ਹੋਰ ਨੋਟਿਸ",
+	"notification-header-foreign-all": "{{PLURAL:$5|ਇੱਕ ਹੋਰ ਵਿਕੀ|$5 ਹੋਰ ਵਿਕੀਆਂ}} ਤੋਂ ਹੋਰ ਸੂਚਨਾਵਾਂ",
 	"right-echo-create": "ਦੂਜਿਆਂ ਨੂੰ ਸੂਚਨਾਵਾਂ ਭੇਜੋ",
 	"action-echo-create": "ਦੂਜਿਆਂ ਨੂੰ ਸੂਚਨਾਵਾਂ ਭੇਜੋ"
 }
