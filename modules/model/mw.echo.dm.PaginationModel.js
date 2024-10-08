@@ -96,7 +96,7 @@
 	/**
 	 * Set the current page index
 	 *
-	 * @private
+	 * @internal
 	 * @param {number} index Current page index
 	 */
 	mw.echo.dm.PaginationModel.prototype.setCurrPageIndex = function ( index ) {
