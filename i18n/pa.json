@@ -93,7 +93,7 @@
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 ਚੇਤਾਵਨੀ|$1 ਚੇਤਾਵਨੀਆਂ}} ਦੇਖੋ",
 	"notification-link-text-expand-notice-count": "{{PLURAL:$1|$1 ਨੋਟਿਸ}} ਦੇਖੋ",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|$1 ਸੂਚਨਾ|$1 ਸੂਚਨਾਵਾਂ}} ਦੇਖੋ",
-	"notification-link-text-collapse-all": "ਸਮੇਟੋ",
+	"notification-link-text-collapse-all": "ਢਾਓ",
 	"notification-link-text-view-message": "ਸੁਨੇਹਾ ਵੇਖੋ",
 	"notification-link-text-view-mention": "ਜ਼ਿਕਰ ਦੇਖੋ",
 	"notification-link-text-view-mention-failure": "{{PLURAL:$1|ਜ਼ਿਕਰ ਦੇਖੋ}}",
