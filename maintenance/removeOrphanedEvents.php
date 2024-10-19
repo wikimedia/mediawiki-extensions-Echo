@@ -6,6 +6,7 @@
  */
 
 use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'

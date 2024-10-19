@@ -3,12 +3,13 @@
 namespace MediaWiki\Extension\Notifications;
 
 use Article;
-use IDBAccessObject;
-use Language;
+use MediaWiki\Content\TextContent;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Language\Language;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Revision\RevisionRecord;
@@ -16,9 +17,8 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserNameUtils;
-use ParserOptions;
 use RuntimeException;
-use TextContent;
+use Wikimedia\Rdbms\IDBAccessObject;
 
 abstract class DiscussionParser {
 	private const HEADER_REGEX = '^(==+)\h*([^=].*)\h*\1$';

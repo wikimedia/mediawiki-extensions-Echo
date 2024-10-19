@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Notifications;
 
 use UnexpectedValueException;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 /**
  * Caches an ContainmentList within WANObjectCache to prevent needing

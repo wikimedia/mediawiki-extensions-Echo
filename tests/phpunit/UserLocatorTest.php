@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Test;
 
-use ContentHandler;
+use MediaWiki\Content\ContentHandler;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Title\Title;

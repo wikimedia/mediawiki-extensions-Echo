@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Notifications\Api;
 
-use ApiQuery;
-use ApiQueryBase;
-use ApiUsageException;
+use MediaWiki\Api\ApiQuery;
+use MediaWiki\Api\ApiQueryBase;
+use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\Services;

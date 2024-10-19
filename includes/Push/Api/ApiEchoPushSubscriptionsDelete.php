@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Notifications\Push\Api;
 
-use ApiBase;
-use ApiMain;
-use ApiUsageException;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\Extension\Notifications\Push\Utils;
 use MediaWiki\Extension\Notifications\Services;

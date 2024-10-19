@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\Notifications\Formatters;
 
 use BadMethodCallException;
-use Language;
 use MediaWiki\Extension\Notifications\DiscussionParser;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Language\Language;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;

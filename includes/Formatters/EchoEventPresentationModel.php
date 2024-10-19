@@ -4,9 +4,9 @@ namespace MediaWiki\Extension\Notifications\Formatters;
 
 use InvalidArgumentException;
 use JsonSerializable;
-use Language;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Language\Language;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Revision\RevisionRecord;

@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use Language;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Notifications\Formatters\EchoEventFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoFlyoutFormatter;
@@ -10,6 +9,7 @@ use MediaWiki\Extension\Notifications\Formatters\EchoModelFormatter;
 use MediaWiki\Extension\Notifications\Formatters\SpecialNotificationsFormatter;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Language\Language;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;

@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use ApiMain;
 use CentralAuthSessionProvider;
 use Exception;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;

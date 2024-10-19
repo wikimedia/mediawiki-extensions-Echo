@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Controller;
 
-use IDBAccessObject;
 use InvalidArgumentException;
 use Iterator;
 use MapCacheLRU;
@@ -24,6 +23,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
  * This class represents the controller for notifications

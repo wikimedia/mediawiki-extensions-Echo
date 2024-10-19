@@ -6,7 +6,7 @@ use BadMethodCallException;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\MultiUsernameFilter;
 use MediaWiki\User\User;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 /**
  * Utilizes ContainmentList interface to provide a fluent interface to whitelist/blacklist
