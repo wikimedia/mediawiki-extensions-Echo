@@ -47,7 +47,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 				'default' => $this->par,
 				'filter-callback' => static function ( $value, $alldata ) {
 					// Allow for a single value or a set of values
-					$result = explode( ',', $value );
+					$result = explode( ',', $value ?? '' );
 					return $result;
 				},
 				'validation-callback' => function ( $value, $alldata ) {
