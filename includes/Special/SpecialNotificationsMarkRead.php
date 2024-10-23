@@ -25,13 +25,13 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 	}
 
 	public function execute( $par ) {
+		// Redirect to login page and inform user of the need to login
+		$this->requireLogin( 'echo-notification-loginrequired' );
+
 		parent::execute( $par );
 
 		$out = $this->getOutput();
 		$out->setPageTitleMsg( $this->msg( 'echo-specialpage-markasread' ) );
-
-		// Redirect to login page and inform user of the need to login
-		$this->requireLogin( 'echo-notification-loginrequired' );
 	}
 
 	public function isListed() {
