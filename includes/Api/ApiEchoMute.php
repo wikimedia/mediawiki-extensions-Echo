@@ -12,16 +12,10 @@ use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiEchoMute extends ApiBase {
 
-	/** @var CentralIdLookup */
-	private $centralIdLookup;
+	private CentralIdLookup $centralIdLookup;
+	private LinkBatchFactory $linkBatchFactory;
+	private UserOptionsManager $userOptionsManager;
 
-	/** @var LinkBatchFactory */
-	private $linkBatchFactory;
-
-	/** @var UserOptionsManager */
-	private $userOptionsManager;
-
-	/** @var string[][] */
 	private const MUTE_LISTS = [
 		'user' => [
 			'pref' => 'echo-notifications-blacklist',
@@ -33,16 +27,9 @@ class ApiEchoMute extends ApiBase {
 		],
 	];
 
-	/**
-	 * @param ApiMain $main
-	 * @param string $action
-	 * @param CentralIdLookup $centralIdLookup
-	 * @param LinkBatchFactory $linkBatchFactory
-	 * @param UserOptionsManager $userOptionsManager
-	 */
 	public function __construct(
 		ApiMain $main,
-		$action,
+		string $action,
 		CentralIdLookup $centralIdLookup,
 		LinkBatchFactory $linkBatchFactory,
 		UserOptionsManager $userOptionsManager

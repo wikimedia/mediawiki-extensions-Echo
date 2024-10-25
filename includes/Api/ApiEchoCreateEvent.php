@@ -19,7 +19,7 @@ class ApiEchoCreateEvent extends ApiBase {
 
 	public function __construct(
 		ApiMain $mainModule,
-		$moduleName,
+		string $moduleName,
 		UserNameUtils $userNameUtils
 	) {
 		parent::__construct( $mainModule, $moduleName );
