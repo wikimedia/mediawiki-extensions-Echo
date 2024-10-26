@@ -103,7 +103,7 @@ class ContainmentSet {
 	 * @param string $cacheKeyPrefix A prefix to be combined with the pages latest revision id and used as a cache key.
 	 */
 	public function addOnWiki(
-		$namespace, $title, WANObjectCache $cache = null, $cacheKeyPrefix = ''
+		$namespace, $title, ?WANObjectCache $cache = null, $cacheKeyPrefix = ''
 	) {
 		$list = new OnWikiList( $namespace, $title );
 		if ( $cache ) {

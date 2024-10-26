@@ -71,7 +71,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider locateTalkPageOwnerProvider
 	 */
-	public function testLocateTalkPageOwner( $message, $expectMode, Title $title = null ) {
+	public function testLocateTalkPageOwner( $message, $expectMode, ?Title $title = null ) {
 		if ( $expectMode === 'user' ) {
 			$user = $this->getTestUser()->getUser();
 			$user->addToDatabase();
@@ -179,7 +179,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider locateEventAgentProvider
 	 */
-	public function testLocateEventAgent( $message, $expect, User $agent = null ) {
+	public function testLocateEventAgent( $message, $expect, ?User $agent = null ) {
 		$event = $this->createMock( Event::class );
 		$event->method( 'getAgent' )
 			->willReturn( $agent );

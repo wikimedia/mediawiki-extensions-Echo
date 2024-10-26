@@ -28,7 +28,7 @@ class PushNotifier {
 	 * @param Event|null $event
 	 * @return NotificationRequestJob
 	 */
-	private static function createJob( UserIdentity $user, Event $event = null ): NotificationRequestJob {
+	private static function createJob( UserIdentity $user, ?Event $event = null ): NotificationRequestJob {
 		$centralId = Utils::getPushUserId( $user );
 		$params = [ 'centralId' => $centralId ];
 		// below params are only needed for debug logging (T255068)

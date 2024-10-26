@@ -92,7 +92,7 @@ class NotificationMapper extends AbstractMapper {
 		$limit,
 		$continue,
 		array $eventTypes = [],
-		array $titles = null,
+		?array $titles = null,
 		$dbSource = DB_REPLICA
 	) {
 		$conds = [ 'notification_read_timestamp' => null ];
@@ -132,7 +132,7 @@ class NotificationMapper extends AbstractMapper {
 		$limit,
 		$continue,
 		array $eventTypes = [],
-		array $titles = null,
+		?array $titles = null,
 		$dbSource = DB_REPLICA
 	) {
 		$dbr = $this->dbFactory->getEchoDb( $dbSource );
@@ -171,7 +171,7 @@ class NotificationMapper extends AbstractMapper {
 		$continue,
 		array $eventTypes = [],
 		array $excludeEventIds = [],
-		array $titles = null
+		?array $titles = null
 	) {
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 

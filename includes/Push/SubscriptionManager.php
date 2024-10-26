@@ -115,7 +115,7 @@ class SubscriptionManager extends AbstractMapper {
 	 * @return int number of rows deleted
 	 * @throws DBError
 	 */
-	public function delete( array $tokens, int $centralId = null ): int {
+	public function delete( array $tokens, ?int $centralId = null ): int {
 		$cond = [ 'eps_token' => $tokens ];
 		if ( $centralId ) {
 			$cond['eps_user'] = $centralId;
