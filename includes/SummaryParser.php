@@ -15,7 +15,7 @@ class SummaryParser {
 	 *  (see the caller in {@see parse}) and returns the user id or 0 if the user doesn't exist.
 	 *  Only tests should modify this.
 	 */
-	public function __construct( callable $userLookup = null ) {
+	public function __construct( ?callable $userLookup = null ) {
 		$this->userLookup = $userLookup ?? static fn ( UserIdentity $user ) => $user->getId();
 	}
 

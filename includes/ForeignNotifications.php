@@ -230,7 +230,7 @@ class ForeignNotifications {
 	 * @param array|null $siteFromDB $wgConf->siteFromDB( $wikiId ) result
 	 * @return mixed|string
 	 */
-	protected static function getWikiTitle( $wikiId, array $siteFromDB = null ) {
+	protected static function getWikiTitle( $wikiId, ?array $siteFromDB = null ) {
 		global $wgConf, $wgLang;
 
 		$msg = wfMessage( 'project-localized-name-' . $wikiId );

@@ -189,7 +189,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$limit,
 		$continue,
 		$format,
-		array $titles = null,
+		?array $titles = null,
 		$unreadFirst = false,
 		$bundle = false,
 		array $notifierTypes = [ 'web' ]
@@ -233,7 +233,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$limit,
 		$continue,
 		$format,
-		array $titles = null,
+		?array $titles = null,
 		$unreadFirst = false,
 		$bundle = false
 	) {
