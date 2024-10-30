@@ -84,6 +84,9 @@ class Event extends AbstractEntity implements Bundleable {
 	 */
 	protected $deleted = 0;
 
+	/** For use in tests */
+	public static bool $alwaysInsert = false;
+
 	/**
 	 * You should not call the constructor.
 	 * Instead, use one of the factory functions:
@@ -198,18 +201,13 @@ class Event extends AbstractEntity implements Bundleable {
 		}
 
 		// @Todo - Database insert logic should not be inside the model
-		$obj->insert();
-
-		$hookRunner->onEventInsertComplete( $obj );
+		if ( self::$alwaysInsert ) {
+			$obj->insert();
+		}
 
 		global $wgEchoUseJobQueue;
 
 		NotificationController::notify( $obj, $wgEchoUseJobQueue );
-
-		$stats = $services->getStatsdDataFactory();
-		$type = $info['type'];
-		$stats->increment( 'echo.event.all' );
-		$stats->increment( "echo.event.$type" );
 
 		return $obj;
 	}
@@ -251,12 +249,53 @@ class Event extends AbstractEntity implements Bundleable {
 	}
 
 	/**
+	 * Creates an Event from an array. The array should be output from ::toDbArray().
+	 *
+	 * @param array $data
+	 * @return self
+	 */
+	public static function newFromArray( $data ) {
+		$obj = new self();
+		if ( isset( $data['event_id'] ) ) {
+			$obj->id = $data['event_id'];
+		}
+		$obj->type = $data['event_type'];
+		$obj->variant = $data['event_variant'];
+		$obj->extra = $data['event_extra'] ? unserialize( $data['event_extra'] ) : [];
+		if ( isset( $data['event_page_id'] ) ) {
+			$obj->pageId = $data['event_page_id'];
+		}
+		$obj->deleted = $data['event_deleted'];
+
+		if ( $data['event_agent_id'] ?? 0 ) {
+			$obj->agent = User::newFromId( $data['event_agent_id'] );
+		} elseif ( isset( $data['event_agent_ip'] ) ) {
+			$obj->agent = User::newFromName( $data['event_agent_ip'], false );
+		}
+
+		return $obj;
+	}
+
+	/**
 	 * Check whether the echo event is an enabled event
 	 * @return bool
 	 */
 	public function isEnabledEvent(): bool {
 		global $wgEchoNotifications;
 		return isset( $wgEchoNotifications[$this->getType()] );
+	}
+
+	/**
+	 * Insert this event into the database if it hasn't been yet, and return its id.
+	 * Subsequent calls on this instance will not cause repeated insertion
+	 * and will always return the same id.
+	 * @return int
+	 */
+	public function acquireId() {
+		if ( !$this->id ) {
+			$this->insert();
+		}
+		return $this->id;
 	}
 
 	/**
@@ -276,6 +315,15 @@ class Event extends AbstractEntity implements Bundleable {
 				}
 			}
 		}
+
+		$services = MediaWikiServices::getInstance();
+		$hookRunner = new HookRunner( $services->getHookContainer() );
+		$hookRunner->onEventInsertComplete( $this );
+
+		$stats = $services->getStatsdDataFactory();
+		$type = $this->getType();
+		$stats->increment( 'echo.event.all' );
+		$stats->increment( "echo.event.$type" );
 	}
 
 	/**

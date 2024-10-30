@@ -270,8 +270,13 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			->method( 'getTitle' )
 			->willReturn( Title::newFromText( 'test-title' ) );
 		$event->expects( $this->once() )
-			->method( 'getId' )
-			->willReturn( 42 );
+			->method( 'toDbArray' )
+			->willReturn( [
+				'event_type' => 'test',
+				'event_extra' => [
+					'extra-key' => 'extra'
+				],
+			] );
 		NotificationController::enqueueEvent( $event );
 		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$queues = $jobQueueGroup->getQueuesWithJobs();
@@ -279,7 +284,15 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( 'EchoNotificationJob', $queues[0] );
 		$job = $jobQueueGroup->pop( 'EchoNotificationJob' );
 		$this->assertEquals( 'Test-title', $job->params[ 'title' ] );
-		$this->assertEquals( 42, $job->params[ 'eventId' ] );
+		$this->assertEquals(
+			[
+				'event_type' => 'test',
+				'event_extra' => [
+					'extra-key' => 'extra'
+				],
+			],
+			$job->params[ 'eventData' ]
+		);
 	}
 
 	public function testNotSupportedDelay() {
@@ -315,12 +328,26 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				[ 'rootJobTimestamp', null, $rootJobTimestamp ]
 			] );
 		$event->expects( $this->once() )
-			->method( 'getId' )
-			->willReturn( 42 );
+			->method( 'toDbArray' )
+			->willReturn( [
+				'event_type' => 'test',
+				'event_extra' => [
+					'delay' => 10,
+					'rootJobSignature' => 'test-signature',
+					'rootJobTimestamp' => $rootJobTimestamp,
+				],
+			] );
 
 		$params = NotificationController::getEventParams( $event );
 		$expectedParams = [
-			'eventId' => 42,
+			'eventData' => [
+				'event_type' => 'test',
+				'event_extra' => [
+					'delay' => 10,
+					'rootJobSignature' => 'test-signature',
+					'rootJobTimestamp' => $rootJobTimestamp,
+				],
+			],
 			'rootJobSignature' => 'test-signature',
 			'rootJobTimestamp' => $rootJobTimestamp,
 			'jobReleaseTimestamp' => 10

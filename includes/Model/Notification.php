@@ -129,6 +129,7 @@ class Notification extends AbstractEntity implements Bundleable {
 			}
 		);
 
+		$this->event->acquireId();
 		$notifMapper->insert( $this );
 
 		if ( $this->event->getCategory() === 'edit-user-talk' ) {

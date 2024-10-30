@@ -150,7 +150,7 @@ class NotificationController {
 			}
 			$hookRunner->onEchoGetNotificationTypes( $user, $event, $userNotifyTypes );
 
-			// types such as web, email, etc
+			// types such as web, email, etc.
 			foreach ( $userNotifyTypes as $type ) {
 				self::doNotification( $event, $user, $type );
 			}
@@ -191,9 +191,9 @@ class NotificationController {
 		if ( !$rev ) {
 			$logger = LoggerFactory::getInstance( 'Echo' );
 			$logger->debug(
-				'Notifying for event {eventId}. Revision \'{revId}\' not found.',
+				'Notifying for event type \'{eventType}\'. Revision \'{revId}\' not found.',
 				[
-					'eventId' => $event->getId(),
+					'eventType' => $event->getType(),
 					'revId' => $revId,
 				]
 			);
@@ -253,7 +253,10 @@ class NotificationController {
 		$rootJobSignature = $event->getExtraParam( 'rootJobSignature' );
 		$rootJobTimestamp = $event->getExtraParam( 'rootJobTimestamp' );
 
-		return [ 'eventId' => $event->getId() ]
+		$params = $event->getId()
+			? [ 'eventId' => $event->getId() ]
+			: [ 'eventData' => $event->toDbArray() ];
+		return $params
 			+ ( $delay ? [ 'jobReleaseTimestamp' => (int)wfTimestamp() + $delay ] : [] )
 			+ ( $rootJobSignature ? [ 'rootJobSignature' => $rootJobSignature ] : [] )
 			+ ( $rootJobTimestamp ? [ 'rootJobTimestamp' => $rootJobTimestamp ] : [] );
