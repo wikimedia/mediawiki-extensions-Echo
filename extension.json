@@ -1105,6 +1105,10 @@
 			"value": 0,
 			"description": "Maximum nubmer of users that will be notified that they were linked from an edit summary or 0 for no notifications"
 		},
+		"EchoMentionsInEditSummaryBots": {
+			"value": false,
+			"description": "Whether to allow mentions by bot accounts in edit summaries to trigger notifications (subject to EchoMaxMentionsInEditSummary limit)"
+		},
 		"EchoPollForUpdates": {
 			"value": 0,
 			"description": "This is the polling rate i.e. the time after which we check for notifications count on the client side. It also controls whether notification count will be displayed in browser title. If polling rate is 0 this means polling is disabled and notification count is also not shown in browser title"
