@@ -62,7 +62,7 @@ class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 			$summary = MediaWikiServices::getInstance()->getCommentFormatter()->format( $summary );
 			$summary = Sanitizer::stripAllTags( $summary );
 		} else {
-			$summary = false;
+			$summary = $this->msg( 'rev-deleted-comment' )->text();
 		}
 		if ( !$this->isBundled() ) {
 			return new RawMessage( '$1', [ Message::plaintextParam( $summary ) ] );
