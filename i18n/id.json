@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Bennylin",
 			"Daud I.F. Argana",
 			"Ezagren",
@@ -15,7 +14,9 @@
 			"Veracious",
 			"William Surya Permana",
 			"WongKentir",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"David Wadie Fisher-Freberg",
+			"Stevannus rua"
 		]
 	},
 	"echo-desc": "Sistem pemberitahuan ke pengguna tentang pesan dan peristiwa",
