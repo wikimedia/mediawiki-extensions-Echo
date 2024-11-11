@@ -44,7 +44,7 @@
 	"echo-pref-dont-email-read-notifications": "Bỏ qua các thông báo đã đọc trong thư điện tử tóm tắt",
 	"echo-learn-more": "Tìm hiểu thêm",
 	"echo-log": "Nhật trình công khai",
-	"echo-new-messages": "Bạn có tin nhắn mới",
+	"echo-new-messages": "Bạn có một tin nhắn mới tại trang thảo luận",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1}}Tin nhắn thảo luận",
 	"echo-category-title-article-linked": "{{PLURAL:$1}}Liên kết đến trang",
 	"echo-category-title-reverted": "Sửa đổi {{PLURAL:$1|lùi sửa}}",
