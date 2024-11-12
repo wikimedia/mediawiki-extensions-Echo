@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Test;
 
+use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Title\Title;
@@ -39,6 +40,7 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 
 		// action
 		$this->editPage( $title, 'this is my first edit', '', NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
 
 		// assertions
 		$notificationMapper = new NotificationMapper();
@@ -67,6 +69,7 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 		for ( $i = 0; $i < 12; $i++ ) {
 			$this->editPage( $page, "this is edit #$i", '', NS_MAIN, $user );
 		}
+		DeferredUpdates::tryOpportunisticExecute();
 		$user->clearInstanceCache();
 
 		// assertions
