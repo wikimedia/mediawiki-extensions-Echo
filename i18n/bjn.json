@@ -109,6 +109,9 @@
 	"notification-link-text-view-page": "Janaki laman",
 	"notification-header-edit-user-page": "$1 {{GENDER:$2|mambabak}} <strong>laman pamakai {{GENDER:$3|Pian}}</strong>.",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|maninggalakan}} sabuting pasan di <strong>laman pamandiran {{GENDER:$3|Pian}}</strong>.",
+	"echo-notification-notice": "{{PLURAL:$1|Pamadahan ($1)|100=Pamadahan (99+)}}",
+	"echo-notification-notice-text-only": "Pamadahan",
 	"echo-overlay-link": "Samunyaan pamadahan",
+	"echo-mark-all-as-read": "Tandai {{PLURAL:$1|samunyaan}} sudah dibaca",
 	"group-push-subscription-manager": "Pangalula langganan tunjul"
 }
