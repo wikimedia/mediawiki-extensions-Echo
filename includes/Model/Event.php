@@ -15,10 +15,12 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
+use MediaWiki\User\ActorStore;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use RuntimeException;
 use stdClass;
+use Wikimedia\IPUtils;
 use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
@@ -187,6 +189,19 @@ class Event extends AbstractEntity implements Bundleable {
 		if ( $obj->agent ) {
 			if ( !$obj->agent instanceof UserIdentity ) {
 				throw new InvalidArgumentException( "Invalid user parameter" );
+			}
+
+			// TODO: when no errors are logged in production, turn this into an exception
+			if ( !$obj->agent->isRegistered() && !IPUtils::isValid( $obj->agent->getName() ) ) {
+				LoggerFactory::getInstance( 'Echo' )->error(
+					'Invalid IP agent: {username} for event type {event_type}',
+					[
+						'username' => $obj->agent->getName(),
+						'event_type' => $obj->type,
+						'exception' => new \RuntimeException,
+					]
+				);
+				return false;
 			}
 
 			// RevisionStore returns UserIdentityValue now, convert to User for passing to hooks.
@@ -391,7 +406,19 @@ class Event extends AbstractEntity implements Bundleable {
 		if ( $row->event_agent_id ) {
 			$this->agent = User::newFromId( (int)$row->event_agent_id );
 		} elseif ( $row->event_agent_ip ) {
-			$this->agent = User::newFromName( (string)$row->event_agent_ip, false );
+			// Due to an oversight, non-existing users could be inserted as IPs.
+			// This wouldn't cause problems if there wasn't the limit of 39 bytes for
+			// the database field, leading to silent truncation of long user names.
+			// Ignoring such entries and setting the agent to null could cause
+			// exceptions in presentation models, hence we accept the name if it's
+			// definitely not been truncated, otherwise return a fallback user.
+			if ( IPUtils::isValid( $row->event_agent_ip )
+				|| strlen( $row->event_agent_ip ) < 39
+			) {
+				$this->agent = User::newFromName( $row->event_agent_ip, false );
+			} else {
+				$this->agent = User::newFromName( ActorStore::UNKNOWN_USER_NAME, false );
+			}
 		}
 
 		// Lazy load the title from getTitle() so that we can do a batch-load
