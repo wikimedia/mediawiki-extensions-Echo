@@ -105,6 +105,8 @@
 	"notification-link-text-view-changes": "{{GENDER:$1|Janaki}} paubahan",
 	"notification-link-text-view-page": "Janaki laman",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|maninggalakan}} sabuting pasan di <strong>laman pamandiran {{GENDER:$3|Pian}}</strong>.",
+	"echo-notification-notice": "{{PLURAL:$1|Pamadahan ($1)|100=Pamadahan (99+)}}",
+	"echo-notification-notice-text-only": "Pamadahan",
 	"echo-overlay-link": "Samunyaan pamadahan",
 	"group-push-subscription-manager": "Pangalula langganan tunjul"
 }

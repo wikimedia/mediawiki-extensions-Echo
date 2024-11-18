@@ -173,6 +173,7 @@
 	"notification-header-watchlist-multiuser-deleted": "A {{GENDER:$2|figyelőlistádon}} szereplő <strong>$1</strong> lapot törölték $3 alkalommal.",
 	"notification-header-watchlist-multiuser-moved": "A {{GENDER:$2|figyelőlistádon}} szereplő <strong>$1</strong> lapot átnevezték $3 alkalommal.",
 	"notification-header-watchlist-multiuser-restored": "A {{GENDER:$2|figyelőlistádon}} szereplő <strong>$1</strong> lapot törölték $3 alkalommal.",
+	"notification-body-watchlist-once": "Amíg nem {{GENDER:$1|keresed fel}} a lapot bejelentkezve, addig nem érkeznek újabb értesítések a lap változásaival kapcsolatban.",
 	"notification-welcome-linktext": "Üdvözlet",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Elkészítetted}} az első szerkesztésedet; köszönjük és üdvözlünk!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|Elkészítetted}} a tizedik szerkesztésedet; köszönjük és csak így tovább!",
