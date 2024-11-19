@@ -1047,15 +1047,7 @@ TEXT
 
 		$output = DiscussionParser::getUserFromLine( $line );
 
-		if ( $output === false ) {
-			$this->assertFalse( $expectedUser );
-		} elseif ( is_array( $expectedUser ) ) {
-			// Sometimes testing for correct user detection,
-			// sometimes testing for offset detection
-			$this->assertEquals( $expectedUser, $output );
-		} else {
-			$this->assertEquals( $expectedUser, $output[1] );
-		}
+		$this->assertEquals( $expectedUser, $output );
 	}
 
 	public static function signingDetectionDataProvider() {
@@ -1090,9 +1082,31 @@ TEXT
 					'127.0.0.1'
 				],
 			],
+			"Anonymous user (not a standard signature - userpage link)" => [
+				"I am anonymous because I like my IP address. --[[User:127.0.0.1|127.0.0.1]] $ts",
+				false,
+			],
 			"No signature" => [
 				"Well, \nI do think that [[User:Newyorkbrad]] is pretty cool, but what do I know?",
 				false
+			],
+			"Invalid username link" => [
+				"I'm evil! [[User:Template:Invalid|Invalid]] $ts",
+				false
+			],
+			"Invalid username link, followed by a valid one" => [
+				"I'm silly! --[[User:JarJar|JarJar]] ([[User talk:JarJar|talk]]) [[User:Template:Invalid|Invalid]] $ts",
+				[
+					13,
+					'JarJar'
+				]
+			],
+			"Invalid username link, preceded by a valid one" => [
+				"I'm silly! [[User:Template:Invalid|Invalid]] --[[User:JarJar|JarJar]] ([[User talk:JarJar|talk]]) $ts",
+				[
+					13 + 34,
+					'JarJar'
+				]
 			],
 			"Hash symbols in usernames" => [
 				"What do you think? [[User talk:We buried our secrets in the garden#top|wbositg]] $ts",
