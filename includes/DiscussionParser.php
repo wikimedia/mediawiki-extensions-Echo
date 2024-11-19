@@ -50,6 +50,7 @@ abstract class DiscussionParser {
 		global $wgEchoMentionOnChanges;
 		$services = MediaWikiServices::getInstance();
 		$store = $services->getRevisionStore();
+		$userFactory = $services->getUserFactory();
 
 		// use the replica database if there is a previous revision
 		if ( $store->getPreviousRevision( $revision ) ) {
@@ -67,10 +68,7 @@ abstract class DiscussionParser {
 		$events = [];
 
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
-
-		$userID = $revision->getUser()->getId();
-		$userName = $revision->getUser()->getName();
-		$user = $userID !== 0 ? User::newFromId( $userID ) : User::newFromName( $userName, false );
+		$user = $userFactory->newFromUserIdentity( $revision->getUser() );
 
 		foreach ( $interpretation as $action ) {
 			if ( $action['type'] === 'add-comment' ) {
@@ -166,7 +164,7 @@ abstract class DiscussionParser {
 			$usersInSummary = $summaryParser->parse( $revision->getComment()->text );
 
 			// Don't allow pinging yourself
-			unset( $usersInSummary[$userName] );
+			unset( $usersInSummary[$user->getName()] );
 
 			$count = 0;
 			$mentionedUsers = [];
