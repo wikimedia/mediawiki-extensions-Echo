@@ -1117,6 +1117,8 @@ abstract class DiscussionParser {
 	 */
 	public static function getUserFromLine( $line, ?Title $title = null ) {
 		$parser = MediaWikiServices::getInstance()->getParser();
+		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 
 		/*
 		 * First we call extractUsersFromLine to get all the potential usernames
@@ -1129,8 +1131,15 @@ abstract class DiscussionParser {
 		foreach ( $usernames as $username ) {
 			// generate (dateless) signature from the user we think we've
 			// discovered the signature from
-			// don't validate the username - anon (IP) is fine!
-			$user = User::newFromName( $username, false );
+			if ( $userNameUtils->isIP( $username ) ) {
+				$user = $userFactory->newAnonymous( $username );
+			} else {
+				$user = $userFactory->newFromName( $username );
+				if ( !$user ) {
+					// Invalid username, so this link can't be any user's signature
+					continue;
+				}
+			}
 			$sig = $parser->preSaveTransform(
 				'~~~',
 				$title ?: Title::newMainPage(),
