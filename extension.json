@@ -1165,5 +1165,10 @@
 	],
 	"ConfigRegistry": {
 		"Echo": "GlobalVarConfig::newInstance"
-	}
+	},
+	"InstallerTasks": [
+		{
+			"class": "MediaWiki\\Extension\\Notifications\\InstallSchemaTask"
+		}
+	]
 }
