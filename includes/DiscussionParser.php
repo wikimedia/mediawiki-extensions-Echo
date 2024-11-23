@@ -115,7 +115,7 @@ abstract class DiscussionParser {
 			$notifyUser = User::newFromName( $title->getText() );
 			// If the recipient is a valid non-anonymous user generate a talk page post notification.
 			if ( $notifyUser && $notifyUser->getId() ) {
-				$permManager = MediaWikiServices::getInstance()->getPermissionManager();
+				$permManager = $services->getPermissionManager();
 				// If this is a minor edit, only notify if the agent doesn't have talk page minor
 				// edit notification blocked
 				if ( !$revision->isMinor() || !$permManager->userHasRight( $user, 'nominornewtalk' ) ) {
@@ -584,7 +584,7 @@ abstract class DiscussionParser {
 	 *
 	 * @todo Expand recognisable actions.
 	 *
-	 * @param array[] $changes Output of Event::getMachineReadableDiff
+	 * @param array[] $changes Output of DiscussionParser::getMachineReadableDiff
 	 * @param string $username
 	 * @param Title|null $title
 	 * @return array[] Array of associative arrays.
@@ -746,7 +746,7 @@ abstract class DiscussionParser {
 	 * @return array[] Converted actions
 	 */
 	private static function convertToUnknownSignedChanges( array $signedSections, array $actions ) {
-		return array_map( function ( $action ) use( $signedSections ) {
+		return array_map( function ( $action ) use ( $signedSections ) {
 			if (
 				$action['type'] === 'unknown-change' &&
 				self::isInSignedSection( $action['right-pos'], $signedSections )
@@ -1030,11 +1030,7 @@ abstract class DiscussionParser {
 
 		$output = [];
 
-		$lineNumber = 0;
-
 		foreach ( $lines as $line ) {
-			++$lineNumber;
-
 			// Look for the last user link on the line.
 			$userData = self::getUserFromLine( $line, $title );
 			if ( $userData === false ) {
@@ -1094,9 +1090,6 @@ abstract class DiscussionParser {
 			} elseif ( $title && $title->isSpecial( 'Contributions' ) ) {
 				$parts = explode( '/', $title->getText(), 2 );
 				$usernames[] = end( $parts );
-			} else {
-				// move on to next matched title-like excerpt
-				continue;
 			}
 		}
 
