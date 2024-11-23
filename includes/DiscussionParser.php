@@ -1204,7 +1204,7 @@ abstract class DiscussionParser {
 	 * @return string regular expression fragment.
 	 */
 	public static function getTimestampRegex() {
-		if ( self::$timestampRegex !== null ) {
+		if ( !defined( 'MW_PHPUNIT_TEST' ) && self::$timestampRegex !== null ) {
 			return self::$timestampRegex;
 		}
 
