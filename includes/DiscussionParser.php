@@ -9,6 +9,7 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Language\Language;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Article;
+use MediaWiki\Page\PageReferenceValue;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Parser\Sanitizer;
@@ -1272,10 +1273,10 @@ abstract class DiscussionParser {
 	public static function getTextSnippet(
 		$text, Language $lang, $length = self::DEFAULT_SNIPPET_LENGTH, $title = null, $linestart = true
 	) {
+		$title ??= PageReferenceValue::localReference( NS_SPECIAL, 'Badtitle/title not set in ' . __METHOD__ );
 		// Parse wikitext
-		$html = MediaWikiServices::getInstance()->getMessageCache()->parse( $text, $title, $linestart )->getText( [
-			'enableSectionEditLinks' => false
-		] );
+		$html = MediaWikiServices::getInstance()->getMessageCache()
+			->parseWithPostprocessing( $text, $title, $linestart, false, $lang )->getContentHolderText();
 		$plaintext = trim( Sanitizer::stripAllTags( $html ) );
 		return $lang->truncateForVisual( $plaintext, $length );
 	}
