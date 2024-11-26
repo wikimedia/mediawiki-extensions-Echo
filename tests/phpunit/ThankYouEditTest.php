@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Notifications\Test;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
@@ -29,17 +30,43 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 			->execute();
 	}
 
+	public function provideFirstEditRequestModes() {
+		return [
+			[ 'web' ],
+			[ 'cli' ]
+		];
+	}
+
 	/**
 	 * @covers \MediaWiki\Extension\Notifications\Hooks::onPageSaveComplete
+	 * @dataProvider provideFirstEditRequestModes
+	 * @param string $mode
 	 */
-	public function testFirstEdit() {
+	public function testFirstEdit( $mode ) {
+		// TODO: re-renable once I50aa9fe9387c9b7b7ff97dfd39a2830bce647db8 is merged.
+		// That is, after, endAtomic() in PageUpdater::doCreate() is tweaked
+		if ( $mode === 'cli' ) {
+			$this->markTestSkipped();
+		}
+
 		// setup
 		$this->deleteEchoData();
 		$user = $this->getMutableTestUser()->getUser();
 		$title = Title::newFromText( 'Help:MWEchoThankYouEditTest_testFirstEdit' );
 
 		// action
+		$db = $this->getDb();
+		// Web requests wrap the edit in a broader transaction via DBO_TRX and commit it in
+		// MediaWikiEntryPoint::commitMainTransaction(). We can largely simulate that by just
+		// using atomic sections.
+		$useAtomicSection = ( $mode === 'web' );
+		if ( $useAtomicSection ) {
+			$db->startAtomic( __METHOD__ );
+		}
 		$this->editPage( $title, 'this is my first edit', '', NS_MAIN, $user );
+		if ( $useAtomicSection ) {
+			$db->endAtomic( __METHOD__ );
+		}
 		DeferredUpdates::tryOpportunisticExecute();
 
 		// assertions
@@ -52,10 +79,24 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( 1, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
 	}
 
+	public function provideTenthEditRequestModes() {
+		return [
+			[ 'web' ],
+			[ 'cli' ]
+		];
+	}
+
 	/**
 	 * @covers \MediaWiki\Extension\Notifications\Hooks::onPageSaveComplete
+	 * @dataProvider provideTenthEditRequestModes
+	 * @param string $mode
 	 */
-	public function testTenthEdit() {
+	public function testTenthEdit( $mode ) {
+		// TODO: re-renable once endAtomic() in PageUpdater::doCreate() is tweaked
+		if ( $mode === 'cli' ) {
+			$this->markTestSkipped();
+		}
+
 		// setup
 		$this->deleteEchoData();
 		$user = $this->getMutableTestUser()->getUser();
@@ -66,10 +107,21 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 		// we could fast-forward the edit-count to speed things up
 		// but this is the only way to make sure duplicate notifications
 		// are not generated
+		$db = $this->getDb();
+		// Web requests wrap the edit in a broader transaction via DBO_TRX and commit it in
+		// MediaWikiEntryPoint::commitMainTransaction(). We can largely simulate that by just
+		// using atomic sections.
+		$useAtomicSection = ( $mode === 'web' );
 		for ( $i = 0; $i < 12; $i++ ) {
+			if ( $useAtomicSection ) {
+				$db->startAtomic( __METHOD__ );
+			}
 			$this->editPage( $page, "this is edit #$i", '', NS_MAIN, $user );
+			if ( $useAtomicSection ) {
+				$db->endAtomic( __METHOD__ );
+			}
+			DeferredUpdates::tryOpportunisticExecute();
 		}
-		DeferredUpdates::tryOpportunisticExecute();
 		$user->clearInstanceCache();
 
 		// assertions

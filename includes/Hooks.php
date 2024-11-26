@@ -596,7 +596,7 @@ class Hooks implements
 		// test for them reaching a congratulatory threshold
 		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000 ];
 		if ( $userIdentity->isRegistered() ) {
-			$thresholdCount = $this->getEditCount( $userIdentity );
+			$thresholdCount = $this->getPredictedEditCount( $userIdentity );
 			if ( in_array( $thresholdCount, $thresholds ) ) {
 				DeferredUpdates::addCallableUpdate( static function () use (
 					$revisionRecord, $userIdentity, $title, $thresholdCount
@@ -664,17 +664,16 @@ class Hooks implements
 	}
 
 	/**
+	 * Get the predicted edit count after a page save hook
+	 *
 	 * @param UserIdentity $user
 	 * @return int
 	 */
-	private function getEditCount( UserIdentity $user ) {
+	private function getPredictedEditCount( UserIdentity $user ) {
 		$editCount = $this->userEditTracker->getUserEditCount( $user ) ?: 0;
-		// When this code runs from a maintenance script or unit tests
-		// the deferred update incrementing edit count runs right away
-		// so the edit count is right. Otherwise it lags by one.
-		if ( wfIsCLI() ) {
-			return $editCount;
-		}
+		// When this code runs, the deferred update that increments the edit count
+		// will still be pending.
+
 		return $editCount + 1;
 	}
 
