@@ -33,10 +33,11 @@ class InstallSchemaTask extends Task {
 	}
 
 	public function execute(): Status {
+		$status = Status::newGood();
 		$cluster = $this->getConfigVar( 'EchoCluster' );
 		if ( !$cluster ) {
 			// This case is adequately handled by LoadExtensionSchemaUpdates
-			return Status::newGood();
+			return $status;
 		}
 
 		// Get the load balancer
@@ -54,7 +55,10 @@ class InstallSchemaTask extends Task {
 		// Create tables
 		$dbw = $echoLB->getMaintenanceConnectionRef( DB_PRIMARY );
 		$dbw->setSchemaVars( $this->getContext()->getSchemaVars() );
-		return $this->applySourceFile( $dbw, 'tables-generated.sql' );
+		if ( !$dbw->tableExists( 'echo_event' ) ) {
+			$status = $this->applySourceFile( $dbw, 'tables-generated.sql' );
+		}
+		return $status;
 	}
 
 }
