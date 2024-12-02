@@ -81,7 +81,7 @@
 	"echo-pref-email-format-plain-text": "Texte brut",
 	"echo-pref-cross-wiki-notifications": "Afficher les notifications d’autres wikis",
 	"echo-pref-notifications-blacklist": "Ne pas afficher les notifications de ces utilisateurs. ([https://www.mediawiki.org/wiki/Help:Notifications/fr#mute en savoir plus])",
-	"echo-pref-notifications-page-linked-title-muted-list": "Ne pas afficher les notifications « Page liée » pour ces pages. ([https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications#mute learn more])",
+	"echo-pref-notifications-page-linked-title-muted-list": "Ne pas afficher les notifications « Page liée » pour ces pages. ([https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications#mute en savoir plus])",
 	"echo-pref-dont-email-read-notifications": "Ne pas inclure les notifications déjà lues dans les courriels de résumé",
 	"echo-learn-more": "En savoir plus",
 	"echo-log": "Journal public",
