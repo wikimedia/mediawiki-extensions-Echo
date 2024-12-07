@@ -87,11 +87,8 @@ class Notification extends AbstractEntity implements Bundleable {
 		}
 
 		// Notification timestamp should be the same as event timestamp
-		$obj->timestamp = $obj->event->getTimestamp();
-		// Safe fallback
-		if ( !$obj->timestamp ) {
-			$obj->timestamp = wfTimestampNow();
-		}
+		// Otherwise use safe fallback
+		$obj->timestamp = $obj->event->getTimestamp() ?: wfTimestampNow();
 
 		// @Todo - Database insert logic should not be inside the model
 		$obj->insert();
