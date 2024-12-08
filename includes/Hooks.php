@@ -84,6 +84,8 @@ use SkinTemplate;
 use Wikimedia\Stats\StatsFactory;
 use WikiPage;
 
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 class Hooks implements
 	AbortTalkPageEmailNotificationHook,
 	ApiMain__moduleManagerHook,
