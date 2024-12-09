@@ -356,7 +356,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider PageLinkedTitleMutedByUserDataProvider
+	 * @dataProvider pageLinkedTitleMutedByUserDataProvider
 	 * @param int $mockArticleID
 	 * @param int[] $mockMutedTitlePreferences
 	 * @param bool $expected
@@ -375,7 +375,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public static function PageLinkedTitleMutedByUserDataProvider(): array {
+	public static function pageLinkedTitleMutedByUserDataProvider(): array {
 		return [
 			[
 				123,
