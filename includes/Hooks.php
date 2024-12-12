@@ -1127,10 +1127,29 @@ class Hooks implements
 			// Record that the user is going to see an indicator that they have unseen notifications
 			// This is part of tracking how likely users are to click a badge with unseen notifications.
 			// The other part is the 'echo.unseen.click' counter, see ext.echo.init.js.
+			// TODO: remove the dedicated Graphite metric counter.MediaWiki.echo.unseen.click once
+			// dashboard consuming Prometheus is setup, T381607
 			$this->statsFactory->getCounter( 'unseen_total' )
 				->copyToStatsdAt( 'echo.unseen' )
 				->increment();
+
+			$wiki = WikiMap::getCurrentWikiId();
+			$this->statsFactory->getCounter( 'unseen_impression_total' )
+				->setLabel( 'wiki', $wiki )
+				->setLabel( 'user_type', $this->getUserTypeForStats( $user ) )
+				->increment();
 		}
+	}
+
+	private function getUserTypeForStats( User $user ): string {
+		if ( $user->isAnon() ) {
+			return 'ip';
+		} elseif ( $user->isTemp() ) {
+			return 'temp';
+		} elseif ( $user->isNamed() ) {
+			return 'registered';
+		}
+		return 'unknown';
 	}
 
 	/**

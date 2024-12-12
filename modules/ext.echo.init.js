@@ -253,7 +253,14 @@ function initDesktop() {
 					// Clicked on the flyout due to having unread notifications
 					// This is part of tracking how likely users are to click a badge with unseen notifications.
 					// The other part is the 'echo.unseen' counter, see EchoHooks::onSkinTemplateNavigationUniversal().
+					// TODO: remove the dedicated Graphite metric counter.MediaWiki.echo.unseen.click once
+					// dashboard consuming Prometheus is setup, T381607
 					mw.track( 'counter.MediaWiki.echo.unseen.click' );
+					mw.track( 'stats.mediawiki_echo_unseen_click_total', 1, {
+						wiki: mw.config.get( 'wgDBname' ),
+						// eslint-disable-next-line camelcase
+						user_type: getUserTypeForStats()
+					} );
 				}
 			}, () => {
 				// Un-dim badge if loading failed
@@ -281,6 +288,23 @@ function initDesktop() {
 
 	} );
 
+}
+
+/**
+ * Get the user type for stats metrics
+ * Needs to be in sync with Echo/includes/Hooks.php
+ *
+ * @return {string}
+ */
+function getUserTypeForStats() {
+	if ( mw.user.isAnon() ) {
+		return 'ip';
+	} else if ( mw.user.isTemp() ) {
+		return 'temp';
+	} else if ( mw.user.isNamed() ) {
+		return 'registered';
+	}
+	return 'unknown';
 }
 
 /**
