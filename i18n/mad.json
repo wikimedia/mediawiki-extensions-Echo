@@ -51,5 +51,6 @@
 	"echo-category-title-api-triggered": "Pamartèlan sè èsolet API",
 	"tooltip-pt-notifications-alert": "Parèmotân {{GENDER:|Abâ'na}}",
 	"echo-displaynotificationsconfiguration": "Konfigurasi robâ pratèlan",
-	"echo-displaynotificationsconfiguration-summary": "Ariya aslèra ikhtisar konfigurasi partèlan ḍâ' ka wiki riya."
+	"echo-displaynotificationsconfiguration-summary": "Ariya aslèra ikhtisar konfigurasi partèlan ḍâ' ka wiki riya.",
+	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Partèlan anot category"
 }
