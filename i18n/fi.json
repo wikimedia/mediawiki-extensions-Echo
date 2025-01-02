@@ -251,7 +251,7 @@
 	"echo-foreign-wiki-lang": "$1 – $2",
 	"right-manage-all-push-subscriptions": "Hallita kaikkia push-tilauksia",
 	"action-manage-all-push-subscriptions": "hallita kaikkia push-tilauksia",
-	"group-push-subscription-manager": "Push-tilauksien hallitsijat",
+	"group-push-subscription-manager": "push-tilauksien hallitsijat",
 	"group-push-subscription-manager-member": "{{GENDER:$1|push-tilauksien hallitsija}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:Push-tilauksien hallitsijat"
 }
