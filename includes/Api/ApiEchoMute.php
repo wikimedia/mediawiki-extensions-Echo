@@ -122,6 +122,7 @@ class ApiEchoMute extends ApiBase {
 		return implode( "\n", $ids );
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams( $flags = 0 ) {
 		return [
 			'type' => [
@@ -137,14 +138,17 @@ class ApiEchoMute extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function needsToken() {
 		return 'csrf';
 	}
 
+	/** @inheritDoc */
 	public function mustBePosted() {
 		return true;
 	}
 
+	/** @inheritDoc */
 	public function isWriteMode() {
 		return true;
 	}

@@ -10,14 +10,17 @@ use MediaWiki\Revision\RevisionRecord;
 
 class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 
+	/** @inheritDoc */
 	public function canRender() {
 		return (bool)$this->event->getTitle();
 	}
 
+	/** @inheritDoc */
 	public function getIconType() {
 		return 'edit-user-page';
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		return [
 			'url' => $this->getDiffLinkUrl(),
@@ -25,6 +28,7 @@ class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getSecondaryLinks() {
 		if ( $this->isBundled() ) {
 			return [];
@@ -33,6 +37,7 @@ class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		if ( $this->isBundled() ) {
 			$msg = $this->msg( 'notification-bundle-header-edit-user-page' );
@@ -49,12 +54,14 @@ class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getCompactHeaderMessage() {
 		$msg = $this->getMessageWithAgent( 'notification-compact-header-edit-user-page' );
 		$msg->params( $this->getViewingUserForGender() );
 		return $msg;
 	}
 
+	/** @inheritDoc */
 	public function getBodyMessage() {
 		$revision = $this->event->getRevision();
 		if ( $revision && $revision->getComment() && $this->userCan( RevisionRecord::DELETED_COMMENT ) ) {
@@ -91,6 +98,7 @@ class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 		return $oldRevisionID;
 	}
 
+	/** @inheritDoc */
 	protected function getSubjectMessageKey() {
 		return 'notification-edit-user-page-email-subject';
 	}

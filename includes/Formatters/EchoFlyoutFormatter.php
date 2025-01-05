@@ -13,6 +13,7 @@ use MediaWiki\Utils\MWTimestamp;
  * sending HTML for backwards compatibility.
  */
 class EchoFlyoutFormatter extends EchoEventFormatter {
+	/** @inheritDoc */
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$icon = Html::element(
 			'img',

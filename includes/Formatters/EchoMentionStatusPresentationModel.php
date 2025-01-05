@@ -28,6 +28,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		$this->section = new EchoPresentationModelSection( $event, $user, $language );
 	}
 
+	/** @inheritDoc */
 	public function getIconType() {
 		if ( $this->isMixedBundle() ) {
 			return 'mention-status-bundle';
@@ -38,10 +39,12 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		return 'mention-failure';
 	}
 
+	/** @inheritDoc */
 	public function canRender() {
 		return (bool)$this->event->getTitle();
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		if ( $this->isTooManyMentionsFailure() ) {
 			$msg = $this->getMessageWithAgent( 'notification-header-mention-failure-too-many' );
@@ -84,6 +87,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		return $msg;
 	}
 
+	/** @inheritDoc */
 	public function getCompactHeaderMessage() {
 		if ( $this->isMentionSuccess() ) {
 			$msg = $this->getMessageWithAgent( 'notification-compact-header-mention-success' );
@@ -97,6 +101,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		return $msg;
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		return [
 			// Need FullURL so the section is included
@@ -107,6 +112,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getSecondaryLinks() {
 		if ( $this->isBundled() ) {
 			return [];

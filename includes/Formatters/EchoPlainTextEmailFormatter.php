@@ -6,6 +6,7 @@ use MediaWiki\Parser\Sanitizer;
 use MediaWiki\SpecialPage\SpecialPage;
 
 class EchoPlainTextEmailFormatter extends EchoEventFormatter {
+	/** @inheritDoc */
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$subject = Sanitizer::stripAllTags( $model->getSubjectMessage()->parse() );
 

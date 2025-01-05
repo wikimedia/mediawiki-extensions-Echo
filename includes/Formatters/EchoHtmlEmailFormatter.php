@@ -27,6 +27,7 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 		'font-family: Arial, Helvetica, sans-serif;' .
 		'color: #72777D;';
 
+	/** @inheritDoc */
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$subject = $model->getSubjectMessage()->parse();
 

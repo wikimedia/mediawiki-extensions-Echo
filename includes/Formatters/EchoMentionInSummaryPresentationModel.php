@@ -8,14 +8,17 @@ use MediaWiki\Revision\RevisionRecord;
 
 class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 
+	/** @inheritDoc */
 	public function getIconType() {
 		return 'mention';
 	}
 
+	/** @inheritDoc */
 	public function canRender() {
 		return (bool)$this->event->getTitle();
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		$msg = $this->getMessageWithAgent( 'notification-header-mention-summary' );
 		$msg->params( $this->getViewingUserForGender() );
@@ -24,6 +27,7 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 		return $msg;
 	}
 
+	/** @inheritDoc */
 	public function getBodyMessage() {
 		$revision = $this->event->getRevision();
 		if ( $revision && $revision->getComment() && $this->userCan( RevisionRecord::DELETED_COMMENT ) ) {
@@ -39,6 +43,7 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		return [
 			'url' => $this->getDiffURL(),
@@ -46,10 +51,12 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getSecondaryLinks() {
 		return [ $this->getAgentLink() ];
 	}
 
+	/** @inheritDoc */
 	protected function getSubjectMessageKey() {
 		return 'notification-mention-email-subject';
 	}
