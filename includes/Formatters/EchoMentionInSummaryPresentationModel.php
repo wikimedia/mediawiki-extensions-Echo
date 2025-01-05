@@ -54,7 +54,7 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 		return 'notification-mention-email-subject';
 	}
 
-	private function getDiffURL() {
+	private function getDiffURL(): string {
 		return $this->event->getTitle()->getLocalURL( [
 			'oldid' => 'prev',
 			'diff' => $this->event->getExtraParam( 'revid' )

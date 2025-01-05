@@ -211,7 +211,7 @@ class Notification extends AbstractEntity implements Bundleable {
 		return $this->readTimestamp;
 	}
 
-	public function isRead() {
+	public function isRead(): bool {
 		return $this->getReadTimestamp() !== null;
 	}
 
@@ -237,7 +237,7 @@ class Notification extends AbstractEntity implements Bundleable {
 		$this->bundledNotifications = $notifications;
 	}
 
-	public function getBundledNotifications() {
+	public function getBundledNotifications(): array {
 		return $this->bundledNotifications;
 	}
 

@@ -109,11 +109,11 @@ class ApiEchoMute extends ApiBase {
 		}
 	}
 
-	private function parsePref( $prefValue ) {
+	private function parsePref( string $prefValue ): array {
 		return preg_split( '/\n/', $prefValue, -1, PREG_SPLIT_NO_EMPTY );
 	}
 
-	private function serializePref( $ids ) {
+	private function serializePref( array $ids ): string {
 		return implode( "\n", $ids );
 	}
 

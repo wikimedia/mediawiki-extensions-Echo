@@ -105,7 +105,7 @@ class EchoUserRightsPresentationModel extends EchoEventPresentationModel {
 		return [ $this->getAgentLink(), $this->getLogLink() ];
 	}
 
-	private function getLogLink() {
+	private function getLogLink(): array {
 		$affectedUserPage = User::newFromId( $this->event->getExtraParam( 'user' ) )->getUserPage();
 		$query = [
 			'type' => 'rights',

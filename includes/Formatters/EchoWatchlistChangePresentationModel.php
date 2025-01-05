@@ -80,7 +80,7 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 		return false;
 	}
 
-	private function isMultiUserBundle() {
+	private function isMultiUserBundle(): bool {
 		foreach ( $this->getBundledEvents() as $bundled ) {
 			if ( !$bundled->getAgent()->equals( $this->event->getAgent() ) ) {
 				return true;
@@ -89,7 +89,7 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 		return false;
 	}
 
-	private function isMultiTypeBundle() {
+	private function isMultiTypeBundle(): bool {
 		foreach ( $this->getBundledEvents() as $bundled ) {
 			if ( $bundled->getExtraParam( 'status' ) !== $this->event->getExtraParam( 'status' ) ) {
 				return true;
@@ -98,7 +98,7 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 		return false;
 	}
 
-	private function getViewChangesUrl() {
+	private function getViewChangesUrl(): string {
 		$revid = $this->event->getExtraParam( 'revid' );
 		if ( $revid === 0 ) {
 			$url = SpecialPage::getTitleFor( 'Log' )->getLocalUrl( [
