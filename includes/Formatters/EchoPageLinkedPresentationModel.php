@@ -62,6 +62,9 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		return [ $whatLinksHereLink, $this->getMuteLink() ];
 	}
 
+	/**
+	 * @return array|null
+	 */
 	protected function getMuteLink() {
 		if ( !MediaWikiServices::getInstance()->getMainConfig()->get( 'EchoPerUserBlacklist' ) ) {
 			return null;
@@ -158,6 +161,9 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		return 0;
 	}
 
+	/**
+	 * @return Title
+	 */
 	private function getPageFrom() {
 		if ( !$this->pageFrom ) {
 			$this->pageFrom = Title::newFromID( $this->getLinkedPageId( $this->event ) );

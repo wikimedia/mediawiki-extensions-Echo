@@ -715,10 +715,16 @@ class Event extends AbstractEntity implements Bundleable {
 		return true;
 	}
 
+	/**
+	 * @param string|null $type
+	 */
 	public function setType( $type ) {
 		$this->type = $type;
 	}
 
+	/**
+	 * @param string|null $variant
+	 */
 	public function setVariant( $variant ) {
 		$this->variant = $variant;
 	}
@@ -738,6 +744,10 @@ class Event extends AbstractEntity implements Bundleable {
 		}
 	}
 
+	/**
+	 * @param string $name
+	 * @param mixed $value
+	 */
 	public function setExtra( $name, $value ) {
 		$this->extra[$name] = $value;
 	}

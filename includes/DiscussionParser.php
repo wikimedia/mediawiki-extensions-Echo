@@ -731,6 +731,13 @@ abstract class DiscussionParser {
 		return $actions;
 	}
 
+	/**
+	 * @param string $oldContent
+	 * @param string $newContent
+	 * @param string $username
+	 * @param Title|null $title
+	 * @return bool
+	 */
 	private static function hasNewSignature( $oldContent, $newContent, $username, $title ) {
 		$oldSignedUsers = self::extractSignatures( $oldContent, $title );
 		$newSignedUsers = self::extractSignatures( $newContent, $title );
