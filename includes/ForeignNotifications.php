@@ -28,22 +28,22 @@ class ForeignNotifications {
 	protected $enabled = false;
 
 	/**
-	 * @var int[] [(str) section => (int) count, ...]
+	 * @var array<string,int> [ section => count ]
 	 */
 	protected $counts = [ AttributeManager::ALERT => 0, AttributeManager::MESSAGE => 0 ];
 
 	/**
-	 * @var array[] [(str) section => (string[]) wikis, ...]
+	 * @var array<string,string[]> [ section => wikis ]
 	 */
 	protected $wikis = [ AttributeManager::ALERT => [], AttributeManager::MESSAGE => [] ];
 
 	/**
-	 * @var array [(str) section => (MWTimestamp) timestamp, ...]
+	 * @var array<string,MWTimestamp|false> [ section => timestamp ]
 	 */
 	protected $timestamps = [ AttributeManager::ALERT => false, AttributeManager::MESSAGE => false ];
 
 	/**
-	 * @var array[] [(str) wiki => [ (str) section => (MWTimestamp) timestamp, ...], ...]
+	 * @var array<string,array<string,MWTimestamp|false>> [ wiki => [ section => timestamp ] ]
 	 */
 	protected $wikiTimestamps = [];
 
@@ -129,6 +129,11 @@ class ForeignNotifications {
 		return $this->wikis[$section] ?? [];
 	}
 
+	/**
+	 * @param string $wiki
+	 * @param string $section
+	 * @return MWTimestamp|false
+	 */
 	public function getWikiTimestamp( $wiki, $section = AttributeManager::ALL ) {
 		$this->populate();
 		if ( !isset( $this->wikiTimestamps[$wiki] ) ) {
