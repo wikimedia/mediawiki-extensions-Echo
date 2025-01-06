@@ -253,8 +253,6 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $dbResult['delete'] );
 		$db->method( 'selectRow' )
 			->willReturn( $dbResult['selectRow'] );
-		$db->method( 'onTransactionCommitOrIdle' )
-			->will( new EchoExecuteFirstArgumentStub );
 		$db->method( 'newSelectQueryBuilder' )
 			->willReturnCallback( static function () use ( $db ) {
 				return new SelectQueryBuilder( $db );
