@@ -18,7 +18,6 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 		$input = [
 			'event_id' => 2,
 			'event_type' => 'mention',
-			'event_variant' => null,
 			'event_agent_id' => 3,
 			'event_agent_ip' => null,
 			'event_page_title' => '',

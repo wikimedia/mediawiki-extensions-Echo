@@ -33,7 +33,10 @@ class Event extends AbstractEntity implements Bundleable {
 	protected $type = null;
 	/** @var int|null|false */
 	protected $id = null;
-	/** @var string|null */
+	/**
+	 * @var null
+	 * @deprecated to be removed
+	 */
 	protected $variant = null;
 	/**
 	 * @var User|null
@@ -234,7 +237,6 @@ class Event extends AbstractEntity implements Bundleable {
 	public function toDbArray() {
 		$data = [
 			'event_type' => $this->type,
-			'event_variant' => $this->variant,
 			'event_deleted' => $this->deleted,
 			'event_extra' => $this->serializeExtra()
 		];
@@ -275,7 +277,6 @@ class Event extends AbstractEntity implements Bundleable {
 			$obj->id = $data['event_id'];
 		}
 		$obj->type = $data['event_type'];
-		$obj->variant = $data['event_variant'];
 		$obj->extra = $data['event_extra'] ? unserialize( $data['event_extra'] ) : [];
 		if ( isset( $data['event_page_id'] ) ) {
 			$obj->pageId = $data['event_page_id'];
@@ -387,7 +388,6 @@ class Event extends AbstractEntity implements Bundleable {
 			}
 		}
 
-		$this->variant = $row->event_variant;
 		try {
 			$this->extra = $row->event_extra ? unserialize( $row->event_extra ) : [];
 		} catch ( Exception $e ) {
@@ -832,7 +832,6 @@ class Event extends AbstractEntity implements Bundleable {
 		return [
 			'event_id',
 			'event_type',
-			'event_variant',
 			'event_agent_id',
 			'event_agent_ip',
 			'event_extra',

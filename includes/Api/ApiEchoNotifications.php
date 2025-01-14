@@ -427,7 +427,6 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$row = (object)[
 			'event_id' => -1,
 			'event_type' => 'foreign',
-			'event_variant' => null,
 			'event_agent_id' => $user->getId(),
 			'event_agent_ip' => null,
 			'event_page_id' => null,
