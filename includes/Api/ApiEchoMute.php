@@ -88,6 +88,11 @@ class ApiEchoMute extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), 'success' );
 	}
 
+	/**
+	 * @param string[] $names
+	 * @param string $type
+	 * @return int[]
+	 */
 	private function lookupIds( $names, $type ) {
 		if ( $type === 'title' ) {
 			$linkBatch = $this->linkBatchFactory->newLinkBatch();
