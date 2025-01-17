@@ -237,7 +237,7 @@ class Notification extends AbstractEntity implements Bundleable {
 		$this->bundledNotifications = $notifications;
 	}
 
-	public function getBundledNotifications(): array {
+	public function getBundledNotifications(): ?array {
 		return $this->bundledNotifications;
 	}
 

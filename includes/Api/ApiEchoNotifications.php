@@ -324,10 +324,13 @@ class ApiEchoNotifications extends ApiQueryBase {
 			$output = DataOutputFormatter::formatOutput( $notif, $format, $user, $this->getLanguage() );
 			if ( $output !== false ) {
 				$result['list'][] = $output;
-			} elseif ( $bundler && $notif->getBundledNotifications() ) {
-				// when the bundle_base gets filtered out, bundled notifications
-				// have to be re-bundled and formatted
-				$notifs = array_merge( $bundler->bundle( $notif->getBundledNotifications() ), $notifs );
+			} elseif ( $bundler ) {
+				$bundledNotifications = $notif->getBundledNotifications();
+				if ( $bundledNotifications ) {
+					// when the bundle_base gets filtered out, bundled notifications
+					// have to be re-bundled and formatted
+					$notifs = array_merge( $bundler->bundle( $bundledNotifications ), $notifs );
+				}
 			}
 		}
 
