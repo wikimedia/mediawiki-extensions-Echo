@@ -311,7 +311,6 @@ abstract class DiscussionParser {
 		}
 
 		$events = [];
-		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
 
 		if ( $overallMentionsCount > $wgEchoMaxMentionsCount ) {
 			if ( $wgEchoMentionStatusNotifications ) {
@@ -324,7 +323,6 @@ abstract class DiscussionParser {
 					],
 					'agent' => $agent,
 				];
-				$stats->increment( 'echo.event.mention.notification.failure-too-many' );
 			}
 			return $events;
 		}
@@ -356,7 +354,6 @@ abstract class DiscussionParser {
 					],
 					'agent' => $agent,
 				];
-				$stats->increment( 'echo.event.mention.notification.success' );
 			}
 
 			// TODO batch?
@@ -372,7 +369,6 @@ abstract class DiscussionParser {
 					],
 					'agent' => $agent,
 				];
-				$stats->increment( 'echo.event.mention.notification.failure-user-anonymous' );
 			}
 
 			// TODO batch?
@@ -388,7 +384,6 @@ abstract class DiscussionParser {
 					],
 					'agent' => $agent,
 				];
-				$stats->increment( 'echo.event.mention.notification.failure-user-unknown' );
 			}
 		}
 
@@ -419,14 +414,12 @@ abstract class DiscussionParser {
 		];
 
 		$count = 0;
-		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
 		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 
 		foreach ( $userLinks as $dbk => $page_id ) {
 			// If more users are being pinged this is likely a spam/attack vector
 			// Don't send any mention notifications.
 			if ( $count > $wgEchoMaxMentionsCount ) {
-				$stats->increment( 'echo.event.mention.error.tooMany' );
 				break;
 			}
 
@@ -440,7 +433,6 @@ abstract class DiscussionParser {
 			if ( $userNameUtils->isIP( $dbk ) ) {
 				$userMentions['anonymousUsers'][] = $dbk;
 				$count++;
-				$stats->increment( 'echo.event.mention.error.anonUser' );
 				continue;
 			}
 
@@ -449,19 +441,16 @@ abstract class DiscussionParser {
 			if ( !$user ) {
 				$userMentions['unknownUsers'][] = str_replace( '_', ' ', $dbk );
 				$count++;
-				$stats->increment( 'echo.event.mention.error.invalidUser' );
 				continue;
 			}
 
 			// 4. the user mentions themselves
 			if ( $user->getId() === $revisionUserId ) {
-				$stats->increment( 'echo.event.mention.error.sameUser' );
 				continue;
 			}
 
 			// 5. the user is the owner of the talk page
 			if ( $title->getNamespace() === NS_USER_TALK && $title->getDBkey() === $dbk ) {
-				$stats->increment( 'echo.event.mention.error.ownPage' );
 				continue;
 			}
 
@@ -469,7 +458,6 @@ abstract class DiscussionParser {
 			if ( $user->getId() === 0 ) {
 				$userMentions['unknownUsers'][] = str_replace( '_', ' ', $dbk );
 				$count++;
-				$stats->increment( 'echo.event.mention.error.unknownUser' );
 				continue;
 			}
 
