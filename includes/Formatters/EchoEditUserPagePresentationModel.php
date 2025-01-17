@@ -70,7 +70,7 @@ class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 		return false;
 	}
 
-	private function getDiffLinkUrl() {
+	private function getDiffLinkUrl(): string {
 		$revId = $this->event->getExtraParam( 'revid' );
 		$oldId = $this->isBundled() ? $this->getRevBeforeFirstNotification() : 'prev';
 		$query = [
@@ -80,7 +80,7 @@ class EchoEditUserPagePresentationModel extends EchoEventPresentationModel {
 		return $this->event->getTitle()->getFullURL( $query );
 	}
 
-	private function getRevBeforeFirstNotification() {
+	private function getRevBeforeFirstNotification(): int {
 		$events = $this->getBundledEvents();
 		$firstNotificationRevId = end( $events )->getExtraParam( 'revid' );
 		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();

@@ -395,7 +395,7 @@ abstract class DiscussionParser {
 		return $events;
 	}
 
-	private static function getOverallUserMentionsCount( array $userMentions ) {
+	private static function getOverallUserMentionsCount( array $userMentions ): int {
 		return count( $userMentions, COUNT_RECURSIVE ) - count( $userMentions );
 	}
 
@@ -497,7 +497,7 @@ abstract class DiscussionParser {
 		return $links[NS_USER];
 	}
 
-	private static function hasSubpage( $dbk ) {
+	private static function hasSubpage( string $dbk ): bool {
 		return strpos( $dbk, '/' ) !== false;
 	}
 

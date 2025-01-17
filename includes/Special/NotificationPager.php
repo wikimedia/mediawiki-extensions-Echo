@@ -52,6 +52,9 @@ class NotificationPager extends ReverseChronologicalPager {
 		];
 	}
 
+	/**
+	 * @return Notification[]
+	 */
 	public function getNotifications() {
 		if ( !$this->mQueryDone ) {
 			$this->doQuery();

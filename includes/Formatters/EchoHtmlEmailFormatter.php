@@ -66,7 +66,9 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 		];
 	}
 
-	private function renderBody( Language $lang, $emailIcon, $summary, $action, $intro, $footer ) {
+	private function renderBody(
+		Language $lang, string $emailIcon, string $summary, string $action, string $intro, string $footer
+	): string {
 		$alignStart = $lang->alignStart();
 		$langCode = $lang->getHtmlCode();
 		$langDir = $lang->getDir();
@@ -172,7 +174,7 @@ EOF;
 		return $footer;
 	}
 
-	private function renderLink( $link, $style ) {
+	private function renderLink( array $link, string $style ): string {
 		return Html::element(
 			'a',
 			[

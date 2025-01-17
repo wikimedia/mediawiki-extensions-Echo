@@ -119,15 +119,15 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		return [ $this->getAgentLink(), $viewChangesLink ];
 	}
 
-	private function onArticleTalkpage() {
+	private function onArticleTalkpage(): bool {
 		return $this->event->getTitle()->getNamespace() === NS_TALK;
 	}
 
-	private function onAgentTalkpage() {
+	private function onAgentTalkpage(): bool {
 		return $this->event->getTitle()->equals( $this->event->getAgent()->getTalkPage() );
 	}
 
-	private function onUserTalkpage() {
+	private function onUserTalkpage(): bool {
 		$title = $this->event->getTitle();
 		return $title->getNamespace() === NS_USER_TALK && !$title->isSubpage();
 	}

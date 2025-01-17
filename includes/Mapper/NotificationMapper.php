@@ -195,7 +195,7 @@ class NotificationMapper extends AbstractMapper {
 		);
 	}
 
-	protected function getIdsForTitles( array $titles ) {
+	protected function getIdsForTitles( array $titles ): array {
 		$ids = [];
 		foreach ( $titles as $title ) {
 			if ( $title === null ) {

@@ -60,7 +60,9 @@ class EchoHtmlDigestEmailFormatter extends EchoEventDigestFormatter {
 		];
 	}
 
-	private function renderBody( Language $language, $intro, $digestList, $action, $footer ) {
+	private function renderBody(
+		Language $language, string $intro, string $digestList, string $action, string $footer
+	): string {
 		$alignStart = $language->alignStart();
 		$langCode = $language->getHtmlCode();
 		$langDir = $language->getDir();
@@ -206,7 +208,7 @@ EOF;
 EOF;
 	}
 
-	private function renderDigestList( $eventsByCategory ) {
+	private function renderDigestList( array $eventsByCategory ): string {
 		$result = [];
 		// build the html section for each category
 		foreach ( $eventsByCategory as $category => $models ) {
@@ -222,7 +224,7 @@ EOF;
 		return trim( implode( "\n", $result ) );
 	}
 
-	private function renderAction() {
+	private function renderAction(): string {
 		return Html::element(
 			'a',
 			[

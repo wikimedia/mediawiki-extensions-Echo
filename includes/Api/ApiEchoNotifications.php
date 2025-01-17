@@ -459,7 +459,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return $output;
 	}
 
-	protected function getForeignQueryParams() {
+	protected function getForeignQueryParams(): array {
 		$params = $this->getRequest()->getValues();
 
 		// don't request cross-wiki notification summaries

@@ -869,7 +869,7 @@ class Hooks implements
 		] );
 	}
 
-	private function processMarkAsRead( User $user, WebRequest $request, Title $title ) {
+	private function processMarkAsRead( User $user, WebRequest $request, Title $title ): array {
 		$subtractions = [
 			AttributeManager::ALERT => 0,
 			AttributeManager::MESSAGE => 0
@@ -1434,7 +1434,7 @@ class Hooks implements
 		$messages[] = 'echo-notification-loginrequired';
 	}
 
-	public static function getConfigVars( RL\Context $context, Config $config ) {
+	public static function getConfigVars( RL\Context $context, Config $config ): array {
 		return [
 			'EchoMaxNotificationCount' => NotifUser::MAX_BADGE_COUNT,
 			'EchoPollForUpdates' => $config->get( ConfigNames::PollForUpdates )

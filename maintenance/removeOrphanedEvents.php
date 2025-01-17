@@ -57,7 +57,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		return true;
 	}
 
-	private function doMajorBatch( $maxId ) {
+	private function doMajorBatch( int $maxId ): array {
 		$dbFactory = DbFactory::newFromDefault();
 		$dbw = $dbFactory->getEchoDb( DB_PRIMARY );
 		$dbr = $dbFactory->getEchoDb( DB_REPLICA );

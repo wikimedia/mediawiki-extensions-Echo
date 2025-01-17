@@ -75,7 +75,7 @@ class Event extends AbstractEntity implements Bundleable {
 	/**
 	 * Other events bundled with this one
 	 *
-	 * @var Event[]
+	 * @var Event[]|null
 	 */
 	protected $bundledEvents;
 
@@ -791,7 +791,7 @@ class Event extends AbstractEntity implements Bundleable {
 		$this->bundledEvents = $events;
 	}
 
-	public function getBundledEvents() {
+	public function getBundledEvents(): ?array {
 		return $this->bundledEvents;
 	}
 

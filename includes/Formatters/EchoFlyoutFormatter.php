@@ -70,7 +70,7 @@ class EchoFlyoutFormatter extends EchoEventFormatter {
 		);
 	}
 
-	private function getIconUrl( EchoEventPresentationModel $model ) {
+	private function getIconUrl( EchoEventPresentationModel $model ): string {
 		return EchoIcon::getUrl(
 			$model->getIconType(),
 			$this->language->getDir()
