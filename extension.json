@@ -434,7 +434,6 @@
 			},
 			"dependencies": [
 				"ext.echo.ui",
-				"mediawiki.Uri",
 				"mediawiki.user",
 				"ext.echo.styles.special"
 			],
