@@ -423,8 +423,8 @@ class ApiEchoNotifications extends ApiQueryBase {
 
 		// Sort wikis by timestamp, in descending order (newest first)
 		usort( $wikis, static function ( $a, $b ) use ( $section, $timestampsByWiki ) {
-			return (int)$timestampsByWiki[$b]->getTimestamp( TS_UNIX )
-				- (int)$timestampsByWiki[$a]->getTimestamp( TS_UNIX );
+			return (int)( $timestampsByWiki[$b] ? $timestampsByWiki[$b]->getTimestamp( TS_UNIX ) : -1 )
+				- (int)( $timestampsByWiki[$a] ? $timestampsByWiki[$a]->getTimestamp( TS_UNIX ) : -1 );
 		} );
 
 		$row = (object)[
@@ -457,7 +457,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$output['sources'] = ForeignNotifications::getApiEndpoints( $wikis );
 		// Add timestamp information
 		foreach ( $output['sources'] as $wiki => &$data ) {
-			$data['ts'] = $timestampsByWiki[$wiki]->getTimestamp( TS_ISO_8601 );
+			$data['ts'] = $timestampsByWiki[$wiki] ? $timestampsByWiki[$wiki]->getTimestamp( TS_ISO_8601 ) : null;
 		}
 		return $output;
 	}
