@@ -25,6 +25,7 @@
 	"echo-category-title-system": "{{PLURAL:$1|Тутумдук}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Тутумдук}}",
 	"echo-category-title-system-emailonly": "{{PLURAL:$1|Тутумдук}}",
+	"echo-category-title-emailuser": "{{PLURAL:$1|Башка колдонуучунун каты|Башка колдонуучулардын каттары}} тууралуу",
 	"echo-pref-tooltip-article-reminder": "Мен сураганда, бул барак жөнүндө кабардар болуу.",
 	"echo-pref-tooltip-thank-you-edit": "Алгачкы, онунчу, жүзүнчү... түзөтүү кылганымда кабарлоо.",
 	"notifications": "Кабарламалар",
