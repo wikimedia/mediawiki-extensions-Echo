@@ -14,18 +14,22 @@ use Wikimedia\Rdbms\DatabaseDomain;
  * virtual domains, but this extension is not yet using a virtual domain. (T348573)
  */
 class InstallSchemaTask extends Task {
+	/** @inheritDoc */
 	public function getName() {
 		return 'echo-schema';
 	}
 
+	/** @inheritDoc */
 	public function getDescription() {
 		return 'Installing Echo tables';
 	}
 
+	/** @inheritDoc */
 	public function getDependencies() {
 		return [ 'services', 'schema' ];
 	}
 
+	/** @inheritDoc */
 	public function getAliases() {
 		// Group with extension tables so that things that depend on
 		// extension tables will have this

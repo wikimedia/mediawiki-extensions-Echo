@@ -27,6 +27,7 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 		$this->requireExtension( 'Echo' );
 	}
 
+	/** @inheritDoc */
 	public function getUpdateKey() {
 		return __CLASS__;
 	}

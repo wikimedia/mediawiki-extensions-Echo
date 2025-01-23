@@ -8,10 +8,12 @@ use MediaWiki\Title\Title;
 
 class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 
+	/** @inheritDoc */
 	public function getIconType() {
 		return 'watchlist-progressive';
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		if ( $this->isMultiTypeBundle() ) {
 			$status = "changed";
@@ -39,6 +41,7 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 		return $msg;
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		if ( $this->isBundled() ) {
 			return [
@@ -53,6 +56,7 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getSecondaryLinks() {
 		if ( $this->isBundled() ) {
 			if ( $this->isMultiUserBundle() ) {
@@ -73,6 +77,7 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getBodyMessage() {
 		if ( $this->event->getExtraParam( 'emailonce' ) && $this->getDistributionType() == 'email' ) {
 			return $this->msg( 'notification-body-watchlist-once', $this->getViewingUserForGender() );

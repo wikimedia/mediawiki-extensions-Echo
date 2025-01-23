@@ -5,14 +5,17 @@ namespace MediaWiki\Extension\Notifications\Formatters;
 use MediaWiki\Extension\Notifications\ForeignNotifications;
 
 class EchoForeignPresentationModel extends EchoEventPresentationModel {
+	/** @inheritDoc */
 	public function getIconType() {
 		return 'global';
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		return false;
 	}
 
+	/** @inheritDoc */
 	protected function getHeaderMessageKey() {
 		$data = $this->event->getExtra();
 		$section = $data['section'] == 'message' ? 'notice' : $data['section'];
@@ -23,6 +26,7 @@ class EchoForeignPresentationModel extends EchoEventPresentationModel {
 		return "notification-header-foreign-{$section}";
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
 
@@ -36,6 +40,7 @@ class EchoForeignPresentationModel extends EchoEventPresentationModel {
 		return $msg;
 	}
 
+	/** @inheritDoc */
 	public function getBodyMessage() {
 		$data = $this->event->getExtra();
 		$msg = $this->msg( 'notification-body-foreign' );

@@ -22,14 +22,17 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		$this->section = new EchoPresentationModelSection( $event, $user, $language );
 	}
 
+	/** @inheritDoc */
 	public function canRender() {
 		return (bool)$this->event->getTitle();
 	}
 
+	/** @inheritDoc */
 	public function getIconType() {
 		return 'edit-user-talk';
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		return [
 			// Need FullURL so the section is included
@@ -38,6 +41,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getSecondaryLinks() {
 		$diffLink = [
 			'url' => $this->getDiffLinkUrl(),
@@ -54,6 +58,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		if ( $this->isBundled() ) {
 			$msg = $this->msg( 'notification-bundle-header-edit-user-talk-v2' );
@@ -76,6 +81,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getCompactHeaderMessage() {
 		$hasSection = $this->section->exists();
 		$key = $hasSection
@@ -89,6 +95,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		return $msg;
 	}
 
+	/** @inheritDoc */
 	public function getBodyMessage() {
 		$sectionText = $this->event->getExtraParam( 'section-text' );
 		if ( !$this->isBundled() && $this->section->exists() && is_string( $sectionText ) ) {
@@ -120,6 +127,7 @@ class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 		return $previousRevision ? $previousRevision->getId() : 0;
 	}
 
+	/** @inheritDoc */
 	protected function getSubjectMessageKey() {
 		return 'notification-edit-talk-page-email-subject2';
 	}

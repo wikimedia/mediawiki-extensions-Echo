@@ -24,6 +24,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 		return true;
 	}
 
+	/** @inheritDoc */
 	public function execute( $par ) {
 		// Redirect to login page and inform user of the need to login
 		$this->requireLogin( 'echo-notification-loginrequired' );
@@ -34,10 +35,12 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 		$out->setPageTitleMsg( $this->msg( 'echo-specialpage-markasread' ) );
 	}
 
+	/** @inheritDoc */
 	public function isListed() {
 		return false;
 	}
 
+	/** @inheritDoc */
 	public function getDisplayFormat() {
 		return 'ooui';
 	}

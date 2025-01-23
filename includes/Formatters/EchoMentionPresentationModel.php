@@ -23,14 +23,17 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		$this->section = new EchoPresentationModelSection( $event, $user, $language );
 	}
 
+	/** @inheritDoc */
 	public function getIconType() {
 		return 'mention';
 	}
 
+	/** @inheritDoc */
 	public function canRender() {
 		return (bool)$this->event->getTitle();
 	}
 
+	/** @inheritDoc */
 	protected function getHeaderMessageKey() {
 		$hasSection = $this->section->exists();
 		if ( $this->onArticleTalkpage() ) {
@@ -52,6 +55,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		$msg = $this->getMessageWithAgent( $this->getHeaderMessageKey() );
 		$msg->params( $this->getViewingUserForGender() );
@@ -77,6 +81,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		return $msg;
 	}
 
+	/** @inheritDoc */
 	public function getBodyMessage() {
 		$content = $this->event->getExtraParam( 'content' );
 		if ( $content && $this->userCan( RevisionRecord::DELETED_TEXT ) ) {
@@ -95,6 +100,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		return [
 			// Need FullURL so the section is included
@@ -103,6 +109,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getSecondaryLinks() {
 		$url = $this->event->getTitle()->getLocalURL( [
 			'oldid' => 'prev',
@@ -132,6 +139,7 @@ class EchoMentionPresentationModel extends EchoEventPresentationModel {
 		return $title->getNamespace() === NS_USER_TALK && !$title->isSubpage();
 	}
 
+	/** @inheritDoc */
 	protected function getSubjectMessageKey() {
 		return 'notification-mention-email-subject';
 	}

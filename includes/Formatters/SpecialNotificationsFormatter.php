@@ -15,6 +15,7 @@ use OOUI\IconWidget;
  * also call OutputPage::enableOOUI() before calling this formatter.
  */
 class SpecialNotificationsFormatter extends EchoEventFormatter {
+	/** @inheritDoc */
 	protected function formatModel( EchoEventPresentationModel $model ) {
 		$markReadSpecialPage = new SpecialNotificationsMarkRead();
 		$id = $model->getEventId();

@@ -250,6 +250,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getHelpUrls() {
 		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/Echo_(Notifications)/API';
 	}

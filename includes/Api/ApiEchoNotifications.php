@@ -563,6 +563,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		return $primary;
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		$sections = AttributeManager::$sections;
 
@@ -665,6 +666,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getHelpUrls() {
 		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/Echo_(Notifications)/API';
 	}
