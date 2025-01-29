@@ -200,7 +200,7 @@
 	"notification-inbox-filter-unread": "Anlennet",
 	"notification-inbox-filter-all": "An holl",
 	"echo-specialmute-label-mute-notifications": "Diweredekaat kemennoù eus an implijer{{GENDER:$1||ez}}-mañ",
-	"echo-email-plain-footer": "Evit dibab pe posteloù e kasomp {{GENDER:$2|deoc’h}}, kit d’{{GENDER:$1|ho}} penndibaboùː",
+	"echo-email-plain-footer": "Evit kontrolliñ peseurt posteloù a gasomp {{GENDER:$1|deoc’h}}, gwiriit {{GENDER:$1|ho}} penndibaboù :",
 	"echo-email-html-footer-preference-link-text": "mont d’{{GENDER:$1|ho}} tibaboù",
 	"echo-email-html-footer-with-link": "Evit dibab pe posteloù e kasomp {{GENDER:$2|deoc’h}}, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Kemenn ($1)|Kemennoù ($1)|100=Kemennoù (99+)}}",
