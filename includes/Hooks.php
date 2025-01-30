@@ -1636,9 +1636,10 @@ class Hooks implements RecentChange_saveHook {
 		$echoPerUserBlacklist = $services->getMainConfig()->get( 'EchoPerUserBlacklist' );
 		if ( $echoPerUserBlacklist ) {
 			$id = $target ? $services->getCentralIdLookup()->centralIdFromLocalUser( $target ) : 0;
-			$list = MultiUsernameFilter::splitIds(
-				$services->getUserOptionsLookup()->getOption( $user, 'echo-notifications-blacklist' )
-			);
+			$notificationList = $services->getUserOptionsLookup()->getOption( $user, 'echo-notifications-blacklist' );
+			$list = $notificationList ? MultiUsernameFilter::splitIds(
+				$notificationList
+			) : [];
 			$fields[ 'echo-notifications-blacklist'] = [
 				'type' => 'check',
 				'label-message' => [
