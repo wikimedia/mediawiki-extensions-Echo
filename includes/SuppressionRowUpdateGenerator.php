@@ -46,7 +46,7 @@ class SuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	 * @return Title|null The title located for the namespace + text, or null if invalid
 	 */
 	protected function newTitleFromNsAndText( $namespace, $text ) {
-		return call_user_func( $this->newTitleFromNsAndText, $namespace, $text );
+		return ( $this->newTitleFromNsAndText )( $namespace, $text );
 	}
 
 	/**
