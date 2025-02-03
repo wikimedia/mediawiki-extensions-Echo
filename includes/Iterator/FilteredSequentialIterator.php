@@ -127,7 +127,7 @@ class FilteredSequentialIterator implements IteratorAggregate {
 
 				return static function ( $user ) use ( $filters ) {
 					foreach ( $filters as $filter ) {
-						if ( !call_user_func( $filter, $user ) ) {
+						if ( !$filter( $user ) ) {
 							return false;
 						}
 					}

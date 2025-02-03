@@ -142,7 +142,7 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 	public function testUpdateRow( $message, array $expected, array $input, ?callable $callable = null ) {
 		$gen = new SuppressionRowUpdateGenerator;
 		if ( $callable ) {
-			call_user_func( $callable, $this, $gen );
+			$callable( $this, $gen );
 		}
 		$update = $gen->update( (object)$input );
 		$this->assertEquals( $expected, $update, $message );
