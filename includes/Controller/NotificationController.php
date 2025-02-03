@@ -151,8 +151,8 @@ class NotificationController {
 			$hookRunner->onEchoGetNotificationTypes( $user, $event, $userNotifyTypes );
 
 			// types such as web, email, etc.
-			foreach ( $userNotifyTypes as $type ) {
-				self::doNotification( $event, $user, $type );
+			foreach ( $userNotifyTypes as $deliveryType ) {
+				self::doNotification( $event, $user, $deliveryType );
 			}
 
 			$userIdsCount++;
@@ -163,9 +163,12 @@ class NotificationController {
 				$userIdsCount = 0;
 			}
 
-			$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
-			$stats->increment( 'echo.notification.all' );
-			$stats->increment( "echo.notification.$type" );
+			$stats = $services->getStatsFactory()->withComponent( 'Echo' );
+			// TODO remove copyToStatsdAt once new dashboards are created, T359347
+			$stats->getCounter( 'notifications_total' )
+				->setLabel( 'notification_type', $type )
+				->copyToStatsdAt( [ 'echo.notification.all' ] )
+				->increment();
 		}
 
 		// process the userIds left in the array
