@@ -116,10 +116,6 @@ class DataOutputFormatter {
 			$output['bundledIds'] = $bundledIds;
 		}
 
-		if ( $event->getVariant() ) {
-			$output['variant'] = $event->getVariant();
-		}
-
 		$title = $event->getTitle();
 		if ( $title ) {
 			$output['title'] = [

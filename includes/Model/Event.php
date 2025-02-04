@@ -34,11 +34,6 @@ class Event extends AbstractEntity implements Bundleable {
 	/** @var int|null|false */
 	protected $id = null;
 	/**
-	 * @var null
-	 * @deprecated to be removed
-	 */
-	protected $variant = null;
-	/**
 	 * @var User|null
 	 */
 	protected $agent = null;
@@ -123,7 +118,6 @@ class Event extends AbstractEntity implements Bundleable {
 	 * Creates an Event object
 	 * @param array $info Named arguments:
 	 * type (required): The event type;
-	 * variant: A variant of the type;
 	 * agent: The user who caused the event;
 	 * title: The page on which the event was triggered;
 	 * extra: Event-specific extra information (e.g. post content, delay time, root job params).
@@ -154,7 +148,7 @@ class Event extends AbstractEntity implements Bundleable {
 		}
 
 		$obj = new Event;
-		static $validFields = [ 'type', 'variant', 'agent', 'title', 'extra' ];
+		static $validFields = [ 'type', 'agent', 'title', 'extra' ];
 
 		if ( empty( $info['type'] ) ) {
 			throw new InvalidArgumentException( "'type' parameter is mandatory" );
@@ -462,7 +456,6 @@ class Event extends AbstractEntity implements Bundleable {
 		// Copy over the attribute
 		$this->id = $event->id;
 		$this->type = $event->type;
-		$this->variant = $event->variant;
 		$this->extra = $event->extra;
 		$this->pageId = $event->pageId;
 		$this->agent = $event->agent;
@@ -581,13 +574,6 @@ class Event extends AbstractEntity implements Bundleable {
 	 */
 	public function getType() {
 		return $this->type;
-	}
-
-	/**
-	 * @return string|null
-	 */
-	public function getVariant() {
-		return $this->variant;
 	}
 
 	/**
@@ -723,13 +709,6 @@ class Event extends AbstractEntity implements Bundleable {
 	 */
 	public function setType( $type ) {
 		$this->type = $type;
-	}
-
-	/**
-	 * @param string|null $variant
-	 */
-	public function setVariant( $variant ) {
-		$this->variant = $variant;
 	}
 
 	public function setAgent( User $agent ) {
