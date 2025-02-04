@@ -147,9 +147,6 @@ class Event extends AbstractEntity implements Bundleable {
 			return false;
 		}
 
-		$obj = new Event;
-		static $validFields = [ 'type', 'agent', 'title', 'extra' ];
-
 		if ( empty( $info['type'] ) ) {
 			throw new InvalidArgumentException( "'type' parameter is mandatory" );
 		}
@@ -158,13 +155,13 @@ class Event extends AbstractEntity implements Bundleable {
 			return false;
 		}
 
+		$obj = new self();
 		$obj->id = false;
+		$obj->type = $info['type'];
+		$obj->agent = $info['agent'] ?? null;
+		$obj->title = $info['title'] ?? null;
+		$obj->extra = $info['extra'] ?? [];
 		$obj->timestamp = $info['timestamp'] ?? wfTimestampNow();
-		foreach ( $validFields as $field ) {
-			if ( isset( $info[$field] ) ) {
-				$obj->$field = $info[$field];
-			}
-		}
 
 		// If the extra size is more than 50000 bytes, that means there is
 		// probably a problem with the design of this notification type.

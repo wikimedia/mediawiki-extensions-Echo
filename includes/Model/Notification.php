@@ -67,25 +67,20 @@ class Notification extends AbstractEntity implements Bundleable {
 	 * @return Notification
 	 */
 	public static function create( array $info ) {
-		$obj = new Notification();
-		static $validFields = [ 'event', 'user' ];
+		$user = $info['user'] ?? null;
+		$event = $info['event'] ?? null;
 
-		foreach ( $validFields as $field ) {
-			if ( isset( $info[$field] ) ) {
-				$obj->$field = $info[$field];
-			} else {
-				throw new InvalidArgumentException( "Field $field is required" );
-			}
-		}
-
-		if ( !$obj->user instanceof User ) {
+		if ( !( $user instanceof User ) ) {
 			throw new InvalidArgumentException( 'Invalid user parameter, expected: User object' );
 		}
 
-		if ( !$obj->event instanceof Event ) {
+		if ( !( $event instanceof Event ) ) {
 			throw new InvalidArgumentException( 'Invalid event parameter, expected: Event object' );
 		}
 
+		$obj = new self();
+		$obj->user = $user;
+		$obj->event = $event;
 		// Notification timestamp should be the same as event timestamp
 		// Otherwise use safe fallback
 		$obj->timestamp = $obj->event->getTimestamp() ?: wfTimestampNow();
