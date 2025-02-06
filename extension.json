@@ -1036,14 +1036,6 @@
 					"section": "message"
 				},
 				"api-alert": {
-					"user-locators": [
-						[
-							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
-							[
-								"recipients"
-							]
-						]
-					],
 					"canNotifyAgent": true,
 					"category": "api-triggered",
 					"group": "neutral",
@@ -1051,14 +1043,6 @@
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoManualPresentationModel"
 				},
 				"api-notice": {
-					"user-locators": [
-						[
-							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
-							[
-								"recipients"
-							]
-						]
-					],
 					"canNotifyAgent": true,
 					"category": "api-triggered",
 					"group": "neutral",

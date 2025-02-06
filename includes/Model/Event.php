@@ -29,6 +29,11 @@ use Wikimedia\Rdbms\IDBAccessObject;
  */
 class Event extends AbstractEntity implements Bundleable {
 
+	/**
+	 * Index in the `extra` array that defines a list of recipients stored as an array of user_ids
+	 */
+	public const RECIPIENTS_IDX = 'recipients';
+
 	/** @var string|null */
 	protected $type = null;
 	/** @var int|null|false */

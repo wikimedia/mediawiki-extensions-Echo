@@ -3,6 +3,8 @@
 namespace MediaWiki\Extension\Notifications\Test\Unit;
 
 use MediaWiki\Extension\Notifications\AttributeManager;
+use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserIdentity;
@@ -54,7 +56,20 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 				// notification configuration
 				[],
 			],
-
+			[
+				"When locator not specified, returns default, eg `recipients` key from extra array",
+				// expected result
+				[ [
+					[ UserLocator::class, 'locateFromEventExtra' ],
+					[ Event::RECIPIENTS_IDX ]
+				] ],
+				// event type
+				'test-event',
+				// notification configuration
+				[
+					'test-event' => []
+				]
+			],
 			[
 				'Returns selected notification configuration',
 				// expected result
