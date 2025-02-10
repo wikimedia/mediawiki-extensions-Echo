@@ -994,14 +994,6 @@
 				},
 				"emailuser": {
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEmailUserPresentationModel",
-					"user-locators": [
-						[
-							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
-							[
-								"to-user-id"
-							]
-						]
-					],
 					"category": "emailuser",
 					"group": "neutral",
 					"section": "alert"

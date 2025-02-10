@@ -346,8 +346,6 @@ class GenerateSampleNotifications extends Maintenance {
 			'type' => 'emailuser',
 			'extra' => [
 				Event::RECIPIENTS_IDX => [ $user->getId() ],
-				// TODO, remove `to-user-id`, kept for backwards compatibility
-				'to-user-id' => $user->getId(),
 				'subject' => 'Long time no see',
 			],
 			'agent' => $agent,
