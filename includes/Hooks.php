@@ -1437,6 +1437,8 @@ class Hooks implements
 		Event::create( [
 			'type' => 'emailuser',
 			'extra' => [
+				Event::RECIPIENTS_IDX => [ $userTo->getId() ],
+				// TODO, remove `to-user-id`, kept for backwards compatibility
 				'to-user-id' => $userTo->getId(),
 				'preview' => $preview,
 			],

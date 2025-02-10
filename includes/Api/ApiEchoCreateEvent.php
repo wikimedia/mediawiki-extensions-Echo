@@ -61,7 +61,7 @@ class ApiEchoCreateEvent extends ApiBase {
 			'agent' => $user,
 			'title' => $params['page'] ? Title::newFromLinkTarget( $params['page'] ) : null,
 			'extra' => [
-				'recipients' => [ $userToNotify->getId() ],
+				Event::RECIPIENTS_IDX => [ $userToNotify->getId() ],
 				'header' => $params['header'],
 				'content' => $params['content'],
 				// Send email only if specified

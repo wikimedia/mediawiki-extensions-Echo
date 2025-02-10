@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications;
 
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\User\UserIdentity;
@@ -105,7 +106,14 @@ class AttributeManager {
 			return (array)$this->notifications[$type][$locator];
 		}
 
-		return [];
+		$defaultLocators = [];
+		if ( $locator === self::ATTR_LOCATORS && array_key_exists( $type, $this->notifications ) ) {
+			$defaultLocators[] = [
+				[ UserLocator::class, 'locateFromEventExtra' ],
+				[ Event::RECIPIENTS_IDX ]
+			];
+		}
+		return $defaultLocators;
 	}
 
 	/**
