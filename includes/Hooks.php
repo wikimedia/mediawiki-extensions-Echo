@@ -788,6 +788,11 @@ class Hooks implements
 			}
 		}
 
+		// Import should not trigger link notification (T381125)
+		if ( $linksUpdate->getCauseAction() === 'page-import' ) {
+			return;
+		}
+
 		// Handle only
 		// 1. content namespace pages &&
 		// 2. non-transcluding pages &&
