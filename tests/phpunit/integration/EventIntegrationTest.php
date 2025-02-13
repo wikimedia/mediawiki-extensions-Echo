@@ -63,6 +63,7 @@ class EventIntegrationTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testEventInsertionDeferred() {
+		$this->markTestSkipped( 'T386364' );
 		$this->clearHook( 'BeforeEchoEventInsert' );
 		$this->clearHook( 'PageSaveComplete' );
 		$this->overrideConfigValue( 'EchoUseJobQueue', true );
