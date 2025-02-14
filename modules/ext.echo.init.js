@@ -235,7 +235,12 @@ function initDesktop() {
 			const echoApi = new mw.echo.api.EchoApi();
 			echoApi.fetchNotifications( clickedSection )
 				.then( ( data ) => {
-					mw.track( 'timing.MediaWiki.echo.overlay.api', mw.now() - timeOfClick );
+					const now = mw.now();
+					mw.track( 'stats.mediawiki_echo_overlay_seconds', now - timeOfClick, {
+						component: 'api'
+					} );
+					// TODO remove graphite compatible call once new dashboards are created, T359347
+					mw.track( 'timing.MediaWiki.echo.overlay.api', now - timeOfClick );
 					return data;
 				} );
 
@@ -244,10 +249,20 @@ function initDesktop() {
 				const selectedWidget = clickedSection === 'alert' ? mw.echo.ui.alertWidget : mw.echo.ui.messageWidget;
 				selectedWidget.once( 'finishLoading', () => {
 					// Log timing after notifications are shown
-					mw.track( 'timing.MediaWiki.echo.overlay', mw.now() - timeOfClick );
+					const notificationsLoadedTime = mw.now();
+					mw.track( 'stats.mediawiki_echo_overlay_seconds', notificationsLoadedTime - timeOfClick, {
+						component: 'none'
+					} );
+					// TODO remove graphite compatible call once new dashboards are created, T359347
+					mw.track( 'timing.MediaWiki.echo.overlay', notificationsLoadedTime - timeOfClick );
 				} );
 				selectedWidget.popup.toggle( true );
-				mw.track( 'timing.MediaWiki.echo.overlay.ooui', mw.now() - timeOfClick );
+				const now = mw.now();
+				mw.track( 'stats.mediawiki_echo_overlay_seconds', now - timeOfClick, {
+					component: 'ooui'
+				} );
+				// TODO remove graphite compatible call once new dashboards are created, T359347
+				mw.track( 'timing.MediaWiki.echo.overlay.ooui', now - timeOfClick );
 
 				if ( hasUnseenAlerts || hasUnseenMessages ) {
 					// Clicked on the flyout due to having unread notifications
