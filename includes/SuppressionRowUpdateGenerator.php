@@ -15,7 +15,7 @@ class SuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	/**
 	 * @var callable Hack to allow replacing Title::makeTitleSafe in tests
 	 */
-	protected $newTitleFromNsAndText = [ 'Title', 'makeTitleSafe' ];
+	protected $newTitleFromNsAndText = [ '\MediaWiki\Title\Title', 'makeTitleSafe' ];
 
 	/**
 	 * @inheritDoc
