@@ -29,7 +29,8 @@ class Notifier {
 			return;
 		}
 
-		Notification::create( [ 'user' => $user, 'event' => $event ] );
+		$notif = new Notification( $user, $event );
+		$notif->insert();
 	}
 
 	/**

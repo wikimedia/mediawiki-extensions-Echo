@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Model;
 
-use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Bundleable;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
@@ -54,47 +53,20 @@ class Notification extends AbstractEntity implements Bundleable {
 	protected $bundledNotifications;
 
 	/**
-	 * Do not use this constructor.
-	 */
-	protected function __construct() {
-	}
-
-	/**
 	 * Creates an Notification object based on event and user
-	 * @param array $info The following keys are required:
-	 * - 'event' The Event being notified about.
-	 * - 'user' The User being notified.
-	 * @return Notification
 	 */
-	public static function create( array $info ) {
-		$user = $info['user'] ?? null;
-		$event = $info['event'] ?? null;
-
-		if ( !( $user instanceof User ) ) {
-			throw new InvalidArgumentException( 'Invalid user parameter, expected: User object' );
-		}
-
-		if ( !( $event instanceof Event ) ) {
-			throw new InvalidArgumentException( 'Invalid event parameter, expected: Event object' );
-		}
-
-		$obj = new self();
-		$obj->user = $user;
-		$obj->event = $event;
+	public function __construct( User $user, Event $event ) {
+		$this->user = $user;
+		$this->event = $event;
 		// Notification timestamp should be the same as event timestamp
 		// Otherwise use safe fallback
-		$obj->timestamp = $obj->event->getTimestamp() ?: wfTimestampNow();
-
-		// @Todo - Database insert logic should not be inside the model
-		$obj->insert();
-
-		return $obj;
+		$this->timestamp = $this->event->getTimestamp() ?: wfTimestampNow();
 	}
 
 	/**
 	 * Adds this new notification object to the backend storage.
 	 */
-	protected function insert() {
+	public function insert() {
 		global $wgEchoNotifications;
 
 		$notifMapper = new NotificationMapper();
@@ -138,20 +110,20 @@ class Notification extends AbstractEntity implements Bundleable {
 	 * @return Notification|false False if failed to load/unserialize
 	 */
 	public static function newFromRow( $row, ?array $targetPages = null ) {
-		$notification = new Notification();
-
 		if ( property_exists( $row, 'event_type' ) ) {
-			$notification->event = Event::newFromRow( $row );
+			$event = Event::newFromRow( $row );
 		} else {
-			$notification->event = Event::newFromID( $row->notification_event );
+			$event = Event::newFromID( $row->notification_event );
 		}
-
-		if ( $notification->event === false ) {
+		if ( $event === false ) {
 			return false;
 		}
 
+		$user = User::newFromId( $row->notification_user );
+
+		$notification = new Notification( $user, $event );
+
 		$notification->targetPages = $targetPages;
-		$notification->user = User::newFromId( $row->notification_user );
 		// Notification timestamp should never be empty
 		$notification->timestamp = wfTimestamp( TS_MW, $row->notification_timestamp );
 		$notification->readTimestamp = wfTimestampOrNull( TS_MW, $row->notification_read_timestamp );
