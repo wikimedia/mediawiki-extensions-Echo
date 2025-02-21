@@ -178,6 +178,9 @@ class Event extends AbstractEntity implements Bundleable {
 			return false;
 		}
 
+		// Temporary measure - Verify if object could be serialized with JsonCodec @see T325703
+		$obj->logWhenExtraIsNotJsonSerializable();
+
 		if ( $obj->title ) {
 			if ( !$obj->title instanceof Title ) {
 				throw new InvalidArgumentException( 'Invalid title parameter' );
@@ -495,6 +498,32 @@ class Event extends AbstractEntity implements Bundleable {
 		return $obj->loadFromID( $id )
 			? $obj
 			: false;
+	}
+
+	/**
+	 * The `extra` array is serialized with php serialization mechanism which can lead into severe
+	 * problems when deserializing and also can cause code injection vulnerability. Before we
+	 * switch to JsonCodec, we need to verify if the extra can be serialized with JsonCodec.
+	 *
+	 * This is temporary measure and should be removed when we switch to JsonCodec
+	 * @see T325703
+	 *
+	 * @return void
+	 */
+	private function logWhenExtraIsNotJsonSerializable(): void {
+		if ( $this->extra === null ) {
+			return;
+		}
+		$jsonCodec = MediaWikiServices::getInstance()->getJsonCodec();
+		$path = $jsonCodec->detectNonSerializableData( $this->extra, true );
+		if ( $path !== null ) {
+			LoggerFactory::getInstance( 'Echo' )->warning(
+				'Event Type {type} has non JsonCodec serializable value in extra: {path}', [
+					'path' => $path,
+					'type' => $this->getType()
+				]
+			);
+		}
 	}
 
 	/**
