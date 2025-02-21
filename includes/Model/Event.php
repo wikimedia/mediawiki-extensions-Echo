@@ -171,16 +171,7 @@ class Event extends AbstractEntity implements Bundleable {
 		$obj->type = $info['type'];
 		$obj->extra = $info['extra'] ?? [];
 		if ( isset( $info['agent'] ) ) {
-			try {
-				$obj->setAgent( $info['agent'] );
-			} catch ( NormalizedException $e ) {
-				// TODO: when no errors are logged in production, remove this and let the exception happen
-				LoggerFactory::getInstance( 'Echo' )->error(
-					$e->getNormalizedMessage(),
-					[ 'exception' => $e ] + $e->getMessageContext()
-				);
-				return false;
-			}
+			$obj->setAgent( $info['agent'] );
 		}
 		if ( isset( $info['title'] ) ) {
 			// This may modify $obj->extra as well

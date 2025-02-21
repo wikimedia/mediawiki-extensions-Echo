@@ -54,12 +54,12 @@ class EventIntegrationTest extends MediaWikiIntegrationTestCase {
 
 	public function testEventNotCreatedForUnknownUser() {
 		$this->clearHook( 'BeforeEchoEventInsert' );
+		$this->expectException( \Wikimedia\NormalizedException\NormalizedException::class );
 
 		$event = Event::create( [
 			'type' => 'welcome',
 			'agent' => UserIdentityValue::newAnonymous( 'Anonymous user' ),
 		] );
-		$this->assertFalse( $event );
 	}
 
 	public function testEventInsertionDeferred() {
