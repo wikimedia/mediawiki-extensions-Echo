@@ -19,9 +19,9 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\ActorStore;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use RuntimeException;
 use stdClass;
 use Wikimedia\IPUtils;
+use Wikimedia\NonSerializable\NonSerializableTrait;
 use Wikimedia\NormalizedException\NormalizedException;
 use Wikimedia\Rdbms\IDBAccessObject;
 
@@ -30,6 +30,10 @@ use Wikimedia\Rdbms\IDBAccessObject;
  * In Echo nomenclature, an event is a single occurrence.
  */
 class Event extends AbstractEntity implements Bundleable {
+
+	// We only use PHP serialization for event_extra arrays, but not for whole Event objects.
+	// Disallow using it to prevent mistakes.
+	use NonSerializableTrait;
 
 	/**
 	 * Index in the `extra` array that defines a list of recipients stored as an array of user_ids
@@ -102,19 +106,6 @@ class Event extends AbstractEntity implements Bundleable {
 	 * Event::newFromID     To create an event object from the database given its ID
 	 */
 	protected function __construct() {
-	}
-
-	## Save the id and timestamp
-	public function __sleep() {
-		if ( !$this->id ) {
-			throw new RuntimeException( "Unable to serialize an uninitialized Event" );
-		}
-
-		return [ 'id', 'timestamp' ];
-	}
-
-	public function __wakeup() {
-		$this->loadFromID( $this->id );
 	}
 
 	public function __toString() {
@@ -366,7 +357,6 @@ class Event extends AbstractEntity implements Bundleable {
 		$this->id = (int)$row->event_id;
 		$this->type = $row->event_type;
 
-		// If the object is loaded from __sleep(), timestamp should be already set
 		if ( !$this->timestamp ) {
 			if ( isset( $row->notification_timestamp ) ) {
 				$this->timestamp = wfTimestamp( TS_MW, $row->notification_timestamp );
