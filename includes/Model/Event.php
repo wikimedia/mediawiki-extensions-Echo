@@ -13,6 +13,7 @@ use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\ActorStore;
@@ -21,6 +22,7 @@ use MediaWiki\User\UserIdentity;
 use RuntimeException;
 use stdClass;
 use Wikimedia\IPUtils;
+use Wikimedia\NormalizedException\NormalizedException;
 use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
@@ -123,8 +125,8 @@ class Event extends AbstractEntity implements Bundleable {
 	 * Creates an Event object
 	 * @param array $info Named arguments:
 	 * type (required): The event type;
-	 * agent: The user who caused the event;
-	 * title: The page on which the event was triggered;
+	 * agent: The user who caused the event (UserIdentity);
+	 * title: The page on which the event was triggered (PageIdentity);
 	 * extra: Event-specific extra information (e.g. post content, delay time, root job params).
 	 *
 	 * Delayed jobs extra params:
@@ -163,9 +165,23 @@ class Event extends AbstractEntity implements Bundleable {
 		$obj = new self();
 		$obj->id = false;
 		$obj->type = $info['type'];
-		$obj->agent = $info['agent'] ?? null;
-		$obj->title = $info['title'] ?? null;
 		$obj->extra = $info['extra'] ?? [];
+		if ( isset( $info['agent'] ) ) {
+			try {
+				$obj->setAgent( $info['agent'] );
+			} catch ( NormalizedException $e ) {
+				// TODO: when no errors are logged in production, remove this and let the exception happen
+				LoggerFactory::getInstance( 'Echo' )->error(
+					$e->getNormalizedMessage(),
+					[ 'exception' => $e ] + $e->getMessageContext()
+				);
+				return false;
+			}
+		}
+		if ( isset( $info['title'] ) ) {
+			// This may modify $obj->extra as well
+			$obj->setTitle( $info['title'] );
+		}
 		$obj->timestamp = $info['timestamp'] ?? wfTimestampNow();
 
 		// If the extra size is more than 50000 bytes, that means there is
@@ -180,37 +196,6 @@ class Event extends AbstractEntity implements Bundleable {
 
 		// Temporary measure - Verify if object could be serialized with JsonCodec @see T325703
 		$obj->logWhenExtraIsNotJsonSerializable();
-
-		if ( $obj->title ) {
-			if ( !$obj->title instanceof Title ) {
-				throw new InvalidArgumentException( 'Invalid title parameter' );
-			}
-			$obj->setTitle( $obj->title );
-		}
-
-		if ( $obj->agent ) {
-			if ( !$obj->agent instanceof UserIdentity ) {
-				throw new InvalidArgumentException( "Invalid user parameter" );
-			}
-
-			// TODO: when no errors are logged in production, turn this into an exception
-			if ( !$obj->agent->isRegistered() && !IPUtils::isValid( $obj->agent->getName() ) ) {
-				LoggerFactory::getInstance( 'Echo' )->error(
-					'Invalid IP agent: {username} for event type {event_type}',
-					[
-						'username' => $obj->agent->getName(),
-						'event_type' => $obj->type,
-						'exception' => new \RuntimeException,
-					]
-				);
-				return false;
-			}
-
-			// RevisionStore returns UserIdentityValue now, convert to User for passing to hooks.
-			if ( !$obj->agent instanceof User ) {
-				$obj->agent = $services->getUserFactory()->newFromUserIdentity( $obj->agent );
-			}
-		}
 
 		$hookRunner = new HookRunner( $services->getHookContainer() );
 		if ( !$hookRunner->onBeforeEchoEventInsert( $obj ) ) {
@@ -742,18 +727,34 @@ class Event extends AbstractEntity implements Bundleable {
 		$this->type = $type;
 	}
 
-	public function setAgent( User $agent ) {
-		$this->agent = $agent;
+	public function setAgent( UserIdentity $agentIdent ) {
+		if ( !$agentIdent->isRegistered() && !IPUtils::isValid( $agentIdent->getName() ) ) {
+			throw new NormalizedException(
+				'Invalid IP agent: {username} for event type {event_type}',
+				[
+					'username' => $agentIdent->getName(),
+					'event_type' => $this->type,
+				]
+			);
+		}
+
+		$services = MediaWikiServices::getInstance();
+		$this->agent = $services->getUserFactory()->newFromUserIdentity( $agentIdent );
 	}
 
-	public function setTitle( Title $title ) {
-		$this->title = $title;
-		$pageId = $title->getArticleID();
+	public function setTitle( PageIdentity $page ) {
+		$services = MediaWikiServices::getInstance();
+		$this->title = $services->getTitleFactory()->newFromPageIdentity( $page );
+
+		// Use Title::getArticleId() instead of PageIdentity::getId() in order to allow special pages
+		// as the target titles. This is used by e.g. AbuseFilter and GrowthExperiments.
+		// TODO: Should that be disallowed?
+		$pageId = $this->title->getArticleId();
 		if ( $pageId ) {
 			$this->pageId = $pageId;
 		} else {
-			$this->extra['page_title'] = $title->getDBkey();
-			$this->extra['page_namespace'] = $title->getNamespace();
+			$this->extra['page_title'] = $this->title->getDBkey();
+			$this->extra['page_namespace'] = $this->title->getNamespace();
 		}
 	}
 
