@@ -1541,6 +1541,11 @@ class Hooks implements
 		if ( !$this->config->get( 'EchoWatchlistNotifications' ) ) {
 			return;
 		}
+		if ( $change->getAttribute( 'rc_type' ) == RC_EXTERNAL ) {
+			// Ignore external changes (e.g. Wikidata), as Echo events can't have agents that correspond
+			// to actors but are not local users (T387050, see also T286153)
+			return;
+		}
 		if ( $change->getAttribute( 'rc_minor' ) ) {
 			$type = 'minor-watchlist-change';
 		} else {
