@@ -133,7 +133,6 @@
 	"notification-compact-header-edit-user-page": "$1 {{GENDER:$2|ја уреди}} {{GENDER:$3|вашата}} корисничка страница.",
 	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$3|ви}} {{GENDER:$2|остави}} порака.",
 	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$3|ви}} {{GENDER:$2|остави}} порака во „<strong>$4</strong>“.",
-	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-header-page-linked": "Направена е врска од <strong>$4</strong> до <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Поврзано од <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Направени се врски од {{PLURAL:$5||$5 страници|100=преку 99 страници}} до <strong>$3</strong>.",

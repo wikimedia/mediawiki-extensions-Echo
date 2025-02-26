@@ -152,7 +152,6 @@
 	"notification-compact-header-edit-user-page": "$1 {{GENDER:$2|редагував|редагувала}} {{GENDER:$3|вашу}} сторінку користувача.",
 	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2|залишив|залишила}} {{GENDER:$3|Вам}} повідомлення.",
 	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|залишив|залишила}} {{GENDER:$3|Вам}} повідомлення в «<strong>$4</strong>».",
-	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-header-page-linked": "На сторінці <strong>$4</strong> додано посилання на <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Посилання з <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "З {{PLURAL:$5||$5 сторінок|100=99+ сторінок}} було додано посилання на <strong>$3</strong>.",

@@ -138,7 +138,6 @@
 	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2}}đã để lại một tin nhắn trên <strong>trang thảo luận {{GENDER:$3}}của bạn</strong> trong “<strong>$4</strong>”.",
 	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2}}đã nhắn tin cho {{GENDER:$3}}bạn.",
 	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2}}đã nhắn tin cho {{GENDER:$3}}bạn trong “<strong>$4</strong>”.",
-	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-header-page-linked": "Một liên kết đã được tạo từ <strong>$4</strong> tới <strong>$3</strong>.",
 	"notification-compact-header-page-linked": "Được liên kết tại <strong>$1</strong>.",
 	"notification-bundle-header-page-linked": "Các liên kết đã được tạo từ {{PLURAL:$5|một trang|$5 trang|100=99+ trang}} tới <strong>$3</strong>.",

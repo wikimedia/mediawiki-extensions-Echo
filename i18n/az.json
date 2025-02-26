@@ -144,7 +144,6 @@
 	"notification-compact-header-edit-user-page": "$1 {{GENDER:$3|sizin}} istifadəçi səhifənizi {{GENDER:$2|redaktə etdi}}.",
 	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$3|sizə}} mesaj {{GENDER:$2|yazıb.}}",
 	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$3|sizə}} \"<strong>$4</strong>\" bölməsində mesaj {{GENDER:$2|yazıb.}}",
-	"notification-body-edit-user-talk-with-section": "$1",
 	"notification-header-page-linked": "<strong>$4</strong> səhifəsindən <strong>$3</strong> səhifəsinə keçid verildi.",
 	"notification-compact-header-page-linked": "<strong>$1</strong> səhifəsindən keçid verilib.",
 	"notification-bundle-header-page-linked": "{{PLURAL:$5||$5 səhifə|100=99+ səhifə}}dən <strong>$3</strong> səhifəsinə keçid verildi.",
