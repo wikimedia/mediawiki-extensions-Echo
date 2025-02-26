@@ -117,6 +117,12 @@
 		},
 		"NotificationsMarkRead": "MediaWiki\\Extension\\Notifications\\Special\\SpecialNotificationsMarkRead"
 	},
+	"NotificationHandlers": [
+		{
+			"types": [ "*" ],
+			"class": "MediaWiki\\Extension\\Notifications\\EchoNotificationHandler"
+		}
+	],
 	"AvailableRights": [
 		"manage-all-push-subscriptions",
 		"echo-create"
