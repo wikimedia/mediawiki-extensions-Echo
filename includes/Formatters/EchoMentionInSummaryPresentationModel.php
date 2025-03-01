@@ -2,11 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Formatters;
 
-use MediaWiki\Language\RawMessage;
-use MediaWiki\MediaWikiServices;
-use MediaWiki\Parser\Sanitizer;
-use MediaWiki\Revision\RevisionRecord;
-
 class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 
 	/** @inheritDoc */
@@ -30,19 +25,7 @@ class EchoMentionInSummaryPresentationModel extends EchoEventPresentationModel {
 
 	/** @inheritDoc */
 	public function getBodyMessage() {
-		$revision = $this->event->getRevision();
-		if ( $revision && $revision->getComment() && $this->userCan( RevisionRecord::DELETED_COMMENT ) ) {
-			$summary = $revision->getComment()->text;
-			$summary = MediaWikiServices::getInstance()->getCommentFormatter()
-				->format( $summary );
-			$summary = Sanitizer::stripAllTags( $summary );
-
-			$msg = new RawMessage( '$1' );
-			$msg->plaintextParams( $summary );
-			return $msg;
-		} else {
-			return false;
-		}
+		return $this->getRevisionCommentMessage();
 	}
 
 	/** @inheritDoc */
