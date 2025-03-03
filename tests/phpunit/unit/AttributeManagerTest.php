@@ -46,6 +46,11 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 	}
 
 	public static function getUserLocatorsProvider() {
+		$defaultLocator = [
+			[ UserLocator::class, 'locateFromEventExtra' ],
+			[ Event::RECIPIENTS_IDX ]
+		];
+
 		return [
 			[
 				'No errors when requesting unknown type',
@@ -59,10 +64,7 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 			[
 				"When locator not specified, returns default, eg `recipients` key from extra array",
 				// expected result
-				[ [
-					[ UserLocator::class, 'locateFromEventExtra' ],
-					[ Event::RECIPIENTS_IDX ]
-				] ],
+				[ $defaultLocator ],
 				// event type
 				'test-event',
 				// notification configuration
@@ -73,7 +75,7 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 			[
 				'Returns selected notification configuration',
 				// expected result
-				[ 'woot!' ],
+				[ 'woot!', $defaultLocator ],
 				// event type
 				'magic',
 				// notification configuration
@@ -90,7 +92,7 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 			[
 				'Accepts user-locators as string and returns array',
 				// expected result
-				[ 'sagen' ],
+				[ 'sagen', $defaultLocator ],
 				// event type
 				'challah',
 				// notification configuration

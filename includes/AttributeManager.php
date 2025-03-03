@@ -102,18 +102,21 @@ class AttributeManager {
 	 * @return array
 	 */
 	public function getUserCallable( $type, $locator = self::ATTR_LOCATORS ) {
+		$locators = [];
+
 		if ( isset( $this->notifications[$type][$locator] ) ) {
-			return (array)$this->notifications[$type][$locator];
+			// if extension defines its own locators, use those as default locators set
+			$locators = (array)$this->notifications[$type][$locator];
 		}
 
-		$defaultLocators = [];
 		if ( $locator === self::ATTR_LOCATORS && array_key_exists( $type, $this->notifications ) ) {
-			$defaultLocators[] = [
+			// additionally, inject our own default locator that uses extra['recipients'] key
+			$locators[] = [
 				[ UserLocator::class, 'locateFromEventExtra' ],
 				[ Event::RECIPIENTS_IDX ]
 			];
 		}
-		return $defaultLocators;
+		return $locators;
 	}
 
 	/**
