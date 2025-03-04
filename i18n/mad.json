@@ -44,7 +44,7 @@
 	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistem}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Obâ'ân hak pangangghuy}}",
 	"echo-category-title-emailuser": "{{PLURAL:$1|Sorasa ḍâri pangangghuy laèn|Sorasa ḍâri para pangangghuy sepalèan}}",
-	"echo-category-title-article-reminder": "Halaman {{PLURAL:$1|Pangèmot}}",
+	"echo-category-title-article-reminder": "Kaca {{PLURAL:$1|paènga'}}",
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|riwayat}} beccè'an",
 	"echo-category-title-watchlist": "Beccè'an ḍâ' pelataran sèghârân",
 	"echo-category-title-minor-watchlist": "Beccè'an kèni' ḍâ' pelataran sèghârân",
