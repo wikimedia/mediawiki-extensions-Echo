@@ -362,6 +362,7 @@ class GenerateSampleNotifications extends Maintenance {
 	}
 
 	private function createUserRightsNotification( User $user, User $agent, ?array $add, ?array $remove ) {
+		// as this is testing Echo notifications, lets keep triggering the Echo event for now
 		Event::create(
 			[
 				'type' => 'user-rights',
@@ -370,6 +371,7 @@ class GenerateSampleNotifications extends Maintenance {
 					'add' => $add,
 					'remove' => $remove,
 					'reason' => 'This is the [[reason]] for changing your user rights.',
+					Event::RECIPIENTS_IDX => [ $user->getId() ],
 				],
 				'agent' => $agent,
 				'timestamp' => $this->getTimestamp(),

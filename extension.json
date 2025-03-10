@@ -985,14 +985,6 @@
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoMentionStatusPresentationModel"
 				},
 				"user-rights": {
-					"user-locators": [
-						[
-							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
-							[
-								"user"
-							]
-						]
-					],
 					"category": "user-rights",
 					"group": "neutral",
 					"section": "alert",

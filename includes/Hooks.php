@@ -24,6 +24,7 @@ use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Extension\Notifications\Notifications\UserRightsNotification;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
 use MediaWiki\Hook\AbortTalkPageEmailNotificationHook;
 use MediaWiki\Hook\EmailUserCompleteHook;
@@ -42,6 +43,7 @@ use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\Hook\OutputPageCheckLastModifiedHook;
 use MediaWiki\Output\OutputPage;
@@ -744,31 +746,22 @@ class Hooks implements
 		if ( $expiryChanged ) {
 			// use a separate notification for these, so the notification text doesn't
 			// get too long
-			Event::create(
-				[
-					'type' => 'user-rights',
-					'extra' => [
-						'user' => $user->getId(),
-						'expiry-changed' => $expiryChanged,
-						'reason' => $reason,
-					],
-					'agent' => $performer,
-				]
+			//
+			$notification = UserRightsNotification::newForExpiryChanged(
+				$user, $performer, $reason, $expiryChanged
+			);
+
+			MediaWikiServices::getInstance()->getNotificationService()->notify(
+				$notification, new RecipientSet( [ $user ] )
 			);
 		}
 
 		if ( $reallyAdded || $remove ) {
-			Event::create(
-				[
-					'type' => 'user-rights',
-					'extra' => [
-						'user' => $user->getId(),
-						'add' => $reallyAdded,
-						'remove' => $remove,
-						'reason' => $reason,
-					],
-					'agent' => $performer,
-				]
+			$notification = UserRightsNotification::newForRightsChange(
+				$user, $performer, $reason, $reallyAdded, $remove
+			);
+			MediaWikiServices::getInstance()->getNotificationService()->notify(
+				$notification, new RecipientSet( [ $user ] )
 			);
 		}
 	}
