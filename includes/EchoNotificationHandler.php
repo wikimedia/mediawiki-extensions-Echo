@@ -8,8 +8,6 @@ use MediaWiki\Notification\Notification;
 use MediaWiki\Notification\NotificationHandler;
 use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Notification\TitleAware;
-use MediaWiki\Page\PageIdentity;
-use MediaWiki\User\UserIdentity;
 
 class EchoNotificationHandler implements NotificationHandler {
 
@@ -18,11 +16,8 @@ class EchoNotificationHandler implements NotificationHandler {
 
 		// If the type matches one of our event types, handle this event like an Echo event.
 		if ( isset( $wgEchoNotifications[$notification->getType()] ) ) {
-			$props = $notification->getProperties();
-
 			$info = [];
 			$info['type'] = $notification->getType();
-			// New way of determining the Agent and Title
 			if ( $notification instanceof AgentAware ) {
 				$info['agent'] = $notification->getAgent();
 			}
@@ -30,20 +25,8 @@ class EchoNotificationHandler implements NotificationHandler {
 				$info['title'] = $notification->getTitle();
 			}
 
-			// Old way, decide whether to remove
-			if ( isset( $props['agent'] ) && $props['agent'] instanceof UserIdentity ) {
-				$info['agent'] = $props['agent'];
-				unset( $props['agent'] );
-			}
-			if ( isset( $props['title'] ) && $props['title'] instanceof PageIdentity ) {
-				$info['title'] = $props['title'];
-				unset( $props['title'] );
-			}
-			// Registered event types implement a EchoEventPresentationModel instead of passing a message
-			unset( $props['msg'] );
-
 			// Pass all other custom props from core Notification in the extra array of Event
-			$info['extra'] = $props;
+			$info['extra'] = $notification->getProperties();
 
 			// Pass $recipients to Event instead of requiring it to be handled by Echo locators
 			$info['extra'][Event::RECIPIENTS_IDX] =
@@ -53,6 +36,7 @@ class EchoNotificationHandler implements NotificationHandler {
 		}
 
 		// TODO: Handle generic events not registered with Echo as well (T385839)
+		// Handle `instanceof SimpleNotification` / `->getMessage()`
 	}
 
 }
