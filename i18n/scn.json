@@ -90,7 +90,7 @@
 	"notification-inbox-filter-all": "Tutti",
 	"echo-overlay-link": "Tutti li nutìfichi",
 	"echo-overlay-title": "<b>Nutìfichi</b>",
-	"echo-mark-all-as-read": "Sinna tutti comu ligghiuti",
+	"echo-mark-all-as-read": "Signa {{PLURAL:$1|tutti pari}} comu liggiuti",
 	"echo-displaysnippet-title": "Nutìfica nova",
 	"echo-date-today": "Oji",
 	"echo-date-yesterday": "Ajeri",
