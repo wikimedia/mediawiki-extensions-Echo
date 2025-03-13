@@ -643,10 +643,7 @@ class Hooks implements
 		if ( $editResult->getRevertMethod() === EditResult::REVERT_UNDO ) {
 			$undidRevId = $editResult->getUndidRevId();
 			$undidRevision = $this->revisionStore->getRevisionById( $undidRevId );
-			if (
-				$undidRevision &&
-				Title::newFromLinkTarget( $undidRevision->getPageAsLinkTarget() )->equals( $title )
-			) {
+			if ( $undidRevision && $undidRevision->getPage()->isSamePageAs( $title ) ) {
 				$revertedUser = $undidRevision->getUser();
 				// No notifications for anonymous users
 				if ( $revertedUser && $revertedUser->getId() ) {
