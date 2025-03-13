@@ -237,7 +237,7 @@ mw.echo.ui.CrossWikiNotificationItemWidget.prototype.expand = function () {
 					if ( result.errCode === 'notlogin-required' ) {
 						// Login error
 						this.showErrorMessage(
-							mw.message( 'echo-notification-popup-loginrequired' ),
+							mw.msg( 'echo-notification-popup-loginrequired' ),
 							// Set the option link to the login page
 							loginPageTitle.getUrl()
 						);
