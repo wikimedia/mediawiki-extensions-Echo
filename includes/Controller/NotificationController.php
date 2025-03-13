@@ -267,8 +267,6 @@ class NotificationController {
 
 	/**
 	 * Push $event onto the mediawiki job queue
-	 *
-	 * @param Event $event
 	 */
 	public static function enqueueEvent( Event $event ) {
 		$queue = MediaWikiServices::getInstance()->getJobQueueGroup();

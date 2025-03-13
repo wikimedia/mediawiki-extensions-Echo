@@ -288,7 +288,6 @@ class Hooks implements
 
 	/**
 	 * Handler for ResourceLoaderRegisterModules hook
-	 * @param ResourceLoader $resourceLoader
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		$resourceLoader->register( 'ext.echo.emailicons', [
@@ -1451,8 +1450,6 @@ class Hooks implements
 
 	/**
 	 * Sets custom login message for redirect from notification page
-	 *
-	 * @param array &$messages
 	 */
 	public function onLoginFormValidErrorMessages( array &$messages ) {
 		$messages[] = 'echo-notification-loginrequired';

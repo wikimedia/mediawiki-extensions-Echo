@@ -290,7 +290,6 @@ class Event extends AbstractEntity implements Bundleable {
 
 	/**
 	 * Check whether the echo event is an enabled event
-	 * @return bool
 	 */
 	public function isEnabledEvent(): bool {
 		global $wgEchoNotifications;
