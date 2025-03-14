@@ -147,7 +147,6 @@ class Notification extends AbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * Getter method
 	 * @return Event The event for this notification
 	 */
 	public function getEvent() {
@@ -163,7 +162,6 @@ class Notification extends AbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * Getter method
 	 * @return string Notification creation timestamp
 	 */
 	public function getTimestamp() {
@@ -171,7 +169,6 @@ class Notification extends AbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * Getter method
 	 * @return string|null Notification read timestamp
 	 */
 	public function getReadTimestamp() {
@@ -183,7 +180,6 @@ class Notification extends AbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * Getter method
 	 * @return string|null Notification bundle hash
 	 */
 	public function getBundleHash() {

@@ -38,9 +38,6 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 		);
 	}
 
-	/**
-	 * @return UserIdentity
-	 */
 	protected function getUser(): UserIdentity {
 		return new UserIdentityValue( 1, 'ExampleUserName' );
 	}

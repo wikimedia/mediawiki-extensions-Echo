@@ -81,8 +81,6 @@ class FilteredSequentialIterator implements IteratorAggregate {
 
 	/**
 	 * Satisfies IteratorAggregate interface
-	 *
-	 * @return Iterator
 	 */
 	public function getIterator(): Iterator {
 		$it = $this->createIterator();

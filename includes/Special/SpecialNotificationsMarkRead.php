@@ -126,7 +126,6 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 	 *
 	 * This is only called when the form is actually visited directly, which is not the
 	 *   main intended use.
-	 * @param HTMLForm $form
 	 */
 	protected function alterForm( HTMLForm $form ) {
 		$form->setSubmitText( $this->msg( 'echo-notification-markasread' )->text() );

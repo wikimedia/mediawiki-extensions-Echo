@@ -7,10 +7,7 @@ namespace MediaWiki\Extension\Notifications\Formatters;
  * render everything client-side.
  */
 class EchoModelFormatter extends EchoEventFormatter {
-	/**
-	 * @param EchoEventPresentationModel $model
-	 * @return array
-	 */
+
 	protected function formatModel( EchoEventPresentationModel $model ): array {
 		$data = $model->jsonSerialize();
 		$data['iconUrl'] = EchoIcon::getUrl( $model->getIconType(), $this->language->getDir() );

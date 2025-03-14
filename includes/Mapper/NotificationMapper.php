@@ -22,7 +22,6 @@ class NotificationMapper extends AbstractMapper {
 
 	/**
 	 * Insert a notification record
-	 * @param Notification $notification
 	 */
 	public function insert( Notification $notification ) {
 		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
