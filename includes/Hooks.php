@@ -283,9 +283,7 @@ class Hooks implements
 		}
 
 		// Default $wgEchoSeenTimeCacheType to $wgMainStash
-		if ( $wgEchoSeenTimeCacheType === null ) {
-			$wgEchoSeenTimeCacheType = $wgMainStash;
-		}
+		$wgEchoSeenTimeCacheType ??= $wgMainStash;
 	}
 
 	/**

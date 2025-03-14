@@ -552,9 +552,9 @@ class NotifUser {
 	 * the 'global' key will not be present. It could be null, if no global user exists.
 	 *
 	 * @param bool $includeGlobal Whether to include cross-wiki notifications as well
-	 * @return array
+	 * @return array[]
 	 */
-	public function getCountsAndTimestamps( $includeGlobal = false ) {
+	public function getCountsAndTimestamps( $includeGlobal = false ): array {
 		if ( $this->localCountsAndTimestamps === null ) {
 			$this->localCountsAndTimestamps = $this->cache->getWithSetCallback(
 				$this->getMemcKey( self::CACHE_KEY ),
