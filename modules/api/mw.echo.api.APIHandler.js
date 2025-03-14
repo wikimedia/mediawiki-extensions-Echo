@@ -73,7 +73,7 @@ mw.echo.api.APIHandler.prototype.queryAPI = function ( data ) {
 /**
  * Fetch all pages with unread notifications in them per wiki
  *
- * @param {string|string[]} [sources=*] Requested sources. If not given
+ * @param {string|string[]} [sources='*'] Requested sources. If not given
  *  or if a '*' is given, all available sources will be queried
  * @return {jQuery.Promise} Promise that is resolved with an object
  *  of pages with the number of unread notifications per wiki

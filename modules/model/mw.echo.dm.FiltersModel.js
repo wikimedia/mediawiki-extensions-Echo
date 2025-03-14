@@ -8,7 +8,7 @@
  * @param {Object} [config={}]
  * @param {string} [config.readState='all'] Notifications read state. Allowed
  *  values are 'all', 'read' or 'unread'.
- * @param {string} [config.selectedSource] Currently selected source
+ * @param {string} [config.selectedSource=''] Currently selected source
  */
 mw.echo.dm.FiltersModel = function MwEchoDmFiltersModel( config ) {
 	config = config || {};

@@ -200,8 +200,8 @@ mw.echo.ui.CrossWikiNotificationItemWidget.prototype.toggleListDisplay = functio
 /**
  * Show an error message
  *
- * @param {string} label Error label
- * @param {string} link Error link
+ * @param {string} [label=''] Error label
+ * @param {string} [link=''] Error link
  */
 mw.echo.ui.CrossWikiNotificationItemWidget.prototype.showErrorMessage = function ( label, link ) {
 	this.errorWidget.setLabel( label || '' );
