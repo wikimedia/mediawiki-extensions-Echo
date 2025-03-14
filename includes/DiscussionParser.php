@@ -291,10 +291,7 @@ abstract class DiscussionParser {
 	) {
 		global $wgEchoMaxMentionsCount, $wgEchoMentionStatusNotifications;
 
-		$title = Title::newFromLinkTarget( $revision->getPageAsLinkTarget() );
-		if ( !$title ) {
-			return [];
-		}
+		$title = Title::newFromPageIdentity( $revision->getPage() );
 		$content = self::stripHeader( $content );
 		$content = self::stripSignature( $content, $title );
 
@@ -556,7 +553,7 @@ abstract class DiscussionParser {
 		$output = self::interpretDiff(
 			$changes,
 			$userIdentity ? $userIdentity->getName() : '',
-			Title::newFromLinkTarget( $revision->getPageAsLinkTarget() )
+			Title::newFromPageIdentity( $revision->getPage() )
 		);
 
 		if ( $cacheKey ) {
