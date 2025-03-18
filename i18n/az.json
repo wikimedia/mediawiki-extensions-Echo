@@ -172,7 +172,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Sizin}} istifadəçi hüquqlarınız {{GENDER:$1|dəyişdirilib}}. Artıq $2 qrupuna üzv deyilsiniz.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$4|Sizin}} istifadəçi hüquqlarınız {{GENDER:$1|dəyişdirilib}}. $2 qrupuna əlavə olunub $4 qrupundan çıxarılmısınız.",
 	"notification-header-user-rights-expiry-change": "Aşağıda qeyd olunan {{PLURAL:$3|istifadəçi qrupuna|istifadəçi qruplarına}} {{GENDER:$4|üzvlüyünüzün}} bitmə müddəti {{GENDER:$1|dəyişdirilib}}: $2",
-	"notification-header-welcome": "{{SITENAME}} saytına {{GENDER:$2|xoş gəldiniz}}, $1! Sizi burada görməyimizə çox şadıq!",
+	"notification-header-welcome": "{{SITENAME}} saytına {{GENDER:$2|xoş gəlmisiniz}}, $1! {{GENDER:$2|Sizi}} burada görməyimizə çox şadıq!",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|sizi}} <strong>$4</strong> səhifəsinin qısa məzmununda {{GENDER:$2|qeyd etdi}}.",
 	"notification-header-watchlist-changed": "$1 {{GENDER:$4|izləmə siyahınızda}} olan <strong>$3</strong> səhifəsini{{PLURAL:$5|| $5 dəfə}} {{GENDER:$2|redaktə etdi}}",
 	"notification-header-watchlist-created": "$1 {{GENDER:$4|izləmə siyahınızda}} olan <strong>$3</strong> səhifəsini{{PLURAL:$5|| $5 dəfə}} {{GENDER:$2|yaratdı.}}",
