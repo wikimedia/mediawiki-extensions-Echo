@@ -80,9 +80,11 @@ use MediaWiki\User\UserEditTracker;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
+use MobileContext;
 use RecentChange;
 use Skin;
 use SkinTemplate;
+use Wikimedia\Message\MessageValue;
 use Wikimedia\Stats\StatsFactory;
 use WikiPage;
 
@@ -934,6 +936,8 @@ class Hooks implements
 			} );
 		}
 
+		$subtractions[AttributeManager::ALL] = array_sum( $subtractions );
+
 		return $subtractions;
 	}
 
@@ -973,83 +977,72 @@ class Hooks implements
 
 		$subtractions = $this->processMarkAsRead( $user, $out->getRequest(), $title );
 
-		// Add a "My notifications" item to personal URLs
+		$skinName = strtolower( $skinTemplate->getSkinName() );
+		// HACK: inverted icons only work in the "MediaWiki" OOUI theme
+		// Avoid flashes in skins that don't use it (T111821)
+		$out::setupOOUI( $skinName, $out->getLanguage()->getDir() );
+
+		// Add notifications items to personal URLs
+		// (On mobile, they're combined into one for reasons lost to mists of time)
+		// TODO: Make this a skin option, and remove other Minerva special-cases below. Currently it's
+		// not fully supported by the JS flyout code, so it can't be enabled on other skins.
+		$isMobile = ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
+			// @phan-suppress-next-line PhanUndeclaredClassMethod
+			MobileContext::singleton()->shouldDisplayMobileView();
+		$sections = $skinName === 'minerva' && $isMobile
+			? [ AttributeManager::ALL ]
+			: [ AttributeManager::ALERT, AttributeManager::MESSAGE ];
+
 		$notifUser = NotifUser::newFromUser( $user );
-		$msgCount = $notifUser->getMessageCount() - $subtractions[AttributeManager::MESSAGE];
-		$alertCount = $notifUser->getAlertCount() - $subtractions[AttributeManager::ALERT];
-		// But make sure we never show a negative number (T130853)
-		$msgCount = max( 0, $msgCount );
-		$alertCount = max( 0, $alertCount );
-
-		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
-		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
-
 		$seenTime = SeenTime::newFromUser( $user );
 		if ( $title->isSpecial( 'Notifications' ) ) {
 			// If this is the Special:Notifications page, seenTime to now
 			$seenTime->setTime( wfTimestamp( TS_MW ), AttributeManager::ALL );
 		}
-		$seenAlertTime = $seenTime->getTime( 'alert', TS_ISO_8601 );
-		$seenMsgTime = $seenTime->getTime( 'message', TS_ISO_8601 );
 
-		$out->addJsConfigVars( 'wgEchoSeenTime', [
-			'alert' => $seenAlertTime,
-			'notice' => $seenMsgTime,
-		] );
-
-		$msgFormattedCount = NotificationController::formatNotificationCount( $msgCount );
-		$alertFormattedCount = NotificationController::formatNotificationCount( $alertCount );
-
-		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
-
-		$skinName = strtolower( $skinTemplate->getSkinName() );
-		$isMinervaSkin = $skinName === 'minerva';
-		// HACK: inverted icons only work in the "MediaWiki" OOUI theme
-		// Avoid flashes in skins that don't use it (T111821)
-		$out::setupOOUI( $skinName, $out->getLanguage()->getDir() );
-		$bellIconClass = $isMinervaSkin ? 'oo-ui-icon-bellOutline' : 'oo-ui-icon-bell';
-
-		$msgLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs", "oo-ui-icon-tray" ];
-		$alertLinkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs", $bellIconClass ];
-
+		$iconsClasses = [
+			AttributeManager::ALERT => 'oo-ui-icon-bell',
+			AttributeManager::MESSAGE => 'oo-ui-icon-tray',
+			AttributeManager::ALL => 'oo-ui-icon-bellOutline',
+		];
 		$hasUnseen = false;
-		if (
-			// no unread notifications
-			$msgCount !== 0 &&
-			// should already always be false if count === 0
-			$msgNotificationTimestamp !== false &&
-			// there are no unseen notifications
-			( $seenMsgTime === null ||
-				$seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 ) )
-		) {
-			$msgLinkClasses[] = 'mw-echo-unseen-notifications';
-			$hasUnseen = true;
-		} elseif ( $msgCount === 0 ) {
-			$msgLinkClasses[] = 'mw-echo-notifications-badge-all-read';
+		$counts = $notifTimes = $seenTimes = $formattedCounts = $linksClasses = [];
+		foreach ( $sections as $section ) {
+			$counts[$section] = $notifUser->getNotificationCount( $section ) - $subtractions[$section];
+			// But make sure we never show a negative number (T130853)
+			$counts[$section] = max( 0, $counts[$section] );
+
+			$notifTimes[$section] = $notifUser->getLastUnreadNotificationTime( $section );
+			$seenTimes[$section] = $seenTime->getTime( $section, TS_ISO_8601 );
+
+			$formattedCounts[$section] = NotificationController::formatNotificationCount( $counts[$section] );
+
+			$linksClasses[$section] = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-nojs" ];
+			if ( $skinName !== 'minerva' ) {
+				$linksClasses[$section][] = $iconsClasses[$section];
+			}
+
+			if (
+				// no unread notifications
+				$counts[$section] !== 0 &&
+				// should already always be false if count === 0
+				$notifTimes[$section] !== false &&
+				// all notifications have already been seen
+				( $seenTimes[$section] === null ||
+					$seenTimes[$section] < $notifTimes[$section]->getTimestamp( TS_ISO_8601 ) )
+			) {
+				$linksClasses[$section][] = 'mw-echo-unseen-notifications';
+				$hasUnseen = true;
+			} elseif ( $counts[$section] === 0 ) {
+				$linksClasses[$section][] = 'mw-echo-notifications-badge-all-read';
+			}
+
+			if ( $counts[$section] > NotifUser::MAX_BADGE_COUNT ) {
+				$linksClasses[$section][] = 'mw-echo-notifications-badge-long-label';
+			}
 		}
 
-		if ( $msgCount > NotifUser::MAX_BADGE_COUNT ) {
-			$msgLinkClasses[] = 'mw-echo-notifications-badge-long-label';
-		}
-
-		if (
-			// no unread notifications
-			$alertCount !== 0 &&
-			// should already always be false if count === 0
-			$alertNotificationTimestamp !== false &&
-			// all notifications have already been seen
-			( $seenAlertTime === null ||
-				$seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 ) )
-		) {
-			$alertLinkClasses[] = 'mw-echo-unseen-notifications';
-			$hasUnseen = true;
-		} elseif ( $alertCount === 0 ) {
-			$alertLinkClasses[] = 'mw-echo-notifications-badge-all-read';
-		}
-
-		if ( $alertCount > NotifUser::MAX_BADGE_COUNT ) {
-			$alertLinkClasses[] = 'mw-echo-notifications-badge-long-label';
-		}
+		$out->addJsConfigVars( 'wgEchoSeenTime', $seenTimes );
 
 		$mytalk = $links['user-menu']['mytalk'] ?? false;
 		if (
@@ -1086,34 +1079,44 @@ class Hooks implements
 			}
 		}
 
-		$links['notifications']['notifications-alert'] = [
-			'href' => $url,
-			'text' => $skinTemplate->msg( 'echo-notification-alert', $alertCount )->text(),
-			'active' => ( $url == $title->getLocalURL() ),
-			'link-class' => $alertLinkClasses,
-			'icon' => 'bell',
-			'data' => [
-				'event-name' => 'ui.notifications',
-				'counter-num' => $alertCount,
-				'counter-text' => $alertFormattedCount,
-			],
-			// This item used to be part of personal tools, and much CSS relies on it using this id.
-			'id' => 'pt-notifications-alert',
+		$keys = [
+			AttributeManager::ALERT => 'notifications-alert',
+			AttributeManager::MESSAGE => 'notifications-notice',
+			AttributeManager::ALL => 'notifications',
 		];
-
-		$links['notifications']['notifications-notice'] = [
-			'href' => $url,
-			'text' => $skinTemplate->msg( 'echo-notification-notice', $msgCount )->text(),
-			'active' => ( $url == $title->getLocalURL() ),
-			'link-class' => $msgLinkClasses,
-			'icon' => 'tray',
-			'data' => [
-				'counter-num' => $msgCount,
-				'counter-text' => $msgFormattedCount,
-			],
-			// This item used to be part of personal tools, and much CSS relies on it using this id.
-			'id' => 'pt-notifications-notice',
+		$messages = [
+			AttributeManager::ALERT => MessageValue::new( 'echo-notification-alert' ),
+			AttributeManager::MESSAGE => MessageValue::new( 'echo-notification-notice' ),
+			AttributeManager::ALL => MessageValue::new( 'echo-notification-all' ),
 		];
+		$icons = [
+			AttributeManager::ALERT => 'bell',
+			AttributeManager::MESSAGE => 'tray',
+			AttributeManager::ALL => $skinName === 'minerva' && $hasUnseen ? 'circle' : 'bellOutline',
+		];
+		// This item used to be part of personal tools, and much CSS relies on it using this id.
+		$ids = [
+			AttributeManager::ALERT => 'pt-notifications-alert',
+			AttributeManager::MESSAGE => 'pt-notifications-notice',
+			AttributeManager::ALL => 'pt-notifications',
+		];
+		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
+		foreach ( $sections as $section ) {
+			$links['notifications'][$keys[$section]] = [
+				'href' => $url,
+				'text' => $skinTemplate->msg( $messages[$section] )->params( $counts[$section] )->text(),
+				'active' => ( $url == $title->getLocalURL() ),
+				'link-class' => $linksClasses[$section],
+				'icon' => $icons[$section],
+				'data' => [
+					// FIXME: What is this for and why is it like this?
+					'event-name' => $section === AttributeManager::MESSAGE ? null : 'ui.notifications',
+					'counter-num' => $counts[$section],
+					'counter-text' => $formattedCounts[$section],
+				],
+				'id' => $ids[$section],
+			];
+		}
 
 		if ( $hasUnseen ) {
 			// Record that the user is going to see an indicator that they have unseen notifications

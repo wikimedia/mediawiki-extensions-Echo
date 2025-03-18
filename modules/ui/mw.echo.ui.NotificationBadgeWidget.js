@@ -136,6 +136,7 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 		// The following messages can be used here:
 		// * echo-notification-alert-text-only
 		// * echo-notification-notice-text-only
+		// * echo-notification-all-text-only
 		label: mw.msg(
 			'echo-notification-' + adjustedTypeString +
 			'-text-only'

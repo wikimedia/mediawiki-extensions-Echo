@@ -279,6 +279,7 @@
 				"echo-notification-more-options-tooltip",
 				"echo-notification-alert-text-only",
 				"echo-notification-notice-text-only",
+				"echo-notification-all-text-only",
 				"echo-email-batch-bullet",
 				"echo-notification-placeholder",
 				"tooltip-pt-notifications-alert",
