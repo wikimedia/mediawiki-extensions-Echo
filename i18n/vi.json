@@ -77,6 +77,7 @@
 	"notifications": "Thông báo",
 	"tooltip-pt-notifications-alert": "Cảnh báo cho bạn",
 	"tooltip-pt-notifications-notice": "Thông báo cho bạn",
+	"tooltip-pt-notifications": "Các thông báo cho bạn",
 	"echo-displaynotificationsconfiguration": "Cấu hình hiển thị thông báo",
 	"echo-displaynotificationsconfiguration-summary": "Đây là cấu hình hiển thị thông báo trên wiki này.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Thông báo theo lý do",

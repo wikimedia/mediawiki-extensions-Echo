@@ -50,6 +50,7 @@
 	"notifications": "Pambiwara",
 	"tooltip-pt-notifications-alert": "Pangawasané {{GENDER:|panjenengan}}",
 	"tooltip-pt-notifications-notice": "Pambiwarané {{GENDER:|panjenengan}}",
+	"tooltip-pt-notifications": "Pemberitahuan Anda",
 	"echo-displaynotificationsconfiguration": "Tuduhaké setèlané Pambiwara",
 	"echo-displaynotificationsconfiguration-summary": "Iki cathetan bab anggoné Pambiwara katata ing wiki iki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Pambiwara miturut kategoriné",

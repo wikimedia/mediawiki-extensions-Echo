@@ -73,6 +73,7 @@
 	"notifications": "Хапарландырыула",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Билдириуле}}",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Хапарландыуруларыгъыз}}",
+	"tooltip-pt-notifications": "Билдириулеригиз",
 	"echo-displaynotificationsconfiguration": "Хапарландырыу конфигурацияны кёргюз",
 	"echo-displaynotificationsconfiguration-summary": "Бу хапарландырыуланы бу викиде къалай конфигурация этилгенине къарамды.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Категориягъа кёре хапарландырыула",

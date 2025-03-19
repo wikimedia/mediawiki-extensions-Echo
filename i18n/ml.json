@@ -59,6 +59,7 @@
 	"notifications": "വിജ്ഞാപനങ്ങൾ",
 	"tooltip-pt-notifications-alert": "{{GENDER:|താങ്കൾ}} ശ്രദ്ധിക്കേണ്ടവ",
 	"tooltip-pt-notifications-notice": "{{GENDER:|താങ്കൾക്കുള്ള}} അറിയിപ്പുകൾ",
+	"tooltip-pt-notifications": "താങ്കൾക്കുള്ള അറിയിപ്പുകൾ",
 	"echo-displaynotificationsconfiguration": "വിജ്ഞാപനങ്ങൾ പ്രദർശിപ്പിക്കൽ ക്രമീകരണങ്ങൾ",
 	"echo-displaynotificationsconfiguration-summary": "ഈ വിക്കിയിൽ എപ്രകാരമാണ് വിജ്ഞാപനങ്ങൾ ക്രമീകരിച്ചിട്ടുള്ളതെന്നതിന്റെ അവലോകനമാണിത്.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "വിജ്ഞാപനങ്ങൾ വർഗ്ഗങ്ങൾക്കനുസരിച്ച്",

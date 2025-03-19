@@ -78,6 +78,7 @@
 	"notifications": "सूचनाहरू",
 	"tooltip-pt-notifications-alert": "{{GENDER:|तपाईंको}} जानकारीहरू",
 	"tooltip-pt-notifications-notice": "{{GENDER:|तपाईंको}} जानकारीहरू",
+	"tooltip-pt-notifications": "तपाईँका जानकारीहरू",
 	"echo-displaynotificationsconfiguration": "सूचना अभिरुचिहरू प्रदर्शन गर्नुहोस्",
 	"echo-displaynotificationsconfiguration-summary": "यो विकिमा सूचनाहरू कसरी कन्फिगर गरिएको छ भन्ने बारे एक सिंहावलोकन हो।",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "श्रेणी द्वारा सूचनाहरू",

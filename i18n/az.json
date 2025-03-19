@@ -82,6 +82,7 @@
 	"notifications": "Bildirişlər",
 	"tooltip-pt-notifications-alert": "Xəbərdarlıqlarınız",
 	"tooltip-pt-notifications-notice": "Bildirişləriniz",
+	"tooltip-pt-notifications": "Sizin bildirişləriniz",
 	"echo-displaynotificationsconfiguration": "Bildiriş konfiqurasiyasını göstər",
 	"echo-displaynotificationsconfiguration-summary": "Bu, bu vikidə Bildirişlərin necə konfiqurasiya edildiyinə dair ümumi görüntüdür.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Kateqoriyaya görə bildirişlər",

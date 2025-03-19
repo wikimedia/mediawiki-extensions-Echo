@@ -66,6 +66,7 @@
 	"notifications": "Notifikatiounen",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Är}} Meldungen",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Är}} Notifikatiounen",
+	"tooltip-pt-notifications": "Är Notifikatiounen",
 	"echo-displaynotificationsconfiguration": "Astellunge vun den Notifikatioune weisen",
 	"echo-displaynotificationsconfiguration-summary": "Dëst ass eng Iwwersiicht wéi Notifikatiounen op dëser Wiki agestallt sinn.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Notifikatiounen no Kategorie",

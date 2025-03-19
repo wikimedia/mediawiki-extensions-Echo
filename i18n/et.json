@@ -66,6 +66,7 @@
 	"notifications": "Teavitused",
 	"tooltip-pt-notifications-alert": "Sinu märguanded",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Sinu}} märkused",
+	"tooltip-pt-notifications": "Sinu teavitused",
 	"echo-displaynotificationsconfiguration": "Teavituste kuvamise häälestus",
 	"echo-displaynotificationsconfiguration-summary": "Siin on ülevaade teavituste häälestusest selles vikis.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Teavituste kategooriad",

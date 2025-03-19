@@ -51,6 +51,7 @@
 	"notifications": "Bildirishnomalar",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Xabarnomalaringiz}}",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Bildirishnomalaringiz}}",
+	"tooltip-pt-notifications": "Sizning xabarlaringiz",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Turkum boʻyicha bildirishnomalar",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Turlarga koʻra saralash",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Sukut boʻyicha yoqilgan",

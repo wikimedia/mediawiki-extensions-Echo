@@ -100,6 +100,7 @@
 	"notifications": "آگاه‌سازی‌ها",
 	"tooltip-pt-notifications-alert": "هشدارهای {{GENDER:|شما}}",
 	"tooltip-pt-notifications-notice": "آگاهی‌های {{GENDER:|شما}}",
+	"tooltip-pt-notifications": "آگاه‌سازی‌های شما",
 	"echo-displaynotificationsconfiguration": "نمایش پیکربندی آگاهی‌سازی‌ها",
 	"echo-displaynotificationsconfiguration-summary": "این نگاهی اجمالی است برای مشخص کردن اینکه چگونه آگاه‌سازی‌ها برای این ویکی تنظیم می‌شوند.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "آگاه‌سازی‌ها بر پایه رده",

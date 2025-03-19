@@ -90,6 +90,7 @@
 	"notifications": "Сповіщення",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Ваші}} звістки",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Ваші}} сповіщення",
+	"tooltip-pt-notifications": "Ваші сповіщення",
 	"echo-displaynotificationsconfiguration": "Показати налаштування сповіщень",
 	"echo-displaynotificationsconfiguration-summary": "Це огляд налаштувань сповіщень у цій вікі.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Сповіщення за категоріями",

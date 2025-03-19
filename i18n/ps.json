@@ -74,6 +74,7 @@
 	"notifications": "خبرتیاوې",
 	"tooltip-pt-notifications-alert": "{{GENDER:|ستاسې}} خبرونې",
 	"tooltip-pt-notifications-notice": "{{GENDER:|ستاسې}} خبرونې",
+	"tooltip-pt-notifications": "ستاسې يادگيرنې",
 	"echo-displaynotificationsconfiguration": "د خبرتیاوو ترتیب نښودل",
 	"echo-displaynotificationsconfiguration-summary": "دا یوه ټوليزه کتنه ده چې په دې ويکي کې نوښتونه نه دي تنظیم شوي.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "د وېشنيزو لخوا خبرتیاوې",

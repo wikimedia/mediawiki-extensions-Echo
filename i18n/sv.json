@@ -90,6 +90,7 @@
 	"notifications": "Aviseringar",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Dina}} systemmeddelanden",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Dina}} notiser",
+	"tooltip-pt-notifications": "Dina aviseringar",
 	"echo-displaynotificationsconfiguration": "Visa aviseringskonfiguration",
 	"echo-displaynotificationsconfiguration-summary": "Detta är en översikt av hur aviseringar är konfigurerade på denna wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Aviseringar efter kategori",

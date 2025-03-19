@@ -85,6 +85,7 @@
 	"notifications": "הודעות",
 	"tooltip-pt-notifications-alert": "ההתראות שלך",
 	"tooltip-pt-notifications-notice": "ההודעות {{GENDER:|שלך}}",
+	"tooltip-pt-notifications": "ההתראות שלך",
 	"echo-displaynotificationsconfiguration": "הצגת הגדרות הודעות",
 	"echo-displaynotificationsconfiguration-summary": "זוהי סקירה כללית של איך שההודעות מוגדרות בוויקי הזה.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "הודעות לפי קטגוריה",

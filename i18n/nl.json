@@ -97,6 +97,7 @@
 	"notifications": "Meldingen",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Uw}} meldingen",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Uw}} notificaties",
+	"tooltip-pt-notifications": "Uw meldingen",
 	"echo-displaynotificationsconfiguration": "Instellingen van schermmeldingen",
 	"echo-displaynotificationsconfiguration-summary": "Dit overzicht geeft aan hoe meldingen zijn geconfigureerd op deze wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Meldingen per categorie",

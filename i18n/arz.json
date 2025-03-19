@@ -4,5 +4,6 @@
 			"Ghaly"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|تنبيهاتك}}"
+	"tooltip-pt-notifications-alert": "{{GENDER:|تنبيهاتك}}",
+	"tooltip-pt-notifications": "إشعاراتك"
 }

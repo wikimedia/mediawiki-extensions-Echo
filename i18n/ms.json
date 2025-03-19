@@ -76,6 +76,7 @@
 	"notifications": "Pemberitahuan",
 	"tooltip-pt-notifications-alert": "Notis {{GENDER:|anda}}",
 	"tooltip-pt-notifications-notice": "Notis {{GENDER:|anda}}",
+	"tooltip-pt-notifications": "Pemberitahuan anda",
 	"echo-displaynotificationsconfiguration": "Konfigurasi Pemberitahuan Paparan",
 	"echo-displaynotificationsconfiguration-summary": "Laman ini memaparkan gambaran keseluruhan bagaimana pemberitahuan dikonfigurasi di wiki ini.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Pemberitahuan mengikut kategori",

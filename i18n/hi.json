@@ -82,6 +82,7 @@
 	"notifications": "अधिसूचनाएँ",
 	"tooltip-pt-notifications-alert": "आपकी चेतावनियाँ",
 	"tooltip-pt-notifications-notice": "आपकी अधिसूचनाएँ",
+	"tooltip-pt-notifications": "आपकी सूचनायें",
 	"echo-displaynotificationsconfiguration": "अधिसूचनाओं का कॉन्फ़िगरेशन देखें",
 	"echo-displaynotificationsconfiguration-summary": "यह इस विकि पर आपकी अधिसूचनाओं के कॉन्फ़िगरेशन का एक अवलोकन है।",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "श्रेणी अनुसार अधिसूचनाएँ",

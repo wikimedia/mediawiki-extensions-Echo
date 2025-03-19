@@ -87,6 +87,7 @@
 	"notifications": "알림",
 	"tooltip-pt-notifications-alert": "{{GENDER:|당신}}의 중요 알림",
 	"tooltip-pt-notifications-notice": "{{GENDER:|당신의}} 알림",
+	"tooltip-pt-notifications": "내 알림",
 	"echo-displaynotificationsconfiguration": "알림 표시 설정",
 	"echo-displaynotificationsconfiguration-summary": "이 위키에서 알림이 어떻게 설정되었는지에 관한 개요입니다.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "분류별 알림",

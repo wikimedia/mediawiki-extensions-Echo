@@ -80,6 +80,7 @@
 	"notifications": "বিজ্ঞপ্তি",
 	"tooltip-pt-notifications-alert": "{{GENDER:|আপনার}} অবহিতি",
 	"tooltip-pt-notifications-notice": "{{GENDER:|আপনার}} বিজ্ঞপ্তি",
+	"tooltip-pt-notifications": "আপনার বিজ্ঞপ্তি",
 	"echo-displaynotificationsconfiguration": "বিজ্ঞপ্তি কনফিগারেশন দেখুন",
 	"echo-displaynotificationsconfiguration-summary": "এটি এই উইকিতে কিভাবে বিজ্ঞপ্তি কনফিগার করা আছে তাঁর উপর একটি আলোকপাত।",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "বিষয়শ্রেণী অনুযায়ী বিজ্ঞপ্তি",

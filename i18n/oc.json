@@ -47,6 +47,7 @@
 	"notifications": "Notificacions",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Vòstras}} alèrtas",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Vòstras}} notificacions",
+	"tooltip-pt-notifications": "Vòstras notificacions",
 	"echo-specialpage": "Notificacions",
 	"echo-specialpage-section-markread": "Marcar la seccion coma legida",
 	"echo-specialpage-markasread": "Notificacion : marcar coma legida",

@@ -50,6 +50,7 @@
 	"notifications": "Mmasciate",
 	"tooltip-pt-notifications-alert": "L'allerte {{GENDER:|vuoste}}",
 	"tooltip-pt-notifications-notice": "'E communicaziune {{GENDER:|vuoste}}",
+	"tooltip-pt-notifications": "'E notifiche vuoste",
 	"echo-displaynotificationsconfiguration": "Fà veré 'e mpustaziune 'e notifiche",
 	"echo-displaynotificationsconfiguration-summary": "Chest'è na panoramica 'e comm' 'e notifiche so' state configurate ncopp'a stu wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Notifiche pe' categurìa",

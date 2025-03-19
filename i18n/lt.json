@@ -72,6 +72,7 @@
 	"notifications": "Pranešimai",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Jūsų}} perspėjimai",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Jūsų}} pranešimai",
+	"tooltip-pt-notifications": "Jūsų pranešimai",
 	"echo-displaynotificationsconfiguration": "Rodyti Pranešimų konfigūraciją",
 	"echo-displaynotificationsconfiguration-summary": "Tai yra Pranešimų konfigūracijos šioje viki apžvalga.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Pranešimai pagal kategoriją",

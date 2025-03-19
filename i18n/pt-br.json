@@ -96,6 +96,7 @@
 	"notifications": "Notificações",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Seus}} alertas",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Suas}} notificações",
+	"tooltip-pt-notifications": "Suas notificações",
 	"echo-displaynotificationsconfiguration": "Configuração de notificações de exibição",
 	"echo-displaynotificationsconfiguration-summary": "Esta é uma visão geral de como as Notificações são configuradas nesta wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Notificações por categoria",

@@ -81,6 +81,7 @@
 	"notifications": "Обавештења",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Ваша}} обавештења",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Ваша}} ситна обавештења",
+	"tooltip-pt-notifications": "{{GENDER:|Ваша}} обавештења",
 	"echo-displaynotificationsconfiguration": "Конфигурација приказа обавештења",
 	"echo-displaynotificationsconfiguration-summary": "Ово је преглед о томе како су обавештења конфигурисана на овом викију.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Обавештења по категоријама",

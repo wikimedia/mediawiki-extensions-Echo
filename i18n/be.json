@@ -76,6 +76,7 @@
 	"notifications": "Паведамленні",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Вашы}} апавяшчэнні",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Вашы}} апавяшчэнні",
+	"tooltip-pt-notifications": "Вашы паведамленні",
 	"echo-displaynotificationsconfiguration": "Паказаць налады Апавяшчэнняў",
 	"echo-displaynotificationsconfiguration-summary": "Гэта агляд наладаў Апавяшчэнняў у гэтай вікі.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Апавяшчэнні паводле катэгорыяў",

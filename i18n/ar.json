@@ -105,6 +105,7 @@
 	"notifications": "إشعارات",
 	"tooltip-pt-notifications-alert": "{{GENDER:|تنبيهاتك}}",
 	"tooltip-pt-notifications-notice": "{{GENDER:|إخطاراتك}}",
+	"tooltip-pt-notifications": "إشعاراتك",
 	"echo-displaynotificationsconfiguration": "عرض تنبهات الإعدادات",
 	"echo-displaynotificationsconfiguration-summary": "هذا لمحة عامة عن كيفية اعداد الإخطارات في هذه الويكي.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "الإشعارات حسب التصنيف",

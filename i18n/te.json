@@ -68,6 +68,7 @@
 	"notifications": "గమనింపులు",
 	"tooltip-pt-notifications-alert": "{{GENDER:|మీ}} హెచ్చరికలు",
 	"tooltip-pt-notifications-notice": "{{GENDER:|మీ}} సూచనలు",
+	"tooltip-pt-notifications": "మీకు సూచనలు",
 	"echo-displaynotificationsconfiguration": "గమనింపుల కాన్ఫిగరేషను చూపించు",
 	"echo-displaynotificationsconfiguration-summary": "ఈ వికీలో గమనింపులను ఎలా అమరచుకోవచ్చో తెలియజేసే స్థూలదృష్టి ఇది.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "విభాగాల వారీగా గమనింపులు",

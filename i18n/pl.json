@@ -95,6 +95,7 @@
 	"notifications": "Powiadomienia",
 	"tooltip-pt-notifications-alert": "Moje powiadomienia",
 	"tooltip-pt-notifications-notice": "Moje komunikaty",
+	"tooltip-pt-notifications": "Moje powiadomienia",
 	"echo-displaynotificationsconfiguration": "Wyświetl konfigurację Powiadomień",
 	"echo-displaynotificationsconfiguration-summary": "To jest przegląd tego, jak Powiadomienia są skonfigurowane na tej wiki.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Powiadomienia według kategorii",

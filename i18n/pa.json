@@ -65,6 +65,7 @@
 	"notifications": "ਸੂਚਨਾਵਾਂ",
 	"tooltip-pt-notifications-alert": "{{GENDER:|ਤੁਹਾਡੀ}} ਚੇਤਾਵਨੀਆਂ",
 	"tooltip-pt-notifications-notice": "{{GENDER:|ਤੁਹਾਡੇ}} ਸੁਨੇਹੇ",
+	"tooltip-pt-notifications": "ਤੁਹਾਡੀਆਂ ਸੂਚਨਾਵਾਂ",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "ਸ਼੍ਰੇਣੀ ਮੁਤਾਬਕ ਸੂਚਨਾਵਾਂ",
 	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "ਮੌਜੂਦਾ ਵਰਤੋਂਕਾਰ",
 	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "ਨਵੇਂ ਵਰਤੋਂਕਾਰ",
