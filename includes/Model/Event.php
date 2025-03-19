@@ -376,6 +376,25 @@ class Event extends AbstractEntity implements Bundleable {
 			);
 			return false;
 		}
+		array_walk_recursive(
+			$this->extra,
+			static function ( $value, $key ) use ( $row ) {
+				if ( $value instanceof \__PHP_Incomplete_Class ) {
+					// T388725: figure out what is causing those __PHP_Incomplete_Class instances
+					LoggerFactory::getInstance( 'Echo' )->warning(
+						'Unserializing of extra data partially failed for event {id} of type {type}',
+						[
+							'id' => $row->event_id,
+							'type' => $row->event_type,
+							'unserializable_data' => $row->event_extra,
+							'key' => $key,
+							'created_class' => var_export( $value, true ),
+						]
+					);
+				}
+			}
+		);
+
 		$this->pageId = $row->event_page_id;
 		$this->deleted = $row->event_deleted;
 
