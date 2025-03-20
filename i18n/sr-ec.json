@@ -225,6 +225,7 @@
 	"echo-notification-notice": "{{PLURAL:$1|Ситно обавештење ($1)|Ситна обавештења ($1)|100=Ситна обавештења (99+)}}",
 	"echo-notification-alert-text-only": "Обавештења",
 	"echo-notification-notice-text-only": "Ситна обавештења",
+	"echo-notification-all-text-only": "Обавештења",
 	"echo-overlay-link": "Сва обавештења",
 	"echo-overlay-title": "<b>Обавештења</b>",
 	"echo-mark-all-as-read": "Означи {{PLURAL:$1|све}} прочитаним",
