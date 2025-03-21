@@ -223,6 +223,7 @@
 	"echo-email-html-footer-with-link": "Да бисте контролисали које е-поруке {{GENDER:$2|вам}} шаљемо, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Обавештење ($1)|Обавештења ($1)|100=Обавештења (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Ситно обавештење ($1)|Ситна обавештења ($1)|100=Ситна обавештења (99+)}}",
+	"echo-notification-all": "{{PLURAL:$1|Обавештење ($1)|Обавештења ($1)|100=Обавештења (99+)}}",
 	"echo-notification-alert-text-only": "Обавештења",
 	"echo-notification-notice-text-only": "Ситна обавештења",
 	"echo-notification-all-text-only": "Обавештења",
