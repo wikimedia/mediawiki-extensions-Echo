@@ -9,8 +9,8 @@ describe( 'Echo', () => {
 
 		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
 
-		assert( EchoPage.alerts.isExisting() );
-		assert( EchoPage.notices.isExisting() );
+		assert( await EchoPage.alerts.isExisting() );
+		assert( await EchoPage.notices.isExisting() );
 
 	} );
 
@@ -18,9 +18,9 @@ describe( 'Echo', () => {
 
 		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
 		await EchoPage.alerts.click();
-		EchoPage.alertsFlyout.waitForDisplayed();
+		await EchoPage.alertsFlyout.waitForDisplayed();
 
-		assert( EchoPage.alertsFlyout.isExisting() );
+		assert( await EchoPage.alertsFlyout.isExisting() );
 
 	} );
 
@@ -28,9 +28,9 @@ describe( 'Echo', () => {
 
 		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
 		await EchoPage.notices.click();
-		EchoPage.noticesFlyout.waitForDisplayed();
+		await EchoPage.noticesFlyout.waitForDisplayed();
 
-		assert( EchoPage.noticesFlyout.isExisting() );
+		assert( await EchoPage.noticesFlyout.isExisting() );
 
 	} );
 } );
