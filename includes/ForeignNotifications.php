@@ -210,6 +210,7 @@ class ForeignNotifications {
 	public static function getApiEndpoints( array $wikis ): array {
 		global $wgConf;
 		$wgConf->loadFullData();
+		$urlUtils = MediaWikiServices::getInstance()->getUrlUtils();
 
 		$data = [];
 		foreach ( $wikis as $wiki ) {
@@ -221,9 +222,9 @@ class ForeignNotifications {
 
 			$data[$wiki] = [
 				'title' => static::getWikiTitle( $wiki, $siteFromDB ),
-				'url' => wfExpandUrl( $server . $scriptPath . '/api.php', PROTO_INTERNAL ),
+				'url' => $urlUtils->expand( $server . $scriptPath . '/api.php', PROTO_INTERNAL ),
 				// We need this to link to Special:Notifications page
-				'base' => wfExpandUrl( $server . $articlePath, PROTO_INTERNAL ),
+				'base' => $urlUtils->expand( $server . $articlePath, PROTO_INTERNAL ),
 			];
 		}
 

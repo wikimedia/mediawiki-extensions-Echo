@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Notifications\Formatters;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\User;
@@ -191,10 +192,10 @@ EOF;
 	 * @return string
 	 */
 	protected function applyStyleToEvent( EchoEventPresentationModel $model ) {
-		$iconUrl = wfExpandUrl(
+		$iconUrl = MediaWikiServices::getInstance()->getUrlUtils()->expand(
 			EchoIcon::getRasterizedUrl( $model->getIconType(), $this->language->getCode() ),
 			PROTO_CANONICAL
-		);
+		) ?? '';
 
 		$imgSrc = Sanitizer::encodeAttribute( $iconUrl );
 
