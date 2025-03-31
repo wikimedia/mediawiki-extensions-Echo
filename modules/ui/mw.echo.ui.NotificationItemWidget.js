@@ -42,7 +42,7 @@ mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( con
 	// Icon
 	if ( iconUrl ) {
 		// Only invert non colored images
-		/* eslint-disable es-x/no-array-prototype-includes */
+
 		const invertIconClass =
 			iconUrl.includes( 'progressive' ) ||
 			iconUrl.includes( 'constructive' ) ||

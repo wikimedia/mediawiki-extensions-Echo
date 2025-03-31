@@ -123,7 +123,7 @@ mw.echo.api.EchoApi.prototype.convertFiltersToAPIParams = function ( filterObjec
 
 	if ( filterObject.titles ) {
 		const titles = Array.isArray( filterObject.titles ) ? filterObject.titles : [ filterObject.titles ];
-		if ( titles.indexOf( null ) !== -1 ) {
+		if ( titles.includes( null ) ) {
 			// Map null to '[]'
 			titles.splice( titles.indexOf( null ), 1, '[]' );
 		}
