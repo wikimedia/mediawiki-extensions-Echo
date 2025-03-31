@@ -214,7 +214,7 @@ mw.echo.dm.NotificationsList.prototype.getTimestamp = function () {
  * @return {mw.echo.dm.NotificationItem[]} An array of matching items
  */
 mw.echo.dm.NotificationsList.prototype.findByIds = function ( ids ) {
-	return this.getItems().filter( ( item ) => ids.indexOf( item.getId() ) !== -1 );
+	return this.getItems().filter( ( item ) => ids.includes( item.getId() ) );
 };
 
 /**

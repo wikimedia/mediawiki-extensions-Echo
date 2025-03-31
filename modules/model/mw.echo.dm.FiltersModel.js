@@ -48,7 +48,7 @@ mw.echo.dm.FiltersModel.prototype.setReadState = function ( readState ) {
 	const allowed = [ 'all', 'read', 'unread' ];
 	if (
 		this.readState !== readState &&
-		allowed.indexOf( readState ) > -1
+		allowed.includes( readState )
 	) {
 		this.readState = readState;
 		this.emit( 'update' );

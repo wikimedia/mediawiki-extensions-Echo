@@ -56,7 +56,7 @@ mw.echo.api.LocalAPIHandler.prototype.markAllRead = function ( source, type ) {
 		action: 'echomarkread'
 	};
 	type = Array.isArray( type ) ? type : [ type ];
-	if ( type.indexOf( 'all' ) !== -1 ) {
+	if ( type.includes( 'all' ) ) {
 		// As specified in the documentation of the parent function, the type parameter can be
 		// 'all'. We especially handle that case here to match the PHP API. Note: Other values
 		// of the array will be ignored.

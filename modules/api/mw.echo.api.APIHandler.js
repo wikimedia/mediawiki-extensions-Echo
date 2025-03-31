@@ -100,8 +100,8 @@ mw.echo.api.APIHandler.prototype.fetchUnreadNotificationPages = function ( sourc
 mw.echo.api.APIHandler.prototype.isSourceLocal = function ( sources ) {
 	return Array.isArray( sources ) ?
 		(
-			sources.indexOf( 'local' ) !== -1 ||
-			sources.indexOf( mw.config.get( 'wgWikiID' ) ) !== -1
+			sources.includes( 'local' ) ||
+			sources.includes( mw.config.get( 'wgWikiID' ) )
 		) :
 		(
 			sources === 'local' ||
