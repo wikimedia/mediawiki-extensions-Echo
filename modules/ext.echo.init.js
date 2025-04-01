@@ -130,7 +130,6 @@ function initDesktop() {
 			const echoApi = new mw.echo.api.EchoApi();
 
 			loadingPromise = mw.loader.using( 'ext.echo.ui.desktop' ).then( () => {
-
 				// Overlay
 				mw.echo.ui.$overlay.appendTo( document.body );
 
@@ -148,12 +147,11 @@ function initDesktop() {
 						hasUnseen: hasUnseenAlerts,
 						badgeIcon: 'bell',
 						$overlay: mw.echo.ui.$overlay,
-						href: $existingAlertLink.attr( 'href' )
+						$badge: $existingAlertLink
 					}
 				);
 
-				// Replace the link button with the ooui button
-				$existingAlertLink.parent().replaceWith( mw.echo.ui.alertWidget.$element );
+				$existingAlertLink.removeClass( 'mw-echo-notifications-badge-dimmed' );
 
 				alertModelManager.on( 'allTalkRead', () => {
 					// If there was a talk page notification, get rid of it
@@ -190,12 +188,11 @@ function initDesktop() {
 							hasUnseen: hasUnseenMessages,
 							badgeIcon: 'tray',
 							convertedNumber: badgeLabelMessages,
-							href: $existingMessageLink.attr( 'href' )
+							$badge: $existingMessageLink
 						}
 					);
 
-					// Replace the link button with the ooui button
-					$existingMessageLink.parent().replaceWith( mw.echo.ui.messageWidget.$element );
+					$existingMessageLink.removeClass( 'mw-echo-notifications-badge-dimmed' );
 
 					// listen to event countChange and change title only if polling rate is non-zero
 					if ( isLivePollingFeatureEnabledOnWiki() ) {
@@ -211,12 +208,14 @@ function initDesktop() {
 						} );
 					}
 				}
+
+				$( '.mw-echo-notification-badge-nojs' ).off( 'click', badgeFirstClick );
 			} );
 			return loadingPromise;
 		}
 
 		// Respond to click on the notification button and load the UI on demand
-		$( '.mw-echo-notification-badge-nojs' ).on( 'click', function ( e ) {
+		function badgeFirstClick( e ) {
 			const timeOfClick = mw.now(),
 				$badge = $( this ),
 				clickedSection = $badge.parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
@@ -283,7 +282,8 @@ function initDesktop() {
 			} );
 			// Prevent default. Do not return false (as that calls stopPropagation)
 			e.preventDefault();
-		} );
+		}
+		$( '.mw-echo-notification-badge-nojs' ).on( 'click', badgeFirstClick );
 
 		function pollForNotificationCountUpdates() {
 			alertController.refreshUnreadCount();

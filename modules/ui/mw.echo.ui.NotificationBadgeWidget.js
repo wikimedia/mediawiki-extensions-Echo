@@ -19,7 +19,7 @@
  * @param {boolean} [config.hasUnseen=false] Whether there are unseen items
  * @param {number} [config.popupWidth=450] The width of the popup
  * @param {string} [config.badgeIcon] Icon to use for the popup header
- * @param {string} [config.href] URL the badge links to
+ * @param {jQuery} [config.$badge] The badge that opens the overlay.
  * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
  *  for popups.
  */
@@ -50,21 +50,16 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 	this.numItems = config.numItems || 0;
 	this.hasRunFirstTime = false;
 
-	const buttonFlags = [];
-	if ( config.hasUnseen ) {
-		buttonFlags.push( 'unseen' );
-	}
-
 	this.badgeButton = new mw.echo.ui.BadgeLinkWidget( {
 		convertedNumber: config.convertedNumber,
 		type: this.manager.getTypeString(),
 		numItems: this.numItems,
-		flags: buttonFlags,
+		hasUnseen: config.hasUnseen,
 		// The following messages can be used here:
 		// * tooltip-pt-notifications-alert
 		// * tooltip-pt-notifications-notice
 		title: mw.msg( 'tooltip-pt-notifications-' + adjustedTypeString ),
-		href: config.href
+		$badge: config.$badge
 	} );
 
 	// Notifications list widget
@@ -128,10 +123,10 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 		autoFlip: false,
 		autoClose: true,
 		containerPadding: isUnderBreakpointMobile ? 0 : 20,
-		$floatableContainer: this.$element,
+		$floatableContainer: config.$badge.parent(),
 		// Also ignore clicks from the nested action menu items, that
 		// actually exist in the overlay
-		$autoCloseIgnore: this.$element.add( this.$menuOverlay ),
+		$autoCloseIgnore: config.$badge.add( this.$menuOverlay ),
 		head: true,
 		// The following messages can be used here:
 		// * echo-notification-alert-text-only
@@ -175,22 +170,17 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 	this.manager.getSeenTimeModel().connect( this, { update: 'onSeenTimeModelUpdate' } );
 	this.manager.getUnreadCounter().connect( this, { countChange: 'updateBadge' } );
 	this.popup.connect( this, { toggle: 'onPopupToggle' } );
-	this.badgeButton.connect( this, {
-		click: 'onBadgeButtonClick'
-	} );
+	// Connect the badge to the overlay
+	config.$badge.on( 'click', this.onBadgeButtonClick.bind( this ) );
 	this.notificationsWidget.connect( this, { modified: 'onNotificationsListModified' } );
-
 	this.$element
-		.prop( 'id', 'pt-notifications-' + adjustedTypeString )
 		// The following classes can be used here:
 		// * mw-echo-ui-notificationBadgeButtonPopupWidget-alert
 		// * mw-echo-ui-notificationBadgeButtonPopupWidget-message
 		.addClass(
 			'mw-echo-ui-notificationBadgeButtonPopupWidget ' +
 			'mw-echo-ui-notificationBadgeButtonPopupWidget-' + adjustedTypeString
-		)
-		.append( this.badgeButton.$element );
-	mw.hook( 'ext.echo.NotificationBadgeWidget.onInitialize' ).fire( this );
+		);
 };
 
 /* Initialization */
@@ -200,7 +190,7 @@ OO.mixinClass( mw.echo.ui.NotificationBadgeWidget, OO.ui.mixin.PendingElement );
 
 /* Static properties */
 
-mw.echo.ui.NotificationBadgeWidget.static.tagName = 'li';
+mw.echo.ui.NotificationBadgeWidget.static.tagName = 'span';
 
 /* Events */
 
@@ -230,8 +220,11 @@ mw.echo.ui.NotificationBadgeWidget.prototype.onNotificationsListModified = funct
 
 /**
  * Respond to badge button click
+ *
+ * @param {Event} ev
  */
-mw.echo.ui.NotificationBadgeWidget.prototype.onBadgeButtonClick = function () {
+mw.echo.ui.NotificationBadgeWidget.prototype.onBadgeButtonClick = function ( ev ) {
+	ev.preventDefault();
 	this.popup.toggle();
 };
 
@@ -250,7 +243,7 @@ mw.echo.ui.NotificationBadgeWidget.prototype.onSeenTimeModelUpdate = function ()
 mw.echo.ui.NotificationBadgeWidget.prototype.updateBadgeSeenState = function ( hasUnseen ) {
 	hasUnseen = hasUnseen === undefined ? false : !!hasUnseen;
 
-	this.badgeButton.setFlags( { unseen: !!hasUnseen } );
+	this.badgeButton.setHasUnseen( hasUnseen );
 };
 
 /**
