@@ -32,6 +32,7 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 		return __CLASS__;
 	}
 
+	/** @inheritDoc */
 	public function doDBUpdates() {
 		$dbw = $this->getDB( DB_PRIMARY );
 		$dbr = $this->getDB( DB_REPLICA );

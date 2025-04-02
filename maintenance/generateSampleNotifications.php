@@ -267,7 +267,7 @@ class GenerateSampleNotifications extends Maintenance {
 		$this->generateMultiplePageLinks( $user, $agent );
 	}
 
-	private function generateNewPageTitle() {
+	private function generateNewPageTitle(): Title {
 		return Title::newFromText( $this->generateRandomString() );
 	}
 

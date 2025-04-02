@@ -88,7 +88,7 @@ class ForeignWikiRequest {
 			->centralIdFromLocalUser( $user, CentralIdLookup::AUDIENCE_RAW );
 	}
 
-	protected function canUseCentralAuth() {
+	protected function canUseCentralAuth(): bool {
 		global $wgFullyInitialised;
 
 		return $wgFullyInitialised &&

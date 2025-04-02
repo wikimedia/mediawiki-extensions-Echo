@@ -20,6 +20,7 @@ class SpecialNotificationsMarkRead extends FormSpecialPage {
 		parent::__construct( 'NotificationsMarkRead' );
 	}
 
+	/** @inheritDoc */
 	public function doesWrites() {
 		return true;
 	}

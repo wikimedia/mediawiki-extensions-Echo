@@ -35,6 +35,7 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 		return __CLASS__;
 	}
 
+	/** @inheritDoc */
 	public function doDBUpdates() {
 		$startId = 0;
 		$dbFactory = DbFactory::newFromDefault();
