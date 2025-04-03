@@ -31,7 +31,7 @@ class DeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 		$this->events[] = $event;
 	}
 
-	private function filterEventsWithTitleDbLag() {
+	private function filterEventsWithTitleDbLag(): array {
 		return array_filter(
 			$this->events,
 			static function ( Event $event ) {

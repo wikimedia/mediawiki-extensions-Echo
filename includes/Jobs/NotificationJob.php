@@ -15,6 +15,7 @@ class NotificationJob extends Job {
 		parent::__construct( $command, $title, $params );
 	}
 
+	/** @inheritDoc */
 	public function run() {
 		if ( isset( $this->params['eventId'] ) ) {
 			$eventMapper = new EventMapper();
