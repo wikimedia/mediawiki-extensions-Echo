@@ -8,6 +8,11 @@
 	},
 	"echo-new-messages": "Yañı bir beyanatıñız bar",
 	"notifications": "Bildirimler",
+	"tooltip-pt-notifications-alert": "Bildirmeleriñiz",
+	"notification-link-text-expand-alert-count": "{{PLURAL:$1|$1 bildirmeni|$1 bildirmeni}} köster",
+	"echo-notification-alert": "{{PLURAL:$1|Uyarı ($1)|Bildirmeler ($1)|100=Bildirmeler (99+)}}",
+	"echo-notification-alert-text-only": "Bildirmeler",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Yañı bir beyanat|$1 yañı beyanat|100=99+ yañı beyanat}} <strong>{{GENDER:$3|sizin}} muzakere saifeñizde tapıla</strong>.",
-	"echo-email-batch-link-text-view-all-notifications": "Bildirmelerniñ episini köster"
+	"echo-email-batch-link-text-view-all-notifications": "Bildirmelerniñ episini köster",
+	"notification-header-foreign-alert": "{{PLURAL:$5|$5 başqa viki leyhasında}} bildirmeleriñiz bar"
 }
