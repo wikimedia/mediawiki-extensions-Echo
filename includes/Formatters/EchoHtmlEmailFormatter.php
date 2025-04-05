@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Notifications\Formatters;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\SpecialPage\SpecialPage;
 
@@ -47,10 +48,10 @@ class EchoHtmlEmailFormatter extends EchoEventFormatter {
 			$actions[] = $this->renderLink( $secondaryLink, self::SECONDARY_LINK_STYLE );
 		}
 
-		$iconUrl = wfExpandUrl(
+		$iconUrl = MediaWikiServices::getInstance()->getUrlUtils()->expand(
 			EchoIcon::getRasterizedUrl( $model->getIconType(), $this->language->getCode() ),
 			PROTO_CANONICAL
-		);
+		) ?? '';
 
 		$body = $this->renderBody(
 			$this->language,
@@ -179,7 +180,7 @@ EOF;
 		return Html::element(
 			'a',
 			[
-				'href' => wfExpandUrl( $link['url'], PROTO_CANONICAL ),
+				'href' => MediaWikiServices::getInstance()->getUrlUtils()->expand( $link['url'], PROTO_CANONICAL ),
 				'style' => $style,
 			],
 			$link['label']
