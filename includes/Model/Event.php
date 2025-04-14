@@ -252,7 +252,7 @@ class Event extends AbstractEntity implements Bundleable {
 			$obj->id = $data['event_id'];
 		}
 		$obj->type = $data['event_type'];
-		$obj->extra = $data['event_extra'] ? unserialize( $data['event_extra'] ) : [];
+		$obj->extra = $data['event_extra'] ? self::deserializeExtra( $data['event_extra'] ) : [];
 		if ( isset( $data['event_page_id'] ) ) {
 			$obj->pageId = $data['event_page_id'];
 		}
@@ -363,9 +363,8 @@ class Event extends AbstractEntity implements Bundleable {
 				$this->timestamp = wfTimestampNow();
 			}
 		}
-
 		try {
-			$this->extra = $row->event_extra ? unserialize( $row->event_extra ) : [];
+			$this->extra = $row->event_extra ? self::deserializeExtra( $row->event_extra ) : [];
 		} catch ( Exception $e ) {
 			// T73489: unserializing can fail for old notifications
 			LoggerFactory::getInstance( 'Echo' )->warning(
@@ -520,10 +519,25 @@ class Event extends AbstractEntity implements Bundleable {
 	}
 
 	/**
+	 * Since 1.45 Echo stores `extra` as JSON, to be backwards compatible we still support
+	 * deserialization in both formats - JSON, and the legacy php unserialize
+	 *
+	 * @param string $serialized
+	 * @return array
+	 */
+	private static function deserializeExtra( string $serialized ) {
+		if ( str_starts_with( $serialized, '{' ) || str_starts_with( $serialized, '[' ) ) {
+			$codec = MediaWikiServices::getInstance()->getJsonCodec();
+			return $codec->deserialize( $serialized );
+		}
+		return $serialized ? unserialize( $serialized ) : [];
+	}
+
+	/**
 	 * Serialize the extra data for event
 	 * @return string|null
 	 */
-	public function serializeExtra() {
+	private function serializeExtra() {
 		if ( is_array( $this->extra ) || is_object( $this->extra ) ) {
 			$extra = serialize( $this->extra );
 		} elseif ( $this->extra === null ) {
