@@ -21,7 +21,7 @@
 	"echo-learn-more": "Толук маалымат",
 	"echo-log": "Коомдук журнал",
 	"echo-new-messages": "Жаңы билдирүү",
-	"echo-category-title-edit-user-talk": "Баарлашуу барагымды {{PLURAL:$1|түзөтүү}} тууралуу",
+	"echo-category-title-edit-user-talk": "Баарлашуу барагым {{PLURAL:$1|түзөтүлгөнү}} тууралуу",
 	"echo-category-title-article-linked": "Барактагы {{PLURAL:$1|шилтеме|шилтемелер}}",
 	"echo-category-title-other": "{{PLURAL:$1|Башка}}",
 	"echo-category-title-system": "{{PLURAL:$1|Тутумдук}}",
