@@ -26,7 +26,6 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\Notifications\UserRightsNotification;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
-use MediaWiki\Hook\AbortTalkPageEmailNotificationHook;
 use MediaWiki\Hook\EmailUserCompleteHook;
 use MediaWiki\Hook\GetNewMessagesAlertHook;
 use MediaWiki\Hook\LinksUpdateCompleteHook;
@@ -91,7 +90,6 @@ use WikiPage;
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
 class Hooks implements
-	AbortTalkPageEmailNotificationHook,
 	ApiMain__moduleManagerHook,
 	ArticleDeleteCompleteHook,
 	ArticleUndeleteHook,
@@ -1145,26 +1143,6 @@ class Hooks implements
 			return 'registered';
 		}
 		return 'unknown';
-	}
-
-	/**
-	 * Handler for AbortTalkPageEmailNotification hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AbortTalkPageEmailNotification
-	 * @param User $targetUser
-	 * @param Title $title
-	 * @return bool
-	 */
-	public function onAbortTalkPageEmailNotification( $targetUser, $title ) {
-		// Send legacy talk page email notification if
-		// 1. echo is disabled for them or
-		// 2. echo talk page notification is disabled
-		if ( !isset( $this->config->get( ConfigNames::Notifications )['edit-user-talk'] ) ) {
-			// Legacy talk page email notification
-			return true;
-		}
-
-		// Echo talk page email notification
-		return false;
 	}
 
 	/**

@@ -495,7 +495,6 @@
 		"LocalUserCreated": "main",
 		"RollbackComplete": "main",
 		"UserSaveSettings": "main",
-		"AbortTalkPageEmailNotification": "main",
 		"SendWatchlistEmailNotification": "main",
 		"GetNewMessagesAlert": "main",
 		"LinksUpdateComplete": "main",
@@ -533,6 +532,14 @@
 			"class": "MediaWiki\\Extension\\Notifications\\UserMergeHooks"
 		}
 	},
+	"NotificationMiddleware": [
+		{
+			"class": "MediaWiki\\Extension\\Notifications\\Notifications\\RecentChangeNotificationMiddleware",
+			"services": [
+				"MainConfig"
+			]
+		}
+	],
 	"config": {
 		"EchoEnableEmailBatch": {
 			"value": true
