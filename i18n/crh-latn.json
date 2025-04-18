@@ -71,6 +71,8 @@
 	"notification-link-text-view-mention": "Añmanı köster",
 	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Añmanı|Añmalarnı}} köster",
 	"notification-link-text-view-changes": "Deñiştirmelerni {{GENDER:$1|köster}}",
+	"notification-header-edit-user-page": "$1 <strong>{{GENDER:$3|siziñ}} qullanıcı saifeñizni</strong> {{GENDER:$2|deñiştirdi}}.",
+	"notification-compact-header-edit-user-page": "$1 <strong>{{GENDER:$3|siziñ}} qullanıcı saifeñizni</strong> {{GENDER:$2|deñiştirdi}}.",
 	"notification-header-page-linked": "<strong>$4</strong> saifesinden <strong>$3</strong> saifesine bağlantı berildi.",
 	"echo-notification-alert": "{{PLURAL:$1|Tenbi ($1)|Tenbiler ($1)|100=Tenbiler (99+)}}",
 	"echo-notification-alert-text-only": "Tenbiler",
