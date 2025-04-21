@@ -76,6 +76,7 @@
 	"notification-header-page-linked": "<strong>$4</strong> saifesinden <strong>$3</strong> saifesine bağlantı berildi.",
 	"echo-notification-alert": "{{PLURAL:$1|Tenbi ($1)|Tenbiler ($1)|100=Tenbiler (99+)}}",
 	"echo-notification-alert-text-only": "Tenbiler",
+	"notification-bundle-header-edit-user-page": "<strong>Qullanıcı {{GENDER:$2|saifeñizde}}</strong> {{PLURAL:$1|bir yañı deñiştirme|$1 yañı deñiştirme|100=99+ yañı deñiştirme}}.",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Yañı bir beyanat|$1 yañı beyanat|100=99+ yañı beyanat}} <strong>{{GENDER:$3|sizin}} muzakere saifeñizde tapıla</strong>.",
 	"echo-email-batch-link-text-view-all-notifications": "Bildirmelerniñ episini köster",
 	"notification-header-foreign-alert": "{{PLURAL:$5|$5 başqa viki leyhasında}} tenbileriñiz bar",
