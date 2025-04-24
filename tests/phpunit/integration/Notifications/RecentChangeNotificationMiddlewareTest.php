@@ -9,6 +9,7 @@ use MediaWiki\Notification\NotificationEnvelope;
 use MediaWiki\Notification\NotificationsBatch;
 use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Watchlist\RecentChangeNotification;
 
@@ -23,7 +24,7 @@ class RecentChangeNotificationMiddlewareTest extends \MediaWikiIntegrationTestCa
 		$sut = new RecentChangeNotificationMiddleware(
 			$this->getServiceContainer()->getMainConfig()
 		);
-		$rcMock = $this->createMock( \RecentChange::class );
+		$rcMock = $this->createMock( RecentChange::class );
 
 		$batch = new NotificationsBatch(
 			new NotificationEnvelope( new Notification( 'test' ), new RecipientSet( [] ) ),
@@ -73,7 +74,7 @@ class RecentChangeNotificationMiddlewareTest extends \MediaWikiIntegrationTestCa
 		$sut = new RecentChangeNotificationMiddleware(
 			$this->getServiceContainer()->getMainConfig()
 		);
-		$rcMock = $this->createMock( \RecentChange::class );
+		$rcMock = $this->createMock( RecentChange::class );
 
 		$batch = new NotificationsBatch(
 			new NotificationEnvelope( new Notification( 'test' ), new RecipientSet( [] ) ),

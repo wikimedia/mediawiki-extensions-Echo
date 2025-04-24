@@ -6,6 +6,7 @@ use CentralAuthSessionProvider;
 use Exception;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Exception\MWExceptionHandler;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
@@ -15,7 +16,6 @@ use MediaWiki\User\CentralId\CentralIdLookup;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
-use MWExceptionHandler;
 
 class ForeignWikiRequest {
 
