@@ -249,7 +249,7 @@ class ForeignNotifications {
 
 			// try to fetch site name for this specific wiki, or fallback to the
 			// general project's sitename if there is no override
-			$wikiName = $wgConf->get( 'wgSitename', $wikiId ) ?: $wgConf->get( 'wgSitename', $site );
+			$wikiName = $wgConf->get( 'wgSitename', $wikiId ) ?: $wgConf->get( 'wgSitename', (string)$site );
 			$langName = MediaWikiServices::getInstance()->getLanguageNameUtils()
 				->getLanguageName( $langCode ?? '', $wgLang->getCode() );
 
