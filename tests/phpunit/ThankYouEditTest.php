@@ -30,7 +30,7 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 			->execute();
 	}
 
-	public function provideFirstEditRequestModes() {
+	public static function provideFirstEditRequestModes() {
 		return [
 			[ 'web' ],
 			[ 'cli' ]
@@ -79,7 +79,7 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( 1, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
 	}
 
-	public function provideTenthEditRequestModes() {
+	public static function provideTenthEditRequestModes() {
 		return [
 			[ 'web' ],
 			[ 'cli' ]
