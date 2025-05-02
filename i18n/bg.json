@@ -75,7 +75,7 @@
 	"notifications": "Известия",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Вашите}} известия",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Вашите}} уведомления",
-	"tooltip-pt-notifications": "Вашите известия",
+	"tooltip-pt-notifications": "{{GENDER:|Вашите}} известия",
 	"echo-displaynotificationsconfiguration": "Показване на настройките за известия",
 	"echo-displaynotificationsconfiguration-summary": "Това е преглед на настройките за известия на това уики.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Известия по категории",
