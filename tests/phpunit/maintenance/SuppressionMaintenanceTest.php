@@ -14,6 +14,12 @@ use PHPUnit\Framework\TestCase;
  */
 class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 
+	/**
+	 * For `event_extra` we use json_encode instead of JsonCodec as we serialize simple, scalar
+	 * values, and there is no need to fetch entire JsonCodec here.
+	 *
+	 * @return array[]
+	 */
 	public static function provider_updateRow() {
 		$input = [
 			'event_id' => 2,
@@ -34,7 +40,7 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 				'Page title and namespace for non-existant page must move into event_extra',
 				[
 					// expected update
-					'event_extra' => serialize( [
+					'event_extra' => json_encode( [
 						'page_title' => 'Yabba Dabba Do',
 						'page_namespace' => NS_MAIN
 					] ),
@@ -64,7 +70,7 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 				'When updating non-existent page must keep old extra data',
 				[
 					// expected update
-					'event_extra' => serialize( [
+					'event_extra' => json_encode( [
 						'foo' => 'bar',
 						'page_title' => 'Yabba Dabba Do',
 						'page_namespace' => NS_MAIN
@@ -74,7 +80,7 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 					// input row
 					'event_page_title' => 'Yabba Dabba Do',
 					'event_page_namespace' => NS_MAIN,
-					'event_extra' => serialize( [ 'foo' => 'bar' ] ),
+					'event_extra' => json_encode( [ 'foo' => 'bar' ] ),
 				] + $input,
 			],
 
@@ -82,12 +88,12 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 				'Must update link-from-title/namespace to link-from-page-id for page-linked events',
 				[
 					// expected update
-					'event_extra' => serialize( [ 'link-from-page-id' => 99 ] ),
+					'event_extra' => json_encode( [ 'link-from-page-id' => 99 ] ),
 				],
 				[
 					// input row
 					'event_type' => 'page-linked',
-					'event_extra' => serialize( [
+					'event_extra' => json_encode( [
 						'link-from-title' => 'Horse',
 						'link-from-namespace' => NS_USER_TALK
 					] ),
@@ -99,13 +105,13 @@ class SuppressionMaintenanceTest extends MediaWikiIntegrationTestCase {
 				'Must perform both generic update and page-linked update at same time',
 				[
 					// expected update
-					'event_extra' => serialize( [ 'link-from-page-id' => 8675309 ] ),
+					'event_extra' => json_encode( [ 'link-from-page-id' => 8675309 ] ),
 					'event_page_id' => 8675309,
 				],
 				[
 					// input row
 					'event_type' => 'page-linked',
-					'event_extra' => serialize( [
+					'event_extra' => json_encode( [
 						'link-from-title' => 'Jenny',
 						'link-from-namespace' => NS_MAIN,
 					] ),

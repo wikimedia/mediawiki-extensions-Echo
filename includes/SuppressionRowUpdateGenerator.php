@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications;
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use RowUpdateGenerator;
 use stdClass;
@@ -71,8 +72,8 @@ class SuppressionRowUpdateGenerator implements RowUpdateGenerator {
 				$extra = $this->extra( $row );
 				$extra['page_title'] = $row->event_page_title;
 				$extra['page_namespace'] = $row->event_page_namespace;
-
-				$update['event_extra'] = serialize( $extra );
+				$jsonCodec = MediaWikiServices::getInstance()->getJsonCodec();
+				$update['event_extra'] = $jsonCodec->serialize( $extra );
 			}
 		}
 
@@ -92,6 +93,7 @@ class SuppressionRowUpdateGenerator implements RowUpdateGenerator {
 		$extra = $this->extra( $row, $update );
 
 		if ( isset( $extra['link-from-title'] ) && isset( $extra['link-from-namespace'] ) ) {
+			$codec = MediaWikiServices::getInstance()->getJsonCodec();
 			$title = $this->newTitleFromNsAndText( $extra['link-from-namespace'], $extra['link-from-title'] );
 			unset( $extra['link-from-title'], $extra['link-from-namespace'] );
 			// Link from page is always from a content page, if null or no article id it was
@@ -100,7 +102,7 @@ class SuppressionRowUpdateGenerator implements RowUpdateGenerator {
 				$extra['link-from-page-id'] = $title->getArticleID();
 			}
 
-			$update['event_extra'] = serialize( $extra );
+			$update['event_extra'] = $codec->serialize( $extra );
 		}
 
 		return $update;
@@ -116,12 +118,14 @@ class SuppressionRowUpdateGenerator implements RowUpdateGenerator {
 	 * @return array The event extra data
 	 */
 	protected function extra( $row, array $update = [] ): array {
+		$codec = MediaWikiServices::getInstance()->getJsonCodec();
+
 		if ( isset( $update['event_extra'] ) ) {
-			return unserialize( $update['event_extra'] );
+			return $codec->deserialize( $update['event_extra'] );
 		}
 
 		if ( $row->event_extra ) {
-			return unserialize( $row->event_extra );
+			return $codec->deserialize( $row->event_extra );
 		}
 
 		return [];

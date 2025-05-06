@@ -185,9 +185,6 @@ class Event extends AbstractEntity implements Bundleable {
 			return false;
 		}
 
-		// Temporary measure - Verify if object could be serialized with JsonCodec @see T325703
-		$obj->logWhenExtraIsNotJsonSerializable();
-
 		$hookRunner = new HookRunner( $services->getHookContainer() );
 		if ( !$hookRunner->onBeforeEchoEventInsert( $obj ) ) {
 			return false;
@@ -493,32 +490,6 @@ class Event extends AbstractEntity implements Bundleable {
 	}
 
 	/**
-	 * The `extra` array is serialized with php serialization mechanism which can lead into severe
-	 * problems when deserializing and also can cause code injection vulnerability. Before we
-	 * switch to JsonCodec, we need to verify if the extra can be serialized with JsonCodec.
-	 *
-	 * This is temporary measure and should be removed when we switch to JsonCodec
-	 * @see T325703
-	 *
-	 * @return void
-	 */
-	private function logWhenExtraIsNotJsonSerializable(): void {
-		if ( $this->extra === null ) {
-			return;
-		}
-		$jsonCodec = MediaWikiServices::getInstance()->getJsonCodec();
-		$path = $jsonCodec->detectNonSerializableData( $this->extra, true );
-		if ( $path !== null ) {
-			LoggerFactory::getInstance( 'Echo' )->warning(
-				'Event Type {type} has non JsonCodec serializable value in extra: {path}', [
-					'path' => $path,
-					'type' => $this->getType()
-				]
-			);
-		}
-	}
-
-	/**
 	 * Since 1.45 Echo stores `extra` as JSON, to be backwards compatible we still support
 	 * deserialization in both formats - JSON, and the legacy php unserialize
 	 *
@@ -538,15 +509,14 @@ class Event extends AbstractEntity implements Bundleable {
 	 * @return string|null
 	 */
 	private function serializeExtra() {
-		if ( is_array( $this->extra ) || is_object( $this->extra ) ) {
-			$extra = serialize( $this->extra );
-		} elseif ( $this->extra === null ) {
-			$extra = null;
-		} else {
-			$extra = serialize( [ $this->extra ] );
+		if ( $this->extra === null ) {
+			return null;
 		}
-
-		return $extra;
+		$extra = $this->extra;
+		if ( !is_array( $extra ) && !is_object( $extra ) ) {
+			$extra = [ $extra ];
+		}
+		return MediaWikiServices::getInstance()->getJsonCodec()->serialize( $extra );
 	}
 
 	/**
