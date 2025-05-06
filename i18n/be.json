@@ -143,7 +143,7 @@
 	"notification-header-mention-other": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на старонцы <strong>$4</strong> у раздзеле «<strong>$5</strong>».",
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|Вас}} на старонцы <strong>$4</strong>.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|Вас}} на <strong>старонцы размоў {{GENDER:$5|удзельніка|удзельніцы}} $4</strong> у «<strong>$6</strong>».",
-	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на <strong>старонцы размоў {{GENDER:$5|$4}}</strong>.",
+	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на <strong>старонцы размоў {{GENDER:$5|удзельніка|удзельніцы}} $4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2||згадаў|згадала}} {{GENDER:$3|Вас}} на <strong>сваёй старонцы размоў</strong> у \"<strong>$4</strong>\".",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|Вас}} на <strong>сваёй старонцы размоў</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на старонцы размоў «<strong>$4</strong>» у раздзеле «<strong>$5</strong>».",
