@@ -21,7 +21,8 @@
 		"notifications": {
 			"class": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoNotifications",
 			"services": [
-				"MainConfig"
+				"MainConfig",
+				"JsonCodec"
 			]
 		},
 		"unreadnotificationpages": {
