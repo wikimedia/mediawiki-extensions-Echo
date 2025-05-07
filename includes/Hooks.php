@@ -682,13 +682,6 @@ class Hooks implements
 	 * @param bool $autocreated True when account was auto-created
 	 */
 	public function onLocalUserCreated( $user, $autocreated ) {
-		if ( !$autocreated ) {
-			Event::create( [
-				'type' => 'welcome',
-				'agent' => $user,
-			] );
-		}
-
 		$seenTime = SeenTime::newFromUser( $user );
 
 		// Set seen time to UNIX epoch, so initially all notifications are unseen.
