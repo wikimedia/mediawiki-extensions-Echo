@@ -82,6 +82,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Түзөтүүңүз}}",
 	"notification-link-text-view-edit": "Түзөтүүнү көрүү",
 	"notification-link-article-reminder": "Баракты көрүү",
+	"notification-header-emailuser": "$1 сизге кат {{GENDER:$2|жөнөттү}}.",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 сек}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 мүн}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 саат}}",
@@ -112,5 +113,7 @@
 	"echo-email-batch-link-text-view-all-notifications": "Бүт кабарламаларды кароо",
 	"notification-header-foreign-alert": "{{PLURAL:$5|башка викиден|$5 башка викилерден}} көбүрөөк кабарлама",
 	"notification-header-foreign-notice": "{{PLURAL:$5|башка викиден|$5 башка викилерден}} көбүрөөк кабарлама",
-	"notification-header-foreign-all": "{{PLURAL:$5|башка викиден|$5 башка викилерден}} көбүрөөк кабарлама"
+	"notification-header-foreign-all": "{{PLURAL:$5|башка викиден|$5 башка викилерден}} көбүрөөк кабарлама",
+	"right-echo-create": "Башкаларга кабарламаларды жөнөтүү",
+	"action-echo-create": "башкаларга кабарламаларды жөнөтө албайсыз"
 }
