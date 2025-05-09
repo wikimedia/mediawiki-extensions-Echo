@@ -5,6 +5,7 @@
 use MediaWiki\Content\WikitextContent;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Maintenance\Maintenance;
+use MediaWiki\Notification\Notification;
 use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionRecord;
@@ -38,6 +39,7 @@ class GenerateSampleNotifications extends Maintenance {
 		'edit-thanks',
 		'edu',
 		'page-connection',
+		'verify-email-reminder',
 	];
 
 	/** @var int */
@@ -146,6 +148,10 @@ class GenerateSampleNotifications extends Maintenance {
 
 		if ( $this->shouldGenerate( 'page-connection', $types ) ) {
 			$this->generateWikibase( $user, $agent );
+		}
+
+		if ( $this->shouldGenerate( 'verify-email-reminder', $types ) ) {
+			$this->generateVerifyEmailReminder( $user );
 		}
 
 		$this->output( "Completed \n" );
@@ -518,6 +524,16 @@ class GenerateSampleNotifications extends Maintenance {
 			'timestamp' => $this->getTimestamp(),
 		] );
 		$output = $this->addTimestampToOutput( "{$agent->getName()} and {$otherUser->getName()} are thanking {$user->getName()} for edit {$revisionRecord->getId()} on {$title->getPrefixedText()}" );
+		$this->output( "$output\n" );
+	}
+
+	private function generateVerifyEmailReminder( User $user ) {
+		$notificationService = $this->getServiceContainer()->getNotificationService();
+		$notificationService->notify(
+			new Notification( 'verify-email-reminder' ),
+			new RecipientSet( $user )
+		);
+		$output = $this->addTimestampToOutput( "System message for verify-email-reminder sent to {$user->getName()}" );
 		$this->output( "$output\n" );
 	}
 

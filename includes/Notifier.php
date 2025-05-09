@@ -9,6 +9,7 @@ use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Sanitizer;
 use MediaWiki\User\User;
 
 class Notifier {
@@ -47,13 +48,25 @@ class Notifier {
 		if (
 			// Email is globally disabled
 			!$wgEnableEmail ||
-			// User does not have a valid and confirmed email address
-			!$user->isEmailConfirmed() ||
 			// User has disabled Echo emails
 			$userOptionsLookup->getOption( $user, 'echo-email-frequency' ) < 0 ||
 			// User is blocked and cannot log in (T199993)
 			( $wgBlockDisablesLogin && $user->getBlock() )
 		) {
+			return false;
+		}
+
+		$hasValidEmail = Sanitizer::validateEmail( $user->getEmail() );
+		if ( !$hasValidEmail ) {
+			// Don't attempt to send an email if the user does not have a valid email address.
+			return false;
+		}
+
+		// Allow 'verify-email-reminder' messages to be emailed only if the user has a confirmed email.
+		// Otherwise, disallow all other notifications if the user does not have a valid
+		// and confirmed email address
+		$isEmailConfirmationReminder = $event->getType() === 'verify-email-reminder';
+		if ( $isEmailConfirmationReminder === $user->isEmailConfirmed() ) {
 			return false;
 		}
 

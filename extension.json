@@ -614,6 +614,10 @@
 				"thank-you-edit": {
 					"web": true,
 					"email": false
+				},
+				"verify-email-reminder": {
+					"web": true,
+					"email": true
 				}
 			},
 			"merge_strategy": "array_plus_2d"
@@ -718,12 +722,20 @@
 				"api-triggered": {
 					"priority": 9,
 					"tooltip": "echo-pref-tooltip-api-triggered"
+				},
+				"verify-email-reminder": {
+					"priority": 1,
+					"tooltip": "echo-pref-tooltip-verify-email-reminder"
 				}
 			},
 			"merge_strategy": "array_plus_2d"
 		},
 		"EchoNotificationIcons": {
 			"value": {
+				"alert": {
+					"path": "Echo/modules/icons/alert.svg",
+					"url": false
+				},
 				"watchlist-progressive": {
 					"path": {
 						"ltr": "Echo/modules/icons/watchlist-ltr-progressive.svg",
@@ -999,6 +1011,12 @@
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEmailUserPresentationModel",
 					"category": "emailuser",
 					"group": "neutral",
+					"section": "alert"
+				},
+				"verify-email-reminder": {
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoVerifyEmailReminderPresentationModel",
+					"category": "verify-email-reminder",
+					"group": "negative",
 					"section": "alert"
 				},
 				"foreign": {

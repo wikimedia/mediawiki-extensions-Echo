@@ -277,5 +277,9 @@
 	"action-manage-all-push-subscriptions": "{{doc-action|manage-all-push-subscriptions}}",
 	"group-push-subscription-manager": "{{doc-group|push-subscription-manager}}",
 	"group-push-subscription-manager-member": "{{doc-group|push-subscription-manager|member}}",
-	"grouppage-push-subscription-manager": "{{doc-group|push-subscription-manager|page}}"
+	"grouppage-push-subscription-manager": "{{doc-group|push-subscription-manager|page}}",
+	"notification-subject-email-verify-email-reminder": "Subject heading shown in email notification for the verify-email-reminder notification.\n\nParameters:\n* $1 - the username for GENDER",
+	"notification-header-verify-email-reminder": "Notification header shown for the verify-email-reminder notification.\n\nParameters:\n* $1 - the username for GENDER",
+	"notification-link-text-verify-email-reminder": "Link label associated with [[Special:Preferences]] on the verify-email-reminder notification.",
+	"notification-verify-email-reminder-link-label": "Link label associated with [[Special:Confirmemail]] on the verify-email-reminder notification."
 }

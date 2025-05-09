@@ -209,6 +209,13 @@ class Hooks implements
 				// emails are sent only if sender also sets the API option, which is disabled by default
 				'email' => true,
 			],
+			'verify-email-reminder' => [
+				'web' => true,
+				// Echo emails are generally not sent if the user doesn't have a confirmed email
+				// address, but we special case this notification type because of its
+				// account security implications, see Notifier::notifyWithEmail
+				'email' => true,
+			]
 		];
 
 		$echoPushEnabled = $this->config->get( ConfigNames::EnablePush );
