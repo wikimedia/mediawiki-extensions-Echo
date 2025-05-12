@@ -54,7 +54,7 @@
 	"echo-category-title-mention-success": "{{PLURAL:$1}}Lời nhắc đến thành công",
 	"echo-category-title-other": "{{PLURAL:$1}}Khác",
 	"echo-category-title-system": "{{PLURAL:$1}}Hệ thống",
-	"echo-category-title-system-noemail": "{{PLURAL:$1}}Hệ thống",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|Hệ thống}}",
 	"echo-category-title-system-emailonly": "{{PLURAL:$1}}Hệ thống",
 	"echo-category-title-user-rights": "{{PLURAL:$1}}Có thay đổi về quyền người dùng",
 	"echo-category-title-emailuser": "Có thư điện tử từ {{PLURAL:$1}}người dùng khác",
