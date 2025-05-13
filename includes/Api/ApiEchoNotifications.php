@@ -16,6 +16,7 @@ use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\SeenTime;
 use MediaWiki\Extension\Notifications\Services;
+use MediaWiki\Json\JsonCodec;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
@@ -26,6 +27,8 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 class ApiEchoNotifications extends ApiQueryBase {
 	use ApiCrossWiki;
 
+	private JsonCodec $jsonCodec;
+
 	/**
 	 * @var bool
 	 */
@@ -34,9 +37,15 @@ class ApiEchoNotifications extends ApiQueryBase {
 	/** @var string[] */
 	private $allowedNotifierTypes;
 
-	public function __construct( ApiQuery $query, string $moduleName, Config $mainConfig ) {
+	public function __construct(
+		ApiQuery $query,
+		string $moduleName,
+		Config $mainConfig,
+		JsonCodec $jsonCodec
+	) {
 		parent::__construct( $query, $moduleName, 'not' );
 		$this->allowedNotifierTypes = array_keys( $mainConfig->get( 'EchoNotifiers' ) );
+		$this->jsonCodec = $jsonCodec;
 	}
 
 	public function execute() {
@@ -433,7 +442,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'event_agent_id' => $user->getId(),
 			'event_agent_ip' => null,
 			'event_page_id' => null,
-			'event_extra' => serialize( [
+			'event_extra' => $this->jsonCodec->serialize( [
 				'section' => $section ?: 'all',
 				'wikis' => $wikis,
 				'count' => $count
