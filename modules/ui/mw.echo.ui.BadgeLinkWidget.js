@@ -6,14 +6,17 @@
  *
  * @constructor
  * @param {Object} [config={}]
+ * @param {jQuery} config.$badge the badge that was enhanced.
  * @param {string} [config.type] The notification types this button represents;
  *  'message', 'alert' or 'all'
  * @param {string} [config.href] URL the badge links to
  * @param {string} [config.numItems=0] The number of items that are in the button display
+ * @param {string} [config.hasUnseen=false] There are unseen notifications of this type
  * @param {string} [config.convertedNumber] A converted version of the initial count
  */
 mw.echo.ui.BadgeLinkWidget = function MwEchoUiBadgeLinkWidget( config ) {
 	config = config || {};
+	this.$badge = config.$badge;
 
 	// Parent constructor
 	mw.echo.ui.BadgeLinkWidget.super.call( this, config );
@@ -22,7 +25,6 @@ mw.echo.ui.BadgeLinkWidget = function MwEchoUiBadgeLinkWidget( config ) {
 	OO.ui.mixin.LabelElement.call( this, Object.assign( { $label: this.$element }, config ) );
 	OO.ui.mixin.ButtonElement.call( this, Object.assign( { $button: this.$element }, config ) );
 	OO.ui.mixin.TitledElement.call( this, Object.assign( { $titled: this.$element }, config ) );
-	OO.ui.mixin.FlaggedElement.call( this, Object.assign( {}, config, { $flagged: this.$element } ) );
 
 	this.$element
 		.addClass( 'mw-echo-notifications-badge' );
@@ -30,6 +32,7 @@ mw.echo.ui.BadgeLinkWidget = function MwEchoUiBadgeLinkWidget( config ) {
 	this.count = 0;
 	this.type = config.type || 'alert';
 	this.setCount( config.numItems || 0, config.convertedNumber );
+	this.setHasUnseen( config.hasUnseen );
 
 	if ( config.href !== undefined && OO.ui.isSafeUrl( config.href ) ) {
 		this.$element.attr( 'href', config.href );
@@ -47,7 +50,6 @@ OO.inheritClass( mw.echo.ui.BadgeLinkWidget, OO.ui.Widget );
 OO.mixinClass( mw.echo.ui.BadgeLinkWidget, OO.ui.mixin.LabelElement );
 OO.mixinClass( mw.echo.ui.BadgeLinkWidget, OO.ui.mixin.ButtonElement );
 OO.mixinClass( mw.echo.ui.BadgeLinkWidget, OO.ui.mixin.TitledElement );
-OO.mixinClass( mw.echo.ui.BadgeLinkWidget, OO.ui.mixin.FlaggedElement );
 
 mw.echo.ui.BadgeLinkWidget.static.tagName = 'a';
 
@@ -64,6 +66,14 @@ mw.echo.ui.BadgeLinkWidget.prototype.onClick = function ( ev ) {
 };
 
 /**
+ * @param {boolean} hasUnseen
+ */
+mw.echo.ui.BadgeLinkWidget.prototype.setHasUnseen = function ( hasUnseen ) {
+	this.$badge
+		.toggleClass( 'mw-echo-unseen-notifications', hasUnseen );
+};
+
+/**
  * Set the count labels for this button.
  *
  * @param {number} numItems Number of items
@@ -73,7 +83,7 @@ mw.echo.ui.BadgeLinkWidget.prototype.onClick = function ( ev ) {
 mw.echo.ui.BadgeLinkWidget.prototype.setCount = function ( numItems, convertedNumber ) {
 	convertedNumber = convertedNumber !== undefined ? convertedNumber : numItems;
 
-	this.$element
+	this.$badge
 		.toggleClass( 'mw-echo-notifications-badge-all-read', !numItems )
 		.toggleClass( 'mw-echo-notifications-badge-long-label', convertedNumber.length > 2 )
 		.attr( 'data-counter-num', numItems )
