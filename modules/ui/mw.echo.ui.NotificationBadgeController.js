@@ -1,8 +1,7 @@
 /**
- * Notification badge button widget for echo popup.
+ * Notification badge with echo popup.
  *
  * @class
- * @extends OO.ui.ButtonWidget
  *
  * @constructor
  * @param {mw.echo.Controller} controller Echo notifications controller
@@ -14,8 +13,6 @@
  *  an array of both. Defaults to 'message'
  * @param {number} [config.numItems=0] The number of items that are in the button display
  * @param {string} [config.convertedNumber] A converted version of the initial count
- * @param {string} [config.badgeLabel=0] The initial label for the badge. This is the
- *  formatted version of the number of items in the badge.
  * @param {boolean} [config.hasUnseen=false] Whether there are unseen items
  * @param {number} [config.popupWidth=450] The width of the popup
  * @param {string} [config.badgeIcon] Icon to use for the popup header
@@ -23,19 +20,16 @@
  * @param {jQuery} [config.$overlay] A jQuery element functioning as an overlay
  *  for popups.
  */
-mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPopupWidget( controller, manager, links, config ) {
+mw.echo.ui.NotificationBadgeController = function MwEchoUiNotificationBadgeController( controller, manager, links, config ) {
 	config = config || {};
 
-	// Parent constructor
-	mw.echo.ui.NotificationBadgeWidget.super.call( this, config );
-
 	// Mixin constructors
-	OO.ui.mixin.PendingElement.call( this, config );
+	OO.EventEmitter.call( this );
 
-	this.$overlay = config.$overlay || this.$element;
+	this.$overlay = config.$overlay;
 	// Create a menu overlay
 	this.$menuOverlay = $( '<div>' )
-		.addClass( 'mw-echo-ui-NotificationBadgeWidget-overlay-menu' );
+		.addClass( 'mw-echo-ui-NotificationBadgeController-overlay-menu' );
 	this.$overlay.append( this.$menuOverlay );
 
 	// Controller
@@ -50,15 +44,11 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 	this.numItems = config.numItems || 0;
 	this.hasRunFirstTime = false;
 
-	this.badgeButton = new mw.echo.ui.BadgeLinkWidget( {
+	this.badgeButton = new mw.echo.ui.BadgeLinkController( {
 		convertedNumber: config.convertedNumber,
 		type: this.manager.getTypeString(),
 		numItems: this.numItems,
 		hasUnseen: config.hasUnseen,
-		// The following messages can be used here:
-		// * tooltip-pt-notifications-alert
-		// * tooltip-pt-notifications-notice
-		title: mw.msg( 'tooltip-pt-notifications-' + adjustedTypeString ),
 		$badge: config.$badge
 	} );
 
@@ -78,7 +68,7 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 		icon: 'next',
 		label: mw.msg( 'echo-overlay-link' ),
 		href: links.notifications,
-		classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-allnotifs' ]
+		classes: [ 'mw-echo-ui-notificationBadgeController-footer-allnotifs' ]
 	} );
 	allNotificationsButton.$element.children().first().removeAttr( 'role' );
 
@@ -86,7 +76,7 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 		icon: 'settings',
 		label: mw.msg( 'mypreferences' ),
 		href: links.preferences,
-		classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-preferences' ]
+		classes: [ 'mw-echo-ui-notificationBadgeController-footer-preferences' ]
 	} );
 	preferencesButton.$element.children().first().removeAttr( 'role' );
 
@@ -96,10 +86,10 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 	}
 	const footerButtonGroupWidget = new OO.ui.ButtonGroupWidget( {
 		items: footerItems,
-		classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer-buttons' ]
+		classes: [ 'mw-echo-ui-notificationBadgeController-footer-buttons' ]
 	} );
 	const $footer = $( '<div>' )
-		.addClass( 'mw-echo-ui-notificationBadgeButtonPopupWidget-footer' )
+		.addClass( 'mw-echo-ui-notificationBadgeController-footer' )
 		.append( footerButtonGroupWidget.$element );
 
 	const screenWidth = $( window ).width();
@@ -136,7 +126,7 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 			'echo-notification-' + adjustedTypeString +
 			'-text-only'
 		),
-		classes: [ 'mw-echo-ui-notificationBadgeButtonPopupWidget-popup' ]
+		classes: [ 'mw-echo-ui-notificationBadgeController-popup' ]
 	} );
 	mql.addEventListener( 'change', matchMedia.bind( this ) );
 	// Append the popup to the overlay
@@ -145,8 +135,6 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 	// HACK: Add an icon to the popup head label
 	this.popupHeadIcon = new OO.ui.IconWidget( { icon: config.badgeIcon } );
 	this.popup.$head.prepend( this.popupHeadIcon.$element );
-
-	this.setPendingElement( this.popup.$head );
 
 	// Mark all as read button
 	this.markAllReadLabel = mw.msg( 'echo-mark-all-as-read', config.convertedNumber );
@@ -173,37 +161,25 @@ mw.echo.ui.NotificationBadgeWidget = function MwEchoUiNotificationBadgeButtonPop
 	// Connect the badge to the overlay
 	config.$badge.on( 'click', this.onBadgeButtonClick.bind( this ) );
 	this.notificationsWidget.connect( this, { modified: 'onNotificationsListModified' } );
-	this.$element
-		// The following classes can be used here:
-		// * mw-echo-ui-notificationBadgeButtonPopupWidget-alert
-		// * mw-echo-ui-notificationBadgeButtonPopupWidget-message
-		.addClass(
-			'mw-echo-ui-notificationBadgeButtonPopupWidget ' +
-			'mw-echo-ui-notificationBadgeButtonPopupWidget-' + adjustedTypeString
-		);
 };
 
 /* Initialization */
 
-OO.inheritClass( mw.echo.ui.NotificationBadgeWidget, OO.ui.Widget );
-OO.mixinClass( mw.echo.ui.NotificationBadgeWidget, OO.ui.mixin.PendingElement );
-
-/* Static properties */
-
-mw.echo.ui.NotificationBadgeWidget.static.tagName = 'span';
+OO.initClass( mw.echo.ui.NotificationBadgeController );
+OO.mixinClass( mw.echo.ui.NotificationBadgeController, OO.EventEmitter );
 
 /* Events */
 
 /**
  * All notifications were marked as read
  *
- * @event mw.echo.ui.NotificationBadgeWidget#allRead
+ * @event mw.echo.ui.NotificationBadgeController#allRead
  */
 
 /**
  * Notifications have successfully finished being processed and are fully loaded
  *
- * @event mw.echo.ui.NotificationBadgeWidget#finishLoading
+ * @event mw.echo.ui.NotificationBadgeController#finishLoading
  */
 
 /* Methods */
@@ -214,7 +190,7 @@ mw.echo.ui.NotificationBadgeWidget.static.tagName = 'span';
  * This means the list's actual DOM was modified and we should make sure
  * that the popup resizes itself.
  */
-mw.echo.ui.NotificationBadgeWidget.prototype.onNotificationsListModified = function () {
+mw.echo.ui.NotificationBadgeController.prototype.onNotificationsListModified = function () {
 	this.popup.clip();
 };
 
@@ -223,7 +199,7 @@ mw.echo.ui.NotificationBadgeWidget.prototype.onNotificationsListModified = funct
  *
  * @param {Event} ev
  */
-mw.echo.ui.NotificationBadgeWidget.prototype.onBadgeButtonClick = function ( ev ) {
+mw.echo.ui.NotificationBadgeController.prototype.onBadgeButtonClick = function ( ev ) {
 	ev.preventDefault();
 	this.popup.toggle();
 };
@@ -231,7 +207,7 @@ mw.echo.ui.NotificationBadgeWidget.prototype.onBadgeButtonClick = function ( ev 
 /**
  * Respond to SeenTime model update event
  */
-mw.echo.ui.NotificationBadgeWidget.prototype.onSeenTimeModelUpdate = function () {
+mw.echo.ui.NotificationBadgeController.prototype.onSeenTimeModelUpdate = function () {
 	this.updateBadgeSeenState( false );
 };
 
@@ -240,7 +216,7 @@ mw.echo.ui.NotificationBadgeWidget.prototype.onSeenTimeModelUpdate = function ()
  *
  * @param {boolean} [hasUnseen=false] There are unseen notifications
  */
-mw.echo.ui.NotificationBadgeWidget.prototype.updateBadgeSeenState = function ( hasUnseen ) {
+mw.echo.ui.NotificationBadgeController.prototype.updateBadgeSeenState = function ( hasUnseen ) {
 	hasUnseen = hasUnseen === undefined ? false : !!hasUnseen;
 
 	this.badgeButton.setHasUnseen( hasUnseen );
@@ -249,7 +225,7 @@ mw.echo.ui.NotificationBadgeWidget.prototype.updateBadgeSeenState = function ( h
 /**
  * Update the badge state and label based on changes to the model
  */
-mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
+mw.echo.ui.NotificationBadgeController.prototype.updateBadge = function () {
 	const unreadCount = this.manager.getUnreadCounter().getCount();
 	const cappedUnreadCount = this.manager.getUnreadCounter().getCappedNotificationCount( unreadCount );
 	const convertedCount = mw.language.convertNumber( cappedUnreadCount );
@@ -257,7 +233,6 @@ mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
 	this.markAllReadLabel = mw.msg( 'echo-mark-all-as-read', convertedCount );
 	this.markAllReadButton.setLabel( this.markAllReadLabel );
 
-	this.badgeButton.setLabel( badgeLabel );
 	this.badgeButton.setCount( unreadCount, badgeLabel );
 	// Update seen state only if the counter is 0
 	// so we don't run into inconsistencies and have an unseen state
@@ -273,7 +248,7 @@ mw.echo.ui.NotificationBadgeWidget.prototype.updateBadge = function () {
 /**
  * Respond to 'mark all as read' button click
  */
-mw.echo.ui.NotificationBadgeWidget.prototype.onMarkAllReadButtonClick = function () {
+mw.echo.ui.NotificationBadgeController.prototype.onMarkAllReadButtonClick = function () {
 	this.controller.markLocalNotificationsRead();
 };
 
@@ -281,9 +256,9 @@ mw.echo.ui.NotificationBadgeWidget.prototype.onMarkAllReadButtonClick = function
  * Extend the response to button click so we can also update the notification list.
  *
  * @param {boolean} isVisible The popup is visible
- * @fires mw.echo.ui.NotificationBadgeWidget#finishLoading
+ * @fires mw.echo.ui.NotificationBadgeController#finishLoading
  */
-mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisible ) {
+mw.echo.ui.NotificationBadgeController.prototype.onPopupToggle = function ( isVisible ) {
 	if ( this.promiseRunning ) {
 		return;
 	}
@@ -303,7 +278,7 @@ mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisibl
 		this.popup.clip();
 	}
 
-	this.pushPending();
+	this.popup.$head.addClass( 'oo-ui-pendingElement-pending' );
 	this.markAllReadButton.toggle( false );
 	this.promiseRunning = true;
 
@@ -335,8 +310,7 @@ mw.echo.ui.NotificationBadgeWidget.prototype.onPopupToggle = function ( isVisibl
 		.then( this.emit.bind( this, 'finishLoading' ) )
 		.always( () => {
 			this.popup.clip();
-			// Pop pending
-			this.popPending();
+			this.popup.$head.removeClass( 'oo-ui-pendingElement-pending' );
 			this.promiseRunning = false;
 		} );
 	this.hasRunFirstTime = true;

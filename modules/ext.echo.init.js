@@ -92,7 +92,7 @@ function initDesktop() {
 		 * Change the seen state of badges if there are any unseen notifications.
 		 *
 		 * @param {mw.echo.dm.ModelManager} modelManager
-		 * @param {mw.echo.ui.NotificationBadgeWidget} badgeWidget
+		 * @param {mw.echo.ui.NotificationBadgeController} badgeWidget
 		 */
 		function updateBadgeState( modelManager, badgeWidget ) {
 			modelManager.getLocalNotifications().forEach( ( notificationItem ) => {
@@ -137,7 +137,7 @@ function initDesktop() {
 				const alertModelManager = new mw.echo.dm.ModelManager( unreadAlertCounter, { type: 'alert' } );
 				alertController = new mw.echo.Controller( echoApi, alertModelManager );
 
-				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeWidget(
+				mw.echo.ui.alertWidget = new mw.echo.ui.NotificationBadgeController(
 					alertController,
 					alertModelManager,
 					links,
@@ -178,7 +178,7 @@ function initDesktop() {
 					const messageModelManager = new mw.echo.dm.ModelManager( unreadMessageCounter, { type: 'message' } );
 					messageController = new mw.echo.Controller( echoApi, messageModelManager );
 
-					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeWidget(
+					mw.echo.ui.messageWidget = new mw.echo.ui.NotificationBadgeController(
 						messageController,
 						messageModelManager,
 						links,

@@ -167,11 +167,11 @@
 	"ResourceModules": {
 		"ext.echo.ui.desktop": {
 			"scripts": [
-				"ui/mw.echo.ui.BadgeLinkWidget.js",
-				"ui/mw.echo.ui.NotificationBadgeWidget.js"
+				"ui/mw.echo.ui.BadgeLinkController.js",
+				"ui/mw.echo.ui.NotificationBadgeController.js"
 			],
 			"styles": [
-				"styles/mw.echo.ui.NotificationBadgeWidget.less"
+				"styles/mw.echo.ui.NotificationBadgeController.less"
 			],
 			"dependencies": [
 				"ext.echo.ui",
@@ -285,8 +285,6 @@
 				"echo-notification-all-text-only",
 				"echo-email-batch-bullet",
 				"echo-notification-placeholder",
-				"tooltip-pt-notifications-alert",
-				"tooltip-pt-notifications-notice",
 				"mytalk",
 				"mypreferences",
 				"sunday",
