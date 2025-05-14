@@ -27,8 +27,8 @@ function initDesktop() {
 		const maxNotificationCount = require( './config.json' ).EchoMaxNotificationCount,
 			pollingRate = require( './config.json' ).EchoPollForUpdates,
 			documentTitle = document.title,
-			$existingAlertLink = $( '#pt-notifications-alert a' ),
-			$existingMessageLink = $( '#pt-notifications-notice a' ),
+			$existingAlertLink = $( '#pt-notifications-alert a, a#pt-notifications-alert' ),
+			$existingMessageLink = $( '#pt-notifications-notice a, a#pt-notifications-notice' ),
 			numAlerts = $existingAlertLink.attr( 'data-counter-num' ),
 			numMessages = $existingMessageLink.attr( 'data-counter-num' ),
 			badgeLabelAlerts = $existingAlertLink.attr( 'data-counter-text' ),
@@ -152,6 +152,7 @@ function initDesktop() {
 				);
 
 				$existingAlertLink.removeClass( 'mw-echo-notifications-badge-dimmed' );
+				$existingAlertLink.off( 'click', badgeFirstClick );
 
 				alertModelManager.on( 'allTalkRead', () => {
 					// If there was a talk page notification, get rid of it
@@ -193,6 +194,7 @@ function initDesktop() {
 					);
 
 					$existingMessageLink.removeClass( 'mw-echo-notifications-badge-dimmed' );
+					$existingMessageLink.off( 'click', badgeFirstClick );
 
 					// listen to event countChange and change title only if polling rate is non-zero
 					if ( isLivePollingFeatureEnabledOnWiki() ) {
@@ -209,7 +211,6 @@ function initDesktop() {
 					}
 				}
 
-				$( '.mw-echo-notification-badge-nojs' ).off( 'click', badgeFirstClick );
 			} );
 			return loadingPromise;
 		}
@@ -218,7 +219,7 @@ function initDesktop() {
 		function badgeFirstClick( e ) {
 			const timeOfClick = mw.now(),
 				$badge = $( this ),
-				clickedSection = $badge.parent().prop( 'id' ) === 'pt-notifications-alert' ? 'alert' : 'message';
+				clickedSection = e.data.clickedSection;
 			if ( e.which !== 1 || $badge.data( 'clicked' ) ) {
 				// Do not return false (as that calls stopPropagation)
 				e.preventDefault();
@@ -283,7 +284,10 @@ function initDesktop() {
 			// Prevent default. Do not return false (as that calls stopPropagation)
 			e.preventDefault();
 		}
-		$( '.mw-echo-notification-badge-nojs' ).on( 'click', badgeFirstClick );
+		$existingAlertLink.on( 'click', { clickedSection: 'alert' }, badgeFirstClick );
+		if ( $existingMessageLink.length ) {
+			$existingMessageLink.on( 'click', { clickedSection: 'message' }, badgeFirstClick );
+		}
 
 		function pollForNotificationCountUpdates() {
 			alertController.refreshUnreadCount();
@@ -337,10 +341,6 @@ $( () => {
 	if ( mw.config.get( 'wgMFMode' ) ) {
 		initMobile();
 	} else {
-		// Echo is intentionally disable for the Minerva desktop skin (https://phabricator.wikimedia.org/T343839)
-		// The suggested fix is documented in https://phabricator.wikimedia.org/T343838,
-		if ( mw.config.get( 'skin' ) !== 'minerva' ) {
-			initDesktop();
-		}
+		initDesktop();
 	}
 } );
