@@ -261,6 +261,7 @@
 				"echo-mark-wiki-as-read",
 				"echo-notification-alert",
 				"echo-notification-notice",
+				"echo-notification-all",
 				"echo-notification-loginrequired",
 				"echo-notification-popup-loginrequired",
 				"notification-link-text-expand-all",

@@ -982,8 +982,7 @@ class Hooks implements
 
 		// Add notifications items to personal URLs
 		// (On mobile, they're combined into one for reasons lost to mists of time)
-		// TODO: Make this a skin option, and remove other Minerva special-cases below. Currently it's
-		// not fully supported by the JS flyout code, so it can't be enabled on other skins.
+		// TODO: Make this a skin option (T299229), and remove other Minerva special-cases below.
 		$isMobile = ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
 			// @phan-suppress-next-line PhanUndeclaredClassMethod
 			MobileContext::singleton()->shouldDisplayMobileView();
@@ -1107,6 +1106,8 @@ class Hooks implements
 				'link-class' => $linksClasses[$section],
 				'icon' => $icons[$section],
 				'data' => [
+					'mw-notifications-section' => $section,
+					'badge-icon' => $icons[$section],
 					// FIXME: What is this for and why is it like this?
 					'event-name' => $section === AttributeManager::MESSAGE ? null : 'ui.notifications',
 					'counter-num' => $counts[$section],

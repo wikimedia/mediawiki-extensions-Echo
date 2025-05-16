@@ -53,9 +53,13 @@ mw.echo.ui.BadgeLinkController.prototype.setCount = function ( numItems, convert
 		$label = this.$badge;
 	}
 	$label.text( mw.msg(
-		this.type === 'alert' ?
-			'echo-notification-alert' :
-			'echo-notification-notice',
+		// Messages that can be used here:
+		// * echo-notification-notice
+		// * echo-notification-alert
+		// * echo-notification-all
+		this.type === 'message' ?
+			'echo-notification-notice' :
+			'echo-notification-' + this.type,
 		convertedNumber
 	) );
 
