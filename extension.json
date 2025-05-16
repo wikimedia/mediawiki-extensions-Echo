@@ -1047,6 +1047,12 @@
 					"group": "neutral",
 					"section": "message",
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoManualPresentationModel"
+				},
+				"mediawiki.simple": {
+					"category": "other",
+					"group": "neutral",
+					"section": "message",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoSimpleMessagePresentationModel"
 				}
 			},
 			"merge_strategy": "array_plus_2d"
