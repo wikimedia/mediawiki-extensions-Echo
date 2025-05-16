@@ -491,7 +491,6 @@
 		"MergeAccountFromTo": "usermerge",
 		"UserMergeAccountDeleteTables": "usermerge",
 		"PageSaveComplete": "main",
-		"LocalUserCreated": "main",
 		"RollbackComplete": "main",
 		"UserSaveSettings": "main",
 		"SendWatchlistEmailNotification": "main",

@@ -8,7 +8,6 @@ use MailAddress;
 use MediaWiki\Api\ApiModuleManager;
 use MediaWiki\Api\Hook\ApiMain__moduleManagerHook;
 use MediaWiki\Auth\AuthManager;
-use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\Config\Config;
 use MediaWiki\Content\Content;
 use MediaWiki\DAO\WikiAwareEntity;
@@ -99,7 +98,6 @@ class Hooks implements
 	GetPreferencesHook,
 	LinksUpdateCompleteHook,
 	LoadUserOptionsHook,
-	LocalUserCreatedHook,
 	LoginFormValidErrorMessagesHook,
 	OutputPageCheckLastModifiedHook,
 	PageSaveCompleteHook,
@@ -673,19 +671,6 @@ class Hooks implements
 		// will still be pending.
 
 		return $editCount + 1;
-	}
-
-	/**
-	 * Handler for LocalUserCreated hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LocalUserCreated
-	 * @param User $user User object that was created.
-	 * @param bool $autocreated True when account was auto-created
-	 */
-	public function onLocalUserCreated( $user, $autocreated ) {
-		$seenTime = SeenTime::newFromUser( $user );
-
-		// Set seen time to UNIX epoch, so initially all notifications are unseen.
-		$seenTime->setTime( wfTimestamp( TS_MW, 1 ), 'all' );
 	}
 
 	/**
