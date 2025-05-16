@@ -212,6 +212,7 @@
 	"echo-notification-notice": "{{PLURAL:$1|Хаамаш ($1)|100=Хаамаш (99+)}}",
 	"echo-notification-alert-text-only": "ДӀахаийтарш",
 	"echo-notification-notice-text-only": "Хаамаш",
+	"echo-notification-all-text-only": "ДӀахаийтарш",
 	"echo-overlay-link": "Массо хаамаш",
 	"echo-overlay-title": "<b>Хаамаш</b>",
 	"echo-mark-all-as-read": "{{PLURAL:$1|Йерриге}} билгалйе йешна санна",
