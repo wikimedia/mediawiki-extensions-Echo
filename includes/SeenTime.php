@@ -84,13 +84,6 @@ class SeenTime {
 		}
 
 		$data = self::cache()->get( $this->getMemcKey( $type ) );
-
-		if ( $data === false ) {
-			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
-			// Check if the user still has it set in their preferences
-			$data = $userOptionsLookup->getOption( $this->user, 'echo-seen-time', false );
-		}
-
 		if ( $data === false ) {
 			// We can't remember their real seen time, so reset everything to
 			// unseen.
