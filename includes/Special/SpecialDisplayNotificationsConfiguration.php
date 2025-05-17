@@ -85,7 +85,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			$formattedFriendlyCategoryName = Html::element(
 				'strong',
 				[],
-				$this->msg( 'echo-category-title-' . $internalCategoryName )->numParams( 1 )->text()
+				$this->msg( $this->attributeManager->getCategoryTitle( $internalCategoryName ) )->numParams( 1 )->text()
 			);
 
 			$formattedInternalCategoryName = $this->msg( 'parentheses' )->rawParams(
