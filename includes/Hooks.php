@@ -248,7 +248,12 @@ class Hooks implements
 			$wgEchoWatchlistNotifications, $wgEchoSeenTimeCacheType, $wgMainStash, $wgEnableEmail,
 			$wgEnableUserEmail, $wgEchoEnableApiEvents;
 
-		// allow extensions to define their own event
+		// add events defined in extension attributes (extension.json)
+		$exReg = ExtensionRegistry::getInstance();
+		$wgEchoNotifications += $exReg->getAttribute( 'EchoNotifications' );
+		$wgEchoNotificationCategories += $exReg->getAttribute( 'EchoNotificationCategories' );
+		$wgEchoNotificationIcons += $exReg->getAttribute( 'EchoNotificationIcons' );
+		// allow extensions to define their events dynamically, or modify existing ones (deprecated)
 		( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )->onBeforeCreateEchoEvent(
 			$wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons );
 
