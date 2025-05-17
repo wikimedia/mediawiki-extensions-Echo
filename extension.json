@@ -660,8 +660,7 @@
 					]
 				},
 				"user-rights": {
-					"priority": 9,
-					"tooltip": "echo-pref-tooltip-user-rights"
+					"priority": 9
 				},
 				"other": {
 					"no-dismiss": [
@@ -672,12 +671,10 @@
 					"priority": 1,
 					"no-dismiss": [
 						"web"
-					],
-					"tooltip": "echo-pref-tooltip-edit-user-talk"
+					]
 				},
 				"edit-user-page": {
-					"priority": 1,
-					"tooltip": "echo-pref-tooltip-edit-user-page"
+					"priority": 1
 				},
 				"reverted": {
 					"priority": 9,
@@ -700,8 +697,7 @@
 					"tooltip": "echo-pref-tooltip-mention-success"
 				},
 				"emailuser": {
-					"priority": 9,
-					"tooltip": "echo-pref-tooltip-emailuser"
+					"priority": 9
 				},
 				"article-reminder": {
 					"priority": 1,
