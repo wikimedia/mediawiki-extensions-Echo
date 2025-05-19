@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bosogo",
-			"Janatkg"
+			"Janatkg",
+			"Jdlrobson"
 		]
 	},
 	"echo-desc": "Иш-чаралар жана билдирүүлөр жөнүндө колдонуучуларды кабарлоо тутуму",
@@ -92,7 +93,7 @@
 	"notification-inbox-filter-all": "Бардыгы",
 	"echo-specialmute-label-mute-notifications": "Бул {{GENDER:$1|колдонуучудан}} кабарламалар көрсөтүлбөсүн",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1|параметрлериңизди}} текшериңиз",
-	"echo-notification-alert": "{{PLURAL:$1|$1 кабарлама||100=99+ кабарлама}}",
+	"echo-notification-alert": "{{PLURAL:$1|$1 кабарлама|100=99+ кабарлама}}",
 	"echo-notification-notice": "{{PLURAL:$1|$1 кабарлама|100=99+ кабарлама}}",
 	"echo-notification-alert-text-only": "Кабарламалар",
 	"echo-notification-notice-text-only": "Кабарламалар",
