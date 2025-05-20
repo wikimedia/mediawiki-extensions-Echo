@@ -230,7 +230,7 @@
 	"echo-date-today": "Hiziv",
 	"echo-date-yesterday": "Dec'h",
 	"notification-bundle-header-edit-user-page": "{{PLURAL:$1|Un|̯$1|99̟+}} kemm nevez war <strong>{{GENDER:$2|ho}} pajenn gaozeal</strong>.",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Un|̯$1|99̟+}} evezhiadenn nevez war <strong>{{GENDER:$3|ho}} pajenn gaozeal</strong>.\n\n{{PLURAL:$1|Un|$1|100=99+}} evezhiadenn nevez war <strong>{{GENDER:$3|ho}} pajenn gaozeal</strong>.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Un|$1|100=99+}} evezhiadenn nevez war <strong>{{GENDER:$3|ho}} pajenn gaozeal</strong>.",
 	"echo-email-batch-subject-daily": "{{PLURAL:$2|Ur c'hemenn|Kemennoù}} nevez hoc'h eus war {{SITENAME}}",
 	"echo-email-batch-subject-weekly": "{{PLURAL:$2|Ur c'hemenn|Kemennoù}} nevez hoc'h eus war {{SITENAME}} er sizhun-mañ",
 	"echo-email-batch-body-intro-daily": "Demat deoc'h $1,\nSetu amañ un diverradur eus obererezh an deiz war {{SITENAME}} evidoc'h.",
