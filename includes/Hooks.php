@@ -21,7 +21,6 @@ use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
-use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\Notifications\UserRightsNotification;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
 use MediaWiki\Hook\EmailUserCompleteHook;
@@ -37,7 +36,6 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HTMLForm\Field\HTMLCheckMatrix;
 use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinkRenderer;
-use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Logging\LogEntry;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
@@ -60,12 +58,9 @@ use MediaWiki\ResourceLoader as RL;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Skin\Skin;
 use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\SpecialPage\SpecialPage;
-use MediaWiki\Storage\EditResult;
-use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
 use MediaWiki\User\CentralId\CentralIdLookup;
@@ -100,7 +95,6 @@ class Hooks implements
 	LoadUserOptionsHook,
 	LoginFormValidErrorMessagesHook,
 	OutputPageCheckLastModifiedHook,
-	PageSaveCompleteHook,
 	PreferencesGetIconHook,
 	RecentChange_saveHook,
 	ResourceLoaderRegisterModulesHook,
@@ -123,7 +117,6 @@ class Hooks implements
 	private LinkRenderer $linkRenderer;
 	private NamespaceInfo $namespaceInfo;
 	private PermissionManager $permissionManager;
-	private RevisionStore $revisionStore;
 	private StatsFactory $statsFactory;
 	private TalkPageNotificationManager $talkPageNotificationManager;
 	private UserEditTracker $userEditTracker;
@@ -142,7 +135,6 @@ class Hooks implements
 		LinkRenderer $linkRenderer,
 		NamespaceInfo $namespaceInfo,
 		PermissionManager $permissionManager,
-		RevisionStore $revisionStore,
 		StatsFactory $statsFactory,
 		TalkPageNotificationManager $talkPageNotificationManager,
 		UserEditTracker $userEditTracker,
@@ -158,7 +150,6 @@ class Hooks implements
 		$this->linkRenderer = $linkRenderer;
 		$this->namespaceInfo = $namespaceInfo;
 		$this->permissionManager = $permissionManager;
-		$this->revisionStore = $revisionStore;
 		$this->statsFactory = $statsFactory->withComponent( 'Echo' );
 		$this->talkPageNotificationManager = $talkPageNotificationManager;
 		$this->userEditTracker = $userEditTracker;
@@ -552,125 +543,6 @@ class Hooks implements
 	 */
 	private function isEmailChangeAllowed() {
 		return $this->authManager->allowsPropertyChange( 'emailaddress' );
-	}
-
-	/**
-	 * Handler for PageSaveComplete hook
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PageSaveComplete
-	 *
-	 * @param WikiPage $wikiPage modified WikiPage
-	 * @param UserIdentity $userIdentity User who edited
-	 * @param string $summary Edit summary
-	 * @param int $flags Edit flags
-	 * @param RevisionRecord $revisionRecord RevisionRecord for the revision that was created
-	 * @param EditResult $editResult
-	 */
-	public function onPageSaveComplete(
-		$wikiPage,
-		$userIdentity,
-		$summary,
-		$flags,
-		$revisionRecord,
-		$editResult
-	) {
-		if ( $editResult->isNullEdit() ) {
-			return;
-		}
-
-		$title = $wikiPage->getTitle();
-		$isRevert = $editResult->getRevertMethod() === EditResult::REVERT_UNDO ||
-			$editResult->getRevertMethod() === EditResult::REVERT_ROLLBACK;
-
-		// Save the revert status for the LinksUpdateComplete hook
-		if ( $isRevert ) {
-			self::$revertedRevIds[$revisionRecord->getId()] = true;
-		}
-
-		// Try to do this after the HTTP response
-		DeferredUpdates::addCallableUpdate( static function () use ( $revisionRecord, $isRevert ) {
-			DiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
-		} );
-
-		// If the user is not an IP and this is not a null edit,
-		// test for them reaching a congratulatory threshold
-		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000 ];
-		if ( $userIdentity->isRegistered() ) {
-			$thresholdCount = $this->getPredictedEditCount( $userIdentity );
-			if ( in_array( $thresholdCount, $thresholds ) ) {
-				DeferredUpdates::addCallableUpdate( static function () use (
-					$revisionRecord, $userIdentity, $title, $thresholdCount
-				) {
-					$notificationMapper = new NotificationMapper();
-					$notifications = $notificationMapper->fetchByUser( $userIdentity, 10, null, [ 'thank-you-edit' ] );
-					/** @var Notification $notification */
-					foreach ( $notifications as $notification ) {
-						if ( $notification->getEvent()->getExtraParam( 'editCount' ) === $thresholdCount ) {
-							LoggerFactory::getInstance( 'Echo' )->debug(
-								'{user} (id: {id}) has already been thanked for their {count} edit',
-								[
-									'user' => $userIdentity->getName(),
-									'id' => $userIdentity->getId(),
-									'count' => $thresholdCount,
-								]
-							);
-							return;
-						}
-					}
-
-					Event::create( [
-						'type' => 'thank-you-edit',
-						'title' => $title,
-						'agent' => $userIdentity,
-						// Edit threshold notifications are sent to the agent
-						'extra' => [
-							'editCount' => $thresholdCount,
-							'revid' => $revisionRecord->getId(),
-						]
-					] );
-				} );
-			}
-		}
-
-		// Handle the case of someone undoing an edit, either through the
-		// 'undo' link in the article history or via the API.
-		// Reverts through the 'rollback' link (EditResult::REVERT_ROLLBACK)
-		// are handled in ::onRollbackComplete().
-		if ( $editResult->getRevertMethod() === EditResult::REVERT_UNDO ) {
-			$undidRevId = $editResult->getUndidRevId();
-			$undidRevision = $this->revisionStore->getRevisionById( $undidRevId );
-			if ( $undidRevision && $undidRevision->getPage()->isSamePageAs( $title ) ) {
-				$revertedUser = $undidRevision->getUser();
-				// No notifications for anonymous users
-				if ( $revertedUser && $revertedUser->getId() ) {
-					Event::create( [
-						'type' => 'reverted',
-						'title' => $title,
-						'extra' => [
-							'revid' => $revisionRecord->getId(),
-							'reverted-user-id' => $revertedUser->getId(),
-							'reverted-revision-id' => $undidRevId,
-							'method' => 'undo',
-							'summary' => $summary,
-						],
-						'agent' => $userIdentity,
-					] );
-				}
-			}
-		}
-	}
-
-	/**
-	 * Get the predicted edit count after a page save hook
-	 *
-	 * @param UserIdentity $user
-	 * @return int
-	 */
-	private function getPredictedEditCount( UserIdentity $user ) {
-		$editCount = $this->userEditTracker->getUserEditCount( $user ) ?: 0;
-		// When this code runs, the deferred update that increments the edit count
-		// will still be pending.
-
-		return $editCount + 1;
 	}
 
 	/**
@@ -1526,6 +1398,19 @@ class Hooks implements
 				'action',
 				ApiEchoPushSubscriptions::class
 			);
+		}
+	}
+
+	/**
+	 *  Save the revert status for the LinksUpdateComplete hook
+	 * TODO: Deprecate this when LinksUpdateComplete is migrated to it's corresponding
+	 * Domain event
+	 * @param bool $isRevert
+	 * @param RevisionRecord $revisionRecord
+	 */
+	public static function setRevertStatus( bool $isRevert, $revisionRecord ) {
+		if ( $isRevert ) {
+			self::$revertedRevIds[$revisionRecord->getId()] = true;
 		}
 	}
 
