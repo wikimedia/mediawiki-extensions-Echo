@@ -272,6 +272,26 @@ class AttributeManager {
 	}
 
 	/**
+	 * Get category title (a description shown in preferences and in digest emails).
+	 *
+	 * @param string $category
+	 * @return string Message key
+	 */
+	public function getCategoryTitle( string $category ): string {
+		return $this->categories[$category]['title'] ?? 'echo-category-title-' . $category;
+	}
+
+	/**
+	 * Get category tooltip (additional description shown in preferences).
+	 *
+	 * @param string $category
+	 * @return ?string Message key, or null to show no tooltip
+	 */
+	public function getCategoryTooltip( string $category ): ?string {
+		return $this->categories[$category]['tooltip'] ?? null;
+	}
+
+	/**
 	 * Get the notification category for a notification type
 	 *
 	 * @param string $notificationType A notification type defined in $wgEchoNotifications

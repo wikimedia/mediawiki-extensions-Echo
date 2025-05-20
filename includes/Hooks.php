@@ -431,10 +431,13 @@ class Hooks implements
 		$tooltips = [];
 		$notificationCategories = $this->config->get( ConfigNames::NotificationCategories );
 		foreach ( $validSortedCategories as $category ) {
-			$categoryMessage = wfMessage( 'echo-category-title-' . $category )->numParams( 1 )->escaped();
+			$categoryTitle = $this->attributeManager->getCategoryTitle( $category );
+			$categoryTooltip = $this->attributeManager->getCategoryTooltip( $category );
+
+			$categoryMessage = wfMessage( $categoryTitle )->numParams( 1 )->escaped();
 			$rows[$categoryMessage] = $category;
-			if ( isset( $notificationCategories[$category]['tooltip'] ) ) {
-				$tooltips[$categoryMessage] = wfMessage( $notificationCategories[$category]['tooltip'] )->text();
+			if ( $categoryTooltip ) {
+				$tooltips[$categoryMessage] = wfMessage( $categoryTooltip )->text();
 			}
 		}
 
