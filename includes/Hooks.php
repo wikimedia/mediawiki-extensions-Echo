@@ -1397,11 +1397,10 @@ class Hooks implements
 		Event::create( [
 			'type' => 'emailuser',
 			'extra' => [
-				Event::RECIPIENTS_IDX => [ $userTo->getId() ],
 				'preview' => $preview,
 			],
 			'agent' => $userFrom,
-		] );
+		], new RecipientSet( $userTo ) );
 	}
 
 	/**

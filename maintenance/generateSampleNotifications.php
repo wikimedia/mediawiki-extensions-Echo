@@ -5,6 +5,7 @@
 use MediaWiki\Content\WikitextContent;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Maintenance\Maintenance;
+use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
@@ -345,12 +346,11 @@ class GenerateSampleNotifications extends Maintenance {
 		Event::create( [
 			'type' => 'emailuser',
 			'extra' => [
-				Event::RECIPIENTS_IDX => [ $user->getId() ],
 				'subject' => 'Long time no see',
 			],
 			'agent' => $agent,
 			'timestamp' => $this->getTimestamp(),
-		] );
+		], new RecipientSet( $user ) );
 	}
 
 	private function generateUserRights( User $user, User $agent ) {
@@ -371,11 +371,10 @@ class GenerateSampleNotifications extends Maintenance {
 					'add' => $add,
 					'remove' => $remove,
 					'reason' => 'This is the [[reason]] for changing your user rights.',
-					Event::RECIPIENTS_IDX => [ $user->getId() ],
 				],
 				'agent' => $agent,
 				'timestamp' => $this->getTimestamp(),
-			]
+			], new RecipientSet( $user )
 		);
 	}
 
@@ -389,11 +388,8 @@ class GenerateSampleNotifications extends Maintenance {
 			Event::create(
 				[
 					'type' => $eventType,
-					'extra' => [
-						'recipient' => $user->getId(),
-					],
 					'timestamp' => $this->getTimestamp(),
-				]
+				], new RecipientSet( $user )
 			);
 		}
 
@@ -401,11 +397,10 @@ class GenerateSampleNotifications extends Maintenance {
 			[
 				'type' => 'cx-suggestions-available',
 				'extra' => [
-					'recipient' => $user->getId(),
 					'lastTranslationTitle' => 'History of the People\'s Republic of China'
 				],
 				'timestamp' => $this->getTimestamp(),
-			]
+			], new RecipientSet( $user )
 		);
 	}
 

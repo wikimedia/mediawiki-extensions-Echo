@@ -13,6 +13,7 @@ use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
@@ -115,6 +116,7 @@ class Event extends AbstractEntity implements Bundleable {
 	/**
 	 * Creates an Event object
 	 * @param array $info Named arguments:
+	 * @param ?RecipientSet $recipients optional, list of recipients
 	 * type (required): The event type;
 	 * agent: The user who caused the event (UserIdentity);
 	 * title: The page on which the event was triggered (PageIdentity);
@@ -134,8 +136,19 @@ class Event extends AbstractEntity implements Bundleable {
 	 *
 	 * @return Event|false False if aborted via hook or Echo DB is read-only
 	 */
-	public static function create( $info = [] ) {
+	public static function create( $info = [], ?RecipientSet $recipients = null ) {
 		global $wgEchoNotifications;
+
+		if ( $recipients !== null ) {
+			$mergedRecipients = [];
+			if ( isset( $info['extra'][ self::RECIPIENTS_IDX ] ) ) {
+				$mergedRecipients = $info['extra'][ self::RECIPIENTS_IDX ];
+			}
+			foreach ( $recipients as $recipient ) {
+				$mergedRecipients[] = $recipient->getId();
+			}
+			$info['extra'][ self::RECIPIENTS_IDX ] = array_unique( $mergedRecipients );
+		}
 
 		$services = MediaWikiServices::getInstance();
 		// Do not create event and notifications if write access is locked

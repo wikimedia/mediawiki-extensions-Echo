@@ -30,16 +30,11 @@ class EchoNotificationHandler implements NotificationHandler {
 			// Pass all other custom props from core Notification in the extra array of Event
 			$info['extra'] = $notification->getProperties();
 
-			// Pass $recipients to Event instead of requiring it to be handled by Echo locators
-			$info['extra'][Event::RECIPIENTS_IDX] =
-				array_map( static fn ( $user ) => $user->getId(), $recipients->getRecipients() );
-
 			// Handle generic events not registered with Echo (T385839)
 			if ( $notification instanceof SimpleNotification ) {
 				$info['extra']['message'] = MessageValue::newFromSpecifier( $notification->getMessage() );
 			}
-
-			Event::create( $info );
+			Event::create( $info, $recipients );
 		}
 	}
 
