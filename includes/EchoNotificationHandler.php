@@ -8,6 +8,8 @@ use MediaWiki\Notification\Notification;
 use MediaWiki\Notification\NotificationHandler;
 use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Notification\TitleAware;
+use MediaWiki\Notification\Types\SimpleNotification;
+use Wikimedia\Message\MessageValue;
 
 class EchoNotificationHandler implements NotificationHandler {
 
@@ -32,11 +34,13 @@ class EchoNotificationHandler implements NotificationHandler {
 			$info['extra'][Event::RECIPIENTS_IDX] =
 				array_map( static fn ( $user ) => $user->getId(), $recipients->getRecipients() );
 
+			// Handle generic events not registered with Echo (T385839)
+			if ( $notification instanceof SimpleNotification ) {
+				$info['extra']['message'] = MessageValue::newFromSpecifier( $notification->getMessage() );
+			}
+
 			Event::create( $info );
 		}
-
-		// TODO: Handle generic events not registered with Echo as well (T385839)
-		// Handle `instanceof SimpleNotification` / `->getMessage()`
 	}
 
 }
