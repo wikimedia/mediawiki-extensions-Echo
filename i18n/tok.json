@@ -44,8 +44,6 @@
 	"echo-category-title-other": "{{PLURAL:$1|ante}}",
 	"echo-category-title-user-rights": "jan lawa li ante e ken mi",
 	"echo-category-title-emailuser": "jan ante li pana e toki Email tawa mi",
-	"echo-pref-tooltip-edit-user-talk": "jan li ante e lipu toki mi la, o mu e mi.",
-	"echo-pref-tooltip-edit-user-page": "jan li ante e lipu jan mi la, o mu e mi.",
 	"echo-pref-tooltip-article-linked": "jan li pali e linja tan lipu ante tawa lipu mi la, o mu e mi.",
 	"notification-welcome-linktext": "kama pona",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|sina}} ante nanpa wan. o kama pona! {{GENDER:$2|sina}} pona!",

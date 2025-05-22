@@ -35,8 +35,6 @@
 	"echo-category-title-other": "{{PLURAL:$1|Атын}}",
 	"echo-category-title-system": "{{PLURAL:$1|Систиэмнэй}}",
 	"echo-category-title-user-rights": "{{PLURAL:$1|Кыттааччы быраабын уларытыы}}",
-	"echo-pref-tooltip-user-rights": "Ким эмит кыттааччы быһыытынан бырааппын уларытар буоллаҕына миэхэ биллэр.",
-	"echo-pref-tooltip-emailuser": "Электроннай почтабар ким эмит сурук ыытар буоллаҕына миэхэ биллэр.",
 	"notifications": "Биллэриилэр",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Эйиэхэ}} биллэриилэр",
 	"tooltip-pt-notifications": "Эйиэхэ биллэриилэр",

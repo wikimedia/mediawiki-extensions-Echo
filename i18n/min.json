@@ -39,8 +39,6 @@
 	"echo-category-title-emailuser": "{{PLURAL:$1|Surel dari pangguno lain}}",
 	"echo-category-title-article-reminder": "Laman {{PLURAL:$1|pangingek}}",
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Pancapaian}} suntiangan",
-	"echo-pref-tooltip-edit-user-talk": "Agiah tau jikok sasaurang mangirimkan pasan atau balehan pado laman maota Ambo.",
-	"echo-pref-tooltip-emailuser": "Agiah tau jikok sasaurang mangirimkan surel.",
 	"notifications": "Pambaritauan",
 	"tooltip-pt-notifications-alert": "Pambaritauan {{GENDER:|Sanak}}",
 	"tooltip-pt-notifications-notice": "Pambaritauan {{GENDER:|Sanak}}",
