@@ -1035,7 +1035,9 @@ TEXT
 	 * @dataProvider signingDetectionDataProvider
 	 * FIXME some of the app logic is in the test...
 	 */
-	public function testSigningDetection( $line, $expectedUser ) {
+	public function testSigningDetection( $line, $expectedUser, $contentLangCode = 'en' ) {
+		$this->overrideConfigValue( MainConfigNames::LanguageCode, $contentLangCode );
+
 		if ( is_array( $expectedUser ) ) {
 			$this->setupTestUser( $expectedUser[1] );
 		}
@@ -1149,6 +1151,7 @@ TEXT
 					strlen( "Test --" ),
 					'Schnark',
 				],
+				'de'
 			],
 			// when adding additional tests, make sure to add the non-anon users
 			// to DiscussionParserTest::$testUsers - the DiscussionParser
