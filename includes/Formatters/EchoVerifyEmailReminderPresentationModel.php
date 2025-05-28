@@ -67,8 +67,16 @@ class EchoVerifyEmailReminderPresentationModel extends EchoEventPresentationMode
 
 	/** @inheritDoc */
 	public function getPrimaryLink() {
+		$url = SpecialPage::getTitleFor( 'Confirmemail' )->getFullURL();
+		if ( $this->getDistributionType() === 'email' ) {
+			$user = $this->getUser();
+			$expiration = '';
+			$token = $user->getConfirmationToken( $expiration );
+			$url = $user->getConfirmationTokenUrl( $token );
+			$user->saveSettings();
+		}
 		return [
-			'url' => SpecialPage::getTitleFor( 'Confirmemail' )->getFullURL(),
+			'url' => $url,
 			'label' => $this->msg( 'notification-verify-email-reminder-link-label' )->text()
 		];
 	}
