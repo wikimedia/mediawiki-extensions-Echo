@@ -232,6 +232,7 @@
 	"notification-header-foreign-alert": "Máis alertas {{PLURAL:$5|doutro wiki|doutros $5 wikis}}",
 	"notification-header-foreign-notice": "Máis avisos {{PLURAL:$5|doutro wiki|doutros $5 wikis}}",
 	"notification-header-foreign-all": "Máis notificacións {{PLURAL:$5|doutro wiki|doutros $5 wikis}}",
+	"echo-badge-count": "{{PLURAL:$1|$1|100=+{{formatnum:99}}}}",
 	"right-manage-all-push-subscriptions": "Xestionar todas subscricións push",
 	"action-manage-all-push-subscriptions": "xestionar todas subscricións push",
 	"group-push-subscription-manager": "Xestores de subscricións push",
