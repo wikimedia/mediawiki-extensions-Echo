@@ -10,7 +10,6 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
-use UserMailer;
 
 class Notifier {
 	/**
@@ -146,7 +145,11 @@ class Notifier {
 			$body = $email['body'];
 			$options = [ 'replyTo' => $replyAddress ];
 
-			UserMailer::send( $toAddress, $fromAddress, $subject, $body, $options );
+			$bodyText = is_array( $body ) ? $body['text'] : $body;
+			$bodyHtml = is_array( $body ) ? $body['html'] : null;
+
+			$services->getEmailer()
+				->send( $toAddress, $fromAddress, $subject, $bodyText, $bodyHtml, $options );
 		}
 
 		return true;
