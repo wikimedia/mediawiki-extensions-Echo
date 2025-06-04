@@ -1,6 +1,7 @@
 <?php
 namespace MediaWiki\Extension\Notifications\Test;
 
+use MailAddress;
 use MediaWiki\Block\Block;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Notifier;
@@ -197,8 +198,8 @@ class NotifierTest extends MediaWikiIntegrationTestCase {
 		$emailer->expects( $this->once() )
 			->method( 'send' )
 			->with(
-				'valid@example.com',
-				$this->anything(),
+				MailAddress::newFromUser( $user ),
+				$this->isInstanceOf( MailAddress::class ),
 				'(notification-subject-email-verify-email-reminder: TestUser)',
 				$this->logicalAnd(
 					$this->stringContains( '(notification-header-verify-email-reminder: TestUser)' ),
