@@ -14,7 +14,7 @@ use MediaWiki\Storage\NameTableStore;
 // as the @covers annotation cannot cover a specific file.
 // Whether the services return without error is checked in ServiceWiringTest.php
 // @codeCoverageIgnoreStart
-
+/** @phpcs-require-sorted-array */
 return [
 
 	'EchoAttributeManager' => static function ( MediaWikiServices $services ): AttributeManager {
@@ -92,19 +92,19 @@ return [
 		);
 	},
 
+	'EchoRevisionLocalCache' => static function ( MediaWikiServices $services ): RevisionLocalCache {
+		return new RevisionLocalCache(
+			$services->getConnectionProvider(),
+			$services->getRevisionStore()
+		);
+	},
+
 	'EchoTitleLocalCache' => static function ( MediaWikiServices $services ): TitleLocalCache {
 		return new TitleLocalCache(
 			$services->getPageStore(),
 			$services->getTitleFactory()
 		);
 	},
-
-	'EchoRevisionLocalCache' => static function ( MediaWikiServices $services ): RevisionLocalCache {
-		return new RevisionLocalCache(
-			$services->getConnectionProvider(),
-			$services->getRevisionStore()
-		);
-	}
 
 ];
 
