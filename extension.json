@@ -515,6 +515,7 @@
 				"ContentLanguage",
 				"LinkRenderer",
 				"NamespaceInfo",
+				"NotificationService",
 				"PermissionManager",
 				"RevisionStore",
 				"StatsFactory",

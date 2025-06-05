@@ -41,6 +41,7 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Logging\LogEntry;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Notification\NotificationService;
 use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\Hook\OutputPageCheckLastModifiedHook;
@@ -122,6 +123,7 @@ class Hooks implements
 	private Language $contentLanguage;
 	private LinkRenderer $linkRenderer;
 	private NamespaceInfo $namespaceInfo;
+	private NotificationService $notificationService;
 	private PermissionManager $permissionManager;
 	private RevisionStore $revisionStore;
 	private StatsFactory $statsFactory;
@@ -141,6 +143,7 @@ class Hooks implements
 		Language $contentLanguage,
 		LinkRenderer $linkRenderer,
 		NamespaceInfo $namespaceInfo,
+		NotificationService $notificationService,
 		PermissionManager $permissionManager,
 		RevisionStore $revisionStore,
 		StatsFactory $statsFactory,
@@ -157,6 +160,7 @@ class Hooks implements
 		$this->contentLanguage = $contentLanguage;
 		$this->linkRenderer = $linkRenderer;
 		$this->namespaceInfo = $namespaceInfo;
+		$this->notificationService = $notificationService;
 		$this->permissionManager = $permissionManager;
 		$this->revisionStore = $revisionStore;
 		$this->statsFactory = $statsFactory->withComponent( 'Echo' );
@@ -738,7 +742,7 @@ class Hooks implements
 				$user, $performer, $reason, $expiryChanged
 			);
 
-			MediaWikiServices::getInstance()->getNotificationService()->notify(
+			$this->notificationService->notify(
 				$notification, new RecipientSet( [ $user ] )
 			);
 		}
@@ -747,7 +751,7 @@ class Hooks implements
 			$notification = UserRightsNotification::newForRightsChange(
 				$user, $performer, $reason, $reallyAdded, $remove
 			);
-			MediaWikiServices::getInstance()->getNotificationService()->notify(
+			$this->notificationService->notify(
 				$notification, new RecipientSet( [ $user ] )
 			);
 		}
