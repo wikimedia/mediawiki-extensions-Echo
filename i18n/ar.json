@@ -271,5 +271,9 @@
 	"action-manage-all-push-subscriptions": "إدارة جميع اشتراكات الدفع",
 	"group-push-subscription-manager": "إداريو مصادقات التسليم",
 	"group-push-subscription-manager-member": "{{GENDER:$1|إداري مصادقات التسليم}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:إداريو مصادقات التسليم"
+	"grouppage-push-subscription-manager": "{{ns:project}}:إداريو مصادقات التسليم",
+	"notification-subject-email-verify-email-reminder": "التحقق من {{GENDER:$1|بريدك}} الإلكتروني",
+	"notification-header-verify-email-reminder": "يرجى <strong>التحقق من عنوان {{GENDER:$1|بريدك الإلكتروني}}</strong> حتى نتمكن من معرفة أن عنوان البريد الإلكتروني في {{GENDER:$1| حسابك}} ينتمي {{GENDER:$1|إليك}}.",
+	"notification-link-text-verify-email-reminder": "إدارة تفضيلات البريد الإلكتروني",
+	"notification-verify-email-reminder-link-label": "تأكيد عنوان البريد الإلكتروني"
 }

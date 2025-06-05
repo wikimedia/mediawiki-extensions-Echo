@@ -251,5 +251,9 @@
 	"action-manage-all-push-subscriptions": "bütün push abunəliklərini idarə etmək",
 	"group-push-subscription-manager": "Push abunə menecerləri",
 	"group-push-subscription-manager-member": "{{GENDER:$1|Push abunə meneceri}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Push abunə menecerləri"
+	"grouppage-push-subscription-manager": "{{ns:project}}:Push abunə menecerləri",
+	"notification-subject-email-verify-email-reminder": "{{GENDER:$1|E-poçtunu}} təsdiqlə",
+	"notification-header-verify-email-reminder": "Hesabınızdakı e-poçt ünvanının sizə aid olduğunu təsdiqləyə bilməyimiz üçün zəhmət olmasa <strong>{{GENDER:$1|e-poçt ünvanınızı}} təsdiqləyin.</strong>",
+	"notification-link-text-verify-email-reminder": "E-poçt parametrlərini idarə et",
+	"notification-verify-email-reminder-link-label": "E-poçtu təsdiqlə"
 }

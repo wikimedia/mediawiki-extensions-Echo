@@ -258,5 +258,9 @@
 	"action-manage-all-push-subscriptions": "verwalten aller Push-Abonnements",
 	"group-push-subscription-manager": "Push-Abonnementverwalter",
 	"group-push-subscription-manager-member": "{{GENDER:$1|Push-Abonnementverwalter|Push-Abonnementverwalterin}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Push-Abonnementverwalter"
+	"grouppage-push-subscription-manager": "{{ns:project}}:Push-Abonnementverwalter",
+	"notification-subject-email-verify-email-reminder": "Überprüfe {{GENDER:$1|deine}} E-Mail-Adresse",
+	"notification-header-verify-email-reminder": "Bitte <strong>üÜberprüfe {{GENDER:$1|deine }} E-Mail-Adresse</strong>, damit wir wissen, dass die E-Mail-Adresse in {{GENDER:$1|deinem}} Konto zu {{GENDER:$1|dir}} gehört.",
+	"notification-link-text-verify-email-reminder": "E-Mail-Einstellungen verwalten",
+	"notification-verify-email-reminder-link-label": "E-Mail-Adresse bestätigen"
 }
