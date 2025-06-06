@@ -18,19 +18,14 @@ use MediaWiki\Storage\NameTableStore;
 return [
 
 	'EchoAttributeManager' => static function ( MediaWikiServices $services ): AttributeManager {
-		$userGroupManager = $services->getUserGroupManager();
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
-		$notifications = $echoConfig->get( 'EchoNotifications' );
-		$categories = $echoConfig->get( 'EchoNotificationCategories' );
-		$typeAvailability = $echoConfig->get( 'DefaultNotifyTypeAvailability' );
-		$typeAvailabilityByCategory = $echoConfig->get( 'NotifyTypeAvailabilityByCategory' );
 
 		return new AttributeManager(
-			$notifications,
-			$categories,
-			$typeAvailability,
-			$typeAvailabilityByCategory,
-			$userGroupManager,
+			$echoConfig->get( 'EchoNotifications' ),
+			$echoConfig->get( 'EchoNotificationCategories' ),
+			$echoConfig->get( 'DefaultNotifyTypeAvailability' ),
+			$echoConfig->get( 'NotifyTypeAvailabilityByCategory' ),
+			$services->getUserGroupManager(),
 			$services->getUserOptionsLookup()
 		);
 	},
@@ -39,10 +34,11 @@ return [
 		MediaWikiServices $services
 	): NotificationServiceClient {
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
-		$httpRequestFactory = $services->getHttpRequestFactory();
-		$statusFormatter = $services->getFormatterFactory()->getStatusFormatter( RequestContext::getMain() );
-		$url = $echoConfig->get( 'EchoPushServiceBaseUrl' );
-		$client = new NotificationServiceClient( $httpRequestFactory, $statusFormatter, $url );
+		$client = new NotificationServiceClient(
+			$services->getHttpRequestFactory(),
+			$services->getFormatterFactory()->getStatusFormatter( RequestContext::getMain() ),
+			$echoConfig->get( 'EchoPushServiceBaseUrl' )
+		);
 		$client->setLogger( LoggerFactory::getInstance( 'Echo' ) );
 		return $client;
 	},
