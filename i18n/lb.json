@@ -240,5 +240,9 @@
 	"action-manage-all-push-subscriptions": "all Push-Abonementer ze verwalten",
 	"group-push-subscription-manager": "Push-Abonement-Verwalter",
 	"group-push-subscription-manager-member": "{{GENDER:$1|Push-Abonement-Verwalter|Push-Abonement-Verwalterin}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Push-Abonement-Verwalter"
+	"grouppage-push-subscription-manager": "{{ns:project}}:Push-Abonement-Verwalter",
+	"notification-subject-email-verify-email-reminder": "Confirméiert {{GENDER:$1|Är}} E-Mail-Adress",
+	"notification-header-verify-email-reminder": "<strong>Verifizéiert wgl. {{GENDER:$1|Är}} E-Mail-Adress</strong>, fir datt mir wëssen, datt d'E-Mail-Adress vun {{GENDER:$1|Ärem}} Kont {{GENDER:$1|Iech}} gehéiert.",
+	"notification-link-text-verify-email-reminder": "E-Mail-Astellunge geréieren",
+	"notification-verify-email-reminder-link-label": "E-Mail-Adress confirméieren"
 }

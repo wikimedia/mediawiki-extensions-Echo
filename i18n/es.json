@@ -71,7 +71,7 @@
 	"echo-pref-email-format-plain-text": "Texto sin formato",
 	"echo-pref-cross-wiki-notifications": "Mostrar notificaciones de otros wikis",
 	"echo-pref-notifications-blacklist": "No mostrar notificaciones de estos usuarios. ([[mw:Special:MyLanguage/Help:Notifications#mute|más información]])",
-	"echo-pref-notifications-page-linked-title-muted-list": "No mostrar notificaciones de \"Enlace de página\" para estas páginas. ([[mw:Special:MyLanguage/Help:Notifications#mute|más información]])",
+	"echo-pref-notifications-page-linked-title-muted-list": "No mostrar notificaciones de «Enlace de página» para estas páginas. ([[mw:Special:MyLanguage/Help:Notifications#mute|más información]])",
 	"echo-pref-dont-email-read-notifications": "No incluyas notificaciones leídas en los correos electrónicos de resumen",
 	"echo-learn-more": "Más información",
 	"echo-log": "Registro público",

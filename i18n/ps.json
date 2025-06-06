@@ -239,5 +239,9 @@
 	"action-manage-all-push-subscriptions": "ټول ملاتړي گډونونه سمول",
 	"group-push-subscription-manager": "ملاتړي گډونونو سمونوال",
 	"group-push-subscription-manager-member": "{{GENDER:$1|ملاتړي گډون سمونوال}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:ملاتړي گډون سمونوال"
+	"grouppage-push-subscription-manager": "{{ns:project}}:ملاتړي گډون سمونوال",
+	"notification-subject-email-verify-email-reminder": "{{GENDER\n:$1|خپل}} برېښليک تاييد کړئ",
+	"notification-header-verify-email-reminder": "مهرباني وکړئ <strong> {{GENDER:$1|خپل}} برېښليک پته تاييد کړئ</strong> ترڅو موږ پوه شو چې {{GENDER\n:$1|ستاسو}} د گڼون برېښليک پته {{GENDER:$1|تاسو}} پورې اړه لري.",
+	"notification-link-text-verify-email-reminder": "د برېښليکي غوره‌توبونو چاروالي",
+	"notification-verify-email-reminder-link-label": "برېښليک تاييدول"
 }

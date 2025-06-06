@@ -258,5 +258,9 @@
 	"action-manage-all-push-subscriptions": "hallita kaikkia push-tilauksia",
 	"group-push-subscription-manager": "push-tilauksien hallitsijat",
 	"group-push-subscription-manager-member": "{{GENDER:$1|push-tilauksien hallitsija}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Push-tilauksien hallitsijat"
+	"grouppage-push-subscription-manager": "{{ns:project}}:Push-tilauksien hallitsijat",
+	"notification-subject-email-verify-email-reminder": "Varmenna {{GENDER:$1|sähköpostiosoitteesi}}",
+	"notification-header-verify-email-reminder": "<strong>Varmenna {{GENDER:$1|sähköpostiosoitteesi}},</strong> jotta tiedämme, että tunnuksesi sähköpostiosoite kuuluu sinulle.",
+	"notification-link-text-verify-email-reminder": "Hallinnoi sähköpostiasetuksia",
+	"notification-verify-email-reminder-link-label": "Varmenna sähköpostiosoite"
 }
