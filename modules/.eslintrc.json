@@ -9,7 +9,6 @@
 		"commonjs": true
 	},
 	"rules": {
-		"max-len": "off",
-		"no-jquery/no-done-fail": "warn"
+		"max-len": "off"
 	}
 }

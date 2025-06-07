@@ -155,11 +155,11 @@ mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( 
 		this.fetchNotificationsPromise[ type ][ fetchingSource ] = fetchNotifPromise;
 	}
 
-	return fetchNotifPromise
-		.fail( () => {
-			// Mark API error state
-			this.apiErrorState[ type ][ fetchingSource ] = true;
-		} );
+	fetchNotifPromise.catch( () => {
+		// Mark API error state
+		this.apiErrorState[ type ][ fetchingSource ] = true;
+	} );
+	return fetchNotifPromise;
 };
 
 /**
