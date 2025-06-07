@@ -21,6 +21,7 @@
 		"notifications": {
 			"class": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoNotifications",
 			"services": [
+				"EchoAttributeManager",
 				"MainConfig",
 				"JsonCodec"
 			]
@@ -28,6 +29,7 @@
 		"unreadnotificationpages": {
 			"class": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoUnreadNotificationPages",
 			"services": [
+				"EchoAttributeManager",
 				"PageStore",
 				"TitleFactory"
 			]
@@ -527,7 +529,10 @@
 			"class": "MediaWiki\\Extension\\Notifications\\SchemaHooks"
 		},
 		"usermerge": {
-			"class": "MediaWiki\\Extension\\Notifications\\UserMergeHooks"
+			"class": "MediaWiki\\Extension\\Notifications\\UserMergeHooks",
+			"services": [
+				"EchoAttributeManager"
+			]
 		}
 	},
 	"DomainEventIngresses": [
