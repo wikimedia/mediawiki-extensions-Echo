@@ -491,7 +491,6 @@
 		"UserMergeAccountFields": "usermerge",
 		"MergeAccountFromTo": "usermerge",
 		"UserMergeAccountDeleteTables": "usermerge",
-		"PageSaveComplete": "main",
 		"RollbackComplete": "main",
 		"UserSaveSettings": "main",
 		"SendWatchlistEmailNotification": "main",
@@ -517,7 +516,6 @@
 				"NamespaceInfo",
 				"NotificationService",
 				"PermissionManager",
-				"RevisionStore",
 				"StatsFactory",
 				"TalkPageNotificationManager",
 				"UserEditTracker",
@@ -532,6 +530,16 @@
 			"class": "MediaWiki\\Extension\\Notifications\\UserMergeHooks"
 		}
 	},
+	"DomainEventIngresses": [
+		{
+			"events": [ "PageRevisionUpdated" ],
+			"class": "MediaWiki\\Extension\\Notifications\\MediaWikiEventIngress\\PageEventIngress",
+			"services": [
+				"RevisionStore",
+				"UserEditTracker"
+			]
+		}
+	],
 	"NotificationMiddleware": [
 		{
 			"class": "MediaWiki\\Extension\\Notifications\\Notifications\\RecentChangeNotificationMiddleware",

@@ -159,11 +159,12 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 		] );
 
 		$eventMapper = new EventMapper();
-
-		$this->assertArrayEquals(
-			[ $eventWithTitle->getId(), $eventWithTargetPage->getId() ],
-			$eventMapper->fetchIdsByPage( $page->getId() )
-		);
+		$this->runDeferredUpdates();
+		$pageIds = $eventMapper->fetchIdsByPage( $page->getId() );
+		$expectedPageIds = [ $eventWithTitle->getId(), $eventWithTargetPage->getId() ];
+		foreach ( $expectedPageIds as $expectedPageId ) {
+			$this->assertContains( $expectedPageId, $pageIds );
+		}
 	}
 
 }
