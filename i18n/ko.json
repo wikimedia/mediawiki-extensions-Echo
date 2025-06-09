@@ -229,5 +229,7 @@
 	"action-manage-all-push-subscriptions": "모든 푸시 구독을 관리할",
 	"group-push-subscription-manager": "푸시 구독 관리자",
 	"group-push-subscription-manager-member": "{{GENDER:$1|푸시 구독 관리자}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:푸시 구독 관리자"
+	"grouppage-push-subscription-manager": "{{ns:project}}:푸시 구독 관리자",
+	"notification-link-text-verify-email-reminder": "이메일 환경 설정 관리",
+	"notification-verify-email-reminder-link-label": "이메일 확인"
 }

@@ -28,6 +28,7 @@
 			"MaxBioHazard",
 			"Megakott",
 			"MirandaBlack",
+			"Mitte27",
 			"Mouse21",
 			"Movses",
 			"Okras",
@@ -275,5 +276,6 @@
 	"action-manage-all-push-subscriptions": "управление всеми подписками push-уведомлений",
 	"group-push-subscription-manager": "Управляющие подписками push-уведомлений",
 	"group-push-subscription-manager-member": "{{GENDER:$1|управляющий подписками push-уведомлений|управляющая подписками push-уведомлений}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Управляющие подписками push-уведомлений"
+	"grouppage-push-subscription-manager": "{{ns:project}}:Управляющие подписками push-уведомлений",
+	"notification-verify-email-reminder-link-label": "Подтвердите эл. почту"
 }

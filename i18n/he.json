@@ -251,5 +251,9 @@
 	"action-manage-all-push-subscriptions": "לנהל את כל מינויי הדחיפה",
 	"group-push-subscription-manager": "מנהלי מינויי דחיפה",
 	"group-push-subscription-manager-member": "{{GENDER:$1|מנהל|מנהלת}} מינויי דחיפה",
-	"grouppage-push-subscription-manager": "{{ns:project}}:מנהל מינויי דחיפה"
+	"grouppage-push-subscription-manager": "{{ns:project}}:מנהל מינויי דחיפה",
+	"notification-subject-email-verify-email-reminder": "{{GENDER:$1|אמת|אמתי}} את כתובת הדוא\"ל שלך",
+	"notification-header-verify-email-reminder": "נא <strong>לאמת את כתובת הדוא\"ל {{GENDER:$1|שלך}}</strong> כדי שנדע שכתובת הדוא\"ל בחשבון שלך שייכת לך.",
+	"notification-link-text-verify-email-reminder": "ניהול העדפות דוא\"ל",
+	"notification-verify-email-reminder-link-label": "אישור כתובת דוא\"ל"
 }

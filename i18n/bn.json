@@ -226,5 +226,7 @@
 	"group-push-subscription-manager": "পুশ সাবস্ক্রিপশন ব্যবস্থাপক",
 	"group-push-subscription-manager-member": "{{GENDER:$1|পুশ সাবস্ক্রিপশন ব্যবস্থাপক}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:পুশ সাবস্ক্রিপশন ব্যবস্থাপক",
-	"notification-link-text-verify-email-reminder": "ইমেইলের পছন্দগুলি পরিচালনা করুন"
+	"notification-subject-email-verify-email-reminder": "{{GENDER:$1|আপনার}} ইমেইল যাচাই করুন",
+	"notification-link-text-verify-email-reminder": "ইমেইলের পছন্দগুলি পরিচালনা করুন",
+	"notification-verify-email-reminder-link-label": "ইমেইল নিশ্চিত করুন"
 }
