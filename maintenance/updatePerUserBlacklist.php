@@ -17,7 +17,7 @@ require_once getenv( 'MW_INSTALL_PATH' ) !== false
  *
  * @ingroup Maintenance
  */
-class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
+class UpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 
 	public function __construct() {
 		parent::__construct();
@@ -98,5 +98,5 @@ class EchoUpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 	}
 }
 
-$maintClass = EchoUpdatePerUserBlacklist::class;
+$maintClass = UpdatePerUserBlacklist::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

@@ -3,7 +3,6 @@
 	<file>.</file>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki" />
 	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
-		<exclude-pattern>maintenance/updatePerUserBlacklist\.php</exclude-pattern>
 		<exclude-pattern>scripts/gen-autoload\.php</exclude-pattern>
 	</rule>
 	<arg name="encoding" value="UTF-8" />
