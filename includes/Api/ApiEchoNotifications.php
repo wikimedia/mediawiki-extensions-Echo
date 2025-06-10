@@ -15,7 +15,6 @@ use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\SeenTime;
-use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Json\JsonCodec;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
@@ -27,6 +26,7 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 class ApiEchoNotifications extends ApiQueryBase {
 	use ApiCrossWiki;
 
+	private AttributeManager $attributeManager;
 	private JsonCodec $jsonCodec;
 
 	/**
@@ -40,11 +40,13 @@ class ApiEchoNotifications extends ApiQueryBase {
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
+		AttributeManager $attributeManager,
 		Config $mainConfig,
 		JsonCodec $jsonCodec
 	) {
 		parent::__construct( $query, $moduleName, 'not' );
 		$this->allowedNotifierTypes = array_keys( $mainConfig->get( 'EchoNotifiers' ) );
+		$this->attributeManager = $attributeManager;
 		$this->jsonCodec = $jsonCodec;
 	}
 
@@ -137,10 +139,9 @@ class ApiEchoNotifications extends ApiQueryBase {
 					}
 				}
 			} else {
-				$attributeManager = Services::getInstance()->getAttributeManager();
 				$result = $this->getPropList(
 					$user,
-					$attributeManager->getUserEnabledEventsBySections( $user, $params['notifiertypes'],
+					$this->attributeManager->getUserEnabledEventsBySections( $user, $params['notifiertypes'],
 						$params['sections'] ),
 					$params['filter'], $params['limit'], $params['continue'], $params['format'],
 					$titles, $params['unreadfirst'], $params['bundle']
@@ -203,8 +204,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		$bundle = false,
 		array $notifierTypes = [ 'web' ]
 	) {
-		$attributeManager = Services::getInstance()->getAttributeManager();
-		$sectionEvents = $attributeManager->getUserEnabledEventsBySections( $user, $notifierTypes, [ $section ] );
+		$sectionEvents = $this->attributeManager->getUserEnabledEventsBySections( $user, $notifierTypes, [ $section ] );
 
 		if ( !$sectionEvents ) {
 			$result = [

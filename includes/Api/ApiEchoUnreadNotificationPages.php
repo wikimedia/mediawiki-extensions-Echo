@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\Notifications\Api;
 use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\Api\ApiUsageException;
+use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\NotifUser;
-use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\PageRecord;
 use MediaWiki\Page\PageStore;
@@ -26,16 +26,19 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	 */
 	protected $crossWikiSummary = false;
 
+	private AttributeManager $attributeManager;
 	private PageStore $pageStore;
 	private TitleFactory $titleFactory;
 
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
+		AttributeManager $attributeManager,
 		PageStore $pageStore,
 		TitleFactory $titleFactory
 	) {
 		parent::__construct( $query, $moduleName, 'unp' );
+		$this->attributeManager = $attributeManager;
 		$this->pageStore = $pageStore;
 		$this->titleFactory = $titleFactory;
 	}
@@ -78,8 +81,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	 * @phan-return array{pages:array[],totalCount:int}
 	 */
 	protected function getFromLocal( $limit, $groupPages ) {
-		$attributeManager = Services::getInstance()->getAttributeManager();
-		$enabledTypes = $attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
+		$enabledTypes = $this->attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
 		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
 		$queryBuilder = $dbr->newSelectQueryBuilder()
