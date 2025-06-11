@@ -266,5 +266,8 @@
 	"group-push-subscription-manager": "Push abonelik yöneticileri",
 	"group-push-subscription-manager-member": "{{GENDER:$1|push abonelik yöneticisi}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:Push abonelik yöneticileri",
-	"notification-subject-email-verify-email-reminder": "E-postanızı {{GENDER:$1|doğrulayın}}"
+	"notification-subject-email-verify-email-reminder": "E-postanızı {{GENDER:$1|doğrulayın}}",
+	"notification-header-verify-email-reminder": "Lütfen <strong>e-posta adresinizi doğrulayın</strong>, böylelikle hesabınızdaki e-posta adresinin {{GENDER:$1|size}} ait olduğunu bilelim.",
+	"notification-link-text-verify-email-reminder": "E-posta tercihlerini yönet",
+	"notification-verify-email-reminder-link-label": "E-postayı onayla"
 }
