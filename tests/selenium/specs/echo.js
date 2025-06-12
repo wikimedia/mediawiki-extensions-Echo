@@ -7,7 +7,7 @@ const assert = require( 'assert' ),
 describe( 'Echo', () => {
 	it( 'alerts and notices are visible after logging in @daily', async () => {
 
-		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
+		await UserLoginPage.login( browser.options.capabilities[ 'mw:user' ], browser.options.capabilities[ 'mw:pwd' ] );
 
 		assert( await EchoPage.alerts.isExisting() );
 		assert( await EchoPage.notices.isExisting() );
@@ -16,7 +16,7 @@ describe( 'Echo', () => {
 
 	it( 'flyout for alert appears when clicked @daily', async () => {
 
-		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
+		await UserLoginPage.login( browser.options.capabilities[ 'mw:user' ], browser.options.capabilities[ 'mw:pwd' ] );
 		await EchoPage.alerts.click();
 		await EchoPage.alertsFlyout.waitForDisplayed();
 
@@ -26,7 +26,7 @@ describe( 'Echo', () => {
 
 	it( 'flyout for notices appears when clicked @daily', async () => {
 
-		await UserLoginPage.login( browser.config.mwUser, browser.config.mwPwd );
+		await UserLoginPage.login( browser.options.capabilities[ 'mw:user' ], browser.options.capabilities[ 'mw:pwd' ] );
 		await EchoPage.notices.click();
 		await EchoPage.noticesFlyout.waitForDisplayed();
 
