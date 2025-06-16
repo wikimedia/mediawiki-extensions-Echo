@@ -135,7 +135,7 @@
 	"echo-overlay-link": "Alle meldingar og varsel",
 	"echo-overlay-title": "<b>Meldingar og varsel</b>",
 	"echo-mark-all-as-read": "Merk alle som lesne",
-	"echo-mark-all-as-read-confirmation": "$1 {{PLURAL:$1|varsel}} merka som {{PLURAL:$1|lese|lesne}}",
+	"echo-mark-all-as-read-confirmation": "$1 varsel {{PLURAL:$1|merkt som lese|merkte som lesne}}",
 	"echo-displaysnippet-title": "Nytt varsel",
 	"echo-date-today": "I dag",
 	"echo-date-yesterday": "I går",
