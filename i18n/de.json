@@ -75,6 +75,7 @@
 	"echo-category-title-watchlist": "Bearbeitung an beobachteter Seite",
 	"echo-category-title-minor-watchlist": "Kleine Änderung an beobachteter Seite",
 	"echo-category-title-api-triggered": "Durch die API ausgelöste Benachrichtigungen",
+	"echo-category-title-verify-email-reminder": "E-Mail-Bestätigungserinnerungen",
 	"echo-pref-tooltip-article-linked": "Benachrichtige mich, wenn jemand auf einer Seite auf eine andere von mir erstellte Seite verlinkt.",
 	"echo-pref-tooltip-reverted": "Benachrichtige mich, wenn jemand eine von mir gemachte Bearbeitung rückgängig macht oder zurücksetzt.",
 	"echo-pref-tooltip-mention": "Benachrichtige mich, wenn jemand auf meine Benutzerseite verlinkt.",
@@ -85,6 +86,7 @@
 	"echo-pref-tooltip-watchlist": "Benachrichtige mich, wenn jemand eine Bearbeitung, die nicht als „kleine Änderung“ gekennzeichnet ist, an einer Seite auf meiner Beobachtungsliste macht.",
 	"echo-pref-tooltip-minor-watchlist": "Benachrichtigen mich, wenn jemand eine Bearbeitung, die als „kleine Änderung“ gekennzeichnet ist, an einer Seite auf meiner Beobachtungsliste macht.",
 	"echo-pref-tooltip-api-triggered": "Sende mir über die API von Bots oder Helferlein ausgelöste Benachrichtigungen.",
+	"echo-pref-tooltip-verify-email-reminder": "Erinnere mich daran, meine E-Mail-Adresse zu bestätigen, falls sie noch nicht bestätigt wurde.",
 	"notifications": "Benachrichtigungen",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Deine}} Meldungen",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Deine}} Mitteilungen",
@@ -260,7 +262,7 @@
 	"group-push-subscription-manager-member": "{{GENDER:$1|Push-Abonnementverwalter|Push-Abonnementverwalterin}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:Push-Abonnementverwalter",
 	"notification-subject-email-verify-email-reminder": "Überprüfe {{GENDER:$1|deine}} E-Mail-Adresse",
-	"notification-header-verify-email-reminder": "Bitte <strong>üÜberprüfe {{GENDER:$1|deine }} E-Mail-Adresse</strong>, damit wir wissen, dass die E-Mail-Adresse in {{GENDER:$1|deinem}} Konto zu {{GENDER:$1|dir}} gehört.",
+	"notification-header-verify-email-reminder": "Bitte <strong>überprüfe {{GENDER:$1|deine}} E-Mail-Adresse</strong>, damit wir wissen, dass die E-Mail-Adresse in {{GENDER:$1|deinem}} Konto zu {{GENDER:$1|dir}} gehört.",
 	"notification-link-text-verify-email-reminder": "E-Mail-Einstellungen verwalten",
 	"notification-verify-email-reminder-link-label": "E-Mail-Adresse bestätigen"
 }
