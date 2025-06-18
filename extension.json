@@ -15,7 +15,7 @@
 	"license-name": "MIT",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.44"
+		"MediaWiki": ">= 1.45"
 	},
 	"APIMetaModules": {
 		"notifications": {
@@ -537,7 +537,9 @@
 	},
 	"DomainEventIngresses": [
 		{
-			"events": [ "PageRevisionUpdated" ],
+			"events": [
+				"PageRevisionUpdated"
+			],
 			"class": "MediaWiki\\Extension\\Notifications\\MediaWikiEventIngress\\PageEventIngress",
 			"services": [
 				"RevisionStore",
