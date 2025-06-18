@@ -20,9 +20,10 @@ module.exports = function ( grunt ) {
 		},
 		// Lint – Styling
 		stylelint: {
-			all: [
-				'modules/**/*.{css,less}'
-			]
+			options: {
+				cache: true
+			},
+			all: [ 'modules/**/*.{css,less}' ]
 		},
 		banana: Object.assign( {
 			options: { requireLowerCase: false }
