@@ -10,14 +10,14 @@ use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\Page\Event\PageRevisionUpdatedEvent;
-use MediaWiki\Page\Event\PageRevisionUpdatedListener;
+use MediaWiki\Page\Event\PageLatestRevisionChangedEvent;
+use MediaWiki\Page\Event\PageLatestRevisionChangedListener;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserEditTracker;
 use MediaWiki\User\UserIdentity;
 
-class PageEventIngress extends DomainEventIngress implements PageRevisionUpdatedListener {
+class PageEventIngress extends DomainEventIngress implements PageLatestRevisionChangedListener {
 	private RevisionStore $revisionStore;
 	private UserEditTracker $userEditTracker;
 
@@ -29,10 +29,10 @@ class PageEventIngress extends DomainEventIngress implements PageRevisionUpdated
 		$this->userEditTracker = $userEditTracker;
 	}
 
-	public function handlePageRevisionUpdatedEvent( PageRevisionUpdatedEvent $event ): void {
+	public function handlePageLatestRevisionChangedEvent( PageLatestRevisionChangedEvent $event ): void {
 		$editResult = $event->getEditResult();
 
-		if ( $editResult == null ) {
+		if ( $editResult == null || $editResult->isNullEdit() ) {
 			return;
 		}
 

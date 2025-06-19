@@ -538,7 +538,7 @@
 	"DomainEventIngresses": [
 		{
 			"events": [
-				"PageRevisionUpdated"
+				"PageLatestRevisionChanged"
 			],
 			"class": "MediaWiki\\Extension\\Notifications\\MediaWikiEventIngress\\PageEventIngress",
 			"services": [
