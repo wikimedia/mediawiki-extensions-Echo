@@ -32,7 +32,7 @@ class PageEventIngress extends DomainEventIngress implements PageRevisionUpdated
 	public function handlePageRevisionUpdatedEvent( PageRevisionUpdatedEvent $event ): void {
 		$editResult = $event->getEditResult();
 
-		if ( $editResult == null ) {
+		if ( $editResult == null || $editResult->isNullEdit() ) {
 			return;
 		}
 
