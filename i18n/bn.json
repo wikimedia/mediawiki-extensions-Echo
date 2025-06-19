@@ -65,6 +65,7 @@
 	"echo-category-title-thank-you-edit": "সম্পাদনা {{PLURAL:$1|মাইলফলক|মাইলফলকগুলি}}",
 	"echo-category-title-watchlist": "নজরে রাখা পাতায় সম্পাদনা",
 	"echo-category-title-minor-watchlist": "নজরে রাখা পাতায় অনুল্লেখ্য সম্পাদনা",
+	"echo-category-title-verify-email-reminder": "ইমেল নিশ্চিতকরণের অনুস্মারক",
 	"echo-pref-tooltip-article-linked": "কেউ অন্য পাতায় আমার তৈরি কোনো পাতার লিঙ্ক প্রদান করলে আমাকে বিজ্ঞপ্তি দিন।",
 	"echo-pref-tooltip-reverted": "পূর্বাবস্থা বা রোলব্যাক সরঞ্জাম দিয়ে কেউ আমার সম্পাদনা ফেরত নিলে আমাকে বিজ্ঞপ্তি দিন।",
 	"echo-pref-tooltip-mention": "কেউ আমার ব্যবহারকারী পাতার লিঙ্ক প্রদান করলে আমাকে বিজ্ঞপ্তি দিন।",
