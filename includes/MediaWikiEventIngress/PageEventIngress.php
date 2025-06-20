@@ -41,14 +41,51 @@ class PageEventIngress extends DomainEventIngress implements PageLatestRevisionC
 
 		/**
 		 * Save the revert status for the LinksUpdateComplete hook
-		 * TODO: Deprecate this when LinksUpdateComplete is migrated to it's corresponding
+		 * TODO: Deprecate this when LinksUpdateComplete is migrated to its corresponding
 		 * Domain event
 		 */
 		EchoHooks::setRevertStatus( $isRevert, $revisionRecord );
 		DiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
 
-		// If the user is not an IP and this is not a null edit,
-		// test for them reaching a congratulatory threshold
+		$this->maybeSendThankYouEdit( $event );
+
+		$title = $event->getPageRecordAfter();
+		$userIdentity = $event->getAuthor();
+
+		// Handle the case of someone undoing an edit, either through the
+		// 'undo' link in the article history or via the API.
+		// Reverts through the 'rollback' link (EditResult::REVERT_ROLLBACK)
+		// are handled in Hooks::onRollbackComplete().
+		if ( $editResult->getRevertMethod() === EditResult::REVERT_UNDO ) {
+			$undidRevId = $editResult->getUndidRevId();
+			$undidRevision = $this->revisionStore->getRevisionById( $undidRevId );
+			if ( $undidRevision && $undidRevision->getPage()->isSamePageAs( $title ) ) {
+				$revertedUser = $undidRevision->getUser();
+				// No notifications for anonymous users
+				if ( $revertedUser && $revertedUser->getId() ) {
+					Event::create( [
+						'type' => 'reverted',
+						'title' => $title,
+						'extra' => [
+							'revid' => $revisionRecord->getId(),
+							'reverted-user-id' => $revertedUser->getId(),
+							'reverted-revision-id' => $undidRevId,
+							'method' => 'undo',
+							'summary' => $revisionRecord->getComment()->text
+						],
+						'agent' => $userIdentity,
+					] );
+				}
+			}
+		}
+	}
+
+	/**
+	 * If the user is not an IP and this is not a null edit,
+	 * test for them reaching a congratulatory threshold
+	 */
+	private function maybeSendThankYouEdit( PageLatestRevisionChangedEvent $event ): void {
+		$revisionRecord = $event->getLatestRevisionAfter();
 		$title = $event->getPageRecordAfter();
 		$userIdentity = $event->getAuthor();
 		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000 ];
@@ -82,32 +119,6 @@ class PageEventIngress extends DomainEventIngress implements PageLatestRevisionC
 						'revid' => $revisionRecord->getId(),
 					]
 				] );
-			}
-		}
-		// Handle the case of someone undoing an edit, either through the
-		// 'undo' link in the article history or via the API.
-		// Reverts through the 'rollback' link (EditResult::REVERT_ROLLBACK)
-		// are handled in Hooks::onRollbackComplete().
-		if ( $editResult->getRevertMethod() === EditResult::REVERT_UNDO ) {
-			$undidRevId = $editResult->getUndidRevId();
-			$undidRevision = $this->revisionStore->getRevisionById( $undidRevId );
-			if ( $undidRevision && $undidRevision->getPage()->isSamePageAs( $title ) ) {
-				$revertedUser = $undidRevision->getUser();
-				// No notifications for anonymous users
-				if ( $revertedUser && $revertedUser->getId() ) {
-					Event::create( [
-						'type' => 'reverted',
-						'title' => $title,
-						'extra' => [
-							'revid' => $revisionRecord->getId(),
-							'reverted-user-id' => $revertedUser->getId(),
-							'reverted-revision-id' => $undidRevId,
-							'method' => 'undo',
-							'summary' => $revisionRecord->getComment()->text
-						],
-						'agent' => $userIdentity,
-					] );
-				}
 			}
 		}
 	}
