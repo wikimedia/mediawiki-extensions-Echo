@@ -958,7 +958,7 @@ class Hooks implements
 		$icons = [
 			AttributeManager::ALERT => 'bell',
 			AttributeManager::MESSAGE => 'tray',
-			AttributeManager::ALL => $skinName === 'minerva' && $hasUnseen ? 'circle' : 'bellOutline',
+			AttributeManager::ALL => 'bellOutline',
 		];
 		// This item used to be part of personal tools, and much CSS relies on it using this id.
 		$ids = [
