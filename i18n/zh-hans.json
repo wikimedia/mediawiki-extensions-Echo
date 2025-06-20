@@ -302,5 +302,8 @@
 	"action-manage-all-push-subscriptions": "管理所有推送订阅",
 	"group-push-subscription-manager": "推送订阅管理员",
 	"group-push-subscription-manager-member": "{{GENDER:$1|推送订阅管理员}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:推送订阅管理员"
+	"grouppage-push-subscription-manager": "{{ns:project}}:推送订阅管理员",
+	"notification-subject-email-verify-email-reminder": "验证{{GENDER:$1|您}}的电子邮件地址",
+	"notification-link-text-verify-email-reminder": "管理电子邮件设置",
+	"notification-verify-email-reminder-link-label": "确认电子邮件地址"
 }
