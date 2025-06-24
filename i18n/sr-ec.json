@@ -246,5 +246,9 @@
 	"right-echo-create": "слање обавештења другима",
 	"action-echo-create": "шаљете обавештења другима",
 	"group-push-subscription-manager": "Менаџери претплата за обавештења",
-	"group-push-subscription-manager-member": "{{GENDER:$1|менаџер претплата за обавештења}}"
+	"group-push-subscription-manager-member": "{{GENDER:$1|менаџер претплата за обавештења}}",
+	"notification-subject-email-verify-email-reminder": "{{GENDER:$1|Потврдите}} Ваш имејл",
+	"notification-header-verify-email-reminder": "Молимо <strong>потврдите {{GENDER:$1|своју}} имејл адресу</strong>. Да би били сигурни да имејл адреса на Вашем налогу припада Вама.",
+	"notification-link-text-verify-email-reminder": "Имејл подешавања",
+	"notification-verify-email-reminder-link-label": "Потврдите имејл"
 }
