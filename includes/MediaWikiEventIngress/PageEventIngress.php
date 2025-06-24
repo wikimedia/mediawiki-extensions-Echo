@@ -5,11 +5,15 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Notifications\MediaWikiEventIngress;
 
 use MediaWiki\DomainEvent\DomainEventIngress;
+use MediaWiki\Extension\Notifications\Controller\ModerationController;
 use MediaWiki\Extension\Notifications\DiscussionParser;
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
+use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Page\Event\PageDeletedEvent;
+use MediaWiki\Page\Event\PageDeletedListener;
 use MediaWiki\Page\Event\PageLatestRevisionChangedEvent;
 use MediaWiki\Page\Event\PageLatestRevisionChangedListener;
 use MediaWiki\Revision\RevisionStore;
@@ -17,16 +21,24 @@ use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserEditTracker;
 use MediaWiki\User\UserIdentity;
 
-class PageEventIngress extends DomainEventIngress implements PageLatestRevisionChangedListener {
+class PageEventIngress extends DomainEventIngress implements
+	PageDeletedListener,
+	PageLatestRevisionChangedListener
+	{
+
 	private RevisionStore $revisionStore;
 	private UserEditTracker $userEditTracker;
+	private EventMapper $eventMapper;
 
 	public function __construct(
 		RevisionStore $revisionStore,
-		UserEditTracker $userEditTracker
+		UserEditTracker $userEditTracker,
+		EventMapper $eventMapper,
+
 	) {
 		$this->revisionStore = $revisionStore;
 		$this->userEditTracker = $userEditTracker;
+		$this->eventMapper = $eventMapper;
 	}
 
 	public function handlePageLatestRevisionChangedEvent( PageLatestRevisionChangedEvent $event ): void {
@@ -121,6 +133,11 @@ class PageEventIngress extends DomainEventIngress implements PageLatestRevisionC
 				] );
 			}
 		}
+	}
+
+	public function handlePageDeletedEvent( PageDeletedEvent $event ): void {
+		$eventIds = $this->eventMapper->fetchIdsByPage( $event->getDeletedPage()->getId() );
+		ModerationController::moderate( $eventIds, true );
 	}
 
 	/**

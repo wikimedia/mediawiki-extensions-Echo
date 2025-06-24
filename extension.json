@@ -488,7 +488,6 @@
 		"EmailUserComplete": "main",
 		"LoginFormValidErrorMessages": "main",
 		"OutputPageCheckLastModified": "main",
-		"ArticleDeleteComplete": "main",
 		"ArticleUndelete": "main",
 		"UserMergeAccountFields": "usermerge",
 		"MergeAccountFromTo": "usermerge",
@@ -537,12 +536,14 @@
 	"DomainEventIngresses": [
 		{
 			"events": [
+				"PageDeleted",
 				"PageLatestRevisionChanged"
 			],
 			"class": "MediaWiki\\Extension\\Notifications\\MediaWikiEventIngress\\PageEventIngress",
 			"services": [
 				"RevisionStore",
-				"UserEditTracker"
+				"UserEditTracker",
+				"EchoEventMapper"
 			]
 		}
 	],

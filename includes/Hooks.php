@@ -7,7 +7,6 @@ use MediaWiki\Api\ApiModuleManager;
 use MediaWiki\Api\Hook\ApiMain__moduleManagerHook;
 use MediaWiki\Auth\AuthManager;
 use MediaWiki\Config\Config;
-use MediaWiki\Content\Content;
 use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Deferred\LinksUpdate\LinksTable;
@@ -33,7 +32,6 @@ use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HTMLForm\Field\HTMLCheckMatrix;
 use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinkRenderer;
-use MediaWiki\Logging\LogEntry;
 use MediaWiki\Mail\MailAddress;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
@@ -42,7 +40,6 @@ use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\Hook\OutputPageCheckLastModifiedHook;
 use MediaWiki\Output\OutputPage;
-use MediaWiki\Page\Hook\ArticleDeleteCompleteHook;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
 use MediaWiki\Page\Hook\RollbackCompleteHook;
 use MediaWiki\Page\WikiPage;
@@ -84,7 +81,6 @@ use Wikimedia\Stats\StatsFactory;
 
 class Hooks implements
 	ApiMain__moduleManagerHook,
-	ArticleDeleteCompleteHook,
 	ArticleUndeleteHook,
 	BeforePageDisplayHook,
 	EmailUserCompleteHook,
@@ -1259,31 +1255,6 @@ class Hooks implements
 			'EchoMaxNotificationCount' => NotifUser::MAX_BADGE_COUNT,
 			'EchoPollForUpdates' => $config->get( ConfigNames::PollForUpdates )
 		];
-	}
-
-	/**
-	 * @param WikiPage $article
-	 * @param User $user
-	 * @param string $reason
-	 * @param int $articleId
-	 * @param Content|null $content
-	 * @param LogEntry $logEntry
-	 * @param int $archivedRevisionCount
-	 */
-	public function onArticleDeleteComplete(
-		$article,
-		$user,
-		$reason,
-		$articleId,
-		$content,
-		$logEntry,
-		$archivedRevisionCount
-	) {
-		DeferredUpdates::addCallableUpdate( static function () use ( $articleId ) {
-			$eventMapper = new EventMapper();
-			$eventIds = $eventMapper->fetchIdsByPage( $articleId );
-			ModerationController::moderate( $eventIds, true );
-		} );
 	}
 
 	/**

@@ -4,6 +4,8 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
+use MediaWiki\Extension\Notifications\Mapper\EventMapper;
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\Logger\LoggerFactory;
@@ -28,6 +30,14 @@ return [
 			$services->getUserGroupManager(),
 			$services->getUserOptionsLookup()
 		);
+	},
+
+	'EchoEventMapper' => static function ( MediaWikiServices $services ): EventMapper {
+		return new EventMapper();
+	},
+
+	'EchoNotificationMapper' => static function ( MediaWikiServices $services ): NotificationMapper {
+		return new NotificationMapper();
 	},
 
 	'EchoPushNotificationServiceClient' => static function (
@@ -101,7 +111,6 @@ return [
 			$services->getTitleFactory()
 		);
 	},
-
 ];
 
 // @codeCoverageIgnoreEnd
