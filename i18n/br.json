@@ -41,7 +41,7 @@
 	"echo-log": "Marilh foran",
 	"echo-new-messages": "Ur gemennadenn nevez ho peus",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Kemm}} d’am fajenn gaozeal",
-	"echo-category-title-article-linked": "{{PLURAL:$1|link}} war-du ar bajenn",
+	"echo-category-title-article-linked": "{{PLURAL:$1|Liamm|Liammoù}} war-du ar bajenn",
 	"echo-category-title-reverted": "{{PLURAL:$1|Kemm|Kemmoù}} nullet",
 	"echo-category-title-mention": "{{PLURAL:$1|Meneg|Menegoù}}",
 	"echo-category-title-mention-failure": "{{PLURAL:$1|Meneg|Menegoù}} c’hwitet",
