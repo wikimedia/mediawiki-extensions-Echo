@@ -28,6 +28,7 @@
 			"W.CC",
 			"Waki285",
 			"Whym",
+			"YeBoy371",
 			"Yusuke1109",
 			"おはぐろ蜻蛉",
 			"ネイ",
@@ -198,6 +199,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|自身}}の編集",
 	"notification-link-text-view-edit": "編集内容を閲覧",
 	"notification-link-article-reminder": "ページを閲覧",
+	"notification-link-api-triggered": "ページを閲覧",
 	"notification-header-reverted": "{{PLURAL:$4|<strong>$3</strong> でのあなたの編集}}が{{GENDER:$2|差し戻されました}}",
 	"notification-header-emailuser": "$1 があなたにメールを{{GENDER:$2|送信しました}}。",
 	"notification-edit-talk-page-email-subject2": "{{SITENAME}}で $1 があなたのトークページにメッセージを{{GENDER:$2|投稿しました}}",
@@ -245,5 +247,6 @@
 	"action-manage-all-push-subscriptions": "すべてのプッシュ・サブスクリプションの管理",
 	"group-push-subscription-manager": "プッシュ・サブスクリプション取扱者",
 	"group-push-subscription-manager-member": "{{GENDER:$1|プッシュ・サブスクリプション取扱者}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:プッシュ・サブスクリプション取扱者"
+	"grouppage-push-subscription-manager": "{{ns:project}}:プッシュ・サブスクリプション取扱者",
+	"notification-verify-email-reminder-link-label": "メールアドレスの確認"
 }
