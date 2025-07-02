@@ -293,7 +293,7 @@ class NotificationController {
 
 	/**
 	 * Implements blacklist per active wiki expected to be initialized
-	 * from InitializeSettings.php
+	 * from WMF configuration system: wmf-config/InitialiseSettings.php
 	 *
 	 * @param Event $event The event to test for exclusion
 	 * @param User $user recipient of the notification for per-user blacklists
