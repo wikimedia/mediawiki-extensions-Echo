@@ -82,6 +82,7 @@
 	"echo-pref-tooltip-thank-you-edit": "1번째, 10번째, 100번째... 편집을 달성할 때 내게 알립니다.",
 	"echo-pref-tooltip-watchlist": "누군가가 내 주시문서 목록에 (사소하지 않은) 편집을 하면 내게 알립니다.",
 	"echo-pref-tooltip-minor-watchlist": "누군가가 내 주시문서 목록의 문서에 사소한 편집을 하면 내게 알립니다.",
+	"echo-pref-tooltip-verify-email-reminder": "아직 이메일 주소를 확인되지 않았다면 확인하도록 내게 알립니다.",
 	"notifications": "알림",
 	"tooltip-pt-notifications-alert": "{{GENDER:|당신}}의 중요 알림",
 	"tooltip-pt-notifications-notice": "{{GENDER:|당신의}} 알림",
