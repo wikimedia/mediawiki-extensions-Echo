@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use EmailNotification;
 use LogicException;
 use MailAddress;
 use MediaWiki\Api\ApiModuleManager;
@@ -29,7 +28,6 @@ use MediaWiki\Hook\LinksUpdateCompleteHook;
 use MediaWiki\Hook\LoginFormValidErrorMessagesHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\RecentChange_saveHook;
-use MediaWiki\Hook\SendWatchlistEmailNotificationHook;
 use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Hook\SpecialMuteModifyFormFieldsHook;
 use MediaWiki\HookContainer\HookContainer;
@@ -101,7 +99,6 @@ class Hooks implements
 	ResourceLoaderRegisterModulesHook,
 	RollbackCompleteHook,
 	SaveUserOptionsHook,
-	SendWatchlistEmailNotificationHook,
 	SkinTemplateNavigation__UniversalHook,
 	UserClearNewTalkNotificationHook,
 	UserGetDefaultOptionsHook,
@@ -1013,42 +1010,6 @@ class Hooks implements
 			return 'registered';
 		}
 		return 'unknown';
-	}
-
-	/**
-	 * Handler for AbortWatchlistEmailNotification hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/AbortWatchlistEmailNotification
-	 * @param User $targetUser
-	 * @param Title $title
-	 * @param EmailNotification $emailNotification The email notification object that sends non-echo notifications
-	 * @return bool
-	 */
-	public function onSendWatchlistEmailNotification( $targetUser, $title, $emailNotification ) {
-		if ( $this->config->get( ConfigNames::WatchlistNotifications ) &&
-			isset( $this->config->get( ConfigNames::Notifications )["watchlist-change"] )
-		) {
-			// Let echo handle watchlist notifications entirely
-			return false;
-		}
-		$eventName = false;
-		// The edit-user-talk and edit-user-page events effectively duplicate watchlist notifications.
-		// If we are sending Echo notification emails, suppress the watchlist notifications.
-		if ( $title->inNamespace( NS_USER_TALK ) && $targetUser->getTalkPage()->equals( $title ) ) {
-			$eventName = 'edit-user-talk';
-		} elseif ( $title->inNamespace( NS_USER ) && $targetUser->getUserPage()->equals( $title ) ) {
-			$eventName = 'edit-user-page';
-		}
-
-		if ( $eventName !== false ) {
-			$events = $this->attributeManager->getUserEnabledEvents( $targetUser, 'email' );
-			if ( in_array( $eventName, $events ) ) {
-				// Do not send watchlist email notification, the user will receive an Echo notification
-				return false;
-			}
-		}
-
-		// Proceed to send watchlist email notification
-		return true;
 	}
 
 	/**

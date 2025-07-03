@@ -495,7 +495,6 @@
 		"UserMergeAccountDeleteTables": "usermerge",
 		"RollbackComplete": "main",
 		"UserSaveSettings": "main",
-		"SendWatchlistEmailNotification": "main",
 		"GetNewMessagesAlert": "main",
 		"LinksUpdateComplete": "main",
 		"SpecialMuteModifyFormFields": "main",
@@ -551,7 +550,9 @@
 		{
 			"class": "MediaWiki\\Extension\\Notifications\\Notifications\\RecentChangeNotificationMiddleware",
 			"services": [
-				"MainConfig"
+				"MainConfig",
+				"UserFactory",
+				"EchoAttributeManager"
 			]
 		}
 	],
