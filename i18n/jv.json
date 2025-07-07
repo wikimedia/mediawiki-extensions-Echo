@@ -54,8 +54,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Urutané jinis",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Métodhe pambiwara kang kaolèhaké",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Urubaké miturut bakuné",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Naraguna sing ana",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Naraguna anyar",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Métodhe pambiwara kang kabutuhaké",
 	"echo-specialpage": "Pambiwara",
 	"echo-specialpage-section-markread": "Tengeri grup iki yèn wis diwaca",

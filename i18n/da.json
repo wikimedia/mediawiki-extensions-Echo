@@ -70,8 +70,6 @@
 	"tooltip-pt-notifications": "Dine meddelelser",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Sortering af typer",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Aktiveret som standard",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Eksisterende brugere",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nye brugere",
 	"echo-specialpage": "Meddelelser",
 	"echo-specialpage-section-markread": "Marker gruppen som læst",
 	"echo-specialpage-markasread": "Notifikation: Marker som læst",

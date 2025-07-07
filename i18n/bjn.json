@@ -68,7 +68,6 @@
 	"tooltip-pt-notifications-notice": "Pamadahan {{GENDER:|Pian}}",
 	"echo-displaynotificationsconfiguration": "Konfigurasi Pamadahan Tampaian",
 	"echo-displaynotificationsconfiguration-summary": "Ini ikhtisar konfigurasi pamadahan di wiki ini.",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Pamakai hanyar",
 	"echo-specialpage": "Pamadahan",
 	"echo-specialpage-section-markread": "Tandai grup sudah dibaca",
 	"echo-specialpage-markasread": "Pamadahan: Tandai sudah dibaca",

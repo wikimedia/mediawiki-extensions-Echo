@@ -56,8 +56,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Metode 'e notifica cunzentute",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Qualu metodo 'e notifica se suppurtasse p'ogne categurìa",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Appicciato predefinito",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utente esistente",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Utente nuove",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Metode 'e notifica richieste",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Quali metodi so' obbligatori p'ogne categurìa",
 	"echo-specialpage": "Mmasciate",

@@ -78,8 +78,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Допуштени начини на известување",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Кои начини на известување се поддржани за секоја категорија",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Овозможено по основно",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Постоечки корисници",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Нови корисници",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Задолжителни начини на известување",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Кои начини на известување се задолжителни за секоја категорија",
 	"echo-specialpage": "Известувања",

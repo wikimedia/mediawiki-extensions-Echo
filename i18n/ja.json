@@ -103,8 +103,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "許可されている通知方法",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "分類ごとにどの通知方法が許可されているか",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "既定で有効",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "既存利用者",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "新しい利用者",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "必須の通知方法",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "分類ごとに必須の通知方法",
 	"echo-specialpage": "通知",

@@ -74,8 +74,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Lobálaš reivevuogit",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Guđet dieđihanvuogit dorjojuvvojit juohke kategoriijai",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Váldojuvvon atnui standárdan",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Dálá geavaheaddjit",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Ođđa geavaheaddjit",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Bákkolaš diehtovuogit",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Guđet dieđihanvuogit leat bákkolaččat juohke kategoriijai",
 	"echo-specialpage": "Almmuhusat",

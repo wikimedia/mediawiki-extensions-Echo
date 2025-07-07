@@ -78,8 +78,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Эркинлик берилген хапарландырыу амалла",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Хар категория ючюн къайсы хапарландырыу амалла дагъан аллыкъды",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Тынгылау бла джандырылгъан",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Бар болгъан хайырланыучула",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Джангы хайырланыучула",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Амалсыз хапарландырыу амалла",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Хар категория ючюн къайсы хапарландырыу амалла амалсыздыла",
 	"echo-specialpage": "Хапарландырыула",

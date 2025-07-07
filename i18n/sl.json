@@ -82,8 +82,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Ustrezni načini obveščanja",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Kateri načini obveščanja so podprti za posamezno kategorijo",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Vključeno v prednastavitvah",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Obstoječi uporabniki",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novi uporabniki",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Zahtevani načini za obveščanje",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Kateri načini obveščanja so obvezni za posamezno kategorijo",
 	"echo-specialpage": "Obvestila",

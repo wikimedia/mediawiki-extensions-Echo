@@ -89,8 +89,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Επιτρεπτές μεθόδοι ενημέρωσης",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Ποιές μέθοδοι κοινοποίησης υποστηρίζονται για κάθε κατηγορία",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Ενεργοποιημένη από προεπιλογή",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Υπάρχοντες χρήστες",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Νέοι χρήστες",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Απαιτούμενες μέθοδοι ειδοποίησης",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Ποιές μέθοδοι ειδοποίησης είναι υποχρεωτικές για κάθε κατηγορία",
 	"echo-specialpage": "Ενημερώσεις",

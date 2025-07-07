@@ -61,8 +61,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "វិធីផ្ញើសារជូនដំណឹងដែលអនុញ្ញាតអោយប្រើ",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "វិធីផ្ញើសារជូនដំណឹងដែលចំណាត់ថ្នាក់ក្រុមនីមួួយៗអាចប្រើបាន",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "បើកប្រើតាមលំនាំដើម",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "អ្នកប្រើប្រាស់ចាស់",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "អ្នកប្រើប្រាស់ថ្មី",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "វិធីផ្ញើសារជូនដំណឹងចាំបាច់ត្រូវកំណត់",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "វិធីផ្ញើសារជូនដំណឹងដែលចាំបាច់ត្រូវកំណត់សម្រាប់ចំណាត់ថ្នាក់ក្រុមនីមួយៗ",
 	"echo-specialpage": "សារជូនដំណឹង",

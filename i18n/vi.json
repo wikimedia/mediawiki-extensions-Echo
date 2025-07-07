@@ -85,8 +85,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Các phương thức thông báo cho phép",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Các phương thức thông báo được hỗ trợ cho từng loại thông báo",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Kích hoạt theo mặc định",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Người dùng đã tồn tại",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Người dùng mới",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Phương thức thông báo bắt buộc",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Phương thức thông báo nào là bắt buộc cho từng lý do",
 	"echo-specialpage": "Thông báo",

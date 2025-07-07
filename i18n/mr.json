@@ -62,8 +62,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "परवानगी दिलेल्या अधिसूचना पद्धती",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "प्रत्येक वर्गासाठी कोणती अधिसूचना पद्धती साहाय्यीकृत आहे",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "अविचलरित्या सक्षम",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "सध्याचे सदस्य",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "नविन सदस्य",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "आवश्यक अधिसूचना पद्धत",
 	"echo-specialpage": "अधिसूचना",
 	"echo-specialpage-section-markread": "गटावर वाचले अशी खूण करा",

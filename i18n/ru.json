@@ -121,8 +121,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Разрешённые способы уведомления",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Какие способы уведомления поддерживаются в каждой категории",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Включено по умолчанию",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Существующие участники",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Новые участники",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Требуемые способы уведомления",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Какие способы уведомления обязательны для каждой категории",
 	"echo-specialpage": "Уведомления",

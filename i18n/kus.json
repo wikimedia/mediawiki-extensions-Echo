@@ -68,8 +68,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Basim suor ka tienr labaar tʋm",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Tienr labaar suokanɛ ka buudi wʋsa siakɛ",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Di mɛŋi bas suor",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Tʋmtʋmnib banɛ bɛ",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "tʋmtʋmnib paala",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Di nar ye fʋ kpɛn'ɛs tienr labaar suoya",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Tienr labaar suokanɛ buudi an tilasi tis buudi wʋsa",
 	"echo-specialpage": "Tienr labaya",

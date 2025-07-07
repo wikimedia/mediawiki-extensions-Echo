@@ -51,8 +51,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "mahasa mitakus sasakawawen",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "kalutakus matatungusay a takus sasakawawen",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "pataayaw tu kawaw  miwawah",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "ayzaay a misaungayay",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "baluhay misaungayay",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "kasasululay a patakus sasakawawen",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "kalupatakus kanca pisaungay takus sasakawawen",
 	"echo-specialpage": "patakus",

@@ -41,8 +41,6 @@
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Биллэрии көрүҥүнэн наардаммыта",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Көрүҥүнэн наардааһын",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Биллэрии көҥүллэммит ньымалара",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Баар кыттааччылар",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Саҥа кыттааччылар",
 	"echo-specialpage": "Биллэриилэр",
 	"echo-specialpage-section-markread": "Бөлөҕү ааҕыллыбыт курдук бэлиэтээ",
 	"echo-specialpage-markasread": "Биллэрии: Ааҕыллыбыт курдук бэлиэтээ",

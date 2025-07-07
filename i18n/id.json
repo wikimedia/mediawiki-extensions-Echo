@@ -87,8 +87,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Cara pemberitahuan yang diizinkan",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Metode pemberitahuan manakah yang didukung untuk masing-masing kategori",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Diaktifkan secara baku",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Pengguna yang sudah ada",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Pengguna baru",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Metode pemberitahuan yang dibutuhkan",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Metode pemberitahuan yang wajib untuk tiap kategori",
 	"echo-specialpage": "Pemberitahuan",

@@ -74,8 +74,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Metode de notifeche conzendite",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Ce metode de notifeche non ge sò supportate pe ogne categorije",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Abbilitate pe 'mbostazione predefinite",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utinde esistende",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Utinde nuève",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Metode de notifeche obbligatorije",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Ce metode de notifeche sò obbligatorije pe ogne categorije",
 	"echo-specialpage": "Notifeche",

@@ -95,8 +95,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Tillåtna aviseringsmetoder",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Vilka aviseringsmetoder som stöds för varje kategori",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Aktiverad som standard",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Befintliga användare",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nya användare",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Nödvändiga aviseringsmetoder",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Vilka aviseringsmetoder som är obligatoriska för varje kategori",
 	"echo-specialpage": "Aviseringar",

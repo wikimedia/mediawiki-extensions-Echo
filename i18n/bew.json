@@ -72,8 +72,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Cara ma'lumat nyang diboléin",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Cara ma'lumat mana nyang itu pada didukung bakal saban bangsaan",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Bawaannya dinyalain",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Pemaké nyang udah ada",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Pemaké baru",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Cara ma'lumat nyang dibutuhin",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Cara ma'lumat mana nyang pardu bakal saban bangsaan",
 	"echo-specialpage": "Ma'lumat",

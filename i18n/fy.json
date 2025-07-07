@@ -74,8 +74,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Fakultative meldmetoaden",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Hokker meldmetoaden stipe wurde foar eltse kategory",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Standert ynskeakele",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Besteande meidoggers",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nije meidoggers",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Ferplichte meldmetoaden",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Hokker meldmetoaden ferplichte binne foar eltse kategory",
 	"echo-specialpage": "Meldingen",

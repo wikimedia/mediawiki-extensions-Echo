@@ -73,8 +73,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Lubatud teavitusviisid",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Teavitusviisid, mida kategooriate lõikes võimaldatakse",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Vaikimisi lubatud",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Olemasolevad kasutajad",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Uued kasutajad",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Nõutavad teavitusviisid",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Teavitusviisid, mis on kategooria lõikes kohustuslikud",
 	"echo-specialpage": "Teavitused",

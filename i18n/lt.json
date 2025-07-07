@@ -77,8 +77,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Leidžiami pranešimo metodai",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Kokie pranešimų metodai yra palaikomi kiekvienai kategorijai",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Įjungta pagal nutylėjimą",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Esami naudotojai",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nauji naudotojai",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Privalomi pranešimų metodai",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Kokie pranešimų metodai yra privalomi kiekvienai kategorijai",
 	"echo-specialpage": "Pranešimai",

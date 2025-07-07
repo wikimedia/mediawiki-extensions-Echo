@@ -88,8 +88,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "अधिसूचनाओं के अनुमोदित माध्यम",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "हर श्रेणी में अधिसूचनाओं के कौन-से प्रकार समर्थित हैं",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "डिफ़ॉल्ट से सक्रिय",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "मौजूदा सदस्य",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "नए सदस्य",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "अधिसूचनाओं के अनिवार्य माध्यम",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "हर श्रेणी में अधिसूचनाओं के कौन-से प्रकार अनिवार्य हैं",
 	"echo-specialpage": "अधिसूचनाएँ",

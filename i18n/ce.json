@@ -78,8 +78,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Шуьйра дӀахаийтарш",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "ХӀора категори чуьра ловш йолу дӀахаийтаран таронаш",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Ӏадйитаран кепаца латина йу",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Болуш болу декъашхой",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Керла декъашхой",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Оьшуш йолу хаамийн кепаш",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "ХӀора категори хила йезаш йолу таронаш",
 	"echo-specialpage": "ДӀахаийтарш",

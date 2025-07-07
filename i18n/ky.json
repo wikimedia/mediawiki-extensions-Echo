@@ -43,8 +43,6 @@
 	"echo-displaynotificationsconfiguration": "Кабарламалардын параметрлерин көрсөтүү",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Категория боюнча кабарламалар",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Уруксат берилген кабарлоо ыкмалары",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Учурдагы колдонуучулар",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Жаңы колдонуучулар",
 	"echo-specialpage": "Кабарламалар",
 	"echo-specialpage-section-markread": "Топту окулду деп белгилөө",
 	"echo-specialpage-markasread": "Кабарлама: окулду деп белгилөө",

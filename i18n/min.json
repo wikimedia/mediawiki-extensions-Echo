@@ -43,7 +43,6 @@
 	"tooltip-pt-notifications-alert": "Pambaritauan {{GENDER:|Sanak}}",
 	"tooltip-pt-notifications-notice": "Pambaritauan {{GENDER:|Sanak}}",
 	"echo-displaynotificationsconfiguration": "Konfigurasi tampilan Pambaritauan",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Pangguno baru",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Metode pambaritauan nan dibutuahkan",
 	"echo-specialpage": "Pambaritauan",
 	"echo-specialpage-section-markread": "Tandoi grup alah dibaco",

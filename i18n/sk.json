@@ -79,8 +79,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Povolené metódy upozornenia",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Ktoré metódy upozornenia sú podporované pre každú kategóriu",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Predvolene zapnuté",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Existujúci používatelia",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Noví používatelia",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Vyžadované metódy upozornenia",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Ktoré metódy upozornenia sú povinné pre každú kategóriu",
 	"echo-specialpage": "Upozornenia",

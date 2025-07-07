@@ -83,8 +83,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "अनुमति दिइएको सूचना विधिहरू",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "कुन सूचना विधिहरू प्रत्येक श्रेणीको लागि समर्थित छन्",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "पुनर्निर्धारितद्वारा सक्षम गरिएकाे",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "अवस्थित प्रयोगकर्ताहरू",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "नयाँ प्रयोगकर्ताहरू",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "जानकारी विधिहरू आवश्यक",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "कुन सूचना विधिहरू प्रत्येक श्रेणीको लागि अनिवार्य छन्",
 	"echo-specialpage": "सूचनाहरू",

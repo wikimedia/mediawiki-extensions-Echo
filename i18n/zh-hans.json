@@ -138,8 +138,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "允许的通知方法",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "每种通知类别支持的通知方法",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "默认启用",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "现有用户",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "新用户",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "必选的通知方法",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "每种通知类别强制使用的通知方法",
 	"echo-specialpage": "通知",

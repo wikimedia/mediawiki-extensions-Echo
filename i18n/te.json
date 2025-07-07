@@ -74,8 +74,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "అనుమతించిన గమనింపు పద్ధతులు",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "ఒక్కో విభాగానికీ ఏయే గమనింపు పద్ధతులు మద్దతు నిస్తాయి",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "డిఫాల్టుగా చేతనమై ఉంటాయి",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "ప్రస్తుతం ఉన్న వాడుకరులు",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "కొత్త వాడుకరులు",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "అవసరమైన గమనింపు పద్ధతులు",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "ఒక్కో విభాగానికీ ఏ గమనింపు పద్ధతులు తప్పనిసరి",
 	"echo-specialpage": "గమనింపులు",

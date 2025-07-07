@@ -85,8 +85,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Tillatte beskjedmetoder",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Hvilke beskjedmetoder er støttet for hver kategori",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Aktivert som standard",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Eksisterende brukere",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nye brukere",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Obligatoriske beskjedmetoder",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Hvilken beskjedmetoder er obligatoriske for hver kategori",
 	"echo-specialpage": "Beskjeder",

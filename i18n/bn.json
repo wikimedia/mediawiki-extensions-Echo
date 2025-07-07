@@ -87,8 +87,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "মঞ্জুরিপ্রাপ্ত বিজ্ঞপ্তির পদ্ধতি",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "প্রতিটি বিষয়শ্রেণীর জন্য যে বিজ্ঞপ্তির পদ্ধতি সমর্থিত",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "পূর্বনির্ধারিত রুপে সক্রিয়",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "বিদ্যমান ব্যবহারকারী",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "নতুন ব্যবহারকারী",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "প্রয়োজনীয় বিজ্ঞপ্তির পদ্ধতি",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "প্রতিটি বিষয়শ্রেণীর জন্য যে বিজ্ঞপ্তির পদ্ধতি আবশ্যিক",
 	"echo-specialpage": "বিজ্ঞপ্তি",

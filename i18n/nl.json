@@ -102,8 +102,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Toegestane meldingsmethoden",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Welke meldingsmethoden ondersteund worden per categorie",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Standaard ingeschakeld",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Bestaande gebruikers",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Nieuwe gebruikers",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Verplichte meldingsmethodes",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Welke meldingsmethodes verplicht zijn (niet kunnen worden uitgeschakeld) per categorie",
 	"echo-specialpage": "Meldingen",

@@ -49,8 +49,6 @@
 	"echo-pref-tooltip-thank-you-edit": "گللي من اوصل اول تعديل، عاشر تعديل، التعديل الميه… .",
 	"echo-pref-tooltip-api-triggered": "دزلي اشعارات سوتهه البوتات والاجهزه من الAPI.",
 	"notifications": "اشعارات",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "نفرات موجودين",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نفرات جدد",
 	"echo-specialpage": "اشعارات",
 	"notification-timestamp-today": "اليوم",
 	"notification-timestamp-yesterday": "البارحه",

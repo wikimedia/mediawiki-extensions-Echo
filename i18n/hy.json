@@ -77,8 +77,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Դասավորել ըստ տեսակների",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Թույլատրելի ծանուցման եղանակներ",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Միացված է լռելյայն",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Գոյություն ունեցող մասնակիցներ",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Նոր մասնակիցներ",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Պահանջվող ծանուցման եղանակներ",
 	"echo-specialpage": "Ծանուցումներ",
 	"echo-specialpage-section-markread": "Խումբը նշել ընթերցված",

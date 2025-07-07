@@ -72,8 +72,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Mètodes de notificació permesos",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Quins mètodes de notificació s'usen per a cada categoria",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Habilitat per defecte",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Usuaris existents",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Usuaris nous",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Mètodes de notificació requerits",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Quins mètodes de notificació són obligatoris per a cada categoria",
 	"echo-specialpage": "Notificacions",

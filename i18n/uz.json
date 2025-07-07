@@ -54,8 +54,6 @@
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Turkum boʻyicha bildirishnomalar",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Turlarga koʻra saralash",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Sukut boʻyicha yoqilgan",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Mavjud foydalanuvchilar",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Yangi foydalanuvchilar",
 	"echo-specialpage": "Bildirishnomalar",
 	"echo-specialpage-section-markread": "Guruhni oʻqilgan deb belgilash",
 	"echo-specialpage-markasread": "Bildirishnoma: Oʻqilgan deb belgilash",

@@ -59,8 +59,6 @@
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "ကဏ္ဍအလိုက် အသိပေးချက်များ",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "ခွင့်ပြုထားသော အသိပေးချက်နည်းလမ်းများ",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "မူရင်းအတိုင်း ဖွင့်ထားသည်",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "ရှိနှင့်ပြီးသား အသုံးပြုသူများ",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "အသုံးပြုသူ အသစ်များ",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "လိုအပ်သော အသိပေးချက်နည်းလမ်းများ",
 	"echo-specialpage": "အသိပေးချက်များ",
 	"echo-specialpage-section-markread": "အုပ်စုကို ဖတ်ရှုပြီးကြောင်း မှတ်သားရန်",

@@ -68,8 +68,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Mettodi de notifica consentii",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Quæ mettodi de notiffica son supportæ pe ogni categoria",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Abilitou pe impostaçion predefinia",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utenti existenti",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Noeuvi utenti",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Metodi de notiffica obrigatoi",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Quæ mettodi de notiffica son obrigatoi pe ogni categoria",
 	"echo-specialpage": "Notiffiche",

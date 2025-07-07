@@ -75,8 +75,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Dozvoljene metody uvědomjanja",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Kake metody uvědomjenja poddrživajut se za vsaku kategoriju",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Standardno vključene",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Jestvujuči koristniki",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novi koristniki",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Obvezne metody uvědomjenja",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Kake metody uvědomjenja sut obvezne za vsaku kategoriju",
 	"echo-specialpage": "Uvědomjenja",

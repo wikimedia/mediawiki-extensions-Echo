@@ -84,8 +84,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Engedélyezett értesítési módok",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Melyik értesítési módok támogatottak az egyes kategóriákban",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Alapértelmezetten bekapcsolva",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Létező felhasználóknak",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Új felhasználóknak",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Kötelező értesítési módok",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Melyik értesítési módok kötelezők az egyes kategóriákban",
 	"echo-specialpage": "Értesítések",

@@ -97,8 +97,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Дозволені способи сповіщення",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Які способи сповіщення підтримуються для кожної категорії",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Увімкнено за замовчуванням",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Наявні користувачі",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Нові користувачі",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Обов'язкові методи сповіщення",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Які способи сповіщення є обов'язковими для кожної категорії",
 	"echo-specialpage": "Сповіщення",

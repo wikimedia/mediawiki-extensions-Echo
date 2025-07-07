@@ -83,8 +83,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Permesataj sciigaj metodoj",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Kiuj metodoj por sciigoj estas subtenataj por ĉiu kategorio",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Implicite ŝaltita",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Estantaj uzantoj",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novaj uzantoj",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Postulataj metodoj de sciigo",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Kiuj metodoj pri sciigoj estas devigaj por ĉiu kategorio",
 	"echo-specialpage": "Sciigoj",

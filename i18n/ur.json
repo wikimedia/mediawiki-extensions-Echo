@@ -71,8 +71,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "اطلاع ناموں کے اجازت یافتہ طریقے",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "ہر زمرے میں اطلاع ناموں کے کونسے طریقے معاونت یافتہ ہیں",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "طے شدہ طور پر فعال",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "موجودہ صارفین",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نئے صارفین",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "اطلاع ناموں کے مطلوبہ طریقے",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "ہر زمرے کے لیے اطلاع ناموں کے کون سے طریقے لازمی ہیں",
 	"echo-specialpage": "اطلاعات",

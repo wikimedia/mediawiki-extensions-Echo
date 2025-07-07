@@ -76,8 +76,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Metodên agahdarkirinê yên destûrdayî",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Metodên agahdariyê yên piştgirîkirî ji bo her kategoriyê",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Bixweber çalak e",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Bikarhênerên hene",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Bikarhênerên nû",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Metodên agahdariyê yên pêwîst",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Metodên agahdariyê yên pêwîst ji bo her kategoriyê",
 	"echo-specialpage": "Agahdarî",

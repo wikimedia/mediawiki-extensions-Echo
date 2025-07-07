@@ -80,8 +80,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "วิธีแจ้งเตือนที่อนุญาต",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "วิธีแจ้งเตือนที่รองรับสำหรับแต่ละหมวดหมู่",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "เปิดใช้งานตามค่าเริ่มต้น",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "ผู้ใช้ที่มีอยู่",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "ผู้ใช้ใหม่",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "วิธีแจ้งเตือนที่กำหนด",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "วิธีแจ้งเตือนใดที่บังคับสำหรับแต่ละหมวดหมู่",
 	"echo-specialpage": "การแจ้งเตือน",

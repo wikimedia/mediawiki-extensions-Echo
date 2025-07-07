@@ -63,8 +63,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "വിവിധ തരങ്ങളുടെ ക്രമപ്പെടുത്തൽ",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "അനുവദിച്ചിട്ടുള്ള വിജ്ഞാപന മാർഗ്ഗങ്ങൾ",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "സ്വതേ സജ്ജം",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "നിലവിലുള്ള ഉപയോക്താക്കൾ",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "പുതിയ ഉപയോക്താക്കൾ",
 	"echo-specialpage": "വിജ്ഞാപനങ്ങൾ",
 	"echo-specialpage-section-markread": "ഗണം വായിച്ചതായി അടയാളപ്പെടുത്തുക",
 	"echo-specialpage-markasread": "വിജ്ഞാപനം: വായിച്ചതായി അടയാളപ്പെടുത്തുക",

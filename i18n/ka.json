@@ -59,7 +59,6 @@
 	"tooltip-pt-notifications": "თქვენი შეტყობინებები",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "შეტყობინებები კატეგორიების მიხედვით",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "ტიპების დალაგება",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "ახალი მომხმარებლები",
 	"echo-specialpage": "შეტყობინებები",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|შეტყობინება|შეტყობინება}}",
 	"echo-specialpage-pagefilters-title": "ბოლო მოქმედებები",

@@ -66,8 +66,6 @@
 	"tooltip-pt-notifications": "ئاگادارییەکانت",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "ئاگادارییەکان بە پۆل",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "بە بنچینەیی کارا کراوە",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "بەکارھێنەرەکانی ئێستا",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "بەکارھێنەرە نوێکان",
 	"echo-specialpage": "ئاگادارییەکان",
 	"echo-specialpage-section-markread": "کۆمەڵەکە وەک خوێندراوە نیشانی بکە",
 	"echo-specialpage-markasread": "ھۆشدار: وەک خوێندراوە نیشانی بکە",

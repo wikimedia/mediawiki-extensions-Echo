@@ -63,8 +63,6 @@
 	"tooltip-pt-notifications-notice": "{{GENDER:|ਤੁਹਾਡੇ}} ਸੁਨੇਹੇ",
 	"tooltip-pt-notifications": "{{GENDER:|ਤੁਹਾਡੇ}} ਸੁਨੇਹੇ",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "ਸ਼੍ਰੇਣੀ ਮੁਤਾਬਕ ਸੂਚਨਾਵਾਂ",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "ਮੌਜੂਦਾ ਵਰਤੋਂਕਾਰ",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "ਨਵੇਂ ਵਰਤੋਂਕਾਰ",
 	"echo-specialpage": "ਸੂਚਨਾਵਾਂ",
 	"echo-specialpage-section-markread": "ਟੋਲੀਆਂ ਨੂੰ ਪੜ੍ਹੇ ਵਜੋਂ ਨਿਸ਼ਾਨੀ ਲਾਉ",
 	"echo-specialpage-markasread": "ਸੂਚਨਾ: ਪੜ੍ਹੇ ਵਜੋਂ ਨਿਸ਼ਾਨ ਲਗਾਓ",

@@ -67,8 +67,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "გინაფაშ ალობამეჩამილი ასა-გასეფი",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "ირი კატეგორიას გინაფაშ ნამუ ასა-გასა რე მოხუჯური",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "სტანდარტულო რე ჩართებული",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "რინელი მახვარებუეფი",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "ახალი მახვარებუეფი",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "გინაფაშ ოხვილური ასა-გასეფი",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "ირი კატეგორიას გინაფაშ ნამუ ასა-გასეფი რე ოხვილური",
 	"echo-specialpage": "გინაფეფი",

@@ -69,8 +69,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Dopuštene metode obavještavanja",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Koje su metode obavještavanja dozvoljene za svaku kategoriju",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Omogućeno po podrazumijevanim postavkama",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Postojeći korisnici",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Novi korisnici",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Obavezne metode obavještavanja",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Koje su metode obavještavanja obavezne za svaku kategoriju",
 	"echo-specialpage": "Obavještenja",

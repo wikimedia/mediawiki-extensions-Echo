@@ -58,8 +58,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Ирӗк панӑ систерӳ мелӗсем",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Кашни категорире мӗнле систерӳсемпе усӑ курма май пурри",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Ахаль чухне ӗҫлет",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Вырнаҫӑннӑ хутшӑнакансем",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Ҫӗнӗ хутшӑнакансем",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Кирлӗ систерӳ мелӗсем",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Кашни категорире мӗнле систерӳсемпе усӑ курмаллах",
 	"echo-specialpage": "Систерӳсем",

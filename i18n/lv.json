@@ -65,8 +65,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "Kurā sadaļā katrs paziņojuma veids tiek ievietots",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Atļautās paziņojumu metodes",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Iespējots pēc noklusējuma",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Esošie dalībnieki",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Jauni dalībnieki",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Kuras paziņošanas metodes ir obligātas katrai kategorijai",
 	"echo-specialpage": "Paziņojumi",
 	"echo-specialpage-section-markread": "Atzīmēt grupu kā izlasītu",

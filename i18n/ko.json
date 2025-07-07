@@ -93,8 +93,6 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "유형 정렬",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "허용된 알림 방식",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "기본적으로 활성화됨",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "기존 사용자",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "새 사용자",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "필수 알림 방식",
 	"echo-specialpage": "알림",
 	"echo-specialpage-section-markread": "그룹을 읽은 것으로 표시",

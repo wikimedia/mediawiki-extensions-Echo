@@ -83,8 +83,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Hentennoù kemenn aotreet",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Peseurt hentenn kemenn zo skoret evit pep rummad",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Gweredekaet dre ziouer",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Implijerien a zo anezho",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Implijerien nevez",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Rekis eo kaout hentennoù kemenn",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Peseurt hentenn kemenn zo dre ret evit pep rummad",
 	"echo-specialpage": "Kemennoù",

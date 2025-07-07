@@ -73,8 +73,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "اطلاع جا اجازت ڏنل طريقا",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "ھر زمري لاءِ اطلاع جا ڪھڙا طريقا سپورٽ ڪيل آھن",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "پاڻمرادو ئي ڪارگر ڪيل آھي",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "موجوده واپرائيندڙَ",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "نوان واپرائيندڙَ",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "گهربل اطلاع جا طريقا",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "ھر زمري لاءِ اطلاع جا ڪھڙا طريقا لازمي آھن",
 	"echo-specialpage": "اطلاع",

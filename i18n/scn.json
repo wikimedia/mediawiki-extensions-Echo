@@ -44,7 +44,6 @@
 	"tooltip-pt-notifications-notice": "Li {{GENDER:|tò}} avvisi",
 	"tooltip-pt-notifications": "Tutti li nutìfichi",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Nutìfichi pi catigurìa",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Utenti novi",
 	"echo-specialpage": "Nutìfichi",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|nutìfica|nutìfichi}}",
 	"echo-specialpage-pagefilters-title": "Attività ricenti",

@@ -73,8 +73,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "অনুমোদিত জাননী পদ্ধতিসমূহ",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "প্ৰতিটো শ্ৰেণীৰ বাবে কোনবোৰ জাননী পদ্ধতি সমৰ্থিত",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "পূৰ্বনিৰ্ধাৰিত ৰূপে সক্ৰিয়",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "বিদ্যমান সদস্যসকল",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "নতুন সদস্যসকল",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "প্ৰয়োজনীয় জাননী পদ্ধতিসমূহ",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "প্ৰতিটো শ্ৰেণীৰ বাবে কোনবোৰ জাননী পদ্ধতি বাধ্যতামূলক",
 	"echo-specialpage": "জাননী",

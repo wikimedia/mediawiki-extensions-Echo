@@ -82,8 +82,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Дазволеныя спосабы апавяшчэнняў",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Якія спосабы апавяшчэнняў падтрымліваюцца ў кожнай катэгорыі",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Уключана па змaўчанні",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Існыя ўдзельнікі",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Новыя ўдзельнікі",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Абавязковыя спосабы апавяшчэнняў",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Якія спосабы апавяшчэнняў абавязковыя для кожнай катэгорыі",
 	"echo-specialpage": "Паведамленні",

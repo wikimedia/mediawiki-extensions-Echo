@@ -87,8 +87,6 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Metode permise de notificare",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Care metode de notificare sunt suportate pentru fiecare categorie",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Activat în mod implicit",
-	"echo-displaynotificationsconfiguration-enabled-default-existing-users-legend": "Utilizatori existenți",
-	"echo-displaynotificationsconfiguration-enabled-default-new-users-legend": "Utilizatori noi",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Metode obligatorii de notificare",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Care metode de notificare sunt obligatorii pentru fiecare categorie",
 	"echo-specialpage": "Notificări",
