@@ -1171,10 +1171,10 @@ class Hooks implements
 	 * Some of Echo's subscription user preferences are mapped to existing user preferences defined in
 	 * core MediaWiki. This returns the map of Echo preference names to core preference names.
 	 *
+	 * @param Config $config
 	 * @return array
 	 */
-	public static function getVirtualUserOptions() {
-		$config = MediaWikiServices::getInstance()->getMainConfig();
+	public static function getVirtualUserOptions( Config $config ) {
 		$options = [];
 		$options['echo-subscriptions-email-edit-user-talk'] = 'enotifusertalkpages';
 		if ( $config->get( ConfigNames::WatchlistNotifications ) ) {
@@ -1191,7 +1191,7 @@ class Hooks implements
 	 * @param array &$options Options can be modified
 	 */
 	public function onLoadUserOptions( UserIdentity $user, &$options ): void {
-		foreach ( self::getVirtualUserOptions() as $echoPref => $mwPref ) {
+		foreach ( self::getVirtualUserOptions( $this->config ) as $echoPref => $mwPref ) {
 			// Use the existing core option's value for the Echo option
 			if ( isset( $options[ $mwPref ] ) ) {
 				$options[ $echoPref ] = $options[ $mwPref ];
@@ -1207,7 +1207,7 @@ class Hooks implements
 	 * @param array $originalOptions
 	 */
 	public function onSaveUserOptions( UserIdentity $user, array &$modifiedOptions, array $originalOptions ) {
-		foreach ( self::getVirtualUserOptions() as $echoPref => $mwPref ) {
+		foreach ( self::getVirtualUserOptions( $this->config ) as $echoPref => $mwPref ) {
 			// Save virtual option values in corresponding real option values
 			if ( isset( $modifiedOptions[ $echoPref ] ) ) {
 				$modifiedOptions[ $mwPref ] = $modifiedOptions[ $echoPref ];

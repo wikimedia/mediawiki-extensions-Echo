@@ -276,7 +276,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 		) );
 
 		// Some of the preferences are mapped to existing ones defined in core MediaWiki
-		$virtualOptions = EchoHooks::getVirtualUserOptions();
+		$virtualOptions = EchoHooks::getVirtualUserOptions( $this->getConfig() );
 
 		$defaults = $this->userOptionsManager->getDefaultOptions();
 		$conditionalDefaults = $this->getConfig()->get( MainConfigNames::ConditionalUserOptions );
