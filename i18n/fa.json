@@ -244,6 +244,7 @@
 	"echo-date-today": "امروز",
 	"echo-date-yesterday": "دیروز",
 	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|یک پیام جدید|$1 پیام جدید|100=بیش از ۹۹ پیام جدید}} جدید در <strong>بحث {{GENDER:$3|شما}}</strong>  گذاشته‌شده است.",
+	"echo-email-batch-bullet": "•",
 	"echo-email-batch-subject-daily": "شما دارای {{PLURAL:$2|یک آگاه‌سازی تازه|آگاه‌سازی‌های تازه‌ای}} در {{SITENAME}} هستید",
 	"echo-email-batch-subject-weekly": "شما دارای {{PLURAL:$2|یک آگاه‌سازی تازه|آگاه‌سازی‌های تازه‌ای}} در {{SITENAME}} در این هفته هستید",
 	"echo-email-batch-body-intro-daily": "سلام $1،\nدر اینجا خلاصهٔ فعالیت امروز شما در {{SITENAME}} وجود دارد.",

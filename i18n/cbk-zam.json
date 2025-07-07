@@ -13,6 +13,8 @@
 	"prefs-blocknotificationslist": "Maga silenciao user",
 	"prefs-mutedpageslist": "El maga pagina silenciao para na notificacion del page link",
 	"prefs-echopollupdates": "Maga notificacion na live",
+	"echo-mobile-notifications-filter-title": "Hace filtra maga notificacion",
+	"echo-pref-show-poll-updates": "Hace display maga nuevo notificacion mientras ta abuya estos",
 	"echo-category-title-other": "{{PLURAL:$1|El otro|El maga otro}}",
 	"echo-category-title-system": "{{PLURAL:$1|Sistema}}",
 	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistema}}",
