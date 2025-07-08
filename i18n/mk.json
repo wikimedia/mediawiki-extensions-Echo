@@ -78,6 +78,8 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Допуштени начини на известување",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Кои начини на известување се поддржани за секоја категорија",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Овозможено по основно",
+	"echo-displaynotificationsconfiguration-enabled-default-legend": "Стандардни можности",
+	"echo-displaynotificationsconfiguration-enabled-default-conditional-legend": "Можности за корисници што ги исполнуваат условите: $1",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Задолжителни начини на известување",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Кои начини на известување се задолжителни за секоја категорија",
 	"echo-specialpage": "Известувања",

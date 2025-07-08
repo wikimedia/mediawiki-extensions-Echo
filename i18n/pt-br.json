@@ -82,6 +82,8 @@
 	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Marco|Marcos}} de edição",
 	"echo-category-title-watchlist": "Editar na página vigiadas",
 	"echo-category-title-minor-watchlist": "Edição menores na página vigiadas",
+	"echo-category-title-api-triggered": "Notificações acionadas por API",
+	"echo-category-title-verify-email-reminder": "Lembretes de confirmação por e-mail",
 	"echo-pref-tooltip-article-linked": "Notifique-me quando alguém criar um link para uma página que criei a partir de uma página de artigo.",
 	"echo-pref-tooltip-reverted": "Notifique-me quando alguém reverter uma edição que fiz usando desfazer ou a ferramenta de reversão.",
 	"echo-pref-tooltip-mention": "Notificar-me quando alguém criar links para a minha página de usuário.",
@@ -103,6 +105,8 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Métodos de notificação permitidos",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Quais os métodos de notificação são suportados para cada categoria",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Habilitado por padrão",
+	"echo-displaynotificationsconfiguration-enabled-default-legend": "Opções padrão",
+	"echo-displaynotificationsconfiguration-enabled-default-conditional-legend": "Opções para usuários que cumprem as condições: $1",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Métodos de notificação necessários",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Quais os métodos de notificação são obrigatórios para cada categoria",
 	"echo-specialpage": "Notificações",
@@ -207,6 +211,7 @@
 	"notification-link-thank-you-edit": "{{GENDER:$1|Sua}} edição",
 	"notification-link-text-view-edit": "Ver edição",
 	"notification-link-article-reminder": "Ver página",
+	"notification-link-api-triggered": "Ver página",
 	"notification-header-reverted": "{{PLURAL:$4|Sua edição em <strong>$3</strong> foi {{GENDER:$2|revertida}}|Suas edições em <strong>$3</strong> foram {{GENDER:$2|revertidas}}}}.",
 	"notification-header-emailuser": "$1 {{GENDER:$2|enviou}} um e-mail para você.",
 	"notification-edit-user-page-email-subject": "$1 {{GENDER:$2|editou}} {{GENDER:$3|a sua}} págiana de usuário em {{SITENAME}}",
@@ -234,6 +239,7 @@
 	"echo-notification-notice": "{{PLURAL:$1|Aviso ($1)|Avisos ($1)|100=Avisos (99+)}}",
 	"echo-notification-alert-text-only": "Alertas",
 	"echo-notification-notice-text-only": "Avisos",
+	"echo-notification-all-text-only": "Notificações",
 	"echo-overlay-link": "Todas as notificações",
 	"echo-overlay-title": "<b>Notificações</b>",
 	"echo-mark-all-as-read": "Marcas todas como lidas",
@@ -259,5 +265,7 @@
 	"action-manage-all-push-subscriptions": "gerenciar todas as inscrições push",
 	"group-push-subscription-manager": "Gerenciar inscrições push",
 	"group-push-subscription-manager-member": "{{GENDER:$1|gerente de inscrições push}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Gerenciar inscrições push"
+	"grouppage-push-subscription-manager": "{{ns:project}}:Gerenciar inscrições push",
+	"notification-link-text-verify-email-reminder": "Gerenciar preferências de e-mail",
+	"notification-verify-email-reminder-link-label": "Confirmar e-mail"
 }
