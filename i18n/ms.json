@@ -44,7 +44,7 @@
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Suntingan}} ke laman perbincangan saya",
 	"echo-category-title-edit-user-page": "{{PLURAL:$1|Suntingan}} ke laman pengguna saya",
 	"echo-category-title-article-linked": "{{PLURAL:$1|Pautan}} halaman",
-	"echo-category-title-reverted": "{{PLURAL:$1|Pengunduran}} suntingan",
+	"echo-category-title-reverted": "{{PLURAL:$1|Pembalikan}} suntingan",
 	"echo-category-title-mention": "{{PLURAL:$1|Sebutan}}",
 	"echo-category-title-mention-failure": "{{PLURAL:$1|Sebutan}} gagal",
 	"echo-category-title-mention-success": "{{PLURAL:$1|Sebutan}} berjaya",
