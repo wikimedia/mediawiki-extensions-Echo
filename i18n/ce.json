@@ -239,5 +239,6 @@
 	"action-manage-all-push-subscriptions": "массо push-хаамийн урхалла",
 	"group-push-subscription-manager": "Push-хаамийн урхалча",
 	"group-push-subscription-manager-member": "{{GENDER:$1|push-хаамийн урхалча}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:push-хаамийн урхалча"
+	"grouppage-push-subscription-manager": "{{ns:project}}:push-хаамийн урхалча",
+	"notification-verify-email-reminder-link-label": "Бакъйе эл. пошт"
 }
