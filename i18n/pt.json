@@ -94,6 +94,7 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Métodos de notificação permitidos",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Que métodos de notificação são suportados para cada categoria",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Ativado por padrão",
+	"echo-displaynotificationsconfiguration-enabled-default-legend": "Opções predefinidas",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Métodos de notificação obrigatórios",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Que métodos de notificação são obrigatórios para cada categoria",
 	"echo-specialpage": "Notificações",
