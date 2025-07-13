@@ -18,4 +18,17 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 	]
 );
 
+if ( !in_array(
+	Wikimedia\NormalizedException\NormalizedException::class,
+	$cfg['exception_classes_with_optional_throws_phpdoc'],
+	true
+) ) {
+	$cfg['exception_classes_with_optional_throws_phpdoc'] = [
+		...$cfg['exception_classes_with_optional_throws_phpdoc'],
+		Wikimedia\NormalizedException\NormalizedException::class,
+	];
+} else {
+	throw new \Error( 'Delete override, no longer needed' );
+}
+
 return $cfg;

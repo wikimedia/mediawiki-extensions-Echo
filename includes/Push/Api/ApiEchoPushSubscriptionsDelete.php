@@ -54,7 +54,7 @@ class ApiEchoPushSubscriptionsDelete extends ApiBase {
 		// Restrict deletion to the user's own token(s) if not a push subscription manager
 		try {
 			$this->checkUserRightsAny( 'manage-all-push-subscriptions' );
-		} catch ( ApiUsageException $e ) {
+		} catch ( ApiUsageException ) {
 			$userId = Utils::getPushUserId( $this->getUser() );
 		}
 

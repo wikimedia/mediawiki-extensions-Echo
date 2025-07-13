@@ -431,7 +431,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		}
 
 		// Sort wikis by timestamp, in descending order (newest first)
-		usort( $wikis, static function ( $a, $b ) use ( $section, $timestampsByWiki ) {
+		usort( $wikis, static function ( $a, $b ) use ( $timestampsByWiki ) {
 			return ( $timestampsByWiki[$b] ? $timestampsByWiki[$b]->getTimestamp( TS_UNIX ) : -1 )
 				<=> ( $timestampsByWiki[$a] ? $timestampsByWiki[$a]->getTimestamp( TS_UNIX ) : -1 );
 		} );

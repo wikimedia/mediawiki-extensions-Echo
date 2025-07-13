@@ -375,7 +375,7 @@ class Event extends AbstractEntity implements Bundleable {
 		}
 		try {
 			$this->extra = $row->event_extra ? self::deserializeExtra( $row->event_extra ) : [];
-		} catch ( Exception $e ) {
+		} catch ( Exception ) {
 			// T73489: unserializing can fail for old notifications
 			LoggerFactory::getInstance( 'Echo' )->warning(
 				'Failed to unserialize event {id}',
