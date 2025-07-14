@@ -10,9 +10,11 @@ use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\User\User;
 
+// @codeCoverageIgnoreStart
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: __DIR__ . '/../../../maintenance/Maintenance.php';
+// @codeCoverageIgnoreEnd
 
 /**
  * Maintenance script that recomputes notification counts
@@ -93,5 +95,7 @@ class RecomputeNotifCounts extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = RecomputeNotifCounts::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

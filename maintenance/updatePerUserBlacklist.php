@@ -8,9 +8,11 @@
 use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 use MediaWiki\User\User;
 
+// @codeCoverageIgnoreStart
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: __DIR__ . '/../../../maintenance/Maintenance.php';
+// @codeCoverageIgnoreEnd
 
 /**
  * Maintenance script that changes the usernames to ids.
@@ -98,5 +100,7 @@ class UpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = UpdatePerUserBlacklist::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd
