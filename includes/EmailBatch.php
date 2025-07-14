@@ -3,18 +3,18 @@
 namespace MediaWiki\Extension\Notifications;
 
 use BatchRowIterator;
-use MailAddress;
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextDigestEmailFormatter;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Language\Language;
 use MediaWiki\Languages\LanguageFactory;
+use MediaWiki\Mail\MailAddress;
+use MediaWiki\Mail\UserMailer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
 use stdClass;
-use UserMailer;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**

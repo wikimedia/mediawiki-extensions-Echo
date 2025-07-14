@@ -6,9 +6,10 @@ use MediaWiki\Config\Config;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\ConfigNames;
 use MediaWiki\Notification\Middleware\FilterMiddleware;
+use MediaWiki\Notification\Middleware\FilterMiddlewareAction;
 use MediaWiki\Notification\NotificationEnvelope;
+use MediaWiki\RecentChanges\RecentChangeNotification;
 use MediaWiki\User\UserFactory;
-use MediaWiki\Watchlist\RecentChangeNotification;
 
 class RecentChangeNotificationMiddleware extends FilterMiddleware {
 
@@ -74,19 +75,21 @@ class RecentChangeNotificationMiddleware extends FilterMiddleware {
 		return true;
 	}
 
-	protected function filter( NotificationEnvelope $envelope ): bool {
+	protected function filter( NotificationEnvelope $envelope ): FilterMiddlewareAction {
 		$notification = $envelope->getNotification();
 		if ( $notification instanceof RecentChangeNotification ) {
 			if ( $notification->isUserTalkNotification() ) {
-				return $this->shouldKeepUserTalkNotification() ? self::KEEP : self::REMOVE;
+				return $this->shouldKeepUserTalkNotification() ?
+					FilterMiddlewareAction::KEEP : FilterMiddlewareAction::REMOVE;
 			}
 			if ( $notification->isWatchlistNotification() ) {
 				// This may change $envelope's recipients
-				return $this->shouldKeepWatchlistNotification( $envelope ) ? self::KEEP : self::REMOVE;
+				return $this->shouldKeepWatchlistNotification( $envelope ) ?
+					FilterMiddlewareAction::KEEP : FilterMiddlewareAction::REMOVE;
 			}
 		}
 
-		return self::KEEP;
+		return FilterMiddlewareAction::KEEP;
 	}
 
 }

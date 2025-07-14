@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use MailAddress;
 use MediaWiki\Extension\Notifications\Formatters\EchoHtmlEmailFormatter;
 use MediaWiki\Extension\Notifications\Formatters\EchoPlainTextEmailFormatter;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Mail\MailAddress;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\User\User;

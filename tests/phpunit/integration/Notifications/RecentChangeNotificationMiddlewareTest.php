@@ -12,9 +12,9 @@ use MediaWiki\Notification\RecipientSet;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Page\PageIdentityValue;
 use MediaWiki\RecentChanges\RecentChange;
+use MediaWiki\RecentChanges\RecentChangeNotification;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityValue;
-use MediaWiki\Watchlist\RecentChangeNotification;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\Notifications\RecentChangeNotificationMiddleware

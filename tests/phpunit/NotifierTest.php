@@ -1,11 +1,11 @@
 <?php
 namespace MediaWiki\Extension\Notifications\Test;
 
-use MailAddress;
 use MediaWiki\Block\Block;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Notifier;
 use MediaWiki\Mail\IEmailer;
+use MediaWiki\Mail\MailAddress;
 use MediaWiki\User\Options\StaticUserOptionsLookup;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;

@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Notifications;
 
 use LogicException;
-use MailAddress;
 use MediaWiki\Api\ApiModuleManager;
 use MediaWiki\Api\Hook\ApiMain__moduleManagerHook;
 use MediaWiki\Auth\AuthManager;
@@ -35,6 +34,7 @@ use MediaWiki\HTMLForm\Field\HTMLCheckMatrix;
 use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Logging\LogEntry;
+use MediaWiki\Mail\MailAddress;
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Notification\NotificationService;
