@@ -141,7 +141,7 @@
 	"notification-compact-header-edit-user-page": "$1님이 {{GENDER:$3|당신의}} 사용자 문서를 {{GENDER:$2|편집했습니다}}.",
 	"notification-compact-header-edit-user-talk": "$1 님이 {{GENDER:$3|당신에게}} 메시지를 {{GENDER:$2|남겼습니다}}.",
 	"notification-compact-header-edit-user-talk-with-section": "$1 님이 \"<strong>$4</strong>\"에서 {{GENDER:$3|당신에게}} 메시지를 {{GENDER:$2|남겼습니다}}.",
-	"notification-header-page-linked": "<strong>$4</strong>에서 <strong>$3</strong>으로 연결되는 링크가 생성되었습니다.",
+	"notification-header-page-linked": "<strong>$4</strong>에서 <strong>$3</strong>(으)로 연결되는 링크가 생성되었습니다.",
 	"notification-compact-header-page-linked": "<strong>$1</strong>에서 연결되었습니다.",
 	"notification-bundle-header-page-linked": "<strong>$3</strong> 문서가 {{PLURAL:$5||$5 개의 문서|100=99개 이상의 문서}}에서 링크되었습니다.",
 	"notification-link-text-what-links-here": "이 문서로 향하는 모든 링크",
