@@ -98,7 +98,7 @@
 	"echo-specialpage-pagefilters-title": "تازه کړنې",
 	"echo-specialpage-pagefilters-subtitle": "مخونه د نالوستل شوو خبرتياوو سره",
 	"notificationsmarkread-legend": "خبرتياوې لکه لوستل شوې په نښه کول",
-	"echo-none": "تاسې هيڅ خبرتياوې نه لرئ.",
+	"echo-none": "تاسې هېڅ خبرتياوې نه لرئ.",
 	"echo-api-failure": "د خبرتیاوو په ترلاسه کولو کې پاتې راغلی.",
 	"echo-api-failure-cross-wiki": "لرې پرتې واکسيمې ته لاسرسی رد شو.",
 	"echo-notification-placeholder": "کومې خبرتياوې نشته.",
