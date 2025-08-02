@@ -13,21 +13,19 @@ use MediaWiki\User\User;
 
 class EchoHtmlDigestEmailFormatter extends EchoEventDigestFormatter {
 
-	/**
-	 * @var string 'daily' or 'weekly'
-	 */
-	protected $digestMode;
-
-	private AttributeManager $attributeManager;
+	private readonly AttributeManager $attributeManager;
 
 	/**
 	 * @param User $user
 	 * @param Language $language
-	 * @param string $digestMode
+	 * @param string $digestMode 'daily' or 'weekly'
 	 */
-	public function __construct( User $user, Language $language, $digestMode ) {
+	public function __construct(
+		User $user,
+		Language $language,
+		protected string $digestMode,
+	) {
 		parent::__construct( $user, $language );
-		$this->digestMode = $digestMode;
 		$this->attributeManager = Services::getInstance()->getAttributeManager();
 	}
 

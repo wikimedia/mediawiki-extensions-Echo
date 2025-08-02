@@ -14,9 +14,9 @@ use MediaWiki\User\UserFactory;
 class RecentChangeNotificationMiddleware extends FilterMiddleware {
 
 	public function __construct(
-		private Config $config,
-		private UserFactory $userFactory,
-		private AttributeManager $attributeManager,
+		private readonly Config $config,
+		private readonly UserFactory $userFactory,
+		private readonly AttributeManager $attributeManager,
 	) {
 	}
 

@@ -13,30 +13,15 @@ use Wikimedia\Rdbms\ILoadBalancer;
 class DbFactory {
 
 	/**
-	 * The cluster for the database
-	 * @var string|null
-	 */
-	private ?string $cluster;
-
-	/** @var string|null */
-	private ?string $shared;
-
-	/** @var string|null */
-	private ?string $sharedCluster;
-
-	/**
-	 * @param string|null $cluster
+	 * @param string|null $cluster The cluster for the database
 	 * @param string|null $shared
 	 * @param string|null $sharedCluster
 	 */
 	public function __construct(
-		?string $cluster = null,
-		?string $shared = null,
-		?string $sharedCluster = null,
+		private readonly ?string $cluster = null,
+		private readonly ?string $shared = null,
+		private readonly ?string $sharedCluster = null,
 	) {
-		$this->cluster = $cluster;
-		$this->shared = $shared;
-		$this->sharedCluster = $sharedCluster;
 	}
 
 	/**

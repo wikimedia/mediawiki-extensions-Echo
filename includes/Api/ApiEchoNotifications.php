@@ -26,28 +26,23 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 class ApiEchoNotifications extends ApiQueryBase {
 	use ApiCrossWiki;
 
-	private AttributeManager $attributeManager;
-	private JsonCodec $jsonCodec;
-
 	/**
 	 * @var bool
 	 */
 	protected $crossWikiSummary = false;
 
 	/** @var string[] */
-	private $allowedNotifierTypes;
+	private readonly array $allowedNotifierTypes;
 
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		AttributeManager $attributeManager,
+		private readonly AttributeManager $attributeManager,
 		Config $mainConfig,
-		JsonCodec $jsonCodec
+		private readonly JsonCodec $jsonCodec,
 	) {
 		parent::__construct( $query, $moduleName, 'not' );
 		$this->allowedNotifierTypes = array_keys( $mainConfig->get( 'EchoNotifiers' ) );
-		$this->attributeManager = $attributeManager;
-		$this->jsonCodec = $jsonCodec;
 	}
 
 	public function execute() {

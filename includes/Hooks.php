@@ -102,56 +102,28 @@ class Hooks implements
 	UserSaveSettingsHook,
 	SpecialMuteModifyFormFieldsHook
 {
-	private AuthManager $authManager;
-	private CentralIdLookup $centralIdLookup;
-	private Config $config;
-	private AttributeManager $attributeManager;
-	private HookContainer $hookContainer;
-	private Language $contentLanguage;
-	private LinkRenderer $linkRenderer;
-	private NamespaceInfo $namespaceInfo;
-	private NotificationService $notificationService;
-	private PermissionManager $permissionManager;
-	private StatsFactory $statsFactory;
-	private TalkPageNotificationManager $talkPageNotificationManager;
-	private UserEditTracker $userEditTracker;
-	private UserFactory $userFactory;
-	private UserOptionsManager $userOptionsManager;
+	private readonly StatsFactory $statsFactory;
 
 	private static array $revertedRevIds = [];
 
 	public function __construct(
-		AuthManager $authManager,
-		CentralIdLookup $centralIdLookup,
-		Config $config,
-		AttributeManager $attributeManager,
-		HookContainer $hookContainer,
-		Language $contentLanguage,
-		LinkRenderer $linkRenderer,
-		NamespaceInfo $namespaceInfo,
-		NotificationService $notificationService,
-		PermissionManager $permissionManager,
+		private readonly AuthManager $authManager,
+		private readonly CentralIdLookup $centralIdLookup,
+		private readonly Config $config,
+		private readonly AttributeManager $attributeManager,
+		private readonly HookContainer $hookContainer,
+		private readonly Language $contentLanguage,
+		private readonly LinkRenderer $linkRenderer,
+		private readonly NamespaceInfo $namespaceInfo,
+		private readonly NotificationService $notificationService,
+		private readonly PermissionManager $permissionManager,
 		StatsFactory $statsFactory,
-		TalkPageNotificationManager $talkPageNotificationManager,
-		UserEditTracker $userEditTracker,
-		UserFactory $userFactory,
-		UserOptionsManager $userOptionsManager
+		private readonly TalkPageNotificationManager $talkPageNotificationManager,
+		private readonly UserEditTracker $userEditTracker,
+		private readonly UserFactory $userFactory,
+		private readonly UserOptionsManager $userOptionsManager,
 	) {
-		$this->authManager = $authManager;
-		$this->centralIdLookup = $centralIdLookup;
-		$this->config = $config;
-		$this->attributeManager = $attributeManager;
-		$this->hookContainer = $hookContainer;
-		$this->contentLanguage = $contentLanguage;
-		$this->linkRenderer = $linkRenderer;
-		$this->namespaceInfo = $namespaceInfo;
-		$this->notificationService = $notificationService;
-		$this->permissionManager = $permissionManager;
 		$this->statsFactory = $statsFactory->withComponent( 'Echo' );
-		$this->talkPageNotificationManager = $talkPageNotificationManager;
-		$this->userEditTracker = $userEditTracker;
-		$this->userFactory = $userFactory;
-		$this->userOptionsManager = $userOptionsManager;
 	}
 
 	/**

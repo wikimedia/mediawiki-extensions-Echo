@@ -16,15 +16,12 @@ use Wikimedia\ParamValidator\TypeDef\StringDef;
 
 class ApiEchoCreateEvent extends ApiBase {
 
-	private UserNameUtils $userNameUtils;
-
 	public function __construct(
 		ApiMain $mainModule,
 		string $moduleName,
-		UserNameUtils $userNameUtils
+		private readonly UserNameUtils $userNameUtils,
 	) {
 		parent::__construct( $mainModule, $moduleName );
-		$this->userNameUtils = $userNameUtils;
 	}
 
 	/**

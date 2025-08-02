@@ -14,12 +14,9 @@ class UserMergeHooks implements
 	MergeAccountFromToHook,
 	AccountDeleteTablesHook
 {
-	private AttributeManager $attributeManager;
-
 	public function __construct(
-		AttributeManager $attributeManager
+		private readonly AttributeManager $attributeManager,
 	) {
-		$this->attributeManager = $attributeManager;
 	}
 
 	/**

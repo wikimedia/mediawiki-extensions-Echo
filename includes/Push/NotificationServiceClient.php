@@ -12,28 +12,16 @@ class NotificationServiceClient implements LoggerAwareInterface {
 
 	use LoggerAwareTrait;
 
-	/** @var HttpRequestFactory */
-	private $httpRequestFactory;
-
-	/** @var StatusFormatter */
-	private $statusFormatter;
-
-	/** @var string */
-	private $endpointBase;
-
 	/**
 	 * @param HttpRequestFactory $httpRequestFactory
 	 * @param StatusFormatter $statusFormatter
 	 * @param string $endpointBase push service notification request endpoint base URL
 	 */
 	public function __construct(
-		HttpRequestFactory $httpRequestFactory,
-		StatusFormatter $statusFormatter,
-		string $endpointBase
+		private readonly HttpRequestFactory $httpRequestFactory,
+		private readonly StatusFormatter $statusFormatter,
+		private readonly string $endpointBase,
 	) {
-		$this->httpRequestFactory = $httpRequestFactory;
-		$this->statusFormatter = $statusFormatter;
-		$this->endpointBase = $endpointBase;
 	}
 
 	/**

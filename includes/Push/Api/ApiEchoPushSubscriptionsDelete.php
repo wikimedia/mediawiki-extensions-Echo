@@ -15,9 +15,6 @@ class ApiEchoPushSubscriptionsDelete extends ApiBase {
 	/** @var ApiBase */
 	private $parent;
 
-	/** @var SubscriptionManager */
-	private $subscriptionManager;
-
 	/**
 	 * Static entry point for initializing the module
 	 * @param ApiBase $parent Parent module
@@ -34,10 +31,9 @@ class ApiEchoPushSubscriptionsDelete extends ApiBase {
 	public function __construct(
 		ApiMain $mainModule,
 		string $moduleName,
-		SubscriptionManager $subscriptionManager
+		private readonly SubscriptionManager $subscriptionManager,
 	) {
 		parent::__construct( $mainModule, $moduleName );
-		$this->subscriptionManager = $subscriptionManager;
 	}
 
 	/**

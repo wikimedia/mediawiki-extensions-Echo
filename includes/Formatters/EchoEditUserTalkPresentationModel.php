@@ -10,10 +10,7 @@ use MediaWiki\User\User;
 
 class EchoEditUserTalkPresentationModel extends EchoEventPresentationModel {
 
-	/**
-	 * @var EchoPresentationModelSection
-	 */
-	protected $section;
+	protected EchoPresentationModelSection $section;
 
 	/**
 	 * @inheritDoc

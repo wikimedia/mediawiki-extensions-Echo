@@ -15,10 +15,7 @@ use MediaWiki\User\User;
  */
 class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 
-	/**
-	 * @var EchoPresentationModelSection
-	 */
-	protected $section;
+	protected EchoPresentationModelSection $section;
 
 	/**
 	 * @inheritDoc

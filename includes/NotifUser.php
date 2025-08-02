@@ -25,36 +25,6 @@ use Wikimedia\Rdbms\ReadOnlyMode;
 class NotifUser {
 
 	/**
-	 * Notification target user
-	 * @var UserIdentity
-	 */
-	private $user;
-
-	/**
-	 * Object cache
-	 * @var WANObjectCache
-	 */
-	private $cache;
-
-	/**
-	 * Database access gateway
-	 * @var UserNotificationGateway
-	 */
-	private $userNotifGateway;
-
-	/**
-	 * Notification mapper
-	 * @var NotificationMapper
-	 */
-	private $notifMapper;
-
-	/**
-	 * Target page mapper
-	 * @var TargetPageMapper
-	 */
-	private $targetPageMapper;
-
-	/**
 	 * @var ForeignNotifications|null
 	 */
 	private $foreignNotifications;
@@ -68,21 +38,6 @@ class NotifUser {
 	 * @var array[]|null
 	 */
 	private $globalCountsAndTimestamps;
-
-	/**
-	 * @var UserOptionsLookup
-	 */
-	private $userOptionsLookup;
-
-	/**
-	 * @var UserFactory
-	 */
-	private $userFactory;
-
-	/**
-	 * @var ReadOnlyMode
-	 */
-	private $readOnlyMode;
 
 	// The max notification count shown in badge
 
@@ -100,25 +55,25 @@ class NotifUser {
 	/**
 	 * Usually client code doesn't need to initialize the object directly
 	 * because it could be obtained from factory method newFromUser()
+	 * @param UserIdentity $user Notification target user
+	 * @param WANObjectCache $cache Object cache
+	 * @param UserNotificationGateway $userNotifGateway Database access gateway
+	 * @param NotificationMapper $notifMapper Notification mapper
+	 * @param TargetPageMapper $targetPageMapper Target page mapper
+	 * @param UserOptionsLookup $userOptionsLookup
+	 * @param UserFactory $userFactory
+	 * @param ReadOnlyMode $readOnlyMode
 	 */
 	public function __construct(
-		UserIdentity $user,
-		WANObjectCache $cache,
-		UserNotificationGateway $userNotifGateway,
-		NotificationMapper $notifMapper,
-		TargetPageMapper $targetPageMapper,
-		UserOptionsLookup $userOptionsLookup,
-		UserFactory $userFactory,
-		ReadOnlyMode $readOnlyMode
+		private readonly UserIdentity $user,
+		private readonly WANObjectCache $cache,
+		private readonly UserNotificationGateway $userNotifGateway,
+		private readonly NotificationMapper $notifMapper,
+		private readonly TargetPageMapper $targetPageMapper,
+		private readonly UserOptionsLookup $userOptionsLookup,
+		private readonly UserFactory $userFactory,
+		private readonly ReadOnlyMode $readOnlyMode,
 	) {
-		$this->user = $user;
-		$this->userNotifGateway = $userNotifGateway;
-		$this->cache = $cache;
-		$this->notifMapper = $notifMapper;
-		$this->targetPageMapper = $targetPageMapper;
-		$this->userOptionsLookup = $userOptionsLookup;
-		$this->userFactory = $userFactory;
-		$this->readOnlyMode = $readOnlyMode;
 	}
 
 	/**

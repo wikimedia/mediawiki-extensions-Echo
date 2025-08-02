@@ -13,13 +13,6 @@ use MediaWiki\User\Options\UserOptionsManager;
 
 class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	/**
-	 * AttributeManager to access notification configuration
-	 *
-	 * @var AttributeManager
-	 */
-	protected $attributeManager;
-
-	/**
 	 * Category names, mapping internal name to HTML-formatted name
 	 *
 	 * @var string[]
@@ -58,18 +51,14 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	protected $flippedNotifyTypes;
 
 	/**
-	 * @var UserOptionsManager
+	 * @param AttributeManager $attributeManager AttributeManager to access notification configuration
+	 * @param UserOptionsManager $userOptionsManager
 	 */
-	private $userOptionsManager;
-
 	public function __construct(
-		AttributeManager $attributeManager,
-		UserOptionsManager $userOptionsManager
+		protected AttributeManager $attributeManager,
+		private readonly UserOptionsManager $userOptionsManager,
 	) {
 		parent::__construct( 'DisplayNotificationsConfiguration' );
-
-		$this->attributeManager = $attributeManager;
-		$this->userOptionsManager = $userOptionsManager;
 	}
 
 	/** @inheritDoc */

@@ -13,34 +13,6 @@ use MediaWiki\User\UserIdentity;
  */
 class AttributeManager {
 	/**
-	 * @var UserGroupManager
-	 */
-	private $userGroupManager;
-
-	/** @var UserOptionsLookup */
-	private $userOptionsLookup;
-
-	/**
-	 * @var array[]
-	 */
-	protected $notifications;
-
-	/**
-	 * @var array[]
-	 */
-	protected $categories;
-
-	/**
-	 * @var bool[]
-	 */
-	protected $defaultNotifyTypeAvailability;
-
-	/**
-	 * @var array[]
-	 */
-	protected $notifyTypeAvailabilityByCategory;
-
-	/**
 	 * Notification section constant
 	 */
 	public const ALERT = 'alert';
@@ -77,21 +49,14 @@ class AttributeManager {
 	 * @param UserOptionsLookup $userOptionsLookup
 	 */
 	public function __construct(
-		array $notifications,
-		array $categories,
-		array $defaultNotifyTypeAvailability,
-		array $notifyTypeAvailabilityByCategory,
-		UserGroupManager $userGroupManager,
-		UserOptionsLookup $userOptionsLookup
-	) {
 		// Extensions can define their own notifications and categories
-		$this->notifications = $notifications;
-		$this->categories = $categories;
-
-		$this->defaultNotifyTypeAvailability = $defaultNotifyTypeAvailability;
-		$this->notifyTypeAvailabilityByCategory = $notifyTypeAvailabilityByCategory;
-		$this->userGroupManager = $userGroupManager;
-		$this->userOptionsLookup = $userOptionsLookup;
+		protected array $notifications,
+		protected array $categories,
+		protected array $defaultNotifyTypeAvailability,
+		protected array $notifyTypeAvailabilityByCategory,
+		private readonly UserGroupManager $userGroupManager,
+		private readonly UserOptionsLookup $userOptionsLookup,
+	) {
 	}
 
 	/**

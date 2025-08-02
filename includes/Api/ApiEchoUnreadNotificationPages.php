@@ -26,21 +26,14 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	 */
 	protected $crossWikiSummary = false;
 
-	private AttributeManager $attributeManager;
-	private PageStore $pageStore;
-	private TitleFactory $titleFactory;
-
 	public function __construct(
 		ApiQuery $query,
 		string $moduleName,
-		AttributeManager $attributeManager,
-		PageStore $pageStore,
-		TitleFactory $titleFactory
+		private readonly AttributeManager $attributeManager,
+		private readonly PageStore $pageStore,
+		private readonly TitleFactory $titleFactory,
 	) {
 		parent::__construct( $query, $moduleName, 'unp' );
-		$this->attributeManager = $attributeManager;
-		$this->pageStore = $pageStore;
-		$this->titleFactory = $titleFactory;
 	}
 
 	/**

@@ -22,20 +22,7 @@ use Wikimedia\Rdbms\IResultWrapper;
  */
 class EmailBatch {
 
-	/**
-	 * @var User the user to be notified
-	 */
-	protected $mUser;
-
-	/**
-	 * @var Language
-	 */
-	protected $language;
-
-	/**
-	 * @var UserOptionsManager
-	 */
-	protected $userOptionsManager;
+	protected Language $language;
 
 	/**
 	 * @var Event[] events included in this email
@@ -59,15 +46,13 @@ class EmailBatch {
 	protected static $displaySize = 20;
 
 	public function __construct(
-		User $user,
-		UserOptionsManager $userOptionsManager,
-		LanguageFactory $languageFactory
+		protected User $mUser,
+		protected UserOptionsManager $userOptionsManager,
+		LanguageFactory $languageFactory,
 	) {
-		$this->mUser = $user;
 		$this->language = $languageFactory->getLanguage(
-			$userOptionsManager->getOption( $user, 'language' )
+			$userOptionsManager->getOption( $mUser, 'language' )
 		);
-		$this->userOptionsManager = $userOptionsManager;
 	}
 
 	/**

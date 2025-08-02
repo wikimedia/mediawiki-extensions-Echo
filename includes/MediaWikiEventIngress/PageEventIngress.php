@@ -26,19 +26,12 @@ class PageEventIngress extends DomainEventIngress implements
 	PageLatestRevisionChangedListener
 	{
 
-	private RevisionStore $revisionStore;
-	private UserEditTracker $userEditTracker;
-	private EventMapper $eventMapper;
-
 	public function __construct(
-		RevisionStore $revisionStore,
-		UserEditTracker $userEditTracker,
-		EventMapper $eventMapper,
+		private readonly RevisionStore $revisionStore,
+		private readonly UserEditTracker $userEditTracker,
+		private readonly EventMapper $eventMapper,
 
 	) {
-		$this->revisionStore = $revisionStore;
-		$this->userEditTracker = $userEditTracker;
-		$this->eventMapper = $eventMapper;
 	}
 
 	public function handlePageLatestRevisionChangedEvent( PageLatestRevisionChangedEvent $event ): void {

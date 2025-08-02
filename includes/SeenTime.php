@@ -22,13 +22,12 @@ class SeenTime {
 	 */
 	private static $allowedTypes = [ 'alert', 'message' ];
 
-	private UserIdentity $user;
-
 	/**
 	 * @param UserIdentity $user A logged in user
 	 */
-	private function __construct( UserIdentity $user ) {
-		$this->user = $user;
+	private function __construct(
+		private readonly UserIdentity $user,
+	) {
 	}
 
 	public static function newFromUser( UserIdentity $user ): self {
