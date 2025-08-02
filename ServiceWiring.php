@@ -57,7 +57,7 @@ return [
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
 		// Use shared DB/cluster for push subscriptions
 		$cluster = $echoConfig->get( 'EchoSharedTrackingCluster' );
-		$database = $echoConfig->get( 'EchoSharedTrackingDB' );
+		$database = $echoConfig->get( 'EchoSharedTrackingDB' ) ?: false;
 		$loadBalancerFactory = $services->getDBLoadBalancerFactory();
 		$loadBalancer = $cluster
 			? $loadBalancerFactory->getExternalLB( $cluster )

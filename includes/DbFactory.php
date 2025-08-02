@@ -14,22 +14,26 @@ class DbFactory {
 
 	/**
 	 * The cluster for the database
-	 * @var string|false
+	 * @var string|null
 	 */
-	private $cluster;
+	private ?string $cluster;
 
-	/** @var string|false */
-	private $shared;
+	/** @var string|null */
+	private ?string $shared;
 
-	/** @var string|false */
-	private $sharedCluster;
+	/** @var string|null */
+	private ?string $sharedCluster;
 
 	/**
-	 * @param string|false $cluster
-	 * @param string|false $shared
-	 * @param string|false $sharedCluster
+	 * @param string|null $cluster
+	 * @param string|null $shared
+	 * @param string|null $sharedCluster
 	 */
-	public function __construct( $cluster = false, $shared = false, $sharedCluster = false ) {
+	public function __construct(
+		?string $cluster = null,
+		?string $shared = null,
+		?string $sharedCluster = null,
+	) {
 		$this->cluster = $cluster;
 		$this->shared = $shared;
 		$this->sharedCluster = $sharedCluster;
@@ -45,7 +49,11 @@ class DbFactory {
 	public static function newFromDefault() {
 		global $wgEchoCluster, $wgEchoSharedTrackingDB, $wgEchoSharedTrackingCluster;
 
-		return new self( $wgEchoCluster, $wgEchoSharedTrackingDB, $wgEchoSharedTrackingCluster );
+		return new self(
+			$wgEchoCluster ?: null,
+			$wgEchoSharedTrackingDB ?: null,
+			$wgEchoSharedTrackingCluster ?: null
+		);
 	}
 
 	/**
