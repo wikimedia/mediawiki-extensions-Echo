@@ -655,6 +655,9 @@ class Hooks implements
 		$revRecord = $linksUpdate->getRevisionRecord();
 		$revid = $revRecord ? $revRecord->getId() : null;
 		$user = $revRecord ? $revRecord->getUser() : null;
+		if ( $user->getName() === User::MAINTENANCE_SCRIPT_USER ) {
+			$user = null;
+		}
 
 		// link notification is boundless as you can include infinite number of links in a page
 		// db insert is expensive, limit it to a reasonable amount, we can increase this limit
