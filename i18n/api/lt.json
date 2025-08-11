@@ -3,7 +3,8 @@
 		"authors": [
 			"Albertas",
 			"Eitvys200",
-			"Nokeoo"
+			"Nokeoo",
+			"Tomasdd"
 		]
 	},
 	"apihelp-echomarkread-description": "Pažymėti pranešimus kaip perskaitytus dabartinio naudotojo.",
@@ -42,7 +43,7 @@
 	"apihelp-query+notifications-param-messagecontinue": "Kai prieinama daugiau žinučių rezultatų, tęsimui naudoti tai.",
 	"apihelp-query+notifications-param-messageunreadfirst": "Ar pirmiau rodyti neperskaitytus įspėjimų pranešimus (naudojama tik jei groupbysection yra nustatytas).",
 	"apihelp-query+notifications-param-titles": "Gražinti tik pranešimus šiems puslapiams. Kad gautumėte pranešimus, nesusijusius su puslapiu, naudokite [] kaip pavadinimą.",
-	"apihelp-query+notifications-example-1": "Rodyti pranešimus",
+	"apihelp-query+notifications-example-1": "Rodyti žiniatinklio pranešimus",
 	"apihelp-query+notifications-example-2": "Rodyti pranešimus, sugrupuotus pagal skyrius, su kiekiais",
 	"apihelp-query+unreadnotificationpages-description": "Gauti puslapius, iš kurių dabartinis vartotojas turi neskaitytų pranešimų.",
 	"apihelp-query+unreadnotificationpages-param-limit": "Maksimalus grąžinamų puslapių skaičius.",

@@ -178,6 +178,7 @@
 	"notification-header-watchlist-multiuser-deleted": "Trang <strong>$1</strong> trong danh sách theo dõi của {{GENDER:$2}} bạn đã bị xóa $3 lần.",
 	"notification-header-watchlist-multiuser-moved": "Trang <strong>$1</strong> trong danh sách theo dõi của {{GENDER:$2}}bạn đã được di chuyển $3 lần.",
 	"notification-header-watchlist-multiuser-restored": "Trang <strong>$1</strong> trong danh sách theo dõi của {{GENDER:$2}}bạn đã được phục hồi $3 lần.",
+	"notification-body-watchlist-once": "Sẽ không có thông báo qua email nào khác khi có hoạt động tiếp theo trừ khi {{GENDER:$1|}}bạn truy cập trang này khi đã đăng nhập.",
 	"notification-welcome-linktext": "Chào mừng",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2}}Bạn vừa thực hiện sửa đổi đầu tiên; cảm ơn và chào mừng!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2}}Bạn vừa thực hiện sửa đổi lần thứ 10; cảm ơn và xin hãy tiếp tục!",
@@ -235,5 +236,10 @@
 	"notification-header-foreign-notice": "Thêm thông báo từ {{PLURAL:$5|một wiki nữa|$5 wiki nữa}}",
 	"notification-header-foreign-all": "Thêm thông báo từ {{PLURAL:$5|một wiki|$5 wiki}} khác",
 	"echo-foreign-wiki-lang": "$1 – $2",
-	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}"
+	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
+	"right-manage-all-push-subscriptions": "Quản lý tất cả các đăng ký đẩy",
+	"action-manage-all-push-subscriptions": "quản lý tất cả các đăng ký đẩy",
+	"group-push-subscription-manager": " Người quản lý đăng ký đẩy",
+	"group-push-subscription-manager-member": "{{GENDER:$1|}}người quản lý đăng ký đẩy",
+	"grouppage-push-subscription-manager": "{{ns:project}}:Người quản lý đăng ký đẩy"
 }
