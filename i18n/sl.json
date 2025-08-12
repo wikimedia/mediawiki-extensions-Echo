@@ -167,7 +167,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Vaše}} uporabniške pravice so hile {{GENDER:$1|spremenjene}}. Zdaj niste več v skupini: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Vaše}} uporabniške pravice so bile {{GENDER:$1|spremenjene}}. Dodani ste bili v skupino: $2. Niste več v skupini: $4.",
 	"notification-header-user-rights-expiry-change": "{{GENDER:$1|Spremenjen}} je bil čas poteka {{GENDER:$4|vašega}} članstva v {{PLURAL:$3|naslednji skupini|naslednjih skupinah}}: $2.",
-	"notification-header-welcome": "{{GENDER:$2|Pozdravljeni}} v projektu {{SITENAME}}, $1! Veseli nas, da {{GENDER:$2|ste}} tu.",
+	"notification-header-welcome": "{{GENDER:$2|Pozdravljeni}} v {{GRAMMAR:locative|{{SITENAME}}}}, $1! Veseli nas, da {{GENDER:$2|ste}} tu.",
 	"notification-header-mention-summary": "$1 {{GENDER:$3|vas}} {{GENDER:$2|je omenil|je omenila|je omenil_a}} v povzetku urejanja strani <strong>$4</strong>.",
 	"notification-header-watchlist-changed": "$1 je {{GENDER:$2|spremenil|spremenila|spremenil_a}} <strong>$3</strong>, stran na {{GENDER:$4|vašem}} nadzornem seznamu {{PLURAL:$5||, $5-krat}}.",
 	"notification-header-watchlist-created": "$1 je {{GENDER:$2|ustvaril|ustvarila|ustvaril_a}} <strong>$3</strong>, stran na {{GENDER:$4|vašem}} nadzornem seznamu {{PLURAL:$5||, $5-krat}}.",

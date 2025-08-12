@@ -233,7 +233,7 @@
 	"echo-email-batch-body-intro-weekly": "سلام $1،\nپه {{SITENAME}} کې ستاسو د دې اوونۍ د کړنو لنډيز دا دی.",
 	"echo-email-batch-link-text-view-all-notifications": "ټولې خبرتياوې کتل",
 	"notification-header-foreign-alert": "نورې خبرونې د {{PLURAL:$5|د بلې ويکي|$5 د نورو ويکي گانو }} څخه",
-	"notification-header-foreign-notice": "نور ياداښتونه د {{PLURAL:$5|د بلي ويکي|$5 د نورو ويکي گانو }} څخه",
+	"notification-header-foreign-notice": "نور ياداښتونه د {{PLURAL:$5|بلې ويکي|$5 نورو ويکي‌گانو}} څخه",
 	"notification-header-foreign-all": "نورې خبرتياوې له {{PLURAL:$5|بلې ويکي|$5 نورو ويکي گانو }} څخه",
 	"echo-foreign-wiki-lang": "$1 – $2",
 	"echo-badge-count": "{{PLURAL:$1|$1|100={{formatnum:99}}+}}",
