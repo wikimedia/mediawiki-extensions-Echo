@@ -78,6 +78,8 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Шуьйра дӀахаийтарш",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "ХӀора категори чуьра ловш йолу дӀахаийтаран таронаш",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Ӏадйитаран кепаца латина йу",
+	"echo-displaynotificationsconfiguration-enabled-default-legend": "Параметраш Ӏад йитаран кепаца",
+	"echo-displaynotificationsconfiguration-enabled-default-conditional-legend": "Билламаш кхочушбечу декъашхошна варианташ: $1",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Оьшуш йолу хаамийн кепаш",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "ХӀора категори хила йезаш йолу таронаш",
 	"echo-specialpage": "ДӀахаийтарш",
@@ -240,5 +242,8 @@
 	"group-push-subscription-manager": "Push-хаамийн урхалча",
 	"group-push-subscription-manager-member": "{{GENDER:$1|push-хаамийн урхалча}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:push-хаамийн урхалча",
+	"notification-subject-email-verify-email-reminder": "Бакъйе {{GENDER:$1|хьайн}} электронан поштан адрес",
+	"notification-header-verify-email-reminder": "Дехар до, <strong>тӀечӀагӀде {{GENDER:$1|хьан}} электронан поштан адрес</strong>, тхуна хаийта {{GENDER:$1|хьан}} аккаунтан тӀера электронан поштан адрес {{GENDER:$1|хьан}} долахь дуйла.",
+	"notification-link-text-verify-email-reminder": "Электронан поштан нисдаран гӀирсана урхалла дар",
 	"notification-verify-email-reminder-link-label": "Бакъйе эл. пошт"
 }
