@@ -1192,7 +1192,7 @@
 		"ServiceWiring.php"
 	],
 	"ConfigRegistry": {
-		"Echo": "GlobalVarConfig::newInstance"
+		"Echo": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"InstallerTasks": [
 		{
