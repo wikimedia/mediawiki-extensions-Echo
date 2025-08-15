@@ -94,6 +94,7 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "אילו שיטות הודעה נתמכות לכל קטגוריה",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "מופעל כברירת מחדל",
 	"echo-displaynotificationsconfiguration-enabled-default-legend": "אפשרויות ברירת מחדל",
+	"echo-displaynotificationsconfiguration-enabled-default-conditional-legend": "אפשרויות למשתמשים שעומדים בתנאים: $1",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "שיטות הודעה נדרשות",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "אילו שיטות הודעה נדרשות לכל קטגוריה",
 	"echo-specialpage": "הודעות",
