@@ -43,7 +43,8 @@ class ApiEchoMute extends ApiBase {
 
 	public function execute() {
 		$user = $this->getUser();
-		if ( !$user || !$user->isRegistered() ) {
+		// Temporary accounts can't have preferences, so this is irrelevant for them.
+		if ( !$user || !$user->isNamed() ) {
 			$this->dieWithError(
 				[ 'apierror-mustbeloggedin', $this->msg( 'action-editmyoptions' ) ],
 				'notloggedin'
