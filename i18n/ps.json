@@ -156,7 +156,7 @@
 	"notification-header-mention-failure-bundle": "د {{PLURAL:$3|يادونه|$3 يادونې}} {{GENDER:$2|چي تاسو}} د <strong>$4</strong> د خبرو اترو مخ ته جوړې کړې {{PLURAL:$3|ونه لېږل}} شوې.",
 	"notification-compact-header-mention-failure-user-unknown": "د $1 <strong> کارن‌نوم نشته</strong>",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>د وېب‌پتو يادگېرنه نشي کېدای:</strong> $1",
-	"notification-header-mention-success": "{{GENDER:$2|ستاسو}} د $3 يادونه ولېږل شوه.",
+	"notification-header-mention-success": "$3 ته {{GENDER:$2|ستاسو}} يادونه ولېږل شوه.",
 	"notification-header-mention-success-bundle": "د <strong>$4</strong> خبرو اترو مخ کې {{GENDER:$2|ستاسو}} {{PLURAL:$3|جوړه کړې يادونه|$3 جوړې کړې يادونې}}  {{PLURAL:$3|ور}}ولېږل شوې.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|تاسو}}:</strong> د $3 يادگېرنه کړې",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|يوه خبرتيا|$3 خبرتياوې}} د <strong>$4</strong> خبرو اترو مخ اړوند چې {{GENDER:$2|تاسو ترسره کړې وې}}: {{PLURAL:$5|$5 ونه لېږل شوه}}، {{PLURAL:$6|$6 ولېږل شوې}}",
