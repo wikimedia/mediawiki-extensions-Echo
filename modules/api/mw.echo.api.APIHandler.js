@@ -27,7 +27,7 @@ mw.echo.api.APIHandler = function MwEchoApiAPIHandler( api, config ) {
 	this.normalizedType = {
 		message: 'message',
 		alert: 'alert',
-		all: 'message|alert'
+		all: 'message|alert',
 	};
 
 	// Parameters that are sent through
@@ -36,7 +36,7 @@ mw.echo.api.APIHandler = function MwEchoApiAPIHandler( api, config ) {
 	this.typeParams = {
 		message: {},
 		alert: {},
-		all: {}
+		all: {},
 	};
 };
 
@@ -85,7 +85,7 @@ mw.echo.api.APIHandler.prototype.fetchUnreadNotificationPages = function ( sourc
 		meta: 'unreadnotificationpages',
 		uselang: this.userLang,
 		unpgrouppages: true,
-		unpwikis: sources
+		unpwikis: sources,
 	};
 
 	return this.api.get( params );
@@ -129,7 +129,7 @@ mw.echo.api.APIHandler.prototype.createNewFetchNotificationPromise = function ( 
 		notformat: 'model',
 		notlimit: this.limit,
 		notprop: 'list|count|seenTime',
-		uselang: this.userLang
+		uselang: this.userLang,
 	}, this.getTypeParams( type ) );
 
 	let fetchingSource = 'local';

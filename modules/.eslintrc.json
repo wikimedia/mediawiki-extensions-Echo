@@ -10,5 +10,18 @@
 	},
 	"rules": {
 		"max-len": "off"
-	}
+	},
+	"overrides": [
+		{
+			"files": [
+				"**/*.js"
+			],
+			"rules": {
+				"comma-dangle": [
+					"error",
+					"always-multiline"
+				]
+			}
+		}
+	]
 }

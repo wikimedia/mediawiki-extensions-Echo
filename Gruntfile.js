@@ -12,30 +12,30 @@ module.exports = function ( grunt ) {
 		eslint: {
 			options: {
 				cache: true,
-				fix: grunt.option( 'fix' )
+				fix: grunt.option( 'fix' ),
 			},
 			all: [
-				'.'
-			]
+				'.',
+			],
 		},
 		// Lint – Styling
 		stylelint: {
 			options: {
-				cache: true
+				cache: true,
 			},
-			all: [ 'modules/**/*.{css,less}' ]
+			all: [ 'modules/**/*.{css,less}' ],
 		},
 		banana: Object.assign( {
-			options: { requireLowerCase: false }
+			options: { requireLowerCase: false },
 		}, conf.MessagesDirs ),
 		watch: {
 			files: [
 				'.{stylelintrc,eslintrc}.json',
 				'<%= eslint.all %>',
-				'<%= stylelint.all %>'
+				'<%= stylelint.all %>',
 			],
-			tasks: 'test'
-		}
+			tasks: 'test',
+		},
 	} );
 
 	grunt.registerTask( 'lint', [ 'eslint', 'stylelint', 'banana' ] );

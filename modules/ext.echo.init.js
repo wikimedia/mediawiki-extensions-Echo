@@ -78,7 +78,7 @@ function initDesktop() {
 						mw.notify( $.parseHTML( notificationItem.content.header ), { title: mw.msg( 'echo-displaysnippet-title' ) } );
 					}
 				}
-			}
+			},
 			);
 			return highestTime;
 		}
@@ -144,7 +144,7 @@ function initDesktop() {
 					const links = {
 						notifications: $badge.attr( 'href' ) || mw.util.getUrl( 'Special:Notifications' ),
 						preferences: ( $( '#pt-preferences a' ).attr( 'href' ) || mw.util.getUrl( 'Special:Preferences' ) ) +
-							'#mw-prefsection-echo'
+							'#mw-prefsection-echo',
 					};
 
 					const badgeController = new mw.echo.ui.NotificationBadgeController(
@@ -157,8 +157,8 @@ function initDesktop() {
 							hasUnseen: hasUnseen,
 							badgeIcon: badgeIcon,
 							$overlay: mw.echo.ui.$overlay,
-							$badge: $badge
-						}
+							$badge: $badge,
+						},
 					);
 					badgeControllers[ section ] = badgeController;
 
@@ -214,7 +214,7 @@ function initDesktop() {
 				.then( ( data ) => {
 					const now = mw.now();
 					mw.track( 'stats.mediawiki_echo_overlay_seconds', now - timeOfClick, {
-						component: 'api'
+						component: 'api',
 					} );
 					// TODO remove graphite compatible call once new dashboards are created, T359347
 					mw.track( 'timing.MediaWiki.echo.overlay.api', now - timeOfClick );
@@ -228,7 +228,7 @@ function initDesktop() {
 					// Log timing after notifications are shown
 					const notificationsLoadedTime = mw.now();
 					mw.track( 'stats.mediawiki_echo_overlay_seconds', notificationsLoadedTime - timeOfClick, {
-						component: 'none'
+						component: 'none',
 					} );
 					// TODO remove graphite compatible call once new dashboards are created, T359347
 					mw.track( 'timing.MediaWiki.echo.overlay', notificationsLoadedTime - timeOfClick );
@@ -236,7 +236,7 @@ function initDesktop() {
 				selectedWidget.popup.toggle( true );
 				const now = mw.now();
 				mw.track( 'stats.mediawiki_echo_overlay_seconds', now - timeOfClick, {
-					component: 'ooui'
+					component: 'ooui',
 				} );
 				// TODO remove graphite compatible call once new dashboards are created, T359347
 				mw.track( 'timing.MediaWiki.echo.overlay.ooui', now - timeOfClick );
@@ -251,7 +251,7 @@ function initDesktop() {
 					mw.track( 'stats.mediawiki_echo_unseen_click_total', 1, {
 						wiki: mw.config.get( 'wgDBname' ),
 						// eslint-disable-next-line camelcase
-						user_type: getUserTypeForStats()
+						user_type: getUserTypeForStats(),
 					} );
 				}
 			}, () => {

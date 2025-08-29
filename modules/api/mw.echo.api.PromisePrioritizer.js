@@ -32,7 +32,7 @@ mw.echo.api.PromisePrioritizer.prototype.prioritize = function ( promise ) {
 	promise
 		.then(
 			this.setSuccess.bind( this, promise ),
-			this.setFailure.bind( this, promise )
+			this.setFailure.bind( this, promise ),
 		);
 	this.promise = promise;
 

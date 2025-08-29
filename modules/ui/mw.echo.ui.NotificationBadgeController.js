@@ -49,7 +49,7 @@ mw.echo.ui.NotificationBadgeController = function MwEchoUiNotificationBadgeContr
 		type: this.manager.getTypeString(),
 		numItems: this.numItems,
 		hasUnseen: config.hasUnseen,
-		$badge: config.$badge
+		$badge: config.$badge,
 	} );
 
 	// Notifications list widget
@@ -59,8 +59,8 @@ mw.echo.ui.NotificationBadgeController = function MwEchoUiNotificationBadgeContr
 		{
 			type: this.types,
 			$overlay: this.$menuOverlay,
-			animated: true
-		}
+			animated: true,
+		},
 	);
 
 	// Footer
@@ -68,7 +68,7 @@ mw.echo.ui.NotificationBadgeController = function MwEchoUiNotificationBadgeContr
 		icon: 'next',
 		label: mw.msg( 'echo-overlay-link' ),
 		href: links.notifications,
-		classes: [ 'mw-echo-ui-notificationBadgeController-footer-allnotifs' ]
+		classes: [ 'mw-echo-ui-notificationBadgeController-footer-allnotifs' ],
 	} );
 	allNotificationsButton.$element.children().first().removeAttr( 'role' );
 
@@ -76,7 +76,7 @@ mw.echo.ui.NotificationBadgeController = function MwEchoUiNotificationBadgeContr
 		icon: 'settings',
 		label: mw.msg( 'mypreferences' ),
 		href: links.preferences,
-		classes: [ 'mw-echo-ui-notificationBadgeController-footer-preferences' ]
+		classes: [ 'mw-echo-ui-notificationBadgeController-footer-preferences' ],
 	} );
 	preferencesButton.$element.children().first().removeAttr( 'role' );
 
@@ -86,7 +86,7 @@ mw.echo.ui.NotificationBadgeController = function MwEchoUiNotificationBadgeContr
 	}
 	const footerButtonGroupWidget = new OO.ui.ButtonGroupWidget( {
 		items: footerItems,
-		classes: [ 'mw-echo-ui-notificationBadgeController-footer-buttons' ]
+		classes: [ 'mw-echo-ui-notificationBadgeController-footer-buttons' ],
 	} );
 	const $footer = $( '<div>' )
 		.addClass( 'mw-echo-ui-notificationBadgeController-footer' )
@@ -124,9 +124,9 @@ mw.echo.ui.NotificationBadgeController = function MwEchoUiNotificationBadgeContr
 		// * echo-notification-all-text-only
 		label: mw.msg(
 			'echo-notification-' + adjustedTypeString +
-			'-text-only'
+			'-text-only',
 		),
-		classes: [ 'mw-echo-ui-notificationBadgeController-popup' ]
+		classes: [ 'mw-echo-ui-notificationBadgeController-popup' ],
 	} );
 	mql.addEventListener( 'change', matchMedia.bind( this ) );
 	// Append the popup to the overlay
@@ -141,7 +141,7 @@ mw.echo.ui.NotificationBadgeController = function MwEchoUiNotificationBadgeContr
 	this.markAllReadButton = new OO.ui.ButtonWidget( {
 		framed: false,
 		label: this.markAllReadLabel,
-		classes: [ 'mw-echo-ui-notificationsWidget-markAllReadButton' ]
+		classes: [ 'mw-echo-ui-notificationsWidget-markAllReadButton' ],
 	} );
 
 	// Hide the close button
@@ -153,7 +153,7 @@ mw.echo.ui.NotificationBadgeController = function MwEchoUiNotificationBadgeContr
 	// Events
 	this.markAllReadButton.connect( this, { click: 'onMarkAllReadButtonClick' } );
 	this.manager.connect( this, {
-		update: 'updateBadge'
+		update: 'updateBadge',
 	} );
 	this.manager.getSeenTimeModel().connect( this, { update: 'onSeenTimeModelUpdate' } );
 	this.manager.getUnreadCounter().connect( this, { countChange: 'updateBadge' } );
@@ -305,7 +305,7 @@ mw.echo.ui.NotificationBadgeController.prototype.onPopupToggle = function ( isVi
 					// Generic API failure message
 					this.notificationsWidget.resetLoadingOption( mw.msg( 'echo-api-failure' ) );
 				}
-			}
+			},
 		)
 		.then( this.emit.bind( this, 'finishLoading' ) )
 		.always( () => {

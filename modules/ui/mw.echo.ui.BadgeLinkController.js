@@ -60,7 +60,7 @@ mw.echo.ui.BadgeLinkController.prototype.setCount = function ( numItems, convert
 		this.type === 'message' ?
 			'echo-notification-notice' :
 			'echo-notification-' + this.type,
-		convertedNumber
+		convertedNumber,
 	) );
 
 	if ( this.count !== numItems ) {
