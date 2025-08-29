@@ -44,7 +44,7 @@ class NotificationServiceClient implements LoggerAwareInterface {
 			foreach ( $providerMap as $provider => $tokens ) {
 				$payload = [
 					'deviceTokens' => $tokens,
-					'messageType' => 'checkEchoV1'
+					'messageType' => 'checkEchoV1',
 				];
 				if ( $topic !== 0 ) {
 					$payload['topic'] = $topic;

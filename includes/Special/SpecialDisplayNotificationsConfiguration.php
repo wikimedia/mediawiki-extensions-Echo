@@ -146,7 +146,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 					'columns' => $columnLabelMapping,
 					'default' => $value,
 					'disabled' => true,
-				]
+				],
 			],
 			$this->getContext()
 		);

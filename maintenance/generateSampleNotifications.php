@@ -405,7 +405,7 @@ class GenerateSampleNotifications extends Maintenance {
 			[
 				'type' => 'cx-suggestions-available',
 				'extra' => [
-					'lastTranslationTitle' => 'History of the People\'s Republic of China'
+					'lastTranslationTitle' => 'History of the People\'s Republic of China',
 				],
 				'timestamp' => $this->getTimestamp(),
 			], new RecipientSet( $user )

@@ -25,7 +25,7 @@ class EchoHooksTest extends MediaWikiIntegrationTestCase {
 				'system' => [
 					'priority' => 9,
 					'no-dismiss' => [
-						'all'
+						'all',
 					],
 				],
 				'some-custom-category' => [

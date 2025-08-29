@@ -76,7 +76,7 @@ class PageEventIngress extends DomainEventIngress implements
 							'reverted-user-id' => $revertedUser->getId(),
 							'reverted-revision-id' => $undidRevId,
 							'method' => 'undo',
-							'summary' => $revisionRecord->getComment()->text
+							'summary' => $revisionRecord->getComment()->text,
 						],
 						'agent' => $userIdentity,
 					] );
@@ -122,7 +122,7 @@ class PageEventIngress extends DomainEventIngress implements
 					'extra' => [
 						'editCount' => $thresholdCount,
 						'revid' => $revisionRecord->getId(),
-					]
+					],
 				] );
 			}
 		}

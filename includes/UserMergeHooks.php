@@ -95,7 +95,7 @@ class UserMergeHooks implements
 						->deleteFrom( 'echo_notification' )
 						->where( [
 							'notification_user' => $newUser->getId(),
-							'notification_event' => $ids
+							'notification_event' => $ids,
 						] )
 						->caller( $method )
 						->execute();

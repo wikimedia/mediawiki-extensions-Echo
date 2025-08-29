@@ -19,7 +19,7 @@ class ApiEchoMute extends ApiBase {
 		],
 		'page-linked-title' => [
 			'pref' => 'echo-notifications-page-linked-title-muted-list',
-			'type' => 'title'
+			'type' => 'title',
 		],
 	];
 
@@ -127,7 +127,7 @@ class ApiEchoMute extends ApiBase {
 			],
 			'unmute' => [
 				ParamValidator::PARAM_ISMULTI => true,
-			]
+			],
 		];
 	}
 

@@ -214,7 +214,7 @@ class Event extends AbstractEntity implements Bundleable {
 		$data = [
 			'event_type' => $this->type,
 			'event_deleted' => $this->deleted,
-			'event_extra' => $this->serializeExtra()
+			'event_extra' => $this->serializeExtra(),
 		];
 		if ( $this->id ) {
 			$data['event_id'] = $this->id;
@@ -371,7 +371,7 @@ class Event extends AbstractEntity implements Bundleable {
 			LoggerFactory::getInstance( 'Echo' )->warning(
 				'Failed to unserialize event {id}',
 				[
-					'id' => $row->event_id
+					'id' => $row->event_id,
 				]
 			);
 			return false;

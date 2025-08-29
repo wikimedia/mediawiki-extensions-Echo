@@ -33,7 +33,7 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 	public static function provideFirstEditRequestModes() {
 		return [
 			[ 'web' ],
-			[ 'cli' ]
+			[ 'cli' ],
 		];
 	}
 
@@ -82,7 +82,7 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 	public static function provideTenthEditRequestModes() {
 		return [
 			[ 'web' ],
-			[ 'cli' ]
+			[ 'cli' ],
 		];
 	}
 

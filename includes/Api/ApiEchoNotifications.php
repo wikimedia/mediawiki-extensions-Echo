@@ -204,7 +204,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 		if ( !$sectionEvents ) {
 			$result = [
 				'list' => [],
-				'continue' => null
+				'continue' => null,
 			];
 		} else {
 			$result = $this->getPropList(
@@ -243,7 +243,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 	) {
 		$result = [
 			'list' => [],
-			'continue' => null
+			'continue' => null,
 		];
 
 		$notifMapper = new NotificationMapper();
@@ -440,7 +440,7 @@ class ApiEchoNotifications extends ApiQueryBase {
 			'event_extra' => $this->jsonCodec->serialize( [
 				'section' => $section ?: 'all',
 				'wikis' => $wikis,
-				'count' => $count
+				'count' => $count,
 			] ),
 			'event_deleted' => 0,
 

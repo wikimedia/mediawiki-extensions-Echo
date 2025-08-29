@@ -59,7 +59,7 @@ class SubscriptionManager extends AbstractMapper {
 				'eps_token_sha256' => hash( 'sha256', $token ),
 				'eps_data' => null,
 				'eps_topic' => $topicId,
-				'eps_updated' => $this->dbw->timestamp()
+				'eps_updated' => $this->dbw->timestamp(),
 			] )
 			->caller( __METHOD__ )
 			->execute();

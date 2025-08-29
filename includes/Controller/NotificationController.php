@@ -222,7 +222,7 @@ class NotificationController {
 		$job = new NotificationDeleteJob(
 			$event->getTitle() ?: Title::newMainPage(),
 			[
-				'userIds' => $userIds
+				'userIds' => $userIds,
 			],
 			$jobQueueGroup
 		);
@@ -282,7 +282,7 @@ class NotificationController {
 				'Delayed jobs are not enabled. Skipping enqueuing event {id} of type {type}.',
 				[
 					'id' => $event->getId(),
-					'type' => $event->getType()
+					'type' => $event->getType(),
 				]
 			);
 			return;

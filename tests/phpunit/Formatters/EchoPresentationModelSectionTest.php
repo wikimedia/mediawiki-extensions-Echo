@@ -33,7 +33,7 @@ class EchoPresentationModelSectionTest extends MediaWikiIntegrationTestCase {
 		$lang = $this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' );
 		$section = new EchoPresentationModelSection(
 			$this->makeEvent( [ 'event_extra' => $this->serializeExtra( [
-				'section-title' => str_repeat( 'a', 100 ) ] )
+				'section-title' => str_repeat( 'a', 100 ) ] ),
 			] ),
 			$this->getTestUser()->getUser(),
 			$lang

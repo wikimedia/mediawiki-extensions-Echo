@@ -29,7 +29,7 @@ class EventPassesRecipientsTest extends MediaWikiIntegrationTestCase {
 
 		Event::create(
 			[
-				'type' => 'welcome'
+				'type' => 'welcome',
 			], new RecipientSet( [ $user1, $user2 ] )
 		);
 	}
@@ -48,8 +48,8 @@ class EventPassesRecipientsTest extends MediaWikiIntegrationTestCase {
 			[
 				'type' => 'welcome',
 				'extra' => [
-					Event::RECIPIENTS_IDX => [ 10, 42 ]
-				]
+					Event::RECIPIENTS_IDX => [ 10, 42 ],
+				],
 			]
 		);
 	}
@@ -71,8 +71,8 @@ class EventPassesRecipientsTest extends MediaWikiIntegrationTestCase {
 			[
 				'type' => 'welcome',
 				'extra' => [
-					Event::RECIPIENTS_IDX => [ -42 ]
-				]
+					Event::RECIPIENTS_IDX => [ -42 ],
+				],
 			], new RecipientSet( [ $user ] )
 		);
 	}
@@ -94,8 +94,8 @@ class EventPassesRecipientsTest extends MediaWikiIntegrationTestCase {
 			[
 				'type' => 'welcome',
 				'extra' => [
-					Event::RECIPIENTS_IDX => [ $user->getId() ]
-				]
+					Event::RECIPIENTS_IDX => [ $user->getId() ],
+				],
 			], new RecipientSet( [ $user ] )
 		);
 	}

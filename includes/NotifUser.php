@@ -390,7 +390,7 @@ class NotifUser {
 				'meta' => 'notifications',
 				'notprop' => 'list',
 				'notfilter' => '!read',
-				'notlimit' => 'max'
+				'notlimit' => 'max',
 			],
 			[ $wiki ],
 			'notwikis'

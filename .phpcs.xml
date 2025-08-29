@@ -5,6 +5,12 @@
 	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
 		<exclude-pattern>scripts/gen-autoload\.php</exclude-pattern>
 	</rule>
+	<rule ref="MediaWiki.Arrays.TrailingComma">
+		<properties>
+			<property name="singleLine" value="false" />
+			<property name="multiLine" value="true" />
+		</properties>
+	</rule>
 	<arg name="encoding" value="UTF-8" />
 	<arg name="extensions" value="php" />
 	<arg name="colors" />

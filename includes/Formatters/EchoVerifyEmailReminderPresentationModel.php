@@ -77,7 +77,7 @@ class EchoVerifyEmailReminderPresentationModel extends EchoEventPresentationMode
 		}
 		return [
 			'url' => $url,
-			'label' => $this->msg( 'notification-verify-email-reminder-link-label' )->text()
+			'label' => $this->msg( 'notification-verify-email-reminder-link-label' )->text(),
 		];
 	}
 }

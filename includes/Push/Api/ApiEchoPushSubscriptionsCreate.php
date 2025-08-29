@@ -93,7 +93,7 @@ class ApiEchoPushSubscriptionsCreate extends ApiBase {
 	protected function getExamplesMessages(): array {
 		return [
 			"action=echopushsubscriptions&command=create&provider=fcm&providertoken=ABC123" =>
-				"apihelp-echopushsubscriptions+create-example"
+				"apihelp-echopushsubscriptions+create-example",
 		];
 	}
 

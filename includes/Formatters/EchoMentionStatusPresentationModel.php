@@ -105,7 +105,7 @@ class EchoMentionStatusPresentationModel extends EchoEventPresentationModel {
 			'url' => $this->section->getTitleWithSection()->getFullURL(),
 			'label' => $this->msg( 'notification-link-text-view-mention-failure' )
 				->numParams( $this->getBundleCount() )
-				->text()
+				->text(),
 		];
 	}
 

@@ -180,7 +180,7 @@ class ForeignWikiRequest {
 			$reqs[$wiki] = [
 				'method' => $method,
 				'url' => $api['url'],
-				$queryKey => $makeParams( $wiki )
+				$queryKey => $makeParams( $wiki ),
 			];
 
 			if ( $originalRequest ) {

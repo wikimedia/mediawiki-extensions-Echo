@@ -74,7 +74,7 @@ class RecentChangeNotificationMiddlewareTest extends \MediaWikiIntegrationTestCa
 
 	public function testRemovedTalkNotification() {
 		$this->overrideConfigValue( ConfigNames::Notifications, [
-			'edit-user-talk' => true
+			'edit-user-talk' => true,
 		] );
 
 		$sut = new RecentChangeNotificationMiddleware(
@@ -128,7 +128,7 @@ class RecentChangeNotificationMiddlewareTest extends \MediaWikiIntegrationTestCa
 	public function testRemovedWatchlistNotification1() {
 		$this->overrideConfigValue( ConfigNames::WatchlistNotifications, true );
 		$this->overrideConfigValue( ConfigNames::Notifications, [
-			'watchlist-change' => true
+			'watchlist-change' => true,
 		] );
 
 		$sut = new RecentChangeNotificationMiddleware(

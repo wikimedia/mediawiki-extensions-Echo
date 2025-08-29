@@ -46,10 +46,10 @@ class UpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 		);
 		$iterator->setFetchColumns( [
 			'up_user',
-			'up_value'
+			'up_value',
 		] );
 		$iterator->addConditions( [
-			'up_property' => 'echo-notifications-blacklist'
+			'up_property' => 'echo-notifications-blacklist',
 		] );
 
 		$iterator->setCaller( __METHOD__ );

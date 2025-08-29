@@ -175,7 +175,7 @@ class Hooks implements
 				// address, but we special case this notification type because of its
 				// account security implications, see Notifier::notifyWithEmail
 				'email' => true,
-			]
+			],
 		];
 
 		$echoPushEnabled = $this->config->get( ConfigNames::EnablePush );
@@ -265,14 +265,14 @@ class Hooks implements
 			'icons' => $this->config->get( ConfigNames::NotificationIcons ),
 			'selector' => '.mw-echo-icon-{name}',
 			'localBasePath' => $this->config->get( MainConfigNames::ExtensionDirectory ),
-			'remoteExtPath' => 'Echo/modules'
+			'remoteExtPath' => 'Echo/modules',
 		] );
 		$resourceLoader->register( 'ext.echo.secondaryicons', [
 			'class' => ResourceLoaderEchoImageModule::class,
 			'icons' => $this->config->get( ConfigNames::SecondaryIcons ),
 			'selector' => '.mw-echo-icon-{name}',
 			'localBasePath' => $this->config->get( MainConfigNames::ExtensionDirectory ),
-			'remoteExtPath' => 'Echo/modules'
+			'remoteExtPath' => 'Echo/modules',
 		] );
 	}
 
@@ -306,7 +306,7 @@ class Hooks implements
 			// The following message is generated upstrem:
 			// * prefs-emailsettings
 			'section' => 'echo/emailsettings',
-			'options-messages' => $freqOptions
+			'options-messages' => $freqOptions,
 		];
 
 		$preferences['echo-dont-email-read-notifications'] = [
@@ -315,7 +315,7 @@ class Hooks implements
 			// The following message is generated upstrem:
 			// * prefs-emailsettings
 			'section' => 'echo/emailsettings',
-			'hide-if' => [ 'OR', [ '===', 'echo-email-frequency', '-1' ], [ '===', 'echo-email-frequency', '0' ] ]
+			'hide-if' => [ 'OR', [ '===', 'echo-email-frequency', '-1' ], [ '===', 'echo-email-frequency', '0' ] ],
 		];
 
 		// Display information about the user's currently set email address
@@ -343,7 +343,7 @@ class Hooks implements
 			'label-message' => 'echo-pref-send-to',
 			// The following message is generated upstrem:
 			// * prefs-emailsettings
-			'section' => 'echo/emailsettings'
+			'section' => 'echo/emailsettings',
 		];
 
 		// Only show this option if html email is allowed, otherwise it is always plain text format
@@ -358,7 +358,7 @@ class Hooks implements
 				'options-messages' => [
 					'echo-pref-email-format-html' => EmailFormat::HTML,
 					'echo-pref-email-format-plain-text' => EmailFormat::PLAIN_TEXT,
-				]
+				],
 			];
 		}
 
@@ -454,7 +454,7 @@ class Hooks implements
 				'label-message' => 'echo-pref-cross-wiki-notifications',
 				// The following message is generated upstrem:
 				// * prefs-echocrosswiki
-				'section' => 'echo/echocrosswiki'
+				'section' => 'echo/echocrosswiki',
 			];
 		}
 
@@ -465,7 +465,7 @@ class Hooks implements
 				'help-message' => 'echo-pref-show-poll-updates-help',
 				// The following message is generated upstrem:
 				// * prefs-echopollupdates
-				'section' => 'echo/echopollupdates'
+				'section' => 'echo/echopollupdates',
 			];
 		}
 
@@ -507,7 +507,7 @@ class Hooks implements
 				'section' => 'echo/mutedpageslist',
 				'showMissing' => false,
 				'excludeDynamicNamespaces' => true,
-				'filter' => new MultiTitleFilter()
+				'filter' => new MultiTitleFilter(),
 			];
 		}
 	}
@@ -658,7 +658,7 @@ class Hooks implements
 						'target-page' => $linkFromPageId,
 						'link-from-page-id' => $linkFromPageId,
 						'revid' => $revid,
-					]
+					],
 				] );
 				$max--;
 			}
@@ -694,14 +694,14 @@ class Hooks implements
 		// Load the styles for the Notifications badge
 		$out->addModuleStyles( [
 			'ext.echo.styles.badge',
-			'oojs-ui.styles.icons-alerts'
+			'oojs-ui.styles.icons-alerts',
 		] );
 	}
 
 	private function processMarkAsRead( User $user, WebRequest $request, Title $title ): array {
 		$subtractions = [
 			AttributeManager::ALERT => 0,
-			AttributeManager::MESSAGE => 0
+			AttributeManager::MESSAGE => 0,
 		];
 
 		// Attempt to mark a notification as read when visiting a page
@@ -1228,7 +1228,7 @@ class Hooks implements
 	public static function getConfigVars( RL\Context $context, Config $config ): array {
 		return [
 			'EchoMaxNotificationCount' => NotifUser::MAX_BADGE_COUNT,
-			'EchoPollForUpdates' => $config->get( ConfigNames::PollForUpdates )
+			'EchoPollForUpdates' => $config->get( ConfigNames::PollForUpdates ),
 		];
 	}
 
@@ -1268,7 +1268,7 @@ class Hooks implements
 				'type' => 'check',
 				'label-message' => [
 					'echo-specialmute-label-mute-notifications',
-					$target ? $target->getName() : ''
+					$target ? $target->getName() : '',
 				],
 				'default' => in_array( $id, $list, true ),
 			];

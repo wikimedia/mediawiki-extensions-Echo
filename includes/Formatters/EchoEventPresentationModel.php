@@ -288,7 +288,7 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 			// Not deleted
 			return [
 				$this->getTruncatedUsername( $agent ),
-				$agent->getName()
+				$agent->getName(),
 			];
 		} else {
 			// Deleted/hidden

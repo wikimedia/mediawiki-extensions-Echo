@@ -28,7 +28,7 @@ class AttributeManager {
 	 */
 	public static $sections = [
 		self::ALERT,
-		self::MESSAGE
+		self::MESSAGE,
 	];
 
 	/**
@@ -78,7 +78,7 @@ class AttributeManager {
 			// additionally, inject our own default locator that uses extra['recipients'] key
 			$locators[] = [
 				[ UserLocator::class, 'locateFromEventExtra' ],
-				[ Event::RECIPIENTS_IDX ]
+				[ Event::RECIPIENTS_IDX ],
 			];
 		}
 		return $locators;

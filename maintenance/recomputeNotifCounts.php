@@ -57,14 +57,14 @@ class RecomputeNotifCounts extends Maintenance {
 				$this->getBatchSize()
 			);
 			$userIterator->addJoinConditions( [
-				'echo_notification' => [ 'INNER JOIN', 'notification_event=event_id' ]
+				'echo_notification' => [ 'INNER JOIN', 'notification_event=event_id' ],
 			] );
 			$userIterator->addConditions( [
 				'event_type' => $notifTypes,
-				'notification_read_timestamp' => null
+				'notification_read_timestamp' => null,
 			] );
 			$userIterator->addOptions( [
-				'GROUP BY' => 'notification_user'
+				'GROUP BY' => 'notification_user',
 			] );
 			$userIterator->setCaller( __METHOD__ );
 		} else {

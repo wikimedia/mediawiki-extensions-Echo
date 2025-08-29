@@ -230,7 +230,7 @@ class Notifier {
 			$htmlContent = $htmlEmailFormatter->format( $event, 'email' );
 			$multipartBody = [
 				'text' => $content['body'],
-				'html' => $htmlContent['body']
+				'html' => $htmlContent['body'],
 			];
 			$content['body'] = $multipartBody;
 		}

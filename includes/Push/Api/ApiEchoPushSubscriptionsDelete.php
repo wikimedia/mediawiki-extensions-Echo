@@ -82,7 +82,7 @@ class ApiEchoPushSubscriptionsDelete extends ApiBase {
 	protected function getExamplesMessages(): array {
 		return [
 			"action=echopushsubscriptions&command=delete&providertoken=ABC123" =>
-				"apihelp-echopushsubscriptions+delete-example"
+				"apihelp-echopushsubscriptions+delete-example",
 		];
 	}
 

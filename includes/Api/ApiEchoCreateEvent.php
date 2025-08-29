@@ -63,7 +63,7 @@ class ApiEchoCreateEvent extends ApiBase {
 				'content' => $params['content'],
 				// Send email only if specified
 				'noemail' => !$params['email'],
-			]
+			],
 		], new RecipientSet( $userToNotify ) );
 
 		// Return a success message
@@ -71,7 +71,7 @@ class ApiEchoCreateEvent extends ApiBase {
 			null,
 			$this->getModuleName(),
 			[
-				'result' => 'success'
+				'result' => 'success',
 			]
 		);
 	}

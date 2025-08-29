@@ -799,7 +799,7 @@ abstract class DiscussionParser {
 	private static function getSectionSpan( $offset, array $lines ) {
 		return [
 			self::getSectionStartIndex( $offset, $lines ),
-			self::getSectionEndIndex( $offset, $lines )
+			self::getSectionEndIndex( $offset, $lines ),
 		];
 	}
 
@@ -881,7 +881,7 @@ abstract class DiscussionParser {
 		if ( !preg_match_all( '/' . self::HEADER_REGEX . '/um', $text, $matches, PREG_OFFSET_CAPTURE ) ) {
 			return [ [
 				'header' => false,
-				'content' => $text
+				'content' => $text,
 			] ];
 		}
 
@@ -892,7 +892,7 @@ abstract class DiscussionParser {
 		if ( $matches[0][0][1] > 1 ) {
 			$sections[] = [
 				'header' => false,
-				'content' => substr( $text, 0, $matches[0][0][1] - 1 )
+				'content' => substr( $text, 0, $matches[0][0][1] - 1 ),
 			];
 		}
 		for ( $i = 0; $i < $sectionNum; $i++ ) {
@@ -903,7 +903,7 @@ abstract class DiscussionParser {
 			}
 			$sections[] = [
 				'header' => self::extractHeader( $matches[0][$i][0] ),
-				'content' => trim( $content )
+				'content' => trim( $content ),
 			];
 		}
 

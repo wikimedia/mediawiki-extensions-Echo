@@ -219,7 +219,7 @@ class EmailBatch {
 				->join( 'echo_event', null, 'event_id = eeb_event_id' )
 				->where( [
 					'eeb_user_id' => $this->mUser->getId(),
-					'event_type' => $validEvents
+					'event_type' => $validEvents,
 				] )
 				->orderBy( 'eeb_event_priority' )
 				->limit( self::$displaySize + 1 )
@@ -283,7 +283,7 @@ class EmailBatch {
 				->deleteFrom( 'echo_email_batch' )
 				->where( [
 					'eeb_user_id' => $this->mUser->getId(),
-					'eeb_event_id' => $eventIds
+					'eeb_event_id' => $eventIds,
 				] )
 				->caller( __METHOD__ )
 				->execute();
@@ -362,7 +362,7 @@ class EmailBatch {
 			'eeb_user_id' => $userId,
 			'eeb_event_id' => $eventId,
 			'eeb_event_priority' => $priority,
-			'eeb_event_hash' => $hash
+			'eeb_event_hash' => $hash,
 		];
 
 		$dbw->newInsertQueryBuilder()

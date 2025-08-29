@@ -60,7 +60,7 @@ class NotifierTest extends MediaWikiIntegrationTestCase {
 			'TestUser' => [
 				'echo-email-frequency' => $hasDisabledEchoEmails ? -1 : 1,
 				'echo-subscriptions-email-verify-email-reminder' => $hasDisabledEmailConfirmationReminder ? 0 : 1,
-				'language' => 'qqx'
+				'language' => 'qqx',
 			],
 		] );
 
@@ -190,7 +190,7 @@ class NotifierTest extends MediaWikiIntegrationTestCase {
 				// User has not disabled Echo emails
 				'echo-email-frequency' => 1,
 				'echo-subscriptions-email-verify-email-reminder' => 1,
-				'language' => 'qqx'
+				'language' => 'qqx',
 			],
 		] );
 
