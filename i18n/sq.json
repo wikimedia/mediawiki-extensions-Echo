@@ -43,7 +43,7 @@
 	"echo-pref-tooltip-mention": "Më njofto kur dikush lidh një faqe me faqen time të përdoruesit.",
 	"notifications": "Njoftimet",
 	"tooltip-pt-notifications-alert": "Njoftimet e tua",
-	"tooltip-pt-notifications-notice": "Njoftimet {{GENDER:|tuaja}}",
+	"tooltip-pt-notifications-notice": "Njoftimet {{GENDER:|e tua}}",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Njoftimet sipas kategorisë",
 	"echo-displaynotificationsconfiguration-sorting-by-section-header": "Renditja e llojeve",
 	"echo-specialpage": "Njoftimet",
