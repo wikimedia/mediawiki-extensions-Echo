@@ -145,7 +145,7 @@
 	"echo-notification-alert-text-only": "Hişyarî",
 	"echo-notification-notice-text-only": "Agahdarî",
 	"echo-overlay-link": "Hemû agahdarî",
-	"echo-mark-all-as-read": "Hemûkan wek xwendî nîşan bide",
+	"echo-mark-all-as-read": "{{PLURAL:$1|Hemûkan}} wek xwendî nîşan bide",
 	"echo-date-today": "Îro",
 	"echo-date-yesterday": "Doh"
 }
