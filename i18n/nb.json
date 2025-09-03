@@ -85,6 +85,7 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Tillatte beskjedmetoder",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Hvilke beskjedmetoder er støttet for hver kategori",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Aktivert som standard",
+	"echo-displaynotificationsconfiguration-enabled-default-legend": "Standardalternativer",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Obligatoriske beskjedmetoder",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Hvilken beskjedmetoder er obligatoriske for hver kategori",
 	"echo-specialpage": "Beskjeder",
@@ -216,8 +217,10 @@
 	"echo-email-html-footer-with-link": "For å styre hvilke eposter vi sender {{GENDER:$2|deg}}, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Varsel ($1)|Varsler ($1)|100=Varsler (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Notis ($1)|Notiser ($1)|100=Notiser (99+)}}",
+	"echo-notification-all": "{{PLURAL:$1|Varsel ($1)|Varsler ($1)|100=Varsler (99+)}}",
 	"echo-notification-alert-text-only": "Varsler",
 	"echo-notification-notice-text-only": "Notiser",
+	"echo-notification-all-text-only": "Varsler",
 	"echo-overlay-link": "Alle beskjeder",
 	"echo-overlay-title": "<b>Beskjeder</b>",
 	"echo-mark-all-as-read": "Merk {{PLURAL:$1|0=|1=|2=begge|alle}} som lest",
@@ -243,5 +246,9 @@
 	"action-manage-all-push-subscriptions": "behandle alle push-aboennementer",
 	"group-push-subscription-manager": "Push-abonnementsbehandlere",
 	"group-push-subscription-manager-member": "{{GENDER:$1|push-abonnementsbehandler}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Push-abonnementsbehandlere"
+	"grouppage-push-subscription-manager": "{{ns:project}}:Push-abonnementsbehandlere",
+	"notification-subject-email-verify-email-reminder": "Bekreft e-postadressa {{GENDER:$1|di}}",
+	"notification-header-verify-email-reminder": "<strong>Bekreft e-postadressa {{GENDER:$1|di}}</strong> så vi vet at e-postadressa tilhører deg.",
+	"notification-link-text-verify-email-reminder": "Behandle e-postinnstillinger",
+	"notification-verify-email-reminder-link-label": "Bekreft e-post"
 }
