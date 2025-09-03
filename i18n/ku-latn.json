@@ -70,7 +70,7 @@
 	"notifications": "Agahdarî",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Agahdariyên}} te",
 	"tooltip-pt-notifications-notice": "{{GENDER:|Agahdariyên}} te",
-	"tooltip-pt-notifications": "Agahdarîyên te",
+	"tooltip-pt-notifications": "Agahdariyên {{GENDER:|te}}",
 	"echo-displaynotificationsconfiguration": "Mîhengên Agahdariyan nîşan bide",
 	"echo-displaynotificationsconfiguration-summary": "Ev giştnêrîneke ku nîşan dide ka Agahdarî li ser vê wîkiyê çawa hatine mîhengkirin.",
 	"echo-displaynotificationsconfiguration-notifications-by-category-header": "Agahdarî li gor kategoriyan",
@@ -146,7 +146,7 @@
 	"echo-notification-alert-text-only": "Hişyarî",
 	"echo-notification-notice-text-only": "Agahdarî",
 	"echo-overlay-link": "Hemû agahdarî",
-	"echo-mark-all-as-read": "Hemûkan wek xwendî nîşan bide",
+	"echo-mark-all-as-read": "{{PLURAL:$1|Hemûkan}} wek xwendî nîşan bide",
 	"echo-date-today": "Îro",
 	"echo-date-yesterday": "Doh"
 }
