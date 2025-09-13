@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <ruleset name="MediaWiki">
 	<file>.</file>
-	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
-		<exclude name="MediaWiki.Commenting.CommentBeforeClass.SpacingAfter" />
-	</rule>
+	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki" />
 	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
 		<exclude-pattern>scripts/gen-autoload\.php</exclude-pattern>
 	</rule>
