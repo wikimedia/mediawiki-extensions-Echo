@@ -220,7 +220,7 @@ mw.echo.Controller.prototype.fetchLocalNotificationsByDate = function ( page ) {
 		} )
 		.then(
 			null,
-			( errCode, errObj ) => ( {
+			( errCode, errObj ) => $.Deferred().reject( {
 				errCode: errCode,
 				errInfo: OO.getProp( errObj, 'error', 'info' ),
 			} ),
@@ -345,10 +345,10 @@ mw.echo.Controller.prototype.fetchLocalNotifications = function ( isForced ) {
 					// Update the this
 					this.manager.setNotificationModels( { local: localListModel } );
 				}
-				return {
+				return $.Deferred().reject( {
 					errCode: errCode,
 					errInfo: OO.getProp( errObj, 'error', 'info' ),
-				};
+				} );
 			},
 		);
 };
@@ -551,7 +551,7 @@ mw.echo.Controller.prototype.fetchCrossWikiNotifications = function () {
 					listModel.setItems( items );
 				}
 			},
-			( errCode, errObj ) => ( {
+			( errCode, errObj ) => $.Deferred().reject( {
 				errCode: errCode,
 				errInfo: errCode === 'http' ?
 					mw.msg( 'echo-api-failure-cross-wiki' ) :
