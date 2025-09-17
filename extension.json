@@ -139,8 +139,7 @@
 		"localBasePath": "",
 		"remoteExtPath": "Echo",
 		"dependencies": [
-			"ext.echo.dm",
-			"ext.echo.mobile"
+			"ext.echo.dm"
 		],
 		"scripts": [
 			"tests/qunit/model/test_mw.echo.dm.BundleNotificationItem.js",
