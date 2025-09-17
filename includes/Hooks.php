@@ -77,8 +77,6 @@ use MobileContext;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\Stats\StatsFactory;
 
-// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
-
 class Hooks implements
 	ApiMain__moduleManagerHook,
 	ArticleUndeleteHook,
@@ -1316,7 +1314,7 @@ class Hooks implements
 	 *  anymore.
 	 * @param ApiModuleManager $moduleManager
 	 */
-	public function onApiMain__ModuleManager( $moduleManager ) {
+	public function onApiMain__moduleManager( $moduleManager ) {
 		$pushEnabled = $this->config->get( 'EchoEnablePush' );
 		if ( $pushEnabled ) {
 			$moduleManager->addModule(
