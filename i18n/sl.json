@@ -214,7 +214,7 @@
 	"notification-inbox-filter-unread": "Neprebrana",
 	"notification-inbox-filter-all": "Vsa",
 	"echo-specialmute-label-mute-notifications": "Utišaj obvestila {{GENDER:$1|tega uporabnika|te uporabnice|tega uporabnika}}",
-	"echo-email-plain-footer": "Za določite vrste e-pošte, ki naj {{GENDER:$1|vam}} jih pošiljamo, preverite svoje nastavitve:",
+	"echo-email-plain-footer": "Za določite vrst e-pošte, ki naj {{GENDER:$1|vam}} jih pošiljamo, preverite svoje nastavitve:",
 	"echo-email-html-footer-preference-link-text": "preverite {{GENDER:$1|svoje}} nastavitve",
 	"echo-email-html-footer-with-link": "Za določitev vrste e-pošte, ki naj {{GENDER:$2|vam}} jo pošiljamo, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Opomnik ($1)|Opomnika ($1)|Opomniki ($1)|Opomnikov ($1)|100=Opomniki (99+)}}",
