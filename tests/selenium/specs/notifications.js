@@ -1,7 +1,5 @@
-'use strict';
-
-const NotificationsPage = require( '../pageobjects/notifications.page' );
-const UserLoginPage = require( 'wdio-mediawiki/LoginPage' );
+import NotificationsPage from '../pageobjects/notifications.page.js';
+import UserLoginPage from 'wdio-mediawiki/LoginPage';
 
 describe( 'Notifications', () => {
 

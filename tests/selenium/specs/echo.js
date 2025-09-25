@@ -1,8 +1,6 @@
-'use strict';
-
-const assert = require( 'assert' ),
-	EchoPage = require( '../pageobjects/echo.page' ),
-	UserLoginPage = require( 'wdio-mediawiki/LoginPage' );
+import assert from 'node:assert';
+import EchoPage from '../pageobjects/echo.page.js';
+import UserLoginPage from 'wdio-mediawiki/LoginPage';
 
 describe( 'Echo', () => {
 
