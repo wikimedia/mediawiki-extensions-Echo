@@ -1281,9 +1281,10 @@ class Hooks implements
 		if ( !$this->config->get( 'EchoWatchlistNotifications' ) ) {
 			return;
 		}
-		if ( $change->getAttribute( 'rc_type' ) == RC_EXTERNAL ) {
+		if ( !$change->isInternal() ) {
 			// Ignore external changes (e.g. Wikidata), as Echo events can't have agents that correspond
-			// to actors but are not local users (T387050, see also T286153)
+			// to actors but are not local users (T387050, see also T286153).
+			// Also ignore Flow edits, as Flow generates Echo events on its own.
 			return;
 		}
 		if ( $change->getAttribute( 'rc_minor' ) ) {
