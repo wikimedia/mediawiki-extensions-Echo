@@ -22,7 +22,7 @@
 	"echo-pref-web": "ilo",
 	"echo-pref-email": "ilo Email",
 	"echo-pref-push": "ilo poki",
-	"echo-pref-email-frequency-never": "o pana ala e mu lon nasin Email",
+	"echo-pref-email-frequency-never": "o pana ala e toki suli lon nasin Email",
 	"echo-pref-email-frequency-immediately": "toki taso lon tenpo kama ona",
 	"echo-pref-email-frequency-daily": "kulupu toki lon tenpo suno taso",
 	"echo-pref-email-frequency-weekly": "kulupu toki lon tenpo esun taso",
@@ -46,6 +46,11 @@
 	"echo-category-title-user-rights": "jan lawa li ante e ken mi",
 	"echo-category-title-emailuser": "jan ante li pana e toki Email tawa mi",
 	"echo-pref-tooltip-article-linked": "jan li pali e linja tan lipu ante tawa lipu mi la, o mu e mi.",
+	"notifications": "toki suli",
+	"tooltip-pt-notifications-alert": "ijo suli",
+	"tooltip-pt-notifications-notice": "sona sin",
+	"tooltip-pt-notifications": "toki suli",
+	"echo-specialpage": "toki suli",
 	"notification-welcome-linktext": "kama pona",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|sina}} ante nanpa wan. o kama pona! {{GENDER:$2|sina}} pona!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|sina}} ante nanpa luka luka. {{GENDER:$2|sina}} pona! o awen pali pona!",
@@ -80,8 +85,8 @@
 	"echo-date-yesterday": "suno pini",
 	"echo-email-batch-body-intro-daily": "jan $1 o, toki. ni li kulupu mu lon lipu {{SITENAME}} tan tenpo suno ni.",
 	"echo-email-batch-body-intro-weekly": "jan $1 o, toki. ni li kulupu mu lon lipu {{SITENAME}} tan tenpo esun ni.",
-	"echo-email-batch-link-text-view-all-notifications": "o lukin e mu ale",
+	"echo-email-batch-link-text-view-all-notifications": "o lukin e toki suli ale",
 	"notification-header-foreign-alert": "mu suli li kama tan {{PLURAL:$5|lipu ante}}",
 	"notification-header-foreign-notice": "mu li kama tan {{PLURAL:$5|lipu ante}}",
-	"notification-header-foreign-all": "mu li kama tan {{PLURAL:$5|lipu ante}}"
+	"notification-header-foreign-all": "toki suli li kama tan {{PLURAL:$5|lipu ante}}"
 }

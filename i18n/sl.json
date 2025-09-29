@@ -84,6 +84,8 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "Ustrezni načini obveščanja",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "Kateri načini obveščanja so podprti za posamezno kategorijo",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "Vključeno v prednastavitvah",
+	"echo-displaynotificationsconfiguration-enabled-default-legend": "Privzete možnosti",
+	"echo-displaynotificationsconfiguration-enabled-default-conditional-legend": "Možnosti za uporabnike, ki izpolnjujejo pogoje: $1",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "Zahtevani načini za obveščanje",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "Kateri načini obveščanja so obvezni za posamezno kategorijo",
 	"echo-specialpage": "Obvestila",
@@ -191,7 +193,7 @@
 	"notification-link-article-reminder": "Ogled strani",
 	"notification-link-api-triggered": "Ogled strani",
 	"notification-header-reverted": "{{PLURAL:$4|Vaše urejanje strani <strong>$3</strong> je bilo {{GENDER:$2|vrnjeno}}|Vaši urejanji strani <strong>$3</strong> sta bili vrnjeni|Vaša urejanja strani <strong>$3</strong> so bila vrnjena}}.",
-	"notification-header-emailuser": "$1 vam {{GENDER:$2|je poslal|je poslala|poslal_a}} e-pošto.",
+	"notification-header-emailuser": "$1 vam je {{GENDER:$2|poslal|poslala|poslal_a}} e-pošto.",
 	"notification-edit-user-page-email-subject": "V projektu {{SITENAME}} {{GENDER:$3|vam}} je {{GENDER:$1|uporabnik|uporabnica|uporabnik_ca}} {{GENDER:$2|uredil|uredila|uredil_a}} vašo uporabniško stran.",
 	"notification-edit-talk-page-email-subject2": "V projektu {{SITENAME}} {{GENDER:$3|vam}} je {{GENDER:$1|uporabnik|uporabnica|uporabnik_ca}} {{GENDER:$2|pustil|pustila|pustil_a}} sporočilo.",
 	"notification-page-linked-email-subject": "Za stran, ki ste jo {{GENDER:$3|ustvarili}}, je bila dodana povezava v projektu {{SITENAME}}",
@@ -246,5 +248,9 @@
 	"action-manage-all-push-subscriptions": "upravljanje vseh potisnih naročil",
 	"group-push-subscription-manager": "Upravljavci potisnih naročil",
 	"group-push-subscription-manager-member": "{{GENDER:$1|upravljavec potisnih naročil|upravljavka potisnih naročil|upravljavec_ka potisnih naročil}}",
-	"grouppage-push-subscription-manager": "{{ns:project}}:Upravljavci potisnih naročil"
+	"grouppage-push-subscription-manager": "{{ns:project}}:Upravljavci potisnih naročil",
+	"notification-subject-email-verify-email-reminder": "Potrdite {{GENDER:$1| vaš}} e-poštni naslov",
+	"notification-header-verify-email-reminder": "Prosimo, <strong>potrdite {{GENDER:$1| vaš}} e-poštni naslov</strong>, da bomo vedeli, ali e-poštni naslov v {{GENDER:$1|vašem}} računu pripada {{GENDER:$1|vam}}.",
+	"notification-link-text-verify-email-reminder": "Upravljanje nastavitev e-pošte",
+	"notification-verify-email-reminder-link-label": "Potrdi e-pošto"
 }
