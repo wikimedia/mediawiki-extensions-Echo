@@ -166,7 +166,7 @@
 	"notification-header-mention-article-talkpage": "$1 が <strong>$4</strong> のセクション「<strong>$5</strong>」で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}}。",
 	"notification-header-mention-article-talkpage-nosection": "$1 が <strong>$4</strong> のトークページで{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}}。",
 	"notification-header-mention-failure-user-unknown": "この名前のアカウントが存在しないため、 <strong>$3</strong> へ言及を{{GENDER:$2|送信}}できません。",
-	"notification-header-mention-failure-user-anonymous": "<strong>$3</strong> は匿名利用者のため、言及を送信できません。",
+	"notification-header-mention-failure-user-anonymous": "<strong>$3</strong> は匿名利用者のため、{{GENDER:$2|あなたの}}言及を送信できません。",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|あなた}}の言及が上限の{{PLURAL:$3|利用者|利用者}}$3人を超えました。上限を超えた言及は送信できませんでした。",
 	"notification-header-mention-failure-bundle": "<strong>$4</strong> に{{GENDER:$2|送信}}した{{PLURAL:$3|言及|$3件の言及}}を送信{{PLURAL:$3|できませんでした}}。",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>そのような利用者名は存在しません:</strong> $1",
