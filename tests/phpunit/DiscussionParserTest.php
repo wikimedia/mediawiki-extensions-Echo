@@ -975,7 +975,6 @@ TEXT
 		$title = Title::newFromText( $title );
 		$object = new ReflectionObject( $title );
 		$property = $object->getProperty( 'mDbPageLanguage' );
-		$property->setAccessible( true );
 		$property->setValue( $title, $lang );
 
 		// create stub MutableRevisionRecord object
