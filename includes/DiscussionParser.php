@@ -479,11 +479,9 @@ abstract class DiscussionParser {
 	public static function getUserLinks( $content, Title $title ) {
 		$parserOutput = self::parseNonEditWikitext( $content, new Article( $title ) );
 		$links = [];
-		foreach ( $parserOutput->getLinkList( ParserOutputLinkTypes::LOCAL ) as
+		foreach ( $parserOutput->getLinkList( ParserOutputLinkTypes::LOCAL, NS_USER ) as
 				[ 'link' => $link, 'pageid' => $pageid ] ) {
-			if ( $link->getNamespace() === NS_USER ) {
-				$links[$link->getDBkey()] = $pageid;
-			}
+			$links[$link->getDBkey()] = $pageid;
 		}
 		return $links;
 	}
