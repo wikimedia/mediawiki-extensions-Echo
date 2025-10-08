@@ -12,6 +12,7 @@ use MediaWiki\Page\Article;
 use MediaWiki\Page\PageReferenceValue;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
+use MediaWiki\Parser\ParserOutputLinkTypes;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
@@ -476,14 +477,15 @@ abstract class DiscussionParser {
 	 * Array of links in the user namespace with DBKey => ID.
 	 */
 	public static function getUserLinks( $content, Title $title ) {
-		$output = self::parseNonEditWikitext( $content, new Article( $title ) );
-		$links = $output->getLinks();
-
-		if ( !isset( $links[NS_USER] ) || !is_array( $links[NS_USER] ) ) {
-			return [];
+		$parserOutput = self::parseNonEditWikitext( $content, new Article( $title ) );
+		$links = [];
+		foreach ( $parserOutput->getLinkList( ParserOutputLinkTypes::LOCAL ) as
+				[ 'link' => $link, 'pageid' => $pageid ] ) {
+			if ( $link->getNamespace() === NS_USER ) {
+				$links[$link->getDBkey()] = $pageid;
+			}
 		}
-
-		return $links[NS_USER];
+		return $links;
 	}
 
 	private static function hasSubpage( string $dbk ): bool {
