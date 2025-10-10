@@ -625,7 +625,7 @@ class Hooks implements
 		$revRecord = $linksUpdate->getRevisionRecord();
 		$revid = $revRecord ? $revRecord->getId() : null;
 		$user = $revRecord ? $revRecord->getUser() : null;
-		if ( $user->getName() === User::MAINTENANCE_SCRIPT_USER ) {
+		if ( $user && $user->getName() === User::MAINTENANCE_SCRIPT_USER ) {
 			$user = null;
 		}
 
