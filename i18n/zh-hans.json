@@ -141,6 +141,7 @@
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "每种通知类别支持的通知方法",
 	"echo-displaynotificationsconfiguration-enabled-default-header": "默认启用",
 	"echo-displaynotificationsconfiguration-enabled-default-legend": "默认选项",
+	"echo-displaynotificationsconfiguration-enabled-default-conditional-legend": "满足条件的用户的选项：$1",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "必选的通知方法",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend": "每种通知类别强制使用的通知方法",
 	"echo-specialpage": "通知",
