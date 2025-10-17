@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Kimberli Mäkäräinen (WMNO)",
+			"SaldırganSincap",
 			"WMNO sámeprošeakta",
 			"Yupik"
 		]
@@ -133,7 +134,7 @@
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} <strong>$4</strong>:s.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$6</strong>» <strong> {{GENDER:$5|}}, $4</strong> geavaheaddjiságastallansiiddus.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} {{GENDER:$5|}} $4</strong> <strong>geavaheaddjiságastallansiiddus.",
-	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$4</strong>:s» {{GENDER:$2|iežas}}</strong> <strong>ságastallansiiddus.",
+	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$4</strong>:s» <strong>{{GENDER:$2|iežas}}</strong> <strong>ságastallansiiddus.",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} {{GENDER:$2|iežas}}</strong> <strong>ságastallansiiddus.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$5</strong>»:s, <strong>$4</strong> ságastallansiiddus.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} <strong>$4</strong> ságastallansiiddus.",
@@ -206,7 +207,7 @@
 	"echo-date-today": "Odne",
 	"echo-date-yesterday": "Ikte",
 	"notification-bundle-header-edit-user-page": "{{PLURAL:$1|Okta ođđa rievdadus|$1 ođđa rievdadusa|100=99+ ođđa rievdadusa}} {{GENDER:$2|du}}</strong> <strong>geavaheaddjisiiddus.",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Okta ođđa diehtu|$1 ođđa dieđu|100=99+ ođđa dieđu}} {{GENDER:$3|du}}</strong> <strong>ságastallansiiddus.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Okta ođđa diehtu|$1 ođđa dieđu|100=99+ ođđa dieđu}} <strong>{{GENDER:$3|du}} ságastallansiiddus</strong>.",
 	"echo-email-batch-subject-daily": "Dutnje {{PLURAL:$2|lea boahtán ođđa almmuhus|leat boahtán ođđa almmuhusat}} {{GRAMMAR:locative|{{SITENAME}}}}",
 	"echo-email-batch-subject-weekly": "Dán vahkus dutnje {{PLURAL:$2|lea boahtán ođđa almmuhus|leat boahtán ođđa almmuhusat}} {{GRAMMAR:locative|{{SITENAME}}}}",
 	"echo-email-batch-body-intro-daily": "Bures, $1\nDá lea otná beaivvi doaimmaid čoahkkáigeassu{{SITENAME}}:s dutnje.",
