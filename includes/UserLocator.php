@@ -28,7 +28,7 @@ class UserLocator {
 		}
 		$provider = MediaWikiServices::getInstance()->getConnectionProvider();
 		$batchRowIt = new BatchRowIterator(
-			$provider->getReplicaDatabase( false, 'watchlist' ),
+			$provider->getReplicaDatabase(),
 			/* $table = */ 'watchlist',
 			/* $primaryKeys = */ [ 'wl_user' ],
 			$batchSize
