@@ -34,7 +34,8 @@
 			"Saeidpourbabak",
 			"درفش کاویانی",
 			"فلورانس",
-			"شاه زمان پټان"
+			"شاه زمان پټان",
+			"LordProfo"
 		]
 	},
 	"echo-desc": "سامانهٔ آگاه‌سازی کاربران از رویدادها و پیام‌ها",
@@ -206,7 +207,7 @@
 	"notification-tooltip-api-triggered": "این آگاه‌سازی از سوی $1 برای شما ارسال شده است",
 	"notification-body-watchlist-once": "در صورت فعالیت‌های بیشتر، هیچ اعلانی از طریق ایمیل ارسال نخواهد شد؛ مگر آن که {{GENDER:$1|شما}} در حالی که به سامانه وارد شده‌اید، از این صفحه بازدید کنید.",
 	"notification-welcome-linktext": "خوش آمدید",
-	"notification-header-thank-you-1-edit": "{{GENDER:$2|شما}} اولین ویرایش‌تان را {{GENDER:$2|انجام دادید}}. سپاس از {{GENDER:$2|شما}}، و خوش آمدید!",
+	"notification-header-thank-you-1-edit": "{{GENDER:$2|شما}} نخستین ویرایش‌تان را {{GENDER:$2|انجام دادید}}. سپاس از {{GENDER:$2|شما}} و خوش آمدید!",
 	"notification-header-thank-you-10-edit": "{{GENDER:$2|شما}} دهمین ویرایشتان را {{GENDER:$2|انجام دادید}}؛ {{GENDER:$2|ممنون}}، لطفاً ادامه دهید!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|شما}} صدمین ویرایشتان را {{GENDER:$2|انجام دادید}}؛ {{GENDER:$2|خیلی ممنون}}!",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|شما}} هزارمین ویرایشتان را {{GENDER:$2|انجام دادید}}؛ {{GENDER:$2|ممنون}} از بابت اینکه ویرایشگر بزرگی هستید!",

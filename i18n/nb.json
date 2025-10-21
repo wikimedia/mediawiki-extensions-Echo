@@ -59,7 +59,7 @@
 	"echo-category-title-user-rights": "{{PLURAL:$1|Endring|Endringer}} i brukerrettigheter",
 	"echo-category-title-emailuser": "E-post fra {{PLURAL:$1|annen bruker|andre brukere}}",
 	"echo-category-title-article-reminder": "{{PLURAL:$1|Sidepåminnelse|Sidepåminnelser}}",
-	"echo-category-title-thank-you-edit": "Rediger {{PLURAL:$1|milepæl|milepæler}}",
+	"echo-category-title-thank-you-edit": "{{PLURAL:$1|Redigeringsmilepæl|Redigeringsmilepæler}}",
 	"echo-category-title-watchlist": "Redigering av overvåket side",
 	"echo-category-title-minor-watchlist": "Mindre redigering av overvåket side",
 	"echo-category-title-api-triggered": "API-utløste varsler",
