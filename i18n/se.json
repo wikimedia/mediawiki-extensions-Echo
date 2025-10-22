@@ -3,7 +3,8 @@
 		"authors": [
 			"Kimberli Mäkäräinen (WMNO)",
 			"WMNO sámeprošeakta",
-			"Yupik"
+			"Yupik",
+			"SaldırganSincap"
 		]
 	},
 	"echo-desc": "Vuogádat dieđihit geavaheddjiide dáhpáhusaid ja dieđuid birra",
@@ -126,7 +127,7 @@
 	"notification-link-text-view-page": "Čájet siiddu",
 	"notification-header-edit-user-page": "Geavaheaddji $1 {{GENDER:$2|rievdadii}} <strong>{{GENDER:$3|du geavaheaddjisiiddu}}</strong>.",
 	"notification-header-edit-user-talk": "$1 {{GENDER:$2|čálii}} dieđu {{GENDER:$3|du}}</strong> <strong>ságastallansiidui.",
-	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|čálii}} dieđu «<strong>$4</strong>» vuolde {{GENDER:$3|du}}</strong>. <strong>ságastallansiiddus.",
+	"notification-header-edit-user-talk-with-section": "$1 {{GENDER:$2|čálii}} dieđu «<strong>$4</strong>» vuolde {{GENDER:$3|du}} <strong>ságastallansiiddus</strong>.",
 	"notification-compact-header-edit-user-page": "Geavaheaddji $1 {{GENDER:$2|rievdadii}} {{GENDER:$3|du geavaheaddjisiiddu}}.",
 	"notification-compact-header-edit-user-talk": "$1 {{GENDER:$2|guđii}} dieđu {{GENDER:$3|dutnje}}.",
 	"notification-compact-header-edit-user-talk-with-section": "$1 {{GENDER:$2|guđii}} dieđu {{GENDER:$3|dutnje}} «<strong>$4</strong>»:s.",
@@ -139,7 +140,7 @@
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} <strong>$4</strong>:s.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$6</strong>» <strong> {{GENDER:$5|}}, $4</strong> geavaheaddjiságastallansiiddus.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} {{GENDER:$5|}} $4</strong> <strong>geavaheaddjiságastallansiiddus.",
-	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$4</strong>:s» {{GENDER:$2|iežas}}</strong> <strong>ságastallansiiddus.",
+	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$4</strong>:s» <strong>{{GENDER:$2|iežas}}</strong> <strong>ságastallansiiddus.",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} {{GENDER:$2|iežas}}</strong> <strong>ságastallansiiddus.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$5</strong>»:s, <strong>$4</strong> ságastallansiiddus.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} <strong>$4</strong> ságastallansiiddus.",
@@ -211,8 +212,8 @@
 	"echo-displaysnippet-title": "Ođđa almmuhus",
 	"echo-date-today": "Odne",
 	"echo-date-yesterday": "Ikte",
-	"notification-bundle-header-edit-user-page": "{{PLURAL:$1|Okta ođđa rievdadus|$1 ođđa rievdadusa|100=99+ ođđa rievdadusa}} {{GENDER:$2|du}}</strong> <strong>geavaheaddjisiiddus.",
-	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Okta ođđa diehtu|$1 ođđa dieđu|100=99+ ođđa dieđu}} {{GENDER:$3|du}}</strong> <strong>ságastallansiiddus.",
+	"notification-bundle-header-edit-user-page": "{{PLURAL:$1|Okta ođđa rievdadus|$1 ođđa rievdadusa|100=99+ ođđa rievdadusa}} <strong>{{GENDER:$2|du}} geavaheaddjisiiddus</strong>.",
+	"notification-bundle-header-edit-user-talk-v2": "{{PLURAL:$1|Okta ođđa diehtu|$1 ođđa dieđu|100=99+ ođđa dieđu}} <strong>{{GENDER:$3|du}} ságastallansiiddus</strong>.",
 	"echo-email-batch-subject-daily": "Dutnje {{PLURAL:$2|lea boahtán ođđa almmuhus|leat boahtán ođđa almmuhusat}} {{GRAMMAR:locative|{{SITENAME}}}}",
 	"echo-email-batch-subject-weekly": "Dán vahkus dutnje {{PLURAL:$2|lea boahtán ođđa almmuhus|leat boahtán ođđa almmuhusat}} {{GRAMMAR:locative|{{SITENAME}}}}",
 	"echo-email-batch-body-intro-daily": "Bures, $1\nDá lea otná beaivvi doaimmaid čoahkkáigeassu{{SITENAME}}:s dutnje.",
