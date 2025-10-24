@@ -5,6 +5,7 @@
 			"Ahmed-Najib-Biabani-Ibrahimkhel",
 			"Amjad Khan",
 			"Baloch Khan",
+			"SaldırganSincap",
 			"شاه زمان پټان"
 		]
 	},
@@ -146,7 +147,7 @@
 	"notification-header-mention-user-talkpage-nosection": "$1{{GENDER:$3|تاسو}} د <strong>{{GENDER:$5|کارن}} $4 خبرو اترو مخ </strong> کې {{GENDER:$2|ياد کړي ياست}}.\n\n{{GENDER:$2|mentioned}}",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$3|تاسو}} د <strong>{{GENDER:$2|هغه|هغې|هغوی}} خبرو اترو مخ</strong> په \"<strong>$4</strong>\" کې {{GENDER:$2|ياد کړي ياست}}.",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$3|you}} د <strong>{{GENDER:$2|هغه|هغې|هغوی}} خبرو اترو مخ</strong> کې {{GENDER:$2|ياد کړي ياست}}.",
-	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|تاسو}} د strong>$4</strong> خبرو اترو مخ په \"<strong>$5</strong>\" کې {{GENDER:$2|ياد کړي ياست}}.",
+	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|تاسو}} د <strong>$4</strong> خبرو اترو مخ په \"<strong>$5</strong>\" کې {{GENDER:$2|ياد کړي ياست}}.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|تاسو}} د <strong>$4</strong> خبرو اترو مخ کې  {{GENDER:$2|ياد کړي ياست}}.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|ستاسو}} د <strong>$3</strong> يادونه نشي لېږل کېدای، ځکه په دې نوم هېڅ گڼون نشته.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|ستاسو}} د <strong>$3</strong> يادونه نشي لېږل کېدای، ځکه داکس بې نومه دی.",
