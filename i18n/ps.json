@@ -5,7 +5,8 @@
 			"Amjad Khan",
 			"Baloch Khan",
 			"Af420",
-			"شاه زمان پټان"
+			"شاه زمان پټان",
+			"SaldırganSincap"
 		]
 	},
 	"echo-desc": "د پېښو او پیغامونو په اړه د کارنانو د خبرتیا تگلار",
@@ -139,7 +140,7 @@
 	"notification-header-mention-user-talkpage-nosection": "$1  {{GENDER:$3|ستاسو}} {{GENDER:$2|يادونه}}  {{GENDER:$5|د}} $4 <strong> په کارن خبرې اترې مخ </strong> کي وکړه.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$3|تاسو}} د <strong>{{GENDER:$2|هغه|هغې|هغوی}} خبرو اترو مخ</strong> په \"<strong>$4</strong>\" کې {{GENDER:$2|ياد کړي ياست}}.",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$3|you}} د <strong>{{GENDER:$2|هغه|هغې|هغوی}} خبرو اترو مخ</strong> کې {{GENDER:$2|ياد کړي ياست}}.",
-	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|تاسو}} د strong>$4</strong> خبرو اترو مخ په \"<strong>$5</strong>\" کې {{GENDER:$2|ياد کړي ياست}}.",
+	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|تاسو}} د <strong>$4</strong> خبرو اترو مخ په \"<strong>$5</strong>\" کې {{GENDER:$2|ياد کړي ياست}}.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|تاسو}} د <strong>$4</strong> خبرو اترو مخ کې  {{GENDER:$2|ياد کړي ياست}}.",
 	"notification-header-mention-failure-user-unknown": "{{GENDER:$2|ستاسو|ستاسو}} پيغام و <strong>$3</strong> ته ونه لیږل شو ځکه چې دا کارن ونه موندل شو.",
 	"notification-header-mention-failure-user-anonymous": "{{GENDER:$2|ستاسو}} د <strong>$3</strong> يادونه ونه ليږل شول ځکه چې کارن نامعلوم دي.",
