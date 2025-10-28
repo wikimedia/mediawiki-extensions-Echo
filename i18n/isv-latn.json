@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"IJzeren Jan"
+			"IJzeren Jan",
+			"SaldırganSincap"
 		]
 	},
 	"echo-desc": "Sistema za uvědomjenje koristnikov o sobytjah i soobčenjah",
@@ -136,14 +137,14 @@
 	"notification-bundle-header-page-linked": "Sdělane byli linky s {{PLURAL:$5||$5 stranic|100=100 ili veče stranic}} na <strong>$3</strong>.",
 	"notification-header-article-reminder": "Stranica, o ktoroj {{GENDER:$2|vy}} jeste poprosili pripominanje, nahodi se na <strong>$3</strong>",
 	"notification-link-text-what-links-here": "Vse linky na tutu stranicu",
-	"notification-header-mention-other": "$1 spomněl{{GENDER:$2||a}} <strong>{{GENDER:$3|vas}} na stranici <strong>$4</strong> v razdělu «<strong>$5</strong>».",
-	"notification-header-mention-other-nosection": "$1 spomněl{{GENDER:$2||a}} <strong>{{GENDER:$3|vas}} na stranici <strong>$4</strong>.",
-	"notification-header-mention-user-talkpage-v2": "$1 spomněl{{GENDER:$2||a}} <strong>{{GENDER:$3|vas}} na <strong>besědnoj stranici {{GENDER:$5|koristnika|koristnice}} $4</strong> v razdělu «<strong>$6</strong>».",
-	"notification-header-mention-user-talkpage-nosection": "$1 spomněl{{GENDER:$2||a}} <strong>{{GENDER:$3|vas}} na <strong>besědnoj stranici {{GENDER:$5|koristnika|koristnice}} $4</strong>.",
-	"notification-header-mention-agent-talkpage": "$1 spomněl{{GENDER:$2||a}} <strong>{{GENDER:$3|vas}} na <strong>{{GENDER:$2|svojej}} besědnoj stranici</strong> v razdělu «<strong>$4</strong>».",
-	"notification-header-mention-agent-talkpage-nosection": "$1 spomněl{{GENDER:$2||a}} <strong>{{GENDER:$3|vas}} na <strong>{{GENDER:$2|svojej}} besědnoj stranici</strong>.",
-	"notification-header-mention-article-talkpage": "$1 spomněl{{GENDER:$2||a}} <strong>{{GENDER:$3|vas}} na besědnoj stranici članka <strong>$4</strong> v razdělu «<strong>$5</strong>».",
-	"notification-header-mention-article-talkpage-nosection": "$1 spomněl{{GENDER:$2||a}} <strong>{{GENDER:$3|vas}} na besědnoj stranici članka <strong>$4</strong>.",
+	"notification-header-mention-other": "$1 spomněl{{GENDER:$2||a}} {{GENDER:$3|vas}} na stranici <strong>$4</strong> v razdělu «<strong>$5</strong>».",
+	"notification-header-mention-other-nosection": "$1 spomněl{{GENDER:$2||a}} {{GENDER:$3|vas}} na stranici <strong>$4</strong>.",
+	"notification-header-mention-user-talkpage-v2": "$1 spomněl{{GENDER:$2||a}} {{GENDER:$3|vas}} na <strong>besědnoj stranici {{GENDER:$5|koristnika|koristnice}} $4</strong> v razdělu «<strong>$6</strong>».",
+	"notification-header-mention-user-talkpage-nosection": "$1 spomněl{{GENDER:$2||a}} {{GENDER:$3|vas}} na <strong>besědnoj stranici {{GENDER:$5|koristnika|koristnice}} $4</strong>.",
+	"notification-header-mention-agent-talkpage": "$1 spomněl{{GENDER:$2||a}} {{GENDER:$3|vas}} na <strong>{{GENDER:$2|svojej}} besědnoj stranici</strong> v razdělu «<strong>$4</strong>».",
+	"notification-header-mention-agent-talkpage-nosection": "$1 spomněl{{GENDER:$2||a}} {{GENDER:$3|vas}} na <strong>{{GENDER:$2|svojej}} besědnoj stranici</strong>.",
+	"notification-header-mention-article-talkpage": "$1 spomněl{{GENDER:$2||a}} {{GENDER:$3|vas}} na besědnoj stranici članka <strong>$4</strong> v razdělu «<strong>$5</strong>».",
+	"notification-header-mention-article-talkpage-nosection": "$1 spomněl{{GENDER:$2||a}} {{GENDER:$3|vas}} na besědnoj stranici članka <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "Odpravjenje {{GENDER:$2|vašego}} spomněnja koristnika <strong>$3</strong> jest nemožno, ibo nemaje koristničskogo konta s takym imenem.",
 	"notification-header-mention-failure-user-anonymous": "Odpravjenje {{GENDER:$2|vašego}} spomněnja koristnika <strong>$3</strong> jest nemožno, ibo tuta osoba jest anonimna.",
 	"notification-header-mention-failure-too-many": "{{GENDER:$2|Vy}} poprobovali spomněti veče neželi $3 {{PLURAL:$3|koristnika|koristnikov}}. Vse spomněnja povyše togo limita ne byli odpravjene.",
