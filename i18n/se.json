@@ -140,7 +140,7 @@
 	"notification-header-mention-other-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} <strong>$4</strong>:s.",
 	"notification-header-mention-user-talkpage-v2": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$6</strong>» <strong> {{GENDER:$5|}}, $4</strong> geavaheaddjiságastallansiiddus.",
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} {{GENDER:$5|}} <strong>$4 geavaheaddjiságastallansiiddus</strong>.",
-	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$4</strong>:s» <strong>{{GENDER:$2|iežas}}</strong> <strong>ságastallansiiddus.",
+	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$4</strong>:s» <strong>{{GENDER:$2|iežas}}</strong> ságastallansiiddus.",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} <strong>{{GENDER:$2|iežas}} ságastallansiiddus</strong>.",
 	"notification-header-mention-article-talkpage": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} «<strong>$5</strong>»:s, <strong>$4</strong> ságastallansiiddus.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$2|namuhii}} {{GENDER:$3|du}} <strong>$4</strong> ságastallansiiddus.",
