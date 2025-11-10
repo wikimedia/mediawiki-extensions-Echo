@@ -504,7 +504,7 @@ class Hooks implements
 				// * prefs-mutedpageslist
 				'section' => 'echo/mutedpageslist',
 				'showMissing' => false,
-				'excludeDynamicNamespaces' => true,
+				'creatable' => true,
 				'filter' => new MultiTitleFilter(),
 			];
 		}
