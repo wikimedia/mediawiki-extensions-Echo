@@ -37,7 +37,7 @@
 	"echo-pref-dont-email-read-notifications": "لوستل شوې خبرتياوې په برېښليک لنډيز کې مه ورگډوئ",
 	"echo-learn-more": "نور زده کړئ",
 	"echo-log": "ټوليز يادښتونه",
-	"echo-new-messages": "تاسو د خبرو اترو مخ کې نوي پيغامونه لرئ",
+	"echo-new-messages": "تاسو د خبرو اترو مخ کې نوی پيغام لرئ",
 	"echo-category-title-edit-user-talk": "خبرو اترو مخ {{PLURAL:$1|پيغام|پيغامونه}}",
 	"echo-category-title-article-linked": "مخ {{PLURAL:$1|تړنه|تړنې}}",
 	"echo-category-title-reverted": "سمون {{PLURAL:$1|ستنېدنه|ستنېدنې}}",
