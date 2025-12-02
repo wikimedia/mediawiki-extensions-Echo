@@ -186,7 +186,7 @@
 	"echo-overlay-link": "सबै सूचनाहरू",
 	"echo-overlay-title": "<b>जानकारीहरू</b>",
 	"echo-mark-all-as-read": "सबै पढिएको भनि चिनो लगाउने",
-	"echo-mark-wiki-as-read": "सबैलाई चयन गरिएको विकिमा पढिएको रूपमा चिन्ह लगाउनुहोस्: $1",
+	"echo-mark-wiki-as-read": "सबैलाई चयन गरिएको विकिमा पढिएको रूपमा चिह्न लगाउनुहोस्: $1",
 	"echo-displaysnippet-title": "नयाँ जानकारी",
 	"echo-date-today": "आज",
 	"echo-date-yesterday": "हिजो",

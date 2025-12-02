@@ -15,7 +15,8 @@
 			"Stelistcristi",
 			"Strainu",
 			"WebSourceContentRO",
-			"Wintereu"
+			"Wintereu",
+			"Dimitrie569"
 		]
 	},
 	"echo-desc": "Sistem de notificare a utilizatorilor cu privire la evenimente și mesaje",
@@ -214,7 +215,7 @@
 	"notification-inbox-filter-unread": "Necitite",
 	"notification-inbox-filter-all": "Toate",
 	"echo-specialmute-label-mute-notifications": "Nu arăta notificări de la {{GENDER:$1|acest utilizator|această utilizatoare}}",
-	"echo-email-plain-footer": "Pentru a avea controlul asupra e-mailurilor pe care {{GENDER:$1|vi}} le trimitem, {{GENDER:$1|verificați-vă}} preferințele:",
+	"echo-email-plain-footer": "Pentru a avea controlul asupra e-mailurilor pe care {{GENDER:$1|vi|vi|vi}} le trimitem, verificați-vă preferințele:",
 	"echo-email-html-footer-preference-link-text": "{{GENDER:$1verificați-vă}} preferințele",
 	"echo-email-html-footer-with-link": "Pentru a avea controlul asupra e-mailurilor pe care {{GENDER:$2vi}} le trimitem, $1.",
 	"echo-notification-alert": "{{PLURAL:$1|Alertă ($1)|Alerte ($1)|100=Alerte (99+)}}",
