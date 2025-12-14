@@ -347,6 +347,12 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$this->assertArrayEquals( $expectedParams, $params );
 	}
 
+	public function testDoesPageLinkMuteListApply(): void {
+		$wrapper = TestingAccessWrapper::newFromClass( NotificationController::class );
+		$this->assertTrue( $wrapper->doesPageLinkMuteListApply( 'page-linked' ) );
+		$this->assertFalse( $wrapper->doesPageLinkMuteListApply( 'welcome' ) );
+	}
+
 	/**
 	 * @dataProvider pageLinkedTitleMutedByUserDataProvider
 	 * @param int $mockArticleID

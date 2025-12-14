@@ -921,7 +921,8 @@
 						"web": true,
 						"email": true,
 						"expandable": true
-					}
+					},
+					"apply-page-link-mute": true
 				},
 				"minor-watchlist-change": {
 					"user-locators": [

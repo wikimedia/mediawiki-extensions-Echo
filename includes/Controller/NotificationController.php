@@ -337,8 +337,20 @@ class NotificationController {
 		}
 		return $blacklist->contains( $event->getAgent()->getName() ) ||
 			( $wgEchoPerUserBlacklist &&
-				$event->getType() === 'page-linked' &&
+				self::doesPageLinkMuteListApply( $event->getType() ) &&
 				self::isPageLinkedTitleMutedByUser( $event->getTitle(), $user ) );
+	}
+
+	/**
+	 * Check whether the specific notification type is opted in to the pagelink mute list.
+	 *
+	 * @param string $type Notification type
+	 * @return bool
+	 */
+	private static function doesPageLinkMuteListApply( string $type ): bool {
+		global $wgEchoNotifications;
+		return isset( $wgEchoNotifications[$type]['apply-page-link-mute'] )
+			&& $wgEchoNotifications[$type]['apply-page-link-mute'];
 	}
 
 	/**
