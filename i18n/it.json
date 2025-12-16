@@ -21,7 +21,8 @@
 			"Pietrodn",
 			"Raoli",
 			"Sakretsu",
-			"Vituzzu"
+			"Vituzzu",
+			"Dream Indigo"
 		]
 	},
 	"echo-desc": "Sistema per notificare agli utenti messaggi ed eventi",
@@ -157,9 +158,9 @@
 	"notification-header-mention-success-bundle": "{{PLURAL:$3|Una menzione|$3 menzioni}} che {{GENDER:$2|hai fatto}} nella pagina di discussione <strong>$4</strong> {{PLURAL:$3|è stata inviata|sono state inviate}}.",
 	"notification-compact-header-mention-success": "<strong>{{GENDER:$2|Hai menzionato}}:</strong> $3",
 	"notification-header-mention-status-bundle": "{{PLURAL:$3|Una notifica|$3 notifiche}} riguardo a menzioni che {{GENDER:$2|hai fatto}} nella pagina di discussione <strong>$4</strong>: $5 non {{PLURAL:$5|inviata|inviate}}, $6 {{PLURAL:$6|inviata|inviate}}.",
-	"notification-header-user-rights-add-only": "I tuoi diritti utente sono stati {{GENDER:$1|modificati}}. Sei {{GENDER:$4|stato aggiunto|stata aggiunta}} a: $2.",
+	"notification-header-user-rights-add-only": "I tuoi diritti utente sono stati modificati. Sei {{GENDER:$6|stato aggiunto|stata aggiunta|stato/a aggiunto/a}} a: $2.",
 	"notification-header-user-rights-remove-only": "I {{GENDER:$4|tuoi}} diritti utente sono stati {{GENDER:$1|modificati}}. Non sei più un membro di: $2.",
-	"notification-header-user-rights-add-and-remove": "I tuoi diritti utente sono stati {{GENDER:$1|modificati}}. Sei {{GENDER:$6|stato aggiunto|stata aggiunta}} a: $2. Non sei più un membro di: $4.",
+	"notification-header-user-rights-add-and-remove": "I tuoi diritti utente sono stati modificati. Sei {{GENDER:$6|stato aggiunto|stata aggiunta|stato/a aggiunto/a}} a: $2. Non sei più un membro di: $4.",
 	"notification-header-user-rights-expiry-change": "La scadenza della {{GENDER:$4|tua}} appartenenza {{PLURAL:$3|al seguente gruppo|ai seguenti gruppi}} è stata {{GENDER:$1|modificata}}: $2.",
 	"notification-header-welcome": "{{GENDER:$2|Benvenuto|Benvenuta|Benvenuto/a}} su {{SITENAME}}, $1! Siamo lieti che {{GENDER:$2|tu sia}} qui.",
 	"notification-header-mention-summary": "$1 ti {{GENDER:$2|ha}} {{GENDER:$3|menzionato|menzionata|menzionato/a}} nell'oggetto di una modifica su <strong>$4</strong>.",
