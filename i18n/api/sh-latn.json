@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"apihelp-echomarkread-summary": "Označi sva obavještenja kao pročitana za trenutni korisnik.",
@@ -16,7 +17,7 @@
 	"apihelp-echomarkseen-summary": "Označi obavještenja kao pročitana za trenutni korisnik.",
 	"apihelp-echomarkseen-example-1": "Označi obavještenja svih vrsta kao pročitana",
 	"apihelp-echomarkseen-param-type": "Vrste obavještenja što treba da se označe kao viđena: „alert“, „message“ ili „all“.",
-	"apihelp-echopushsubscriptions-param-command": "Akcija za izvesti.",
+	"apihelp-echopushsubscriptions-param-command": "Radnja za izvođenje.",
 	"apihelp-query+notifications-summary": "Daj obavještenja što isčekavaju trenutnoga korisnika.",
 	"apihelp-query+notifications-param-prop": "Pojedinosti što treba da se potraže.",
 	"apihelp-query+notifications-param-sections": "Obavjestiteljne podnaslove što treba da se potraže (tj. neka kombinacija „alert“ i „message“).",
