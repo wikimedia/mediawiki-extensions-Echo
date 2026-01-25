@@ -1,4 +1,5 @@
 <?php
+
 namespace MediaWiki\Extension\Notifications\Test\Formatters;
 
 use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;

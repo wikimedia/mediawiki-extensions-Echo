@@ -37,6 +37,7 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Notification\NotificationService;
 use MediaWiki\Notification\RecipientSet;
+use MediaWiki\Notification\Types\WikiNotification;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\Hook\OutputPageCheckLastModifiedHook;
 use MediaWiki\Output\OutputPage;
@@ -535,17 +536,12 @@ class Hooks implements
 	 * @param UserIdentity $userId user that was changed
 	 * @param string[] $add strings corresponding to groups added
 	 * @param string[] $remove strings corresponding to groups removed
-	 * @param User|bool $performer
+	 * @param User|bool $performer User who performed the change, or false for automatic changes
 	 * @param string|bool $reason Reason given by the user changing the rights
 	 * @param array $oldUGMs
 	 * @param array $newUGMs
 	 */
 	public function onUserGroupsChanged( $userId, $add, $remove, $performer, $reason, $oldUGMs, $newUGMs ) {
-		if ( !$performer ) {
-			// TODO: Implement support for autopromotion
-			return;
-		}
-
 		if ( $userId->getWikiId() !== WikiAwareEntity::LOCAL ) {
 			// TODO: Support external users
 			return;
@@ -553,8 +549,38 @@ class Hooks implements
 
 		$user = $this->userFactory->newFromUserIdentity( $userId );
 
+		// Automatic changes (e.g. expiry) have no performer
+		if ( !$performer ) {
+			if ( $remove ) {
+				$systemUser = self::getSystemUser();
+				if ( !$systemUser ) {
+					// loading the system user can fail in readOnly mode. skip the
+					// Echo side-effect rather than breaking the rights expiry flow
+					return;
+				}
+
+				$notification = new WikiNotification(
+					'user-rights',
+					$user->getUserPage(),
+					$systemUser,
+					[
+						'user' => $user->getId(),
+						'remove' => $remove,
+						'automatic' => true,
+					]
+				);
+
+				$this->notificationService->notify(
+					$notification,
+					new RecipientSet( [ $user ] )
+				);
+			}
+
+			return;
+		}
+
+		// Don't notify for self changes
 		if ( $user->equals( $performer ) ) {
-			// Don't notify for self changes
 			return;
 		}
 
@@ -1326,6 +1352,21 @@ class Hooks implements
 				ApiEchoPushSubscriptions::class
 			);
 		}
+	}
+
+	/**
+	 * Get the system user for automated notifications.
+	 * @return User|null Null if the system user could not be loaded (e.g. in read-only mode)
+	 */
+	private static function getSystemUser(): ?User {
+		static $systemUser = null;
+		if ( $systemUser === null ) {
+			$systemUser = User::newSystemUser(
+				User::MAINTENANCE_SCRIPT_USER,
+				[ 'steal' => true ]
+			) ?: null;
+		}
+		return $systemUser;
 	}
 
 	/**
