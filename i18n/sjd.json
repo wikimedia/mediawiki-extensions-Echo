@@ -39,7 +39,7 @@
 	"notification-inbox-filter-unread": "Эйй ло̄гкма",
 	"echo-notification-alert": "{{PLURAL:$1|Тӣдҍлаһтҍмушш ($1)|Тӣдтҍлаһтҍмуж ($1)|100=Тӣдҍлаһтҍмуж (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Тӣдҍхэмушш ($1)|Тӣдҍхэмуж ($1)|100=Тӣдҍхэмуж (99+)}}",
-	"echo-notification-alert-text-only": "Тӣдҍлаһтҍмуж",
+	"echo-notification-alert-text-only": "Тӣдтҍлаһтҍмуж",
 	"echo-notification-notice-text-only": "Тӣдҍхэмуж",
 	"echo-overlay-link": "Пугк тӣдҍхэмуж",
 	"echo-overlay-title": "<b>Тӣдҍхэмуж</b>",
