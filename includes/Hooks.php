@@ -120,6 +120,7 @@ class Hooks implements
 		private readonly UserEditTracker $userEditTracker,
 		private readonly UserFactory $userFactory,
 		private readonly UserOptionsManager $userOptionsManager,
+		private readonly ?MobileContext $mobileContext,
 	) {
 		$this->statsFactory = $statsFactory->withComponent( 'Echo' );
 	}
@@ -818,9 +819,7 @@ class Hooks implements
 		// Add notifications items to personal URLs
 		// (On mobile, they're combined into one for reasons lost to mists of time)
 		// TODO: Make this a skin option (T299229), and remove other Minerva special-cases below.
-		$isMobile = ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
-			// @phan-suppress-next-line PhanUndeclaredClassMethod
-			MobileContext::singleton()->shouldDisplayMobileView();
+		$isMobile = $this->mobileContext && $this->mobileContext->shouldDisplayMobileView();
 		$sections = $skinName === 'minerva' && $isMobile
 			? [ AttributeManager::ALL ]
 			: [ AttributeManager::ALERT, AttributeManager::MESSAGE ];

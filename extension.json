@@ -520,6 +520,9 @@
 				"UserEditTracker",
 				"UserFactory",
 				"UserOptionsManager"
+			],
+			"optional_services": [
+				"MobileFrontend.Context"
 			]
 		},
 		"schema": {
