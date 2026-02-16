@@ -587,7 +587,10 @@
 			"value": null
 		},
 		"EchoMaxUpdateCount": {
-			"value": 2000
+			"value": 10000
+		},
+		"EchoMaxNotificationAge": {
+			"value": 157783680
 		},
 		"EchoMaxMentionsCount": {
 			"value": 50

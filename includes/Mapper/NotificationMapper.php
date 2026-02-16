@@ -9,6 +9,7 @@ use MediaWiki\Deferred\AtomicSectionUpdate;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Exception\MWExceptionHandler;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
@@ -340,6 +341,53 @@ class NotificationMapper extends AbstractMapper {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * Delete notifications by user that are older than certain age
+	 *
+	 * @param UserIdentity $userIdentity
+	 * @param int $age age of notification in seconds
+	 * @return void
+	 */
+	public function deleteByUserAndAge( UserIdentity $userIdentity, int $age ): void {
+		global $wgUpdateRowsPerQuery;
+		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
+		$cutoffTime = time() - $age;
+		$eventsToDelete = $dbr->newSelectQueryBuilder()
+			->select( 'notification_event' )
+			->from( 'echo_notification' )
+			->where( [
+				'notification_user' => $userIdentity->getId(),
+				$dbr->expr( 'notification_timestamp', '<', $dbr->timestamp( $cutoffTime ) ),
+			] )
+			->orderBy( [ 'notification_timestamp', 'notification_event' ], SelectQueryBuilder::SORT_ASC )
+			->caller( __METHOD__ )
+			->limit( $wgUpdateRowsPerQuery )
+			->fetchFieldValues();
+		if ( !$eventsToDelete ) {
+			return;
+		}
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
+		$domainId = $dbw->getDomainID();
+
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'echo_notification' )
+			->where( [
+				'notification_user' => $userIdentity->getId(),
+				'notification_event' => $eventsToDelete,
+			] )
+			->caller( __METHOD__ )
+			->execute();
+		$eventMapper = new EventMapper( $this->dbFactory );
+		$eventMapper->deleteOrphanedEvents( $eventsToDelete, $userIdentity->getId(), 'echo_notification' );
+
+		$lbFactory->commitAndWaitForReplication(
+			__METHOD__, $ticket, [ 'domain' => $domainId ] );
+		$notifUser = NotifUser::newFromUser( $userIdentity );
+		$notifUser->resetNotificationCount();
 	}
 
 	/**
