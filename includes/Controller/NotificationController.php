@@ -474,17 +474,16 @@ class NotificationController {
 		$type = $event->getType();
 		$result = [];
 		foreach ( $attributeManager->getUserCallable( $type, $locator ) as $callable ) {
-			// locator options can be set per-event by using an array with
-			// name as first parameter.
+			// Extra per-event parameters can be passed to the locator function by using an array,
+			// in which the first element is the callable, and remaining elements are the parameters.
 			if ( is_array( $callable ) ) {
-				$options = $callable;
-				$spliced = array_splice( $options, 0, 1, [ $event ] );
-				$callable = reset( $spliced );
+				$extraParams = $callable;
+				$callable = array_shift( $extraParams );
 			} else {
-				$options = [ $event ];
+				$extraParams = [];
 			}
 			if ( is_callable( $callable ) ) {
-				$result[] = $callable( ...$options );
+				$result[] = $callable( $event, ...$extraParams );
 			} else {
 				wfDebugLog( __CLASS__, __FUNCTION__ . ": Invalid $locator returned for $type" );
 			}
