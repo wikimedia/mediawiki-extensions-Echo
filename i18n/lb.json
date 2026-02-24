@@ -37,7 +37,7 @@
 	"echo-pref-notifications-blacklist": "Notifikatioune vun dëse Benotzer net weisen ([https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications#mute méi gewuer ginn])",
 	"echo-pref-notifications-page-linked-title-muted-list": "Notifikatioune fir „Säiteverlinkungen“ op dës Säiten net weisen ([https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications#mute méi gewuer ginn])",
 	"echo-pref-dont-email-read-notifications": "Geliesen Notifikatiounen net an d'E-Maile mat de Resuméen ophuelen",
-	"echo-learn-more": "Fir méi ze wëssen",
+	"echo-learn-more": "Méi gewuer ginn",
 	"echo-log": "Ëffentlecht Logbuch",
 	"echo-new-messages": "Dir hutt en neie Message op Ärer Diskussiounssäit",
 	"echo-category-title-edit-user-talk": "{{PLURAL:$1|Ännerung|Ännerungen}} op menger Diskussiounssäit",
