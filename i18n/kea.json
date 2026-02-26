@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Waldyrious"
+			"Waldyrious",
+			"GrogeXaKaba"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Bus}} alertas"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Bu}} alértas"
 }
