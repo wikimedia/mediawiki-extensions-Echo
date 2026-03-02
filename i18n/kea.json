@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"GrogeXaKaba",
+			"Letra.berdi",
 			"Waldyrious"
 		]
 	},
-	"tooltip-pt-notifications-alert": "{{GENDER:|Bu}} alértas"
+	"tooltip-pt-notifications-alert": "{{GENDER:|Bus}} alérta"
 }
