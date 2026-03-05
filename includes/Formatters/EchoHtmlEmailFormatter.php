@@ -163,7 +163,7 @@ EOF;
 
 		$preferenceLink = $this->renderLink(
 			[
-				'label' => $this->msg( 'echo-email-html-footer-preference-link-text', $this->user )
+				'label' => $this->msg( 'echo-email-html-footer-preference-link-text', $this->user->getName() )
 					->text(),
 				'url' => SpecialPage::getTitleFor( 'Preferences', false, 'mw-prefsection-echo' )
 					->getFullURL( '', false, PROTO_CANONICAL ),
@@ -173,7 +173,7 @@ EOF;
 
 		$footer = $this->msg( 'echo-email-html-footer-with-link' )
 			->rawParams( $preferenceLink )
-			->params( $this->user )
+			->params( $this->user->getName() )
 			->parse();
 
 		if ( $wgEchoEmailFooterAddress ) {

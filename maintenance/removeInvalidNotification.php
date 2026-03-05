@@ -59,7 +59,6 @@ class RemoveInvalidNotification extends Maintenance {
 		foreach ( $iterator as $batch ) {
 			$event = [];
 			foreach ( $batch as $row ) {
-				// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 				if ( !in_array( $row->event_id, $event ) ) {
 					$event[] = $row->event_id;
 					$countByType[$row->event_type] ??= 0;

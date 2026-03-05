@@ -61,7 +61,7 @@ class SpecialNotifications extends SpecialPage {
 			$noJSDiv->appendContent(
 				new OOUI\LabelWidget( [ 'label' => $this->msg( 'echo-none' )->text() ] )
 			);
-			$out->addHTML( $noJSDiv );
+			$out->addHTML( (string)$noJSDiv );
 			$out->addModules( [ 'ext.echo.special' ] );
 			return;
 		}
@@ -228,7 +228,7 @@ class SpecialNotifications extends SpecialPage {
 		// Wrap with nojs div
 		$noJSDiv->appendContent( $container );
 
-		$out->addHTML( $noJSDiv );
+		$out->addHTML( (string)$noJSDiv );
 
 		$out->addModules( [ 'ext.echo.special' ] );
 

@@ -144,6 +144,7 @@ class EmailBatch {
 			}
 
 			$bundler = new Bundler();
+			// @phan-suppress-next-line PhanTypeMismatchProperty Generic method
 			$this->events = $bundler->bundle( $this->events );
 
 			$this->sendEmail();
