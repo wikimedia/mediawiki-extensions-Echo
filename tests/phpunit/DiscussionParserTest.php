@@ -1041,14 +1041,9 @@ TEXT
 			$this->setupTestUser( $expectedUser[1] );
 		}
 
-		if ( !DiscussionParser::isSignedComment( $line ) ) {
-			$this->assertFalse( $expectedUser );
-			return;
-		}
-
 		$output = DiscussionParser::getUserFromLine( $line );
 
-		$this->assertEquals( $expectedUser, $output );
+		$this->assertSame( $expectedUser, $output );
 	}
 
 	public static function signingDetectionDataProvider() {
