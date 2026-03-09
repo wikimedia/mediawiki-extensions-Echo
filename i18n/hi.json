@@ -76,7 +76,7 @@
 	"echo-pref-tooltip-mention": "जब कोई मेरे सदस्य पृष्ठ की कड़ी कहीं जोड़ता है तब मुझे सूचित करें।",
 	"echo-pref-tooltip-mention-failure": "अगर मैं किसी सदस्य का उल्लेख न कर पाऊँ तो मुझे सूचित करें।",
 	"echo-pref-tooltip-mention-success": "किसी के नाम का उल्लेख करने पर मुझे सूचित करें।",
-	"echo-pref-tooltip-article-reminder": "मेरे पूछने पर मुझे इस पृष्ठ के बारे में सूचित करें।",
+	"echo-pref-tooltip-article-reminder": "मेरे कहने पर मुझे इस पृष्ठ के बारे में सूचित करें।",
 	"echo-pref-tooltip-thank-you-edit": "मेरे पहले, दसवें, सौवें संपादन पर मुझे सूचित करें।",
 	"echo-pref-tooltip-watchlist": "जब कोई मेरी ध्यानसूची में कोई (गैर-छोटा) संपादन करता है तो मुझे सूचित करें।",
 	"echo-pref-tooltip-minor-watchlist": "जब कोई मेरी ध्यानसूची में कोई छोटा संपादन करता है तो मुझे सूचित करें।",
