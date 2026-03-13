@@ -53,7 +53,7 @@ class SpecialNotifications extends SpecialPage {
 		$notifications = $pager->getNotifications();
 
 		$noJSDiv = new OOUI\Tag();
-		$noJSDiv->addClasses( [ 'mw-echo-special-nojs' ] );
+		$noJSDiv->addClasses( [ 'mw-echo-special-nojs', 'oo-ui-pendingElement-pending' ] );
 
 		// If there are no notifications, display a message saying so
 		if ( !$notifications ) {
