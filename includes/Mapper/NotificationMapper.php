@@ -10,11 +10,13 @@ use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Exception\MWExceptionHandler;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\NotifUser;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\SelectQueryBuilder;
+use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
  * Database mapper for Notification model
@@ -351,10 +353,11 @@ class NotificationMapper extends AbstractMapper {
 	 * @return void
 	 */
 	public function deleteByUserAndAge( UserIdentity $userIdentity, int $age ): void {
-		global $wgUpdateRowsPerQuery;
+		$updateRowsPerQuery = MediaWikiServices::getInstance()->getMainConfig()
+			->get( MainConfigNames::UpdateRowsPerQuery );
 		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
 		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
-		$cutoffTime = time() - $age;
+		$cutoffTime = ConvertibleTimestamp::time() - $age;
 		$eventsToDelete = $dbr->newSelectQueryBuilder()
 			->select( 'notification_event' )
 			->from( 'echo_notification' )
@@ -364,7 +367,7 @@ class NotificationMapper extends AbstractMapper {
 			] )
 			->orderBy( [ 'notification_timestamp', 'notification_event' ], SelectQueryBuilder::SORT_ASC )
 			->caller( __METHOD__ )
-			->limit( $wgUpdateRowsPerQuery )
+			->limit( $updateRowsPerQuery )
 			->fetchFieldValues();
 		if ( !$eventsToDelete ) {
 			return;
