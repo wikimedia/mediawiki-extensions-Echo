@@ -257,6 +257,6 @@
 	"grouppage-push-subscription-manager": "{{ns:project}}:Người quản lý đăng ký đẩy",
 	"notification-subject-email-verify-email-reminder": "Xác nhận địa chỉ thư điện tử của {{GENDER:$1}}bạn",
 	"notification-header-verify-email-reminder": "Vui lòng <strong>xác minh địa chỉ email {{GENDER:$1|}}của bạn </strong> để chúng tôi biết địa chỉ email trên tài khoản {{GENDER:$1|}}thuộc về {{GENDER:$1|}}bạn.",
-	"notification-link-text-verify-email-reminder": "Quản lý tùy chọn email",
+	"notification-link-text-verify-email-reminder": "Quản lý tùy chọn thư điện tử",
 	"notification-verify-email-reminder-link-label": "Xác nhận địa chỉ thư điện tử"
 }
