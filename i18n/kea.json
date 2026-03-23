@@ -6,5 +6,21 @@
 			"Waldyrious"
 		]
 	},
+	"echo-desc": "Sistéma di nutifikason di uzuáris sobri ivéntus i mensájis",
+	"prefs-echo": "Nutifikasons",
+	"prefs-emailsettings": "Opusons di kureiu iletróniku",
+	"echo-pref-email-format": "Furmatu di kureiu iletróniku:",
+	"echo-pref-email": "Kureiu iletróniku",
+	"echo-pref-push": "Aplikativu",
+	"echo-pref-email-frequency-never": "Ka nvia-m nutifikasons pa kureiu iletróniku",
+	"echo-pref-email-format-plain-text": "Testu sinplis",
+	"echo-learn-more": "Sabe más",
+	"echo-log": "Rajistu públiku",
+	"echo-category-title-other": "{{PLURAL:$1|Otu}}",
+	"echo-category-title-system": "{{PLURAL:$1|Sistéma}}",
+	"echo-category-title-system-noemail": "{{PLURAL:$1|Sistéma}}",
+	"echo-category-title-system-emailonly": "{{PLURAL:$1|Sistéma}}",
+	"echo-category-title-user-rights": "{{PLURAL:$1|Alterason na diretus di uzuári}}",
+	"echo-category-title-verify-email-reminder": "Abizu pa kunfirmason di kureiu iletróniku",
 	"tooltip-pt-notifications-alert": "{{GENDER:|Bus}} alérta"
 }

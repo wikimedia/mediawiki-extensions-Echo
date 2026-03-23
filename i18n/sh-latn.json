@@ -57,7 +57,7 @@
 	"echo-pref-tooltip-reverted": "Obavještava vas kad netko poništi ili vrati vašu izmjenu.",
 	"echo-pref-tooltip-mention": "Obavještava vas kad netko doda vezu do vaše korisničke stranice.",
 	"echo-pref-tooltip-mention-failure": "Obavještava vas kad netko nije dobio obavijest nakon što ste ga spomenuli.",
-	"echo-pref-tooltip-mention-success": "Obavještava vas kad netko uspješno dobije obavijest nakon što ste ga spomenuli.",
+	"echo-pref-tooltip-mention-success": "Obavještava vas kad netko uspješno primi obavijest nakon što ste ga spomenuli.",
 	"echo-pref-tooltip-article-reminder": "Obavijesti me o ovoj stranici kad to zatražim.",
 	"echo-pref-tooltip-thank-you-edit": "Obavještava vas kad objavite svoju prvu, desetu, stotu izmjenu itd.",
 	"echo-pref-tooltip-verify-email-reminder": "Podsjećaju vas da potvrdite e-poštu ako to još niste učinili.",
