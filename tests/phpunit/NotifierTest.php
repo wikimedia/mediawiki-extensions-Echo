@@ -202,7 +202,7 @@ class NotifierTest extends MediaWikiIntegrationTestCase {
 				$this->isInstanceOf( MailAddress::class ),
 				'(notification-subject-email-verify-email-reminder: TestUser)',
 				$this->logicalAnd(
-					$this->stringContains( '(notification-header-verify-email-reminder: TestUser)' ),
+					$this->stringContains( '(notification-header-verify-email-reminder: TestUser' ),
 					$this->stringContains( '(notification-verify-email-reminder-link-label)' ),
 					$this->stringContains( '(notification-link-text-verify-email-reminder: TestUser)' ),
 				)

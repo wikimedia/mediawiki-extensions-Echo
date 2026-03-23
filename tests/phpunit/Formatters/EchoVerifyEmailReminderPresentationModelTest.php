@@ -111,7 +111,7 @@ class EchoVerifyEmailReminderPresentationModelTest extends MediaWikiIntegrationT
 		$this->assertSame( 'alert', $model->getIconType() );
 
 		$this->assertSame(
-			"(notification-header-verify-email-reminder: {$user->getName()})",
+			"(notification-header-verify-email-reminder: {$user->getName()}, {$user->getName()})",
 			$model->getHeaderMessage()->text()
 		);
 		$this->assertSame(

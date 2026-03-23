@@ -276,7 +276,7 @@
 	"group-push-subscription-manager-member": "{{GENDER:$1|push subscription manager}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:Push subscription managers",
 	"notification-subject-email-verify-email-reminder": "Verify {{GENDER:$1|your}} email",
-	"notification-header-verify-email-reminder": "Please <strong>verify {{GENDER:$1|your}} email address</strong> so that we know the email address on {{GENDER:$1|your}} account belongs to {{GENDER:$1|you}}.",
+	"notification-header-verify-email-reminder": "Hello $2,\nPlease <strong>verify {{GENDER:$1|your}} email address</strong> so that we know the email address on {{GENDER:$1|your}} account belongs to {{GENDER:$1|you}}.",
 	"notification-link-text-verify-email-reminder": "Manage email preferences",
 	"notification-verify-email-reminder-link-label": "Confirm email"
 }
