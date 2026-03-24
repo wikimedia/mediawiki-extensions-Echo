@@ -169,7 +169,8 @@ class ForeignWikiRequest {
 	 * @return array[] Array of request parameters to pass to doRequests(), keyed by wiki name
 	 */
 	protected function getRequestParams( $method, $makeParams, ?WebRequest $originalRequest ) {
-		$apis = ForeignNotifications::getApiEndpoints( $this->wikis );
+		$lang = RequestContext::getMain()->getLanguage();
+		$apis = ForeignNotifications::getApiEndpoints( $this->wikis, $lang );
 		if ( !$apis ) {
 			return [];
 		}
