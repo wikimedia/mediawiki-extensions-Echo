@@ -58,7 +58,7 @@
 	"echo-pref-tooltip-mention-failure": "Notifica conmigo cuando no puede yo envia un mencion na un persona.",
 	"echo-pref-tooltip-mention-success": "Notifica conmigo cuando envia yo un mencion na un persona.",
 	"echo-pref-tooltip-article-reminder": "Notifica conmigo acerca este pagina cuando pregunta yo.",
-	"echo-pref-tooltip-thank-you-edit": "Notifica conmigo cuando alcanza yo mi aca-1, aca-10, aca-100... editada.",
+	"echo-pref-tooltip-thank-you-edit": "Notifica conmigo cuando alcanza yo mi aca-1, aca-10, aca-100... editacion.",
 	"echo-specialpage-section-markread": "Marca con el grupo como ya lee ya",
 	"echo-none": "No hay tu notificacion.",
 	"echo-api-failure": "Ya falla saca notificacion.",
