@@ -246,7 +246,7 @@
 	"group-push-subscription-manager-member": "{{GENDER:$1|xestor|xestora}} de subscricións push",
 	"grouppage-push-subscription-manager": "{{ns:project}}:Xestores de subscricións push",
 	"notification-subject-email-verify-email-reminder": "Verifica o {{GENDER:$1|teu}} enderezo electrónico",
-	"notification-header-verify-email-reminder": "<strong>Verifica o {{GENDER:$1|teu}} enderezo de correo electrónico</strong> para que saibamos que o enderezo electrónico da túa conta che pertence.",
+	"notification-header-verify-email-reminder": "Ola, $2:\n<strong>Verifica o {{GENDER:$1|teu}} enderezo de correo electrónico</strong> para que saibamos que o enderezo electrónico da túa conta che pertence.",
 	"notification-link-text-verify-email-reminder": "Xestionar as preferencias de correo",
 	"notification-verify-email-reminder-link-label": "Confirmar o correo electrónico"
 }
