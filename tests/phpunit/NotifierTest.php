@@ -220,13 +220,11 @@ class NotifierTest extends MediaWikiIntegrationTestCase {
 		yield 'user is blocked and wgBlockDisablesLogin is not set' => [
 			'isBlocked' => true,
 			'blockDisablesLogin' => false,
-			'emailAddress' => 'valid@example.com',
 		];
 
 		yield 'user is not blocked and wgBlockDisablesLogin is set' => [
 			'isBlocked' => false,
 			'blockDisablesLogin' => true,
-			'emailAddress' => 'valid@example.com',
 		];
 
 		yield 'user is not blocked and wgBlockDisablesLogin is not set' => [
