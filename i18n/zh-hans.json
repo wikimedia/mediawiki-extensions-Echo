@@ -306,7 +306,7 @@
 	"group-push-subscription-manager-member": "{{GENDER:$1|推送订阅管理员}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:推送订阅管理员",
 	"notification-subject-email-verify-email-reminder": "验证{{GENDER:$1|您}}的电子邮件地址",
-	"notification-header-verify-email-reminder": "请<strong>验证{{GENDER:$1|您的}}电子邮件地址</strong>，以便我们确认{{GENDER:$1|您}}账号中的邮件地址确实属于{{GENDER:$1|您}}。",
+	"notification-header-verify-email-reminder": "您好$2，请<strong>验证{{GENDER:$1|您的}}电子邮件地址</strong>，以便我们确认{{GENDER:$1|您}}账号中的邮件地址确实属于{{GENDER:$1|您}}。",
 	"notification-link-text-verify-email-reminder": "管理电子邮件设置",
 	"notification-verify-email-reminder-link-label": "确认电子邮件地址"
 }

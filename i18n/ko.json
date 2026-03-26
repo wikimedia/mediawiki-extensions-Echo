@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bisang",
 			"Bluehill",
 			"Bluemersen",
 			"Daisy2002",
@@ -241,6 +242,7 @@
 	"group-push-subscription-manager-member": "{{GENDER:$1|푸시 구독 관리자}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:푸시 구독 관리자",
 	"notification-subject-email-verify-email-reminder": "{{GENDER:$1|내}} 이메일 확인",
+	"notification-header-verify-email-reminder": "안녕하세요 $2님,\n귀하의 <strong>이메일 주소를 확인</strong>해 주세요. 그래야 {{GENDER:$1|귀하의}} 계정에 등록된 이메일 주소가 {{GENDER:$1|귀하의}} 소유인지 확인할 수 있습니다.",
 	"notification-link-text-verify-email-reminder": "이메일 환경 설정 관리",
 	"notification-verify-email-reminder-link-label": "이메일 확인"
 }
