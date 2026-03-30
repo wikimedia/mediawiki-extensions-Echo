@@ -245,7 +245,7 @@
 	"group-push-subscription-manager-member": "{{GENDER:$1|pengurus langganan pacuan}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:Pengurus langganan pacuan",
 	"notification-subject-email-verify-email-reminder": "Sahkan e-mel {{GENDER:$1|anda}}",
-	"notification-header-verify-email-reminder": "Sila <strong>sahkan {{GENDER:$1|alamat e-mel anda}}</strong> supaya kami tahu yang alamat e-mel yang terpaut pada {{GENDER:$1|akaun anda}} itu adalah milik {{GENDER:$1|anda}}.",
+	"notification-header-verify-email-reminder": "Salam sejahtera $2,\n\nSila <strong>sahkan {{GENDER:$1|alamat e-mel anda}}</strong> supaya kami tahu yang alamat e-mel yang terpaut pada {{GENDER:$1|akaun anda}} itu adalah milik {{GENDER:$1|anda}}.",
 	"notification-link-text-verify-email-reminder": "Urus keutamaan e-mel",
 	"notification-verify-email-reminder-link-label": "Sahkan e-mel"
 }
