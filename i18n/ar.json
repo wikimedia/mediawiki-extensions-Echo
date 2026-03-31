@@ -67,7 +67,7 @@
 	"echo-pref-cross-wiki-notifications": "أظهر الإشعارات من ويكيات أخرى.",
 	"echo-pref-notifications-blacklist": "لا تعرض إشعارات هذه المستخدمين.  ([https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications#mute تعرف على المزيد])",
 	"echo-pref-notifications-page-linked-title-muted-list": "لا تظهر إشعارات \"رابط الصفحة\" لهذه الصفحات.  ([https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications#mute تعرف على المزيد])",
-	"echo-pref-dont-email-read-notifications": "لا تقم بتضمين إشعارات القراءة في رسائل البريد الإلكتروني الموجزة",
+	"echo-pref-dont-email-read-notifications": "لا تضمن إشعارات القراءة في رسائل البريد الإلكتروني الملخصة",
 	"echo-learn-more": "معرفة المزيد",
 	"echo-log": "السجل العلني",
 	"echo-new-messages": "لديك رسائل جديدة",
