@@ -133,6 +133,17 @@
 		"echo-create",
 		"echo-read-notifications"
 	],
+	"GrantPermissions": {
+		"echo-read-notifications": {
+			"echo-read-notifications": true
+		}
+	},
+	"GrantPermissionGroups": {
+		"echo-read-notifications": "private-information"
+	},
+	"GrantRiskGroups": {
+		"echo-read-notifications": "low"
+	},
 	"GroupPermissions": {
 		"user": {
 			"echo-read-notifications": true
