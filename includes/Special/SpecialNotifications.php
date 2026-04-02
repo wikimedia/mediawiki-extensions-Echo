@@ -54,8 +54,12 @@ class SpecialNotifications extends SpecialPage {
 		$pager->setLimit( $this->getRequest()->getInt( 'limit', self::DISPLAY_NUM ) );
 		$notifications = $pager->getNotifications();
 
+		$jsDiv = new OOUI\Tag();
+		$jsDiv->addClasses( [ 'mw-echo-special-js', 'oo-ui-pendingElement-pending' ] );
+		$out->addHTML( (string)$jsDiv );
+
 		$noJSDiv = new OOUI\Tag();
-		$noJSDiv->addClasses( [ 'mw-echo-special-nojs', 'oo-ui-pendingElement-pending' ] );
+		$noJSDiv->addClasses( [ 'mw-echo-special-nojs' ] );
 
 		// If there are no notifications, display a message saying so
 		if ( !$notifications ) {
