@@ -240,6 +240,8 @@
 	"echo-badge-count": "{{PLURAL:$1|$1|100=+{{formatnum:99}}}}",
 	"right-echo-create": "Enviar notificacións a outras persoas",
 	"action-echo-create": "enviar notificacións a outras persoas",
+	"right-echo-read-notifications": "Ler as miñas notificacións",
+	"action-echo-read-notifications": "ler as túas notificacións",
 	"right-manage-all-push-subscriptions": "Xestionar todas subscricións push",
 	"action-manage-all-push-subscriptions": "xestionar todas subscricións push",
 	"group-push-subscription-manager": "Xestores de subscricións push",

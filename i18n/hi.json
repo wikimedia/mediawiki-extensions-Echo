@@ -250,13 +250,15 @@
 	"notification-header-foreign-all": "{{PLURAL:$5|एक दूसरे विकि|$5 दूसरे विकियों}} से अधिक अधिसूचनाएँ",
 	"right-echo-create": "दूसरों को अधिसूचनाएँ भेजना",
 	"action-echo-create": "दूसरों को अधिसूचनाएँ भेजने",
+	"right-echo-read-notifications": "मेरी अधिसूचनाएँ पढ़ना",
+	"action-echo-read-notifications": "मेरी अधिसूचनाएँ पढ़ने",
 	"right-manage-all-push-subscriptions": "सभी पुश सदस्यताएँ प्रबंधित करना",
 	"action-manage-all-push-subscriptions": "सभी पुश सदस्यताएँ प्रबंधित करने",
 	"group-push-subscription-manager": "पुश सदस्यता प्रबंधक",
 	"group-push-subscription-manager-member": "{{GENDER:$1|पुश सदस्यता प्रबंधक}}",
 	"grouppage-push-subscription-manager": "{{ns:project}}:पुश सदस्यता प्रबंधक",
 	"notification-subject-email-verify-email-reminder": "{{GENDER:$1|अपना}} ईमेल प्रमाणित करें",
-	"notification-header-verify-email-reminder": "कृपया <strong>{{GENDER:$1|अपना}} ईमेल प्रमाणित करें</strong> ताकि हमें पता चले कि आपके खाते पर मौजूद ईमेल पता आपका ही है।",
+	"notification-header-verify-email-reminder": "नमस्ते $2 जी,\nकृपया <strong>{{GENDER:$1|अपना}} ईमेल प्रमाणित करें</strong> ताकि हमें पता चले कि आपके खाते पर मौजूद ईमेल पता आपका ही है।",
 	"notification-link-text-verify-email-reminder": "ईमेल की वरीयताएँ प्रबंधित करें",
 	"notification-verify-email-reminder-link-label": "ईमेल की पुष्टि करें"
 }

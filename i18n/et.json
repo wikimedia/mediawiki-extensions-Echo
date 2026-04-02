@@ -206,7 +206,7 @@
 	"right-echo-create": "Saata teistele teavitusi",
 	"action-echo-create": "teistele teavitusi saata",
 	"notification-subject-email-verify-email-reminder": "Kinnita {{GENDER:$1|enda}} e-posti aadress",
-	"notification-header-verify-email-reminder": "Palun <strong>kinnita {{GENDER:$1|enda}} e-posti aadress</strong>. Siis teame, et sinu kontoga seotud e-posti aadress kuulub sulle.",
+	"notification-header-verify-email-reminder": "Tere, $2\nPalun <strong>kinnita {{GENDER:$1|enda}} e-posti aadress</strong>. Siis teame, et sinu kontoga seotud e-posti aadress kuulub sulle.",
 	"notification-link-text-verify-email-reminder": "Halda e-posti sätteid",
 	"notification-verify-email-reminder-link-label": "Kinnita e-posti aadress"
 }
