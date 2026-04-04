@@ -145,7 +145,7 @@
 		"echo-read-notifications": "low"
 	},
 	"GroupPermissions": {
-		"user": {
+		"*": {
 			"echo-read-notifications": true
 		},
 		"push-subscription-manager": {
