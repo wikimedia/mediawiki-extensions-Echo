@@ -31,12 +31,11 @@ trait ApiEchoPermissionsTrait {
 	 * @return void
 	 */
 	private function checkReadNotificationsPermissions(): void {
+		if ( !$this->getAuthority()->isRegistered() ) {
+			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
+		}
 		if ( !$this->getAuthority()->isAllowed( 'echo-read-notifications' ) ) {
-			if ( !$this->getAuthority()->isRegistered() ) {
-				$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
-			} else {
-				$this->dieWithError( 'apierror-permissiondenied', 'echo-read-notifications' );
-			}
+			$this->dieWithError( 'apierror-permissiondenied', 'echo-read-notifications' );
 		}
 	}
 }

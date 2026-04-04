@@ -970,6 +970,9 @@ class Hooks implements
 	 * @param array &$links Array of URLs to append to.
 	 */
 	public function onSkinTemplateNavigation__Universal( $skinTemplate, &$links ): void {
+		if ( !$skinTemplate->getAuthority()->isRegistered() ) {
+			return;
+		}
 		if ( !$skinTemplate->getAuthority()->isAllowed( 'echo-read-notifications' ) ) {
 			return;
 		}
