@@ -18,7 +18,12 @@ class SpecialNotifications extends SpecialPage {
 	private const DISPLAY_NUM = 20;
 
 	public function __construct() {
-		parent::__construct( 'Notifications', 'echo-read-notifications' );
+		parent::__construct( 'Notifications' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'echo-read-notifications';
 	}
 
 	/**
