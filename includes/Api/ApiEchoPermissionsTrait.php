@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Notifications\Api;
 
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Context\ContextSource;
+use MediaWiki\Message\Message;
 use MediaWiki\Permissions\Authority;
 use Wikimedia\Message\MessageSpecifier;
 
@@ -24,6 +25,12 @@ trait ApiEchoPermissionsTrait {
 	abstract public function dieWithError( $msg, $code = null, $data = null, $httpCode = 0 );
 
 	/**
+	 * @param string $key
+	 * @return Message
+	 */
+	abstract public function msg( $key );
+
+	/**
 	 * Ensure the user has read access to their own notifications
 	 *
 	 * Calls dieWithError() with appropriate messaging if omitted.
@@ -35,7 +42,10 @@ trait ApiEchoPermissionsTrait {
 			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'login-required' );
 		}
 		if ( !$this->getAuthority()->isAllowed( 'echo-read-notifications' ) ) {
-			$this->dieWithError( 'apierror-permissiondenied', 'echo-read-notifications' );
+			$this->dieWithError( [
+				'apierror-permissiondenied',
+				$this->msg( 'action-echo-read-notifications' ),
+			] );
 		}
 	}
 }
