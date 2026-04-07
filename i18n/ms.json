@@ -238,6 +238,7 @@
 	"notification-header-foreign-all": "Lebih pemberitahuan daripada {{PLURAL:$5|wiki lain|$5 wiki lain}}",
 	"right-echo-create": "Hantar pemberitahuan kepada orang lain",
 	"action-echo-create": "hantar pemberitahuan kepada orang lain",
+	"right-echo-read-notifications": "Baca pemberitahuan saya",
 	"right-manage-all-push-subscriptions": "Urus semua langganan pacuan",
 	"action-manage-all-push-subscriptions": "urus semua pemberitahuan pacuan",
 	"group-push-subscription-manager": "Pengurus langganan pacuan",
