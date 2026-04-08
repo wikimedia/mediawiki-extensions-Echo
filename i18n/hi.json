@@ -251,6 +251,7 @@
 	"notification-header-foreign-all": "{{PLURAL:$5|एक दूसरे विकि|$5 दूसरे विकियों}} से अधिक अधिसूचनाएँ",
 	"right-echo-create": "दूसरों को अधिसूचनाएँ भेजना",
 	"action-echo-create": "दूसरों को अधिसूचनाएँ भेजने",
+	"right-echo-read-notifications": "मेरी अधिसूचनाएँ पढ़ना",
 	"right-manage-all-push-subscriptions": "सभी पुश सदस्यताएँ प्रबंधित करना",
 	"action-manage-all-push-subscriptions": "सभी पुश सदस्यताएँ प्रबंधित करने",
 	"group-push-subscription-manager": "पुश सदस्यता प्रबंधक",

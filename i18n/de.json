@@ -259,6 +259,7 @@
 	"echo-foreign-wiki-lang": "$1 – $2",
 	"right-echo-create": "Benachrichtigungen an andere senden",
 	"action-echo-create": "Benachrichtigungen an andere zu senden",
+	"right-echo-read-notifications": "Meine Benachrichtigungen lesen",
 	"right-manage-all-push-subscriptions": "Verwalten aller Push-Abonnements",
 	"action-manage-all-push-subscriptions": "verwalten aller Push-Abonnements",
 	"group-push-subscription-manager": "Push-Abonnementverwalter",
