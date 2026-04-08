@@ -10,10 +10,12 @@
 			"Mouse21",
 			"Okras",
 			"Putnik",
-			"Sunpriat"
+			"Sunpriat",
+			"Vlad5250"
 		]
 	},
 	"apihelp-echocreateevent-summary": "Вручную отправить уведомление участнику",
+	"apihelp-echocreateevent-example": "Отправить уведомление",
 	"apihelp-echocreateevent-param-header": "Содержимое заголовка уведомления",
 	"apihelp-echocreateevent-param-content": "Содержание основного текста уведомления",
 	"apihelp-echocreateevent-param-page": "Страница, на которую ведёт ссылка в уведомлении",
