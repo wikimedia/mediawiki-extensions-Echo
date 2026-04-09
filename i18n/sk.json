@@ -8,7 +8,8 @@
 			"Teslaton",
 			"TomášPolonec",
 			"Urbanecm",
-			"Vlad5250"
+			"Vlad5250",
+			"KormiSK"
 		]
 	},
 	"echo-desc": "Systém na upozorňovanie používateľov na udalosti a správy",
@@ -204,5 +205,6 @@
 	"echo-email-batch-link-text-view-all-notifications": "Zobraziť všetky upozornenia",
 	"notification-header-foreign-alert": "Viac upozornení z {{PLURAL:$5|ďalšej wiki|$5 ďalších wiki}}",
 	"notification-header-foreign-notice": "Viac oznámení z {{PLURAL:$5|ďalšej wiki|$5 ďalších wiki}}",
-	"notification-header-foreign-all": "Ďalšie notifikácie z {{PLURAL:$5|inej wiki|$5 iných wiki}}"
+	"notification-header-foreign-all": "Ďalšie notifikácie z {{PLURAL:$5|inej wiki|$5 iných wiki}}",
+	"right-echo-read-notifications": "Prečítať si svoje oznámenia"
 }

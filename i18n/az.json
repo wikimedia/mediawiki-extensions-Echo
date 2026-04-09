@@ -249,6 +249,7 @@
 	"echo-badge-count": "{{PLURAL:$1| $1 |100={{formatnum:99}}+}}",
 	"right-echo-create": "Başqalarına bildiriş göndərmək",
 	"action-echo-create": "başqalarına bildiriş göndərmək",
+	"right-echo-read-notifications": "Öz bildirişlərinizi oxumaq",
 	"right-manage-all-push-subscriptions": "Bütün push abunəliklərini idarə etmək",
 	"action-manage-all-push-subscriptions": "bütün push abunəliklərini idarə etmək",
 	"group-push-subscription-manager": "Push abunə menecerləri",

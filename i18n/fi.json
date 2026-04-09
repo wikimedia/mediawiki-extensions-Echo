@@ -255,6 +255,7 @@
 	"echo-foreign-wiki-lang": "$1 – $2",
 	"right-echo-create": "Lähettää ilmoituksia muille",
 	"action-echo-create": "lähettää ilmoituksia muille",
+	"right-echo-read-notifications": "Lukea omia ilmoituksia",
 	"right-manage-all-push-subscriptions": "Hallita kaikkia push-tilauksia",
 	"action-manage-all-push-subscriptions": "hallita kaikkia push-tilauksia",
 	"group-push-subscription-manager": "push-tilauksien hallitsijat",
