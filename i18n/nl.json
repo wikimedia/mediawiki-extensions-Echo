@@ -148,7 +148,7 @@
 	"notification-link-text-collapse-all": "Samenvouwen",
 	"notification-link-text-view-message": "Bericht bekijken",
 	"notification-link-text-view-mention": "Vermelding bekijken",
-	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Toon vermelding|Toon vermeldingen}}",
+	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Vermelding weergeven|Vermeldingen weergeven}}",
 	"notification-link-text-view-changes": "Wijzigingen {{GENDER:$1|bekijken}}",
 	"notification-link-text-view-page": "Pagina bekijken",
 	"notification-header-edit-user-page": "$1 heeft <strong>{{GENDER:$3|uw}} gebruikerspagina</strong> {{GENDER:$2|bewerkt}}.",
