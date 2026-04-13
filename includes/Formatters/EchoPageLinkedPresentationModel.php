@@ -123,7 +123,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 
 	/** @inheritDoc */
 	protected function getHeaderMessageKey() {
-		if ( $this->getBundleCount( true, [ $this, 'getLinkedPageId' ] ) > 1 ) {
+		if ( $this->getBundleCount( true, $this->getLinkedPageId( ... ) ) > 1 ) {
 			return 'notification-bundle-header-page-linked';
 		}
 		return 'notification-header-page-linked';
@@ -135,7 +135,7 @@ class EchoPageLinkedPresentationModel extends EchoEventPresentationModel {
 		$msg->params( $this->getTruncatedTitleText( $this->event->getTitle(), true ) );
 		$msg->params( $this->getTruncatedTitleText( $this->getPageFrom(), true ) );
 		$count =
-			$this->getNotificationCountForOutput( true, [ $this, 'getLinkedPageId' ] );
+			$this->getNotificationCountForOutput( true, $this->getLinkedPageId( ... ) );
 		$msg->numParams( $count );
 		return $msg;
 	}

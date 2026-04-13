@@ -70,7 +70,7 @@ class SchemaHooks implements LoadExtensionSchemaUpdatesHook {
 			] );
 			$updater->addExtensionUpdateOnVirtualDomain( [
 				DbDomains::VIRTUAL_SHARED_DOMAIN,
-				[ __CLASS__, 'dropPushSubscriptionForeignKeys' ], $dir,
+				self::dropPushSubscriptionForeignKeys( ... ), $dir,
 			] );
 		}
 		if ( $dbType === 'sqlite' ) {
