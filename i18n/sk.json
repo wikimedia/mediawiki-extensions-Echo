@@ -209,5 +209,6 @@
 	"notification-header-foreign-alert": "Viac upozornení z {{PLURAL:$5|ďalšej wiki|$5 ďalších wiki}}",
 	"notification-header-foreign-notice": "Viac oznámení z {{PLURAL:$5|ďalšej wiki|$5 ďalších wiki}}",
 	"notification-header-foreign-all": "Ďalšie notifikácie z {{PLURAL:$5|inej wiki|$5 iných wiki}}",
-	"right-echo-read-notifications": "Prečítať si svoje oznámenia"
+	"right-echo-read-notifications": "Prečítať si svoje oznámenia",
+	"action-echo-read-notifications": "prečítať si svoje oznámenia"
 }
