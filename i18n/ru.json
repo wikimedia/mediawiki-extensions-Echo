@@ -278,6 +278,7 @@
 	"notification-header-foreign-alert": "Больше уведомлений из {{PLURAL:$5|другой вики|$5 других вики}}",
 	"notification-header-foreign-notice": "Больше уведомлений из {{PLURAL:$5|другой вики|$5 других вики}}",
 	"notification-header-foreign-all": "Больше уведомлений из {{PLURAL:$5|другой вики|$5 других вики}}",
+	"grant-echo-read-notifications": "Чтение уведомлений",
 	"right-echo-create": "Отправка уведомлений другим участникам",
 	"action-echo-create": "отправка уведомлений другим участникам",
 	"right-echo-read-notifications": "Чтение уведомлений",
