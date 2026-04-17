@@ -247,6 +247,8 @@
 	"notification-header-foreign-all": "$5개의 다른 위키로부터 알림 더 보기",
 	"right-echo-create": "다른 사용자에게 알림 보내기",
 	"action-echo-create": "다른 사용자에게 알림 보내기",
+	"right-echo-read-notifications": "내 알림 읽기",
+	"action-echo-read-notifications": "내 알림을 읽을",
 	"right-manage-all-push-subscriptions": "모든 푸시 구독 관리",
 	"action-manage-all-push-subscriptions": "모든 푸시 구독을 관리할",
 	"group-push-subscription-manager": "푸시 구독 관리자",
