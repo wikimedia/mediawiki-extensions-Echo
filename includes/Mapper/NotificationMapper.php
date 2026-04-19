@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Mapper;
 
-use BatchRowIterator;
 use Exception;
 use InvalidArgumentException;
 use MediaWiki\Deferred\AtomicSectionUpdate;
@@ -14,6 +13,7 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\Utils\BatchRowIterator;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 use Wikimedia\Timestamp\ConvertibleTimestamp;

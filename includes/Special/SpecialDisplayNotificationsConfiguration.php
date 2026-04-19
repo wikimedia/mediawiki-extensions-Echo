@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Notifications\Special;
 
-use FormatJson;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\OOUIHTMLForm;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Message\Message;
 use MediaWiki\SpecialPage\UnlistedSpecialPage;

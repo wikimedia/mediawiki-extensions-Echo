@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Test\Controller;
 
-use MapCacheLRU;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Model\Event;
@@ -13,6 +12,7 @@ use MediaWiki\User\User;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWikiIntegrationTestCase;
 use PHPUnit\Framework\TestCase;
+use Wikimedia\ObjectCache\MapCacheLRU;
 use Wikimedia\TestingAccessWrapper;
 
 /**

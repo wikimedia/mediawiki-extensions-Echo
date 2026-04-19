@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\Notifications\Controller;
 
 use InvalidArgumentException;
 use Iterator;
-use MapCacheLRU;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\CachedList;
@@ -23,6 +22,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\ObjectCache\MapCacheLRU;
 use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
