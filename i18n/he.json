@@ -208,6 +208,7 @@
 	"notification-reverted-email-subject2": "{{PLURAL:$4|עריכה {{GENDER:$3|שלך}}|עריכות שלך}} באתר {{SITENAME}} {{PLURAL:$4|{{GENDER:$2|בוטלה}}|בוטלו}}",
 	"notification-mention-email-subject": "$1 {{GENDER:$2|הזכיר|הזכירה}} {{GENDER:$3|אותך}} באתר {{SITENAME}}",
 	"notification-user-rights-email-subject": "ההרשאות {{GENDER:$3|שלך}} באתר {{SITENAME}} שונו",
+	"notification-user-rights-expiry-email-subject": "פג תוקפן של ההרשאות {{GENDER:$3|שלך}} באתר {{SITENAME}}",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|שנייה|$1 שניות}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|דקה|$1 דקות}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|שעה|שעתיים|$1 שעות}}",
