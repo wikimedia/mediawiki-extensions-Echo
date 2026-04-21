@@ -56,7 +56,7 @@
 	"echo-category-title-api-triggered": "Maga API triggered notifications",
 	"echo-category-title-verify-email-reminder": "Man email acordada de confirmacion",
 	"echo-pref-tooltip-article-linked": "Notifica conmigo cuando tiene persona ta hace link na pagina que ya crea yo estaba na otro pagina",
-	"echo-pref-tooltip-reverted": "Notifica conmigo cuando tiene persona ya hace reverti un edit de mio, por medio del herramienta de deshace o rollback.",
+	"echo-pref-tooltip-reverted": "Notifica conmigo cuando tiene persona ya hace reverti editacion de mio, por medio del herramienta de deshace o rollback.",
 	"echo-pref-tooltip-mention": "Notifica conmigo cuando tiene persona el man link na mio pagina de usuario.",
 	"echo-pref-tooltip-mention-failure": "Notifica conmigo cuando no puede yo envia un mencion na un persona.",
 	"echo-pref-tooltip-mention-success": "Notifica conmigo cuando envia yo un mencion na un persona.",
