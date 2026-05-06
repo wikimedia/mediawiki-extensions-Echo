@@ -47,7 +47,7 @@ mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( con
 			iconUrl.includes( 'progressive' ) ||
 			iconUrl.includes( 'constructive' ) ||
 			iconUrl.includes( 'failure' ) ? '' : 'skin-invert';
-		/* eslint-disable-next-line mediawiki/class-doc */
+
 		$icon = $( '<div>' )
 			.addClass( `mw-echo-ui-notificationItemWidget-icon ${ invertIconClass }` )
 			.append( $( '<img>' ).attr( {
