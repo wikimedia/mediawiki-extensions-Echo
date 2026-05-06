@@ -64,7 +64,8 @@
 			"神樂坂秀吉",
 			"科劳",
 			"范",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"Saoutax"
 		]
 	},
 	"echo-desc": "用于通知用户事件和留言的系统",
@@ -303,7 +304,7 @@
 	"grant-echo-read-notifications": "阅读我的通知",
 	"right-echo-create": "发送通知给其他人",
 	"action-echo-create": "发送通知给其他人",
-	"right-echo-read-notifications": "阅读我的通知",
+	"right-echo-read-notifications": "阅读自己的通知",
 	"action-echo-read-notifications": "阅读您的通知",
 	"right-manage-all-push-subscriptions": "管理所有推送订阅",
 	"action-manage-all-push-subscriptions": "管理所有推送订阅",
