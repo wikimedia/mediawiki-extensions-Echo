@@ -11,7 +11,6 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\MutableRevisionRecord;
-use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
@@ -978,9 +977,8 @@ TEXT
 		$property->setValue( $title, $lang );
 
 		// create stub MutableRevisionRecord object
-		$revision = new MutableRevisionRecord( $title );
-
 		$content = new WikitextContent( $newText );
+		$revision = MutableRevisionRecord::newFromContent( $title, $content );
 
 		$revision->setId( $newId );
 		$revision->setUser( User::newFromName( $username ) );
@@ -991,7 +989,6 @@ TEXT
 			null
 		);
 		$revision->setComment( $comment );
-		$revision->setContent( SlotRecord::MAIN, $content );
 
 		$userName = $revision->getUser()->getName();
 
