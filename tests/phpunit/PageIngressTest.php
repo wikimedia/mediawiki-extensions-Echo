@@ -9,7 +9,9 @@ use MediaWiki\Page\Event\PageDeletedEvent;
 use MediaWiki\Page\ExistingPageRecord;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
+use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\UserEditTracker;
+use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\User\UserIdentityValue;
 use MediaWikiIntegrationTestCase;
@@ -34,6 +36,9 @@ class PageIngressTest extends MediaWikiIntegrationTestCase {
 		$revisionStore = $this->createMock( RevisionStore::class );
 		$userEditTracker = $this->createMock( UserEditTracker::class );
 		$eventMapper = $this->createMock( EventMapper::class );
+		$titleFactory = $this->createMock( TitleFactory::class );
+		$userFactory = $this->createMock( UserFactory::class );
+
 		$eventIdsForModeration = [ 1, 2, 3 ];
 		$eventMapper->expects( $this->once() )
 			->method( 'fetchIdsByPage' )
@@ -55,7 +60,8 @@ class PageIngressTest extends MediaWikiIntegrationTestCase {
 
 		$pageEventIngress = new PageEventIngress(
 			$revisionStore, $userEditTracker,
-			$eventMapper, $userIdentityUtils
+			$eventMapper, $userIdentityUtils,
+			$titleFactory, $userFactory
 		);
 		$pageEventIngress->handlePageDeletedEvent( $event );
 	}

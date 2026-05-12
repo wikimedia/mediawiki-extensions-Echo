@@ -18,7 +18,9 @@ use MediaWiki\Page\Event\PageLatestRevisionChangedEvent;
 use MediaWiki\Page\Event\PageLatestRevisionChangedListener;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Storage\EditResult;
+use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\UserEditTracker;
+use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityUtils;
 
@@ -32,7 +34,8 @@ class PageEventIngress extends DomainEventIngress implements
 		private readonly UserEditTracker $userEditTracker,
 		private readonly EventMapper $eventMapper,
 		private readonly UserIdentityUtils $userIdentityUtils,
-
+		private readonly TitleFactory $titleFactory,
+		private readonly UserFactory $userFactory,
 	) {
 	}
 
@@ -55,6 +58,7 @@ class PageEventIngress extends DomainEventIngress implements
 		DiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
 
 		$this->maybeSendThankYouEdit( $event );
+		$this->maybeSendEditedOtherUsersJsNotification( $event );
 
 		$title = $event->getPageRecordAfter();
 		$userIdentity = $event->getAuthor();
@@ -128,6 +132,41 @@ class PageEventIngress extends DomainEventIngress implements
 				] );
 			}
 		}
+	}
+
+	/**
+	 * Notify the owner of a user JS page when another user edits it.
+	 */
+	private function maybeSendEditedOtherUsersJsNotification(
+		PageLatestRevisionChangedEvent $event
+	): void {
+		$title = $this->titleFactory->newFromPageIdentity( $event->getPageRecordAfter() );
+
+		if ( !$title->isUserJsConfigPage() ) {
+			return;
+		}
+
+		$owner = $this->userFactory->newFromName( $title->getRootText() );
+
+		if ( !$owner || !$this->userIdentityUtils->isNamed( $owner ) ) {
+			return;
+		}
+
+		$userIdentity = $event->getAuthor();
+		if ( $owner->getId() === $userIdentity->getId() ) {
+			return;
+		}
+
+		$revisionRecord = $event->getLatestRevisionAfter();
+		Event::create( [
+			'type' => 'edited-other-users-js',
+			'title' => $event->getPageRecordAfter(),
+			'agent' => $userIdentity,
+			'extra' => [
+				'revid' => $revisionRecord->getId(),
+				'owner-user-id' => $owner->getId(),
+			],
+		] );
 	}
 
 	public function handlePageDeletedEvent( PageDeletedEvent $event ): void {

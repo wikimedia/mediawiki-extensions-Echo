@@ -565,7 +565,9 @@
 				"RevisionStore",
 				"UserEditTracker",
 				"EchoEventMapper",
-				"UserIdentityUtils"
+				"UserIdentityUtils",
+				"TitleFactory",
+				"UserFactory"
 			]
 		}
 	],
@@ -667,6 +669,10 @@
 					"web": true,
 					"email": false
 				},
+				"edited-other-users-js": {
+					"web": true,
+					"email": false
+				},
 				"verify-email-reminder": {
 					"web": true,
 					"email": true
@@ -735,6 +741,10 @@
 				},
 				"edit-user-page": {
 					"priority": 1
+				},
+				"edited-other-users-js": {
+					"priority": 4,
+					"tooltip": "echo-pref-tooltip-edited-other-users-js"
 				},
 				"reverted": {
 					"priority": 9,
@@ -811,6 +821,9 @@
 					"path": "Echo/modules/icons/edit-progressive.svg"
 				},
 				"edit-user-page": {
+					"path": "Echo/modules/icons/edit-user-page.svg"
+				},
+				"edited-other-users-js": {
 					"path": "Echo/modules/icons/edit-user-page.svg"
 				},
 				"edit-user-talk": {
@@ -1109,6 +1122,20 @@
 					"group": "positive",
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditThresholdPresentationModel",
 					"section": "message"
+				},
+				"edited-other-users-js": {
+					"user-locators": [
+						[
+							"MediaWiki\\Extension\\Notifications\\UserLocator::locateFromEventExtra",
+							[
+								"owner-user-id"
+							]
+						]
+					],
+					"category": "edited-other-users-js",
+					"group": "neutral",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEditedOtherUsersJsPresentationModel",
+					"section": "alert"
 				},
 				"article-reminder": {
 					"user-locators": [
