@@ -127,7 +127,6 @@ class NotificationController {
 		$type = $event->getType();
 		$notifyTypes = self::getEventNotifyTypes( $type );
 		$userIds = [];
-		$userIdsCount = 0;
 		$services = MediaWikiServices::getInstance();
 		$hookRunner = new HookRunner( $services->getHookContainer() );
 		$userOptionsLookup = $services->getUserOptionsLookup();
@@ -155,12 +154,10 @@ class NotificationController {
 				self::doNotification( $event, $user, $deliveryType );
 			}
 
-			$userIdsCount++;
 			// Process 1000 users per NotificationDeleteJob
-			if ( $userIdsCount > 1000 ) {
+			if ( count( $userIds ) >= 1000 ) {
 				self::enqueueDeleteJob( $userIds, $event );
 				$userIds = [];
-				$userIdsCount = 0;
 			}
 
 			$stats = $services->getStatsFactory()->withComponent( 'Echo' );
