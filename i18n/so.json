@@ -27,6 +27,7 @@
 	"notification-link-text-view-changes": "{{GENDER:$1|Itus}} isbedelka",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|ayaa ku xusay}} {{GENDER:$3|adiga}} <strong>{{GENDER:$2|boggiisa wada hadalka|boggeeda wada hadalka|boggooda wada hadalka}}</strong>.",
 	"notification-header-user-rights-expiry": "{{GENDER:$3|Xubinnimadaada|Xubinnimada}} kooxaha soo socda {{PLURAL:$2|ayaa|ayaa}} si toos ah u dhacday: $1.",
+	"notification-user-rights-email-subject": "Xuquuqdaada {{GENDER:$3|isticmaale}} waa la baddalay ee {{SITENAME}}",
 	"notification-user-rights-expiry-email-subject": "{{GENDER:$3|Xuquuqda isticmaalahaaga}} ee {{SITENAME}} waa ay dhacday",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 daqiiqo}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1bil}}",
