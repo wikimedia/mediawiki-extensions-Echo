@@ -38,7 +38,7 @@
 	"apihelp-echomute-param-mute": "알림 미표시 목록에 추가할 문서 또는 사용자",
 	"apihelp-echomute-param-unmute": "알림 미표시 목록에서 제거할 문서 또는 사용자",
 	"apihelp-echopushsubscriptions-summary": "현재 사용자의 푸시 구독을 관리합니다.",
-	"apihelp-echopushsubscriptions-param-command": "수행할 동작입니다.",
+	"apihelp-echopushsubscriptions-param-command": "수행할 작업입니다.",
 	"apihelp-echopushsubscriptions+create-summary": "현재 사용자의 푸시 구독을 등록합니다.",
 	"apihelp-echopushsubscriptions+create-param-provider": "토큰을 등록할 푸시 서비스 제공자입니다.",
 	"apihelp-echopushsubscriptions+create-param-providertoken": "등록할 토큰입니다.",
