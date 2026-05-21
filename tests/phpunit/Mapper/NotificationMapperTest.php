@@ -125,17 +125,17 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		$mockDb->expects( $this->exactly( 4 ) )
 			->method( 'select' )
 			->willReturnOnConsecutiveCalls(
-				$this->returnValue( $makeResultRows( [ 1, 2, 3, 5 ] ) ),
-				$this->returnValue( $makeResultRows( [ 8, 13, 21, 34 ] ) ),
-				$this->returnValue( $makeResultRows( [ 55, 89 ] ) ),
-				$this->returnValue( $makeResultRows( [] ) )
+				$makeResultRows( [ 1, 2, 3, 5 ] ),
+				$makeResultRows( [ 8, 13, 21, 34 ] ),
+				$makeResultRows( [ 55, 89 ] ),
+				$makeResultRows( [] )
 			);
 		$mockDb->expects( $this->exactly( 3 ) )
 			->method( 'selectFieldValues' )
 			->willReturnOnConsecutiveCalls(
-				$this->returnValue( [] ),
-				$this->returnValue( [ 13, 21 ] ),
-				$this->returnValue( [ 55 ] )
+				[],
+				[ 13, 21 ],
+				[ 55 ]
 			);
 		$expectedArgs = [
 			[
