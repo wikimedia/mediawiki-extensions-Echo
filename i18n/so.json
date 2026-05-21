@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Abshirdheere"
+			"Abshirdheere",
+			"AhmedG612"
 		]
 	},
 	"prefs-echo": "Wargelinnada",
@@ -24,6 +25,9 @@
 	"echo-notification-placeholder": "Ma lahan wargelin.",
 	"echo-notification-placeholder-filters": "Ma jiraan wargelinno isleh ee xulshadaan kooban",
 	"notification-link-text-view-changes": "{{GENDER:$1|Itus}} isbedelka",
+	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$2|ayaa ku xusay}} {{GENDER:$3|adiga}} <strong>{{GENDER:$2|boggiisa wada hadalka|boggeeda wada hadalka|boggooda wada hadalka}}</strong>.",
+	"notification-welcome-linktext": "Soo dhawoow",
+	"notification-user-rights-email-subject": "Xuquuqdaada {{GENDER:$3|isticmaale}} waa la baddalay ee {{SITENAME}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 daqiiqo}}",
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1bil}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1sano}}",
@@ -37,5 +41,7 @@
 	"echo-mark-all-as-read": "Ka dhig dhammaan wax la aqriyey",
 	"echo-date-today": "Maanta",
 	"echo-date-yesterday": "Shalay",
-	"echo-email-batch-link-text-view-all-notifications": "Dhamaan eeg waegelinada"
+	"echo-email-batch-link-text-view-all-notifications": "Dhamaan eeg waegelinada",
+	"right-echo-read-notifications": "Akhri ogeysiisyadaada",
+	"action-echo-read-notifications": "akhri ogeysiisyadaada"
 }
