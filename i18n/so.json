@@ -47,6 +47,7 @@
 	"echo-date-today": "Maanta",
 	"echo-date-yesterday": "Shalay",
 	"echo-email-batch-link-text-view-all-notifications": "Dhamaan eeg waegelinada",
+	"notification-header-foreign-notice": "Ogeysiisyo dheeraad ah oo ka yimid {{PLURAL:$5|wiki kale|$5 wiki oo kale}}",
 	"notification-header-foreign-all": "Ogeysiisyo dheeraad ah oo ka yimid {{PLURAL:$5|wiki kale|$5 wiki oo kale}}",
 	"right-echo-read-notifications": "Akhri ogeysiisyadaada",
 	"action-echo-read-notifications": "akhri ogeysiisyadaada"
