@@ -246,6 +246,7 @@
 	"notification-header-foreign-alert": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からのアラートがあります",
 	"notification-header-foreign-notice": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります",
 	"notification-header-foreign-all": "{{PLURAL:$5|他のウィキ|他の$5個のウィキ}}からの通知があります",
+	"grant-echo-read-notifications": "自分宛ての通知を確認する",
 	"right-manage-all-push-subscriptions": "すべてのプッシュ・サブスクリプションを管理",
 	"action-manage-all-push-subscriptions": "すべてのプッシュ・サブスクリプションの管理",
 	"group-push-subscription-manager": "プッシュ・サブスクリプション取扱者",
