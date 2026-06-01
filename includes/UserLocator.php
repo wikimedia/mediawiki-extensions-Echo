@@ -196,7 +196,7 @@ class UserLocator {
 					}
 					$user = $userId;
 				} else {
-					$user = $userFactory->newFromId( $userId );
+					$user = $userFactory->newFromId( (int)$userId );
 				}
 				$users[$user->getId()] = $user;
 			}

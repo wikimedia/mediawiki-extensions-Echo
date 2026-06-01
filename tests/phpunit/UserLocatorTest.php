@@ -257,6 +257,16 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 				[ 'foo' ],
 			],
 
+			[
+				'Null inner id falls back to the anonymous user',
+				// expected user list (anonymous user, id 0)
+				[ 0 ],
+				// event extra data
+				[ 'foo' => [ null ] ],
+				// extra keys to get ids from
+				[ 'foo' ],
+			],
+
 		];
 	}
 
