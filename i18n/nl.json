@@ -238,7 +238,7 @@
 	"echo-notification-alert": "{{PLURAL:$1|Melding ($1)|Meldingen ($1)|100=Meldingen (99+)}}",
 	"echo-notification-notice": "{{PLURAL:$1|Melding ($1)|Meldingen ($1)|100=Meldingen (99+)}}",
 	"echo-notification-alert-text-only": "Meldingen",
-	"echo-notification-notice-text-only": "Notificaties",
+	"echo-notification-notice-text-only": "Mededelingen",
 	"echo-overlay-link": "Alle meldingen",
 	"echo-overlay-title": "<b>Meldingen</b>",
 	"echo-mark-all-as-read": "{{PLURAL:$1|Als|Alles als}} gelezen markeren",
