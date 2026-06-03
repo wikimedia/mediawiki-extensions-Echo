@@ -93,7 +93,7 @@
 	"echo-specialpage-markasread-invalid-id": "Няслушны ідэнтыфікатар падзеі",
 	"echo-specialpage-pagefilterwidget-aria-label": "Фільтраваць паводле вікі і назвы старонкі",
 	"echo-specialpage-special-help-menu-widget-aria-label": "Дадатковыя парамэтры і налады абвестак.",
-	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|абвестка|абвесткі|абвесткаў}}",
+	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|абвестка|абвесткі|абвестак}}",
 	"echo-specialpage-pagination-range": "$1 — $2",
 	"echo-specialpage-pagefilters-title": "Нядаўняя актыўнасьць",
 	"echo-specialpage-pagefilters-subtitle": "Старонкі зь непрачытанымі абвесткамі",
