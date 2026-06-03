@@ -66,10 +66,17 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				],
 				// additional setup
 				static function ( TestCase $test, $event ) {
-					$event->expects( $test->exactly( 2 ) )
+					$expectedExtraParam = [
+						[ 'other-user', 123 ],
+						[ Event::RECIPIENTS_IDX, [ 256 ] ],
+					];
+					$event->expects( $test->exactly( count( $expectedExtraParam ) ) )
 						->method( 'getExtraParam' )
-						->withConsecutive( [ 'other-user' ], [ Event::RECIPIENTS_IDX ] )
-						->willReturnOnConsecutiveCalls( 123, [ 256 ] );
+						->willReturnCallback( static function ( $key ) use ( $test, &$expectedExtraParam ) {
+							[ $expectedKey, $expectedReturn ] = array_shift( $expectedExtraParam );
+							$test->assertEquals( $expectedKey, $key );
+							return $expectedReturn;
+						} );
 				},
 			],
 		];
