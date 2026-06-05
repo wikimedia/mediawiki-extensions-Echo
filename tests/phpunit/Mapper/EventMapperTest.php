@@ -134,8 +134,6 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 
 	public function testFetchByPage() {
 		$user = $this->getTestUser()->getUser();
-		// Do not create a notification for the edit made by getExistingTestPage.
-		$this->clearHook( 'PageSaveComplete' );
 		$page = $this->getExistingTestPage();
 
 		// Create a notification that is not associated with any page
