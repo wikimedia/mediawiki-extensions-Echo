@@ -61,34 +61,23 @@ class EventIntegrationTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testEventInsertionDeferred() {
-		$this->markTestSkipped( 'T386364' );
 		$this->clearHook( 'BeforeEchoEventInsert' );
 		$this->overrideConfigValue( 'EchoUseJobQueue', true );
 
+		$testPage = $this->getNonexistingTestPage();
 		$user = $this->getTestUser()->getUser();
-		$title = $this->getExistingTestPage()->getTitle();
-		$this->runJobs();
 
-		$event = Event::create( [
-			'type' => 'welcome',
-			'agent' => $user,
-			'title' => $title,
-			'extra' => [ 'key' => 'value' ],
-		] );
-		$this->assertFalse( $event->getId() );
-		unset( $event );
+		// Do first edit for the user to emit "thank-you-edit" event
+		$status = $this->editPage( $testPage, 'Hello World!', 'Hello World!', NS_MAIN, $user );
+		$this->assertStatusGood( $status );
 
-		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
-		$queues = $jobQueueGroup->getQueuesWithJobs();
-		$this->assertSame( [ 'EchoNotificationJob' ], $queues );
-		$job = $jobQueueGroup->pop( 'EchoNotificationJob' );
-		$job->run();
+		$this->runJobs( [ 'numJobs' => 1 ], [ 'type' => 'EchoNotificationJob' ] );
 
 		$eventMapper = new EventMapper();
-		$events = $eventMapper->fetchByPage( $title->getArticleID() );
+		$events = $eventMapper->fetchByPage( $testPage->getId() );
 		$this->assertCount( 1, $events );
 		[ $event ] = $events;
-		$this->assertSame( 'welcome', $event->getType() );
+		$this->assertSame( 'thank-you-edit', $event->getType() );
 		$this->assertTrue( $user->equals( $event->getAgent() ) );
 	}
 
