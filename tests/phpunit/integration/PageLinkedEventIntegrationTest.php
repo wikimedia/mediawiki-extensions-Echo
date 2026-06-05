@@ -35,12 +35,11 @@ class PageLinkedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 		);
 
 		// Verify that an event was generated
-		$this->assertSelect(
-			'echo_event',
-			[ 'COUNT(*)' ],
-			[ 'event_type' => 'page-linked' ],
-			[ [ '1' ] ]
-		);
+		$this->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'echo_event' )
+			->where( [ 'event_type' => 'page-linked' ] )
+			->assertFieldValue( '1' );
 	}
 
 	private function importRevisions( $xml, $performer ) {
@@ -92,20 +91,18 @@ class PageLinkedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 		// phpcs:enable Generic.Files.LineLength
 
 		// Verify that the import worked
-		$this->assertSelect(
-			'page',
-			[ 'COUNT(*)' ],
-			[ 'page_namespace' => 0, 'page_title' => 'Test_page' ],
-			[ [ '1' ] ]
-		);
+		$this->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'page' )
+			->where( [ 'page_namespace' => NS_MAIN, 'page_title' => 'Test_page' ] )
+			->assertFieldValue( '1' );
 
 		// Verify that no event was generated
-		$this->assertSelect(
-			'echo_event',
-			[ 'COUNT(*)' ],
-			[ 'event_type' => 'page-linked' ],
-			[ [ '0' ] ]
-		);
+		$this->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'echo_event' )
+			->where( [ 'event_type' => 'page-linked' ] )
+			->assertFieldValue( '0' );
 	}
 
 }

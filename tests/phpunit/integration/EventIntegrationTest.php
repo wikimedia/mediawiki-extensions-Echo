@@ -25,12 +25,11 @@ class EventIntegrationTest extends MediaWikiIntegrationTestCase {
 		$eventId = $event->getId();
 		$this->assertNotFalse( $eventId );
 		$this->assertSame( $eventId, $event->acquireId() );
-		$this->assertSelect(
-			'echo_event',
-			[ 'count' => 'COUNT(*)' ],
-			[ 'event_type' => 'welcome' ],
-			[ [ '1' ] ]
-		);
+		$this->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'echo_event' )
+			->where( [ 'event_type' => 'welcome' ] )
+			->assertFieldValue( '1' );
 	}
 
 	public function testEventNotInserted() {
@@ -44,12 +43,11 @@ class EventIntegrationTest extends MediaWikiIntegrationTestCase {
 			'extra' => [ 'key' => 'value' ],
 		] );
 		$this->assertFalse( $event->getId() );
-		$this->assertSelect(
-			'echo_event',
-			[ 'count' => 'COUNT(*)' ],
-			[ 'event_type' => 'welcome' ],
-			[ [ '0' ] ]
-		);
+		$this->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'echo_event' )
+			->where( [ 'event_type' => 'welcome' ] )
+			->assertFieldValue( '0' );
 	}
 
 	public function testEventNotCreatedForUnknownUser() {

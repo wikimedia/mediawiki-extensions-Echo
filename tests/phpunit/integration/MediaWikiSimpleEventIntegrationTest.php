@@ -22,12 +22,11 @@ class MediaWikiSimpleEventIntegrationTest extends MediaWikiIntegrationTestCase {
 		);
 
 		// Verify that an event was generated
-		$this->assertSelect(
-			'echo_event',
-			[ 'COUNT(*)' ],
-			[ 'event_type' => 'mediawiki.simple' ],
-			[ [ '1' ] ]
-		);
+		$this->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'echo_event' )
+			->where( [ 'event_type' => 'mediawiki.simple' ] )
+			->assertFieldValue( '1' );
 
 		// Look up this event using Echo APIs
 		$notifMapper = new NotificationMapper();
