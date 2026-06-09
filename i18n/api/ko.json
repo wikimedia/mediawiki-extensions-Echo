@@ -54,7 +54,7 @@
 	"apihelp-query+notifications-param-groupbysection": "결과를 섹션별로 그룹화할지 여부입니다. 설정된 경우 각 섹션은 개별적으로 가져와집니다.",
 	"apihelp-query+notifications-param-filter": "필터 알림 반환됨.",
 	"apihelp-query+notifications-param-format": "지정된 경우, 알림이 이 형식으로 반환됩니다.",
-	"apihelp-query+notifications-paramvalue-format-model": "미가공 알림 데이터",
+	"apihelp-query+notifications-paramvalue-format-model": "원본 알림 데이터",
 	"apihelp-query+notifications-paramvalue-format-special": "Special:Notifications 문서용 (전용입니다!) 으로 형식이 지정되었습니다. HTML 코드는 언제든지 변경될 수 있으므로 이에 의존하지 마세요.",
 	"apihelp-query+notifications-paramvalue-format-flyout": "<span class=\"apihelp-deprecated\">구식임</span>. 원본 데이터의 경우 <kbd>$1format=model</kbd>을 사용하세요.",
 	"apihelp-query+notifications-paramvalue-format-html": "<span class=\"apihelp-deprecated\">구식임</span>. 원본 데이터의 경우 <kbd>$1format=model</kbd>을 사용하세요.",
