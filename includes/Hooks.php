@@ -6,6 +6,7 @@ use LogicException;
 use MediaWiki\Api\ApiModuleManager;
 use MediaWiki\Api\Hook\ApiMain__moduleManagerHook;
 use MediaWiki\Auth\AuthManager;
+use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\Config\Config;
 use MediaWiki\DAO\WikiAwareEntity;
 use MediaWiki\Deferred\DeferredUpdates;
@@ -19,6 +20,7 @@ use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\Notifications\UserBlockNotification;
 use MediaWiki\Extension\Notifications\Notifications\UserRightsNotification;
 use MediaWiki\Extension\Notifications\Push\Api\ApiEchoPushSubscriptions;
 use MediaWiki\Hook\PreferencesGetIconHook;
@@ -55,9 +57,11 @@ use MediaWiki\Skin\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Skin\Skin;
 use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Specials\Hook\BlockIpCompleteHook;
 use MediaWiki\Specials\Hook\EmailUserCompleteHook;
 use MediaWiki\Specials\Hook\LoginFormValidErrorMessagesHook;
 use MediaWiki\Specials\Hook\SpecialMuteModifyFormFieldsHook;
+use MediaWiki\Specials\Hook\UnblockUserCompleteHook;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
 use MediaWiki\User\CentralId\CentralIdLookup;
@@ -82,6 +86,8 @@ class Hooks implements
 	ApiMain__moduleManagerHook,
 	ArticleUndeleteHook,
 	BeforePageDisplayHook,
+	BlockIpCompleteHook,
+	UnblockUserCompleteHook,
 	EmailUserCompleteHook,
 	GetNewMessagesAlertHook,
 	GetPreferencesHook,
@@ -213,7 +219,7 @@ class Hooks implements
 		global $wgEchoNotifications, $wgEchoNotificationCategories, $wgEchoNotificationIcons,
 			$wgEchoMentionStatusNotifications, $wgAllowArticleReminderNotification, $wgAPIModules,
 			$wgEchoWatchlistNotifications, $wgEchoSeenTimeCacheType, $wgMainStash, $wgEnableEmail,
-			$wgEnableUserEmail, $wgEchoEnableApiEvents;
+			$wgEnableUserEmail, $wgEchoEnableApiEvents, $wgEchoBlockNotifications;
 
 		// add events defined in extension attributes (extension.json)
 		$exReg = ExtensionRegistry::getInstance();
@@ -240,6 +246,13 @@ class Hooks implements
 		if ( !$wgEchoWatchlistNotifications ) {
 			unset( $wgEchoNotificationCategories['watchlist'] );
 			unset( $wgEchoNotificationCategories['minor-watchlist'] );
+		}
+
+		// Only allow un/block notifications when enabled
+		if ( !$wgEchoBlockNotifications ) {
+			unset( $wgEchoNotifications['user-blocked'] );
+			unset( $wgEchoNotifications['user-unblocked'] );
+			unset( $wgEchoNotificationCategories['block'] );
 		}
 
 		// Only allow user email notifications when enabled
@@ -617,6 +630,77 @@ class Hooks implements
 				$notification, new RecipientSet( [ $user ] )
 			);
 		}
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function onBlockIpComplete( $block, $user, $priorBlock ) {
+		if ( !$this->config->get( 'EchoBlockNotifications' ) ) {
+			return;
+		}
+
+		$recipientIdentity = $this->getBlockTargetRecipient( $block );
+		if ( !$recipientIdentity ) {
+			return;
+		}
+
+		if ( $recipientIdentity->equals( $user ) ) {
+			return;
+		}
+
+		$recipient = $this->userFactory->newFromUserIdentity( $recipientIdentity );
+
+		$this->notificationService->notify(
+			UserBlockNotification::newForBlock(
+				$recipient,
+				$user,
+				$block,
+				$priorBlock !== null
+			),
+			new RecipientSet( [ $recipient ] )
+		);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function onUnblockUserComplete( $block, $user ) {
+		if ( !$this->config->get( 'EchoBlockNotifications' ) ) {
+			return;
+		}
+
+		$recipientIdentity = $this->getBlockTargetRecipient( $block );
+		if ( !$recipientIdentity ) {
+			return;
+		}
+
+		if ( $recipientIdentity->equals( $user ) ) {
+			return;
+		}
+
+		$recipient = $this->userFactory->newFromUserIdentity( $recipientIdentity );
+
+		$this->notificationService->notify(
+			UserBlockNotification::newForUnblock( $recipient, $user ),
+			new RecipientSet( [ $recipient ] )
+		);
+	}
+
+	/**
+	 * Get the registered user identity targeted by a block
+	 *
+	 * @param DatabaseBlock $block
+	 * @return UserIdentity|null
+	 */
+	private function getBlockTargetRecipient( DatabaseBlock $block ): ?UserIdentity {
+		$target = $block->getTargetUserIdentity();
+
+		if ( $target === null || !$target->isRegistered() ) {
+			return null;
+		}
+
+		return $target;
 	}
 
 	/**

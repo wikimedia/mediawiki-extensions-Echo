@@ -496,6 +496,8 @@
 		"BeforePageDisplay": "main",
 		"ResourceLoaderRegisterModules": "main",
 		"UserGroupsChanged": "main",
+		"BlockIpComplete": "main",
+		"UnblockUserComplete": "main",
 		"LoadUserOptions": "main",
 		"SaveUserOptions": "main",
 		"UserGetDefaultOptions": "main",
@@ -645,6 +647,10 @@
 					"web": false,
 					"email": true
 				},
+				"block": {
+					"web": true,
+					"email": false
+				},
 				"emailuser": {
 					"web": true,
 					"email": false
@@ -715,6 +721,10 @@
 				},
 				"user-rights": {
 					"priority": 9
+				},
+				"block": {
+					"priority": 9,
+					"tooltip": "echo-pref-tooltip-block"
 				},
 				"other": {
 					"no-dismiss": [
@@ -832,6 +842,9 @@
 					"path": "Echo/modules/icons/revert.svg"
 				},
 				"user-rights": {
+					"path": "Echo/modules/icons/user-rights-progressive.svg"
+				},
+				"block": {
 					"path": "Echo/modules/icons/user-rights-progressive.svg"
 				},
 				"emailuser": {
@@ -1058,6 +1071,18 @@
 					"section": "alert",
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoUserRightsPresentationModel"
 				},
+				"user-blocked": {
+					"category": "block",
+					"group": "negative",
+					"section": "alert",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoUserBlockStatusPresentationModel"
+				},
+				"user-unblocked": {
+					"category": "block",
+					"group": "negative",
+					"section": "alert",
+					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoUserBlockStatusPresentationModel"
+				},
 				"emailuser": {
 					"presentation-model": "MediaWiki\\Extension\\Notifications\\Formatters\\EchoEmailUserPresentationModel",
 					"category": "emailuser",
@@ -1128,6 +1153,10 @@
 		"AllowArticleReminderNotification": {
 			"value": false,
 			"description": "This is a feature flag to the Article Reminder notification"
+		},
+		"EchoBlockNotifications": {
+			"value": true,
+			"description": "Feature flag to enable Echo notifications when local users are blocked."
 		},
 		"EchoMaxMentionsInEditSummary": {
 			"value": 0,
