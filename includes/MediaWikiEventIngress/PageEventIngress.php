@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\Notifications\MediaWikiEventIngress;
 
+use MediaWiki\ChangeTags\ChangeTagsStore;
 use MediaWiki\DomainEvent\DomainEventIngress;
 use MediaWiki\Extension\Notifications\Controller\ModerationController;
 use MediaWiki\Extension\Notifications\DiscussionParser;
@@ -11,6 +12,7 @@ use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\TestKitchen\Sdk\ExperimentManager;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\Event\PageDeletedEvent;
 use MediaWiki\Page\Event\PageDeletedListener;
@@ -20,6 +22,8 @@ use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserEditTracker;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityUtils;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class PageEventIngress extends DomainEventIngress implements
 	PageDeletedListener,
@@ -30,6 +34,10 @@ class PageEventIngress extends DomainEventIngress implements
 		private readonly RevisionStore $revisionStore,
 		private readonly UserEditTracker $userEditTracker,
 		private readonly EventMapper $eventMapper,
+		private readonly UserIdentityUtils $userIdentityUtils,
+		private readonly ChangeTagsStore $changeTagsStore,
+		private readonly IConnectionProvider $connectionProvider,
+		private readonly ?ExperimentManager $experimentManager = null,
 
 	) {
 	}
@@ -90,9 +98,26 @@ class PageEventIngress extends DomainEventIngress implements
 	 * test for them reaching a congratulatory threshold
 	 */
 	private function maybeSendThankYouEdit( PageLatestRevisionChangedEvent $event ): void {
-		$revisionRecord = $event->getLatestRevisionAfter();
-		$title = $event->getPageRecordAfter();
 		$userIdentity = $event->getAuthor();
+		$revisionRecord = $event->getLatestRevisionAfter();
+		if ( $this->experimentManager ) {
+			$tags = $this->changeTagsStore->getTags(
+				$this->connectionProvider->getReplicaDatabase(),
+				null,
+				$revisionRecord->getId()
+			);
+			$isMobileEdit = in_array( 'mobile edit', $tags, true ) ||
+				in_array( 'mobile web edit', $tags, true );
+			$experiment = $this->experimentManager->getExperiment( 'we-1-8-tempuser-post-edit' );
+			if (
+				$isMobileEdit &&
+				$this->userIdentityUtils->isTemp( $userIdentity ) &&
+				$experiment->isAssignedGroup( 'treatment' )
+			) {
+				return;
+			}
+		}
+		$title = $event->getPageRecordAfter();
 		$thresholds = [ 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000 ];
 		if ( $userIdentity->isRegistered() ) {
 			$thresholdCount = $this->getPredictedEditCount( $userIdentity );

@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Test;
 
+use MediaWiki\ChangeTags\ChangeTagsStore;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\MediaWikiEventIngress\PageEventIngress;
@@ -10,8 +11,10 @@ use MediaWiki\Page\ExistingPageRecord;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\User\UserEditTracker;
+use MediaWiki\User\UserIdentityUtils;
 use MediaWiki\User\UserIdentityValue;
 use MediaWikiIntegrationTestCase;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class PageIngressTest extends MediaWikiIntegrationTestCase {
 
@@ -50,8 +53,12 @@ class PageIngressTest extends MediaWikiIntegrationTestCase {
 		$this->setService( 'EchoNotificationMapper', $notificationMapper );
 
 		$pageEventIngress = new PageEventIngress(
-			$revisionStore, $userEditTracker,
-			$eventMapper
+			$revisionStore,
+			$userEditTracker,
+			$eventMapper,
+			$this->createNoOpMock( UserIdentityUtils::class ),
+			$this->createNoOpMock( ChangeTagsStore::class ),
+			$this->createNoOpMock( IConnectionProvider::class ),
 		);
 		$pageEventIngress->handlePageDeletedEvent( $event );
 	}

@@ -561,7 +561,13 @@
 			"services": [
 				"RevisionStore",
 				"UserEditTracker",
-				"EchoEventMapper"
+				"EchoEventMapper",
+				"UserIdentityUtils",
+				"ChangeTagsStore",
+				"ConnectionProvider"
+			],
+			"optional_services": [
+				"TestKitchen.ExperimentManager"
 			]
 		}
 	],
