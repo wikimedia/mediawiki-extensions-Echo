@@ -188,7 +188,7 @@
 	"notification-header-emailuser": "$1 {{GENDER:$2|даслаў|даслала}} вам ліст.",
 	"notification-edit-talk-page-email-subject2": "{{GENDER:$2|Удзельнік|Удзельніца}} $1 {{GENDER:$2|пакінуў|пакінула}} {{GENDER:$3|вам}} паведамленне на пляцоўцы «{{SITENAME}}»",
 	"notification-page-linked-email-subject": "На сайце «{{SITENAME}}» з’явілася спасылка на створаную {{GENDER:$3|вамі}} старонку",
-	"notification-reverted-email-subject2": "{{GENDER:$2|Хтосьці}} адмяніў {{PLURAL:$4|вашу праўку|вашы праўкі}} на сайце «{{SITENAME}}»",
+	"notification-reverted-email-subject2": "{{GENDER:$2|Хтосьці}} адкаціў {{PLURAL:$4|вашу праўку|вашы праўкі}} на сайце «{{SITENAME}}»",
 	"notification-mention-email-subject": "{{GENDER:$2|Удзельнік|Удзельніца}} $1 {{GENDER:$2|згадаў|згадала}} {{GENDER:$3|вас}} на сайце «{{SITENAME}}»",
 	"notification-user-rights-email-subject": "{{GENDER:$3|Вашы}} правы на сайце «{{SITENAME}}» былі зменены",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 с}}",
