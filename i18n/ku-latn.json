@@ -117,7 +117,7 @@
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Navê bikarhêner tune ye:</strong> $1",
 	"notification-welcome-linktext": "Tu bi xêr hatî",
 	"notification-header-thank-you-1-edit": "{{GENDER:$2|Te}} guhartina {{GENDER:$2|xwe}} ya yekem kiriye; mala {{GENDER:$2|te}} ava û bi xêr hatî!",
-	"notification-header-thank-you-10-edit": "{{GENDER:$2|Te}} guhartina {{GENDER:$2|xwe}} ya dehem kiriye; mala {{GENDER:$2|te}} ava, xêra xwe dest jê bernede!",
+	"notification-header-thank-you-10-edit": "{{GENDER:$2|Te}} guhartina {{GENDER:$2|xwe}} ya dehan kiriye; mala {{GENDER:$2|te}} ava, xêra xwe dest jê bernede!",
 	"notification-header-thank-you-100-edit": "{{GENDER:$2|Te}} guhartina {{GENDER:$2|xwe}} ya sedan kiriye; mala {{GENDER:$2|te}} sed caran ava!",
 	"notification-header-thank-you-1000-edit": "{{GENDER:$2|Te}} guhartina {{GENDER:$2|xwe}} ya hezaran kiriye; mala {{GENDER:$2|te}} hezar caran ava!",
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|Te}} guhartina {{GENDER:$2|xwe}} ya deh hezaran kiriye; mala {{GENDER:$2|te}} deh hezar caran ava!",

@@ -111,7 +111,7 @@
 	"echo-specialpage": "Meldingen",
 	"echo-specialpage-section-markread": "Markeer groep als gelezen",
 	"echo-specialpage-markasread": "Melding: Als gelezen markeren",
-	"echo-specialpage-markasread-invalid-id": "Ongeldige gebeurtenis-ID",
+	"echo-specialpage-markasread-invalid-id": "Incorrecte gebeurtenis-ID",
 	"echo-specialpage-pagefilterwidget-aria-label": "Filter met wiki en paginatitel",
 	"echo-specialpage-special-help-menu-widget-aria-label": "Extra opties en meldingsvoorkeuren.",
 	"echo-specialpage-pagination-numnotifications": "$1 {{PLURAL:$1|melding|meldingen}}",
