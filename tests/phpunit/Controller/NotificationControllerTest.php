@@ -280,7 +280,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			->willReturn( null );
 		$event->expects( $this->once() )
 			->method( 'getTitle' )
-			->willReturn( Title::newFromText( 'test-title' ) );
+			->willReturn( Title::makeTitle( NS_MAIN, 'Test-title' ) );
 		$event->expects( $this->once() )
 			->method( 'toDbArray' )
 			->willReturn( [
@@ -320,7 +320,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 			] );
 		$event->expects( $this->once() )
 			->method( 'getTitle' )
-			->willReturn( Title::newFromText( 'test-title' ) );
+			->willReturn( Title::makeTitle( NS_MAIN, 'Test-title' ) );
 		$event->method( 'getId' )
 			->willReturn( 42 );
 		NotificationController::enqueueEvent( $event );

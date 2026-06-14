@@ -46,7 +46,7 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 		// setup
 		$this->deleteEchoData();
 		$user = $this->getMutableTestUser()->getUser();
-		$title = Title::newFromText( 'Help:MWEchoThankYouEditTest_testFirstEdit' );
+		$title = Title::makeTitle( NS_HELP, 'MWEchoThankYouEditTest_testFirstEdit' );
 
 		// action
 		$db = $this->getDb();
@@ -89,7 +89,7 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 		// setup
 		$this->deleteEchoData();
 		$user = $this->getMutableTestUser()->getUser();
-		$title = Title::newFromText( 'Help:MWEchoThankYouEditTest_testTenthEdit' );
+		$title = Title::makeTitle( NS_HELP, 'MWEchoThankYouEditTest_testTenthEdit' );
 		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
 
 		// action

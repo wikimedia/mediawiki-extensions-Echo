@@ -1732,7 +1732,7 @@ TEXT
 	 * @dataProvider provider_getUserMentions
 	 */
 	public function testGetUserMentions( $userLinks, $expectedUserMentions, $agent ) {
-		$title = Title::newFromText( 'Test' );
+		$title = Title::makeTitle( NS_MAIN, 'Test' );
 		$discussionParser = TestingAccessWrapper::newFromClass( DiscussionParser::class );
 		$this->assertEquals( $expectedUserMentions, $discussionParser->getUserMentions( $title, $agent, $userLinks ) );
 	}
@@ -1780,7 +1780,7 @@ TEXT
 			'EchoMaxMentionsCount' => 3,
 		] );
 
-		$title = Title::newFromText( 'Test' );
+		$title = Title::makeTitle( NS_MAIN, 'Test' );
 		$discussionParser = TestingAccessWrapper::newFromClass( DiscussionParser::class );
 		$this->assertSame( 4, $discussionParser->getOverallUserMentionsCount( $discussionParser->getUserMentions( $title, 1, $userLinks ) ) );
 	}
@@ -1801,7 +1801,7 @@ TEXT
 				'[[:{{BASEPAGENAME}}]]',
 				$lang,
 				DiscussionParser::DEFAULT_SNIPPET_LENGTH,
-				Title::newFromText( 'Page001' )
+				Title::makeTitle( NS_MAIN, 'Page001' )
 			)
 		);
 		$this->assertEquals(

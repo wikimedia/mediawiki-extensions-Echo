@@ -128,7 +128,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$this->editPage( 'SomeOtherPage', '[[TestBotCreatedPage]]' );
 		$event = $this->createMock( Event::class );
 		$event->method( 'getTitle' )
-			->willReturn( Title::newFromText( 'TestBotCreatedPage' ) );
+			->willReturn( Title::makeTitle( NS_MAIN, 'TestBotCreatedPage' ) );
 		$event->method( 'getAgent' )
 			->willReturn( $userFactory->newFromId( 123 ) );
 		$event->method( 'getType' )
@@ -141,7 +141,7 @@ class UserLocatorTest extends MediaWikiIntegrationTestCase {
 		$this->editPage( 'AnotherPage', '[[NormalCreatedPage]]' );
 		$event = $this->createMock( Event::class );
 		$event->method( 'getTitle' )
-			->willReturn( Title::newFromText( 'NormalCreatedPage' ) );
+			->willReturn( Title::makeTitle( NS_MAIN, 'NormalCreatedPage' ) );
 		$event->method( 'getAgent' )
 			->willReturn( $userFactory->newFromId( 456 ) );
 		$event->method( 'getType' )
