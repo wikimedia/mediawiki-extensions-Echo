@@ -2,15 +2,22 @@
 
 namespace MediaWiki\Extension\Notifications\Test;
 
+use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\MainConfigNames;
+use MediaWiki\Notification\NotificationService;
+use MediaWiki\Notification\RecipientSet;
+use MediaWiki\Notification\Types\WikiNotification;
+use MediaWiki\Page\PageIdentity;
+use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use MediaWikiIntegrationTestCase;
 
+/**
+ * @covers \MediaWiki\Extension\Notifications\Hooks
+ */
 class EchoHooksTest extends MediaWikiIntegrationTestCase {
-	/**
-	 * @covers \MediaWiki\Extension\Notifications\Hooks::onUserGetDefaultOptions()
-	 */
 	public function testOnUserGetDefaultOptions() {
 		$this->overrideConfigValues( [
 			'EchoNotificationCategories' => [
@@ -59,9 +66,148 @@ class EchoHooksTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public function getHooks() {
+	public function testForBlockNotificationsWhenBlockNotificationsDisabled(): void {
+		$this->overrideConfigValue( 'EchoBlockNotifications', false );
+
+		$this->commonOnBlockIpCompleteForNoNotification(
+			$this->createMock( DatabaseBlock::class ),
+			$this->createMock( User::class ),
+			null
+		);
+		$this->commonOnUnblockUserCompleteForNoNotification(
+			$this->createMock( DatabaseBlock::class ),
+			$this->createMock( User::class )
+		);
+	}
+
+	public function testBlockNotificationsWhenTargetIsNotRegistered(): void {
+		$this->overrideConfigValue( 'EchoBlockNotifications', true );
+
+		$block = $this->createMock( DatabaseBlock::class );
+		$block->method( 'getTargetUserIdentity' )
+			->willReturn( null );
+
+		$this->commonOnBlockIpCompleteForNoNotification( $block, $this->createMock( User::class ), null );
+		$this->commonOnUnblockUserCompleteForNoNotification( $block, $this->createMock( User::class ) );
+	}
+
+	public function testBlockNotificationsWhenTargetIsPerformer(): void {
+		$this->overrideConfigValue( 'EchoBlockNotifications', true );
+
+		$performer = $this->createMock( User::class );
+		$performer->method( 'equals' )
+			->willReturnCallback( static function ( $other ) use ( $performer ) {
+				return $performer->getName() === $other->getName();
+			} );
+		$performer->method( 'isRegistered' )
+			->willReturn( true );
+
+		$block = $this->createMock( DatabaseBlock::class );
+		$block->method( 'getTargetUserIdentity' )
+			->willReturn( $performer );
+
+		$this->commonOnBlockIpCompleteForNoNotification( $block, $performer, null );
+		$this->commonOnUnblockUserCompleteForNoNotification( $block, $performer );
+	}
+
+	private function commonOnBlockIpCompleteForNoNotification(
+		DatabaseBlock $block,
+		User $user,
+		?DatabaseBlock $priorBlock
+	): void {
+		$notificationService = $this->createMock( NotificationService::class );
+		$notificationService->expects( $this->never() )
+			->method( 'notify' );
+		$this->setService( 'NotificationService', $notificationService );
+
+		$this->getHooks()->onBlockIpComplete( $block, $user, $priorBlock );
+	}
+
+	private function commonOnUnblockUserCompleteForNoNotification(
+		DatabaseBlock $block,
+		User $user
+	): void {
+		$notificationService = $this->createMock( NotificationService::class );
+		$notificationService->expects( $this->never() )
+			->method( 'notify' );
+		$this->setService( 'NotificationService', $notificationService );
+
+		$this->getHooks()->onUnblockUserComplete( $block, $user );
+	}
+
+	public function testUnblockUserCompleteWhenNotificationCreated(): void {
+		$this->overrideConfigValue( 'EchoBlockNotifications', true );
+
+		$performer = $this->createMock( User::class );
+		$performer->method( 'isRegistered' )
+			->willReturn( true );
+		$recipient = $this->createMock( User::class );
+		$recipient->method( 'isRegistered' )
+			->willReturn( true );
+		$recipient->method( 'getUserPage' )
+			->willReturn( $this->createMock( PageIdentity::class ) );
+
+		$block = $this->createMock( DatabaseBlock::class );
+		$block->method( 'getTargetUserIdentity' )
+			->willReturn( $recipient );
+
+		$this->commonAssertNotifyCall( $recipient, $performer, 'user-unblocked' );
+
+		$this->getHooks()->onUnblockUserComplete( $block, $performer );
+	}
+
+	/** @dataProvider provideBlockIpCompleteWhenNotificationCreated */
+	public function testBlockIpCompleteWhenNotificationCreated( bool $priorBlockSet ): void {
+		$this->overrideConfigValue( 'EchoBlockNotifications', true );
+
+		$performer = $this->createMock( User::class );
+		$performer->method( 'isRegistered' )
+			->willReturn( true );
+		$recipient = $this->createMock( User::class );
+		$recipient->method( 'isRegistered' )
+			->willReturn( true );
+		$recipient->method( 'getUserPage' )
+			->willReturn( $this->createMock( PageIdentity::class ) );
+
+		$block = $this->createMock( DatabaseBlock::class );
+		$block->method( 'getTargetUserIdentity' )
+			->willReturn( $recipient );
+
+		$this->commonAssertNotifyCall( $recipient, $performer, 'user-blocked' );
+
+		$this->getHooks()->onBlockIpComplete(
+			$block,
+			$performer,
+			$priorBlockSet ? $this->createMock( DatabaseBlock::class ) : null
+		);
+	}
+
+	public static function provideBlockIpCompleteWhenNotificationCreated(): array {
+		return [
+			'Prior block is set' => [ true ],
+			'Prior block is not set' => [ false ],
+		];
+	}
+
+	private function commonAssertNotifyCall( User $recipient, UserIdentity $performer, string $expectedType ): void {
+		$notificationService = $this->createMock( NotificationService::class );
+		$notificationService->expects( $this->once() )
+			->method( 'notify' )
+			->willReturnCallback( function (
+				WikiNotification $actualNotification,
+				RecipientSet $actualRecipientSet
+			) use ( $recipient, $performer, $expectedType ): void {
+				$this->assertSame( $recipient->getUserPage(), $actualNotification->getTitle() );
+				$this->assertSame( $performer, $actualNotification->getAgent() );
+				$this->assertSame( $expectedType, $actualNotification->getType() );
+				$this->assertArrayEquals( [ $recipient ], $actualRecipientSet->getRecipients() );
+			} );
+		$this->setService( 'NotificationService', $notificationService );
+	}
+
+	public function getHooks(): EchoHooks {
 		$services = $this->getServiceContainer();
-		$hooks = new EchoHooks(
+		return new EchoHooks(
 			$services->getAuthManager(),
 			$services->getCentralIdLookup(),
 			$services->getMainConfig(),
@@ -79,6 +225,5 @@ class EchoHooksTest extends MediaWikiIntegrationTestCase {
 			$services->getUserOptionsManager(),
 			null,
 		);
-		return $hooks;
 	}
 }
