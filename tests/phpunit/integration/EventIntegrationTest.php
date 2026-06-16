@@ -71,7 +71,7 @@ class EventIntegrationTest extends MediaWikiIntegrationTestCase {
 		$status = $this->editPage( $testPage, 'Hello World!', 'Hello World!', NS_MAIN, $user );
 		$this->assertStatusGood( $status );
 
-		$this->runJobs( [ 'numJobs' => 1 ], [ 'type' => 'EchoNotificationJob' ] );
+		$this->runJobs( [ 'minJobs' => 1 ], [ 'type' => 'EchoNotificationJob' ] );
 
 		$eventMapper = new EventMapper();
 		$events = $eventMapper->fetchByPage( $testPage->getId() );
