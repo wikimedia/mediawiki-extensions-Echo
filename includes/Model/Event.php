@@ -20,6 +20,7 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\ActorStore;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserRigorOptions;
 use stdClass;
 use Wikimedia\IPUtils;
 use Wikimedia\NonSerializable\NonSerializableTrait;
@@ -412,7 +413,7 @@ class Event extends AbstractEntity implements Bundleable {
 			if ( IPUtils::isValid( $row->event_agent_ip )
 				|| strlen( $row->event_agent_ip ) < 39
 			) {
-				$this->agent = $userFactory->newFromName( $row->event_agent_ip );
+				$this->agent = $userFactory->newFromName( $row->event_agent_ip, UserRigorOptions::RIGOR_NONE );
 			} else {
 				$this->agent = $userFactory->newFromName( ActorStore::UNKNOWN_USER_NAME );
 			}
