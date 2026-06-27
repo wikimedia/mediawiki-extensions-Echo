@@ -13,6 +13,8 @@ use TestUser;
 /**
  * Test whether 'reverted' notifications are sent for rollbacks, undos, and manual reverts.
  *
+ * Also test the behavior of notifications that are suppressed when reverting: summary mentions and page links.
+ *
  * @covers \MediaWiki\Extension\Notifications\MediaWikiEventIngress\PageEventIngress
  * @group Database
  */
@@ -25,20 +27,40 @@ class RevertedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 		$this->clearHook( 'BeforeEchoEventInsert' );
 		$this->overrideConfigValue( 'EchoUseJobQueue', false );
 
+		$this->overrideConfigValue( 'EchoMaxMentionsInEditSummary', 10 );
+
 		$userA = new TestUser( 'A' );
 		$userB = new TestUser( 'B' );
+		$userC = new TestUser( 'C' );
 
 		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
 		$userOptionsManager->setOption( $userB->getUser(), 'echo-subscriptions-web-reverted', true );
 		$userOptionsManager->saveOptions( $userB->getUser() );
+		$userOptionsManager->setOption( $userC->getUser(), 'echo-subscriptions-web-article-linked', true );
+		$userOptionsManager->setOption( $userC->getUser(), 'echo-subscriptions-web-mention-summary', true );
+		$userOptionsManager->saveOptions( $userC->getUser() );
 
+		// Create page for testing page-linked notifications
+		$statusC = $this->editPage(
+			'Other page',
+			'Edit C',
+			performer: $userC->getUser()
+		);
+		$this->assertStatusGood( $statusC );
+
+		// Create a test page, sending a page-linked and mention-summary notifications
 		$pageTitle = 'Test page';
 		$statusA = $this->editPage(
 			$pageTitle,
-			'Edit A',
+			'[[Other page]]',
+			summary: "Hello [[User:{$userC->getUser()->getName()}]]",
 			performer: $userA->getUser()
 		);
 		$this->assertStatusGood( $statusA );
+
+		// Verify that a notification was generated
+		$this->assertNotificationCount( $userC->getUser(), 'page-linked', 1 );
+		$this->assertNotificationCount( $userC->getUser(), 'mention-summary', 1 );
 
 		$statusB = $this->editPage(
 			$pageTitle,
@@ -47,7 +69,7 @@ class RevertedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 		);
 		$this->assertStatusGood( $statusB );
 
-		return [ $statusA->getNewRevision(), $statusB->getNewRevision() ];
+		return [ $statusA->getNewRevision(), $statusB->getNewRevision(), $statusC->getNewRevision() ];
 	}
 
 	private function assertNotificationCount( UserIdentity $user, string $type, int $expectedCount ): void {
@@ -61,7 +83,7 @@ class RevertedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testRollback() {
-		[ $revA, $revB ] = $this->commonRevertSetup();
+		[ $revA, $revB, $revC ] = $this->commonRevertSetup();
 
 		$status = $this->getServiceContainer()->getRollbackPageFactory()
 			->newRollbackPage( $revA->getPage(), new UltimateAuthority( $revA->getUser() ), $revB->getUser() )
@@ -70,10 +92,13 @@ class RevertedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 
 		// Verify that a notification was generated
 		$this->assertNotificationCount( $revB->getUser(), 'reverted', 1 );
+		// BUG: We generate an extra 'page-linked' notification here, but we shouldn't (T148949)
+		$this->assertNotificationCount( $revC->getUser(), 'page-linked', 2 );
+		$this->assertNotificationCount( $revC->getUser(), 'mention-summary', 1 );
 	}
 
 	public function testUndo() {
-		[ $revA, $revB ] = $this->commonRevertSetup();
+		[ $revA, $revB, $revC ] = $this->commonRevertSetup();
 
 		$pageUpdater = $this->getServiceContainer()->getPageUpdaterFactory()
 			->newPageUpdater( $revA->getPage(), $revA->getUser() );
@@ -91,10 +116,13 @@ class RevertedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 
 		// Verify that a notification was generated
 		$this->assertNotificationCount( $revB->getUser(), 'reverted', 1 );
+		// Verify that no other notifications were generated (1 was already generated in setup)
+		$this->assertNotificationCount( $revC->getUser(), 'page-linked', 1 );
+		$this->assertNotificationCount( $revC->getUser(), 'mention-summary', 1 );
 	}
 
 	public function testManualRevert() {
-		[ $revA, $revB ] = $this->commonRevertSetup();
+		[ $revA, $revB, $revC ] = $this->commonRevertSetup();
 
 		$status = $this->editPage(
 			$revA->getPage(),
@@ -105,6 +133,10 @@ class RevertedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 
 		// Verify that a notification was NOT generated (see T154637, T153570)
 		$this->assertNotificationCount( $revB->getUser(), 'reverted', 0 );
+		// Verify that no other notifications were generated (1 was already generated in setup)
+		// This works even though we don't generate a revert notification
+		$this->assertNotificationCount( $revC->getUser(), 'page-linked', 1 );
+		$this->assertNotificationCount( $revC->getUser(), 'mention-summary', 1 );
 	}
 
 }
