@@ -66,11 +66,11 @@ class PageEventIngress extends DomainEventIngress implements
 
 		// Handle the case of someone undoing an edit, either through the
 		// 'undo' link in the article history or via the API.
-		// Reverts through the 'rollback' link (EditResult::REVERT_ROLLBACK)
-		// are handled in Hooks::onRollbackComplete().
-		if ( $editResult->getRevertMethod() === EditResult::REVERT_UNDO ) {
-			$undidRevId = $editResult->getUndidRevId();
-			$undidRevision = $this->revisionStore->getRevisionById( $undidRevId );
+		// Manual reverts (EditResult::REVERT_MANUAL) are not handled yet,
+		// since they may require sending notifications to multiple users (T154637, T153570).
+		if ( in_array( $editResult->getRevertMethod(), [ EditResult::REVERT_UNDO, EditResult::REVERT_ROLLBACK ] ) ) {
+			$undidRevId = $editResult->getOldestRevertedRevisionId();
+			$undidRevision = $this->revisionStore->getRevisionById( $undidRevId ?? 0 );
 			if ( $undidRevision && $undidRevision->getPage()->isSamePageAs( $title ) ) {
 				$revertedUser = $undidRevision->getUser();
 				// No notifications for anonymous users
@@ -82,8 +82,12 @@ class PageEventIngress extends DomainEventIngress implements
 							'revid' => $revisionRecord->getId(),
 							'reverted-user-id' => $revertedUser->getId(),
 							'reverted-revision-id' => $undidRevId,
-							'method' => 'undo',
-							'summary' => $revisionRecord->getComment()->text,
+							'method' => match ( $editResult->getRevertMethod() ) {
+								EditResult::REVERT_UNDO => 'undo',
+								EditResult::REVERT_ROLLBACK => 'rollback',
+							},
+							'summary' => $editResult->getRevertMethod() !== EditResult::REVERT_ROLLBACK
+								? $revisionRecord->getComment()->text : null,
 						],
 						'agent' => $userIdentity,
 					] );

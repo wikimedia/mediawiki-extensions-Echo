@@ -515,7 +515,6 @@
 		"UserMergeAccountFields": "usermerge",
 		"MergeAccountFromTo": "usermerge",
 		"UserMergeAccountDeleteTables": "usermerge",
-		"RollbackComplete": "main",
 		"UserSaveSettings": "main",
 		"GetNewMessagesAlert": "main",
 		"LinksUpdateComplete": "main",

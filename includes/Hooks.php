@@ -38,8 +38,6 @@ use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\Hook\OutputPageCheckLastModifiedHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
-use MediaWiki\Page\Hook\RollbackCompleteHook;
-use MediaWiki\Page\WikiPage;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\Preferences\MultiTitleFilter;
@@ -97,7 +95,6 @@ class Hooks implements
 	PreferencesGetIconHook,
 	RecentChange_saveHook,
 	ResourceLoaderRegisterModulesHook,
-	RollbackCompleteHook,
 	SaveUserOptionsHook,
 	SkinTemplateNavigation__UniversalHook,
 	UserClearNewTalkNotificationHook,
@@ -1149,45 +1146,6 @@ class Hooks implements
 		} else {
 			// show new messages alert
 			return true;
-		}
-	}
-
-	/**
-	 * Handler for RollbackComplete hook.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RollbackComplete
-	 *
-	 * @param WikiPage $wikiPage The article that was edited
-	 * @param UserIdentity $agent The user who did the rollback
-	 * @param RevisionRecord $newRevision The revision the page was reverted back to
-	 * @param RevisionRecord $oldRevision The revision of the top edit that was reverted
-	 */
-	public function onRollbackComplete(
-		$wikiPage,
-		$agent,
-		$newRevision,
-		$oldRevision
-	) {
-		$revertedUser = $oldRevision->getUser();
-		$latestRevision = $wikiPage->getRevisionRecord();
-
-		if (
-			$revertedUser &&
-			// No notifications for anonymous users
-			$revertedUser->isRegistered() &&
-			// No notifications for null rollbacks
-			!$oldRevision->hasSameContent( $newRevision )
-		) {
-			Event::create( [
-				'type' => 'reverted',
-				'title' => $wikiPage->getTitle(),
-				'extra' => [
-					'revid' => $latestRevision->getId(),
-					'reverted-user-id' => $revertedUser->getId(),
-					'reverted-revision-id' => $oldRevision->getId(),
-					'method' => 'rollback',
-				],
-				'agent' => $agent,
-			] );
 		}
 	}
 
