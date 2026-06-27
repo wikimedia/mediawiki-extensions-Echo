@@ -38,6 +38,7 @@ use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\Hook\OutputPageCheckLastModifiedHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
+use MediaWiki\Page\WikiPage;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\Preferences\MultiTitleFilter;
@@ -60,6 +61,8 @@ use MediaWiki\Specials\Hook\EmailUserCompleteHook;
 use MediaWiki\Specials\Hook\LoginFormValidErrorMessagesHook;
 use MediaWiki\Specials\Hook\SpecialMuteModifyFormFieldsHook;
 use MediaWiki\Specials\Hook\UnblockUserCompleteHook;
+use MediaWiki\Storage\EditResult;
+use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
 use MediaWiki\User\CentralId\CentralIdLookup;
@@ -92,6 +95,7 @@ class Hooks implements
 	LoadUserOptionsHook,
 	LoginFormValidErrorMessagesHook,
 	OutputPageCheckLastModifiedHook,
+	PageSaveCompleteHook,
 	PreferencesGetIconHook,
 	RecentChange_saveHook,
 	ResourceLoaderRegisterModulesHook,
@@ -1425,16 +1429,30 @@ class Hooks implements
 	}
 
 	/**
-	 *  Save the revert status for the LinksUpdateComplete hook
-	 * TODO: Deprecate this when LinksUpdateComplete is migrated to it's corresponding
-	 * Domain event
+	 * Save the revert status for the LinksUpdateComplete hook
+	 * TODO: Remove this when LinksUpdateComplete is migrated to its corresponding domain event
 	 * @param bool $isRevert
 	 * @param RevisionRecord $revisionRecord
 	 */
-	public static function setRevertStatus( bool $isRevert, $revisionRecord ) {
+	private static function setRevertStatus( bool $isRevert, $revisionRecord ) {
 		if ( $isRevert ) {
 			self::$revertedRevIds[$revisionRecord->getId()] = true;
 		}
 	}
 
+	/**
+	 * @param WikiPage $wikiPage
+	 * @param UserIdentity $user
+	 * @param string $summary
+	 * @param int $flags
+	 * @param RevisionRecord $revisionRecord
+	 * @param EditResult $editResult
+	 * @return void
+	 */
+	public function onPageSaveComplete( $wikiPage, $user, $summary, $flags, $revisionRecord, $editResult ) {
+		// Use the PageLatestRevisionChanged domain event instead of this for new code.
+		// See PageEventIngress::handlePageLatestRevisionChangedEvent().
+		// This is a hack necessary because of hook/event firing order. (T148949)
+		self::setRevertStatus( $editResult->isRevert(), $revisionRecord );
+	}
 }

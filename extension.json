@@ -517,6 +517,7 @@
 		"UserMergeAccountDeleteTables": "usermerge",
 		"UserSaveSettings": "main",
 		"GetNewMessagesAlert": "main",
+		"PageSaveComplete": "main",
 		"LinksUpdateComplete": "main",
 		"SpecialMuteModifyFormFields": "main",
 		"RecentChange_save": "main",

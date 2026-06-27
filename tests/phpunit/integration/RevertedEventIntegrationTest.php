@@ -92,8 +92,8 @@ class RevertedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 
 		// Verify that a notification was generated
 		$this->assertNotificationCount( $revB->getUser(), 'reverted', 1 );
-		// BUG: We generate an extra 'page-linked' notification here, but we shouldn't (T148949)
-		$this->assertNotificationCount( $revC->getUser(), 'page-linked', 2 );
+		// Verify that no other notifications were generated (1 was already generated in setup)
+		$this->assertNotificationCount( $revC->getUser(), 'page-linked', 1 );
 		$this->assertNotificationCount( $revC->getUser(), 'mention-summary', 1 );
 	}
 

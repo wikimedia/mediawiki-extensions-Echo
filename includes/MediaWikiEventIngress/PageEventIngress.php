@@ -7,7 +7,6 @@ namespace MediaWiki\Extension\Notifications\MediaWikiEventIngress;
 use MediaWiki\DomainEvent\DomainEventIngress;
 use MediaWiki\Extension\Notifications\Controller\EventController;
 use MediaWiki\Extension\Notifications\DiscussionParser;
-use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
@@ -49,13 +48,6 @@ class PageEventIngress extends DomainEventIngress implements
 
 		$isRevert = $event->isRevert();
 		$revisionRecord = $event->getLatestRevisionAfter();
-
-		/**
-		 * Save the revert status for the LinksUpdateComplete hook
-		 * TODO: Deprecate this when LinksUpdateComplete is migrated to its corresponding
-		 * Domain event
-		 */
-		EchoHooks::setRevertStatus( $isRevert, $revisionRecord );
 		DiscussionParser::generateEventsForRevision( $revisionRecord, $isRevert );
 
 		$this->maybeSendThankYouEdit( $event );
