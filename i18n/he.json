@@ -174,6 +174,8 @@
 	"notification-header-user-rights-add-and-remove": "הרשאות המשתמש שלך {{GENDER:$1|שונו}}. נוספת ל{{GRAMMAR:תחילית|$2}}. {{GENDER:$6|אתה כבר לא חבר|את כבר לא חברה}} ב{{GRAMMAR:תחילית|$4}}.",
 	"notification-header-user-rights-expiry": "תוקף החברות {{GENDER:$3|שלך}} {{PLURAL:$2|בקבוצה הבאה|בקבוצות הבאות}} פג באופן אוטומטי: $1.",
 	"notification-header-user-rights-expiry-change": "תפוגת החברות {{GENDER:$4|שלך}} {{PLURAL:$3|בקבוצה הבאה|בקבוצות הבאות}} {{GENDER:$1|שונתה}}: $2",
+	"echo-category-title-block": "התראות על חסימה",
+	"echo-pref-tooltip-block": "להודיע לי כשהחשבון שלי נחסם או משוחרר.",
 	"notification-header-welcome": "{{GENDER:$2|ברוך הבא|ברוכה הבאה|ברוך בואך}} ל{{GRAMMAR:תחילית|{{SITENAME}}}}&rlm;, $1! אנחנו שמחים {{GENDER:$2|שאתה פה|שאת פה|שבאת}}.",
 	"notification-header-mention-summary": "$1 {{GENDER:$2|הזכיר|הזכירה}} {{GENDER:$3|אותך}} בתקציר העריכה בדף <strong>$4</strong>.",
 	"notification-header-watchlist-changed": "$1 {{GENDER:$2|שינה|שינתה}} את <strong>$3</strong>, דף ברשימת המעקב {{PLURAL:$5||{{GENDER:$4|שלך}}|שלך פעמיים|שלך $5 פעמים}}.",
