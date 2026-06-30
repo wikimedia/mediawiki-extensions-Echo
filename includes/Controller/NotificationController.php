@@ -498,6 +498,9 @@ class NotificationController {
 	 * @return Iterator<User>
 	 */
 	public static function getUsersToNotifyForEvent( Event $event ) {
+		$services = MediaWikiServices::getInstance();
+		$tempUserDetailsLookup = $services->getTempUserDetailsLookup();
+
 		$notify = new FilteredSequentialIterator;
 		foreach ( self::evaluateUserCallable( $event, AttributeManager::ATTR_LOCATORS ) as $users ) {
 			$notify->add( $users );
@@ -506,7 +509,7 @@ class NotificationController {
 		// Hook for injecting more users.
 		// @deprecated
 		$users = [];
-		( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )
+		( new HookRunner( $services->getHookContainer() ) )
 			->onEchoGetDefaultNotifiedUsers( $event, $users );
 		if ( $users ) {
 			$notify->add( $users );
@@ -573,6 +576,11 @@ class NotificationController {
 			}
 
 			return true;
+		} );
+
+		// Don't send notifications to expired temporary users
+		$notify->addFilter( static function ( $user ) use ( $tempUserDetailsLookup ) {
+			return !$tempUserDetailsLookup->isExpired( $user );
 		} );
 
 		return $notify->getIterator();

@@ -8,6 +8,7 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
+use MediaWiki\User\TempUser\TempUserDetailsLookup;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityValue;
@@ -148,6 +149,17 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				// users returned from locator
 				[ null, 'foo', UserIdentityValue::newRegistered( 123, 'Dummy' ), (object)[], 456 ],
 			],
+
+			[
+				'Filters expired temporary users',
+				// expected result
+				[ 456 ],
+				// users returned from locator
+				[
+					UserIdentityValue::newRegistered( 123, '~2026-12345' ),
+					UserIdentityValue::newRegistered( 456, '~2026-67890' ),
+				],
+			],
 		];
 	}
 
@@ -160,6 +172,13 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 		$users
 	) {
 		$userFactory = $this->getServiceContainer()->getUserFactory();
+		$tempUserDetailsLookup = $this->createMock( TempUserDetailsLookup::class );
+		$tempUserDetailsLookup->method( 'isExpired' )
+			->willReturnCallback( static function ( $user ) {
+				return $user->getName() === '~2026-12345';
+			} );
+		$this->setService( 'TempUserDetailsLookup', $tempUserDetailsLookup );
+
 		$this->overrideConfigValue( 'EchoNotifications', [
 			'unit-test' => [
 				AttributeManager::ATTR_LOCATORS => static function () use ( $users, $userFactory ) {
