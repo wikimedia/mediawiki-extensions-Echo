@@ -173,6 +173,7 @@
 	"notification-body-user-blocked-scope-partial": "tafatairka bogag, meel magac yada, ama falalka qaarkood",
 	"notification-body-user-unblocked": "Xannibaaddii akoonkaaga waa lagaa qaaday.",
 	"notification-link-text-user-blocked-blocklist": "Eeg xannibaadda firfircoon",
+	"notification-link-text-user-blocked-log": "Eeg diiwaanka xannibaadda",
 	"notification-header-welcome": "{{GENDER:$2|Ku soo dhawoow}} {{SITENAME}}, $1! Waan ku faraxsanahay {{GENDER:$2|inaad halkan joogto}}.",
 	"notification-header-mention-summary": "$1 {{GENDER:$2|ku xusay}} {{GENDER:$3|adiga}} faallo wax ka beddelka ee <strong>$4</strong>.",
 	"notification-header-watchlist-changed": "$1 {{GENDER:$2|beddelay}} <strong>$3</strong>, bog ku jira {{GENDER:$4|liiskaaga la socoshada}} {{PLURAL:$5||, $5 jeer}}.",

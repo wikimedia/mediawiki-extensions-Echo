@@ -90,7 +90,7 @@
 	"echo-notification-loginrequired": "Bo mester inisiá seshon pa por mira notifikashonnan.",
 	"echo-notification-popup-loginrequired": "Inisiá seshon pa mira bo notifikashonnan.",
 	"echo-notification-markasread": "Marka komo lesá",
-	"echo-notification-markasunread": "Marka komo sin a lesa",
+	"echo-notification-markasunread": "Marka komo no lesá",
 	"echo-notification-markasread-tooltip": "Marka komo lesá",
 	"echo-notification-more-options-tooltip": "Mas opshon",
 	"notification-dynamic-actions-mute-page-linked": "{{GENDER:$2|Skonde}} notifikashon pa \"$1\"",

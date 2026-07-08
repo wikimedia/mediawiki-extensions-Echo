@@ -158,6 +158,7 @@
 	"notification-header-user-rights-remove-only": "I {{GENDER:$4|tuoi}} diritti utente sono stati {{GENDER:$1|modificati}}. Non sei più un membro di: $2.",
 	"notification-header-user-rights-add-and-remove": "I tuoi diritti utente sono stati modificati. Sei {{GENDER:$6|stato aggiunto|stata aggiunta|stato/a aggiunto/a}} a: $2. Non sei più un membro di: $4.",
 	"notification-header-user-rights-expiry-change": "La scadenza della {{GENDER:$4|tua}} appartenenza {{PLURAL:$3|al seguente gruppo|ai seguenti gruppi}} è stata {{GENDER:$1|modificata}}: $2.",
+	"notification-header-user-blocked-partial-temporary": "{{GENDER:$1|Sei}} stato parzialmente bloccato",
 	"notification-header-welcome": "{{GENDER:$2|Benvenuto|Benvenuta|Benvenuto/a}} su {{SITENAME}}, $1! Siamo lieti che {{GENDER:$2|tu sia}} qui.",
 	"notification-header-mention-summary": "$1 ti {{GENDER:$2|ha}} {{GENDER:$3|menzionato|menzionata|menzionato/a}} nell'oggetto di una modifica su <strong>$4</strong>.",
 	"notification-tooltip-api-triggered": "Questa notifica ti è stata inviata da $1",

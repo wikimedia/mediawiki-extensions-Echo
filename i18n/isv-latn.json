@@ -159,6 +159,8 @@
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$4|Vaše}} koristničske prava byli {{GENDER:$1|izměnjene}}. Vy byli dodani do grupy: $2. Vy uže ne naležite k grupě: $4.",
 	"notification-header-user-rights-expiry": "{{GENDER:$3|Vaše}} členstvo {{PLURAL:$2|slědujučej grupy|slědujučih grup}} izteklo avtomatično: $1.",
 	"notification-header-user-rights-expiry-change": "Čas iztečenja {{GENDER:$4|vašego}} členstva {{PLURAL:$3|slědujučej grupy|slědujučih grup}} byl izměnjeny {{GENDER:$1|koristnikom|koristniceju}} $1: $2",
+	"echo-category-title-block": "Uvědomenja o blokadah",
+	"echo-pref-tooltip-block": "Uvědodomiti mene, kogda zablokovali ili odblokovali mene.",
 	"notification-header-welcome": "{{GENDER:$2|Dobrodošli}} na sajt {{SITENAME}}, $1! Jesmo radi, že {{GENDER:$2|vy}} jeste tu.",
 	"notification-header-mention-summary": "$1 spomněl{{GENDER:$2||a}} {{GENDER:$3|vas}} v opisu pravky na stranici <strong>$4</strong>.",
 	"notification-header-watchlist-changed": "$1 izměnil{{GENDER:$2||a}} stranicu <strong>$3</strong>, ktora nahodi se v {{GENDER:$4|vašem}} spisku slědovanyh stranic{{PLURAL:$5||, $5-kratno}}.",
