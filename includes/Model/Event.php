@@ -314,10 +314,8 @@ class Event extends AbstractEntity implements Bundleable {
 
 		$stats = $services->getStatsFactory()->withComponent( 'Echo' );
 		$type = $this->getType();
-		// TODO remove copyToStatsdAt once new dashboards are created, T359347
 		$stats->getCounter( 'event_all' )
 			->setLabel( 'event_type', $type )
-			->copyToStatsdAt( [ 'echo.event.all', "echo.event.$type" ] )
 			->increment();
 	}
 

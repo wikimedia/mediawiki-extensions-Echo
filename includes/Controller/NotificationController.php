@@ -161,10 +161,8 @@ class NotificationController {
 			}
 
 			$stats = $services->getStatsFactory()->withComponent( 'Echo' );
-			// TODO remove copyToStatsdAt once new dashboards are created, T359347
 			$stats->getCounter( 'notifications_total' )
 				->setLabel( 'notification_type', $type )
-				->copyToStatsdAt( [ 'echo.notification.all' ] )
 				->increment();
 		}
 

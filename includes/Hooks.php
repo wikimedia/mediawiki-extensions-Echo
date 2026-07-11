@@ -1071,7 +1071,6 @@ class Hooks implements
 			// TODO: remove the dedicated Graphite metric counter.MediaWiki.echo.unseen.click once
 			// dashboard consuming Prometheus is setup, T381607
 			$this->statsFactory->getCounter( 'unseen_total' )
-				->copyToStatsdAt( 'echo.unseen' )
 				->increment();
 
 			$wiki = WikiMap::getCurrentWikiId();
