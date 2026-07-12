@@ -6,7 +6,7 @@ use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\JobQueue\Job;
 use MediaWiki\JobQueue\JobQueueGroup;
-use MediaWiki\Title\Title;
+use MediaWiki\JobQueue\JobSpecification;
 use MediaWiki\User\UserFactory;
 
 /**
@@ -25,12 +25,11 @@ use MediaWiki\User\UserFactory;
  */
 class NotificationDeleteJob extends Job {
 	public function __construct(
-		Title $title,
 		array $params,
 		private readonly JobQueueGroup $jobQueueGroup,
 		private readonly UserFactory $userFactory,
 	) {
-		parent::__construct( 'EchoNotificationDeleteJob', $title, $params );
+		parent::__construct( 'EchoNotificationDeleteJob', $params );
 	}
 
 	/**
@@ -43,11 +42,9 @@ class NotificationDeleteJob extends Job {
 			// If there are multiple users, queue a single job for each one
 			$jobs = [];
 			foreach ( $this->params['userIds'] as $userId ) {
-				$jobs[] = new NotificationDeleteJob(
-					$this->title,
-					[ 'userIds' => [ $userId ] ],
-					$this->jobQueueGroup,
-					$this->userFactory
+				$jobs[] = new JobSpecification(
+					'EchoNotificationDeleteJob',
+					[ 'userIds' => [ $userId ] ]
 				);
 			}
 			$this->jobQueueGroup->push( $jobs );
@@ -58,20 +55,20 @@ class NotificationDeleteJob extends Job {
 		$notifMapper = new NotificationMapper();
 
 		// Back-compat for older jobs which used [ $userId => $userId ];
-		$userIds = array_values( $this->params['userIds'] );
-		$userId = $userIds[0];
+		$userId = array_first( $this->params['userIds'] );
 		$user = $this->userFactory->newFromId( $userId );
 		$notif = $notifMapper->fetchByUserOffset( $user, $wgEchoMaxUpdateCount );
 		if ( $notif ) {
 			$notifMapper->deleteByUserEventOffset(
 				$user, $notif->getEvent()->getId()
 			);
-			$notifUser = NotifUser::newFromUser( $user );
-			$notifUser->resetNotificationCount();
 		}
 
 		// Also delete old notifications
 		$notifMapper->deleteByUserAndAge( $user, $wgEchoMaxNotificationAge );
+
+		$notifUser = NotifUser::newFromUser( $user );
+		$notifUser->resetNotificationCount();
 
 		return true;
 	}

@@ -10,12 +10,12 @@ use MediaWiki\Extension\Notifications\ContainmentList;
 use MediaWiki\Extension\Notifications\ContainmentSet;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Iterator\FilteredSequentialIterator;
-use MediaWiki\Extension\Notifications\Jobs\NotificationDeleteJob;
 use MediaWiki\Extension\Notifications\Jobs\NotificationJob;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\OnWikiList;
 use MediaWiki\Extension\Notifications\Services;
+use MediaWiki\JobQueue\JobSpecification;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
@@ -155,7 +155,7 @@ class NotificationController {
 
 			// Process 1000 users per NotificationDeleteJob
 			if ( count( $userIds ) >= 1000 ) {
-				self::enqueueDeleteJob( $userIds, $event );
+				self::enqueueDeleteJob( $userIds );
 				$userIds = [];
 			}
 
@@ -167,7 +167,7 @@ class NotificationController {
 
 		// process the userIds left in the array
 		if ( $userIds ) {
-			self::enqueueDeleteJob( $userIds, $event );
+			self::enqueueDeleteJob( $userIds );
 		}
 	}
 
@@ -204,23 +204,17 @@ class NotificationController {
 	 * Schedule a job to check and delete older notifications
 	 *
 	 * @param int[] $userIds
-	 * @param Event $event
 	 */
-	public static function enqueueDeleteJob( array $userIds, Event $event ) {
+	public static function enqueueDeleteJob( array $userIds ): void {
 		// Do nothing if there is no user
 		if ( !$userIds ) {
 			return;
 		}
 
 		$jobQueueGroup = MediaWikiServices::getInstance()->getJobQueueGroup();
-		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
-		$job = new NotificationDeleteJob(
-			$event->getTitle() ?: Title::newMainPage(),
-			[
-				'userIds' => $userIds,
-			],
-			$jobQueueGroup,
-			$userFactory
+		$job = new JobSpecification(
+			'EchoNotificationDeleteJob',
+			[ 'userIds' => $userIds ]
 		);
 		$jobQueueGroup->lazyPush( $job );
 	}
