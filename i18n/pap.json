@@ -84,7 +84,7 @@
 	"echo-notification-placeholder-filters": "No tin notifikashon ku ta kumpli ku e kriterionan aki.",
 	"echo-notification-popup-loginrequired": "Inisiá seshon pa mira bo notifikashonnan.",
 	"echo-notification-markasread": "Marka komo lesá",
-	"echo-notification-markasunread": "Marka komo sin a lesa",
+	"echo-notification-markasunread": "Marka komo no lesá",
 	"echo-notification-markasread-tooltip": "Marka komo lesá",
 	"echo-notification-more-options-tooltip": "Mas opshon",
 	"notification-dynamic-actions-mute-page-linked": "{{GENDER:$2|Skonde}} notifikashon pa \"$1\"",
