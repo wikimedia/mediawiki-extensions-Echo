@@ -143,7 +143,7 @@
 	"notification-header-mention-user-talkpage-nosection": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|<strong>спомена</strong>}} на <strong>беседата</strong> {{GENDER:$5|на}} <strong>$4</strong>.",
 	"notification-header-mention-agent-talkpage": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|спомена}} на {{GENDER:$2|неговата|нейната|своята}} беседа, в раздел „$4“.",
 	"notification-header-mention-agent-talkpage-nosection": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|спомена}} на {{GENDER:$2|своята}} беседа.",
-	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|спомена}} в беседата $<strong>$4</strong>, в раздел „$5“.",
+	"notification-header-mention-article-talkpage": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|спомена}} на беседата на <strong>$4</strong>, в раздел „<strong>$5</strong>“.",
 	"notification-header-mention-article-talkpage-nosection": "$1 {{GENDER:$3|Ви}} {{GENDER:$2|спомена}} на беседата на <strong>$4</strong>.",
 	"notification-header-mention-failure-user-unknown": "Неуспешно изпращане на {{GENDER:$2|вашето}} споменаване на $3, тъй като сметка с такова име не съществува.",
 	"notification-header-mention-failure-user-anonymous": "Неуспешно изпращане на {{GENDER:$2|вашето}} споменаване на $3, тъй като лицето е анонимно.",
