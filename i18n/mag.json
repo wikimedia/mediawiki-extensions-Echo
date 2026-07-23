@@ -108,7 +108,7 @@
 	"notification-dynamic-actions-unmute-page-linked": "\"$1\" पर कड़ीके अधिसूचना {{GENDER:$2|अनम्यूट करथिन}}",
 	"notification-dynamic-actions-unmute-page-linked-confirmation": "\"पन्ना कड़ी\" अधिसूचना अखनि \"$1\" पन्ना लागि सक्षम हे",
 	"notification-dynamic-actions-unmute-page-linked-confirmation-description": "{{GENDER:$2|अपने}} कौनो घड़ी [$1 अपन प्राथमिकता] मे अपनेके म्यूट कैल गेल पन्ना प्रबन्धित कर सक हथिन ।",
-	"notification-dynamic-actions-unwatch": "\"$1\" मे नया गतिबिधि पर ध्यान रखेला {{GENDER:$3|बन्द करी}}",
+	"notification-dynamic-actions-unwatch": "\"$1\" मे नया गतिबिधि पर ध्यान रखेला {{GENDER:$3|बन्द करथिन}}",
 	"notification-dynamic-actions-unwatch-confirmation": "{{GENDER:$3|अपने}} अखनि \"$1\" पन्नाके ध्यानसूचीसे हटा देलथिन हे",
 	"notification-dynamic-actions-unwatch-confirmation-description": "{{GENDER:$3|अपने}} [$2 ई पन्नाके] कखनियो ध्यानसूचीमे डाल सक हथिन ।",
 	"notification-dynamic-actions-watch": "\"$1\" मे नया गतिविधि पर {{GENDER:$3|ध्यान रखथिन}}",
