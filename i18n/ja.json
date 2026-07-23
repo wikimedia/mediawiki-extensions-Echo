@@ -33,7 +33,8 @@
 			"おはぐろ蜻蛉",
 			"ネイ",
 			"春春眠眠",
-			"Tensama0415"
+			"Tensama0415",
+			"PrinceAzuka134"
 		]
 	},
 	"echo-desc": "イベントおよびメッセージについて、利用者に通知するシステム",
@@ -147,6 +148,7 @@
 	"notification-link-text-view-mention-failure": "{{PLURAL:$1|言及を閲覧}}",
 	"notification-link-text-view-changes": "差分を{{GENDER:$1|閲覧}}",
 	"notification-link-text-view-page": "ページを閲覧",
+	"notification-header-edit-user-page": "$1が{{GENDER:$3|あなたの}}利用者ページを{{GENDER:$2|編集しました}}。",
 	"notification-header-edit-user-talk": "$1 が<strong>{{GENDER:$3|あなたの}}トークページ</strong>にメッセージを{{GENDER:$2|投稿しました}}。",
 	"notification-header-edit-user-talk-with-section": "$1 が<strong>{{GENDER:$3|あなたの}}トークページ</strong>の節「<strong>$4</strong>」にメッセージを{{GENDER:$2|投稿しました}}。",
 	"notification-compact-header-edit-user-page": "$1が{{GENDER:$3|あなたの}}利用者ページを{{GENDER:$2|編集しました}}。",

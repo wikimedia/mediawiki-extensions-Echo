@@ -199,7 +199,7 @@
 	"notification-timestamp-ago-months": "{{PLURAL:$1|$1 मा}}",
 	"notification-timestamp-ago-years": "{{PLURAL:$1|$1 व}}",
 	"notification-timestamp-today": "आज",
-	"notification-timestamp-yesterday": "कल",
+	"notification-timestamp-yesterday": "काल्ह",
 	"notification-inbox-filter-read": "पढ़ल",
 	"notification-inbox-filter-unread": "अनपढ़ल",
 	"notification-inbox-filter-all": "सभ",
