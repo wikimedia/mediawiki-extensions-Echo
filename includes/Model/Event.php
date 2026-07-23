@@ -90,12 +90,7 @@ class Event extends AbstractEntity implements Bundleable {
 	 */
 	protected $bundledEvents;
 
-	/**
-	 * Deletion flag
-	 *
-	 * @var int
-	 */
-	protected $deleted = 0;
+	protected int $deleted = 0;
 
 	/** For use in tests */
 	public static bool $alwaysInsert = false;
@@ -258,7 +253,7 @@ class Event extends AbstractEntity implements Bundleable {
 		if ( isset( $data['event_page_id'] ) ) {
 			$obj->pageId = $data['event_page_id'];
 		}
-		$obj->deleted = $data['event_deleted'];
+		$obj->deleted = (int)$data['event_deleted'];
 
 		if ( $data['event_agent_id'] ?? 0 ) {
 			$obj->agent = User::newFromId( $data['event_agent_id'] );
@@ -395,7 +390,7 @@ class Event extends AbstractEntity implements Bundleable {
 		);
 
 		$this->pageId = $row->event_page_id;
-		$this->deleted = $row->event_deleted;
+		$this->deleted = (int)$row->event_deleted;
 
 		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 
@@ -801,10 +796,7 @@ class Event extends AbstractEntity implements Bundleable {
 		$this->bundleHash = $hash;
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function isDeleted() {
+	public function isDeleted(): bool {
 		return $this->deleted === 1;
 	}
 

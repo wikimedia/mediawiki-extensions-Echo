@@ -81,4 +81,20 @@ class EventIntegrationTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue( $user->equals( $event->getAgent() ) );
 	}
 
+	public function testIsDeletedReflectsModerationAfterDbRoundTrip(): void {
+		$this->clearHook( 'BeforeEchoEventInsert' );
+		$this->overrideConfigValue( 'EchoUseJobQueue', false );
+
+		$eventId = Event::create( [
+			'type' => 'welcome',
+			'agent' => $this->getTestUser()->getUser(),
+		] )->getId();
+		$eventMapper = new EventMapper();
+
+		$this->assertFalse( $eventMapper->fetchById( $eventId, true )->isDeleted() );
+
+		$eventMapper->toggleDeleted( [ $eventId ], true );
+		$this->assertTrue( $eventMapper->fetchById( $eventId, true )->isDeleted() );
+	}
+
 }
