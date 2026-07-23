@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Notifications\Special;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\Html\Html;
+use MediaWiki\Html\TocGeneratorTrait;
 use MediaWiki\HTMLForm\OOUIHTMLForm;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MainConfigNames;
@@ -13,6 +14,8 @@ use MediaWiki\SpecialPage\UnlistedSpecialPage;
 use MediaWiki\User\Options\UserOptionsManager;
 
 class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
+	use TocGeneratorTrait;
+
 	/**
 	 * Category names, mapping internal name to HTML-formatted name
 	 *
@@ -115,30 +118,55 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	 * Outputs the Echo configuration
 	 */
 	protected function outputConfiguration() {
-		$this->outputNotificationsInCategories();
-		$this->outputNotificationsInSections();
-		$this->outputAvailability();
-		$this->outputMandatory();
-		$this->outputEnabledDefault();
+		// Collect HTML for all sections, registering TOC entries in the process
+		$htmlParts = [
+			$this->getNotificationsInCategories(),
+			$this->getNotificationsInSections(),
+			$this->getAvailability(),
+			$this->getMandatory(),
+			$this->getEnabledDefault(),
+		];
+
+		// Add TOC at the top of the page
+		$this->getOutput()->addTOCPlaceholder( $this->getTocData() );
+		$this->getOutput()->addHTML( implode( '', $htmlParts ) );
 	}
 
 	/**
-	 * Displays a checkbox matrix, using an HTMLForm
+	 * Register a TOC section and return the corresponding heading HTML.
 	 *
 	 * @param string $id Arbitrary ID
-	 * @param string|Message $legendMsg Message for an explanatory legend.  For example,
-	 *   "We wrote this feature because in the days of yore, there was but one notification badge"
+	 * @param string $msg Message key for the heading label
+	 * @return string HTML
+	 */
+	protected function getMainHeading( string $id, string $msg ): string {
+		$this->addTocSection( $id, $msg );
+		return Html::element(
+			'h2',
+			[ 'id' => $id ],
+			$this->msg( $msg )->text()
+		);
+	}
+
+	/**
+	 * Register a TOC sub-section, return the heading HTML and check matrix.
+	 *
+	 * @param string $id Arbitrary ID
+	 * @param string|Message $legendMsg Message or message key for the heading label
 	 * @param array $rowLabelMapping Associative array mapping label to tag
 	 * @param array $columnLabelMapping Associative array mapping label to tag
 	 * @param array $value Array consisting of strings in the format '$columnTag-$rowTag'
+	 * @return string HTML
 	 */
-	protected function outputCheckMatrix(
-		$id,
-		$legendMsg,
+	protected function getCheckMatrixWithSubHeading(
+		string $id,
+		string|Message $legendMsg,
 		array $rowLabelMapping,
 		array $columnLabelMapping,
 		array $value
-	) {
+	): string {
+		$message = $this->msg( $legendMsg );
+		$this->addTocSubSection( $id, $message->getKey(), ...$message->getParams() );
 		$form = new OOUIHTMLForm(
 			[
 				$id => [
@@ -154,25 +182,23 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 
 		$form->setTitle( $this->getPageTitle() )
 			->prepareForm()
-			->suppressDefaultSubmit()
-			->setWrapperLegendMsg( $legendMsg )
-			->displayForm( false );
+			->suppressDefaultSubmit();
+
+		return Html::element( 'h3', [ 'id' => $id ], $message->text() )
+			. $form->getHTML( false );
 	}
 
 	/**
 	 * Outputs the notification types in each category
+	 * @return string HTML
 	 */
-	protected function outputNotificationsInCategories() {
+	protected function getNotificationsInCategories(): string {
 		$notificationsByCategory = $this->attributeManager->getEventsByCategory();
 
-		$out = $this->getOutput();
-		$out->addHTML( Html::element(
-			'h2',
-			[ 'id' => 'mw-echo-displaynotificationsconfiguration-notifications-by-category' ],
-			$this->msg( 'echo-displaynotificationsconfiguration-notifications-by-category-header' )->text()
-		) );
-
-		$out->addHTML( Html::openElement( 'ul' ) );
+		$html = $this->getMainHeading(
+			'notifications-by-category',
+			'echo-displaynotificationsconfiguration-notifications-by-category-header'
+		) . Html::openElement( 'ul' );
 		foreach ( $notificationsByCategory as $categoryName => $notificationTypes ) {
 			$implodedTypes = Html::element(
 				'span',
@@ -180,27 +206,25 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 				implode( $this->msg( 'comma-separator' )->text(), $notificationTypes )
 			);
 
-			$out->addHTML(
-				Html::rawElement(
-					'li',
-					[],
-					$this->categoryNames[$categoryName] . $this->msg( 'colon-separator' )->escaped() . ' '
-						. $implodedTypes
-				)
+			$html .= Html::rawElement(
+				'li',
+				[],
+				$this->categoryNames[$categoryName] . $this->msg( 'colon-separator' )->escaped() . ' '
+					. $implodedTypes
 			);
 		}
-		$out->addHTML( Html::closeElement( 'ul' ) );
+		return $html . Html::closeElement( 'ul' );
 	}
 
 	/**
 	 * Output the notification types in each section (alert/message)
+	 * @return string HTML
 	 */
-	protected function outputNotificationsInSections() {
-		$this->getOutput()->addHTML( Html::element(
-			'h2',
-			[ 'id' => 'mw-echo-displaynotificationsconfiguration-sorting-by-section' ],
-			$this->msg( 'echo-displaynotificationsconfiguration-sorting-by-section-header' )->text()
-		) );
+	protected function getNotificationsInSections(): string {
+		$html = $this->getMainHeading(
+			'sorting-by-section',
+			'echo-displaynotificationsconfiguration-sorting-by-section-header'
+		);
 
 		$bySectionValue = [];
 
@@ -217,24 +241,25 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			}
 		}
 
-		$this->outputCheckMatrix(
+		$html .= $this->getCheckMatrixWithSubHeading(
 			'type-by-section',
 			'echo-displaynotificationsconfiguration-sorting-by-section-legend',
 			$this->notificationTypeNames,
 			$flippedSectionNames,
 			$bySectionValue
 		);
+		return $html;
 	}
 
 	/**
 	 * Output which notify types are available for each category
+	 * @return string HTML
 	 */
-	protected function outputAvailability() {
-		$this->getOutput()->addHTML( Html::element(
-			'h2',
-			[ 'id' => 'mw-echo-displaynotificationsconfiguration-available-notification-methods' ],
-			$this->msg( 'echo-displaynotificationsconfiguration-available-notification-methods-header' )->text()
-		) );
+	protected function getAvailability(): string {
+		$html = $this->getMainHeading(
+			'available-notification-methods',
+			'echo-displaynotificationsconfiguration-available-notification-methods-header'
+		);
 
 		$byCategoryValue = [];
 
@@ -246,24 +271,25 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			}
 		}
 
-		$this->outputCheckMatrix(
+		$html .= $this->getCheckMatrixWithSubHeading(
 			'availability-by-category',
 			'echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend',
 			$this->flippedCategoryNames,
 			$this->flippedNotifyTypes,
 			$byCategoryValue
 		);
+		return $html;
 	}
 
 	/**
 	 * Output which notification categories are turned on by default, for each notify type
+	 * @return string HTML
 	 */
-	protected function outputEnabledDefault() {
-		$this->getOutput()->addHTML( Html::element(
-			'h2',
-			[ 'id' => 'mw-echo-displaynotificationsconfiguration-enabled-default' ],
-			$this->msg( 'echo-displaynotificationsconfiguration-enabled-default-header' )->text()
-		) );
+	protected function getEnabledDefault(): string {
+		$html = $this->getMainHeading(
+			'enabled-default',
+			'echo-displaynotificationsconfiguration-enabled-default-header'
+		);
 
 		// Some of the preferences are mapped to existing ones defined in core MediaWiki
 		$virtualOptions = EchoHooks::getVirtualUserOptions( $this->getConfig() );
@@ -293,7 +319,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			}
 		}
 
-		$this->outputCheckMatrix(
+		$html .= $this->getCheckMatrixWithSubHeading(
 			'enabled-by-default-generic',
 			'echo-displaynotificationsconfiguration-enabled-default-legend',
 			$this->flippedCategoryNames,
@@ -314,7 +340,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 				unset( $flippedCategoryNames[$formatted] );
 			}
 
-			$this->outputCheckMatrix(
+			$html .= $this->getCheckMatrixWithSubHeading(
 				'enabled-by-default-conditional' . ++$i,
 				$this->msg( 'echo-displaynotificationsconfiguration-enabled-default-conditional-legend' )
 					->plaintextParams( $condition ),
@@ -323,19 +349,20 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 				array_keys( array_filter( array_merge( $byCategory, $overrides ) ) )
 			);
 		}
+		return $html;
 	}
 
 	/**
 	 * Output which notify types are mandatory for each category
+	 * @return string HTML
 	 */
-	protected function outputMandatory() {
+	protected function getMandatory(): string {
 		$byCategoryValue = [];
 
-		$this->getOutput()->addHTML( Html::element(
-			'h2',
-			[ 'id' => 'mw-echo-displaynotificationsconfiguration-mandatory-notification-methods' ],
-			$this->msg( 'echo-displaynotificationsconfiguration-mandatory-notification-methods-header' )->text()
-		) );
+		$html = $this->getMainHeading(
+			'mandatory-notification-methods',
+			'echo-displaynotificationsconfiguration-mandatory-notification-methods-header'
+		);
 
 		foreach ( $this->notifyTypes as $notifyType => $displayNotifyType ) {
 			foreach ( $this->categoryNames as $category => $displayCategory ) {
@@ -345,12 +372,13 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 			}
 		}
 
-		$this->outputCheckMatrix(
+		$html .= $this->getCheckMatrixWithSubHeading(
 			'mandatory',
 			'echo-displaynotificationsconfiguration-mandatory-notification-methods-by-category-legend',
 			$this->flippedCategoryNames,
 			$this->flippedNotifyTypes,
 			$byCategoryValue
 		);
+		return $html;
 	}
 }
