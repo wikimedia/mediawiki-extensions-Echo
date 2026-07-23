@@ -6,7 +6,7 @@ use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\Html\Html;
 use MediaWiki\Html\TocGeneratorTrait;
-use MediaWiki\HTMLForm\OOUIHTMLForm;
+use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Message\Message;
@@ -167,7 +167,7 @@ class SpecialDisplayNotificationsConfiguration extends UnlistedSpecialPage {
 	): string {
 		$message = $this->msg( $legendMsg );
 		$this->addTocSubSection( $id, $message->getKey(), ...$message->getParams() );
-		$form = new OOUIHTMLForm(
+		$form = HTMLForm::factory( 'codex',
 			[
 				$id => [
 					'type' => 'checkmatrix',
