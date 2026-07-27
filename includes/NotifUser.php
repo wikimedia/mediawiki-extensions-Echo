@@ -16,7 +16,6 @@ use MediaWiki\User\UserIdentity;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\ReadOnlyMode;
 
 /**
@@ -504,9 +503,7 @@ class NotifUser {
 			$this->localCountsAndTimestamps = $this->cache->getWithSetCallback(
 				$this->getMemcKey( self::CACHE_KEY ),
 				self::CACHE_TTL,
-				function ( $oldValue, &$ttl, array &$setOpts ) {
-					$dbr = $this->userNotifGateway->getDB( DB_REPLICA );
-					$setOpts += Database::getCacheSetOptions( $dbr );
+				function () {
 					return $this->computeLocalCountsAndTimestamps();
 				}
 			);
@@ -522,9 +519,7 @@ class NotifUser {
 					$this->globalCountsAndTimestamps = $this->cache->getWithSetCallback(
 						$memcKey,
 						self::CACHE_TTL,
-						function ( $oldValue, &$ttl, array &$setOpts ) {
-							$dbr = $this->userNotifGateway->getDB( DB_REPLICA );
-							$setOpts += Database::getCacheSetOptions( $dbr );
+						function () {
 							return $this->computeGlobalCountsAndTimestamps();
 						}
 					);
