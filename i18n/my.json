@@ -7,6 +7,7 @@
 			"Teitei Para"
 		]
 	},
+	"echo-desc": "ဖြစ်ရပ်များနှင့် သတင်းအချက်အလက်များအကြောင်း အသုံးပြုသူများကို အသိပေးရန် စနစ်",
 	"prefs-echo": "အသိပေးချက်များ",
 	"prefs-emailsettings": "အီးမေးအတွက် ရွေးချယ်စရာ",
 	"prefs-echosubscriptions": "ဤဖြစ်ရပ်များကို ကျွန်ုပ်အားအသိပေးပါ",
@@ -57,6 +58,7 @@
 	"echo-pref-tooltip-mention": "တစ်ယောက်ယောက်က ကျွန်ုပ်၏အသုံးပြုသူစာမျက်နှာသို့ လင့်ခ်လာချိတ်ပါက အသိပေးပါ။",
 	"echo-pref-tooltip-user-rights": "မိမိ၏အသုံးပြုသူအခွင့်ရေးကို တစ်ယောက်ယောက်မှ ပြောင်းလဲလိုက်ပါက အသိပေးရန်။",
 	"echo-pref-tooltip-emailuser": "တစ်ယောက်ယောက်က ကျွန်ုပ်အား အီးမေးလ်ပို့ပါက အသိပေးရန်။",
+	"echo-pref-tooltip-thank-you-edit": "ကျွန်ုပ်၏ ၁၊ ၁၀၊ ၁၀၀...ခုမြောက် တည်းဖြတ်မှုရောက်လျင် အကြောင်းကြားပေးပါ။",
 	"notifications": "အသိပေးချက်များ",
 	"tooltip-pt-notifications-alert": "{{GENDER:|သင်၏}} သတိပေးချက်များ",
 	"tooltip-pt-notifications-notice": "{{GENDER:|သင်၏}} အသိပေးစာများ",
@@ -116,9 +118,11 @@
 	"notification-header-thank-you-10000-edit": "{{GENDER:$2|သင်}}သည် {{GENDER:$2|သင်၏}} တစ်သောင်းပြည့်မြောက် တည်းဖြတ်မှုကို လုပ်ဆောင်ခဲ့ပါပြီ၊ ကျေးဇူး{{GENDER:$2|တင်ပါသည်}}",
 	"notification-header-thank-you-100000-edit": "{{GENDER:$2|သင်}}သည် {{GENDER:$2|သင်၏}} တစ်သိန်းခုမြောက်တည်းဖြတ်မှုကို လုပ်ဆောင်ခဲ့သည်၊ အံ့ဩဖွယ်ပံ့ပိုးမှုအတွက် {{GENDER:$2|သင့်}}အား ကျေးဇူးတင်ပါသည်။",
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|သင်}}သည် {{GENDER:$2|သင်၏}} တစ်သိန်းမြောက်တည်းဖြတ်မှုကို လုပ်ဆောင်ခဲ့သည်၊ အံ့အားသင့်စရာ\nပံပိုးမှုအတွက် ကျေးဇူး{{GENDER:$2|တင်ပါသည်}}။",
+	"notification-header-thank-you-10000000-edit": "{{GENDER:$2| သင်}} သည် {{GENDER:$2|သင်}}၏ ဆယ်သန်းမြောက် တည်းဖြတ်မှုကို ပြုလုပ်ခဲ့ပါသည်။ သင်၏ ထူးချွန်ထက်မြက်သော စေတနာအတွက် {{GENDER:$2|သင့်}}ကို ကျေးဇူးတင်ပါသည်။",
 	"notification-link-thank-you-edit": "{{GENDER:$1|သင်၏}} တည်းဖြတ်မှု",
 	"notification-link-text-view-edit": "တည်းဖြတ်မှုကို ကြည့်ရန်",
 	"notification-link-article-reminder": "စာမျက်နှာ ကြည့်ရန်",
+	"notification-link-api-triggered": "စာမျက်နှာ ကြည့်ရန်",
 	"notification-header-reverted": "သင်၏ {{PLURAL:$4|<strong>$3</strong> ပေါ်ရှိ တည်းဖြတ်မှု|<strong>$3</strong> ပေါ်ရှိ တည်းဖြတ်မှုများ}}သည် {{GENDER:$2|နောက်ပြန် ပြန်ပြင်ခံခဲ့ရသည်}}။",
 	"notification-header-emailuser": "$1 က သင့်ကို အီးမေးလ်တစ်စောင် {{GENDER:$2|ပို့ခဲ့သည်}}။",
 	"notification-edit-user-page-email-subject": "$1 က {{GENDER:$3|သင်၏}}အသုံးပြုသူစာမျက်နှာကို {{SITENAME}}ပေါ်တွင် {{GENDER:$2|ပြင်ဆင်ခဲ့}}သည်။",
@@ -157,5 +161,10 @@
 	"echo-email-batch-link-text-view-all-notifications": "အသိပေးချက်များ အားလုံးကို ကြည့်ရန်",
 	"notification-header-foreign-alert": "{{PLURAL:$5|အခြားဝီကီ|$5 အခြားဝီကီများ}}မှ သတိပေးချက်များ ပို၍",
 	"notification-header-foreign-notice": "{{PLURAL:$5|အခြားဝီကီ|$5 အခြားဝီကီများ}}မှ အသိပေးချက်များ ပို၍",
-	"notification-header-foreign-all": "{{PLURAL:$5|အခြားဝီကီ|$5 အခြားဝီကီများ}}မှ အသိပေးချက်များ ပို၍"
+	"notification-header-foreign-all": "{{PLURAL:$5|အခြားဝီကီ|$5 အခြားဝီကီများ}}မှ အသိပေးချက်များ ပို၍",
+	"grant-echo-read-notifications": "ကျွန်ုပ်၏ အသိပေးချက်များကို ဖတ်ပါ",
+	"right-echo-create": "အခြားသူများထံ အကြောင်းကြားချက်များ ပေးပို့ပါ",
+	"action-echo-create": "အခြားသူများထံ အကြောင်းကြားချက်များ ပေးပို့ပါ",
+	"right-echo-read-notifications": "ကျွန်ုပ်၏ အသိပေးချက်များကို ဖတ်ပါ",
+	"action-echo-read-notifications": "သင့်အသိပေးချက်များကို ဖတ်ပါ"
 }
