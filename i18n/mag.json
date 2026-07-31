@@ -192,6 +192,7 @@
 	"notification-reverted-email-subject2": "{{SITENAME}} पर {{GENDER:$3|अपनेके}} {{PLURAL:$4|सम्पादनके}} {{GENDER:$2|पूर्ववत}} कर देल गेलै हे",
 	"notification-mention-email-subject": "$1 {{SITENAME}} पर {{GENDER:$3|अपनेके}} {{GENDER:$2|उल्लेख}} कैलन हे",
 	"notification-user-rights-email-subject": "{{SITENAME}} पर {{GENDER:$3|अपनेके}} प्रयोगकर्ता अधिकार बदलल गेलै हे",
+	"notification-user-rights-expiry-email-subject": "{{SITENAME}} पर {{GENDER:$3|अपनेके}} अधिकार समाप्त हो गेलै",
 	"notification-timestamp-ago-seconds": "{{PLURAL:$1|$1 से}}",
 	"notification-timestamp-ago-minutes": "{{PLURAL:$1|$1 मि}}",
 	"notification-timestamp-ago-hours": "{{PLURAL:$1|$1 घ}}",
