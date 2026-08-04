@@ -175,7 +175,7 @@
 	"notification-header-mention-article-talkpage-nosection": "$1, <strong>$4</strong> sayfasının tartışmasında {{GENDER:$3|sizden}} {{GENDER:$2|bahsetti}}.",
 	"notification-header-mention-failure-user-unknown": "Bu adda bir hesap olmadığı için <strong>$3</strong> için {{GENDER:$2|değinişiniz}} gönderilemedi.",
 	"notification-header-mention-failure-user-anonymous": "Kişi anonim olduğu için <strong>$3</strong> için {{GENDER:$2|değinişiniz}} gönderilemedi.",
-	"notification-header-mention-failure-too-many": "{{GENDER:$2|Siz}}, $3'den fazla {{PLURAL:$3|kullanıcı|kullanıcı}} bahsetmeye çalıştınız. Bu sınırın üzerindeki tüm ifadeler gönderilmedi.",
+	"notification-header-mention-failure-too-many": "$3'den fazla kullanıcıdan bahsetmeye çalıştınız. Bu sınırın üzerindeki kullanıcılara bildirim gönderilmedi.",
 	"notification-header-mention-failure-bundle": "{{PLURAL:$3|Bir bahsetme|$3 bahsetme}} <strong>$4</strong> {{GENDER:$2|yaptınız}} tartışma sayfasında gönderilmiyor.",
 	"notification-compact-header-mention-failure-user-unknown": "<strong>Kullanıcı adı mevcut değil:</strong> $1",
 	"notification-compact-header-mention-failure-user-anonymous": "<strong>IP'lerden bahsedilemez:</strong> $1",
