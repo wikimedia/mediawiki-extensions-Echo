@@ -2,27 +2,17 @@
 
 namespace MediaWiki\Extension\Notifications;
 
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
- * Database factory class, this will determine whether to use the main database
- * or an external database defined in the configuration file
+ * Database factory class, returns connections for the Echo virtual database
+ * domains
  */
 class DbFactory {
-
-	/**
-	 * @param string|null $cluster The cluster for the database
-	 * @param string|null $shared
-	 * @param string|null $sharedCluster
-	 */
-	public function __construct(
-		private readonly ?string $cluster = null,
-		private readonly ?string $shared = null,
-		private readonly ?string $sharedCluster = null,
-	) {
-	}
 
 	/**
 	 * Create a db factory instance from default Echo configuration
@@ -32,13 +22,7 @@ class DbFactory {
 	 * @return DbFactory
 	 */
 	public static function newFromDefault() {
-		global $wgEchoCluster, $wgEchoSharedTrackingDB, $wgEchoSharedTrackingCluster;
-
-		return new self(
-			$wgEchoCluster ?: null,
-			$wgEchoSharedTrackingDB ?: null,
-			$wgEchoSharedTrackingCluster ?: null
-		);
+		return new self();
 	}
 
 	/**
@@ -53,51 +37,51 @@ class DbFactory {
 	 * @return ILoadBalancer
 	 */
 	protected function getLB() {
-		// Use the external db defined for Echo
-		if ( $this->cluster ) {
-			$lb = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getExternalLB( $this->cluster );
-		} else {
-			$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
-		}
-
-		return $lb;
+		return MediaWikiServices::getInstance()->getDBLoadBalancerFactory()
+			->getLoadBalancer( DbDomains::VIRTUAL_DOMAIN );
 	}
 
 	/**
 	 * @return ILoadBalancer
 	 */
 	protected function getSharedLB() {
-		if ( $this->sharedCluster ) {
-			$lb = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getExternalLB( $this->sharedCluster );
-		} else {
-			$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
-		}
-
-		return $lb;
+		return MediaWikiServices::getInstance()->getDBLoadBalancerFactory()
+			->getLoadBalancer( DbDomains::VIRTUAL_SHARED_DOMAIN );
 	}
 
 	/**
 	 * Get the database connection for Echo
 	 * @param int $db Index of the connection to get
-	 * @param string[] $groups Query groups.
-	 * @return IDatabase
+	 * @param string[] $groups Query groups. Only the first group is used.
+	 * @return IDatabase|IReadableDatabase
 	 */
 	public function getEchoDb( $db, array $groups = [] ) {
-		return $this->getLB()->getConnection( $db, $groups );
+		$provider = MediaWikiServices::getInstance()->getConnectionProvider();
+		if ( $db === DB_PRIMARY ) {
+			return $provider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
+		}
+
+		return $provider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN, $groups[0] ?? null );
 	}
 
 	/**
 	 * @param int $db Index of the connection to get
-	 * @param string[] $groups Query groups
+	 * @param string[] $groups Query groups. Only the first group is used.
 	 *
-	 * @return bool|IDatabase false if no shared db is configured
+	 * @return bool|IDatabase|IReadableDatabase false if no shared db is configured
 	 */
 	public function getSharedDb( $db, array $groups = [] ) {
-		if ( !$this->shared ) {
+		$services = MediaWikiServices::getInstance();
+		if ( !DbDomains::isSharedTrackingConfigured( $services->getMainConfig() ) ) {
 			return false;
 		}
 
-		return $this->getSharedLB()->getConnection( $db, $groups, $this->shared );
+		$provider = $services->getConnectionProvider();
+		if ( $db === DB_PRIMARY ) {
+			return $provider->getPrimaryDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN );
+		}
+
+		return $provider->getReplicaDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN, $groups[0] ?? null );
 	}
 
 	/**
@@ -110,22 +94,23 @@ class DbFactory {
 	 * @param int $db Index of the connection to get
 	 * @param string[] $groups Query groups.
 	 * @param string|bool $wiki The wiki ID, or false for the current wiki
-	 * @return IDatabase
+	 * @return IDatabase|IReadableDatabase
 	 */
 	public static function getDB( $db, array $groups = [], $wiki = false ) {
-		global $wgEchoCluster;
-
 		$services = MediaWikiServices::getInstance();
+		if ( $wiki === false ) {
+			return ( new self() )->getEchoDb( $db, $groups );
+		}
 
-		// Use the external db defined for Echo
-		if ( $wgEchoCluster ) {
-			$lb = $services->getDBLoadBalancerFactory()->getExternalLB( $wgEchoCluster );
+		$lbFactory = $services->getDBLoadBalancerFactory();
+		$virtualDomainsMapping = $services->getMainConfig()->get( MainConfigNames::VirtualDomainsMapping );
+		if ( isset( $virtualDomainsMapping[DbDomains::VIRTUAL_DOMAIN] ) ) {
+			// All wikis share one Echo cluster, connect to it with the foreign
+			// wiki's domain
+			$lb = $lbFactory->getLoadBalancer( DbDomains::VIRTUAL_DOMAIN );
 		} else {
-			if ( $wiki === false ) {
-				$lb = $services->getDBLoadBalancer();
-			} else {
-				$lb = $services->getDBLoadBalancerFactory()->getMainLB( $wiki );
-			}
+			// Echo tables live in the main database of each wiki
+			$lb = $lbFactory->getMainLB( $wiki );
 		}
 
 		return $lb->getConnection( $db, $groups, $wiki );
@@ -136,7 +121,7 @@ class DbFactory {
 	 * @return bool True if there are multiple servers and changes were made in this request; false otherwise
 	 */
 	public function canRetryPrimary() {
-		return $this->getLB()->getServerCount() > 1 && $this->getLB()->hasOrMadeRecentPrimaryChanges();
+		return DbDomains::canRetryPrimary();
 	}
 }
 

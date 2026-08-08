@@ -11,6 +11,7 @@ use MediaWiki\Tests\Api\ApiTestCase;
  * @covers \MediaWiki\Extension\Notifications\Api\ApiEchoCreateEvent
  */
 class ApiEchoCreateEventTest extends ApiTestCase {
+
 	protected function setUp(): void {
 		parent::setUp();
 		$this->overrideConfigValue( 'EchoEnableApiEvents', true );

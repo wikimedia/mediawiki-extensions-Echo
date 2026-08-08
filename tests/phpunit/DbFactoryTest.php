@@ -4,9 +4,7 @@ namespace MediaWiki\Extension\Notifications\Test;
 
 use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWikiIntegrationTestCase;
-use ReflectionClass;
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\DbFactory
@@ -27,15 +25,6 @@ class DbFactoryTest extends MediaWikiIntegrationTestCase {
 	public function testGetEchoDb( DbFactory $db ) {
 		$this->assertInstanceOf( IDatabase::class, $db->getEchoDb( DB_PRIMARY ) );
 		$this->assertInstanceOf( IDatabase::class, $db->getEchoDb( DB_REPLICA ) );
-	}
-
-	/**
-	 * @depends testNewFromDefault
-	 */
-	public function testGetLB( DbFactory $db ) {
-		$reflection = new ReflectionClass( DbFactory::class );
-		$method = $reflection->getMethod( 'getLB' );
-		$this->assertInstanceOf( ILoadBalancer::class, $method->invoke( $db ) );
 	}
 
 }

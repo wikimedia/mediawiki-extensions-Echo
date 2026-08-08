@@ -4,6 +4,7 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
@@ -55,15 +56,11 @@ return [
 
 	'EchoPushSubscriptionManager' => static function ( MediaWikiServices $services ): SubscriptionManager {
 		$echoConfig = $services->getConfigFactory()->makeConfig( 'Echo' );
-		// Use shared DB/cluster for push subscriptions
-		$cluster = $echoConfig->get( 'EchoSharedTrackingCluster' );
-		$database = $echoConfig->get( 'EchoSharedTrackingDB' ) ?: false;
+		// Use the shared virtual domain for push subscriptions
 		$loadBalancerFactory = $services->getDBLoadBalancerFactory();
-		$loadBalancer = $cluster
-			? $loadBalancerFactory->getExternalLB( $cluster )
-			: $loadBalancerFactory->getMainLB( $database );
-		$dbw = $loadBalancer->getConnection( DB_PRIMARY, [], $database );
-		$dbr = $loadBalancer->getConnection( DB_REPLICA, [], $database );
+		$loadBalancer = $loadBalancerFactory->getLoadBalancer( DbDomains::VIRTUAL_SHARED_DOMAIN );
+		$dbw = $loadBalancerFactory->getPrimaryDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN );
+		$dbr = $loadBalancerFactory->getReplicaDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN );
 
 		$pushProviderStore = new NameTableStore(
 			$loadBalancer,
@@ -73,7 +70,7 @@ return [
 			'epp_id',
 			'epp_name',
 			null,
-			$database
+			$loadBalancer->getLocalDomainID()
 		);
 
 		$pushTopicStore = new NameTableStore(
@@ -84,7 +81,7 @@ return [
 			'ept_id',
 			'ept_text',
 			null,
-			$database
+			$loadBalancer->getLocalDomainID()
 		);
 
 		$maxSubscriptionsPerUser = $echoConfig->get( 'EchoPushMaxSubscriptionsPerUser' );

@@ -19,12 +19,7 @@ class NotificationMapperDatabaseTest extends MediaWikiIntegrationTestCase {
 	private static int $nextEventId = 10;
 
 	public function testDeleteByUserAndAge() {
-		$this->overrideConfigValues( [
-			MainConfigNames::UpdateRowsPerQuery => 2,
-			'EchoCluster' => false,
-			'EchoSharedTrackingDB' => false,
-			'EchoSharedTrackingCluster' => false,
-		] );
+		$this->overrideConfigValue( MainConfigNames::UpdateRowsPerQuery, 2 );
 
 		// Insert four notifications, one of which is recent
 		$user = $this->getTestUser()->getUser();
