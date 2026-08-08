@@ -5,7 +5,7 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\User\User;
@@ -40,8 +40,8 @@ class RecomputeNotifCounts extends Maintenance {
 	}
 
 	public function execute() {
-		$dbFactory = DbFactory::newFromDefault();
-		$dbrEcho = $dbFactory->getEchoDb( DB_REPLICA );
+		$dbrEcho = $this->getServiceContainer()->getConnectionProvider()
+			->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 
 		$userIDs = $this->getOption( 'user-ids' );
 		$userIDs = $userIDs ? explode( ',', $userIDs ) : null;

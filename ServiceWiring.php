@@ -34,11 +34,11 @@ return [
 	},
 
 	'EchoEventMapper' => static function ( MediaWikiServices $services ): EventMapper {
-		return new EventMapper();
+		return new EventMapper( $services->getConnectionProvider() );
 	},
 
 	'EchoNotificationMapper' => static function ( MediaWikiServices $services ): NotificationMapper {
-		return new NotificationMapper();
+		return new NotificationMapper( $services->getConnectionProvider() );
 	},
 
 	'EchoPushNotificationServiceClient' => static function (

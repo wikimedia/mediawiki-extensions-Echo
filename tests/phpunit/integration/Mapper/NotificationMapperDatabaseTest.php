@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Test\Integration\Mapper;
 
-use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
@@ -44,7 +43,7 @@ class NotificationMapperDatabaseTest extends MediaWikiIntegrationTestCase {
 			] );
 
 		// Run the code we are testing with a max age of 5 years (the default for the extension)
-		$notifMapper = new NotificationMapper( DbFactory::newFromDefault() );
+		$notifMapper = new NotificationMapper( $this->getServiceContainer()->getConnectionProvider() );
 		$notifMapper->deleteByUserAndAge( $user, 157783680 );
 
 		// Assert that the notification that was too new and the last notification was

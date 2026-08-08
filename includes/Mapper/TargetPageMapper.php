@@ -25,7 +25,7 @@ class TargetPageMapper extends AbstractMapper {
 	 * @return bool
 	 */
 	public function insert( TargetPage $targetPage ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
+		$dbw = $this->getPrimaryDb();
 
 		$row = $targetPage->toDbArray();
 

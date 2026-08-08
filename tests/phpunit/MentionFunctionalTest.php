@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Notifications\Test;
 
 use MediaWiki\Deferred\DeferredUpdates;
-use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
@@ -16,7 +15,7 @@ use Wikimedia\Rdbms\Platform\ISQLPlatform;
 class MentionFunctionalTest extends MediaWikiIntegrationTestCase {
 
 	private function deleteEchoData() {
-		$db = DbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
+		$db = $this->getDb();
 		$db->newDeleteQueryBuilder()
 			->deleteFrom( 'echo_event' )
 			->where( ISQLPlatform::ALL_ROWS )

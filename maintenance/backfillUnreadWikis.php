@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Notifications\AttributeManager;
-use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\UnreadWikis;
 use MediaWiki\Maintenance\Maintenance;
@@ -29,13 +29,16 @@ class BackfillUnreadWikis extends Maintenance {
 	}
 
 	public function execute() {
-		$dbFactory = DbFactory::newFromDefault();
-		$lookup = $this->getServiceContainer()->getCentralIdLookup();
+		$services = $this->getServiceContainer();
+		$lookup = $services->getCentralIdLookup();
 
 		$rebuild = $this->hasOption( 'rebuild' );
 		if ( $rebuild ) {
+			if ( !DbDomains::isSharedTrackingConfigured( $this->getConfig() ) ) {
+				$this->fatalError( 'A shared tracking database is not configured on this wiki.' );
+			}
 			$iterator = new BatchRowIterator(
-				$dbFactory->getSharedDb( DB_REPLICA ),
+				$services->getConnectionProvider()->getReplicaDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN ),
 				'echo_unread_wikis',
 				'euw_user',
 				$this->getBatchSize()

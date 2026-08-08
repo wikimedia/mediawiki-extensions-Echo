@@ -6,7 +6,9 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\User\CentralId\CentralIdLookup;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Utils\MWTimestamp;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Manages what wikis a user has unread notifications on
@@ -16,16 +18,16 @@ class UnreadWikis {
 	private const DEFAULT_TS = '00000000000000';
 	private const DEFAULT_TS_DB = '00010101010101';
 
-	/**
-	 * @var DbFactory
-	 */
-	private $dbFactory;
+	private readonly IConnectionProvider $dbProvider;
+	private readonly bool $sharedTrackingConfigured;
 
 	/**
 	 * @param int $id Central user id
 	 */
 	public function __construct( private readonly int $id ) {
-		$this->dbFactory = DbFactory::newFromDefault();
+		$services = MediaWikiServices::getInstance();
+		$this->dbProvider = $services->getConnectionProvider();
+		$this->sharedTrackingConfigured = DbDomains::isSharedTrackingConfigured( $services->getMainConfig() );
 	}
 
 	/**
@@ -44,10 +46,16 @@ class UnreadWikis {
 	/**
 	 * @param int $index DB_* constant
 	 *
-	 * @return bool|IDatabase
+	 * @return bool|IDatabase|IReadableDatabase false if shared tracking is not configured
 	 */
 	private function getDB( $index ) {
-		return $this->dbFactory->getSharedDb( $index );
+		if ( !$this->sharedTrackingConfigured ) {
+			return false;
+		}
+
+		return $index === DB_PRIMARY
+			? $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN )
+			: $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN );
 	}
 
 	/**

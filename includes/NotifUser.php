@@ -85,16 +85,17 @@ class NotifUser {
 			throw new InvalidArgumentException( 'User must be logged in to view notification!' );
 		}
 		$services = MediaWikiServices::getInstance();
+		$dbProvider = $services->getConnectionProvider();
 		return new NotifUser(
 			$user,
 			$services->getMainWANObjectCache(),
 			new UserNotificationGateway(
 				$user,
-				DbFactory::newFromDefault(),
+				$dbProvider,
 				$services->getMainConfig()
 			),
-			new NotificationMapper(),
-			new TargetPageMapper(),
+			new NotificationMapper( $dbProvider ),
+			new TargetPageMapper( $dbProvider ),
 			$services->getUserOptionsLookup(),
 			$services->getUserFactory(),
 			$services->getReadOnlyMode()

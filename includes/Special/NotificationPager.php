@@ -4,9 +4,10 @@ namespace MediaWiki\Extension\Notifications\Special;
 
 use LogicException;
 use MediaWiki\Context\IContextSource;
-use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\Services;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\ReverseChronologicalPager;
 
 /**
@@ -17,8 +18,8 @@ use MediaWiki\Pager\ReverseChronologicalPager;
 class NotificationPager extends ReverseChronologicalPager {
 
 	public function __construct( IContextSource $context ) {
-		$dbFactory = DbFactory::newFromDefault();
-		$this->mDb = $dbFactory->getEchoDb( DB_REPLICA );
+		$this->mDb = MediaWikiServices::getInstance()->getConnectionProvider()
+			->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 
 		parent::__construct( $context );
 	}

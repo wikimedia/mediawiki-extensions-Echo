@@ -6,7 +6,7 @@ use Exception;
 use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Bundleable;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
-use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
@@ -149,7 +149,7 @@ class Event extends AbstractEntity implements Bundleable {
 		$services = MediaWikiServices::getInstance();
 		// Do not create event and notifications if write access is locked
 		if ( $services->getReadOnlyMode()->isReadOnly()
-			|| DbFactory::newFromDefault()->getEchoDb( DB_PRIMARY )->isReadOnly()
+			|| $services->getConnectionProvider()->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN )->isReadOnly()
 		) {
 			return false;
 		}

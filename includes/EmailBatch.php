@@ -15,6 +15,7 @@ use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
 use MediaWiki\Utils\BatchRowIterator;
 use stdClass;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**
@@ -49,6 +50,7 @@ class EmailBatch {
 		protected User $mUser,
 		protected UserOptionsManager $userOptionsManager,
 		LanguageFactory $languageFactory,
+		private readonly IConnectionProvider $dbProvider,
 	) {
 		$this->language = $languageFactory->getLanguage(
 			$userOptionsManager->getOption( $mUser, 'language' )
@@ -84,7 +86,7 @@ class EmailBatch {
 
 		// clear all existing events if user decides not to receive emails
 		if ( $userEmailSetting == -1 ) {
-			$emailBatch = new self( $user, $userOptionsManager, $languageFactory );
+			$emailBatch = new self( $user, $userOptionsManager, $languageFactory, $services->getConnectionProvider() );
 			$emailBatch->clearProcessedEvent();
 
 			return false;
@@ -115,7 +117,7 @@ class EmailBatch {
 			}
 		}
 
-		return new self( $user, $userOptionsManager, $languageFactory );
+		return new self( $user, $userOptionsManager, $languageFactory, $services->getConnectionProvider() );
 	}
 
 	/**
@@ -162,7 +164,7 @@ class EmailBatch {
 	 * @return bool true if event exists false otherwise
 	 */
 	protected function setLastEvent() {
-		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
+		$dbr = $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 		$res = $dbr->newSelectQueryBuilder()
 			->select( 'MAX( eeb_event_id )' )
 			->from( 'echo_email_batch' )
@@ -208,7 +210,7 @@ class EmailBatch {
 		// composite index, favor insert performance, storage space over read
 		// performance in this case
 		if ( $validEvents ) {
-			$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
+			$dbr = $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 			$queryBuilder = $dbr->newSelectQueryBuilder()
 				->select( array_merge( Event::selectFields(), [
 					'eeb_id',
@@ -260,12 +262,10 @@ class EmailBatch {
 	 */
 	public function clearProcessedEvent() {
 		global $wgUpdateRowsPerQuery;
-		$eventMapper = new EventMapper();
-		$dbFactory = DbFactory::newFromDefault();
-		$dbw = $dbFactory->getEchoDb( DB_PRIMARY );
-		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
+		$eventMapper = new EventMapper( $this->dbProvider );
+		$dbw = $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
+		$dbr = $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
+		$ticket = $this->dbProvider->getEmptyTransactionTicket( __METHOD__ );
 		$domainId = $dbw->getDomainID();
 
 		$iterator = new BatchRowIterator( $dbr, 'echo_email_batch', 'eeb_event_id', $wgUpdateRowsPerQuery );
@@ -294,7 +294,7 @@ class EmailBatch {
 			// (besides the rows we just deleted) or in echo_notification, and delete them
 			$eventMapper->deleteOrphanedEvents( $eventIds, $this->mUser->getId(), 'echo_email_batch' );
 
-			$lbFactory->commitAndWaitForReplication(
+			$this->dbProvider->commitAndWaitForReplication(
 				__METHOD__, $ticket, [ 'domain' => $domainId ] );
 		}
 	}
@@ -358,7 +358,8 @@ class EmailBatch {
 			return;
 		}
 
-		$dbw = DbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()
+			->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
 
 		$row = [
 			'eeb_user_id' => $userId,
@@ -384,7 +385,8 @@ class EmailBatch {
 	 * @return IResultWrapper
 	 */
 	public static function getUsersToNotify( $startUserId, $batchSize ) {
-		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()
+			->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 		return $dbr->newSelectQueryBuilder()
 			->select( 'eeb_user_id' )
 			->from( 'echo_email_batch' )

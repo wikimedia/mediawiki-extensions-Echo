@@ -3,10 +3,12 @@
 namespace MediaWiki\Extension\Notifications\Gateway;
 
 use MediaWiki\Config\Config;
-use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Database gateway which handles direct database interaction with the
@@ -31,17 +33,21 @@ class UserNotificationGateway {
 
 	public function __construct(
 		protected UserIdentity $user,
-		protected DbFactory $dbFactory,
+		protected IConnectionProvider $dbProvider,
 		private readonly Config $config,
 	) {
 	}
 
 	/**
 	 * @param int $dbSource
-	 * @return IDatabase
+	 * @return IDatabase|IReadableDatabase
 	 */
 	public function getDB( $dbSource ) {
-		return $this->dbFactory->getEchoDb( $dbSource );
+		if ( $dbSource === DB_PRIMARY ) {
+			return $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
+		}
+
+		return $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 	}
 
 	/**

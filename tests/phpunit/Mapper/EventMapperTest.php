@@ -3,11 +3,11 @@
 namespace MediaWiki\Extension\Notifications\Test\Integration\Mapper;
 
 use InvalidArgumentException;
-use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\FakeResultWrapper;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\InsertQueryBuilder;
 use Wikimedia\Rdbms\SelectQueryBuilder;
@@ -38,7 +38,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testInsert( $message, $dbResult, $result ) {
 		$event = $this->mockEvent();
-		$eventMapper = new EventMapper( $this->mockDbFactory( $dbResult ) );
+		$eventMapper = new EventMapper( $this->mockDbProvider( $dbResult ) );
 		$this->assertEquals( $result, $eventMapper->insert( $event ), $message );
 	}
 
@@ -47,7 +47,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testSuccessfulFetchById() {
 		$eventMapper = new EventMapper(
-			$this->mockDbFactory(
+			$this->mockDbProvider(
 				[
 					'selectRow' => (object)[
 						'event_id' => 1,
@@ -67,7 +67,7 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 
 	public function testUnsuccessfulFetchById() {
 		$eventMapper = new EventMapper(
-			$this->mockDbFactory(
+			$this->mockDbProvider(
 				[
 					'selectRow' => false,
 				]
@@ -90,14 +90,17 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @param array $dbResult
-	 * @return DbFactory
+	 * @return IConnectionProvider
 	 */
-	protected function mockDbFactory( $dbResult ) {
-		$dbFactory = $this->createMock( DbFactory::class );
-		$dbFactory->method( 'getEchoDb' )
-			->willReturn( $this->mockDb( $dbResult ) );
+	protected function mockDbProvider( $dbResult ) {
+		$db = $this->mockDb( $dbResult );
+		$dbProvider = $this->createMock( IConnectionProvider::class );
+		$dbProvider->method( 'getPrimaryDatabase' )
+			->willReturn( $db );
+		$dbProvider->method( 'getReplicaDatabase' )
+			->willReturn( $db );
 
-		return $dbFactory;
+		return $dbProvider;
 	}
 
 	/**

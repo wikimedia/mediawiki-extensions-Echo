@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Notifications\Test\Unit;
 
-use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Model\TargetPage;
 use MediaWikiUnitTestCase;
 use Wikimedia\Rdbms\FakeResultWrapper;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\InsertQueryBuilder;
 
@@ -35,7 +35,7 @@ class TargetPageMapperTest extends MediaWikiUnitTestCase {
 	 */
 	public function testInsert( $message, $dbResult, $result ) {
 		$target = $this->mockTargetPage();
-		$targetMapper = new TargetPageMapper( $this->mockDbFactory( $dbResult ) );
+		$targetMapper = new TargetPageMapper( $this->mockDbProvider( $dbResult ) );
 		$this->assertEquals( $result, $targetMapper->insert( $target ), $message );
 	}
 
@@ -56,16 +56,19 @@ class TargetPageMapperTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * Mock object of DbFactory
+	 * Mock object of IConnectionProvider
 	 * @param array $dbResult
-	 * @return DbFactory
+	 * @return IConnectionProvider
 	 */
-	protected function mockDbFactory( $dbResult ) {
-		$dbFactory = $this->createMock( DbFactory::class );
-		$dbFactory->method( 'getEchoDb' )
-			->willReturn( $this->mockDb( $dbResult ) );
+	protected function mockDbProvider( $dbResult ) {
+		$db = $this->mockDb( $dbResult );
+		$dbProvider = $this->createMock( IConnectionProvider::class );
+		$dbProvider->method( 'getPrimaryDatabase' )
+			->willReturn( $db );
+		$dbProvider->method( 'getReplicaDatabase' )
+			->willReturn( $db );
 
-		return $dbFactory;
+		return $dbProvider;
 	}
 
 	/**

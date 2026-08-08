@@ -11,6 +11,10 @@ use Wikimedia\Rdbms\IReadableDatabase;
 /**
  * Database factory class, returns connections for the Echo virtual database
  * domains
+ *
+ * @deprecated since 1.47 Use IConnectionProvider::getPrimaryDatabase() /
+ *   getReplicaDatabase() with DbDomains::VIRTUAL_DOMAIN or
+ *   DbDomains::VIRTUAL_SHARED_DOMAIN instead
  */
 class DbFactory {
 

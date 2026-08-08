@@ -6,7 +6,7 @@ use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Extension\Notifications\AttributeManager;
-use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Page\PageRecord;
@@ -16,6 +16,7 @@ use MediaWiki\Title\TitleFactory;
 use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class ApiEchoUnreadNotificationPages extends ApiQueryBase {
@@ -33,6 +34,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 		private readonly AttributeManager $attributeManager,
 		private readonly PageStore $pageStore,
 		private readonly TitleFactory $titleFactory,
+		private readonly IConnectionProvider $dbProvider,
 	) {
 		parent::__construct( $query, $moduleName, 'unp' );
 	}
@@ -75,7 +77,7 @@ class ApiEchoUnreadNotificationPages extends ApiQueryBase {
 	protected function getFromLocal( $limit, $groupPages ) {
 		$enabledTypes = $this->attributeManager->getUserEnabledEvents( $this->getUser(), 'web' );
 
-		$dbr = DbFactory::newFromDefault()->getEchoDb( DB_REPLICA );
+		$dbr = $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 		$queryBuilder = $dbr->newSelectQueryBuilder()
 			->select( [ 'event_page_id', 'count' => 'COUNT(*)' ] )
 			->from( 'echo_event' )

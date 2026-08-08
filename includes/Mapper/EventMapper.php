@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Notifications\Mapper;
 
 use InvalidArgumentException;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\User\UserIdentity;
 
@@ -19,7 +20,7 @@ class EventMapper extends AbstractMapper {
 	 * @return int
 	 */
 	public function insert( Event $event ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
+		$dbw = $this->getPrimaryDb();
 
 		$row = $event->toDbArray();
 
@@ -47,7 +48,7 @@ class EventMapper extends AbstractMapper {
 	 * @return Event|false False if it wouldn't load/unserialize
 	 */
 	public function fetchById( $id, $fromPrimary = false ) {
-		$db = $fromPrimary ? $this->dbFactory->getEchoDb( DB_PRIMARY ) : $this->dbFactory->getEchoDb( DB_REPLICA );
+		$db = $fromPrimary ? $this->getPrimaryDb() : $this->getReplicaDb();
 
 		$row = $db->newSelectQueryBuilder()
 			->select( Event::selectFields() )
@@ -57,7 +58,7 @@ class EventMapper extends AbstractMapper {
 			->fetchRow();
 
 		// If the row was not found, fall back on the primary database if it makes sense to do so
-		if ( !$row && !$fromPrimary && $this->dbFactory->canRetryPrimary() ) {
+		if ( !$row && !$fromPrimary && DbDomains::canRetryPrimary() ) {
 			return $this->fetchById( $id, true );
 		} elseif ( !$row ) {
 			throw new InvalidArgumentException( "No Event found with ID: $id" );
@@ -71,7 +72,7 @@ class EventMapper extends AbstractMapper {
 	 * @param bool $deleted
 	 */
 	public function toggleDeleted( array $eventIds, $deleted ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
+		$dbw = $this->getPrimaryDb();
 
 		$selectDeleted = $deleted ? 0 : 1;
 		$setDeleted = $deleted ? 1 : 0;
@@ -97,7 +98,7 @@ class EventMapper extends AbstractMapper {
 	public function fetchByPage( $pageId ) {
 		$events = [];
 		$seenEventIds = [];
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$dbr = $this->getReplicaDb();
 
 		// From echo_event
 		$res = $dbr->newSelectQueryBuilder()
@@ -159,7 +160,7 @@ class EventMapper extends AbstractMapper {
 	 * @return Event[]
 	 */
 	public function fetchUnreadByUserAndPage( UserIdentity $user, $pageId ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$dbr = $this->getReplicaDb();
 		$fields = array_merge( Event::selectFields(), [ 'notification_timestamp' ] );
 
 		$res = $dbr->newSelectQueryBuilder()
@@ -201,8 +202,8 @@ class EventMapper extends AbstractMapper {
 	 *  ('echo_notification' or 'echo_email_batch')
 	 */
 	public function deleteOrphanedEvents( array $eventIds, $ignoreUserId = null, $ignoreUserTable = null ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$dbw = $this->getPrimaryDb();
+		$dbr = $this->getReplicaDb();
 
 		$notifJoinConds = [];
 		$emailJoinConds = [];

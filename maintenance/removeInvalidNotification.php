@@ -5,7 +5,7 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Utils\BatchRowIterator;
 
@@ -36,16 +36,15 @@ class RemoveInvalidNotification extends Maintenance {
 
 		$dryRun = !$this->hasOption( 'remove' );
 
-		$lbFactory = DbFactory::newFromDefault();
-
 		$validEventTypes = array_keys( $wgEchoNotifications );
 
 		if ( $dryRun ) {
 			$this->output( "Dry run mode. Use --remove to really remove notifications.\n" );
 		}
 
-		$dbw = $lbFactory->getEchoDb( DB_PRIMARY );
-		$dbr = $lbFactory->getEchoDb( DB_REPLICA );
+		$dbProvider = $this->getServiceContainer()->getConnectionProvider();
+		$dbw = $dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
+		$dbr = $dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 
 		$sqb = $dbr->newSelectQueryBuilder()
 			->select( [ 'event_id', 'event_type' ] )

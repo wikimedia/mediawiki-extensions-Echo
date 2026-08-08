@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Notifications\Test;
 
-use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\UnreadWikis;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWikiIntegrationTestCase;
-use Wikimedia\TestingAccessWrapper;
 
 /**
  * Tests for unread wiki database access
@@ -15,10 +15,19 @@ use Wikimedia\TestingAccessWrapper;
  * @covers \MediaWiki\Extension\Notifications\UnreadWikis
  */
 class UnreadWikisTest extends MediaWikiIntegrationTestCase {
+	use EchoSchemaOverridesTrait;
+
+	protected function setUp(): void {
+		parent::setUp();
+		// Make the shared virtual domain "configured"; it resolves to the
+		// local test database.
+		$this->overrideConfigValue( MainConfigNames::VirtualDomainsMapping, [
+			DbDomains::VIRTUAL_SHARED_DOMAIN => [ 'db' => false ],
+		] );
+	}
 
 	public function testUpdateCount() {
-		$unread = TestingAccessWrapper::newFromObject( new UnreadWikis( 1 ) );
-		$unread->dbFactory = $this->mockDbFactory( $this->db );
+		$unread = new UnreadWikis( 1 );
 		$unread->updateCount(
 			'foobar',
 			2,
@@ -38,8 +47,7 @@ class UnreadWikisTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testUpdateCountFalse() {
-		$unread = TestingAccessWrapper::newFromObject( new UnreadWikis( 1 ) );
-		$unread->dbFactory = $this->mockDbFactory( $this->db );
+		$unread = new UnreadWikis( 1 );
 		$unread->updateCount(
 			'foobar',
 			3,
@@ -58,17 +66,10 @@ class UnreadWikisTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	/**
-	 * Mock object of DbFactory
-	 * @param \Wikimedia\Rdbms\IDatabase $db
-	 * @return DbFactory
-	 */
-	protected function mockDbFactory( $db ) {
-		$dbFactory = $this->createMock( DbFactory::class );
-		$dbFactory->expects( $this->any() )
-			->method( 'getSharedDb' )
-			->willReturn( $db );
-
-		return $dbFactory;
+	public function testNotConfigured() {
+		$this->overrideConfigValue( MainConfigNames::VirtualDomainsMapping, [] );
+		$unread = new UnreadWikis( 1 );
+		$unread->updateCount( 'foobar', 2, false, 3, false );
+		$this->assertSame( [], $unread->getUnreadCounts() );
 	}
 }

@@ -8,6 +8,7 @@ use MediaWiki\Extension\UserMerge\Hooks\AccountDeleteTablesHook;
 use MediaWiki\Extension\UserMerge\Hooks\AccountFieldsHook;
 use MediaWiki\Extension\UserMerge\Hooks\MergeAccountFromToHook;
 use MediaWiki\User\User;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class UserMergeHooks implements
 	AccountFieldsHook,
@@ -16,6 +17,7 @@ class UserMergeHooks implements
 {
 	public function __construct(
 		private readonly AttributeManager $attributeManager,
+		private readonly IConnectionProvider $dbProvider,
 	) {
 	}
 
@@ -24,7 +26,7 @@ class UserMergeHooks implements
 	 */
 	public function onUserMergeAccountFields( array &$updateFields ) {
 		// [ tableName, idField, textField ]
-		$dbw = DbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
+		$dbw = $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
 		$updateFields[] = [ 'echo_event', 'event_agent_id', 'db' => $dbw ];
 		$updateFields[] = [ 'echo_notification', 'notification_user', 'db' => $dbw, 'options' => [ 'IGNORE' ] ];
 		$updateFields[] = [ 'echo_email_batch', 'eeb_user_id', 'db' => $dbw, 'options' => [ 'IGNORE' ] ];
@@ -35,7 +37,7 @@ class UserMergeHooks implements
 		DeferredUpdates::addCallableUpdate( function () use ( $oldUser, $newUser, $method ) {
 			if ( $newUser->isRegistered() ) {
 				// Select notifications that are now sent to the same user
-				$dbw = DbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
+				$dbw = $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
 				$selfIds = $dbw->newSelectQueryBuilder()
 					->select( 'event_id' )
 					->from( 'echo_notification' )
@@ -110,7 +112,7 @@ class UserMergeHooks implements
 	}
 
 	public function onUserMergeAccountDeleteTables( array &$tables ) {
-		$dbw = DbFactory::newFromDefault()->getEchoDb( DB_PRIMARY );
+		$dbw = $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
 		$tables['echo_notification'] = [ 'notification_user', 'db' => $dbw ];
 		$tables['echo_email_batch'] = [ 'eeb_user_id', 'db' => $dbw ];
 	}

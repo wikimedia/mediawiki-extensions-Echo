@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Extension\Notifications\DbFactory;
 use MediaWiki\Extension\Notifications\EmailBatch;
 use MediaWiki\Maintenance\Maintenance;
 
@@ -31,7 +30,6 @@ class ProcessEchoEmailBatch extends Maintenance {
 	}
 
 	public function execute() {
-		$lbFactory = DbFactory::newFromDefault();
 		$ignoreConfiguredSchedule = $this->getOption( "ignoreConfiguredSchedule", 0 );
 
 		$this->output( "Started processing... \n" );

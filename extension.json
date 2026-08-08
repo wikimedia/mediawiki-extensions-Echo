@@ -32,7 +32,8 @@
 			"services": [
 				"EchoAttributeManager",
 				"PageStore",
-				"TitleFactory"
+				"TitleFactory",
+				"ConnectionProvider"
 			]
 		}
 	},
@@ -550,7 +551,8 @@
 		"usermerge": {
 			"class": "MediaWiki\\Extension\\Notifications\\UserMergeHooks",
 			"services": [
-				"EchoAttributeManager"
+				"EchoAttributeManager",
+				"ConnectionProvider"
 			]
 		}
 	},
@@ -597,13 +599,16 @@
 			"value": ""
 		},
 		"EchoCluster": {
-			"value": false
+			"value": false,
+			"description": "Deprecated since 1.47, use $wgVirtualDomainsMapping['virtual-echo'] instead. External cluster to store the Echo tables on. False means the cluster of the current wiki will be used."
 		},
 		"EchoSharedTrackingDB": {
-			"value": false
+			"value": false,
+			"description": "Deprecated since 1.47, use $wgVirtualDomainsMapping['virtual-echo-shared'] instead. Database to store the tables shared between the wikis of a farm (echo_unread_wikis and the echo_push_* tables). False means cross-wiki unread notification tracking is not available."
 		},
 		"EchoSharedTrackingCluster": {
-			"value": false
+			"value": false,
+			"description": "Deprecated since 1.47, use $wgVirtualDomainsMapping['virtual-echo-shared'] instead. External cluster the shared tracking database is on. False means the main cluster."
 		},
 		"EchoSeenTimeCacheType": {
 			"value": null

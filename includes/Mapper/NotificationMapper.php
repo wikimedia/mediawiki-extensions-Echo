@@ -27,7 +27,7 @@ class NotificationMapper extends AbstractMapper {
 	 * Insert a notification record
 	 */
 	public function insert( Notification $notification ) {
-		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
+		$dbw = $this->getPrimaryDb();
 
 		$listeners = $this->getMethodListeners( __FUNCTION__ );
 
@@ -137,7 +137,7 @@ class NotificationMapper extends AbstractMapper {
 		?array $titles = null,
 		$dbSource = DB_REPLICA
 	) {
-		$dbr = $this->dbFactory->getEchoDb( $dbSource );
+		$dbr = $dbSource === DB_PRIMARY ? $this->getPrimaryDb() : $this->getReplicaDb();
 		$conds = [ $dbr->expr( 'notification_read_timestamp', '!=', null ) ];
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
@@ -175,7 +175,7 @@ class NotificationMapper extends AbstractMapper {
 		array $excludeEventIds = [],
 		?array $titles = null
 	) {
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$dbr = $this->getReplicaDb();
 
 		$conds = [];
 		if ( $excludeEventIds ) {
@@ -226,7 +226,7 @@ class NotificationMapper extends AbstractMapper {
 		array $conds = [],
 		$dbSource = DB_REPLICA
 	) {
-		$dbr = $this->dbFactory->getEchoDb( $dbSource );
+		$dbr = $dbSource === DB_PRIMARY ? $this->getPrimaryDb() : $this->getReplicaDb();
 
 		if ( !$eventTypes ) {
 			return [];
@@ -296,7 +296,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @return Notification[]
 	 */
 	public function fetchByUserEvents( UserIdentity $userIdentity, array $eventIds ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$dbr = $this->getReplicaDb();
 
 		$result = $dbr->newSelectQueryBuilder()
 			->select( Notification::selectFields() )
@@ -324,7 +324,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @return Notification|false
 	 */
 	public function fetchByUserOffset( UserIdentity $userIdentity, $offset ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$dbr = $this->getReplicaDb();
 		$row = $dbr->newSelectQueryBuilder()
 			->select( Notification::selectFields() )
 			->from( 'echo_notification' )
@@ -355,8 +355,8 @@ class NotificationMapper extends AbstractMapper {
 	public function deleteByUserAndAge( UserIdentity $userIdentity, int $age ): void {
 		$updateRowsPerQuery = MediaWikiServices::getInstance()->getMainConfig()
 			->get( MainConfigNames::UpdateRowsPerQuery );
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
-		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
+		$dbr = $this->getReplicaDb();
+		$dbw = $this->getPrimaryDb();
 		$cutoffTime = ConvertibleTimestamp::time() - $age;
 		$eventsToDelete = $dbr->newSelectQueryBuilder()
 			->select( 'notification_event' )
@@ -372,8 +372,8 @@ class NotificationMapper extends AbstractMapper {
 		if ( !$eventsToDelete ) {
 			return;
 		}
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
+		$dbProvider = $this->getDbProvider();
+		$ticket = $dbProvider->getEmptyTransactionTicket( __METHOD__ );
 		$domainId = $dbw->getDomainID();
 
 		$dbw->newDeleteQueryBuilder()
@@ -384,10 +384,10 @@ class NotificationMapper extends AbstractMapper {
 			] )
 			->caller( __METHOD__ )
 			->execute();
-		$eventMapper = new EventMapper( $this->dbFactory );
+		$eventMapper = new EventMapper( $dbProvider );
 		$eventMapper->deleteOrphanedEvents( $eventsToDelete, $userIdentity->getId(), 'echo_notification' );
 
-		$lbFactory->commitAndWaitForReplication(
+		$dbProvider->commitAndWaitForReplication(
 			__METHOD__, $ticket, [ 'domain' => $domainId ] );
 		$notifUser = NotifUser::newFromUser( $userIdentity );
 		$notifUser->resetNotificationCount();
@@ -401,12 +401,12 @@ class NotificationMapper extends AbstractMapper {
 	 */
 	public function deleteByUserEventOffset( UserIdentity $userIdentity, $eventId ) {
 		global $wgUpdateRowsPerQuery;
-		$eventMapper = new EventMapper( $this->dbFactory );
+		$dbProvider = $this->getDbProvider();
+		$eventMapper = new EventMapper( $dbProvider );
 		$userId = $userIdentity->getId();
-		$dbw = $this->dbFactory->getEchoDb( DB_PRIMARY );
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-		$ticket = $lbFactory->getEmptyTransactionTicket( __METHOD__ );
+		$dbw = $this->getPrimaryDb();
+		$dbr = $this->getReplicaDb();
+		$ticket = $dbProvider->getEmptyTransactionTicket( __METHOD__ );
 		$domainId = $dbw->getDomainID();
 
 		$iterator = new BatchRowIterator(
@@ -439,7 +439,7 @@ class NotificationMapper extends AbstractMapper {
 			// (besides the rows we just deleted) or in echo_email_batch, and delete them
 			$eventMapper->deleteOrphanedEvents( $eventIds, $userId, 'echo_notification' );
 
-			$lbFactory->commitAndWaitForReplication(
+			$dbProvider->commitAndWaitForReplication(
 				__METHOD__, $ticket, [ 'domain' => $domainId ] );
 		}
 		return true;
@@ -452,7 +452,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @return int[]
 	 */
 	public function fetchUsersWithNotificationsForEvents( array $eventIds ) {
-		$dbr = $this->dbFactory->getEchoDb( DB_REPLICA );
+		$dbr = $this->getReplicaDb();
 
 		return $dbr->newSelectQueryBuilder()
 			->select( 'notification_user' )

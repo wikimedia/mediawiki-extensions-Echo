@@ -5,7 +5,7 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\Extension\Notifications\DbFactory;
+use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 use MediaWiki\Utils\BatchRowIterator;
 
@@ -41,8 +41,8 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 	/** @inheritDoc */
 	public function doDBUpdates() {
 		$startId = 0;
-		$dbFactory = DbFactory::newFromDefault();
-		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
+		$dbr = $this->getServiceContainer()->getConnectionProvider()
+			->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 		$maxId = (int)$dbr->newSelectQueryBuilder()
 			->select( 'MAX(event_id)' )
 			->from( 'echo_event' )
@@ -63,9 +63,9 @@ class RemoveOrphanedEvents extends LoggedUpdateMaintenance {
 	}
 
 	private function doMajorBatch( int $maxId ): array {
-		$dbFactory = DbFactory::newFromDefault();
-		$dbw = $dbFactory->getEchoDb( DB_PRIMARY );
-		$dbr = $dbFactory->getEchoDb( DB_REPLICA );
+		$dbProvider = $this->getServiceContainer()->getConnectionProvider();
+		$dbw = $dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
+		$dbr = $dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 		$iterator = new BatchRowIterator(
 			$dbr,
 			[ 'echo_event', 'echo_notification', 'echo_email_batch' ],
