@@ -37,7 +37,7 @@ mw.echo.ui.NotificationsWrapper = function MwEchoUiNotificationsWrapper( control
 
 	// Initialize
 	this.$element
-		.addClass( 'mw-echo-notificationsWrapper skin-invert' )
+		.addClass( 'mw-echo-notificationsWrapper' )
 		.append( this.notificationsWidget.$element );
 };
 
