@@ -180,7 +180,7 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2から除外されました。",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|あなたの}}利用者権限が{{GENDER:$1|変更されました}}: $2へ追加され、$4から除外されました。",
 	"notification-header-welcome": "$1 さん、{{SITENAME}} へ{{GENDER:$2|ようこそ}}！{{GENDER:$2|あなた}}の参加を歓迎します。",
-	"notification-header-mention-summary": "$1 が <strong>$4</strong> の「編集の要約欄」で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}} 。",
+	"notification-header-mention-summary": "$1 が <strong>$4</strong> の「編集の要約欄」で{{GENDER:$3|あなた}}に{{GENDER:$2|言及しました}}。",
 	"notification-header-watchlist-changed": "$1が{{GENDER:$4|あなた}}のウォッチリスト上のページ<strong>$3</strong>を$5{{PLURAL:$5|回}}{{GENDER:$2|変更}}しました。",
 	"notification-header-watchlist-created": "$1が{{GENDER:$4|あなた}}のウォッチリスト上のページ<strong>$3</strong>を$5{{PLURAL:$5|回}}{{GENDER:$2|作成}}しました。",
 	"notification-header-watchlist-deleted": "$1が{{GENDER:$4|あなた}}のウォッチリスト上のページ<strong>$3</strong>を$5{{PLURAL:$5|回}}{{GENDER:$2|削除}}しました。",
