@@ -258,28 +258,6 @@ abstract class DiscussionParser {
 	}
 
 	/**
-	 * For an action taken on a talk page, notify users whose user pages
-	 * are linked.
-	 * @param string $header The subject line for the discussion.
-	 * @param int[] $userLinks
-	 * @param string $content The content of the post, as a wikitext string.
-	 * @param RevisionRecord $revision
-	 * @param User $agent The user who made the comment.
-	 */
-	public static function generateMentionEvents(
-		$header,
-		array $userLinks,
-		$content,
-		RevisionRecord $revision,
-		User $agent
-	) {
-		$events = self::collectMentionEvents( $header, $userLinks, $content, $revision, $agent );
-		foreach ( $events as $event ) {
-			Event::create( $event );
-		}
-	}
-
-	/**
 	 * Generate mention event data for a talk page action
 	 * @param string $header The subject line for the discussion.
 	 * @param int[] $userLinks
