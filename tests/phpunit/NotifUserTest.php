@@ -17,7 +17,6 @@ use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Rdbms\IDatabase;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\NotifUser
@@ -168,8 +167,6 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 		$gateway = $this->createMock( UserNotificationGateway::class );
 		$gateway->method( 'markRead' )
 			->willReturn( $dbResult['markRead'] );
-		$gateway->method( 'getDB' )
-			->willReturn( $this->createMock( IDatabase::class ) );
 
 		return $gateway;
 	}

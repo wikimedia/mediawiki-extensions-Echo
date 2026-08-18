@@ -7,8 +7,6 @@ use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IConnectionProvider;
-use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Database gateway which handles direct database interaction with the
@@ -39,18 +37,6 @@ class UserNotificationGateway {
 	}
 
 	/**
-	 * @param int $dbSource
-	 * @return IDatabase|IReadableDatabase
-	 */
-	public function getDB( $dbSource ) {
-		if ( $dbSource === DB_PRIMARY ) {
-			return $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
-		}
-
-		return $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
-	}
-
-	/**
 	 * Mark notifications as read
 	 * @param array $eventIDs
 	 * @return bool Returns true when data has been updated in DB, false on
@@ -61,7 +47,7 @@ class UserNotificationGateway {
 			return false;
 		}
 
-		$dbw = $this->getDB( DB_PRIMARY );
+		$dbw = $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
 		if ( $dbw->isReadOnly() ) {
 			return false;
 		}
@@ -97,7 +83,7 @@ class UserNotificationGateway {
 			return false;
 		}
 
-		$dbw = $this->getDB( DB_PRIMARY );
+		$dbw = $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
 		if ( $dbw->isReadOnly() ) {
 			return false;
 		}
@@ -127,7 +113,7 @@ class UserNotificationGateway {
 	 * have updateJoin()
 	 */
 	public function markAllRead() {
-		$dbw = $this->getDB( DB_PRIMARY );
+		$dbw = $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
 		if ( $dbw->isReadOnly() ) {
 			return false;
 		}
@@ -157,16 +143,16 @@ class UserNotificationGateway {
 		array $eventTypesToLoad = [],
 		$cap = NotifUser::MAX_BADGE_COUNT
 	) {
-		// double check
-		if ( !in_array( $dbSource, [ DB_REPLICA, DB_PRIMARY ] ) ) {
-			$dbSource = DB_REPLICA;
-		}
-
 		if ( !$eventTypesToLoad ) {
 			return 0;
 		}
 
-		$db = $this->getDB( $dbSource );
+		// TODO: Remove the usage of DB_PRIMARY
+		if ( $dbSource === DB_PRIMARY ) {
+			$db = $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
+		} else {
+			$db = $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
+		}
 		return $db->newSelectQueryBuilder()
 			->select( '1' )
 			->from( self::$notificationTable )
@@ -190,7 +176,7 @@ class UserNotificationGateway {
 	 * @return int[]
 	 */
 	public function getUnreadNotifications( $type ) {
-		$dbr = $this->getDB( DB_REPLICA );
+		$dbr = $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 		$res = $dbr->newSelectQueryBuilder()
 			->select( 'notification_event' )
 			->from( self::$notificationTable )
