@@ -61,3 +61,37 @@ CREATE TABLE /*_*/echo_target_page (
 CREATE INDEX echo_target_page_event ON /*_*/echo_target_page (etp_event);
 
 CREATE INDEX echo_target_page_page_event ON /*_*/echo_target_page (etp_page, etp_event);
+
+
+CREATE TABLE /*_*/echo_push_provider (
+  epp_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  epp_name BLOB NOT NULL
+);
+
+
+CREATE TABLE /*_*/echo_push_subscription (
+  eps_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  eps_user INTEGER UNSIGNED NOT NULL,
+  eps_token BLOB NOT NULL,
+  eps_token_sha256 CHAR(64) NOT NULL,
+  eps_provider SMALLINT UNSIGNED NOT NULL,
+  eps_updated DATETIME NOT NULL,
+  eps_data BLOB DEFAULT NULL,
+  eps_topic SMALLINT UNSIGNED DEFAULT NULL
+);
+
+CREATE UNIQUE INDEX eps_token_sha256 ON /*_*/echo_push_subscription (eps_token_sha256);
+
+CREATE INDEX eps_provider ON /*_*/echo_push_subscription (eps_provider);
+
+CREATE INDEX eps_topic ON /*_*/echo_push_subscription (eps_topic);
+
+CREATE INDEX eps_user ON /*_*/echo_push_subscription (eps_user);
+
+CREATE INDEX eps_token ON /*_*/echo_push_subscription (eps_token);
+
+
+CREATE TABLE /*_*/echo_push_topic (
+  ept_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  ept_text BLOB NOT NULL
+);

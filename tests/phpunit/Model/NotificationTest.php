@@ -58,12 +58,9 @@ class NotificationTest extends MediaWikiIntegrationTestCase {
 		$lb = $this->createMock( ILoadBalancer::class );
 		$lb->method( 'getConnection' )->willReturn( $db );
 		$lbFactory = $this->createMock( LBFactory::class );
-		$lbFactory->method( 'getReplicaDatabase' )->willReturn( $db );
-		$lbFactory->method( 'getPrimaryDatabase' )->willReturn( $db );
-		$lbFactory->method( 'getLoadBalancer' )->willReturn( $lb );
+		$lbFactory->method( 'getExternalLB' )->willReturn( $lb );
 		$this->setService( 'DBLoadBalancer', $lb );
 		$this->setService( 'DBLoadBalancerFactory', $lbFactory );
-		$this->setService( 'ConnectionProvider', $lbFactory );
 		$row = $this->mockNotificationRow();
 		// Provide an invalid event id
 		$row['notification_event'] = -1;

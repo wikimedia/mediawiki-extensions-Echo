@@ -17,7 +17,6 @@
 	"requires": {
 		"MediaWiki": ">= 1.47.0"
 	},
-	"callback": "MediaWiki\\Extension\\Notifications\\DbDomains::onRegistration",
 	"APIMetaModules": {
 		"notifications": {
 			"class": "MediaWiki\\Extension\\Notifications\\Api\\ApiEchoNotifications",
@@ -1262,8 +1261,9 @@
 	"ConfigRegistry": {
 		"Echo": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
-	"DatabaseVirtualDomains": [
-		"virtual-echo",
-		"virtual-echo-shared"
+	"InstallerTasks": [
+		{
+			"class": "MediaWiki\\Extension\\Notifications\\InstallSchemaTask"
+		}
 	]
 }
