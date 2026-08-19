@@ -61,6 +61,12 @@ return [
 		$loadBalancer = $loadBalancerFactory->getLoadBalancer( DbDomains::VIRTUAL_SHARED_DOMAIN );
 		$dbw = $loadBalancerFactory->getPrimaryDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN );
 		$dbr = $loadBalancerFactory->getReplicaDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN );
+		// The load balancer only selects the cluster the virtual domain maps to,
+		// not the database within it; its local domain is the current wiki.
+		// get{Primary,Replica}Database aquire the correct connection.
+		// This is a bug in the load balancer; until it is fixed,
+		// take the domain ID from the mapped domain from the connection instead (T435305).
+		$dbDomain = $dbr->getDomainID();
 
 		$pushProviderStore = new NameTableStore(
 			$loadBalancer,
@@ -70,7 +76,7 @@ return [
 			'epp_id',
 			'epp_name',
 			null,
-			$loadBalancer->getLocalDomainID()
+			$dbDomain
 		);
 
 		$pushTopicStore = new NameTableStore(
@@ -81,7 +87,7 @@ return [
 			'ept_id',
 			'ept_text',
 			null,
-			$loadBalancer->getLocalDomainID()
+			$dbDomain
 		);
 
 		$maxSubscriptionsPerUser = $echoConfig->get( 'EchoPushMaxSubscriptionsPerUser' );
