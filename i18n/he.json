@@ -213,6 +213,8 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|עשית}} את העריכה המיליון שלך; תודה על התרומות המהממות שלך!",
 	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|עשית}} את העריכה העשרה מיליון שלך; תודה על המסירות המבריקה שלך!",
 	"notification-link-thank-you-edit": "עריכה {{GENDER:$1|שלך}}",
+	"echo-category-title-edited-other-users-js": "עריכות בדפי JavaScript",
+	"echo-pref-tooltip-edited-other-users-js": "להודיע לי כשמישהו עורך את דפי ה־JavaScript האישיים שלי.",
 	"notification-link-text-view-edit": "הצגת העריכה",
 	"notification-link-article-reminder": "הצגת הדף",
 	"notification-link-api-triggered": "הצגת הדף",
