@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Notifications\Gateway;
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\NotifUser;
+use MediaWiki\MainConfigNames;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\IConnectionProvider;
 
@@ -54,7 +55,7 @@ class UserNotificationGateway {
 
 		$success = true;
 		foreach (
-			array_chunk( $eventIDs, $this->config->get( 'UpdateRowsPerQuery' ) ) as $batch
+			array_chunk( $eventIDs, $this->config->get( MainConfigNames::UpdateRowsPerQuery ) ) as $batch
 		) {
 			$dbw->newUpdateQueryBuilder()
 				->update( self::$notificationTable )
@@ -90,7 +91,7 @@ class UserNotificationGateway {
 
 		$success = true;
 		foreach (
-			array_chunk( $eventIDs, $this->config->get( 'UpdateRowsPerQuery' ) ) as $batch
+			array_chunk( $eventIDs, $this->config->get( MainConfigNames::UpdateRowsPerQuery ) ) as $batch
 		) {
 			$dbw->newUpdateQueryBuilder()
 				->update( self::$notificationTable )
