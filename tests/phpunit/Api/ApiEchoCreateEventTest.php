@@ -33,7 +33,7 @@ class ApiEchoCreateEventTest extends ApiTestCase {
 		$mapper = new NotificationMapper();
 		$notifs = $mapper->fetchByUser( $this->getTestUser()->getUser(), 5, null, [ 'api-notice' ] );
 		$this->assertCount( 1, $notifs );
-		$notif = array_values( $notifs )[0];
+		$notif = array_first( $notifs );
 		$this->assertSame( 'notification header', $notif->getEvent()->getExtraParam( 'header' ) );
 		$this->assertSame( 'notification content', $notif->getEvent()->getExtraParam( 'content' ) );
 		$this->assertTrue( $notif->getEvent()->getExtraParam( 'noemail' ) );
@@ -52,7 +52,7 @@ class ApiEchoCreateEventTest extends ApiTestCase {
 
 		$mapper = new NotificationMapper();
 		$notifs = $mapper->fetchByUser( $this->getTestUser()->getUser(), 5, null, [ 'api-alert' ] );
-		$this->assertFalse( array_values( $notifs )[0]->getEvent()->getExtraParam( 'noemail' ) );
+		$this->assertFalse( array_first( $notifs )->getEvent()->getExtraParam( 'noemail' ) );
 	}
 
 	public function testNotifyOthers() {

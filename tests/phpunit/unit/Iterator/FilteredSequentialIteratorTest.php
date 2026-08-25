@@ -21,6 +21,7 @@ class FilteredSequentialIteratorTest extends MediaWikiUnitTestCase {
 			}
 		);
 
+		$res = [];
 		foreach ( $it as $val ) {
 			$res[] = $val;
 		}

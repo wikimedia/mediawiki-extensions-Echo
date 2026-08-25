@@ -177,7 +177,7 @@ class DataOutputFormatter {
 						$notification->getEvent()->setBundledEvents( [] );
 						return self::formatOutput( $notification, $format, $user, $lang );
 					},
-					array_merge( [ $notification ], $bundledNotifications )
+					[ $notification, ...$bundledNotifications ]
 				) ) );
 			}
 		}

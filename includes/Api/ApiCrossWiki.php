@@ -80,10 +80,10 @@ trait ApiCrossWiki {
 
 		if ( in_array( '*', $wikis ) ) {
 			// expand `*` to all foreign wikis with unread notifications + local
-			$wikis = array_merge(
-				[ WikiMap::getCurrentWikiId() ],
-				$this->getForeignWikisWithUnreadNotifications()
-			);
+			$wikis = [
+				WikiMap::getCurrentWikiId(),
+				...$this->getForeignWikisWithUnreadNotifications(),
+			];
 		}
 
 		if ( !$this->allowCrossWikiNotifications() ) {
