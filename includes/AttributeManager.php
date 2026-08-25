@@ -77,7 +77,7 @@ class AttributeManager {
 		if ( $locator === self::ATTR_LOCATORS && array_key_exists( $type, $this->notifications ) ) {
 			// additionally, inject our own default locator that uses extra['recipients'] key
 			$locators[] = [
-				[ UserLocator::class, 'locateFromEventExtra' ],
+				UserLocator::locateFromEventExtra( ... ),
 				[ Event::RECIPIENTS_IDX ],
 			];
 		}

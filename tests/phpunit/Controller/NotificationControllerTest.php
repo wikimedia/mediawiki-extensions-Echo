@@ -52,9 +52,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				// expected result
 				[ [ 123 ], [] ],
 				// event user locator config
-				static function () {
-					return [ 123 => 123 ];
-				},
+				static fn () => [ 123 => 123 ],
 			],
 
 			[
@@ -63,7 +61,7 @@ class NotificationControllerTest extends MediaWikiIntegrationTestCase {
 				[ [ 123 ], [ 256 ] ],
 				// event user locator config
 				[
-					[ [ UserLocator::class, 'locateFromEventExtra' ], [ 'other-user' ] ],
+					[ UserLocator::locateFromEventExtra( ... ), [ 'other-user' ] ],
 				],
 				// additional setup
 				static function ( TestCase $test, $event ) {

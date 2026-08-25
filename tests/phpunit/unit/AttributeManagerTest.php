@@ -44,7 +44,7 @@ class AttributeManagerTest extends MediaWikiUnitTestCase {
 
 	public static function getUserLocatorsProvider() {
 		$defaultLocator = [
-			[ UserLocator::class, 'locateFromEventExtra' ],
+			UserLocator::locateFromEventExtra( ... ),
 			[ Event::RECIPIENTS_IDX ],
 		];
 

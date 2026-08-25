@@ -113,9 +113,7 @@ class FilteredSequentialIterator implements IteratorAggregate {
 	protected function createFilter() {
 		switch ( count( $this->filters ) ) {
 			case 0:
-				return static function () {
-					return true;
-				};
+				return static fn () => true;
 
 			case 1:
 				return reset( $this->filters );

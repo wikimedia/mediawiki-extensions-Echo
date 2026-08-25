@@ -30,12 +30,8 @@ class FilteredSequentialIteratorTest extends MediaWikiUnitTestCase {
 	}
 
 	public static function filteredSequentialIteratorProvider() {
-		$odd = static function ( $v ) {
-			return $v & 1;
-		};
-		$greaterThanFour = static function ( $v ) {
-			return $v > 4;
-		};
+		$odd = static fn ( $v ) => $v & 1;
+		$greaterThanFour = static fn ( $v ) => $v > 4;
 
 		return [
 			[
