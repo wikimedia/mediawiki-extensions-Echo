@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Test\API;
 
-use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Extension\Notifications\Push\Utils;
 use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Tests\Api\ApiTestCase;
@@ -56,7 +55,7 @@ class ApiEchoPushSubscriptionsDeleteTest extends ApiTestCase {
 			'command' => 'delete',
 			'providertoken' => 'XYZ',
 		];
-		$this->expectException( ApiUsageException::class );
+		$this->expectApiErrorCode( 'echo-push-token-not-found' );
 		$this->doApiRequestWithToken( $params, null, $this->user );
 	}
 
@@ -78,7 +77,7 @@ class ApiEchoPushSubscriptionsDeleteTest extends ApiTestCase {
 			'providertoken' => 'ABC',
 			'centraluserid' => Utils::getPushUserId( $this->user ),
 		];
-		$this->expectException( ApiUsageException::class );
+		$this->expectApiErrorCode( 'echo-push-token-not-found' );
 		$this->doApiRequestWithToken( $params, null, $this->otherUser );
 	}
 
@@ -98,7 +97,7 @@ class ApiEchoPushSubscriptionsDeleteTest extends ApiTestCase {
 			'command' => 'delete',
 			'providertoken' => '',
 		];
-		$this->expectException( ApiUsageException::class );
+		$this->expectApiErrorCode( 'paramempty_providertoken' );
 		$result = $this->doApiRequestWithToken( $params, null, $this->user );
 	}
 

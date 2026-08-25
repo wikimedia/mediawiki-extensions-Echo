@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications\Test\API;
 
-use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Extension\Notifications\Push\Utils;
 use MediaWiki\Extension\Notifications\Services;
 use MediaWiki\Tests\Api\ApiTestCase;
@@ -60,7 +59,7 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 			'provider' => 'fcm',
 			'providertoken' => 'XYZ789',
 		];
-		$this->expectException( ApiUsageException::class );
+		$this->expectApiErrorCode( 'echo-push-token-exists' );
 		$this->doApiRequestWithToken( $params, null, $this->user );
 	}
 
@@ -83,7 +82,7 @@ class ApiEchoPushSubscriptionsCreateTest extends ApiTestCase {
 			'provider' => 'apns',
 			'providertoken' => 'DEF456',
 		];
-		$this->expectException( ApiUsageException::class );
+		$this->expectApiErrorCode( 'echo-push-topic-required' );
 		$this->doApiRequestWithToken( $params, null, $this->user );
 	}
 
