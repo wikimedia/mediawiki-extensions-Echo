@@ -451,17 +451,24 @@ abstract class EchoEventPresentationModel implements JsonSerializable, MessageLo
 		global $wgEchoCrossWikiNotifications;
 		$primaryLink = $this->getPrimaryLink();
 		if ( $primaryLink ) {
-			$eventIds = [ $this->event->getId() ];
-			if ( $this->getBundledIds() ) {
-				$eventIds = array_merge( $eventIds, $this->getBundledIds() );
-			}
+			// Events that were never persisted have no ID, so there is nothing to mark as
+			// read. This happens for notifications delivered by instant email only, where
+			// notifyWithEmail() does not call acquireId() the way the digest path does.
+			// Filter rather than check the current event alone, since a bundle may also
+			// contain unpersisted events.
+			$eventIds = array_filter( array_merge(
+				[ $this->event->getId() ],
+				$this->getBundledIds() ?: []
+			) );
 
-			$queryParams = [ 'markasread' => implode( '|', $eventIds ) ];
-			if ( $wgEchoCrossWikiNotifications ) {
-				$queryParams['markasreadwiki'] = WikiMap::getCurrentWikiId();
-			}
+			if ( $eventIds ) {
+				$queryParams = [ 'markasread' => implode( '|', $eventIds ) ];
+				if ( $wgEchoCrossWikiNotifications ) {
+					$queryParams['markasreadwiki'] = WikiMap::getCurrentWikiId();
+				}
 
-			$primaryLink['url'] = wfAppendQuery( $primaryLink['url'], $queryParams );
+				$primaryLink['url'] = wfAppendQuery( $primaryLink['url'], $queryParams );
+			}
 		}
 		return $primaryLink;
 	}
