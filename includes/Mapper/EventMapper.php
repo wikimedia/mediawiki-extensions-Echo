@@ -93,18 +93,23 @@ class EventMapper extends AbstractMapper {
 	 * Fetch events associated with a page
 	 *
 	 * @param int $pageId
+	 * @param string|null $eventType If not `null`, only return events of this type
 	 * @return Event[] Events
 	 */
-	public function fetchByPage( $pageId ) {
+	public function fetchByPage( int $pageId, ?string $eventType = null ): array {
 		$events = [];
 		$seenEventIds = [];
 		$dbr = $this->getReplicaDb();
 
 		// From echo_event
+		$echoEventConds = [ 'event_page_id' => $pageId ];
+		if ( $eventType !== null ) {
+			$echoEventConds['event_type'] = $eventType;
+		}
 		$res = $dbr->newSelectQueryBuilder()
 			->select( Event::selectFields() )
 			->from( 'echo_event' )
-			->where( [ 'event_page_id' => $pageId ] )
+			->where( $echoEventConds )
 			->caller( __METHOD__ )
 			->fetchResultSet();
 		foreach ( $res as $row ) {
@@ -114,18 +119,21 @@ class EventMapper extends AbstractMapper {
 		}
 
 		// From echo_target_page
-		$conds = [ 'etp_page' => $pageId ];
+		$echoTargetPageConds = [ 'etp_page' => $pageId ];
 		if ( $seenEventIds ) {
 			// Some events have both a title and target page(s).
 			// Skip the events that were already found in the echo_event table (the query above).
-			$conds[] = $dbr->expr( 'event_id', '!=', $seenEventIds );
+			$echoTargetPageConds[] = $dbr->expr( 'event_id', '!=', $seenEventIds );
+		}
+		if ( $eventType !== null ) {
+			$echoTargetPageConds['event_type'] = $eventType;
 		}
 		$res = $dbr->newSelectQueryBuilder()
 			->select( Event::selectFields() )
 			->distinct()
 			->from( 'echo_event' )
 			->join( 'echo_target_page', null, 'event_id=etp_event' )
-			->where( $conds )
+			->where( $echoTargetPageConds )
 			->caller( __METHOD__ )
 			->fetchResultSet();
 		foreach ( $res as $row ) {
@@ -141,7 +149,7 @@ class EventMapper extends AbstractMapper {
 	 * @param int $pageId
 	 * @return int[] Event IDs
 	 */
-	public function fetchIdsByPage( $pageId ) {
+	public function fetchIdsByPage( int $pageId ): array {
 		$events = $this->fetchByPage( $pageId );
 		$eventIds = array_map(
 			static function ( Event $event ) {
