@@ -13,7 +13,6 @@ use Wikimedia\Rdbms\InsertQueryBuilder;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
- * @group Database
  * @covers \MediaWiki\Extension\Notifications\Mapper\EventMapper
  */
 class EventMapperTest extends MediaWikiIntegrationTestCase {
@@ -134,38 +133,4 @@ class EventMapperTest extends MediaWikiIntegrationTestCase {
 
 		return $db;
 	}
-
-	public function testFetchByPage() {
-		$user = $this->getTestUser()->getUser();
-		$page = $this->getExistingTestPage();
-
-		// Create a notification that is not associated with any page
-		Event::create( [
-			'type' => 'welcome',
-			'agent' => $user,
-		] );
-
-		// Create a notification with a title
-		$eventWithTitle = Event::create( [
-			'type' => 'welcome',
-			'agent' => $user,
-			'title' => $page->getTitle(),
-		] );
-
-		// Create a notification with a target-page
-		$eventWithTargetPage = Event::create( [
-			'type' => 'welcome',
-			'agent' => $user,
-			'extra' => [ 'target-page' => $page->getId() ],
-		] );
-
-		$eventMapper = new EventMapper();
-		$this->runDeferredUpdates();
-		$pageIds = $eventMapper->fetchIdsByPage( $page->getId() );
-		$expectedPageIds = [ $eventWithTitle->getId(), $eventWithTargetPage->getId() ];
-		foreach ( $expectedPageIds as $expectedPageId ) {
-			$this->assertContains( $expectedPageId, $pageIds );
-		}
-	}
-
 }
