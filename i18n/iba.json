@@ -75,6 +75,7 @@
 	"echo-notification-all-text-only": "Pemadah",
 	"echo-overlay-link": "Semua pemadah",
 	"echo-overlay-title": "<b>Pemadah</b>",
+	"echo-mark-all-as-read": "Tandaka {{PLURAL:$1|semua}} nyadi udah dibacha",
 	"echo-displaysnippet-title": "Pemadah baru",
 	"echo-date-today": "Sehari tu",
 	"echo-date-yesterday": "Kemari",
