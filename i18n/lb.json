@@ -124,7 +124,7 @@
 	"notification-link-text-expand-alert-count": "{{PLURAL:$1|Eng Meldung|$1 Meldunge}} weisen",
 	"notification-link-text-expand-notice-count": "{{PLURAL:$1|Eng Notifikatioun|$1 Notifikatioune}} weisen",
 	"notification-link-text-expand-all-count": "{{PLURAL:$1|Eng Notifikatioun|$1 Notifikatiounen}} weisen",
-	"notification-link-text-collapse-all": "Zesummeklappen",
+	"notification-link-text-collapse-all": "Zouklappen",
 	"notification-link-text-view-message": "Message weisen",
 	"notification-link-text-view-mention": "Mentioun weisen",
 	"notification-link-text-view-mention-failure": "{{PLURAL:$1|Mentioun|Mentioune}} weisen",
