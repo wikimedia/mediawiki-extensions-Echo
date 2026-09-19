@@ -127,13 +127,16 @@
 				overflow: hidden;
 
 				> .oo-ui-buttonOptionWidget {
-					min-width: 7em;
-					overflow: hidden;
+					// Allow long translations (e.g. de "Seite ansehen") to wrap
+					// instead of being clipped with an ellipsis (T436558).
+					min-width: 0;
+					max-width: 100%;
+					overflow: visible;
 
 					.oo-ui-labelElement-label {
-						text-overflow: ellipsis;
-						overflow: hidden;
-						display: inline-block;
+						white-space: normal;
+						overflow: visible;
+						display: inline;
 					}
 				}
 			}
