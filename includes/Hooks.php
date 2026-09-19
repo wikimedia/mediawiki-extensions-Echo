@@ -952,9 +952,16 @@ class Hooks implements
 		$hasUnseen = false;
 		$counts = $notifTimes = $seenTimes = $formattedCounts = $linksClasses = [];
 		foreach ( $sections as $section ) {
-			$counts[$section] = $notifUser->getNotificationCount( $section ) - $subtractions[$section];
-			// But make sure we never show a negative number (T130853)
-			$counts[$section] = max( 0, $counts[$section] );
+			$rawCount = $notifUser->getNotificationCount( $section );
+			// getNotificationCount() is capped at MAX_BADGE_COUNT+1 ("99+"). Subtracting
+			// markasread offsets from that capped value would incorrectly show "99"
+			// while unread remains above 99 (T315071). Keep the capped badge in that case.
+			if ( $rawCount > NotifUser::MAX_BADGE_COUNT ) {
+				$counts[$section] = $rawCount;
+			} else {
+				// But make sure we never show a negative number (T130853)
+				$counts[$section] = max( 0, $rawCount - $subtractions[$section] );
+			}
 
 			$notifTimes[$section] = $notifUser->getLastUnreadNotificationTime( $section );
 			$seenTimes[$section] = $seenTime->getTime( $section, TS_ISO_8601 );
