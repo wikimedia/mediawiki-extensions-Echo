@@ -215,6 +215,7 @@
 	"notification-link-thank-you-edit": "עריכה {{GENDER:$1|שלך}}",
 	"echo-category-title-edited-other-users-js": "עריכות בדפי JavaScript",
 	"echo-pref-tooltip-edited-other-users-js": "להודיע לי כשמישהו עורך את דפי ה־JavaScript האישיים שלי.",
+	"notification-header-edited-other-users-js": "$1 {{GENDER:$2|ערך|ערכה}} את דף ה־JavaScript האישי שלך <strong>$3</strong>.",
 	"notification-link-text-view-edit": "הצגת העריכה",
 	"notification-link-article-reminder": "הצגת הדף",
 	"notification-link-api-triggered": "הצגת הדף",
