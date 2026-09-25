@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"A2093064",
+			"Addonian1123",
 			"Adsa562",
 			"Bowleerin",
 			"Ch.Andrew",
@@ -87,7 +88,7 @@
 	"echo-category-title-api-triggered": "API 觸發的通知",
 	"echo-category-title-verify-email-reminder": "電子郵件確認提醒",
 	"echo-pref-tooltip-article-linked": "當有人從另一頁面連結到我建立的頁面時通知我。",
-	"echo-pref-tooltip-reverted": "當有人使用還原或取消功能來還原我的編輯時通知我。",
+	"echo-pref-tooltip-reverted": "當有人使用還原或回退功能來還原我的編輯時通知我。",
 	"echo-pref-tooltip-mention": "當有人連結我的使用者頁面時通知我。",
 	"echo-pref-tooltip-mention-failure": "當我提及用戶失敗時通知我。",
 	"echo-pref-tooltip-mention-success": "當我提及某用戶時通知我。",
