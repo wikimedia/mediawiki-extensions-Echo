@@ -5,7 +5,7 @@ declare( strict_types = 1 );
 namespace MediaWiki\Extension\Notifications\MediaWikiEventIngress;
 
 use MediaWiki\DomainEvent\DomainEventIngress;
-use MediaWiki\Extension\Notifications\Controller\ModerationController;
+use MediaWiki\Extension\Notifications\Controller\EventController;
 use MediaWiki\Extension\Notifications\DiscussionParser;
 use MediaWiki\Extension\Notifications\Hooks as EchoHooks;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
@@ -36,6 +36,7 @@ class PageEventIngress extends DomainEventIngress implements
 		private readonly UserIdentityUtils $userIdentityUtils,
 		private readonly TitleFactory $titleFactory,
 		private readonly UserFactory $userFactory,
+		private readonly EventController $eventController,
 	) {
 	}
 
@@ -171,7 +172,7 @@ class PageEventIngress extends DomainEventIngress implements
 
 	public function handlePageDeletedEvent( PageDeletedEvent $event ): void {
 		$eventIds = $this->eventMapper->fetchIdsByPage( $event->getDeletedPage()->getId() );
-		ModerationController::moderate( $eventIds, true );
+		$this->eventController->toggleHiddenState( $eventIds, true );
 	}
 
 	/**

@@ -13,7 +13,7 @@ use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Deferred\Hook\LinksUpdateCompleteHook;
 use MediaWiki\Deferred\LinksUpdate\LinksTable;
 use MediaWiki\Deferred\LinksUpdate\LinksUpdate;
-use MediaWiki\Extension\Notifications\Controller\ModerationController;
+use MediaWiki\Extension\Notifications\Controller\EventController;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
@@ -127,6 +127,7 @@ class Hooks implements
 		private readonly UserEditTracker $userEditTracker,
 		private readonly UserFactory $userFactory,
 		private readonly UserOptionsManager $userOptionsManager,
+		private readonly EventController $eventController,
 		private readonly ?MobileContext $mobileContext,
 	) {
 		$this->statsFactory = $statsFactory->withComponent( 'Echo' );
@@ -1360,10 +1361,10 @@ class Hooks implements
 	 */
 	public function onArticleUndelete( $title, $create, $comment, $oldPageId, $restoredPages ) {
 		if ( $create ) {
-			DeferredUpdates::addCallableUpdate( static function () use ( $oldPageId ) {
+			DeferredUpdates::addCallableUpdate( function () use ( $oldPageId ) {
 				$eventMapper = new EventMapper();
 				$eventIds = $eventMapper->fetchIdsByPage( $oldPageId );
-				ModerationController::moderate( $eventIds, false );
+				$this->eventController->toggleHiddenState( $eventIds, false );
 			} );
 		}
 	}

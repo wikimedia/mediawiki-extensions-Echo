@@ -4,6 +4,7 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Notifications\AttributeManager;
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
+use MediaWiki\Extension\Notifications\Controller\EventController;
 use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
@@ -30,6 +31,15 @@ return [
 			$echoConfig->get( 'NotifyTypeAvailabilityByCategory' ),
 			$services->getUserGroupManager(),
 			$services->getUserOptionsLookup()
+		);
+	},
+
+	'EchoEventController' => static function ( MediaWikiServices $services ): EventController {
+		return new EventController(
+			$services->get( 'EchoEventMapper' ),
+			$services->get( 'EchoNotificationMapper' ),
+			$services->getDBLoadBalancerFactory(),
+			$services->getUserFactory()
 		);
 	},
 

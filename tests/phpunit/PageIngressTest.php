@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Test;
 
+use MediaWiki\Extension\Notifications\Controller\EventController;
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
-use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\MediaWikiEventIngress\PageEventIngress;
 use MediaWiki\Page\Event\PageDeletedEvent;
 use MediaWiki\Page\ExistingPageRecord;
@@ -43,25 +43,19 @@ class PageIngressTest extends MediaWikiIntegrationTestCase {
 		$eventMapper->expects( $this->once() )
 			->method( 'fetchIdsByPage' )
 			->willReturn( $eventIdsForModeration );
-		$eventMapper->expects( $this->once() )
-			->method( 'toggleDeleted' )
-			->with( $eventIdsForModeration, true );
-		$this->setService( 'EchoEventMapper', $eventMapper );
 
-		$notificationMapper = $this->createMock( NotificationMapper::class );
-		$notificationMapper->expects( $this->once() )
-			->method( 'fetchUsersWithNotificationsForEvents' )
-			->with( $eventIdsForModeration )
-			->willReturn( [] );
-		$this->setService( 'EchoNotificationMapper', $notificationMapper );
+		$eventController = $this->createMock( EventController::class );
+		$eventController->expects( $this->once() )
+			->method( 'toggleHiddenState' )
+			->with( $eventIdsForModeration, true );
 
 		$userIdentityUtils = $this->createNoOpMock( UserIdentityUtils::class );
-		$this->setService( 'UserIdentityUtils', $userIdentityUtils );
 
 		$pageEventIngress = new PageEventIngress(
 			$revisionStore, $userEditTracker,
 			$eventMapper, $userIdentityUtils,
-			$titleFactory, $userFactory
+			$titleFactory, $userFactory,
+			$eventController
 		);
 		$pageEventIngress->handlePageDeletedEvent( $event );
 	}

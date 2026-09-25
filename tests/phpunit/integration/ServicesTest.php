@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Notifications\Test\Integration;
 
 use MediaWiki\Extension\Notifications\AttributeManager;
+use MediaWiki\Extension\Notifications\Controller\EventController;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\Extension\Notifications\Services;
@@ -34,4 +35,8 @@ class ServicesTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( AttributeManager::class, $attributeManager );
 	}
 
+	public function testGetEventController(): void {
+		$eventController = Services::getInstance()->getEventController();
+		$this->assertInstanceOf( EventController::class, $eventController );
+	}
 }

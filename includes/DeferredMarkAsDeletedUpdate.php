@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\Notifications;
 
 use MediaWiki\Deferred\DeferrableUpdate;
 use MediaWiki\Deferred\DeferredUpdates;
-use MediaWiki\Extension\Notifications\Controller\ModerationController;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Logger\LoggerFactory;
 
@@ -68,7 +67,7 @@ class DeferredMarkAsDeletedUpdate implements DeferrableUpdate {
 			$events
 		);
 
-		ModerationController::moderate( $eventIds, true );
+		Services::getInstance()->getEventController()->toggleHiddenState( $eventIds, true );
 		$this->events = [];
 	}
 }

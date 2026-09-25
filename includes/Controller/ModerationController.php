@@ -2,47 +2,23 @@
 
 namespace MediaWiki\Extension\Notifications\Controller;
 
-use MediaWiki\Deferred\DeferredUpdates;
-use MediaWiki\Extension\Notifications\NotifUser;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Extension\Notifications\Services;
 
 /**
  * This class represents the controller for moderating notifications
+ *
+ * @deprecated since 1.47, use EventController instead
  */
 class ModerationController {
 
 	/**
 	 * Moderate or unmoderate events
 	 *
+	 * @deprecated since 1.47, use {@link EventController::toggleHiddenState()} instead
 	 * @param int[] $eventIds
 	 * @param bool $moderate Whether to moderate or unmoderate the events
 	 */
 	public static function moderate( array $eventIds, $moderate ) {
-		if ( !$eventIds ) {
-			return;
-		}
-
-		$eventMapper = MediaWikiServices::getInstance()->get( 'EchoEventMapper' );
-		$notificationMapper = MediaWikiServices::getInstance()->get( 'EchoNotificationMapper' );
-
-		$affectedUserIds = $notificationMapper->fetchUsersWithNotificationsForEvents( $eventIds );
-		$eventMapper->toggleDeleted( $eventIds, $moderate );
-
-		$fname = __METHOD__;
-
-		DeferredUpdates::addCallableUpdate( static function () use ( $affectedUserIds, $fname ) {
-			// This update runs after the main transaction round commits.
-			// Wait for the event deletions to be propagated to replica DBs
-			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-			$lbFactory->waitForReplication( [ 'timeout' => 5 ] );
-			$lbFactory->flushReplicaSnapshots( $fname );
-			$userFactory = MediaWikiServices::getInstance()->getUserFactory();
-			// Recompute the notification count for the
-			// users whose notifications have been moderated.
-			foreach ( $affectedUserIds as $userId ) {
-				$user = $userFactory->newFromId( $userId );
-				NotifUser::newFromUser( $user )->resetNotificationCount();
-			}
-		} );
+		Services::getInstance()->getEventController()->toggleHiddenState( $eventIds, (bool)$moderate );
 	}
 }

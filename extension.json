@@ -539,7 +539,8 @@
 				"TalkPageNotificationManager",
 				"UserEditTracker",
 				"UserFactory",
-				"UserOptionsManager"
+				"UserOptionsManager",
+				"EchoEventController"
 			],
 			"optional_services": [
 				"MobileFrontend.Context"
@@ -569,7 +570,8 @@
 				"EchoEventMapper",
 				"UserIdentityUtils",
 				"TitleFactory",
-				"UserFactory"
+				"UserFactory",
+				"EchoEventController"
 			]
 		}
 	],

@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Notifications;
 
 use MediaWiki\Extension\Notifications\Cache\RevisionLocalCache;
 use MediaWiki\Extension\Notifications\Cache\TitleLocalCache;
+use MediaWiki\Extension\Notifications\Controller\EventController;
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\SubscriptionManager;
 use MediaWiki\MediaWikiServices;
@@ -27,6 +28,10 @@ class Services {
 
 	public function getPushSubscriptionManager(): SubscriptionManager {
 		return $this->services->getService( 'EchoPushSubscriptionManager' );
+	}
+
+	public function getEventController(): EventController {
+		return $this->services->getService( 'EchoEventController' );
 	}
 
 	public function getAttributeManager(): AttributeManager {
