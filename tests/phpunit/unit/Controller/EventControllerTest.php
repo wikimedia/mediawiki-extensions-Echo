@@ -23,4 +23,14 @@ class EventControllerTest extends MediaWikiUnitTestCase {
 		);
 		$eventController->toggleHiddenState( [], true );
 	}
+
+	public function testDeleteForNoEvents(): void {
+		$eventController = new EventController(
+			$this->createNoOpMock( EventMapper::class ),
+			$this->createNoOpMock( NotificationMapper::class ),
+			$this->createNoOpMock( ILBFactory::class ),
+			$this->createNoOpMock( UserFactory::class )
+		);
+		$eventController->delete( [] );
+	}
 }

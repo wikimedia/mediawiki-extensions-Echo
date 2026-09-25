@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Test\Integration\Mapper;
 
+use MediaWiki\Extension\Notifications\EmailBatch;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
@@ -55,6 +56,51 @@ class NotificationMapperDatabaseTest extends MediaWikiIntegrationTestCase {
 				(string)$secondNotification->getEvent()->getId(),
 				(string)$fourthNotification->getEvent()->getId(),
 			] );
+	}
+
+	public function testDeleteByEventIds(): void {
+		$user = $this->getTestUser()->getUser();
+		$firstNotification = new Notification( $user, $this->makeEvent( '20260607080901' ) );
+		$firstNotification->insert();
+		EmailBatch::addToQueue( $user->getId(), $firstNotification->getEvent()->getId(), 10, '' );
+		$secondNotification = new Notification( $user, $this->makeEvent( '20260607080902' ) );
+		$secondNotification->insert();
+		EmailBatch::addToQueue( $user->getId(), $secondNotification->getEvent()->getId(), 10, '' );
+		$thirdNotification = new Notification( $user, $this->makeEvent( '20260607080903' ) );
+		$thirdNotification->insert();
+		EmailBatch::addToQueue( $user->getId(), $thirdNotification->getEvent()->getId(), 10, '' );
+
+		$notifMapper = new NotificationMapper( $this->getServiceContainer()->getConnectionProvider() );
+		$notifMapper->deleteByEventIds( [ $thirdNotification->getEvent()->getId() ] );
+
+		$this->newSelectQueryBuilder()
+			->select( 'notification_event' )
+			->from( 'echo_notification' )
+			->assertFieldValues( [
+				(string)$firstNotification->getEvent()->getId(),
+				(string)$secondNotification->getEvent()->getId(),
+			] );
+		$this->newSelectQueryBuilder()
+			->select( 'eeb_event_id' )
+			->from( 'echo_email_batch' )
+			->assertFieldValues( [
+				(string)$firstNotification->getEvent()->getId(),
+				(string)$secondNotification->getEvent()->getId(),
+			] );
+
+		$notifMapper->deleteByEventIds( [
+			$firstNotification->getEvent()->getId(),
+			$secondNotification->getEvent()->getId(),
+		] );
+
+		$this->newSelectQueryBuilder()
+			->select( 'notification_event' )
+			->from( 'echo_notification' )
+			->assertEmptyResult();
+		$this->newSelectQueryBuilder()
+			->select( 'eeb_event_id' )
+			->from( 'echo_email_batch' )
+			->assertEmptyResult();
 	}
 
 	private function makeEvent( string $timestamp ): Event {

@@ -74,6 +74,43 @@ class EventControllerTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
+	public function testDelete(): void {
+		// NotifUser::getLocalNotificationCount caches and we don't need to test caching here
+		$this->setMainCache( CACHE_NONE );
+
+		$firstUser = $this->getMutableTestUser()->getUserIdentity();
+		$secondUser = $this->getMutableTestUser()->getUserIdentity();
+		$firstEventId = $this->createEvent( $firstUser );
+		$secondEventId = $this->createEvent( $secondUser );
+
+		$this->assertSame(
+			1,
+			NotifUser::newFromUser( $firstUser )->getLocalNotificationCount(),
+			'First test user should start with one notification'
+		);
+
+		Services::getInstance()->getEventController()->delete( [ $firstEventId ] );
+
+		$this->newSelectQueryBuilder()
+			->select( 'event_id' )
+			->from( 'echo_event' )
+			->assertFieldValue( $secondEventId );
+		$this->newSelectQueryBuilder()
+			->select( 'notification_event' )
+			->from( 'echo_notification' )
+			->assertFieldValue( $secondEventId );
+		$this->assertSame(
+			0,
+			NotifUser::newFromUser( $firstUser )->getLocalNotificationCount(),
+			'First test user should have no notifications after the event is deleted'
+		);
+		$this->assertSame(
+			1,
+			NotifUser::newFromUser( $secondUser )->getLocalNotificationCount(),
+			'Second test user should keep their notification'
+		);
+	}
+
 	public function testToggleHiddenStateForEventWithoutNotifications(): void {
 		$eventId = $this->createEvent( $this->getTestUser()->getUserIdentity() );
 		$this->getDb()->newDeleteQueryBuilder()

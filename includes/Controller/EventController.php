@@ -45,6 +45,24 @@ class EventController {
 	}
 
 	/**
+	 * Permanently delete events and their notifications, for all users. Use {@link self::toggleHiddenState()}
+	 * instead when a page is deleted, so that the events appear again once the page is undeleted.
+	 *
+	 * @param int[] $eventIds
+	 */
+	public function delete( array $eventIds ): void {
+		if ( !$eventIds ) {
+			return;
+		}
+
+		$affectedUserIds = $this->notificationMapper->fetchUsersWithNotificationsForEvents( $eventIds );
+		$this->notificationMapper->deleteByEventIds( $eventIds );
+		$this->eventMapper->deleteEvents( $eventIds );
+
+		$this->resetNotificationCountsAfterCommit( $affectedUserIds );
+	}
+
+	/**
 	 * @param int[] $affectedUserIds
 	 */
 	private function resetNotificationCountsAfterCommit( array $affectedUserIds ): void {

@@ -446,6 +446,30 @@ class NotificationMapper extends AbstractMapper {
 	}
 
 	/**
+	 * Delete the notifications and email batches for events with the specified IDs, for all users.
+	 *
+	 * @since 1.47
+	 * @param int[] $eventIds
+	 */
+	public function deleteByEventIds( array $eventIds ): void {
+		if ( !$eventIds ) {
+			return;
+		}
+
+		$dbw = $this->getPrimaryDb();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'echo_notification' )
+			->where( [ 'notification_event' => $eventIds ] )
+			->caller( __METHOD__ )
+			->execute();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'echo_email_batch' )
+			->where( [ 'eeb_event_id' => $eventIds ] )
+			->caller( __METHOD__ )
+			->execute();
+	}
+
+	/**
 	 * Fetch ids of users that have notifications for certain events
 	 *
 	 * @param int[] $eventIds

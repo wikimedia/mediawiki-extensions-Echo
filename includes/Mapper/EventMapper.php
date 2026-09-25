@@ -90,6 +90,33 @@ class EventMapper extends AbstractMapper {
 	}
 
 	/**
+	 * Delete events and the associated target page rows.
+	 *
+	 * This does not check if notifications still refer to the events.
+	 * Use {@link NotificationMapper::deleteByEventIds()} to delete those first.
+	 *
+	 * @since 1.47
+	 * @param int[] $eventIds
+	 */
+	public function deleteEvents( array $eventIds ): void {
+		if ( !$eventIds ) {
+			return;
+		}
+
+		$dbw = $this->getPrimaryDb();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'echo_event' )
+			->where( [ 'event_id' => $eventIds ] )
+			->caller( __METHOD__ )
+			->execute();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'echo_target_page' )
+			->where( [ 'etp_event' => $eventIds ] )
+			->caller( __METHOD__ )
+			->execute();
+	}
+
+	/**
 	 * Fetch events associated with a page
 	 *
 	 * @param int $pageId
@@ -242,16 +269,7 @@ class EventMapper extends AbstractMapper {
 			->caller( __METHOD__ )
 			->fetchFieldValues();
 		if ( $orphanedEventIds ) {
-			$dbw->newDeleteQueryBuilder()
-				->deleteFrom( 'echo_event' )
-				->where( [ 'event_id' => $orphanedEventIds ] )
-				->caller( __METHOD__ )
-				->execute();
-			$dbw->newDeleteQueryBuilder()
-				->deleteFrom( 'echo_target_page' )
-				->where( [ 'etp_event' => $orphanedEventIds ] )
-				->caller( __METHOD__ )
-				->execute();
+			$this->deleteEvents( $orphanedEventIds );
 		}
 	}
 
