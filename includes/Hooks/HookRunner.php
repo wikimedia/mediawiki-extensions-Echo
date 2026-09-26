@@ -24,8 +24,7 @@ class HookRunner implements
 	EchoGetBundleRulesHook,
 	EchoGetDefaultNotifiedUsersHook,
 	EchoGetEventsForRevisionHook,
-	EchoGetNotificationTypesHook,
-	EventInsertCompleteHook
+	EchoGetNotificationTypesHook
 {
 	public function __construct(
 		private readonly HookContainer $hookContainer,
@@ -132,16 +131,6 @@ class HookRunner implements
 		return $this->hookContainer->run(
 			'EchoGetNotificationTypes',
 			[ $user, $event, &$userNotifyTypes ]
-		);
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function onEventInsertComplete( Event $event ) {
-		return $this->hookContainer->run(
-			'EventInsertComplete',
-			[ $event ]
 		);
 	}
 }

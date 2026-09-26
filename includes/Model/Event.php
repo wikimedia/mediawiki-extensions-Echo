@@ -304,9 +304,6 @@ class Event extends AbstractEntity implements Bundleable {
 		}
 
 		$services = MediaWikiServices::getInstance();
-		$hookRunner = new HookRunner( $services->getHookContainer() );
-		$hookRunner->onEventInsertComplete( $this );
-
 		$stats = $services->getStatsFactory()->withComponent( 'Echo' );
 		$type = $this->getType();
 		$stats->getCounter( 'event_all' )

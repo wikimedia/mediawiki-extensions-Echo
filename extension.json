@@ -590,11 +590,6 @@
 			]
 		}
 	],
-	"DeprecatedHooks": {
-		"EventInsertComplete": {
-			"deprecatedVersion": "1.46"
-		}
-	},
 	"config": {
 		"EchoEnableEmailBatch": {
 			"value": true
