@@ -1443,7 +1443,12 @@ class Hooks implements
 			$moduleManager->addModule(
 				'echopushsubscriptions',
 				'action',
-				ApiEchoPushSubscriptions::class
+				[
+					'class' => ApiEchoPushSubscriptions::class,
+					'services' => [
+						'ObjectFactory',
+					],
+				]
 			);
 		}
 	}

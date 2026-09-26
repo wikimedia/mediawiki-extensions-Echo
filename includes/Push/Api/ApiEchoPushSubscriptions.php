@@ -3,9 +3,10 @@
 namespace MediaWiki\Extension\Notifications\Push\Api;
 
 use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiModuleManager;
 use MediaWiki\Api\ApiUsageException;
-use MediaWiki\MediaWikiServices;
+use Wikimedia\ObjectFactory\ObjectFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -23,6 +24,14 @@ class ApiEchoPushSubscriptions extends ApiBase {
 
 	/** @var ApiModuleManager */
 	private $moduleManager;
+
+	public function __construct(
+		ApiMain $mainModule,
+		string $moduleName,
+		private readonly ObjectFactory $objectFactory,
+	) {
+		parent::__construct( $mainModule, $moduleName );
+	}
 
 	/** @inheritDoc */
 	public function execute(): void {
@@ -49,7 +58,7 @@ class ApiEchoPushSubscriptions extends ApiBase {
 			}, self::SUBMODULES );
 			$this->moduleManager = new ApiModuleManager(
 				$this,
-				MediaWikiServices::getInstance()->getObjectFactory()
+				$this->objectFactory
 			);
 			$this->moduleManager->addModules( $submodules, 'command' );
 		}
