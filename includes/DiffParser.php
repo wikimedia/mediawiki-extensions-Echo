@@ -124,17 +124,6 @@ class DiffParser {
 	}
 
 	/**
-	 * Duplicates the check from the global wfDiff function to determine
-	 * if we are using internal or external diff utilities
-	 *
-	 * @deprecated since 1.29, the internal diff parser is always used
-	 * @return bool
-	 */
-	protected static function usingInternalDiff() {
-		return true;
-	}
-
-	/**
 	 * Parse the unified diff output into an array of changes to individual groups of the text
 	 *
 	 * @param string $diff The unified diff output
