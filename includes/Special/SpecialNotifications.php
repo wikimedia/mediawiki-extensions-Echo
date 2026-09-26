@@ -9,6 +9,7 @@ use MediaWiki\Extension\Notifications\SeenTime;
 use MediaWiki\Html\Html;
 use MediaWiki\SpecialPage\SpecialPage;
 use OOUI;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class SpecialNotifications extends SpecialPage {
 
@@ -17,7 +18,9 @@ class SpecialNotifications extends SpecialPage {
 	 */
 	private const DISPLAY_NUM = 20;
 
-	public function __construct() {
+	public function __construct(
+		private readonly IConnectionProvider $dbProvider,
+	) {
 		parent::__construct( 'Notifications' );
 	}
 
@@ -54,7 +57,7 @@ class SpecialNotifications extends SpecialPage {
 
 		$out->enableOOUI();
 
-		$pager = new NotificationPager( $this->getContext() );
+		$pager = new NotificationPager( $this->getContext(), $this->dbProvider );
 		$pager->setOffset( $this->getRequest()->getVal( 'offset' ) );
 		$pager->setLimit( $this->getRequest()->getInt( 'limit', self::DISPLAY_NUM ) );
 		$notifications = $pager->getNotifications();

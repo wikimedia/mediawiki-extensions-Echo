@@ -113,7 +113,12 @@
 		"EchoPushNotificationRequest": "MediaWiki\\Extension\\Notifications\\Push\\NotificationRequestJob"
 	},
 	"SpecialPages": {
-		"Notifications": "MediaWiki\\Extension\\Notifications\\Special\\SpecialNotifications",
+		"Notifications": {
+			"class": "MediaWiki\\Extension\\Notifications\\Special\\SpecialNotifications",
+			"services": [
+				"ConnectionProvider"
+			]
+		},
 		"DisplayNotificationsConfiguration": {
 			"class": "MediaWiki\\Extension\\Notifications\\Special\\SpecialDisplayNotificationsConfiguration",
 			"services": [

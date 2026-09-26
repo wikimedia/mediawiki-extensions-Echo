@@ -7,8 +7,8 @@ use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\Notifications\DbDomains;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\Services;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\ReverseChronologicalPager;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * This pager is used by Special:Notifications (NO-JS).
@@ -17,9 +17,11 @@ use MediaWiki\Pager\ReverseChronologicalPager;
  */
 class NotificationPager extends ReverseChronologicalPager {
 
-	public function __construct( IContextSource $context ) {
-		$this->mDb = MediaWikiServices::getInstance()->getConnectionProvider()
-			->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
+	public function __construct(
+		IContextSource $context,
+		IConnectionProvider $dbProvider,
+	) {
+		$this->mDb = $dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );
 
 		parent::__construct( $context );
 	}
