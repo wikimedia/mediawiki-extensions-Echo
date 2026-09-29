@@ -223,7 +223,7 @@ class NotificationController {
 			$jobQueueGroup,
 			$userFactory
 		);
-		$jobQueueGroup->push( $job );
+		$jobQueueGroup->lazyPush( $job );
 	}
 
 	/**
