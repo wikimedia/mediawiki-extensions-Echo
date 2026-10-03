@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Notifications\Iterator;
 
-use IteratorDecorator;
 use RecursiveIterator;
+use Wikimedia\Iterators\IteratorDecorator;
 
 /**
  * Wraps a non-recursive iterator with methods to be recursive

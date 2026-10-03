@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Notifications\Iterator;
 
 use Iterator;
-use IteratorDecorator;
+use Wikimedia\Iterators\IteratorDecorator;
 
 /**
  * Applies a callback to all values returned from the iterator
