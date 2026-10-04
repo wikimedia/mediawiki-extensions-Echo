@@ -37,10 +37,10 @@ class CachedList implements ContainmentList {
 		if ( $this->result ) {
 			return $this->result;
 		}
-		$this->result = $this->cache->getWithSetCallback(
-			$this->getCacheKey(),
-			$this->timeout,
-			function () {
+		$this->result = $this->cache->buildGetWithSetCallback()
+			->rawKey( $this->getCacheKey() )
+			->lifetime( $this->timeout )
+			->callback( function () {
 				$result = $this->nestedList->getValues();
 				if ( !is_array( $result ) ) {
 					throw new UnexpectedValueException( sprintf(
@@ -50,8 +50,8 @@ class CachedList implements ContainmentList {
 					) );
 				}
 				return $result;
-			}
-		);
+			} )
+			->fetch();
 		return $this->result;
 	}
 

@@ -501,13 +501,13 @@ class NotifUser {
 	 */
 	public function getCountsAndTimestamps( $includeGlobal = false ): array {
 		if ( $this->localCountsAndTimestamps === null ) {
-			$this->localCountsAndTimestamps = $this->cache->getWithSetCallback(
-				$this->getMemcKey( self::CACHE_KEY ),
-				self::CACHE_TTL,
-				function () {
+			$this->localCountsAndTimestamps = $this->cache->buildGetWithSetCallback()
+				->rawKey( $this->getMemcKey( self::CACHE_KEY ) )
+				->lifetime( self::CACHE_TTL )
+				->callback( function () {
 					return $this->computeLocalCountsAndTimestamps();
-				}
-			);
+				} )
+				->fetch();
 		}
 		$result = [ 'local' => $this->localCountsAndTimestamps ];
 
@@ -517,13 +517,13 @@ class NotifUser {
 				// If getGlobalMemcKey returns false, we don't have a global user ID
 				// In that case, don't compute data that we can't cache or store
 				if ( $memcKey !== false ) {
-					$this->globalCountsAndTimestamps = $this->cache->getWithSetCallback(
-						$memcKey,
-						self::CACHE_TTL,
-						function () {
+					$this->globalCountsAndTimestamps = $this->cache->buildGetWithSetCallback()
+						->rawKey( $memcKey )
+						->lifetime( self::CACHE_TTL )
+						->callback( function () {
 							return $this->computeGlobalCountsAndTimestamps();
-						}
-					);
+						} )
+						->fetch();
 				}
 			}
 			$result['global'] = $this->globalCountsAndTimestamps;
