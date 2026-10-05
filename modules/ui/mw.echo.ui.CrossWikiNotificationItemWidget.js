@@ -98,8 +98,6 @@ mw.echo.ui.CrossWikiNotificationItemWidget = function MwEchoUiCrossWikiNotificat
 	this.$element
 		.addClass( 'mw-echo-ui-crossWikiNotificationItemWidget' )
 		.append(
-			$( '<div>' )
-				.addClass( 'mw-echo-ui-crossWikiNotificationItemWidget-separator' ),
 			this.listWidget.$element,
 			this.errorWidget.$element,
 		);

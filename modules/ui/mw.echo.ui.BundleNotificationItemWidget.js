@@ -83,8 +83,6 @@ mw.echo.ui.BundleNotificationItemWidget = function MwEchoUiBundleNotificationIte
 	this.$element
 		.addClass( 'mw-echo-ui-bundleNotificationItemWidget' )
 		.append(
-			$( '<div>' )
-				.addClass( 'mw-echo-ui-bundleNotificationItemWidget-separator' ),
 			this.listWidget.$element,
 		);
 

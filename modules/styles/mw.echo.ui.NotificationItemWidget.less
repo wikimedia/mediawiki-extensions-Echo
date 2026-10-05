@@ -8,7 +8,6 @@
 	background-color: @notification-item-background-read;
 	position: relative;
 	white-space: normal;
-	padding: 0.8em 1em 0.5em 1em;
 	box-sizing: border-box;
 
 	&:not( :last-child ) {
@@ -69,60 +68,73 @@
 		}
 	}
 
-	&-icon {
-		position: absolute;
+	&-content-message {
+		// break-word rules are inconsistent accross browsers
+		// these three rules should cover the main use cases
+		// with major browser support
+		word-break: break-word;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 
-		img {
-			height: 30px;
-			width: 30px;
+		&-header {
+			color: @color-emphasized;
+		}
+
+		&-body {
+			color: @notification-body-color;
+			margin-top: 4px;
+
+			// In the popup only, truncate the text to one-line
+			// with ellipses
+			.mw-echo-ui-notificationBadgeController-popup & {
+				.text-overflow( @visible: false );
+			}
 		}
 	}
 
-	&-content {
+	&-content-actions-timestamp {
+		color: @color-emphasized;
+		opacity: @opacity-low;
+	}
+
+	&-contentMain {
 		display: block;
 		box-sizing: border-box;
-		// The icon is 30px
-		margin-left: 30px;
-		padding-left: 0.8em;
+		padding: 0.8em 1em 0.5em 1em;
 
-		&-message {
+		.mw-echo-ui-notificationItemWidget-icon {
+			position: absolute;
+			top: 0.8em;
+			left: 1em;
+
+			img {
+				height: 30px;
+				width: 30px;
+			}
+		}
+
+		.mw-echo-ui-notificationItemWidget-content-message {
 			line-height: 1.3em;
+			// The icon is 30px
+			margin-left: 30px;
+			padding-left: 0.8em;
 			// Compensate for the placement of the 'mark as read'
 			// button, so the message is not stretched past it.
 			// The 'mark as read' circle is placed with a right
 			// margin of -1em
 			padding-right: 1em;
-			// break-word rules are inconsistent accross browsers
-			// these three rules should cover the main use cases
-			// with major browser support
-			word-break: break-word;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-
-			&-header {
-				color: @color-emphasized;
-			}
-
-			&-body {
-				color: @notification-body-color;
-				margin-top: 4px;
-
-				// In the popup only, truncate the text to one-line
-				// with ellipses
-				.mw-echo-ui-notificationBadgeController-popup & {
-					.text-overflow( @visible: false );
-				}
-			}
 		}
 
-		/* stylelint-disable-next-line no-descending-specificity */
-		&-actions {
+		.mw-echo-ui-notificationItemWidget-content-actions {
 			display: flex;
 			align-items: flex-end;
 			font-size: 0.9em;
 			margin-top: 0.8em;
+			// The icon is 30px
+			margin-left: 30px;
+			padding-left: 0.8em;
 
-			& > &-buttons.oo-ui-buttonSelectWidget {
+			&-buttons.oo-ui-buttonSelectWidget {
 				display: flex;
 				overflow: hidden;
 
@@ -163,108 +175,59 @@
 				flex-grow: 1;
 				text-align: right;
 				vertical-align: bottom;
-				color: @color-emphasized;
-				opacity: @opacity-low;
 				white-space: nowrap;
 			}
 		}
 	}
 
-	&-markAsReadButton {
-		float: right;
-		font-size: 1em;
-		// Compensate for the padding in the item widget
-		margin-top: -0.8em;
-		margin-right: -1em;
-		padding: 0;
-
-		.mw-echo-ui-notificationItemWidget-bundled & {
-			margin-top: 0;
-		}
+	&-contentMain &-markAsReadButton {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
 	}
 
-	// Table layout only for the content inside bundles
-	&-bundled {
-		display: table;
+	&-contentGrouped {
 		width: 100%;
 		padding: 0.5em;
+		display: flex;
+		align-items: start;
+		box-sizing: border-box;
 
-		.mw-echo-ui-notificationItemWidget-content {
-			display: table-row;
-			padding-left: 0.5em + 1.5em;
+		// Positioning fixes for bundled items
+		.mw-echo-ui-notificationItemWidget-icon {
+			padding-right: 0.5em;
 
-			.mw-echo-ui-notificationItemWidget {
-				// CSS table layout
-				&-icon,
-				&-content-message,
-				&-content-actions,
-				&-markAsReadButton {
-					display: table-cell;
-					vertical-align: top;
+			img {
+				height: 20px;
+				width: 20px;
+			}
+		}
+
+		.mw-echo-ui-notificationItemWidget-content-message {
+			padding-right: 0.5em;
+			width: 100%;
+
+			&-header {
+				width: 100%;
+
+				// Bundled notifications don't have bodies, only headers,
+				// so they use <em> to designate excerpts. Use the body color
+				// for these.
+				em {
+					color: @notification-body-color;
+					font-style: normal;
 				}
+			}
+		}
 
-				// Positioning fixes for bundled items
-				&-icon {
-					position: relative;
-					padding-right: 0.5em;
+		.mw-echo-ui-notificationItemWidget-content-actions {
+			display: flex;
+			align-items: center;
 
-					img {
-						height: 20px;
-						width: 20px;
-					}
-				}
-
-				&-content-message {
-					display: table-cell;
-					padding-right: 0.5em;
-					width: 100%;
-
-					&-header {
-						width: 100%;
-
-						&-wrapper {
-							position: relative;
-						}
-
-						// Bundled notifications don't have bodies, only headers,
-						// so they use <em> to designate excerpts. Use the body color
-						// for these.
-						em {
-							color: @notification-body-color;
-							font-style: normal;
-						}
-					}
-				}
-
-				&-content-actions {
-					&-row {
-						display: table-row;
-					}
-
-					&-buttons {
-						display: table-cell;
-						vertical-align: middle;
-					}
-
-					&-menu {
-						display: table-cell;
-						vertical-align: middle;
-					}
-
-					&-timestamp {
-						float: none;
-						display: table-cell;
-						vertical-align: middle;
-						padding-right: 0.5em;
-						white-space: nowrap;
-					}
-				}
-
-				&-markAsReadButton {
-					display: table-cell;
-					vertical-align: top;
-					float: none;
-				}
+			&-timestamp {
+				padding-right: 0.5em;
+				white-space: nowrap;
 			}
 		}
 	}

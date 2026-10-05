@@ -61,12 +61,8 @@ mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( con
 	// Content
 	$message.append(
 		$( '<div>' )
-			.addClass( 'mw-echo-ui-notificationItemWidget-content-message-header-wrapper' )
-			.append(
-				$( '<div>' )
-					.addClass( 'mw-echo-ui-notificationItemWidget-content-message-header' )
-					.append( this.model.getContentHeader() ),
-			),
+			.addClass( 'mw-echo-ui-notificationItemWidget-content-message-header' )
+			.append( this.model.getContentHeader() ),
 	);
 	if ( !this.bundle && this.model.getContentBody() ) {
 		$message.append(
@@ -112,15 +108,9 @@ mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( con
 	if ( this.bundle ) {
 		// In a bundled item, the timestamp should go before the menu
 		this.$actions.append(
-			$( '<div>' )
-				// We are wrapping the actions in a 'row' div so that the
-				// internal pieces are also a table layout
-				.addClass( 'mw-echo-ui-notificationItemWidget-content-actions-row' )
-				.append(
-					this.actionsButtonSelectWidget.$element,
-					this.timestampWidget.$element,
-					this.menuPopupButtonWidget.$element,
-				),
+			this.actionsButtonSelectWidget.$element,
+			this.timestampWidget.$element,
+			this.menuPopupButtonWidget.$element,
 		);
 	} else {
 		this.$actions.append(
@@ -174,25 +164,13 @@ mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( con
 		}
 	}
 
-	if ( this.bundle ) {
-		// In a bundle, we have table layout, so the icon is
-		// inserted into the content, and the 'mark as read'
-		// button is not floating, and should be at the end
-		this.$content.append(
-			$icon,
-			$message,
-			this.$actions,
-			this.markAsReadButton.$element,
-		);
-		this.$element.append( this.$content );
-	} else {
-		this.$content.append(
-			this.markAsReadButton.$element,
-			$message,
-			this.$actions,
-		);
-		this.$element.append( $icon, this.$content );
-	}
+	this.$content.append(
+		$icon,
+		$message,
+		this.$actions,
+		this.markAsReadButton.$element,
+	);
+	this.$element.append( this.$content );
 
 	// Events
 	this.actionsButtonSelectWidget.connect( this, { choose: 'onPopupButtonWidgetChoose' } );
@@ -201,8 +179,11 @@ mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( con
 
 	this.$element
 		.addClass( 'mw-echo-ui-notificationItemWidget' )
-		.toggleClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen', !this.model.isSeen() && !this.bundle )
-		.toggleClass( 'mw-echo-ui-notificationItemWidget-bundled', this.bundle );
+		.toggleClass( 'mw-echo-ui-notificationItemWidget-initiallyUnseen', !this.model.isSeen() && !this.bundle );
+
+	this.$content
+		.toggleClass( 'mw-echo-ui-notificationItemWidget-contentMain', !this.bundle )
+		.toggleClass( 'mw-echo-ui-notificationItemWidget-contentGrouped', this.bundle );
 
 	if ( this.model.getPrimaryUrl() ) {
 		this.$element
