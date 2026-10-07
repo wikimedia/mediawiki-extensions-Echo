@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\Notifications;
 
-use BadMethodCallException;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\MultiUsernameFilter;
 use MediaWiki\User\User;
@@ -91,14 +90,7 @@ class ContainmentSet {
 	public function addOnWiki(
 		$namespace, $title, ?WANObjectCache $cache = null, $cacheKeyPrefix = ''
 	) {
-		$list = new OnWikiList( $namespace, $title );
-		if ( $cache ) {
-			if ( $cacheKeyPrefix === '' ) {
-				throw new BadMethodCallException( 'Cache requires providing a cache key prefix.' );
-			}
-			$list = new CachedList( $cache, $cacheKeyPrefix, $list );
-		}
-		$this->add( $list );
+		$this->add( new OnWikiList( $namespace, $title, $cache, $cacheKeyPrefix ) );
 	}
 
 	/**

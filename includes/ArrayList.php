@@ -17,11 +17,4 @@ class ArrayList implements ContainmentList {
 	public function getValues() {
 		return $this->list;
 	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getCacheKey() {
-		return '';
-	}
 }

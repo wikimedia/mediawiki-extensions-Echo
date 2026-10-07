@@ -3,18 +3,11 @@
 namespace MediaWiki\Extension\Notifications;
 
 /**
- * Interface providing list of contained values and an optional cache key to go along with it.
+ * Interface providing list of contained values.
  */
 interface ContainmentList {
 	/**
 	 * @return string[] The values contained within this list.
 	 */
 	public function getValues();
-
-	/**
-	 * @return string A string suitable for appending to the cache key prefix to facilitate
-	 *                cache busting when the underlying data changes, or a blank string if
-	 *                not relevant.
-	 */
-	public function getCacheKey();
 }

@@ -6,7 +6,6 @@ use InvalidArgumentException;
 use Iterator;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\Notifications\AttributeManager;
-use MediaWiki\Extension\Notifications\CachedList;
 use MediaWiki\Extension\Notifications\ContainmentList;
 use MediaWiki\Extension\Notifications\ContainmentSet;
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
@@ -383,10 +382,11 @@ class NotificationController {
 		}
 		if ( self::$wikiBlacklist === null ) {
 			$clusterCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-			self::$wikiBlacklist = new CachedList(
+			self::$wikiBlacklist = new OnWikiList(
+				NS_MEDIAWIKI,
+				$wgEchoOnWikiBlacklist,
 				$clusterCache,
-				$clusterCache->makeKey( "echo_on_wiki_blacklist" ),
-				new OnWikiList( NS_MEDIAWIKI, $wgEchoOnWikiBlacklist )
+				$clusterCache->makeKey( "echo_on_wiki_blacklist" )
 			);
 		}
 
