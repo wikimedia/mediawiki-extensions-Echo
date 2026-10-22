@@ -90,4 +90,38 @@ class MentionFunctionalTest extends MediaWikiIntegrationTestCase {
 		$notifications = $notificationMapper->fetchByUser( $targetUser, 10, null, [ 'mention-summary' ] );
 		$this->assertCount( 1, $notifications );
 	}
+
+	/**
+	 * @covers \MediaWiki\Extension\Notifications\DiscussionParser::generateEventsForRevision
+	 */
+	public function testNoMentionOnRevert() {
+		$this->deleteEchoData();
+		$user = $this->getMutableTestUser()->getUser();
+		$targetUser = $this->getMutableTestUser()->getUser();
+		$title = Title::makeTitle( NS_TALK, __METHOD__ );
+		$editText = "Thank you [[User:{$targetUser->getName()}]]! -- ~~~~";
+
+		$status = $this->editPage( $title, $editText, '', NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+		$mentionContent = $status->getNewRevision()->getMainContentRaw();
+
+		$notificationMapper = new NotificationMapper();
+		$notifications = $notificationMapper->fetchByUser( $targetUser, 10, null, [ 'mention' ] );
+		$this->assertCount( 1, $notifications );
+
+		// remove the comment, then restore it with a revert
+		$this->editPage( $title, 'Removed', '', NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+		$status = $this->editPage( $title, $mentionContent, '', NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+		$this->assertContains(
+			'mw-manual-revert',
+			$this->getServiceContainer()->getChangeTagsStore()
+				->getTags( $this->getDb(), null, $status->getNewRevision()->getId() )
+		);
+
+		$notificationMapper = new NotificationMapper();
+		$notifications = $notificationMapper->fetchByUser( $targetUser, 10, null, [ 'mention' ] );
+		$this->assertCount( 1, $notifications );
+	}
 }

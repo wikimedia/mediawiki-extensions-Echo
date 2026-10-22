@@ -72,43 +72,47 @@ abstract class DiscussionParser {
 		$interpretation = self::getChangeInterpretationForRevision( $revision );
 		$user = $userFactory->newFromUserIdentity( $revision->getUser() );
 
-		foreach ( $interpretation as $action ) {
-			if ( $action['type'] === 'add-comment' ) {
-				$fullSection = $action['full-section'];
-				$header = self::extractHeader( $fullSection );
-				$userLinks = self::getUserLinks( $action['content'], $title );
-				$events = array_merge(
-					$events,
-					self::collectMentionEvents( $header, $userLinks, $action['content'], $revision, $user )
-				);
-			} elseif ( $action['type'] === 'new-section-with-comment' ) {
-				$content = $action['content'];
-				$header = self::extractHeader( $content );
-				$userLinks = self::getUserLinks( $content, $title );
-				$events = array_merge(
-					$events,
-					self::collectMentionEvents( $header, $userLinks, $content, $revision, $user )
-				);
-			} elseif ( $action['type'] === 'add-section-multiple' && $wgEchoMentionsOnMultipleSectionEdits ) {
-				$content = self::stripHeader( $action['content'] );
-				$content = self::stripSignature( $content );
-				$userLinks = self::getUserLinks( $content, $title );
-				$events = array_merge(
-					$events,
-					self::collectMentionEvents( $action['header'], $userLinks, $content, $revision, $user )
-				);
-			} elseif ( $action['type'] === 'unknown-signed-change' ) {
-				$userLinks = array_diff_key(
-					self::getUserLinks( $action['new_content'], $title ),
-					self::getUserLinks( $action['old_content'], $title )
-				);
-				$header = self::extractHeader( $action['full-section'] );
-
-				if ( $wgEchoMentionOnChanges ) {
+		// Don't notify users mentioned in content restored by a revert, they were
+		// already notified when it was first added
+		if ( !$isRevert ) {
+			foreach ( $interpretation as $action ) {
+				if ( $action['type'] === 'add-comment' ) {
+					$fullSection = $action['full-section'];
+					$header = self::extractHeader( $fullSection );
+					$userLinks = self::getUserLinks( $action['content'], $title );
 					$events = array_merge(
 						$events,
-						self::collectMentionEvents( $header, $userLinks, $action['new_content'], $revision, $user )
+						self::collectMentionEvents( $header, $userLinks, $action['content'], $revision, $user )
 					);
+				} elseif ( $action['type'] === 'new-section-with-comment' ) {
+					$content = $action['content'];
+					$header = self::extractHeader( $content );
+					$userLinks = self::getUserLinks( $content, $title );
+					$events = array_merge(
+						$events,
+						self::collectMentionEvents( $header, $userLinks, $content, $revision, $user )
+					);
+				} elseif ( $action['type'] === 'add-section-multiple' && $wgEchoMentionsOnMultipleSectionEdits ) {
+					$content = self::stripHeader( $action['content'] );
+					$content = self::stripSignature( $content );
+					$userLinks = self::getUserLinks( $content, $title );
+					$events = array_merge(
+						$events,
+						self::collectMentionEvents( $action['header'], $userLinks, $content, $revision, $user )
+					);
+				} elseif ( $action['type'] === 'unknown-signed-change' ) {
+					$userLinks = array_diff_key(
+						self::getUserLinks( $action['new_content'], $title ),
+						self::getUserLinks( $action['old_content'], $title )
+					);
+					$header = self::extractHeader( $action['full-section'] );
+
+					if ( $wgEchoMentionOnChanges ) {
+						$events = array_merge(
+							$events,
+							self::collectMentionEvents( $header, $userLinks, $action['new_content'], $revision, $user )
+						);
+					}
 				}
 			}
 		}
