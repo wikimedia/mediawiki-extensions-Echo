@@ -14,16 +14,6 @@
 		border-bottom: @border-width-base @border-style-base @border-color-subtle;
 	}
 
-	&:not( [ href ] ) {
-		// Items without a primary URL are not clickable
-		cursor: default;
-	}
-
-	label {
-		// Reset browser default of cursor:default;
-		cursor: inherit;
-	}
-
 	&:focus {
 		text-decoration: none;
 		box-shadow: @box-shadow-inset-medium @box-shadow-color-progressive--focus;
@@ -56,8 +46,8 @@
 		}
 	}
 
-	> a,
-	&:hover > a {
+	a,
+	&:hover a {
 		text-decoration: none;
 	}
 
@@ -66,6 +56,29 @@
 		&-title {
 			font-weight: bold;
 		}
+	}
+
+	// Clickable backdrop for the entire item
+	&-content-message::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	// Ensure these are in front of the backdrop, so that buttons are clickable, and text is selectable.
+	// Note: &-content-actions-timestamp can't be included here, because it's not a part of the
+	// &-content-message link, so it would result in a weirdly uninteractive "hole" in the item.
+	&-content-actions-buttons,
+	&-content-actions-menu,
+	&-content-message-header,
+	&-content-message-body,
+	&-markAsReadButton {
+		position: relative;
+		z-index: 2;
 	}
 
 	&-content-message {
@@ -89,6 +102,11 @@
 			.mw-echo-ui-notificationBadgeController-popup & {
 				.text-overflow( @visible: false );
 			}
+		}
+
+		&:not( [ href ] ) {
+			// Items without a primary URL are not clickable
+			cursor: default;
 		}
 	}
 
@@ -114,6 +132,7 @@
 		}
 
 		.mw-echo-ui-notificationItemWidget-content-message {
+			display: block;
 			line-height: 1.3em;
 			// The icon is 30px
 			margin-left: 30px;

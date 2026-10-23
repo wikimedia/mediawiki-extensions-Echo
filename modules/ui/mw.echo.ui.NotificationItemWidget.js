@@ -57,7 +57,7 @@ mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( con
 			} ) );
 	}
 
-	const $message = $( '<div>' ).addClass( 'mw-echo-ui-notificationItemWidget-content-message' );
+	const $message = $( '<a>' ).addClass( 'mw-echo-ui-notificationItemWidget-content-message' );
 	// Content
 	$message.append(
 		$( '<div>' )
@@ -186,17 +186,15 @@ mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( con
 		.toggleClass( 'mw-echo-ui-notificationItemWidget-contentGrouped', this.bundle );
 
 	if ( this.model.getPrimaryUrl() ) {
+		$message
+			.attr( 'href', this.model.getPrimaryUrl() );
 		this.$element
-			.attr( 'href', this.model.getPrimaryUrl() )
 			.on( 'click', this.onPrimaryLinkClick.bind( this ) )
 			.on( 'auxclick', this.onPrimaryLinkAuxclick.bind( this ) );
 	}
 };
 
 OO.inheritClass( mw.echo.ui.NotificationItemWidget, OO.ui.Widget );
-
-// Make the whole item a link to get native link behaviour
-mw.echo.ui.NotificationItemWidget.static.tagName = 'a';
 
 /**
  * Respond to primary link click.

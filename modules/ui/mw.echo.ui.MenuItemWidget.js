@@ -19,8 +19,6 @@ mw.echo.ui.MenuItemWidget = function MwEchoUiMenuItemWidget( config ) {
 	config = config || {};
 
 	this.dynamic = config.type === 'dynamic-action';
-	// Needs to be set before parent constructor is called
-	// as it changes the value of getTagName.
 	this.isLink = config.url && !this.isDynamicAction();
 
 	// Parent constructor
@@ -52,7 +50,7 @@ mw.echo.ui.MenuItemWidget = function MwEchoUiMenuItemWidget( config ) {
 		.toggleClass( 'mw-echo-ui-menuItemWidget-dynamic-action', this.isDynamicAction() );
 
 	if ( this.isLink ) {
-		this.$element.attr( {
+		this.$button.attr( {
 			href: config.url,
 			title: config.tooltip,
 		} );
@@ -70,10 +68,6 @@ mw.echo.ui.MenuItemWidget.static.highlightable = false;
 mw.echo.ui.MenuItemWidget.static.pressable = false;
 
 /* Methods */
-
-mw.echo.ui.MenuItemWidget.prototype.getTagName = function () {
-	return this.isLink ? 'a' : 'div';
-};
 
 mw.echo.ui.MenuItemWidget.prototype.onClick = function ( e ) {
 	// Stop propagation, so that the default dynamic action of the notification isn't triggered
