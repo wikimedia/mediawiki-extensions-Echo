@@ -53,7 +53,7 @@ mw.echo.ui.NotificationItemWidget = function MwEchoUiNotificationItemWidget( con
 			.append( $( '<img>' ).attr( {
 				src: this.model.getIconUrl(),
 				role: 'presentation',
-				alt: ' ',
+				alt: '',
 			} ) );
 	}
 
