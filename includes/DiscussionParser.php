@@ -19,7 +19,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentityValue;
-use MediaWiki\User\UserNameUtils;
 use RuntimeException;
 use Wikimedia\Rdbms\IDBAccessObject;
 
@@ -1100,79 +1099,6 @@ abstract class DiscussionParser {
 
 		// couldn't find any matching signature
 		return false;
-	}
-
-	/**
-	 * Find the last link beginning with a given prefix on a line.
-	 *
-	 * @param string $line The line to search.
-	 * @param string $linkPrefix The prefix to search for.
-	 * @param int|false $failureOffset
-	 * @return array|false False for failure, array for success.
-	 * - First element is the string offset of the link.
-	 * - Second element is the user the link refers to.
-	 */
-	private static function getLinkFromLine( $line, $linkPrefix, $failureOffset = false ) {
-		$offset = 0;
-
-		// If extraction failed at another offset, try again.
-		if ( $failureOffset !== false ) {
-			$offset = $failureOffset - strlen( $line ) - 1;
-		}
-
-		// Avoid PHP warning: Offset is greater than the length of haystack string
-		if ( abs( $offset ) > strlen( $line ) ) {
-			return false;
-		}
-
-		$linkPos = strripos( $line, $linkPrefix, $offset );
-
-		if ( $linkPos === false ) {
-			return false;
-		}
-
-		$linkUser = self::extractUserFromLink( $line, $linkPrefix, $linkPos );
-
-		if ( $linkUser === false ) {
-			// Look for another place.
-			return self::getLinkFromLine( $line, $linkPrefix, $linkPos );
-		} else {
-			return [ $linkPos, $linkUser ];
-		}
-	}
-
-	/**
-	 * Given text including a link, gives the user that that link refers to
-	 *
-	 * @param string $text The text to extract from.
-	 * @param string $prefix The link prefix that was used to find the link.
-	 * @param int $offset Optionally, the offset of the start of the link.
-	 * @return bool|string Type description
-	 */
-	private static function extractUserFromLink( $text, $prefix, $offset = 0 ) {
-		$userPart = substr( $text, strlen( $prefix ) + $offset );
-
-		$userMatches = [];
-		if ( !preg_match(
-			'/^[^\|\]\#]+/u',
-			$userPart,
-			$userMatches
-		) ) {
-			// user link is invalid
-			return false;
-		}
-
-		$user = $userMatches[0];
-		$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
-		if (
-			!$userNameUtils->isIP( $user ) &&
-			$userNameUtils->getCanonical( $user ) === false
-		) {
-			// Not a real username
-			return false;
-		}
-
-		return $userNameUtils->getCanonical( $userMatches[0], UserNameUtils::RIGOR_NONE );
 	}
 
 	/**
