@@ -250,7 +250,7 @@ class NotifUser {
 					null,
 					$usertalkTypes,
 					null,
-					DB_PRIMARY
+					true
 				);
 				if ( $unreadEditUserTalk === [] ) {
 					$talkPageNotificationManager->removeUserHasNewMessages( $this->user );
@@ -292,7 +292,7 @@ class NotifUser {
 					null,
 					$usertalkTypes,
 					null,
-					DB_PRIMARY
+					true
 				);
 				if ( $unreadEditUserTalk !== [] ) {
 					$talkPageNotificationManager->setUserHasNewMessages( $this->user );
@@ -435,7 +435,7 @@ class NotifUser {
 			$uw = UnreadWikis::newFromUser( $this->user );
 			if ( $uw ) {
 				// Immediately compute new local counts and timestamps
-				$newLocalData = $this->computeLocalCountsAndTimestamps( DB_PRIMARY );
+				$newLocalData = $this->computeLocalCountsAndTimestamps( true );
 				// Write the new values to the echo_unread_wikis table
 				$alertTs = $newLocalData[AttributeManager::ALERT]['timestamp'];
 				$messageTs = $newLocalData[AttributeManager::MESSAGE]['timestamp'];
@@ -533,10 +533,10 @@ class NotifUser {
 
 	/**
 	 * Compute the counts and timestamps for the local notifications in each section.
-	 * @param int $dbSource DB_REPLICA or DB_PRIMARY
+	 * @param bool $fromPrimary Whether to read from the primary database
 	 * @return array[] [ 'alert' => [ 'count' => N, 'timestamp' => TS ], ... ]
 	 */
-	protected function computeLocalCountsAndTimestamps( $dbSource = DB_REPLICA ) {
+	protected function computeLocalCountsAndTimestamps( bool $fromPrimary = false ) {
 		$attributeManager = Services::getInstance()->getAttributeManager();
 		$result = [];
 		$totals = [ 'count' => 0, 'timestamp' => -1 ];
@@ -549,9 +549,9 @@ class NotifUser {
 			);
 
 			$count = $this->userNotifGateway->getCappedNotificationCount(
-				$dbSource,
 				$eventTypesToLoad,
-				self::MAX_BADGE_COUNT + 1
+				self::MAX_BADGE_COUNT + 1,
+				$fromPrimary
 			);
 			$result[$section]['count'] = $count;
 			$totals['count'] += $count;
@@ -562,7 +562,7 @@ class NotifUser {
 				null,
 				$eventTypesToLoad,
 				null,
-				$dbSource
+				$fromPrimary
 			);
 			if ( $notifications ) {
 				$notification = reset( $notifications );

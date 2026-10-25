@@ -44,25 +44,32 @@ class UnreadWikis {
 	}
 
 	/**
-	 * @param int $index DB_* constant
-	 *
-	 * @return bool|IDatabase|IReadableDatabase false if shared tracking is not configured
+	 * @return IReadableDatabase|false false if shared tracking is not configured
 	 */
-	private function getDB( $index ) {
+	private function getReplicaDB() {
 		if ( !$this->sharedTrackingConfigured ) {
 			return false;
 		}
 
-		return $index === DB_PRIMARY
-			? $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN )
-			: $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN );
+		return $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN );
+	}
+
+	/**
+	 * @return IDatabase|false false if shared tracking is not configured
+	 */
+	private function getPrimaryDB() {
+		if ( !$this->sharedTrackingConfigured ) {
+			return false;
+		}
+
+		return $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_SHARED_DOMAIN );
 	}
 
 	/**
 	 * @return array[][]
 	 */
 	public function getUnreadCounts() {
-		$dbr = $this->getDB( DB_REPLICA );
+		$dbr = $this->getReplicaDB();
 		if ( $dbr === false ) {
 			return [];
 		}
@@ -111,7 +118,7 @@ class UnreadWikis {
 	 *   false meaning no timestamp because there are no unread messages.
 	 */
 	public function updateCount( $wiki, $alertCount, $alertTime, $msgCount, $msgTime ) {
-		$dbw = $this->getDB( DB_PRIMARY );
+		$dbw = $this->getPrimaryDB();
 		if ( $dbw === false || $dbw->isReadOnly() ) {
 			return;
 		}

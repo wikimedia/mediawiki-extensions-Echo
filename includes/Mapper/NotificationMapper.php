@@ -86,7 +86,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @param string[] $eventTypes
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
-	 * @param int $dbSource Use primary database or replica database
+	 * @param bool $fromPrimary Whether to read from the primary database
 	 * @return Notification[]
 	 */
 	public function fetchUnreadByUser(
@@ -95,7 +95,7 @@ class NotificationMapper extends AbstractMapper {
 		$continue,
 		array $eventTypes = [],
 		?array $titles = null,
-		$dbSource = DB_REPLICA
+		bool $fromPrimary = false
 	) {
 		$conds = [ 'notification_read_timestamp' => null ];
 		if ( $titles ) {
@@ -110,7 +110,7 @@ class NotificationMapper extends AbstractMapper {
 			$continue,
 			$eventTypes,
 			$conds,
-			$dbSource
+			$fromPrimary
 		);
 	}
 
@@ -126,7 +126,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @param string[] $eventTypes
 	 * @param Title[]|null $titles If set, only return notifications for these pages.
 	 *  To find notifications not associated with any page, add null as an element to this array.
-	 * @param int $dbSource Use primary database or replica database
+	 * @param bool $fromPrimary Whether to read from the primary database
 	 * @return Notification[]
 	 */
 	public function fetchReadByUser(
@@ -135,9 +135,9 @@ class NotificationMapper extends AbstractMapper {
 		$continue,
 		array $eventTypes = [],
 		?array $titles = null,
-		$dbSource = DB_REPLICA
+		bool $fromPrimary = false
 	) {
-		$dbr = $dbSource === DB_PRIMARY ? $this->getPrimaryDb() : $this->getReplicaDb();
+		$dbr = $fromPrimary ? $this->getPrimaryDb() : $this->getReplicaDb();
 		$conds = [ $dbr->expr( 'notification_read_timestamp', '!=', null ) ];
 		if ( $titles ) {
 			$conds['event_page_id'] = $this->getIdsForTitles( $titles );
@@ -151,7 +151,7 @@ class NotificationMapper extends AbstractMapper {
 			$continue,
 			$eventTypes,
 			$conds,
-			$dbSource
+			$fromPrimary
 		);
 	}
 
@@ -215,7 +215,7 @@ class NotificationMapper extends AbstractMapper {
 	 * @param string|null $continue Used for offset
 	 * @param array $eventTypes Event types to load
 	 * @param array $conds Additional query conditions.
-	 * @param int $dbSource Use primary database or replica database
+	 * @param bool $fromPrimary Whether to read from the primary database
 	 * @return Notification[]
 	 */
 	protected function fetchByUserInternal(
@@ -224,9 +224,9 @@ class NotificationMapper extends AbstractMapper {
 		$continue,
 		array $eventTypes = [],
 		array $conds = [],
-		$dbSource = DB_REPLICA
+		bool $fromPrimary = false
 	) {
-		$dbr = $dbSource === DB_PRIMARY ? $this->getPrimaryDb() : $this->getReplicaDb();
+		$dbr = $fromPrimary ? $this->getPrimaryDb() : $this->getReplicaDb();
 
 		if ( !$eventTypes ) {
 			return [];

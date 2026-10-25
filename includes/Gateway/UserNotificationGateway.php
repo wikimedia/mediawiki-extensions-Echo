@@ -134,22 +134,21 @@ class UserNotificationGateway {
 
 	/**
 	 * Get notification count for the types specified
-	 * @param int $dbSource use primary database or replica storage to pull count
 	 * @param array $eventTypesToLoad event types to retrieve
 	 * @param int $cap Max count
+	 * @param bool $fromPrimary Whether to pull the count from the primary database
 	 * @return int
 	 */
 	public function getCappedNotificationCount(
-		$dbSource,
 		array $eventTypesToLoad = [],
-		$cap = NotifUser::MAX_BADGE_COUNT
+		$cap = NotifUser::MAX_BADGE_COUNT,
+		bool $fromPrimary = false
 	) {
 		if ( !$eventTypesToLoad ) {
 			return 0;
 		}
 
-		// TODO: Remove the usage of DB_PRIMARY
-		if ( $dbSource === DB_PRIMARY ) {
+		if ( $fromPrimary ) {
 			$db = $this->dbProvider->getPrimaryDatabase( DbDomains::VIRTUAL_DOMAIN );
 		} else {
 			$db = $this->dbProvider->getReplicaDatabase( DbDomains::VIRTUAL_DOMAIN );

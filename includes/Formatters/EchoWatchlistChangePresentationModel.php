@@ -130,8 +130,8 @@ class EchoWatchlistChangePresentationModel extends EchoEventPresentationModel {
 			$pageId = $this->event->getPageId();
 			if ( $pageId ) {
 				$dbr = MediaWikiServices::getInstance()
-					->getDBLoadBalancer()
-					->getMaintenanceConnectionRef( DB_REPLICA );
+					->getConnectionProvider()
+					->getReplicaDatabase();
 				$row = $dbr->selectRow(
 					'archive',
 					[ 'ar_title', 'ar_namespace' ],

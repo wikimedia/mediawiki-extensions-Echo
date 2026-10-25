@@ -36,8 +36,8 @@ class UpdatePerUserBlacklist extends LoggedUpdateMaintenance {
 
 	/** @inheritDoc */
 	public function doDBUpdates() {
-		$dbw = $this->getDB( DB_PRIMARY );
-		$dbr = $this->getDB( DB_REPLICA );
+		$dbw = $this->getPrimaryDB();
+		$dbr = $this->getReplicaDB();
 		$iterator = new BatchRowIterator(
 			$dbr,
 			'user_properties',
