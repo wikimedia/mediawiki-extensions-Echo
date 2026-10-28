@@ -20,7 +20,7 @@ class SeenTime {
 	 * Allowed notification types
 	 * @var string[]
 	 */
-	private static $allowedTypes = [ 'alert', 'message' ];
+	private const ALLOWED_TYPES = [ 'alert', 'message' ];
 
 	/**
 	 * @param UserIdentity $user A logged in user
@@ -69,7 +69,7 @@ class SeenTime {
 	public function getTime( $type = 'all', $format = TS_MW ) {
 		$vals = [];
 		if ( $type === 'all' ) {
-			foreach ( self::$allowedTypes as $allowed ) {
+			foreach ( self::ALLOWED_TYPES as $allowed ) {
 				// Use TS_MW, then convert later, so max works properly for
 				// all formats.
 				$vals[] = $this->getTime( $allowed, TS_MW );
@@ -99,7 +99,7 @@ class SeenTime {
 	 */
 	public function setTime( $time, $type = 'all' ) {
 		if ( $type === 'all' ) {
-			foreach ( self::$allowedTypes as $allowed ) {
+			foreach ( self::ALLOWED_TYPES as $allowed ) {
 				$this->setTime( $time, $allowed );
 			}
 			return;
@@ -126,7 +126,7 @@ class SeenTime {
 	 * @return bool Type is allowed
 	 */
 	private function validateType( $type ) {
-		return in_array( $type, self::$allowedTypes );
+		return in_array( $type, self::ALLOWED_TYPES );
 	}
 
 	/**

@@ -29,7 +29,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class GenerateSampleNotifications extends Maintenance {
 
 	/** @var string[] */
-	private $supportedNotificationTypes = [
+	private const SUPPORTED_NOTIFICATION_TYPES = [
 		'welcome',
 		'edit-user-talk',
 		'mention',
@@ -57,7 +57,7 @@ class GenerateSampleNotifications extends Maintenance {
 			'Bypass confirmation',
 			false, false, 'f' );
 
-		$allTypes = implode( ',', $this->supportedNotificationTypes );
+		$allTypes = implode( ',', self::SUPPORTED_NOTIFICATION_TYPES );
 		$this->addOption(
 			'types',
 			"Comma-separated list of notification types to generate ($allTypes)",
@@ -98,7 +98,7 @@ class GenerateSampleNotifications extends Maintenance {
 		if ( $types ) {
 			$types = explode( ',', $types );
 		} else {
-			$types = $this->supportedNotificationTypes;
+			$types = self::SUPPORTED_NOTIFICATION_TYPES;
 		}
 
 		$this->confirm();
