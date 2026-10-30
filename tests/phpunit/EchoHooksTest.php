@@ -220,7 +220,6 @@ class EchoHooksTest extends MediaWikiIntegrationTestCase {
 			$services->getPermissionManager(),
 			$services->getStatsFactory(),
 			$services->getTalkPageNotificationManager(),
-			$services->getUserEditTracker(),
 			$services->getUserFactory(),
 			$services->getUserOptionsManager(),
 			Services::wrap( $services )->getEventController(),

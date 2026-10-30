@@ -74,7 +74,6 @@ use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\TalkPageNotificationManager;
 use MediaWiki\User\User;
-use MediaWiki\User\UserEditTracker;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
@@ -124,7 +123,6 @@ class Hooks implements
 		private readonly PermissionManager $permissionManager,
 		StatsFactory $statsFactory,
 		private readonly TalkPageNotificationManager $talkPageNotificationManager,
-		private readonly UserEditTracker $userEditTracker,
 		private readonly UserFactory $userFactory,
 		private readonly UserOptionsManager $userOptionsManager,
 		private readonly EventController $eventController,
