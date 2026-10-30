@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Notifications;
 use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
-use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\WebRequest;
@@ -58,7 +57,6 @@ class NotifUser {
 	 * @param WANObjectCache $cache Object cache
 	 * @param UserNotificationGateway $userNotifGateway Database access gateway
 	 * @param NotificationMapper $notifMapper Notification mapper
-	 * @param TargetPageMapper $targetPageMapper Target page mapper
 	 * @param UserOptionsLookup $userOptionsLookup
 	 * @param UserFactory $userFactory
 	 * @param ReadOnlyMode $readOnlyMode
@@ -68,7 +66,6 @@ class NotifUser {
 		private readonly WANObjectCache $cache,
 		private readonly UserNotificationGateway $userNotifGateway,
 		private readonly NotificationMapper $notifMapper,
-		private readonly TargetPageMapper $targetPageMapper,
 		private readonly UserOptionsLookup $userOptionsLookup,
 		private readonly UserFactory $userFactory,
 		private readonly ReadOnlyMode $readOnlyMode,
@@ -95,7 +92,6 @@ class NotifUser {
 				$services->getMainConfig()
 			),
 			new NotificationMapper( $dbProvider ),
-			new TargetPageMapper( $dbProvider ),
 			$services->getUserOptionsLookup(),
 			$services->getUserFactory(),
 			$services->getReadOnlyMode()
@@ -341,16 +337,9 @@ class NotifUser {
 			}, $notifs )
 		);
 
-		$updated = $this->markRead( $eventIds );
-		if ( $updated ) {
-			// Delete records from echo_target_page
-			/**
-			 * Keep the 'echo_target_page' records so they can be used for moderation.
-			 */
-			// $this->targetPageMapper->deleteByUserEvents( $this->user, $eventIds );
-		}
+		// The 'echo_target_page' records are kept, so they can be used for moderation.
 
-		return $updated;
+		return $this->markRead( $eventIds );
 	}
 
 	/**

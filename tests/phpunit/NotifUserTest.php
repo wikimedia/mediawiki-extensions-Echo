@@ -6,7 +6,6 @@ use Exception;
 use MediaWiki\Extension\Notifications\EmailFormat;
 use MediaWiki\Extension\Notifications\Gateway\UserNotificationGateway;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
-use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Extension\Notifications\NotifUser;
@@ -79,7 +78,6 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockNotificationMapper(),
-			$this->createMock( TargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -92,7 +90,6 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockNotificationMapper(),
-			$this->createMock( TargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -113,7 +110,6 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockNotificationMapper( [ $this->mockNotification() ] ),
-			$this->createMock( TargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -126,7 +122,6 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockNotificationMapper( [ $this->mockNotification() ] ),
-			$this->createMock( TargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -139,7 +134,6 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => true ] ),
 			$this->mockNotificationMapper(),
-			$this->createMock( TargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -152,7 +146,6 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockUserNotificationGateway( [ 'markRead' => false ] ),
 			$this->mockNotificationMapper(),
-			$this->createMock( TargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
@@ -202,7 +195,6 @@ class NotifUserTest extends MediaWikiIntegrationTestCase {
 			$this->cache,
 			$this->mockUserNotificationGateway(),
 			$this->mockNotificationMapper(),
-			$this->createMock( TargetPageMapper::class ),
 			$this->createNoOpMock( UserOptionsLookup::class ),
 			$this->getServiceContainer()->getUserFactory(),
 			$this->getServiceContainer()->getReadOnlyMode()
