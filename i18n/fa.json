@@ -111,7 +111,7 @@
 	"echo-displaynotificationsconfiguration-sorting-by-section-legend": "در هر بخش هر دسته آگاه‌سازی مرتب شده است",
 	"echo-displaynotificationsconfiguration-available-notification-methods-header": "روش‌های آگاه‌سازی مجاز",
 	"echo-displaynotificationsconfiguration-available-notification-methods-by-category-legend": "روش‌های آگاه‌سازی پشتیبانی شده برای هر رده",
-	"echo-displaynotificationsconfiguration-enabled-default-header": "فعال شده به صورت پیش‌فرض",
+	"echo-displaynotificationsconfiguration-enabled-default-header": "فعال به‌طور پیشفرض",
 	"echo-displaynotificationsconfiguration-enabled-default-legend": "گزینه‌های پیش‌فرض",
 	"echo-displaynotificationsconfiguration-enabled-default-conditional-legend": "گزینه‌هایی برای کاربرانی که شرایط را برآورده می‌کنند: $1",
 	"echo-displaynotificationsconfiguration-mandatory-notification-methods-header": "روش‌های آگاه‌سازی مورد نیاز",
