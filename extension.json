@@ -402,8 +402,7 @@
 			],
 			"dependencies": [
 				"ext.echo.api",
-				"mediawiki.jqueryMsg",
-				"web2017-polyfills"
+				"mediawiki.jqueryMsg"
 			],
 			"messages": [
 				"echo-badge-count",
