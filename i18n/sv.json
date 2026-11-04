@@ -22,7 +22,8 @@
 			"Stefan2255",
 			"Tobulos1",
 			"Umeaboy",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Nirmos (Wikimedia)"
 		]
 	},
 	"echo-desc": "System för att meddela användare om händelser och meddelanden",
@@ -178,6 +179,11 @@
 	"notification-header-user-rights-remove-only": "{{GENDER:$4|Dina}} användarrättigheter har {{GENDER:$1|ändrats}}. Du är inte längre medlem i: $2.",
 	"notification-header-user-rights-add-and-remove": "{{GENDER:$6|Dina}} användarrättigheter har {{GENDER:$1|ändrats}}. Du har lagts till i: $2. Du är inte längre medlem i: $4.",
 	"notification-header-user-rights-expiry-change": "Utgången för {{GENDER:$4|ditt}} medlemskap i följande {{PLURAL:$3|grupp|grupper}} har {{GENDER:$1|ändrats}}: $2.",
+	"notification-header-user-blocked-sitewide-temporary": "{{GENDER:$1|Du}} har blivit blockerad från att redigera hela webbplatsen",
+	"notification-body-user-blocked": "{{GENDER:$1|Du}} har blivit blockerad från att $2.",
+	"notification-body-user-blocked-expiring": "{{GENDER:$1|Du}} har blivit blockerad från $2 till $3.",
+	"notification-body-user-blocked-scope-sitewide": "redigera hela webbplatsen",
+	"notification-body-user-blocked-scope-partial": "redigera vissa sidor, namnrymder, eller handlingar",
 	"notification-header-welcome": "{{GENDER:$2|Välkommen}} till {{SITENAME}}, $1! Vi är glada över att {{GENDER:$2|du är}} här.",
 	"notification-header-mention-summary": "$1 {{GENDER:$2|nämnde}} {{GENDER:$3|dig}} i en redigeringssammanfattning på <strong>$4</strong>.",
 	"notification-header-watchlist-changed": "$1 {{GENDER:$2|ändrade}} <strong>$3</strong>, en sida på {{GENDER:$4|din}} bevakningslista{{PLURAL:$5||, $5 gånger}}.",
