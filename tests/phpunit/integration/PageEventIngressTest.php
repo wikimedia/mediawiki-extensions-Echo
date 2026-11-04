@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Notifications\Test\MediaWikiEventIngress;
 
+use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
 use MediaWikiIntegrationTestCase;
 use TestUser;
 
@@ -11,6 +12,8 @@ use TestUser;
  * @group Database
  */
 class PageEventIngressTest extends MediaWikiIntegrationTestCase {
+
+	use EchoNotificationTestTrait;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -40,11 +43,7 @@ class PageEventIngressTest extends MediaWikiIntegrationTestCase {
 			$editor->getUser()
 		);
 
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->where( [ 'event_type' => 'edited-other-users-js' ] )
-			->assertFieldValue( '1' );
+		$this->assertEventCount( 'edited-other-users-js', 1 );
 	}
 
 	public function testSelfEditOnUserJsPageDoesNotCreateEvent() {
@@ -65,11 +64,7 @@ class PageEventIngressTest extends MediaWikiIntegrationTestCase {
 			$owner->getUser()
 		);
 
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->where( [ 'event_type' => 'edited-other-users-js' ] )
-			->assertFieldValue( '0' );
+		$this->assertEventCount( 'edited-other-users-js', 0 );
 	}
 
 	public function testEditOnNonJsUserPageDoesNotCreateEvent() {
@@ -91,11 +86,7 @@ class PageEventIngressTest extends MediaWikiIntegrationTestCase {
 			$editor->getUser()
 		);
 
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->where( [ 'event_type' => 'edited-other-users-js' ] )
-			->assertFieldValue( '0' );
+		$this->assertEventCount( 'edited-other-users-js', 0 );
 	}
 
 	public function testEditOnUserJsPageWithoutRegisteredOwnerDoesNotCreateEvent() {
@@ -110,10 +101,6 @@ class PageEventIngressTest extends MediaWikiIntegrationTestCase {
 			$editor->getUser()
 		);
 
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->where( [ 'event_type' => 'edited-other-users-js' ] )
-			->assertFieldValue( '0' );
+		$this->assertEventCount( 'edited-other-users-js', 0 );
 	}
 }

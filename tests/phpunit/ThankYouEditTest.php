@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Notifications\Test;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
@@ -14,6 +15,8 @@ use Wikimedia\Rdbms\Platform\ISQLPlatform;
  * @group Database
  */
 class ThankYouEditTest extends MediaWikiIntegrationTestCase {
+
+	use EchoNotificationTestTrait;
 
 	private function deleteEchoData() {
 		$db = $this->getDb();
@@ -63,11 +66,10 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 		DeferredUpdates::tryOpportunisticExecute();
 
 		// assertions
-		$notificationMapper = new NotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
-		$this->assertCount( 1, $notifications );
+		$this->assertNotificationCount( $user, 'thank-you-edit', 1 );
 
 		/** @var Notification $notification */
+		$notifications = ( new NotificationMapper() )->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 		$notification = reset( $notifications );
 		$this->assertSame( 1, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
 	}
@@ -113,11 +115,10 @@ class ThankYouEditTest extends MediaWikiIntegrationTestCase {
 		$user->clearInstanceCache();
 
 		// assertions
-		$notificationMapper = new NotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
-		$this->assertCount( 2, $notifications );
+		$this->assertNotificationCount( $user, 'thank-you-edit', 2 );
 
 		/** @var Notification $notification */
+		$notifications = ( new NotificationMapper() )->fetchByUser( $user, 10, null, [ 'thank-you-edit' ] );
 		$notification = reset( $notifications );
 		$this->assertSame( 10, $notification->getEvent()->getExtraParam( 'editCount', 'not found' ) );
 	}

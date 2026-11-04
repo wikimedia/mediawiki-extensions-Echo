@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
 use MediaWiki\Import\ImportStringSource;
 
 /**
@@ -7,6 +8,8 @@ use MediaWiki\Import\ImportStringSource;
  * @group Database
  */
 class PageLinkedEventIntegrationTest extends MediaWikiIntegrationTestCase {
+
+	use EchoNotificationTestTrait;
 
 	/**
 	 * User who created a page should get a notification when a link to it is added on another page.
@@ -34,12 +37,7 @@ class PageLinkedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 			$linker->getUser()
 		);
 
-		// Verify that an event was generated
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->where( [ 'event_type' => 'page-linked' ] )
-			->assertFieldValue( '1' );
+		$this->assertEventCount( 'page-linked', 1 );
 	}
 
 	private function importRevisions( $xml, $performer ) {
@@ -97,12 +95,7 @@ class PageLinkedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 			->where( [ 'page_namespace' => NS_MAIN, 'page_title' => 'Test_page' ] )
 			->assertFieldValue( '1' );
 
-		// Verify that no event was generated
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->where( [ 'event_type' => 'page-linked' ] )
-			->assertFieldValue( '0' );
+		$this->assertEventCount( 'page-linked', 0 );
 	}
 
 }

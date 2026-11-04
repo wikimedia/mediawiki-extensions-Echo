@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
 use MediaWiki\User\UserIdentityValue;
 
 /**
@@ -11,6 +12,8 @@ use MediaWiki\User\UserIdentityValue;
  * @group Database
  */
 class EventIntegrationTest extends MediaWikiIntegrationTestCase {
+
+	use EchoNotificationTestTrait;
 
 	public function testEventInsertionImmediate() {
 		$this->clearHook( 'BeforeEchoEventInsert' );
@@ -25,11 +28,7 @@ class EventIntegrationTest extends MediaWikiIntegrationTestCase {
 		$eventId = $event->getId();
 		$this->assertNotFalse( $eventId );
 		$this->assertSame( $eventId, $event->acquireId() );
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->where( [ 'event_type' => 'welcome' ] )
-			->assertFieldValue( '1' );
+		$this->assertEventCount( 'welcome', 1 );
 	}
 
 	public function testEventNotInserted() {
@@ -43,11 +42,7 @@ class EventIntegrationTest extends MediaWikiIntegrationTestCase {
 			'extra' => [ 'key' => 'value' ],
 		] );
 		$this->assertFalse( $event->getId() );
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->where( [ 'event_type' => 'welcome' ] )
-			->assertFieldValue( '0' );
+		$this->assertEventCount( 'welcome', 0 );
 	}
 
 	public function testEventNotCreatedForUnknownUser() {

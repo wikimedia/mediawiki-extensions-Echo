@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Notifications\Test;
 
 use MediaWiki\Deferred\DeferredUpdates;
-use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
@@ -13,6 +13,8 @@ use Wikimedia\Rdbms\Platform\ISQLPlatform;
  * @group Database
  */
 class MentionFunctionalTest extends MediaWikiIntegrationTestCase {
+
+	use EchoNotificationTestTrait;
 
 	private function deleteEchoData() {
 		$db = $this->getDb();
@@ -43,18 +45,14 @@ class MentionFunctionalTest extends MediaWikiIntegrationTestCase {
 		DeferredUpdates::tryOpportunisticExecute();
 
 		// assertions
-		$notificationMapper = new NotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $targetUser, 10, null, [ 'mention' ] );
-		$this->assertCount( 1, $notifications );
+		$this->assertNotificationCount( $targetUser, 'mention', 1 );
 
 		// null edit
 		$this->editPage( $title, $editText, '', NS_MAIN, $user );
 		DeferredUpdates::tryOpportunisticExecute();
 
 		// assertions
-		$notificationMapper = new NotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $targetUser, 10, null, [ 'mention' ] );
-		$this->assertCount( 1, $notifications );
+		$this->assertNotificationCount( $targetUser, 'mention', 1 );
 	}
 
 	/**
@@ -77,18 +75,14 @@ class MentionFunctionalTest extends MediaWikiIntegrationTestCase {
 		DeferredUpdates::tryOpportunisticExecute();
 
 		// assertions
-		$notificationMapper = new NotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $targetUser, 10, null, [ 'mention-summary' ] );
-		$this->assertCount( 1, $notifications );
+		$this->assertNotificationCount( $targetUser, 'mention-summary', 1 );
 
 		// null edit
 		$this->editPage( $title, 'Test Content', $editSummary, NS_MAIN, $user );
 		DeferredUpdates::tryOpportunisticExecute();
 
 		// assertions
-		$notificationMapper = new NotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $targetUser, 10, null, [ 'mention-summary' ] );
-		$this->assertCount( 1, $notifications );
+		$this->assertNotificationCount( $targetUser, 'mention-summary', 1 );
 	}
 
 	/**
@@ -105,9 +99,7 @@ class MentionFunctionalTest extends MediaWikiIntegrationTestCase {
 		DeferredUpdates::tryOpportunisticExecute();
 		$mentionContent = $status->getNewRevision()->getMainContentRaw();
 
-		$notificationMapper = new NotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $targetUser, 10, null, [ 'mention' ] );
-		$this->assertCount( 1, $notifications );
+		$this->assertNotificationCount( $targetUser, 'mention', 1 );
 
 		// remove the comment, then restore it with a revert
 		$this->editPage( $title, 'Removed', '', NS_MAIN, $user );
@@ -120,8 +112,6 @@ class MentionFunctionalTest extends MediaWikiIntegrationTestCase {
 				->getTags( $this->getDb(), null, $status->getNewRevision()->getId() )
 		);
 
-		$notificationMapper = new NotificationMapper();
-		$notifications = $notificationMapper->fetchByUser( $targetUser, 10, null, [ 'mention' ] );
-		$this->assertCount( 1, $notifications );
+		$this->assertNotificationCount( $targetUser, 'mention', 1 );
 	}
 }

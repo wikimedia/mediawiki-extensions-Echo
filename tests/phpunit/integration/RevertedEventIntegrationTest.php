@@ -6,7 +6,6 @@ use MediaWiki\Permissions\UltimateAuthority;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\Storage\PageUpdateCauses;
-use MediaWiki\User\UserIdentity;
 use MediaWikiIntegrationTestCase;
 use TestUser;
 
@@ -19,6 +18,8 @@ use TestUser;
  * @group Database
  */
 class RevertedEventIntegrationTest extends MediaWikiIntegrationTestCase {
+
+	use EchoNotificationTestTrait;
 
 	/**
 	 * @return \MediaWiki\Revision\RevisionRecord[]
@@ -70,16 +71,6 @@ class RevertedEventIntegrationTest extends MediaWikiIntegrationTestCase {
 		$this->assertStatusGood( $statusB );
 
 		return [ $statusA->getNewRevision(), $statusB->getNewRevision(), $statusC->getNewRevision() ];
-	}
-
-	private function assertNotificationCount( UserIdentity $user, string $type, int $expectedCount ): void {
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->join( 'echo_notification', null, 'event_id=notification_event' )
-			->where( [ 'event_type' => $type ] )
-			->where( [ 'notification_user' => $user->getId() ] )
-			->assertFieldValue( (string)$expectedCount );
 	}
 
 	public function testRollback() {

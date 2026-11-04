@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
+use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
 use Wikimedia\Message\MessageValue;
 
 /**
@@ -9,6 +10,8 @@ use Wikimedia\Message\MessageValue;
  * @group Database
  */
 class MediaWikiSimpleEventIntegrationTest extends MediaWikiIntegrationTestCase {
+
+	use EchoNotificationTestTrait;
 
 	public function testEventCreated() {
 		$this->clearHook( 'BeforeEchoEventInsert' );
@@ -21,12 +24,7 @@ class MediaWikiSimpleEventIntegrationTest extends MediaWikiIntegrationTestCase {
 			$this->getTestUser()->getUserIdentity()
 		);
 
-		// Verify that an event was generated
-		$this->newSelectQueryBuilder()
-			->select( 'COUNT(*)' )
-			->from( 'echo_event' )
-			->where( [ 'event_type' => 'mediawiki.simple' ] )
-			->assertFieldValue( '1' );
+		$this->assertEventCount( 'mediawiki.simple', 1 );
 
 		// Look up this event using Echo APIs
 		$notifMapper = new NotificationMapper();
