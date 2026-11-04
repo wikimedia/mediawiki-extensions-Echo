@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\Notifications\Test\Integration;
+namespace MediaWiki\Extension\Notifications\Test\Integration\Model;
 
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWikiIntegrationTestCase;

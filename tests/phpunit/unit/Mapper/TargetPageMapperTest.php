@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\Notifications\Test\Unit;
+namespace MediaWiki\Extension\Notifications\Test\Unit\Mapper;
 
 use MediaWiki\Extension\Notifications\Mapper\TargetPageMapper;
 use MediaWiki\Extension\Notifications\Model\TargetPage;

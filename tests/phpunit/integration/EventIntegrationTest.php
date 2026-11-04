@@ -1,9 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Integration;
+
 use MediaWiki\Extension\Notifications\Mapper\EventMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
-use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
 use MediaWiki\User\UserIdentityValue;
+use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\Model\Event

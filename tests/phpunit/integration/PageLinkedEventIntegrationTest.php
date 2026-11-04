@@ -1,7 +1,10 @@
 <?php
 
-use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
+namespace MediaWiki\Extension\Notifications\Test\Integration;
+
 use MediaWiki\Import\ImportStringSource;
+use MediaWikiIntegrationTestCase;
+use TestUser;
 
 /**
  * @covers \MediaWiki\Extension\Notifications\Hooks::onLinksUpdateComplete

@@ -1255,12 +1255,9 @@
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\Notifications\\": "includes/"
 	},
-	"TestAutoloadClasses": {
-		"MediaWiki\\Extension\\Notifications\\Test\\EchoAbstractMapperStub": "tests/phpunit/Mapper/EchoAbstractMapperStub.php"
-	},
 	"TestAutoloadNamespaces": {
-		"MediaWiki\\Extension\\Notifications\\Test\\": "tests/phpunit/",
-		"MediaWiki\\Extension\\Notifications\\Test\\Integration\\": "tests/phpunit/integration/"
+		"MediaWiki\\Extension\\Notifications\\Test\\Integration\\": "tests/phpunit/integration/",
+		"MediaWiki\\Extension\\Notifications\\Test\\Unit\\": "tests/phpunit/unit/"
 	},
 	"ServiceWiringFiles": [
 		"ServiceWiring.php"

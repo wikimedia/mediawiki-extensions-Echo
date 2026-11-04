@@ -1,4 +1,4 @@
 This folder holds wikitext revision excerpts that are used in
-phpunit/includes/DiscussionParserTest.php
+/tests/phpunit/integration/DiscussionParserTest.php
 
 It just seemed a bit overkill to include the entire content in the PHP code ;)

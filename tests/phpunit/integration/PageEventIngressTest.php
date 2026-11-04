@@ -1,8 +1,7 @@
 <?php
 
-namespace MediaWiki\Extension\Notifications\Test\MediaWikiEventIngress;
+namespace MediaWiki\Extension\Notifications\Test\Integration;
 
-use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
 use MediaWikiIntegrationTestCase;
 use TestUser;
 

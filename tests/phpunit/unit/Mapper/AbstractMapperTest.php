@@ -1,10 +1,9 @@
 <?php
 
-namespace MediaWiki\Extension\Notifications\Test\Unit;
+namespace MediaWiki\Extension\Notifications\Test\Unit\Mapper;
 
 use InvalidArgumentException;
 use MediaWiki\Extension\Notifications\Mapper\AbstractMapper;
-use MediaWiki\Extension\Notifications\Test\EchoAbstractMapperStub;
 use MediaWikiUnitTestCase;
 use ReflectionClass;
 

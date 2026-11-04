@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\Notifications\Test\Unit;
+namespace MediaWiki\Extension\Notifications\Test\Unit\Push;
 
 use MediaWiki\Extension\Notifications\Push\NotificationServiceClient;
 use MediaWiki\Extension\Notifications\Push\Subscription;

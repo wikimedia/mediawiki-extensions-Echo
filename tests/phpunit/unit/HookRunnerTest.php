@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\Notifications\Tests\Unit;
+namespace MediaWiki\Extension\Notifications\Test\Unit;
 
 use MediaWiki\Extension\Notifications\Hooks\HookRunner;
 use MediaWiki\Tests\HookContainer\HookRunnerTestBase;

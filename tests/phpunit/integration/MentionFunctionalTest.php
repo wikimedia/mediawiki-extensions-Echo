@@ -1,0 +1,116 @@
+<?php
+
+namespace MediaWiki\Extension\Notifications\Test\Integration;
+
+use MediaWiki\Deferred\DeferredUpdates;
+use MediaWiki\Title\Title;
+use MediaWikiIntegrationTestCase;
+use Wikimedia\Rdbms\Platform\ISQLPlatform;
+
+/**
+ * @group Echo
+ * @group Database
+ */
+class MentionFunctionalTest extends MediaWikiIntegrationTestCase {
+
+	use EchoNotificationTestTrait;
+
+	private function deleteEchoData() {
+		$db = $this->getDb();
+		$db->newDeleteQueryBuilder()
+			->deleteFrom( 'echo_event' )
+			->where( ISQLPlatform::ALL_ROWS )
+			->caller( __METHOD__ )
+			->execute();
+		$db->newDeleteQueryBuilder()
+			->deleteFrom( 'echo_notification' )
+			->where( ISQLPlatform::ALL_ROWS )
+			->caller( __METHOD__ )
+			->execute();
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\Notifications\MediaWikiEventIngress\PageEventIngress
+	 */
+	public function testMentionInText() {
+		$this->deleteEchoData();
+		$user = $this->getMutableTestUser()->getUser();
+		$targetUser = $this->getMutableTestUser()->getUser();
+		$title = Title::makeTitle( NS_TALK, __METHOD__ );
+		$editText = "Thank you [[User:{$targetUser->getName()}]]! -- ~~~~";
+
+		$db = $this->getDb();
+		$this->editPage( $title, $editText, '', NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+
+		// assertions
+		$this->assertNotificationCount( $targetUser, 'mention', 1 );
+
+		// null edit
+		$this->editPage( $title, $editText, '', NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+
+		// assertions
+		$this->assertNotificationCount( $targetUser, 'mention', 1 );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\Notifications\MediaWikiEventIngress\PageEventIngress
+	 */
+	public function testMentionInSummary() {
+		$this->overrideConfigValues( [
+			// enable pings from summary
+			'EchoMaxMentionsInEditSummary' => 1,
+		] );
+
+		$this->deleteEchoData();
+		$user = $this->getMutableTestUser()->getUser();
+		$targetUser = $this->getMutableTestUser()->getUser();
+		$title = Title::makeTitle( NS_TALK, __METHOD__ );
+		$editSummary = "Thank you [[User:{$targetUser->getName()}]]!";
+
+		$db = $this->getDb();
+		$this->editPage( $title, 'Test Content', $editSummary, NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+
+		// assertions
+		$this->assertNotificationCount( $targetUser, 'mention-summary', 1 );
+
+		// null edit
+		$this->editPage( $title, 'Test Content', $editSummary, NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+
+		// assertions
+		$this->assertNotificationCount( $targetUser, 'mention-summary', 1 );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\Notifications\DiscussionParser::generateEventsForRevision
+	 */
+	public function testNoMentionOnRevert() {
+		$this->deleteEchoData();
+		$user = $this->getMutableTestUser()->getUser();
+		$targetUser = $this->getMutableTestUser()->getUser();
+		$title = Title::makeTitle( NS_TALK, __METHOD__ );
+		$editText = "Thank you [[User:{$targetUser->getName()}]]! -- ~~~~";
+
+		$status = $this->editPage( $title, $editText, '', NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+		$mentionContent = $status->getNewRevision()->getMainContentRaw();
+
+		$this->assertNotificationCount( $targetUser, 'mention', 1 );
+
+		// remove the comment, then restore it with a revert
+		$this->editPage( $title, 'Removed', '', NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+		$status = $this->editPage( $title, $mentionContent, '', NS_MAIN, $user );
+		DeferredUpdates::tryOpportunisticExecute();
+		$this->assertContains(
+			'mw-manual-revert',
+			$this->getServiceContainer()->getChangeTagsStore()
+				->getTags( $this->getDb(), null, $status->getNewRevision()->getId() )
+		);
+
+		$this->assertNotificationCount( $targetUser, 'mention', 1 );
+	}
+}

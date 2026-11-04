@@ -1,8 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Notifications\Test\Integration;
+
 use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
-use MediaWiki\Extension\Notifications\Test\Integration\EchoNotificationTestTrait;
+use MediaWikiIntegrationTestCase;
 use Wikimedia\Message\MessageValue;
 
 /**
