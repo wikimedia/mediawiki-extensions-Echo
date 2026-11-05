@@ -2,8 +2,11 @@
 
 namespace MediaWiki\Extension\Notifications\Test\Integration;
 
+use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\Model\Notification;
 use MediaWiki\Tests\Api\ApiTestCase;
+use MediaWiki\User\UserIdentity;
 
 /**
  * @group Echo
@@ -12,9 +15,12 @@ use MediaWiki\Tests\Api\ApiTestCase;
  */
 class TalkPageFunctionalTest extends ApiTestCase {
 
-	protected function tearDown(): void {
-		Event::$alwaysInsert = false;
-		parent::tearDown();
+	use EchoNotificationTestTrait;
+
+	private function fetchLatestEditUserTalkNotification( UserIdentity $user ): Notification {
+		$notificationMapper = new NotificationMapper();
+		$notifications = $notificationMapper->fetchByUser( $user, 1, null, [ 'edit-user-talk' ] );
+		return array_first( $notifications );
 	}
 
 	/**
@@ -23,14 +29,13 @@ class TalkPageFunctionalTest extends ApiTestCase {
 	 * @covers \MediaWiki\Extension\Notifications\DiscussionParser
 	 */
 	public function testAddCommentsToTalkPage() {
-		Event::$alwaysInsert = true;
-
 		$editor = $this->getTestSysop()->getUser();
-		$talkTitle = $this->getTestSysop()->getUser()->getTalkPage();
+		$owner = $this->getTestUser()->getUser();
+		$talkTitle = $owner->getUser()->getTalkPage();
 		$talkPage = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $talkTitle );
 
 		$expectedMessageCount = 0;
-		$this->assertCount( $expectedMessageCount, $this->fetchAllEvents() );
+		$this->assertNotificationCount( $owner, 'edit-user-talk', $expectedMessageCount );
 
 		// Start a talkpage
 		$expectedMessageCount++;
@@ -44,11 +49,9 @@ class TalkPageFunctionalTest extends ApiTestCase {
 		);
 
 		// Ensure the proper event was created
-		$events = $this->fetchAllEvents();
-		$this->assertCount( $expectedMessageCount, $events, 'After initial edit a single event must exist.' );
-		$row = array_pop( $events );
-		$this->assertEquals( 'edit-user-talk', $row->event_type );
-		$this->assertEventSectionTitle( 'Section 8', $row );
+		$this->assertNotificationCount( $owner, 'edit-user-talk', $expectedMessageCount );
+		$notif = $this->fetchLatestEditUserTalkNotification( $owner );
+		$this->assertEventSectionTitle( 'Section 8', $notif->getEvent() );
 
 		// Add another message to the talk page
 		$expectedMessageCount++;
@@ -62,11 +65,9 @@ class TalkPageFunctionalTest extends ApiTestCase {
 		);
 
 		// Ensure another event was created
-		$events = $this->fetchAllEvents();
-		$this->assertCount( $expectedMessageCount, $events );
-		$row = array_pop( $events );
-		$this->assertEquals( 'edit-user-talk', $row->event_type );
-		$this->assertEventSectionTitle( 'Section 8', $row );
+		$this->assertNotificationCount( $owner, 'edit-user-talk', $expectedMessageCount );
+		$notif = $this->fetchLatestEditUserTalkNotification( $owner );
+		$this->assertEventSectionTitle( 'Section 8', $notif->getEvent() );
 
 		// Add a new section and a message within it
 		$expectedMessageCount++;
@@ -80,36 +81,17 @@ class TalkPageFunctionalTest extends ApiTestCase {
 		);
 
 		// Ensure this event has the new section title
-		$events = $this->fetchAllEvents();
-		$this->assertCount( $expectedMessageCount, $events );
-		$row = array_pop( $events );
-		$this->assertEquals( 'edit-user-talk', $row->event_type );
-		$this->assertEventSectionTitle( 'EE', $row );
+		$this->assertNotificationCount( $owner, 'edit-user-talk', $expectedMessageCount );
+		$notif = $this->fetchLatestEditUserTalkNotification( $owner );
+		$this->assertEventSectionTitle( 'EE', $notif->getEvent() );
 	}
 
-	protected function assertEventSectionTitle( $sectionTitle, $row ) {
-		$this->assertNotNull( $row->event_extra, 'Event must contain extra data.' );
-
-		$extra = $this->getServiceContainer()->getJsonCodec()->deserialize( $row->event_extra );
-		$this->assertArrayHasKey( 'section-title', $extra, 'Extra data must include a section-title key.' );
-		$this->assertEquals( $sectionTitle, $extra['section-title'], 'Detected section title must match' );
-	}
-
-	/**
-	 * @return \stdClass[] All talk page edit events in db sorted from oldest to newest
-	 */
-	protected function fetchAllEvents() {
-		$res = $this->getDb()->newSelectQueryBuilder()
-			->select( Event::selectFields() )
-			->from( 'echo_event' )
-			->where( [
-				'event_type' => 'edit-user-talk',
-			] )
-			->orderBy( 'event_id' )
-			->caller( __METHOD__ )
-			->fetchResultSet();
-
-		return iterator_to_array( $res );
+	protected function assertEventSectionTitle( $sectionTitle, Event $event ) {
+		$this->assertEquals(
+			$sectionTitle,
+			$event->getExtraParam( 'section-title' ),
+			'Detected section title must match'
+		);
 	}
 
 }
