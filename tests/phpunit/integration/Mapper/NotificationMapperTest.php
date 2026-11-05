@@ -18,14 +18,7 @@ use Wikimedia\Rdbms\SelectQueryBuilder;
  */
 class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 
-	/**
-	 * @todo write this test
-	 */
-	public function testInsert() {
-		$this->assertTrue( true );
-	}
-
-	public function fetchUnreadByUser( User $user, $limit, array $eventTypes = [] ) {
+	public function testFetchUnreadByUser() {
 		$dbResult = [
 			(object)[
 				'event_id' => 1,
@@ -34,6 +27,7 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 				'event_page_id' => '',
 				'event_agent_id' => '',
 				'event_agent_ip' => '',
+				'event_deleted' => 0,
 				'notification_user' => 1,
 				'notification_timestamp' => '20140615101010',
 				'notification_read_timestamp' => null,
@@ -41,15 +35,15 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$notifMapper = new NotificationMapper( $this->mockDbProvider( [ 'select' => $dbResult ] ) );
-		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '', [] );
+		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null );
 		$this->assertSame( [], $res );
 
 		$notifMapper = new NotificationMapper( $this->mockDbProvider( [ 'select' => $dbResult ] ) );
-		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, '', [ 'test_event' ] );
+		$res = $notifMapper->fetchUnreadByUser( $this->mockUser(), 10, null, [ 'test_event' ] );
 		$this->assertIsArray( $res );
 		$this->assertNotEmpty( $res );
-		foreach ( $res as $row ) {
-			$this->assertInstanceOf( Notification::class, $row );
+		foreach ( $res as $notif ) {
+			$this->assertInstanceOf( Notification::class, $notif );
 		}
 	}
 
