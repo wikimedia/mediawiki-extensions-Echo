@@ -285,6 +285,7 @@
 	"right-echo-create": "Отправка уведомлений другим участникам",
 	"action-echo-create": "отправка уведомлений другим участникам",
 	"right-echo-read-notifications": "Чтение уведомлений",
+	"action-echo-read-notifications": "чтение уведомлений",
 	"right-manage-all-push-subscriptions": "Управление всеми подписками push-уведомлений",
 	"action-manage-all-push-subscriptions": "управление всеми подписками push-уведомлений",
 	"group-push-subscription-manager": "Управляющие подписками push-уведомлений",
