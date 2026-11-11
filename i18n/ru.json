@@ -232,6 +232,7 @@
 	"notification-header-thank-you-1000000-edit": "{{GENDER:$2|Вы}} только что сделали {{GENDER:$2|свою}} миллионную правку; спасибо {{GENDER:$2|вам}} за умопомрачительный вклад!",
 	"notification-header-thank-you-10000000-edit": "{{GENDER:$2|Вы}} только что следали {{GENDER:$2|вашу}} десятимиллионную правку; спасибо {{GENDER:$2|вам}} за ваш блестящий вклад!",
 	"notification-link-thank-you-edit": "{{GENDER:$1|Ваша}} правка",
+	"echo-category-title-edited-other-users-js": "Правки личного JavaScript’а",
 	"notification-link-text-view-edit": "Просмотр правки",
 	"notification-link-article-reminder": "Просмотр страницы",
 	"notification-link-api-triggered": "Просмотр страницы",
@@ -287,6 +288,7 @@
 	"right-echo-create": "Отправка уведомлений другим участникам",
 	"action-echo-create": "отправка уведомлений другим участникам",
 	"right-echo-read-notifications": "Чтение уведомлений",
+	"action-echo-read-notifications": "чтение уведомлений",
 	"right-manage-all-push-subscriptions": "Управление всеми подписками push-уведомлений",
 	"action-manage-all-push-subscriptions": "управление всеми подписками push-уведомлений",
 	"group-push-subscription-manager": "Управляющие подписками push-уведомлений",
@@ -294,5 +296,6 @@
 	"grouppage-push-subscription-manager": "{{ns:project}}:Управляющие подписками push-уведомлений",
 	"notification-subject-email-verify-email-reminder": "Подтвердите {{GENDER:$1|ваш}} адрес электронной почты",
 	"notification-header-verify-email-reminder": "Здравствуйте, $2,\nПожалуйста, <strong>подтвердите {{GENDER:$1|ваш}} адрес эл. почты</strong>, чтобы мы знали, что адрес эл. почты в вашей учётной записи принадлежит {{GENDER:$1|вам}}.",
+	"notification-link-text-verify-email-reminder": "Управление настройками эл. почты",
 	"notification-verify-email-reminder-link-label": "Подтвердите эл. почту"
 }
