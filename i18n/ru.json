@@ -284,6 +284,7 @@
 	"right-echo-create": "Отправка уведомлений другим участникам",
 	"action-echo-create": "отправка уведомлений другим участникам",
 	"right-echo-read-notifications": "Чтение уведомлений",
+	"action-echo-read-notifications": "чтение уведомлений",
 	"right-manage-all-push-subscriptions": "Управление всеми подписками push-уведомлений",
 	"action-manage-all-push-subscriptions": "управление всеми подписками push-уведомлений",
 	"group-push-subscription-manager": "Управляющие подписками push-уведомлений",
@@ -291,5 +292,6 @@
 	"grouppage-push-subscription-manager": "{{ns:project}}:Управляющие подписками push-уведомлений",
 	"notification-subject-email-verify-email-reminder": "Подтвердите {{GENDER:$1|ваш}} адрес электронной почты",
 	"notification-header-verify-email-reminder": "Здравствуйте, $2,\nПожалуйста, <strong>подтвердите {{GENDER:$1|ваш}} адрес эл. почты</strong>, чтобы мы знали, что адрес эл. почты в вашей учётной записи принадлежит {{GENDER:$1|вам}}.",
+	"notification-link-text-verify-email-reminder": "Управление настройками эл. почты",
 	"notification-verify-email-reminder-link-label": "Подтвердите эл. почту"
 }
