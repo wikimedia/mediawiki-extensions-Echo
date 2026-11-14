@@ -326,7 +326,7 @@ abstract class DiscussionParser {
 		}
 
 		if ( $wgEchoMentionStatusNotifications ) {
-			$userFactory = MediawikiServices::getInstance()->getUserFactory();
+			$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 			// TODO batch?
 			foreach ( $userMentions['validMentions'] as $mentionedUserId ) {
 				$events[] = [
