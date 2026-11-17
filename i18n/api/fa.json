@@ -11,7 +11,8 @@
 			"Mjbmr",
 			"Mohammad ebz",
 			"Reza1615",
-			"فلورانس"
+			"فلورانس",
+			"LProfo"
 		]
 	},
 	"apihelp-echomarkread-summary": "علامت گذاری آگاه‌سازی‌ها به عنوان خوانده شده برای کاربر کنونی",
@@ -50,7 +51,7 @@
 	"apihelp-query+notifications-param-bundle": "\nWhether to show bundle compatible unread notifications according to notification types bundling rules.",
 	"apihelp-query+notifications-example-1": "اعلان‌های وب را فهرست کن",
 	"apihelp-query+notifications-example-2": "آگاه‌سازی‌‌های وب را، به‌صورت گروه‌بندی‌شده بر پایه بخش، به همراه تعدادشان فهرست کن",
-	"apihelp-query+unreadnotificationpages-summary": "دریافت صفحه‌هایی که برایش آگاه‌سازی‌های خوانده‌نشده‌ای برای کاربر فعلی وجود دارد.",
+	"apihelp-query+unreadnotificationpages-summary": "دریافت صفحه‌هایی که برایش آگاه‌سازی‌های خوانده‌نشده‌ای برای کاربر کنونی وجود دارد.",
 	"apihelp-query+unreadnotificationpages-param-grouppages": "گروه صفحهٔ بحث‌ها همراه با صفحهٔ موضوعشان و آگاه‌سازی‌های گروهی ارتباطی به صفحهٔ کاربری این کاربر ندارد.",
 	"apihelp-query+unreadnotificationpages-param-limit": "حداکثر صفحاتی که برگردانده می‌شود.",
 	"apihelp-query+unreadnotificationpages-param-wikis": "فهرست ویکی‌هایی که آگاه‌سازی از آنها دریافت می‌شود (پیش‌فرض فقط این ویکی).",
