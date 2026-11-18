@@ -15,7 +15,7 @@
 	"license-name": "MIT",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.47.0"
+		"MediaWiki": ">= 1.48.0"
 	},
 	"callback": "MediaWiki\\Extension\\Notifications\\DbDomains::onRegistration",
 	"APIMetaModules": {
