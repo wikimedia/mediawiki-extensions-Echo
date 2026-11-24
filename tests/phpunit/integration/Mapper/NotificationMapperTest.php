@@ -4,10 +4,8 @@ namespace MediaWiki\Extension\Notifications\Test\Integration\Mapper;
 
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Notification;
-use MediaWiki\MainConfigNames;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
-use Wikimedia\Rdbms\DeleteQueryBuilder;
 use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
@@ -107,79 +105,6 @@ class NotificationMapperTest extends MediaWikiIntegrationTestCase {
 		$notifMapper = new NotificationMapper( $this->mockDbProvider( [ 'selectRow' => $dbResult ] ) );
 		$row = $notifMapper->fetchByUserOffset( $userFactory->newFromId( 1 ), 500 );
 		$this->assertInstanceOf( Notification::class, $row );
-	}
-
-	public function testDeleteByUserEventOffset() {
-		$this->overrideConfigValue( MainConfigNames::UpdateRowsPerQuery, 4 );
-		$mockDb = $this->createMock( IDatabase::class );
-		$makeResultRows = static function ( $eventIds ) {
-			return new FakeResultWrapper( array_map( static function ( $eventId ) {
-				return (object)[ 'notification_event' => $eventId ];
-			}, $eventIds ) );
-		};
-		$mockDb->expects( $this->exactly( 4 ) )
-			->method( 'select' )
-			->willReturnOnConsecutiveCalls(
-				$makeResultRows( [ 1, 2, 3, 5 ] ),
-				$makeResultRows( [ 8, 13, 21, 34 ] ),
-				$makeResultRows( [ 55, 89 ] ),
-				$makeResultRows( [] )
-			);
-		$mockDb->expects( $this->exactly( 3 ) )
-			->method( 'selectFieldValues' )
-			->willReturnOnConsecutiveCalls(
-				[],
-				[ 13, 21 ],
-				[ 55 ]
-			);
-		$expectedArgs = [
-			[
-				'echo_notification',
-				[ 'notification_user' => 1, 'notification_event' => [ 1, 2, 3, 5 ] ],
-			],
-			[
-				'echo_notification',
-				[ 'notification_user' => 1, 'notification_event' => [ 8, 13, 21, 34 ] ],
-			],
-			[
-				'echo_event',
-				[ 'event_id' => [ 13, 21 ] ],
-			],
-			[
-				'echo_target_page',
-				[ 'etp_event' => [ 13, 21 ] ],
-			],
-			[
-				'echo_notification',
-				[ 'notification_user' => 1, 'notification_event' => [ 55, 89 ] ],
-			],
-			[
-				'echo_event',
-				[ 'event_id' => [ 55 ] ],
-			],
-			[
-				'echo_target_page',
-				[ 'etp_event' => [ 55 ] ],
-			],
-		];
-		$mockDb->expects( $this->exactly( count( $expectedArgs ) ) )
-			->method( 'delete' )
-			->willReturnCallback( function ( $table, $conds ) use ( &$expectedArgs ): bool {
-				$this->assertSame( array_shift( $expectedArgs ), [ $table, $conds ] );
-				return true;
-			} );
-		$mockDb->method( 'newDeleteQueryBuilder' )
-			->willReturnCallback( static function () use ( $mockDb ) {
-				return new DeleteQueryBuilder( $mockDb );
-			} );
-		$mockDb->method( 'newSelectQueryBuilder' )
-			->willReturnCallback( static function () use ( $mockDb ) {
-				return new SelectQueryBuilder( $mockDb );
-			} );
-
-		$notifMapper = new NotificationMapper( $this->mockDbProvider( $mockDb ) );
-		$userFactory = $this->getServiceContainer()->getUserFactory();
-		$this->assertTrue( $notifMapper->deleteByUserEventOffset( $userFactory->newFromId( 1 ), 500 ) );
 	}
 
 	/**

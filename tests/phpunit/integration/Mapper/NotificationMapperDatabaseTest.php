@@ -6,7 +6,10 @@ use MediaWiki\Extension\Notifications\EmailBatch;
 use MediaWiki\Extension\Notifications\Mapper\NotificationMapper;
 use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\Model\Notification;
+use MediaWiki\Extension\Notifications\Test\Integration\EchoSchemaOverridesTrait;
 use MediaWiki\MainConfigNames;
+use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityValue;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -14,6 +17,7 @@ use MediaWikiIntegrationTestCase;
  * @group Database
  */
 class NotificationMapperDatabaseTest extends MediaWikiIntegrationTestCase {
+	use EchoSchemaOverridesTrait;
 
 	/** @var int Allows using a unique ID for each {@link Event} returned by {@link self::makeEvent} */
 	private static int $nextEventId = 10;
@@ -101,6 +105,75 @@ class NotificationMapperDatabaseTest extends MediaWikiIntegrationTestCase {
 			->select( 'eeb_event_id' )
 			->from( 'echo_email_batch' )
 			->assertEmptyResult();
+	}
+
+	public function testDeleteByUserEventOffset() {
+		// Eight notifications before the offset make two full batches: the walk must not
+		// stop early, nor need a trailing empty batch.
+		$this->overrideConfigValue( MainConfigNames::UpdateRowsPerQuery, 4 );
+		$user = new UserIdentityValue( 1, 'Notified' );
+		$otherUser = new UserIdentityValue( 2, 'Other' );
+
+		foreach ( range( 1, 9 ) as $eventId ) {
+			$this->insertEvent( $eventId );
+			$this->insertNotification( $user, $eventId );
+		}
+		// Events 1 and 4 are still referenced by a notification of another user,
+		// event 7 by an email batch of another user.
+		$this->insertNotification( $otherUser, 1 );
+		$this->insertNotification( $otherUser, 4 );
+		EmailBatch::addToQueue( $otherUser->getId(), 7, 10, '' );
+		$this->getDb()->newInsertQueryBuilder()
+			->insertInto( 'echo_target_page' )
+			->rows( [
+				[ 'etp_page' => 1, 'etp_event' => 1 ],
+				[ 'etp_page' => 1, 'etp_event' => 2 ],
+			] )
+			->caller( __METHOD__ )
+			->execute();
+
+		$notifMapper = new NotificationMapper( $this->getServiceContainer()->getConnectionProvider() );
+		$this->assertTrue( $notifMapper->deleteByUserEventOffset( $user, 9 ) );
+
+		// The user's notifications before the offset are gone, the other user's are kept.
+		$this->newSelectQueryBuilder()
+			->select( [ 'notification_user', 'notification_event' ] )
+			->from( 'echo_notification' )
+			->assertResultSet( [
+				[ '1', '9' ],
+				[ '2', '1' ],
+				[ '2', '4' ],
+			] );
+		// Events no longer referenced are deleted, with their target pages.
+		$this->newSelectQueryBuilder()
+			->select( 'event_id' )
+			->from( 'echo_event' )
+			->assertFieldValues( [ '1', '4', '7', '9' ] );
+		$this->newSelectQueryBuilder()
+			->select( 'etp_event' )
+			->from( 'echo_target_page' )
+			->assertFieldValue( '1' );
+	}
+
+	private function insertEvent( int $eventId ): void {
+		$this->getDb()->newInsertQueryBuilder()
+			->insertInto( 'echo_event' )
+			->row( [ 'event_id' => $eventId, 'event_type' => 'welcome' ] )
+			->caller( __METHOD__ )
+			->execute();
+	}
+
+	private function insertNotification( UserIdentity $user, int $eventId ): void {
+		$this->getDb()->newInsertQueryBuilder()
+			->insertInto( 'echo_notification' )
+			->row( [
+				'notification_event' => $eventId,
+				'notification_user' => $user->getId(),
+				'notification_timestamp' => $this->getDb()->timestamp( '20260607080901' ),
+				'notification_bundle_hash' => '',
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	private function makeEvent( string $timestamp ): Event {
