@@ -26,7 +26,7 @@
 	"echo-pref-cross-wiki-notifications": "Башка викилерден кабарламалар көрсөтүлсүн",
 	"echo-learn-more": "Толук маалымат",
 	"echo-log": "Коомдук журнал",
-	"echo-new-messages": "Жаңы билдирүү",
+	"echo-new-messages": "Жаңы билдирме",
 	"echo-category-title-edit-user-talk": "Баарлашуу барагым {{PLURAL:$1|түзөтүлгөнү}} тууралуу",
 	"echo-category-title-article-linked": "Барактагы {{PLURAL:$1|шилтеме|шилтемелер}}",
 	"echo-category-title-other": "{{PLURAL:$1|Башка}}",
@@ -54,7 +54,7 @@
 	"echo-none": "Кабарламаларды алган жоксуз.",
 	"echo-notification-placeholder": "Кабарламалар жок.",
 	"echo-notification-placeholder-filters": "Белгиленген критерийлерге дал келген кабарламалар жок.",
-	"echo-notification-loginrequired": "Кабарламаларыңызды көрүү үчүн киришиңиз керек.",
+	"echo-notification-loginrequired": "Кабарламаларыңызды көрүү үчүн аккаунтка киришиңиз керек.",
 	"echo-notification-popup-loginrequired": "Кабарламаларыңызды көрүү үчүн киришиңиз керек.",
 	"echo-notification-markasread": "Окулду деп белгилөө",
 	"echo-notification-markasunread": "Окула элек деп белгилөө",
@@ -110,11 +110,13 @@
 	"echo-displaysnippet-title": "Жаңы кабарлама",
 	"echo-date-today": "Бүгүнкү",
 	"echo-date-yesterday": "Кечээки",
+	"notification-bundle-header-edit-user-talk-v2": "<strong>{{GENDER:$3|Баарлашуу барагыңызда}}</strong> {{PLURAL:$1|жаңы билдирме|$1 жаңы билдирме|100=99+ жаңы билдирме}}.",
 	"echo-email-batch-subject-daily": "{{SITENAME}} долбоорунда {{PLURAL:$2|жаңы кабарламаңыз}} бар",
 	"echo-email-batch-link-text-view-all-notifications": "Бүт кабарламаларды кароо",
 	"notification-header-foreign-alert": "{{PLURAL:$5|башка викиден|$5 башка викилерден}} көбүрөөк кабарлама",
 	"notification-header-foreign-notice": "{{PLURAL:$5|башка викиден|$5 башка викилерден}} көбүрөөк кабарлама",
 	"notification-header-foreign-all": "{{PLURAL:$5|башка викиден|$5 башка викилерден}} көбүрөөк кабарлама",
 	"right-echo-create": "Башкаларга кабарламаларды жөнөтүү",
-	"action-echo-create": "башкаларга кабарламаларды жөнөтө албайсыз"
+	"action-echo-create": "башкаларга кабарламаларды жөнөтө албайсыз",
+	"notification-verify-email-reminder-link-label": "Электрондук почтаны ырастоо"
 }
